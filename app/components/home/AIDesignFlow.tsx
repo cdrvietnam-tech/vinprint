@@ -90,10 +90,10 @@ export default function AIDesignFlow() {
           </div>
 
           {/* Right Flow & Checklist */}
-          <div className="lg:flex-1 w-full grid grid-cols-3 xl:grid-cols-[1fr_auto_1fr_auto_1fr] gap-2 md:gap-4 justify-between items-stretch">
+          <div className="lg:flex-1 w-full flex flex-row items-stretch justify-between gap-2 md:gap-4">
             
             {/* Step 1 */}
-            <div className="bg-gray-50 rounded-2xl p-2 sm:p-4 xl:p-6 border border-gray-100 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[220px] md:min-h-[320px] xl:min-h-[420px]">
+            <div className="flex-1 bg-gray-50 rounded-2xl p-2 sm:p-4 xl:p-6 border border-gray-100 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[220px] md:min-h-[320px] xl:min-h-[420px]">
               <div className="text-[10px] sm:text-xs xl:text-[20px] font-black text-red-500 uppercase mb-2 sm:mb-4 bg-red-50 border border-red-100 px-1.5 py-0.5 sm:px-4 sm:py-1.5 xl:px-6 xl:py-2 rounded-full shadow-sm text-center whitespace-nowrap">
                 <span className="xl:hidden">Tem cũ</span>
                 <span className="hidden xl:inline">Tem cũ (Khách gửi)</span>
@@ -114,10 +114,10 @@ export default function AIDesignFlow() {
               </div>
             </div>
 
-            <ArrowRight className="hidden xl:block w-6 h-6 text-gray-300 shrink-0 self-center" />
+            <ArrowRight className="hidden xl:flex w-6 h-6 text-gray-300 shrink-0 self-center" />
 
             {/* Step 2 */}
-            <div className="bg-orange-50/50 rounded-2xl p-2 sm:p-4 xl:p-6 border border-orange-100 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[220px] md:min-h-[320px] xl:min-h-[420px] relative overflow-hidden">
+            <div className="flex-1 bg-orange-50/50 rounded-2xl p-2 sm:p-4 xl:p-6 border border-orange-100 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[220px] md:min-h-[320px] xl:min-h-[420px] relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-orange-100/30 to-pink-100/30 pointer-events-none" />
               <div className="text-[10px] sm:text-xs xl:text-[20px] font-black text-orange-600 uppercase mb-2 sm:mb-4 bg-white px-1.5 py-0.5 sm:px-4 sm:py-1.5 xl:px-6 xl:py-2 rounded-full shadow-sm z-10 border border-orange-100 text-center whitespace-nowrap">
                 <span className="xl:hidden">Thiết kế AI</span>
@@ -142,10 +142,10 @@ export default function AIDesignFlow() {
               </div>
             </div>
 
-            <ArrowRight className="hidden xl:block w-6 h-6 text-gray-300 shrink-0 self-center" />
+            <ArrowRight className="hidden xl:flex w-6 h-6 text-gray-300 shrink-0 self-center" />
 
             {/* Step 3 */}
-            <div className="bg-white rounded-2xl p-2 sm:p-4 xl:p-6 border border-green-200 shadow-xl shadow-green-500/5 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[220px] md:min-h-[320px] xl:min-h-[420px] relative overflow-hidden">
+            <div className="flex-1 bg-white rounded-2xl p-2 sm:p-4 xl:p-6 border border-green-200 shadow-xl shadow-green-500/5 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[220px] md:min-h-[320px] xl:min-h-[420px] relative overflow-hidden">
               <div className="text-[10px] sm:text-xs xl:text-[20px] font-black text-white bg-green-600 uppercase mb-2 sm:mb-4 px-1.5 py-0.5 sm:px-4 sm:py-1.5 xl:px-6 xl:py-2 rounded-full shadow-md z-10 text-center whitespace-nowrap">
                 Thành phẩm
               </div>

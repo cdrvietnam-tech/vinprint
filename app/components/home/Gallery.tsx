@@ -15,7 +15,10 @@ export default function Gallery() {
     "/images/mockups/plastic_cup.png",
     "/images/mockups/paper_box.png",
     "/images/ai-design/coffee_old.png",
-    "/images/holographic_sticker.png"
+    "/images/holographic_sticker.png",
+    "/images/ai-design/coffee_ai.png",
+    "/images/ai-design/honey_ai.png",
+    "/images/mockups/cosmetic_bottle.png"
   ];
 
   return (
@@ -45,7 +48,7 @@ export default function Gallery() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.05 }}
-            className={`rounded-2xl overflow-hidden relative group ${(i === 4 || i === 5) ? 'sm:row-span-2 aspect-square sm:aspect-auto' : 'aspect-square'}`}
+            className="rounded-2xl overflow-hidden relative group aspect-square"
           >
             <img src={img} alt="Product" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
           </motion.div>
