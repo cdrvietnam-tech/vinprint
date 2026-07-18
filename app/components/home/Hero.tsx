@@ -102,6 +102,33 @@ export default function Hero() {
                 <div className="text-[12px] text-gray-500 font-bold mt-0.5">32k+ lượt đánh giá trên Shopee</div>
               </div>
             </motion.div>
+
+            {/* Badges row for mobile */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              className="mt-6 flex flex-wrap gap-2 justify-center lg:hidden w-full max-w-xl mx-auto text-left"
+            >
+              <div className="bg-white px-3 py-1.5 rounded-full shadow-sm border border-gray-100 flex items-center gap-1.5">
+                <div className="w-4 h-4 rounded-full bg-green-100 flex items-center justify-center shrink-0">
+                  <CheckCircle2 className="w-2.5 h-2.5 text-green-600" />
+                </div>
+                <span className="text-[10px] font-bold text-gray-700">Giao toàn quốc</span>
+              </div>
+              <div className="bg-white px-3 py-1.5 rounded-full shadow-sm border border-gray-100 flex items-center gap-1.5">
+                <div className="w-4 h-4 rounded-full bg-green-100 flex items-center justify-center shrink-0">
+                  <CheckCircle2 className="w-2.5 h-2.5 text-green-600" />
+                </div>
+                <span className="text-[10px] font-bold text-gray-700">In nhanh-Chuẩn đẹp-Giá tốt</span>
+              </div>
+              <div className="bg-white px-3 py-1.5 rounded-full shadow-sm border border-gray-100 flex items-center gap-1.5">
+                <div className="w-4 h-4 rounded-full bg-green-100 flex items-center justify-center shrink-0">
+                  <CheckCircle2 className="w-2.5 h-2.5 text-green-600" />
+                </div>
+                <span className="text-[10px] font-bold text-gray-700">Sai hàng hoàn tiền 100%</span>
+              </div>
+            </motion.div>
           </div>
 
           {/* Right Image Composition */}

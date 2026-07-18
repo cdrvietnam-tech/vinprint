@@ -17,24 +17,52 @@ export default function FAQAndMockup() {
     <>
       <section className="py-12 bg-gray-50/50">
         <div className="max-w-[1440px] mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_2fr_max-content] gap-6 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1.6fr] gap-6 items-stretch">
             
-            {/* FAQ Column */}
-            <div id="faq" className="bg-white rounded-[32px] p-6 lg:p-8 flex flex-col border border-gray-100 shadow-sm h-full">
-              <h2 className="text-xl font-extrabold text-gray-900 uppercase mb-6">
-                Câu hỏi thường gặp
-              </h2>
-              <div className="flex flex-col flex-1">
-                {faqs.map((faq, i) => (
-                  <button key={i} className={`flex justify-between items-center py-3 text-left ${i !== faqs.length - 1 ? 'border-b border-gray-100' : ''} group`}>
-                    <span className="text-[13px] font-bold text-gray-800 group-hover:text-blue-600 transition-colors pr-4">{faq}</span>
-                    <Plus className="w-4 h-4 text-indigo-500 shrink-0" />
-                  </button>
-                ))}
+            {/* Left Column: FAQ & QR (1:1 ratio side-by-side) */}
+            <div className="grid grid-cols-2 gap-4 items-stretch min-w-0 w-full">
+              
+              {/* FAQ Card */}
+              <div id="faq" className="bg-white rounded-[24px] sm:rounded-[32px] p-3 sm:p-6 lg:p-8 flex flex-col border border-gray-100 shadow-sm h-full min-w-0">
+                <h2 className="text-[12px] sm:text-lg lg:text-xl font-extrabold text-gray-900 uppercase mb-4 sm:mb-6">
+                  Câu hỏi thường gặp
+                </h2>
+                <div className="flex flex-col flex-1 min-w-0">
+                  {faqs.map((faq, i) => (
+                    <button key={i} className={`flex justify-between items-center py-2 sm:py-3 text-left ${i !== faqs.length - 1 ? 'border-b border-gray-100' : ''} group min-w-0 w-full`}>
+                      <span className="text-[10px] sm:text-[13px] font-bold text-gray-800 group-hover:text-blue-600 transition-colors pr-1 truncate text-left flex-1 min-w-0">{faq}</span>
+                      <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-500 shrink-0" />
+                    </button>
+                  ))}
+                </div>
               </div>
+
+              {/* QR Code Card */}
+              <div className="bg-purple-50/30 rounded-[24px] sm:rounded-[32px] p-3 sm:p-6 lg:p-8 flex flex-col border border-purple-100 shadow-sm h-full items-center text-center justify-center min-w-0 w-full">
+                <h2 className="text-[12px] sm:text-lg lg:text-xl font-extrabold text-[#5C45FD] uppercase mb-1 leading-tight">
+                  Quét Zalo nhận tư vấn
+                </h2>
+                <p className="text-[8px] sm:text-[11px] font-medium text-gray-500 mb-4 sm:mb-6 leading-tight">
+                  Báo giá nhanh - Không chờ lâu!
+                </p>
+                
+                <div className="w-16 h-16 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-white p-1 sm:p-2 rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 mb-4 sm:mb-6 relative shrink-0">
+                  <div className="w-full h-full bg-[url('https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg')] bg-cover opacity-80" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-5 h-5 sm:w-8 sm:h-8 bg-white rounded-lg shadow-md p-0.5 flex items-center justify-center">
+                       <ZaloIcon className="w-full h-full" />
+                    </div>
+                  </div>
+                </div>
+
+                <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-6 sm:py-3 rounded-full bg-[#8B5CF6] text-white text-[10px] sm:text-[13px] font-bold shadow-sm hover:bg-[#7C3AED] transition-colors w-full justify-center">
+                  Mở Zalo ngay <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                </a>
+              </div>
+
             </div>
 
-            {/* AI Mockup Column */}
+            {/* Right Column: AI Mockup */}
             <div className="bg-white rounded-[32px] p-6 lg:p-8 flex flex-col border border-gray-100 shadow-sm h-full items-center text-center">
               <h2 className="text-xl font-extrabold text-gray-900 uppercase mb-8">
                 Xem thử tem trên sản phẩm (AI Mockup)
@@ -65,32 +93,9 @@ export default function FAQAndMockup() {
                 </div>
               </div>
 
-              <button className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-[13px] font-bold shadow-lg shadow-indigo-500/30 hover:opacity-90 transition-opacity w-full sm:w-auto justify-center">
+              <button className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-[13px] font-bold shadow-lg shadow-indigo-500/30 hover:opacity-90 transition-opacity w-full sm:w-auto justify-center mt-6">
                 Trải nghiệm AI Mockup ngay <ArrowRight className="w-4 h-4" />
               </button>
-            </div>
-
-            {/* QR Code Column */}
-            <div className="w-[280px] shrink-0 bg-purple-50/30 rounded-[32px] p-6 lg:p-8 flex flex-col border border-purple-100 shadow-sm h-full items-center text-center justify-center">
-              <h2 className="text-xl font-extrabold text-[#5C45FD] uppercase mb-1">
-                Quét Zalo nhận tư vấn
-              </h2>
-              <p className="text-[11px] font-medium text-gray-500 mb-6">
-                Báo giá nhanh - Không chờ lâu!
-              </p>
-              
-              <div className="w-32 h-32 bg-white p-2 rounded-2xl shadow-sm border border-gray-100 mb-6 relative">
-                <div className="w-full h-full bg-[url('https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg')] bg-cover opacity-80" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-8 h-8 bg-white rounded-xl shadow-md p-1 flex items-center justify-center">
-                     <ZaloIcon className="w-full h-full" />
-                  </div>
-                </div>
-              </div>
-
-              <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#8B5CF6] text-white text-[13px] font-bold shadow-lg shadow-purple-500/30 hover:bg-[#7C3AED] transition-colors w-full sm:w-auto justify-center">
-                Mở Zalo ngay <ArrowRight className="w-4 h-4" />
-              </a>
             </div>
 
           </div>

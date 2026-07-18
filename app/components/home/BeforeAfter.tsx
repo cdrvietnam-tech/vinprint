@@ -80,10 +80,10 @@ export default function BeforeAfter() {
       <div className="max-w-[1440px] mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 uppercase">
-            Một chiếc tem nhỏ - Thay đổi cả sản phẩm
+            Một chiếc tem nhỏ <br /> Thay đổi cả sản phẩm
           </h2>
           <p className="text-gray-500 font-medium text-lg">
-            Cùng một sản phẩm, chỉ khác chiếc tem nhãn.
+            Tem nhỏ mà có võ, nâng cao giá trị sản phẩm của bạn!
           </p>
         </div>
 
