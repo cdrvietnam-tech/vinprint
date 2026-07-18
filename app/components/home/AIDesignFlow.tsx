@@ -76,7 +76,7 @@ export default function AIDesignFlow() {
               <span className="text-[#FF4D00]">Khác biệt ở đẳng cấp!</span>
             </h2>
             <p className="text-gray-600 font-medium mb-8 leading-relaxed">
-              VinPrint ứng dụng AI kết hợp Designer để tạo ra mẫu tem đẹp, chuyên nghiệp và đúng ngành hàng.
+              VinPrint ứng dụng AI kết hợp Designer để tạo ra mẫu tem đẹp, <br/> chuyên nghiệp và đúng ngành hàng.
             </p>
             
             <div className="grid grid-cols-2 gap-4">
