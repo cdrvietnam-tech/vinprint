@@ -26,7 +26,7 @@ export default function Process() {
             </p>
           </div>
 
-          <div className="lg:flex-1 w-full flex flex-col md:flex-row justify-between items-stretch gap-4">
+          <div className="lg:flex-1 w-full flex flex-col lg:flex-row justify-between items-stretch gap-4">
             {steps.map((step, i) => {
               // Different colors for each step to match mockup
               const colors = [
@@ -37,7 +37,7 @@ export default function Process() {
               ];
               
               return (
-                <div key={i} className="flex flex-col md:flex-row items-stretch md:items-center gap-4 flex-1 min-w-0 w-full">
+                <div key={i} className="flex flex-col lg:flex-row items-stretch lg:items-center gap-4 flex-1 min-w-0 w-full">
                   <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +61,7 @@ export default function Process() {
                   </motion.div>
                   
                   {i < steps.length - 1 && (
-                    <ArrowRight className="w-5 h-5 text-gray-400 shrink-0 hidden md:block" />
+                    <ArrowRight className="w-5 h-5 text-gray-400 shrink-0 hidden lg:block" />
                   )}
                 </div>
               );

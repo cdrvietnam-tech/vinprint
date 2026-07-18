@@ -90,7 +90,7 @@ export default function AIDesignFlow() {
           </div>
 
           {/* Right Flow & Checklist */}
-          <div className="lg:flex-1 w-full grid grid-cols-3 gap-2 md:gap-4 justify-between">
+          <div className="lg:flex-1 w-full grid grid-cols-3 xl:grid-cols-[1fr_auto_1fr_auto_1fr] gap-2 md:gap-4 justify-between">
             
             {/* Step 1 */}
             <div className="bg-gray-50 rounded-2xl p-2 sm:p-4 xl:p-6 border border-gray-100 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[220px] md:min-h-[320px] xl:min-h-[420px]">
