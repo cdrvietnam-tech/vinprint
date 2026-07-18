@@ -170,7 +170,6 @@ export default function Hero() {
                       priority
                       fetchPriority="high"
                       quality={82}
-                      unoptimized
                       sizes="(max-width: 1024px) 100vw, 55vw"
                       className="object-contain drop-shadow-2xl scale-[1.1] lg:scale-[1.3]"
                     />

@@ -99,7 +99,7 @@ export default function Header() {
             target="_blank"
             rel="noreferrer"
             onClick={() => trackEvent("click_zalo", { position: "mobile_menu" })}
-            className="inline-flex min-h-12 items-center justify-center rounded-xl bg-[#D83B00] font-bold text-white"
+            className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#D83B00] font-bold text-white"
           >
             Nhắn Zalo
           </a>

@@ -4,7 +4,7 @@ import { Clock, MapPin, Navigation, Phone } from "lucide-react";
 import { useState } from "react";
 import { trackEvent } from "../../lib/analytics";
 
-const MAP_URL = "https://maps.app.goo.gl/M4w2H7F9p95XF9oT9";
+const MAP_URL = "https://www.google.com/maps/search/?api=1&query=VinPrint%2C%20254%2F5%2F40%20L%C3%AA%20V%C4%83n%20Th%E1%BB%8D%2C%20TP.HCM";
 const MAP_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.7758368508537!2d106.6631853!3d10.8284534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175290130dfd7f5%3A0x632e1858a74e50eb!2zMjU0LzUvNDAgTMSqIFbEg24gVGjhu40sIFBoxrDhu51uZyAxMSwgR8OyIFbhuqVwLCBI4buTIENow60gTWluaCwgVmllaG5hbQ!5e0!3m2!1svi!2s!4v1721210000000!5m2!1svi!2s";
 
 export default function MapSection() {

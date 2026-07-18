@@ -1,10 +1,10 @@
 "use client";
 
 import type { AnchorHTMLAttributes, ReactNode } from "react";
-import { trackEvent } from "../lib/analytics";
+import { trackEvent, type VinPrintEventName } from "../lib/analytics";
 
 type ConversionLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
-  eventName: string;
+  eventName: VinPrintEventName;
   eventPosition: string;
   children: ReactNode;
 };

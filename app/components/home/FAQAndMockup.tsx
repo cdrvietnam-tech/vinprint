@@ -109,7 +109,7 @@ export default function FAQAndMockup() {
                     <div key={s.step} className="relative flex flex-col items-center gap-5 w-1/3 px-2">
                       <div className="w-24 h-24 sm:w-28 sm:h-28 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden p-1.5 flex items-center justify-center relative group">
                         <div className="absolute top-1.5 left-1.5 text-[11px] font-black text-indigo-500 z-10 bg-white/90 rounded-full w-5 h-5 flex items-center justify-center shadow-sm">{s.step}</div>
-                        <Image src={s.img} alt={s.title} fill unoptimized loading="lazy" sizes="112px" className="object-cover rounded-xl group-hover:scale-110 transition-transform duration-500" />
+                        <Image src={s.img} alt={s.title} fill loading="lazy" sizes="112px" className="object-cover rounded-xl group-hover:scale-110 transition-transform duration-500" />
                       </div>
                       <div>
                         <div className="text-[13px] sm:text-[14px] font-extrabold text-gray-900 leading-tight max-w-[140px] mx-auto">{s.title}</div>
@@ -121,9 +121,9 @@ export default function FAQAndMockup() {
                 </div>
               </div>
 
-              <button onClick={() => trackEvent("complete_ai_mockup", { position: "mockup_panel" })} className="inline-flex min-h-11 items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-700 text-white text-sm font-bold shadow-lg shadow-indigo-500/30 hover:opacity-90 transition-opacity w-full sm:w-auto justify-center mt-6">
-                Trải nghiệm AI Mockup ngay <ArrowRight className="w-4 h-4" />
-              </button>
+              <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" onClick={() => trackEvent("click_ai_mockup_interest", { position: "mockup_panel" })} className="inline-flex min-h-11 items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-700 text-white text-sm font-bold shadow-lg shadow-indigo-500/30 hover:opacity-90 transition-opacity w-full sm:w-auto justify-center mt-6">
+                Gửi mẫu để dựng mockup <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
 
           </div>

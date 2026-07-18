@@ -44,13 +44,13 @@ function CustomAutoSlider({ item }: { item: SliderItem }) {
       onPointerUp={() => setIsDragging(false)}
       onPointerLeave={() => setIsDragging(false)}
     >
-       <Image src={item.after} alt={`Sau khi dán tem - ${item.name}`} fill unoptimized sizes="(max-width: 768px) 33vw, 16vw" className="object-cover pointer-events-none" />
+       <Image src={item.after} alt={`Sau khi dán tem - ${item.name}`} fill sizes="(max-width: 768px) 33vw, 16vw" className="object-cover pointer-events-none" />
        
        <motion.div 
          className="absolute inset-0 w-full h-full pointer-events-none"
          style={{ clipPath, filter: "grayscale(100%) opacity(80%)" }}
        >
-         <Image src={item.before} alt={`Trước khi dán tem - ${item.name}`} fill unoptimized sizes="(max-width: 768px) 33vw, 16vw" className="object-cover" />
+         <Image src={item.before} alt={`Trước khi dán tem - ${item.name}`} fill sizes="(max-width: 768px) 33vw, 16vw" className="object-cover" />
        </motion.div>
 
        <motion.div

@@ -61,7 +61,7 @@ test("homepage includes JSON-LD structured data", async () => {
   assert.match(html, /"@type":"LocalBusiness"/);
   assert.match(html, /"@type":"ItemList"/);
   assert.match(html, /"@type":"FAQPage"/);
-  assert.match(html, /"hasMap":"https:\/\/maps\.app\.goo\.gl\/M4w2H7F9p95XF9oT9"/);
+  assert.match(html, /"hasMap":"https:\/\/www\.google\.com\/maps\/search\//);
   assert.match(html, /"areaServed"/);
 });
 
@@ -80,7 +80,9 @@ test("homepage exposes an accessible mobile menu and optimized hero image", asyn
 
   assert.match(html, /aria-controls="mobile-navigation"/);
   assert.match(html, /\/images\/hero-collage\.webp/);
+  assert.match(html, /_vinext\/image/);
   assert.doesNotMatch(html, /\/images\/hero-collage\.png/);
+  assert.doesNotMatch(html, /complete_ai_mockup/);
 });
 
 test("renders product detail pages with source and order process", async () => {
@@ -136,4 +138,35 @@ test("AI discovery file is published", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/plain/i);
   assert.match(text, /# VinPrint/);
   assert.match(text, /\/san-pham\/tem-uv-dtf/);
+});
+
+test("robots policy allows AI search but blocks model-training crawlers", async () => {
+  const response = await render("/robots.txt");
+  const text = await response.text();
+
+  assert.match(text, /User-Agent: OAI-SearchBot[\s\S]*Allow: \//);
+  assert.match(text, /User-Agent: GPTBot[\s\S]*Disallow: \//);
+  assert.match(text, /User-Agent: Google-Extended[\s\S]*Disallow: \//);
+});
+
+test("conversion endpoint accepts known events and rejects unknown events", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-analytics`);
+  const { default: worker } = await import(workerUrl.href);
+  const env = { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } };
+  const ctx = { waitUntil() {}, passThroughOnException() {} };
+
+  const accepted = await worker.fetch(new Request("http://localhost/api/analytics", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ name: "click_zalo", detail: { position: "test" } }),
+  }), env, ctx);
+  assert.equal(accepted.status, 204);
+
+  const rejected = await worker.fetch(new Request("http://localhost/api/analytics", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ name: "made_up_event" }),
+  }), env, ctx);
+  assert.equal(rejected.status, 400);
 });

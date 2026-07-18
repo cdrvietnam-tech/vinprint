@@ -30,7 +30,7 @@ export default function Reviews() {
           {tabs.map((tab, i) => (
             <button 
               key={i}
-              className={`whitespace-nowrap px-4 py-1.5 rounded-full border text-[13px] font-bold transition-colors ${
+              className={`min-h-11 whitespace-nowrap px-4 py-2 rounded-full border text-[13px] font-bold transition-colors ${
                 i === 0 ? "border-gray-200 bg-white text-gray-900 shadow-sm" : "border-transparent text-gray-500 hover:text-gray-900"
               }`}
             >

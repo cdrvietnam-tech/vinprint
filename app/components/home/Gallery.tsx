@@ -55,7 +55,7 @@ export default function Gallery() {
             transition={{ duration: 0.4, delay: i * 0.05 }}
             className="rounded-2xl overflow-hidden relative group aspect-square"
           >
-            <Image src={img} alt={`Mẫu tem VinPrint ${i + 1}`} fill unoptimized loading="lazy" sizes="(max-width: 640px) 33vw, 180px" className="object-cover group-hover:scale-110 transition-transform duration-500" />
+            <Image src={img} alt={`Mẫu tem VinPrint ${i + 1}`} fill loading="lazy" sizes="(max-width: 640px) 33vw, 180px" className="object-cover group-hover:scale-110 transition-transform duration-500" />
           </motion.div>
         ))}
       </div>

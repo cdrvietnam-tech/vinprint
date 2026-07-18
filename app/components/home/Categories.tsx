@@ -54,7 +54,7 @@ export default function Categories() {
                       {cat.tag}
                     </div>
                   )}
-                  <Image src={cat.image} alt={cat.name} fill unoptimized loading="lazy" sizes="160px" className="object-cover group-hover/item:scale-110 transition-transform duration-500" />
+                  <Image src={cat.image} alt={cat.name} fill loading="lazy" sizes="160px" className="object-cover group-hover/item:scale-110 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gray-100/10 group-hover/item:bg-transparent transition-colors" />
                 </div>
                 <h3 className="text-sm font-bold text-gray-900 text-center">{cat.name}</h3>

@@ -15,14 +15,14 @@ export default function AIDesignFlow() {
 
   const combos = [
     {
-      old: <Image src="/images/ai-design/honey_old.webp" width={768} height={768} unoptimized sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-md" alt="Tem cũ mật ong" />,
-      ai: <Image src="/images/ai-design/honey_ai.webp" width={768} height={768} unoptimized sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-lg" alt="Thiết kế AI mật ong" />,
-      final: <Image src="/images/ai-design/honey_final.webp" width={768} height={768} unoptimized sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-xl" alt="Thành phẩm mật ong" />
+      old: <Image src="/images/ai-design/honey_old.webp" width={768} height={768} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-md" alt="Tem cũ mật ong" />,
+      ai: <Image src="/images/ai-design/honey_ai.webp" width={768} height={768} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-lg" alt="Thiết kế AI mật ong" />,
+      final: <Image src="/images/ai-design/honey_final.webp" width={768} height={768} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-xl" alt="Thành phẩm mật ong" />
     },
     {
-      old: <Image src="/images/ai-design/coffee_old.webp" width={768} height={768} unoptimized sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-md" alt="Tem cũ cà phê" />,
-      ai: <Image src="/images/ai-design/coffee_ai.webp" width={768} height={768} unoptimized sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-lg" alt="Thiết kế AI cà phê" />,
-      final: <Image src="/images/mockups/plastic_cup.webp" width={768} height={768} unoptimized sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-xl rounded-2xl" alt="Thành phẩm cà phê" />
+      old: <Image src="/images/ai-design/coffee_old.webp" width={768} height={768} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-md" alt="Tem cũ cà phê" />,
+      ai: <Image src="/images/ai-design/coffee_ai.webp" width={768} height={768} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-lg" alt="Thiết kế AI cà phê" />,
+      final: <Image src="/images/mockups/plastic_cup.webp" width={768} height={768} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-xl rounded-2xl" alt="Thành phẩm cà phê" />
     },
     {
       old: (
@@ -39,7 +39,7 @@ export default function AIDesignFlow() {
           <div className="text-xs text-orange-800 font-bold uppercase mt-1 tracking-wider">SERUM</div>
         </div>
       ),
-      final: <Image src="/images/mockups/cosmetic_bottle.webp" width={768} height={768} unoptimized sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-xl" alt="Thành phẩm mỹ phẩm" />
+      final: <Image src="/images/mockups/cosmetic_bottle.webp" width={768} height={768} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-xl" alt="Thành phẩm mỹ phẩm" />
     }
   ];
 

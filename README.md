@@ -56,5 +56,15 @@ The application uses Next.js-compatible App Router code through Vinext and produ
 - `app/globals.css` — shared tokens, product pages and responsive rules
 - `app/lib/products.ts` — product catalog and source URLs
 - `app/san-pham/[slug]/page.tsx` — product detail template
-- `public/images/reviews/` — customer-provided Shopee review screenshots
+- `public/images/reviews/` — customer-provided Shopee review screenshots in WebP
 - `design-system/vinprint-storefront/MASTER.md` — visual and accessibility rules
+
+## Conversion analytics
+
+The storefront sends the allow-listed conversion events to `POST /api/analytics`. The Worker writes structured, privacy-minimized event records to Cloudflare Worker logs and also forwards them to `window.dataLayer` when a tag manager is present. No contact details or uploaded artwork are included.
+
+Tracked events include Zalo clicks, phone clicks, pricing views, map actions and mockup-interest handoffs. A mockup is not recorded as completed until a real upload/generation flow exists.
+
+## AI crawler policy
+
+Search and user-requested AI agents may index and cite public pages. Model-training crawlers are blocked in `robots.txt`; `llms.txt` publishes the preferred public URLs and the same no-training policy. Cloudflare's managed crawler controls should use the same setting so they do not override the application policy.
