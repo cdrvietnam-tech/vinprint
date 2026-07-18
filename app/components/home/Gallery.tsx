@@ -23,9 +23,14 @@ export default function Gallery() {
 
   return (
     <div className="bg-white rounded-[32px] p-6 lg:p-8 flex flex-col h-full shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100">
-      <h2 className="text-2xl font-extrabold text-gray-900 uppercase mb-6">
-        Thành phẩm thực tế
-      </h2>
+      <div className="flex items-center justify-between gap-2 mb-6 shrink-0 w-full">
+        <h2 className="text-base sm:text-2xl font-extrabold text-gray-900 uppercase">
+          Thành phẩm thực tế
+        </h2>
+        <button className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-full bg-[#5C45FD] text-white text-[10px] sm:text-[13px] font-bold hover:bg-blue-700 transition-colors shadow-sm shrink-0">
+          Xem thêm 40+ mẫu <span className="hidden xs:inline">thực tế</span> <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
+        </button>
+      </div>
 
       <div className="flex flex-wrap gap-2 mb-6 shrink-0">
         {tabs.map((tab, i) => (
@@ -53,12 +58,6 @@ export default function Gallery() {
             <img src={img} alt="Product" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
           </motion.div>
         ))}
-      </div>
-
-      <div className="text-left mt-6 shrink-0 relative z-10">
-        <button className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#5C45FD] text-white text-[13px] font-bold hover:bg-blue-700 transition-colors shadow-lg">
-          Xem thêm 40+ mẫu thực tế <ArrowRight className="w-4 h-4" />
-        </button>
       </div>
     </div>
   );

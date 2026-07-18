@@ -1,16 +1,33 @@
 "use client";
 
-import { ArrowRight, Plus } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, Plus, X } from "lucide-react";
 import { ZaloIcon } from "../icons";
 
 export default function FAQAndMockup() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
   const faqs = [
-    "Có nhận in số lượng ít không?",
-    "Thời gian sản xuất và giao hàng là bao lâu?",
-    "Tem có chống nước không?",
-    "Có hỗ trợ thiết kế không?",
-    "Có xuất hóa đơn VAT không?",
-    "Tôi cần chuẩn bị file như thế nào?"
+    {
+      q: "Có in tem số lượng ít không?",
+      a: "Có. VinPrint hỗ trợ in từ số lượng ít (chỉ từ vài chục tem), giúp các shop nhỏ tiết kiệm chi phí ban đầu và dễ dàng thử mẫu trước khi sản xuất số lượng lớn.",
+    },
+    {
+      q: "Thời gian hoàn thành là bao lâu?",
+      a: "Chỉ từ 1–2 ngày làm việc sau khi chốt thiết kế. Có hỗ trợ in nhanh lấy ngay trong ngày nếu cần gấp — liên hệ Zalo để xác nhận.",
+    },
+    {
+      q: "Tem nhãn có chống nước không?",
+      a: "Tem nhựa PVC dẻo dai chống nước 100%, bền màu, phù hợp chai lọ, mỹ phẩm và đồ uống. Tem giấy rẻ hơn nhưng không chống nước, phù hợp bao bì khô.",
+    },
+    {
+      q: "Chưa có file thiết kế thì sao?",
+      a: "Không cần lo! Chỉ cần gửi ý tưởng hoặc logo. AI & Designer của VinPrint sẽ dựng mẫu thiết kế hoàn toàn miễn phí và cho xem trước kết quả trên sản phẩm thật.",
+    },
+    {
+      q: "Có giao hàng toàn quốc không?",
+      a: "VinPrint hỗ trợ giao hàng nhanh toàn quốc qua các đơn vị vận chuyển uy tín. Tem được đóng gói chống nước cẩn thận, đảm bảo nguyên vẹn khi đến tay bạn.",
+    },
   ];
 
   return (
@@ -28,12 +45,25 @@ export default function FAQAndMockup() {
                   Câu hỏi thường gặp
                 </h2>
                 <div className="flex flex-col flex-1 min-w-0">
-                  {faqs.map((faq, i) => (
-                    <button key={i} className={`flex justify-between items-center py-2 sm:py-3 text-left ${i !== faqs.length - 1 ? 'border-b border-gray-100' : ''} group min-w-0 w-full`}>
-                      <span className="text-[10px] sm:text-[13px] font-bold text-gray-800 group-hover:text-blue-600 transition-colors pr-1 truncate text-left flex-1 min-w-0">{faq}</span>
-                      <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-500 shrink-0" />
-                    </button>
-                  ))}
+                  {faqs.map((faq, i) => {
+                    const isOpen = activeIndex === i;
+                    return (
+                      <div key={i} className={`${i !== faqs.length - 1 ? 'border-b border-gray-100' : ''} min-w-0`}>
+                        <button
+                          onClick={() => setActiveIndex(isOpen ? null : i)}
+                          className="flex justify-between items-center py-2 sm:py-3 text-left group min-w-0 w-full"
+                        >
+                          <span className={`text-[10px] sm:text-[13px] font-bold transition-colors pr-1 truncate text-left flex-1 min-w-0 ${isOpen ? 'text-indigo-600' : 'text-gray-800 group-hover:text-blue-600'}`}>{faq.q}</span>
+                          <span className={`transition-transform duration-200 shrink-0 ${isOpen ? 'rotate-45 text-indigo-500' : 'text-indigo-400'}`}>
+                            <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                          </span>
+                        </button>
+                        {isOpen && (
+                          <p className="text-[9px] sm:text-[12px] text-gray-600 font-medium pb-2 sm:pb-3 leading-relaxed pr-2">{faq.a}</p>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 

@@ -59,28 +59,24 @@ const faqSchema = {
   "@type": "FAQPage",
   mainEntity: [
     {
-      q: "Có nhận in số lượng ít không?",
-      a: "Có. Một số nhóm tem nhận từ 2 tờ A4, phù hợp shop mới cần thử mẫu trước khi tăng số lượng sản xuất.",
+      q: "Có in tem số lượng ít không?",
+      a: "Có. VinPrint hỗ trợ in từ số lượng ít (chỉ từ vài chục tem), giúp các shop nhỏ tiết kiệm chi phí ban đầu và dễ dàng thử mẫu trước khi sản xuất số lượng lớn.",
     },
     {
-      q: "Thời gian sản xuất và giao hàng là bao lâu?",
-      a: "Thời gian phụ thuộc số lượng và loại tem. Sau khi xem file, nhân viên sẽ xác nhận thời gian sản xuất và giao hàng cụ thể qua Zalo trước khi anh/chị đặt cọc.",
+      q: "Thời gian hoàn thành là bao lâu?",
+      a: "Chỉ từ 1–2 ngày làm việc sau khi chốt thiết kế. Có hỗ trợ in nhanh lấy ngay trong ngày nếu cần gấp — liên hệ Zalo để xác nhận.",
     },
     {
-      q: "Tem có chống nước không?",
-      a: "Tem nhựa (PVC) chống nước tốt, phù hợp chai lọ, mỹ phẩm, đồ uống và hàng đông lạnh. Tem giấy phù hợp bao bì khô và tối ưu chi phí hơn.",
+      q: "Tem nhãn có chống nước không?",
+      a: "Tem nhựa PVC dẻo dai chống nước 100%, bền màu, phù hợp chai lọ, mỹ phẩm và đồ uống. Tem giấy rẻ hơn nhưng không chống nước, phù hợp bao bì khô.",
     },
     {
-      q: "Có hỗ trợ thiết kế không?",
-      a: "Có. VinPrint hỗ trợ chỉnh sửa file và xem thử tem trên sản phẩm bằng AI Mockup trước khi in. Gửi nội dung hoặc logo qua Zalo để được hỗ trợ.",
+      q: "Chưa có file thiết kế thì sao?",
+      a: "Không cần lo! Chỉ cần gửi ý tưởng hoặc logo. AI & Designer của VinPrint sẽ dựng mẫu thiết kế hoàn toàn miễn phí và cho xem trước kết quả trên sản phẩm thật.",
     },
     {
-      q: "Có xuất hóa đơn VAT không?",
-      a: "Có. Anh/chị vui lòng báo nhu cầu xuất hóa đơn và gửi thông tin công ty khi đặt hàng để được hỗ trợ.",
-    },
-    {
-      q: "Tôi cần chuẩn bị file như thế nào?",
-      a: "File thiết kế định dạng ảnh, PDF hoặc AI với độ phân giải cao. Nếu chưa có file, gửi nội dung và logo để được hỗ trợ dựng file trước khi in.",
+      q: "Có giao hàng toàn quốc không?",
+      a: "VinPrint hỗ trợ giao hàng nhanh toàn quốc qua các đơn vị vận chuyển uy tín. Tem được đóng gói chống nước cẩn thận, đảm bảo nguyên vẹn khi đến tay bạn.",
     },
   ].map((item) => ({
     "@type": "Question",
