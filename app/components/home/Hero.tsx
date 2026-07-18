@@ -49,7 +49,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5 mb-12 max-w-xl mx-auto lg:mx-0 text-left"
+              className="grid grid-cols-2 gap-x-6 gap-y-5 mb-12 max-w-xl mx-auto lg:mx-0 text-left"
             >
               {[
                 "Thiết kế bằng AI & Designer",

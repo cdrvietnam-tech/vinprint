@@ -90,14 +90,15 @@ export default function AIDesignFlow() {
           </div>
 
           {/* Right Flow & Checklist */}
-          <div className="lg:flex-1 w-full flex flex-row xl:flex-row overflow-x-auto xl:overflow-x-visible scrollbar-none snap-x snap-mandatory gap-4 justify-start xl:justify-between pb-4 xl:pb-0">
+          <div className="lg:flex-1 w-full grid grid-cols-3 gap-2 md:gap-4 justify-between">
             
             {/* Step 1 */}
-            <div className="flex-shrink-0 w-[280px] sm:w-[320px] xl:w-auto xl:flex-1 bg-gray-50 rounded-3xl p-6 border border-gray-100 flex flex-col items-center justify-center min-h-[320px] xl:min-h-[420px] snap-center">
-              <div className="text-[20px] font-extrabold text-red-500 uppercase mb-4 bg-red-50 border border-red-100 px-6 py-2 rounded-full shadow-sm text-center whitespace-nowrap">
-                Tem cũ (Khách gửi)
+            <div className="bg-gray-50 rounded-2xl p-2 sm:p-4 xl:p-6 border border-gray-100 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[220px] md:min-h-[320px] xl:min-h-[420px]">
+              <div className="text-[10px] sm:text-xs xl:text-[20px] font-black text-red-500 uppercase mb-2 sm:mb-4 bg-red-50 border border-red-100 px-1.5 py-0.5 sm:px-4 sm:py-1.5 xl:px-6 xl:py-2 rounded-full shadow-sm text-center whitespace-nowrap">
+                <span className="xl:hidden">Tem cũ</span>
+                <span className="hidden xl:inline">Tem cũ (Khách gửi)</span>
               </div>
-              <div className="flex-1 w-full relative">
+              <div className="flex-1 w-full relative min-h-[80px] sm:min-h-[120px] md:min-h-[180px] xl:min-h-0">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentIndex}
@@ -105,7 +106,7 @@ export default function AIDesignFlow() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.1 }}
                     transition={{ duration: 0.5 }}
-                    className="absolute inset-0 flex items-center justify-center"
+                    className="absolute inset-0 flex items-center justify-center scale-90 sm:scale-100"
                   >
                     {currentCombo.old}
                   </motion.div>
@@ -116,12 +117,13 @@ export default function AIDesignFlow() {
             <ArrowRight className="hidden xl:block w-6 h-6 text-gray-300 shrink-0" />
 
             {/* Step 2 */}
-            <div className="flex-shrink-0 w-[280px] sm:w-[320px] xl:w-auto xl:flex-1 bg-orange-50/50 rounded-3xl p-6 border border-orange-100 flex flex-col items-center justify-center min-h-[320px] xl:min-h-[420px] relative overflow-hidden snap-center">
+            <div className="bg-orange-50/50 rounded-2xl p-2 sm:p-4 xl:p-6 border border-orange-100 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[220px] md:min-h-[320px] xl:min-h-[420px] relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-orange-100/30 to-pink-100/30 pointer-events-none" />
-              <div className="text-[20px] font-extrabold text-orange-600 uppercase mb-4 bg-white px-6 py-2 rounded-full shadow-sm z-10 border border-orange-100 text-center whitespace-nowrap">
-                AI + Designer
+              <div className="text-[10px] sm:text-xs xl:text-[20px] font-black text-orange-600 uppercase mb-2 sm:mb-4 bg-white px-1.5 py-0.5 sm:px-4 sm:py-1.5 xl:px-6 xl:py-2 rounded-full shadow-sm z-10 border border-orange-100 text-center whitespace-nowrap">
+                <span className="xl:hidden">Thiết kế AI</span>
+                <span className="hidden xl:inline">AI + Designer</span>
               </div>
-              <div className="flex-1 w-full relative z-10 flex items-center justify-center">
+              <div className="flex-1 w-full relative z-10 flex items-center justify-center min-h-[80px] sm:min-h-[120px] md:min-h-[180px] xl:min-h-0">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentIndex}
@@ -129,25 +131,25 @@ export default function AIDesignFlow() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.1 }}
                     transition={{ duration: 0.5 }}
-                    className="absolute inset-0 flex items-center justify-center"
+                    className="absolute inset-0 flex items-center justify-center scale-90 sm:scale-100"
                   >
                     {currentCombo.ai}
                   </motion.div>
                 </AnimatePresence>
                 {/* Ping nodes */}
-                <div className="absolute top-1 right-1 w-3 h-3 bg-orange-400 rounded-full animate-ping" />
-                <div className="absolute bottom-2 left-1 w-2.5 h-2.5 bg-pink-400 rounded-full animate-ping" style={{ animationDelay: '0.8s' }} />
+                <div className="absolute top-1 right-1 w-2 h-2 sm:w-3 sm:h-3 bg-orange-400 rounded-full animate-ping" />
+                <div className="absolute bottom-2 left-1 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-pink-400 rounded-full animate-ping" style={{ animationDelay: '0.8s' }} />
               </div>
             </div>
 
             <ArrowRight className="hidden xl:block w-6 h-6 text-gray-300 shrink-0" />
 
             {/* Step 3 */}
-            <div className="flex-shrink-0 w-[280px] sm:w-[320px] xl:w-auto xl:flex-1 bg-white rounded-3xl p-6 border border-green-200 shadow-xl shadow-green-500/5 flex flex-col items-center justify-center min-h-[320px] xl:min-h-[420px] relative overflow-hidden snap-center">
-              <div className="text-[20px] font-extrabold text-white bg-green-600 uppercase mb-4 px-6 py-2 rounded-full shadow-md z-10 text-center whitespace-nowrap">
+            <div className="bg-white rounded-2xl p-2 sm:p-4 xl:p-6 border border-green-200 shadow-xl shadow-green-500/5 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[220px] md:min-h-[320px] xl:min-h-[420px] relative overflow-hidden">
+              <div className="text-[10px] sm:text-xs xl:text-[20px] font-black text-white bg-green-600 uppercase mb-2 sm:mb-4 px-1.5 py-0.5 sm:px-4 sm:py-1.5 xl:px-6 xl:py-2 rounded-full shadow-md z-10 text-center whitespace-nowrap">
                 Thành phẩm
               </div>
-              <div className="flex-1 w-full relative z-10 flex items-center justify-center">
+              <div className="flex-1 w-full relative z-10 flex items-center justify-center min-h-[80px] sm:min-h-[120px] md:min-h-[180px] xl:min-h-0">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentIndex}
@@ -155,7 +157,7 @@ export default function AIDesignFlow() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.5 }}
-                    className="absolute inset-0 flex items-center justify-center"
+                    className="absolute inset-0 flex items-center justify-center scale-90 sm:scale-100"
                   >
                     {currentCombo.final}
                   </motion.div>

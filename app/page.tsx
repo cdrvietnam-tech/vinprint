@@ -11,6 +11,7 @@ import FAQAndMockup from "./components/home/FAQAndMockup";
 import Footer from "./components/home/Footer";
 import StructuredData from "./components/home/StructuredData";
 import MobileActionBar from "./components/home/MobileActionBar";
+import ScrollToTop from "./components/home/ScrollToTop";
 
 export default function Page() {
   return (
@@ -34,6 +35,7 @@ export default function Page() {
       </main>
       <Footer />
       <MobileActionBar />
+      <ScrollToTop />
     </div>
   );
 }

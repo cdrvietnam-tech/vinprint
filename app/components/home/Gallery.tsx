@@ -14,7 +14,8 @@ export default function Gallery() {
     "/images/ai-design/honey_final.png",
     "/images/mockups/plastic_cup.png",
     "/images/mockups/paper_box.png",
-    "/images/ai-design/coffee_old.png"
+    "/images/ai-design/coffee_old.png",
+    "/images/holographic_sticker.png"
   ];
 
   return (
@@ -36,7 +37,7 @@ export default function Gallery() {
         ))}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 flex-1">
+      <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-3 flex-1">
         {images.map((img, i) => (
           <motion.div
             key={i}
@@ -44,7 +45,7 @@ export default function Gallery() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.05 }}
-            className={`rounded-2xl overflow-hidden relative group ${i === 4 || i === 5 ? 'row-span-2' : 'aspect-square'}`}
+            className={`rounded-2xl overflow-hidden relative group ${(i === 4 || i === 5) ? 'sm:row-span-2 aspect-square sm:aspect-auto' : 'aspect-square'}`}
           >
             <img src={img} alt="Product" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
           </motion.div>

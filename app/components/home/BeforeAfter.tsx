@@ -87,7 +87,7 @@ export default function BeforeAfter() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-6">
           {cases.map((item, i) => (
             <motion.div 
               key={i}
@@ -97,12 +97,12 @@ export default function BeforeAfter() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="flex flex-col items-center group"
             >
-              <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-lg border border-gray-100 mb-4 relative bg-white">
+              <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-lg border border-gray-100 mb-3 sm:mb-4 relative bg-white">
                 <CustomAutoSlider item={item} />
-                <div className="absolute top-2 left-2 bg-white/90 text-[10px] font-bold px-2 py-0.5 rounded shadow-sm text-gray-500 pointer-events-none">Trước</div>
-                <div className="absolute top-2 right-2 bg-white/90 text-[10px] font-bold px-2 py-0.5 rounded shadow-sm text-orange-500 pointer-events-none">Sau</div>
+                <div className="absolute top-1 left-1 bg-white/90 text-[8px] sm:text-[10px] font-bold px-1 sm:px-2 py-0.5 rounded shadow-sm text-gray-500 pointer-events-none">Trước</div>
+                <div className="absolute top-1 right-1 bg-white/90 text-[8px] sm:text-[10px] font-bold px-1 sm:px-2 py-0.5 rounded shadow-sm text-orange-500 pointer-events-none">Sau</div>
               </div>
-              <span className="text-sm font-semibold text-gray-700">{item.name}</span>
+              <span className="text-[11px] sm:text-sm font-semibold text-gray-700 text-center leading-tight">{item.name}</span>
             </motion.div>
           ))}
         </div>
