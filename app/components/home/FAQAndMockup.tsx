@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Plus, X } from "lucide-react";
+import { ArrowRight, Plus } from "lucide-react";
+import Image from "next/image";
 import { ZaloIcon } from "../icons";
+import { trackEvent } from "../../lib/analytics";
 
 export default function FAQAndMockup() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -51,15 +53,16 @@ export default function FAQAndMockup() {
                       <div key={i} className={`${i !== faqs.length - 1 ? 'border-b border-gray-100' : ''} min-w-0`}>
                         <button
                           onClick={() => setActiveIndex(isOpen ? null : i)}
-                          className="flex justify-between items-center py-2 sm:py-3 text-left group min-w-0 w-full"
+                          className="flex min-h-11 justify-between items-center py-2 sm:py-3 text-left group min-w-0 w-full"
+                          aria-expanded={isOpen}
                         >
-                          <span className={`text-[10px] sm:text-[13px] font-bold transition-colors pr-1 truncate text-left flex-1 min-w-0 ${isOpen ? 'text-indigo-600' : 'text-gray-800 group-hover:text-blue-600'}`}>{faq.q}</span>
+                          <span className={`text-xs sm:text-sm font-bold transition-colors pr-1 text-left flex-1 min-w-0 ${isOpen ? 'text-indigo-700' : 'text-gray-900 group-hover:text-blue-700'}`}>{faq.q}</span>
                           <span className={`transition-transform duration-200 shrink-0 ${isOpen ? 'rotate-45 text-indigo-500' : 'text-indigo-400'}`}>
                             <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                           </span>
                         </button>
                         {isOpen && (
-                          <p className="text-[9px] sm:text-[12px] text-gray-600 font-medium pb-2 sm:pb-3 leading-relaxed pr-2">{faq.a}</p>
+                          <p className="text-xs sm:text-sm text-gray-700 font-medium pb-2 sm:pb-3 leading-relaxed pr-2">{faq.a}</p>
                         )}
                       </div>
                     );
@@ -72,20 +75,15 @@ export default function FAQAndMockup() {
                 <h2 className="text-[12px] sm:text-lg lg:text-xl font-extrabold text-[#5C45FD] uppercase mb-1 leading-tight">
                   Quét Zalo nhận tư vấn
                 </h2>
-                <p className="text-[8px] sm:text-[11px] font-medium text-gray-500 mb-4 sm:mb-6 leading-tight">
+                <p className="text-xs font-medium text-gray-700 mb-4 sm:mb-6 leading-tight">
                   Báo giá nhanh - Không chờ lâu!
                 </p>
                 
-                <div className="w-16 h-16 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-white p-1 sm:p-2 rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 mb-4 sm:mb-6 relative shrink-0">
-                  <div className="w-full h-full bg-[url('https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg')] bg-cover opacity-80" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-5 h-5 sm:w-8 sm:h-8 bg-white rounded-lg shadow-md p-0.5 flex items-center justify-center">
-                       <ZaloIcon className="w-full h-full" />
-                    </div>
-                  </div>
+                <div className="mb-4 flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border border-purple-100 bg-white p-4 shadow-sm sm:mb-6 sm:h-28 sm:w-28">
+                  <ZaloIcon className="h-full w-full" />
                 </div>
 
-                <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-6 sm:py-3 rounded-full bg-[#8B5CF6] text-white text-[10px] sm:text-[13px] font-bold shadow-sm hover:bg-[#7C3AED] transition-colors w-full justify-center">
+                <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" onClick={() => trackEvent("click_zalo", { position: "faq_qr" })} className="inline-flex min-h-11 items-center gap-1.5 px-3 py-2.5 sm:px-6 sm:py-3 rounded-full bg-[#6545ED] text-white text-xs sm:text-sm font-bold shadow-sm hover:bg-[#5234D2] transition-colors w-full justify-center">
                   Mở Zalo ngay <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </a>
               </div>
@@ -104,14 +102,14 @@ export default function FAQAndMockup() {
                 
                 <div className="flex items-start justify-between w-full relative z-10">
                   {[
-                    { step: 1, title: "Tải mẫu tem của bạn", sub: "Định dạng ảnh/pdf", img: "/images/ai-design/honey_old.png" },
-                    { step: 2, title: "Chọn sản phẩm muốn dán xem", sub: "AI dán tự động", img: "/images/ai-design/honey_final.png" },
-                    { step: 3, title: "Gửi cho xưởng in", sub: "Báo giá nhanh chóng", img: "/images/mockups/kraft_box.png" }
+                    { step: 1, title: "Tải mẫu tem của bạn", sub: "Định dạng ảnh/pdf", img: "/images/ai-design/honey_old.webp" },
+                    { step: 2, title: "Chọn sản phẩm muốn dán xem", sub: "AI dán tự động", img: "/images/ai-design/honey_final.webp" },
+                    { step: 3, title: "Gửi cho xưởng in", sub: "Báo giá nhanh chóng", img: "/images/mockups/kraft_box.webp" }
                   ].map((s, i) => (
                     <div key={s.step} className="relative flex flex-col items-center gap-5 w-1/3 px-2">
                       <div className="w-24 h-24 sm:w-28 sm:h-28 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden p-1.5 flex items-center justify-center relative group">
                         <div className="absolute top-1.5 left-1.5 text-[11px] font-black text-indigo-500 z-10 bg-white/90 rounded-full w-5 h-5 flex items-center justify-center shadow-sm">{s.step}</div>
-                        <img src={s.img} alt={s.title} className="w-full h-full object-cover rounded-xl group-hover:scale-110 transition-transform duration-500" />
+                        <Image src={s.img} alt={s.title} fill unoptimized loading="lazy" sizes="112px" className="object-cover rounded-xl group-hover:scale-110 transition-transform duration-500" />
                       </div>
                       <div>
                         <div className="text-[13px] sm:text-[14px] font-extrabold text-gray-900 leading-tight max-w-[140px] mx-auto">{s.title}</div>
@@ -123,7 +121,7 @@ export default function FAQAndMockup() {
                 </div>
               </div>
 
-              <button className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-[13px] font-bold shadow-lg shadow-indigo-500/30 hover:opacity-90 transition-opacity w-full sm:w-auto justify-center mt-6">
+              <button onClick={() => trackEvent("complete_ai_mockup", { position: "mockup_panel" })} className="inline-flex min-h-11 items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-700 text-white text-sm font-bold shadow-lg shadow-indigo-500/30 hover:opacity-90 transition-opacity w-full sm:w-auto justify-center mt-6">
                 Trải nghiệm AI Mockup ngay <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -144,19 +142,19 @@ export default function FAQAndMockup() {
             <p className="text-2xl lg:text-3xl font-extrabold mb-8 drop-shadow-sm opacity-95">Gửi ngay để nhận báo giá trong 5 phút!</p>
             
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-[15px] font-bold text-orange-50">
-              <span className="flex items-center gap-2 bg-black/10 px-4 py-2 rounded-full"><span className="text-[#00E676] bg-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] leading-none">✔</span> Báo giá nhanh</span>
-              <span className="flex items-center gap-2 bg-black/10 px-4 py-2 rounded-full"><span className="text-[#00E676] bg-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] leading-none">✔</span> Duyệt mẫu trước khi in</span>
-              <span className="flex items-center gap-2 bg-black/10 px-4 py-2 rounded-full"><span className="text-[#FF3D00] bg-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] leading-none">✖</span> Không ép đặt hàng</span>
+              <span className="flex items-center gap-2 bg-black/15 px-4 py-2 rounded-full"><span className="text-green-800 bg-white rounded-full w-5 h-5 flex items-center justify-center text-xs leading-none">✔</span> Báo giá nhanh</span>
+              <span className="flex items-center gap-2 bg-black/15 px-4 py-2 rounded-full"><span className="text-green-800 bg-white rounded-full w-5 h-5 flex items-center justify-center text-xs leading-none">✔</span> Duyệt mẫu trước khi in</span>
+              <span className="flex items-center gap-2 bg-black/15 px-4 py-2 rounded-full"><span className="text-red-800 bg-white rounded-full w-5 h-5 flex items-center justify-center text-xs leading-none">✖</span> Không ép đặt hàng</span>
             </div>
           </div>
 
           <div className="flex flex-col items-center lg:items-end gap-6 w-full lg:w-auto">
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-3 px-8 py-5 rounded-full bg-white text-blue-600 text-lg font-black shadow-xl hover:bg-gray-50 hover:scale-105 transition-all shrink-0">
+              <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" onClick={() => trackEvent("click_zalo", { position: "final_cta" })} className="inline-flex items-center justify-center gap-3 px-8 py-5 rounded-full bg-white text-blue-800 text-lg font-black shadow-xl hover:bg-gray-50 hover:scale-105 transition-all shrink-0">
                 <ZaloIcon className="w-6 h-6" />
                 Nhắn Zalo nhận giá <ArrowRight className="w-5 h-5" />
               </a>
-              <a href="#bang-gia" className="inline-flex items-center justify-center gap-3 px-8 py-5 rounded-full border-2 border-white/40 text-white text-lg font-black hover:bg-white/10 hover:border-white transition-all shrink-0">
+              <a href="#bang-gia" onClick={() => trackEvent("view_pricing", { position: "final_cta" })} className="inline-flex items-center justify-center gap-3 px-8 py-5 rounded-full border-2 border-white/70 text-white text-lg font-black hover:bg-white/10 hover:border-white transition-all shrink-0">
                 Xem bảng giá ngay
               </a>
             </div>
@@ -164,7 +162,7 @@ export default function FAQAndMockup() {
             <div className="flex items-center gap-4 mt-2">
               <div className="flex -space-x-3">
                 {[1,2,3,4].map(i => (
-                  <img key={i} src={`https://i.pravatar.cc/100?img=${i+40}`} alt="Customer" className="w-10 h-10 rounded-full border-[3px] border-[#FF0055] shadow-md object-cover" />
+                  <span key={i} className="flex h-10 w-10 items-center justify-center rounded-full border-[3px] border-[#D80045] bg-white text-xs font-black text-[#D80045] shadow-md" aria-hidden="true">{i + 1}</span>
                 ))}
               </div>
               <div className="text-[13px] font-black text-white/90">Hơn 90.000 khách hàng đã tin tưởng VinPrint</div>

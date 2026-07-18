@@ -1,56 +1,110 @@
 "use client";
- 
+
 import Link from "next/link";
-import { Search } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { trackEvent } from "../../lib/analytics";
 import { ZaloIcon } from "../icons";
- 
+
+const navigation = [
+  ["Trang chủ", "/#trang-chu"],
+  ["Các loại tem", "/#cac-loai-tem"],
+  ["Bảng giá", "/#bang-gia"],
+  ["Mẫu thực tế", "/#mau-thuc-te"],
+  ["Quy trình", "/#quy-trinh"],
+  ["Đánh giá", "/#danh-gia"],
+  ["Giới thiệu", "/gioi-thieu"],
+  ["Liên hệ", "/lien-he"],
+] as const;
+
 export default function Header() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
-      <div className="max-w-[1440px] mx-auto px-4 h-[80px] flex items-center justify-between gap-4">
-        {/* Logo */}
-        <Link href="/" className="flex flex-col items-start justify-center shrink-0">
-          <div className="text-[26px] sm:text-[32px] leading-none font-black tracking-tighter">
-            <span className="text-[#FF4D00]">Vin</span><span className="text-[#1A1A2E]">Print</span>
-          </div>
-          <span className="text-[8px] sm:text-[9px] font-bold text-gray-500 tracking-wide mt-1 whitespace-nowrap">
-            In nhanh - Chuẩn đẹp - Giá tốt
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-gray-200 bg-white/95 shadow-sm backdrop-blur-md">
+      <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between gap-5 px-4">
+        <Link href="/" className="flex min-h-11 shrink-0 flex-col items-start justify-center">
+          <span className="text-[30px] font-black leading-none tracking-tighter">
+            <span className="text-[#D83B00]">Vin</span><span className="text-[#1A1A2E]">Print</span>
           </span>
+          <span className="mt-1 text-[11px] font-bold tracking-wide text-gray-700">In nhanh · Chuẩn đẹp · Giá tốt</span>
         </Link>
- 
-        {/* Navigation (2 rows on mobile, 1 row on lg) */}
-        <nav className="flex flex-col lg:flex-row lg:items-center gap-0.5 lg:gap-4 xl:gap-6 text-[10px] sm:text-[11px] lg:text-[14px] font-extrabold text-[#1A1A2E] flex-1 max-w-xl lg:max-w-none ml-2 sm:ml-4 leading-normal">
-          {/* Row 1 */}
-          <div className="flex flex-wrap gap-x-2 sm:gap-x-3 lg:gap-x-4 xl:gap-x-6">
-            <Link href="#trang-chu" className="text-[#FF4D00]">Trang chủ</Link>
-            <Link href="#cac-loai-tem" className="hover:text-[#FF4D00] transition-colors">Các loại tem</Link>
-            <Link href="#bang-gia" className="hover:text-[#FF4D00] transition-colors">Bảng giá</Link>
-            <Link href="#mau-thuc-te" className="hover:text-[#FF4D00] transition-colors">Mẫu thực tế</Link>
-            <Link href="#quy-trinh" className="hover:text-[#FF4D00] transition-colors">Quy trình</Link>
-          </div>
-          {/* Row 2 */}
-          <div className="flex flex-wrap gap-x-2 sm:gap-x-3 lg:gap-x-4 xl:gap-x-6 mt-0.5 lg:mt-0">
-            <Link href="#ai-thiet-ke" className="hover:text-[#FF4D00] transition-colors">AI thiết kế</Link>
-            <Link href="#danh-gia" className="hover:text-[#FF4D00] transition-colors">Đánh giá</Link>
-            <Link href="#faq" className="hover:text-[#FF4D00] transition-colors">FAQ</Link>
-            <Link href="#lien-he" className="hover:text-[#FF4D00] transition-colors">Liên hệ</Link>
-          </div>
+
+        <nav aria-label="Điều hướng chính" className="hidden items-center gap-1 lg:flex">
+          {navigation.map(([label, href]) => (
+            <Link key={href} href={href} className="inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-bold text-gray-800 transition-colors hover:bg-orange-50 hover:text-[#D83B00]">
+              {label}
+            </Link>
+          ))}
         </nav>
- 
-        {/* Actions */}
-        <div className="flex items-center gap-4 shrink-0">
-          <button aria-label="Tìm kiếm" className="hidden md:block p-2 text-gray-800 hover:text-[#FF4D00] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600 rounded-lg">
-            <Search className="w-5 h-5 stroke-[2.5]" aria-hidden="true" />
-          </button>
-          <button className="hidden md:block px-5 py-2.5 rounded-full border-2 border-gray-200 text-sm font-bold text-gray-800 hover:border-gray-300 transition-colors">
-            Xem giá tham khảo
-          </button>
-          <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" className="hidden md:flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#FF4D00] text-white text-sm font-bold shadow-lg shadow-orange-500/20 hover:bg-[#E64500] transition-colors">
-            <ZaloIcon className="w-4 h-4" fill="white" />
-            Nhắn Zalo nhận giá
+
+        <div className="hidden shrink-0 items-center gap-3 md:flex">
+          <Link
+            href="/#bang-gia"
+            onClick={() => trackEvent("view_pricing", { position: "header" })}
+            className="inline-flex min-h-11 items-center rounded-full border-2 border-gray-300 px-5 text-sm font-bold text-gray-900 hover:border-gray-500"
+          >
+            Xem bảng giá
+          </Link>
+          <a
+            href="https://zalo.me/0844998499"
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => trackEvent("click_zalo", { position: "header" })}
+            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#D83B00] px-6 text-sm font-bold text-white shadow-lg shadow-orange-500/20 hover:bg-[#B83200]"
+          >
+            <ZaloIcon className="h-4 w-4" fill="white" /> Nhắn Zalo
           </a>
         </div>
+
+        <button
+          type="button"
+          aria-label={open ? "Đóng menu" : "Mở menu"}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          onClick={() => setOpen((value) => !value)}
+          className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-gray-300 bg-white text-gray-900 lg:hidden"
+        >
+          {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+        </button>
       </div>
+
+      <nav
+        id="mobile-navigation"
+        aria-label="Điều hướng trên thiết bị di động"
+        className={`${open ? "flex" : "hidden"} max-h-[calc(100vh-5rem)] flex-col overflow-y-auto border-t border-gray-200 bg-white px-4 pb-6 pt-3 lg:hidden`}
+      >
+        {navigation.map(([label, href]) => (
+          <Link key={href} href={href} onClick={() => setOpen(false)} className="flex min-h-12 items-center border-b border-gray-100 px-2 text-base font-bold text-gray-900">
+            {label}
+          </Link>
+        ))}
+        <div className="mt-4 grid grid-cols-2 gap-3">
+          <a
+            href="tel:0844998499"
+            onClick={() => trackEvent("click_phone", { position: "mobile_menu" })}
+            className="inline-flex min-h-12 items-center justify-center rounded-xl border-2 border-gray-900 font-bold"
+          >
+            Gọi xưởng
+          </a>
+          <a
+            href="https://zalo.me/0844998499"
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => trackEvent("click_zalo", { position: "mobile_menu" })}
+            className="inline-flex min-h-12 items-center justify-center rounded-xl bg-[#D83B00] font-bold text-white"
+          >
+            Nhắn Zalo
+          </a>
+        </div>
+      </nav>
     </header>
   );
 }

@@ -12,6 +12,7 @@ import Footer from "./components/home/Footer";
 import StructuredData from "./components/home/StructuredData";
 import MobileActionBar from "./components/home/MobileActionBar";
 import ScrollToTop from "./components/home/ScrollToTop";
+import MapSection from "./components/home/MapSection";
 
 export default function Page() {
   return (
@@ -32,6 +33,7 @@ export default function Page() {
           </div>
         </section>
         <FAQAndMockup />
+        <MapSection />
       </main>
       <Footer />
       <MobileActionBar />

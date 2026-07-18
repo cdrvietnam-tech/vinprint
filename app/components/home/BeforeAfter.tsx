@@ -2,8 +2,11 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import Image from "next/image";
 
-function CustomAutoSlider({ item }: { item: any }) {
+type SliderItem = { name: string; before: string; after: string };
+
+function CustomAutoSlider({ item }: { item: SliderItem }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const position = useMotionValue(50);
   const [isDragging, setIsDragging] = useState(false);
@@ -41,13 +44,13 @@ function CustomAutoSlider({ item }: { item: any }) {
       onPointerUp={() => setIsDragging(false)}
       onPointerLeave={() => setIsDragging(false)}
     >
-       <img src={item.after} alt="Sau" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+       <Image src={item.after} alt={`Sau khi dán tem - ${item.name}`} fill unoptimized sizes="(max-width: 768px) 33vw, 16vw" className="object-cover pointer-events-none" />
        
        <motion.div 
          className="absolute inset-0 w-full h-full pointer-events-none"
          style={{ clipPath, filter: "grayscale(100%) opacity(80%)" }}
        >
-         <img src={item.before} alt="Trước" className="absolute inset-0 w-full h-full object-cover" />
+         <Image src={item.before} alt={`Trước khi dán tem - ${item.name}`} fill unoptimized sizes="(max-width: 768px) 33vw, 16vw" className="object-cover" />
        </motion.div>
 
        <motion.div
@@ -67,12 +70,12 @@ function CustomAutoSlider({ item }: { item: any }) {
 
 export default function BeforeAfter() {
   const cases = [
-    { name: "Chai mỹ phẩm", before: "/images/mockups/cosmetic_bottle.png", after: "/images/mockups/cosmetic_bottle.png" },
-    { name: "Túi zip đựng sản phẩm", before: "/images/mockups/zip_pouch.png", after: "/images/mockups/zip_pouch.png" },
-    { name: "Hũ thủy tinh", before: "/images/mockups/glass_jar.png", after: "/images/mockups/glass_jar.png" },
-    { name: "Hộp kraft", before: "/images/mockups/kraft_box.png", after: "/images/mockups/kraft_box.png" },
-    { name: "Ly nhựa", before: "/images/mockups/plastic_cup.png", after: "/images/mockups/plastic_cup.png" },
-    { name: "Hộp giấy", before: "/images/mockups/paper_box.png", after: "/images/mockups/paper_box.png" },
+    { name: "Chai mỹ phẩm", before: "/images/mockups/cosmetic_bottle.webp", after: "/images/mockups/cosmetic_bottle.webp" },
+    { name: "Túi zip đựng sản phẩm", before: "/images/mockups/zip_pouch.webp", after: "/images/mockups/zip_pouch.webp" },
+    { name: "Hũ thủy tinh", before: "/images/mockups/glass_jar.webp", after: "/images/mockups/glass_jar.webp" },
+    { name: "Hộp kraft", before: "/images/mockups/kraft_box.webp", after: "/images/mockups/kraft_box.webp" },
+    { name: "Ly nhựa", before: "/images/mockups/plastic_cup.webp", after: "/images/mockups/plastic_cup.webp" },
+    { name: "Hộp giấy", before: "/images/mockups/paper_box.webp", after: "/images/mockups/paper_box.webp" },
   ];
 
   return (
@@ -82,7 +85,7 @@ export default function BeforeAfter() {
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 uppercase">
             Một chiếc tem nhỏ <br /> Thay đổi cả sản phẩm
           </h2>
-          <p className="text-gray-500 font-medium text-lg">
+          <p className="text-gray-700 font-medium text-lg">
             Tem nhỏ mà có võ, nâng cao giá trị sản phẩm của bạn!
           </p>
         </div>
@@ -99,8 +102,8 @@ export default function BeforeAfter() {
             >
               <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-lg border border-gray-100 mb-3 sm:mb-4 relative bg-white">
                 <CustomAutoSlider item={item} />
-                <div className="absolute top-1 left-1 bg-white/90 text-[8px] sm:text-[10px] font-bold px-1 sm:px-2 py-0.5 rounded shadow-sm text-gray-500 pointer-events-none">Trước</div>
-                <div className="absolute top-1 right-1 bg-white/90 text-[8px] sm:text-[10px] font-bold px-1 sm:px-2 py-0.5 rounded shadow-sm text-orange-500 pointer-events-none">Sau</div>
+                <div className="absolute top-1 left-1 rounded bg-white/95 px-2 py-1 text-xs font-bold text-gray-800 shadow-sm pointer-events-none">Trước</div>
+                <div className="absolute top-1 right-1 rounded bg-white/95 px-2 py-1 text-xs font-bold text-orange-800 shadow-sm pointer-events-none">Sau</div>
               </div>
               <span className="text-[11px] sm:text-sm font-semibold text-gray-700 text-center leading-tight">{item.name}</span>
             </motion.div>

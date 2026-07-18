@@ -11,6 +11,12 @@ const eslintConfig = defineConfig([
     ".next/**",
     "out/**",
     "build/**",
+    "dist/**",
+    ".agents/**",
+    ".sites-runtime/**",
+    ".wrangler/**",
+    "drizzle/**",
+    "examples/**",
     "next-env.d.ts",
     // Dead code cũ giữ lại để tham khảo:
     "_backup/**",

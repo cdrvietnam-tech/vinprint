@@ -1,8 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowDownIcon, ArrowLeftIcon, ArrowUpRightIcon, MessageIcon } from "../../components/icons";
+import ConversionLink from "../../components/ConversionLink";
 import { productBySlug, products } from "../../lib/products";
 
 type ProductPageProps = {
@@ -19,8 +20,8 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   if (!product) return {};
 
   return {
-    title: product.name,
-    description: `${product.description} ${product.benefit} Xem ứng dụng, mức giá tham khảo và gửi hồ sơ đặt in cho VinPrint.`,
+    title: `In ${product.name} theo yêu cầu tại TP.HCM`,
+    description: `${product.description} Xem ứng dụng, giá tham khảo và gửi file để VinPrint báo giá nhanh.`,
     alternates: { canonical: `/san-pham/${product.slug}` },
     openGraph: {
       title: `${product.name} | VinPrint`,
@@ -98,7 +99,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <nav aria-label="Điều hướng trang sản phẩm">
             <Link href="/#products">Tất cả sản phẩm</Link>
             <Link href="/#pricing">Bảng giá tham khảo</Link>
-            <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer">Gửi yêu cầu <ArrowUpRightIcon /></a>
+            <ConversionLink href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" eventName="click_zalo" eventPosition="product_header">Gửi yêu cầu <ArrowUpRightIcon /></ConversionLink>
           </nav>
         </div>
       </header>
@@ -112,14 +113,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <div className="product-hero__benefit"><span>Ưu điểm chính</span><strong>{product.benefit}</strong></div>
             <div className="product-hero__actions">
               <Link href="/#pricing">Xem giá tham khảo <ArrowDownIcon /></Link>
-              <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer"><MessageIcon /> Hỏi giá qua Zalo <ArrowUpRightIcon /></a>
+              <ConversionLink href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" eventName="click_zalo" eventPosition={`product_${product.slug}`}><MessageIcon /> Hỏi giá qua Zalo <ArrowUpRightIcon /></ConversionLink>
             </div>
             <small>Giá tham khảo: <b>{product.priceLabel}</b>. Xưởng xác nhận sau khi xem file, số lượng và quy cách.</small>
           </div>
           <div className="product-hero__image">
-            <object data={product.image} type="image/jpeg" aria-label={`Ảnh ${product.name} từ gian hàng VinPrint`}>
-              <img src="/images/materials-flatlay.webp" alt={`Minh họa ${product.name}`} />
-            </object>
+            <Image src={product.image} alt={`Ảnh ${product.name} từ gian hàng VinPrint`} fill sizes="(max-width: 1040px) 100vw, 48vw" className="object-cover" unoptimized={product.image.startsWith("http")} />
             <span>ẢNH SẢN PHẨM CÔNG KHAI</span>
             <a href={product.source} target="_blank" rel="noreferrer">Xem nguồn <ArrowUpRightIcon /></a>
           </div>

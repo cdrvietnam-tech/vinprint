@@ -7,18 +7,18 @@ import Image from "next/image";
 export default function Gallery() {
   const tabs = ["Tất cả", "Mỹ phẩm", "Thực phẩm", "Đồ uống", "Trà - Cafe", "Handmade", "Pet"];
   const images = [
-    "/images/mockups/cosmetic_bottle.png",
-    "/images/mockups/zip_pouch.png",
-    "/images/mockups/glass_jar.png",
-    "/images/mockups/kraft_box.png",
-    "/images/ai-design/honey_final.png",
-    "/images/mockups/plastic_cup.png",
-    "/images/mockups/paper_box.png",
-    "/images/ai-design/coffee_old.png",
-    "/images/holographic_sticker.png",
-    "/images/ai-design/coffee_ai.png",
-    "/images/ai-design/honey_ai.png",
-    "/images/mockups/cosmetic_bottle.png"
+    "/images/mockups/cosmetic_bottle.webp",
+    "/images/mockups/zip_pouch.webp",
+    "/images/mockups/glass_jar.webp",
+    "/images/mockups/kraft_box.webp",
+    "/images/ai-design/honey_final.webp",
+    "/images/mockups/plastic_cup.webp",
+    "/images/mockups/paper_box.webp",
+    "/images/ai-design/coffee_old.webp",
+    "/images/holographic_sticker.webp",
+    "/images/ai-design/coffee_ai.webp",
+    "/images/ai-design/honey_ai.webp",
+    "/images/mockups/cosmetic_bottle.webp"
   ];
 
   return (
@@ -27,7 +27,7 @@ export default function Gallery() {
         <h2 className="text-base sm:text-2xl font-extrabold text-gray-900 uppercase">
           Thành phẩm thực tế
         </h2>
-        <button className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-full bg-[#5C45FD] text-white text-[10px] sm:text-[13px] font-bold hover:bg-blue-700 transition-colors shadow-sm shrink-0">
+        <button className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-[#4933D4] px-4 py-2.5 text-xs font-bold text-white shadow-sm transition-colors hover:bg-[#3725AE] sm:px-5 sm:text-sm">
           Xem thêm 40+ mẫu <span className="hidden xs:inline">thực tế</span> <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
         </button>
       </div>
@@ -36,7 +36,7 @@ export default function Gallery() {
         {tabs.map((tab, i) => (
           <button 
             key={i}
-            className={`whitespace-nowrap px-4 py-1.5 rounded-full text-[13px] font-bold transition-colors border ${
+            className={`min-h-11 whitespace-nowrap px-4 py-2.5 rounded-full text-sm font-bold transition-colors border ${
               i === 0 ? "bg-blue-600 text-white border-blue-600" : "bg-white text-gray-600 border-gray-200 hover:bg-gray-50"
             }`}
           >
@@ -55,7 +55,7 @@ export default function Gallery() {
             transition={{ duration: 0.4, delay: i * 0.05 }}
             className="rounded-2xl overflow-hidden relative group aspect-square"
           >
-            <img src={img} alt="Product" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <Image src={img} alt={`Mẫu tem VinPrint ${i + 1}`} fill unoptimized loading="lazy" sizes="(max-width: 640px) 33vw, 180px" className="object-cover group-hover:scale-110 transition-transform duration-500" />
           </motion.div>
         ))}
       </div>

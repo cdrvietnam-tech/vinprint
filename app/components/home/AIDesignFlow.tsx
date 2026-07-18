@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export default function AIDesignFlow() {
   const leftFeatures = [
@@ -12,41 +13,33 @@ export default function AIDesignFlow() {
     "Tăng giá trị sản phẩm"
   ];
 
-  const rightFeatures = [
-    "Bố cục khoa học",
-    "Màu sắc nổi bật",
-    "Dễ đọc - Dễ nhớ",
-    "Tạo dấu ấn thương hiệu",
-    "Tăng sức bán hàng"
-  ];
-
   const combos = [
     {
-      old: <img src="/images/ai-design/honey_old.png" className="w-full h-full object-contain drop-shadow-md" alt="Tem cũ mật ong" />,
-      ai: <img src="/images/ai-design/honey_ai.png" className="w-full h-full object-contain drop-shadow-lg" alt="Thiết kế AI mật ong" />,
-      final: <img src="/images/ai-design/honey_final.png" className="w-full h-full object-contain drop-shadow-xl" alt="Thành phẩm mật ong" />
+      old: <Image src="/images/ai-design/honey_old.webp" width={768} height={768} unoptimized sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-md" alt="Tem cũ mật ong" />,
+      ai: <Image src="/images/ai-design/honey_ai.webp" width={768} height={768} unoptimized sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-lg" alt="Thiết kế AI mật ong" />,
+      final: <Image src="/images/ai-design/honey_final.webp" width={768} height={768} unoptimized sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-xl" alt="Thành phẩm mật ong" />
     },
     {
-      old: <img src="/images/ai-design/coffee_old.png" className="w-full h-full object-contain drop-shadow-md" alt="Tem cũ cà phê" />,
-      ai: <img src="/images/ai-design/coffee_ai.png" className="w-full h-full object-contain drop-shadow-lg" alt="Thiết kế AI cà phê" />,
-      final: <img src="/images/mockups/plastic_cup.png" className="w-full h-full object-contain drop-shadow-xl rounded-2xl" alt="Thành phẩm cà phê" />
+      old: <Image src="/images/ai-design/coffee_old.webp" width={768} height={768} unoptimized sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-md" alt="Tem cũ cà phê" />,
+      ai: <Image src="/images/ai-design/coffee_ai.webp" width={768} height={768} unoptimized sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-lg" alt="Thiết kế AI cà phê" />,
+      final: <Image src="/images/mockups/plastic_cup.webp" width={768} height={768} unoptimized sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-xl rounded-2xl" alt="Thành phẩm cà phê" />
     },
     {
       old: (
         <div className="w-48 h-48 bg-gray-100 flex flex-col items-center justify-center p-4 border border-gray-300 rounded-2xl opacity-70 grayscale" aria-label="Tem cũ mỹ phẩm">
           <div className="font-sans text-xl font-bold text-gray-500 leading-tight">serum</div>
-          <div className="text-[10px] text-gray-400 font-medium uppercase mt-1 tracking-wide">my pham</div>
+          <div className="text-xs text-gray-700 font-medium uppercase mt-1 tracking-wide">mỹ phẩm</div>
           <div className="mt-3 h-px w-16 bg-gray-300" />
-          <div className="text-[9px] text-gray-400 mt-2">100ml</div>
+          <div className="text-xs text-gray-700 mt-2">100 ml</div>
         </div>
       ),
       ai: (
         <div className="w-48 h-48 bg-white flex flex-col items-center justify-center p-4 border-2 border-orange-200 rounded-full shadow-lg">
           <div className="font-serif text-2xl font-bold text-orange-800 leading-tight">LUXURY</div>
-          <div className="text-[10px] text-orange-600 font-bold uppercase mt-1 tracking-wider">SERUM</div>
+          <div className="text-xs text-orange-800 font-bold uppercase mt-1 tracking-wider">SERUM</div>
         </div>
       ),
-      final: <img src="/images/mockups/cosmetic_bottle.png" className="w-full h-full object-contain drop-shadow-xl" alt="Thành phẩm mỹ phẩm" />
+      final: <Image src="/images/mockups/cosmetic_bottle.webp" width={768} height={768} unoptimized sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-xl" alt="Thành phẩm mỹ phẩm" />
     }
   ];
 
@@ -68,7 +61,7 @@ export default function AIDesignFlow() {
           
           {/* Left Text */}
           <div className="lg:w-[25%] w-full shrink-0">
-            <div className="inline-block px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-[10px] font-bold tracking-widest uppercase mb-4">
+            <div className="inline-block px-3 py-1 rounded-full bg-blue-50 text-blue-800 text-xs font-bold tracking-widest uppercase mb-4">
               AI Design
             </div>
             <h2 className="text-4xl font-extrabold text-gray-900 mb-6 uppercase leading-tight">
@@ -94,7 +87,7 @@ export default function AIDesignFlow() {
             
             {/* Step 1 */}
             <div className="flex-1 bg-gray-50 rounded-2xl p-2 sm:p-4 xl:p-6 border border-gray-100 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[220px] md:min-h-[320px] xl:min-h-[420px]">
-              <div className="text-[10px] sm:text-xs xl:text-[20px] font-black text-red-500 uppercase mb-2 sm:mb-4 bg-red-50 border border-red-100 px-1.5 py-0.5 sm:px-4 sm:py-1.5 xl:px-6 xl:py-2 rounded-full shadow-sm text-center whitespace-nowrap">
+              <div className="text-xs xl:text-[20px] font-black text-red-700 uppercase mb-2 sm:mb-4 bg-red-50 border border-red-100 px-2 py-1 sm:px-4 sm:py-1.5 xl:px-6 xl:py-2 rounded-full shadow-sm text-center whitespace-nowrap">
                 <span className="xl:hidden">Tem cũ</span>
                 <span className="hidden xl:inline">Tem cũ (Khách gửi)</span>
               </div>
@@ -119,7 +112,7 @@ export default function AIDesignFlow() {
             {/* Step 2 */}
             <div className="flex-1 bg-orange-50/50 rounded-2xl p-2 sm:p-4 xl:p-6 border border-orange-100 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[220px] md:min-h-[320px] xl:min-h-[420px] relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-orange-100/30 to-pink-100/30 pointer-events-none" />
-              <div className="text-[10px] sm:text-xs xl:text-[20px] font-black text-orange-600 uppercase mb-2 sm:mb-4 bg-white px-1.5 py-0.5 sm:px-4 sm:py-1.5 xl:px-6 xl:py-2 rounded-full shadow-sm z-10 border border-orange-100 text-center whitespace-nowrap">
+              <div className="text-xs xl:text-[20px] font-black text-orange-800 uppercase mb-2 sm:mb-4 bg-white px-2 py-1 sm:px-4 sm:py-1.5 xl:px-6 xl:py-2 rounded-full shadow-sm z-10 border border-orange-100 text-center whitespace-nowrap">
                 <span className="xl:hidden">Thiết kế AI</span>
                 <span className="hidden xl:inline">AI + Designer</span>
               </div>
@@ -146,7 +139,7 @@ export default function AIDesignFlow() {
 
             {/* Step 3 */}
             <div className="flex-1 bg-white rounded-2xl p-2 sm:p-4 xl:p-6 border border-green-200 shadow-xl shadow-green-500/5 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[220px] md:min-h-[320px] xl:min-h-[420px] relative overflow-hidden">
-              <div className="text-[10px] sm:text-xs xl:text-[20px] font-black text-white bg-green-600 uppercase mb-2 sm:mb-4 px-1.5 py-0.5 sm:px-4 sm:py-1.5 xl:px-6 xl:py-2 rounded-full shadow-md z-10 text-center whitespace-nowrap">
+              <div className="text-xs xl:text-[20px] font-black text-white bg-green-700 uppercase mb-2 sm:mb-4 px-2 py-1 sm:px-4 sm:py-1.5 xl:px-6 xl:py-2 rounded-full shadow-md z-10 text-center whitespace-nowrap">
                 Thành phẩm
               </div>
               <div className="flex-1 w-full relative z-10 flex items-center justify-center min-h-[80px] sm:min-h-[120px] md:min-h-[180px] xl:min-h-0">

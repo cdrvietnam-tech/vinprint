@@ -2,18 +2,20 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 const categories = [
-  { name: "Tem giấy", desc: "(Decal giấy)", tag: "🔥 Bán chạy", image: "https://down-vn.img.susercontent.com/file/407127d75601b611b790bfcf05663f79", slug: "tem-giay" },
-  { name: "Tem UV DTF", desc: "(Nổi không nền)", tag: "✨ UV DTF", image: "https://down-vn.img.susercontent.com/file/vn-11134207-7ra0g-m7uwkws5membc1", slug: "tem-uv-dtf" },
-  { name: "Tem nhựa", desc: "(Decal nhựa)", tag: "💧 Chống nước", image: "/images/mockups/plastic_cup.png", slug: "tem-nhua-chong-nuoc" },
-  { name: "Tem bạc", desc: "(Decal bạc)", image: "/images/mockups/zip_pouch.png", slug: "tem-bac" },
-  { name: "Tem trong suốt", desc: "(Decal trong)", image: "/images/mockups/glass_jar.png", slug: "tem-nhua-trong" },
-  { name: "Tem hologram", desc: "(7 màu)", image: "/images/holographic_sticker.png", slug: "tem-7-mau" },
-  { name: "Tem kraft", desc: "(Giấy kraft)", image: "/images/mockups/kraft_box.png", slug: "tem-giay" },
-  { name: "Tem ép kim", desc: "(Vàng / Bạc)", image: "https://down-vn.img.susercontent.com/file/vn-11134207-7ra0g-m7uwkwspk78x4c", slug: "tem-vang" },
-  { name: "Tem phản quang", desc: "(Phản sáng)", image: "/images/mockups/cosmetic_bottle.png", slug: "tem-bac" },
-  { name: "Tem 7 màu", desc: "(Hologram)", tag: "🔥 Hot", image: "/images/holographic_sticker.png", slug: "tem-7-mau" },
+  { name: "Tem giấy", desc: "(Decal giấy)", tag: "🔥 Bán chạy", image: "/images/products/tem-giay.webp", slug: "tem-giay" },
+  { name: "Tem UV DTF", desc: "(Nổi không nền)", tag: "✨ UV DTF", image: "/images/products/tem-uv-dtf.webp", slug: "tem-uv-dtf" },
+  { name: "Tem nhựa", desc: "(Decal nhựa)", tag: "💧 Chống nước", image: "/images/mockups/plastic_cup.webp", slug: "tem-nhua-chong-nuoc" },
+  { name: "Tem bạc", desc: "(Decal bạc)", image: "/images/mockups/zip_pouch.webp", slug: "tem-bac" },
+  { name: "Tem trong suốt", desc: "(Decal trong)", image: "/images/mockups/glass_jar.webp", slug: "tem-nhua-trong" },
+  { name: "Tem hologram", desc: "(7 màu)", image: "/images/holographic_sticker.webp", slug: "tem-7-mau" },
+  { name: "Tem kraft", desc: "(Giấy kraft)", image: "/images/mockups/kraft_box.webp", slug: "tem-giay" },
+  { name: "Tem ép kim", desc: "(Vàng / Bạc)", image: "/images/products/tem-ep-kim.webp", slug: "tem-vang" },
+  { name: "Tem phản quang", desc: "(Phản sáng)", image: "/images/mockups/cosmetic_bottle.webp", slug: "tem-bac" },
+  { name: "Tem 7 màu", desc: "(Hologram)", tag: "🔥 Hot", image: "/images/holographic_sticker.webp", slug: "tem-7-mau" },
 ];
 
 export default function Categories() {
@@ -41,22 +43,23 @@ export default function Categories() {
             className="flex gap-4 w-max hover:[animation-play-state:paused]"
           >
             {[...categories, ...categories].map((cat, i) => (
-              <div 
+              <Link
                 key={i}
+                href={`/san-pham/${cat.slug}`}
                 className="w-[140px] md:w-[160px] flex flex-col items-center group/item cursor-pointer"
               >
                 <div className="w-full aspect-square rounded-2xl bg-white shadow-sm border border-gray-100 mb-4 flex items-center justify-center relative overflow-hidden group-hover/item:shadow-md transition-all group-hover/item:border-orange-200">
                   {cat.tag && (
-                    <div className="absolute top-0 right-0 bg-red-100 text-red-600 text-[10px] font-bold px-2.5 py-1 rounded-bl-xl whitespace-nowrap z-10">
+                    <div className="absolute top-0 right-0 bg-red-100 text-red-800 text-xs font-bold px-2.5 py-1 rounded-bl-xl whitespace-nowrap z-10">
                       {cat.tag}
                     </div>
                   )}
-                  <img src={cat.image} alt={cat.name} className="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-500" />
+                  <Image src={cat.image} alt={cat.name} fill unoptimized loading="lazy" sizes="160px" className="object-cover group-hover/item:scale-110 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gray-100/10 group-hover/item:bg-transparent transition-colors" />
                 </div>
                 <h3 className="text-sm font-bold text-gray-900 text-center">{cat.name}</h3>
-                <p className="text-xs font-medium text-gray-500 text-center">{cat.desc}</p>
-              </div>
+                <p className="text-xs font-medium text-gray-700 text-center">{cat.desc}</p>
+              </Link>
             ))}
           </motion.div>
         </div>

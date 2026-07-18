@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight, Star } from "lucide-react";
 import Image from "next/image";
 import { ZaloIcon } from "../icons";
+import { trackEvent } from "../../lib/analytics";
 
 export default function Hero() {
   return (
@@ -26,15 +27,10 @@ export default function Hero() {
               In ấn các loại tem nhãn và ấn phẩm
             </motion.div>
             
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-[60px] xl:text-[72px] font-black tracking-tight text-gray-900 mb-6 leading-[1.25]"
-            >
+            <h1 className="text-4xl sm:text-5xl lg:text-[60px] xl:text-[72px] font-black tracking-tight text-gray-900 mb-6 leading-[1.25]">
               <span className="sm:whitespace-nowrap">XƯỞNG IN SIÊU TỐC</span><br/>
               <span className="text-[#FF4D00]">Gửi file là chốt.</span>
-            </motion.h1>
+            </h1>
 
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -72,11 +68,11 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
             >
-              <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-[#FF4D00] text-white text-[15px] font-bold h-[52px] px-8 shadow-[0_8px_30px_rgb(255,77,0,0.3)] hover:scale-105 transition-transform">
+              <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" onClick={() => trackEvent("click_zalo", { position: "hero" })} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-[#D83B00] text-white text-[15px] font-bold h-[52px] px-8 shadow-[0_8px_30px_rgb(216,59,0,0.28)] hover:scale-105 transition-transform">
                 <ZaloIcon className="w-5 h-5" fill="white" />
                 Nhắn Zalo nhận giá →
               </a>
-              <a href="#ai-thiet-ke" className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full border-2 border-[#8B5CF6] text-[#8B5CF6] text-[15px] font-bold h-[52px] px-8 hover:bg-purple-50 transition-colors">
+              <a href="#ai-thiet-ke" onClick={() => trackEvent("ai_design_click", { position: "hero" })} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full border-2 border-[#6545ED] text-[#5635D8] text-[15px] font-bold h-[52px] px-8 hover:bg-purple-50 transition-colors">
                 Thiết kế tem bằng AI <ArrowRight className="w-4 h-4" />
               </a>
             </motion.div>
@@ -89,8 +85,8 @@ export default function Hero() {
             >
               <div className="flex -space-x-3">
                 {[1,2,3,4].map((i) => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden shadow-sm relative -ml-3 first:ml-0">
-                    <Image src={`https://i.pravatar.cc/100?img=${i+10}`} alt="Customer" fill className="object-cover" />
+                  <div key={i} className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-orange-100 text-xs font-black text-orange-800 shadow-sm -ml-3 first:ml-0" aria-hidden="true">
+                    {i}
                   </div>
                 ))}
               </div>
@@ -99,7 +95,7 @@ export default function Hero() {
                   {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
                   <span className="text-gray-900 font-extrabold text-[15px] ml-1">4.9/5</span>
                 </div>
-                <div className="text-[12px] text-gray-500 font-bold mt-0.5">32k+ lượt đánh giá trên Shopee</div>
+                <a href="https://shopee.vn/chaucay_senda" target="_blank" rel="noreferrer" className="mt-0.5 text-[12px] font-bold text-gray-700 underline decoration-gray-300 underline-offset-2">Xem đánh giá trên Shopee</a>
               </div>
             </motion.div>
 
@@ -114,19 +110,19 @@ export default function Hero() {
                 <div className="w-4 h-4 rounded-full bg-green-100 flex items-center justify-center shrink-0">
                   <CheckCircle2 className="w-2.5 h-2.5 text-green-600" />
                 </div>
-                <span className="text-[10px] font-bold text-gray-700">Giao toàn quốc</span>
+                <span className="text-[12px] font-bold text-gray-800">Giao toàn quốc</span>
               </div>
               <div className="bg-white px-3 py-1.5 rounded-full shadow-sm border border-gray-100 flex items-center gap-1.5">
                 <div className="w-4 h-4 rounded-full bg-green-100 flex items-center justify-center shrink-0">
                   <CheckCircle2 className="w-2.5 h-2.5 text-green-600" />
                 </div>
-                <span className="text-[10px] font-bold text-gray-700">In nhanh-Chuẩn đẹp-Giá tốt</span>
+                <span className="text-[12px] font-bold text-gray-800">In nhanh · Chuẩn đẹp · Giá tốt</span>
               </div>
               <div className="bg-white px-3 py-1.5 rounded-full shadow-sm border border-gray-100 flex items-center gap-1.5">
                 <div className="w-4 h-4 rounded-full bg-green-100 flex items-center justify-center shrink-0">
                   <CheckCircle2 className="w-2.5 h-2.5 text-green-600" />
                 </div>
-                <span className="text-[10px] font-bold text-gray-700">Sai hàng hoàn tiền 100%</span>
+                <span className="text-[12px] font-bold text-gray-800">Sai hàng hoàn tiền 100%</span>
               </div>
             </motion.div>
           </div>
@@ -167,7 +163,17 @@ export default function Hero() {
                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 18h4v-4"/><path d="M14 18c-3.31-3.31-8.22-3.8-12-1.5"/></svg>
                     </motion.div>
 
-                    <img src="/images/hero-collage.png" alt="Bộ sưu tập tem nhãn VinPrint" className="w-full h-full object-contain drop-shadow-2xl scale-[1.1] lg:scale-[1.3]" />
+                    <Image
+                      src="/images/hero-collage.webp"
+                      alt="Bộ sưu tập tem nhãn VinPrint"
+                      fill
+                      priority
+                      fetchPriority="high"
+                      quality={82}
+                      unoptimized
+                      sizes="(max-width: 1024px) 100vw, 55vw"
+                      className="object-contain drop-shadow-2xl scale-[1.1] lg:scale-[1.3]"
+                    />
                   </div>
 
                   {/* Floating Badges (Left stacked - Desktop only) */}
@@ -196,7 +202,7 @@ export default function Hero() {
                     <div className="flex gap-0.5 text-[#F5A623] mb-2">
                       {[1,2,3,4,5].map(star => <Star key={star} className="w-4 h-4 fill-current" />)}
                     </div>
-                    <span className="text-[10px] font-bold text-gray-500 tracking-wide">Đánh giá từ khách hàng</span>
+                    <span className="text-[12px] font-bold text-gray-700 tracking-wide">Đánh giá từ khách hàng</span>
                   </motion.div>
                   
               </div>
@@ -219,7 +225,7 @@ export default function Hero() {
             <div className="flex flex-col items-center justify-center gap-1.5">
               <div className="flex items-center gap-2 text-[#F5A623]">
                 <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"/></svg>
-                <span className="text-[28px] font-black leading-none">+211202</span>
+                <span className="text-[28px] font-black leading-none">211.000+</span>
               </div>
               <span className="text-[13px] font-bold text-white/80">Mẫu tem đã thực hiện</span>
             </div>

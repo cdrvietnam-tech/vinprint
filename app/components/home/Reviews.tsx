@@ -19,7 +19,7 @@ export default function Reviews() {
             Khách hàng nói gì về VinPrint
           </h2>
           <div className="flex items-center gap-3">
-            <span className="text-4xl font-extrabold text-[#F5A623]">4.9/5</span>
+            <span className="text-4xl font-extrabold text-orange-800">4.9/5</span>
             <div className="text-[13px] font-medium text-gray-500">
               (32k+ đánh giá)
             </div>
@@ -54,12 +54,12 @@ export default function Reviews() {
                 {[1,2,3,4,5].map(star => <Star key={star} className="w-4 h-4 fill-current" />)}
               </div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
-                  <img src={`https://i.pravatar.cc/100?img=${i+20}`} alt={rev.name} className="w-full h-full object-cover" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100 text-sm font-black text-indigo-800" aria-hidden="true">
+                  {rev.name.split(" ").at(-1)?.charAt(0)}
                 </div>
                 <div>
                   <div className="text-sm font-bold text-gray-900">{rev.name}</div>
-                  <div className="text-[10px] uppercase font-bold text-gray-400">{rev.platform} Review</div>
+                  <div className="text-[12px] uppercase font-bold text-gray-600">{rev.platform} Review</div>
                 </div>
               </div>
               <p className="text-sm text-gray-600 font-medium leading-relaxed flex-1">

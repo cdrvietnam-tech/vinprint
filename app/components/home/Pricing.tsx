@@ -2,8 +2,25 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { trackEvent } from "../../lib/analytics";
 
 export default function Pricing() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        trackEvent("view_pricing", { position: "pricing_section" });
+        observer.disconnect();
+      }
+    }, { threshold: 0.45 });
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   const prices = [
     { name: "TEM GIẤY COUCHE", price: "150đ", unit: "/tem", desc: "Số lượng càng nhiều giá càng tốt", nameColor: "text-[#5C45FD]", priceColor: "text-[#FF4D00]" },
     { name: "TEM NHỰA TRẮNG", price: "250đ", unit: "/tem", desc: "Chống nước - Bền màu", nameColor: "text-teal-600", priceColor: "text-teal-500" },
@@ -21,7 +38,7 @@ export default function Pricing() {
   ];
 
   return (
-    <section id="bang-gia" className="py-12 bg-white">
+    <section id="bang-gia" ref={sectionRef} className="py-12 bg-white">
       <div className="max-w-[1440px] mx-auto px-4">
         <div className="bg-[#2E1065] rounded-[32px] p-8 md:p-12 text-white shadow-2xl relative overflow-hidden">
           {/* Background decoration */}
@@ -33,7 +50,7 @@ export default function Pricing() {
               <h2 className="text-2xl font-extrabold uppercase tracking-wide">BẢNG GIÁ THAM KHẢO</h2>
               <span className="text-purple-200 text-[13px] hidden md:block">*Giá chưa bao gồm thiết kế</span>
             </div>
-            <button className="flex items-center gap-2 text-[13px] font-bold bg-white/10 hover:bg-white/20 px-5 py-2 rounded-full transition-colors border border-white/10">
+            <button onClick={() => trackEvent("view_pricing", { position: "pricing_expand" })} className="flex min-h-11 items-center gap-2 text-sm font-bold bg-white/10 hover:bg-white/20 px-5 py-2 rounded-full transition-colors border border-white/30">
               Xem đầy đủ bảng giá <ArrowRight className="w-4 h-4" />
             </button>
           </div>
@@ -52,7 +69,7 @@ export default function Pricing() {
                 <div className={`text-xl font-extrabold mb-1.5 ${item.priceColor}`}>
                   Từ {item.price}<span className="text-[13px] font-bold">{item.unit}</span>
                 </div>
-                <div className="text-[10px] font-bold text-gray-500 leading-tight">
+                <div className="text-xs font-bold text-gray-700 leading-tight">
                   {item.desc}
                 </div>
               </motion.div>

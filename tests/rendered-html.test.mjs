@@ -61,6 +61,26 @@ test("homepage includes JSON-LD structured data", async () => {
   assert.match(html, /"@type":"LocalBusiness"/);
   assert.match(html, /"@type":"ItemList"/);
   assert.match(html, /"@type":"FAQPage"/);
+  assert.match(html, /"hasMap":"https:\/\/maps\.app\.goo\.gl\/M4w2H7F9p95XF9oT9"/);
+  assert.match(html, /"areaServed"/);
+});
+
+test("public HTML responses include production security headers", async () => {
+  const response = await render();
+
+  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+  assert.equal(response.headers.get("referrer-policy"), "strict-origin-when-cross-origin");
+  assert.match(response.headers.get("content-security-policy") ?? "", /frame-ancestors 'self'/);
+  assert.match(response.headers.get("permissions-policy") ?? "", /camera=\(\)/);
+});
+
+test("homepage exposes an accessible mobile menu and optimized hero image", async () => {
+  const response = await render();
+  const html = await response.text();
+
+  assert.match(html, /aria-controls="mobile-navigation"/);
+  assert.match(html, /\/images\/hero-collage\.webp/);
+  assert.doesNotMatch(html, /\/images\/hero-collage\.png/);
 });
 
 test("renders product detail pages with source and order process", async () => {
@@ -87,10 +107,33 @@ test("all public routes render successfully", async () => {
     "/san-pham/tem-bao-hanh",
     "/san-pham/tem-phu-san-pham",
     "/san-pham/sticker-trang-tri",
+    "/gioi-thieu",
+    "/lien-he",
+    "/chinh-sach",
+    "/bao-hanh",
+    "/case-study",
+    "/nganh/my-pham",
+    "/nganh/thuc-pham",
+    "/nganh/do-uong",
+    "/nganh/chai-lo",
+    "/nganh/handmade",
+    "/huong-dan/chon-chat-lieu-tem",
+    "/huong-dan/chon-kich-thuoc-tem",
+    "/huong-dan/ky-thuat-in-tem",
   ];
 
   for (const route of routes) {
     const response = await render(route);
     assert.equal(response.status, 200, `expected ${route} to render`);
   }
+});
+
+test("AI discovery file is published", async () => {
+  const response = await render("/llms.txt");
+  const text = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get("content-type") ?? "", /^text\/plain/i);
+  assert.match(text, /# VinPrint/);
+  assert.match(text, /\/san-pham\/tem-uv-dtf/);
 });

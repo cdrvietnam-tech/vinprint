@@ -16,18 +16,18 @@ export default function MobileActionBar() {
       <div className="grid grid-cols-3 gap-2 px-3 py-2">
         <a
           href={PHONE}
-          aria-label="Gọi điện thoại 0844 998 499"
-          onClick={() => trackEvent("call_click", { position: "mobile_bar" })}
-          className="flex flex-col items-center justify-center gap-0.5 py-1.5 rounded-xl text-gray-700 font-bold text-[11px] hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
+          aria-label="Gọi ngay 0844 998 499"
+          onClick={() => trackEvent("click_phone", { position: "mobile_bar" })}
+          className="flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-xl text-gray-800 font-bold text-xs hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
         >
           <Phone className="w-5 h-5" aria-hidden="true" />
           Gọi ngay
         </a>
         <a
           href="#ai-thiet-ke"
-          aria-label="Xem thử thiết kế tem bằng AI"
+          aria-label="AI Design - xem thử thiết kế tem"
           onClick={() => trackEvent("ai_design_click", { position: "mobile_bar" })}
-          className="flex flex-col items-center justify-center gap-0.5 py-1.5 rounded-xl text-indigo-600 font-bold text-[11px] hover:bg-indigo-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
+          className="flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-xl text-indigo-700 font-bold text-xs hover:bg-indigo-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
         >
           <Sparkles className="w-5 h-5" aria-hidden="true" />
           AI Design
@@ -36,9 +36,9 @@ export default function MobileActionBar() {
           href={ZALO_URL}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Nhắn Zalo VinPrint để báo giá"
-          onClick={() => trackEvent("zalo_click", { position: "mobile_bar" })}
-          className="flex flex-col items-center justify-center gap-0.5 py-1.5 rounded-xl bg-blue-600 text-white font-bold text-[11px] shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-800"
+          aria-label="Chốt đơn Zalo với VinPrint"
+          onClick={() => trackEvent("click_zalo", { position: "mobile_bar" })}
+          className="flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-xl bg-blue-700 text-white font-bold text-xs shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-900"
         >
           <ZaloIcon className="w-5 h-5" aria-hidden="true" />
           Chốt đơn Zalo

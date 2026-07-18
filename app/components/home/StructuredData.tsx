@@ -4,9 +4,21 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "VinPrint - Xưởng in nhanh TP.HCM",
+  "@id": "https://vinprint.vn/#localbusiness",
   url: "https://vinprint.vn",
   telephone: "+84844998499",
   image: "https://vinprint.vn/images/hero-collage.webp",
+  priceRange: "₫₫",
+  hasMap: "https://maps.app.goo.gl/M4w2H7F9p95XF9oT9",
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 10.8284534,
+    longitude: 106.6631853,
+  },
+  areaServed: [
+    { "@type": "City", name: "Thành phố Hồ Chí Minh" },
+    { "@type": "Country", name: "Việt Nam" },
+  ],
   address: {
     "@type": "PostalAddress",
     streetAddress: "254/5/40 Lê Văn Thọ",
@@ -22,7 +34,7 @@ const localBusinessSchema = {
       closes: "17:30",
     },
   ],
-  sameAs: [SHOPEE_SHOP_URL, "https://vinprint.vn"],
+  sameAs: [SHOPEE_SHOP_URL, "https://maps.app.goo.gl/M4w2H7F9p95XF9oT9"],
 };
 
 const itemListSchema = {
