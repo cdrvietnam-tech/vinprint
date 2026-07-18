@@ -90,10 +90,10 @@ export default function AIDesignFlow() {
           </div>
 
           {/* Right Flow & Checklist */}
-          <div className="lg:flex-1 w-full flex flex-col xl:flex-row items-stretch xl:items-center gap-4 justify-between">
+          <div className="lg:flex-1 w-full flex flex-row xl:flex-row overflow-x-auto xl:overflow-x-visible scrollbar-none snap-x snap-mandatory gap-4 justify-start xl:justify-between pb-4 xl:pb-0">
             
             {/* Step 1 */}
-            <div className="flex-1 w-full bg-gray-50 rounded-3xl p-6 border border-gray-100 flex flex-col items-center justify-center min-h-[420px]">
+            <div className="flex-shrink-0 w-[280px] sm:w-[320px] xl:w-auto xl:flex-1 bg-gray-50 rounded-3xl p-6 border border-gray-100 flex flex-col items-center justify-center min-h-[320px] xl:min-h-[420px] snap-center">
               <div className="text-[20px] font-extrabold text-red-500 uppercase mb-4 bg-red-50 border border-red-100 px-6 py-2 rounded-full shadow-sm text-center whitespace-nowrap">
                 Tem cũ (Khách gửi)
               </div>
@@ -105,7 +105,7 @@ export default function AIDesignFlow() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.1 }}
                     transition={{ duration: 0.5 }}
-                    className="absolute inset-0"
+                    className="absolute inset-0 flex items-center justify-center"
                   >
                     {currentCombo.old}
                   </motion.div>
@@ -116,7 +116,7 @@ export default function AIDesignFlow() {
             <ArrowRight className="hidden xl:block w-6 h-6 text-gray-300 shrink-0" />
 
             {/* Step 2 */}
-            <div className="flex-1 w-full bg-orange-50/50 rounded-3xl p-6 border border-orange-100 flex flex-col items-center justify-center min-h-[420px] relative overflow-hidden">
+            <div className="flex-shrink-0 w-[280px] sm:w-[320px] xl:w-auto xl:flex-1 bg-orange-50/50 rounded-3xl p-6 border border-orange-100 flex flex-col items-center justify-center min-h-[320px] xl:min-h-[420px] relative overflow-hidden snap-center">
               <div className="absolute inset-0 bg-gradient-to-br from-orange-100/30 to-pink-100/30 pointer-events-none" />
               <div className="text-[20px] font-extrabold text-orange-600 uppercase mb-4 bg-white px-6 py-2 rounded-full shadow-sm z-10 border border-orange-100 text-center whitespace-nowrap">
                 AI + Designer
@@ -129,7 +129,7 @@ export default function AIDesignFlow() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.1 }}
                     transition={{ duration: 0.5 }}
-                    className="absolute inset-0"
+                    className="absolute inset-0 flex items-center justify-center"
                   >
                     {currentCombo.ai}
                   </motion.div>
@@ -143,7 +143,7 @@ export default function AIDesignFlow() {
             <ArrowRight className="hidden xl:block w-6 h-6 text-gray-300 shrink-0" />
 
             {/* Step 3 */}
-            <div className="flex-1 w-full bg-white rounded-3xl p-6 border border-green-200 shadow-xl shadow-green-500/5 flex flex-col items-center justify-center min-h-[420px] relative overflow-hidden">
+            <div className="flex-shrink-0 w-[280px] sm:w-[320px] xl:w-auto xl:flex-1 bg-white rounded-3xl p-6 border border-green-200 shadow-xl shadow-green-500/5 flex flex-col items-center justify-center min-h-[320px] xl:min-h-[420px] relative overflow-hidden snap-center">
               <div className="text-[20px] font-extrabold text-white bg-green-600 uppercase mb-4 px-6 py-2 rounded-full shadow-md z-10 text-center whitespace-nowrap">
                 Thành phẩm
               </div>
@@ -155,7 +155,7 @@ export default function AIDesignFlow() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.5 }}
-                    className="absolute inset-0"
+                    className="absolute inset-0 flex items-center justify-center"
                   >
                     {currentCombo.final}
                   </motion.div>

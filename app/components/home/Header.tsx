@@ -39,7 +39,7 @@ export default function Header() {
           <button className="hidden md:block px-5 py-2.5 rounded-full border-2 border-gray-200 text-sm font-bold text-gray-800 hover:border-gray-300 transition-colors">
             Xem giá tham khảo
           </button>
-          <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#FF4D00] text-white text-sm font-bold shadow-lg shadow-orange-500/20 hover:bg-[#E64500] transition-colors">
+          <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" className="hidden md:flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#FF4D00] text-white text-sm font-bold shadow-lg shadow-orange-500/20 hover:bg-[#E64500] transition-colors">
             <ZaloIcon className="w-4 h-4" fill="white" />
             Nhắn Zalo nhận giá
           </a>

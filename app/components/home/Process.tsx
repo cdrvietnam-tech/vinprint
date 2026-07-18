@@ -17,16 +17,16 @@ export default function Process() {
       <div className="max-w-[1440px] mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-8">
           
-          <div className="lg:w-[20%] shrink-0">
-            <h2 className="text-3xl font-extrabold text-gray-900 uppercase mb-3 leading-tight">
-              Quy trình đặt in<br/>đơn giản
+          <div className="lg:w-[20%] shrink-0 text-center lg:text-left w-full">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 uppercase mb-3 leading-tight">
+              Quy trình đặt in đơn giản
             </h2>
             <p className="text-gray-500 font-medium text-sm">
-              Chỉ 5 bước - Nhanh chóng<br/>và chuyên nghiệp
+              Chỉ 5 bước - Nhanh chóng và chuyên nghiệp
             </p>
           </div>
 
-          <div className="lg:flex-1 w-full flex flex-row justify-between items-stretch gap-2 xl:gap-4">
+          <div className="lg:flex-1 w-full flex flex-col md:flex-row justify-between items-stretch gap-4">
             {steps.map((step, i) => {
               // Different colors for each step to match mockup
               const colors = [
@@ -37,7 +37,7 @@ export default function Process() {
               ];
               
               return (
-                <div key={i} className="flex items-center gap-2 xl:gap-4 flex-1 min-w-0">
+                <div key={i} className="flex flex-col md:flex-row items-stretch md:items-center gap-4 flex-1 min-w-0 w-full">
                   <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +61,7 @@ export default function Process() {
                   </motion.div>
                   
                   {i < steps.length - 1 && (
-                    <ArrowRight className="w-5 h-5 text-gray-400 shrink-0 hidden lg:block" />
+                    <ArrowRight className="w-5 h-5 text-gray-400 shrink-0 hidden md:block" />
                   )}
                 </div>
               );

@@ -21,7 +21,7 @@ export default function Reviews() {
           <div className="flex items-center gap-3">
             <span className="text-4xl font-extrabold text-[#F5A623]">4.9/5</span>
             <div className="text-[13px] font-medium text-gray-500">
-              (900+ đánh giá)
+              (32k+ đánh giá)
             </div>
           </div>
         </div>
