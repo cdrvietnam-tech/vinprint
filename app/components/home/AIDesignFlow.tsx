@@ -90,7 +90,7 @@ export default function AIDesignFlow() {
           </div>
 
           {/* Right Flow & Checklist */}
-          <div className="lg:flex-1 w-full grid grid-cols-3 xl:grid-cols-[1fr_auto_1fr_auto_1fr] gap-2 md:gap-4 justify-between">
+          <div className="lg:flex-1 w-full grid grid-cols-3 xl:grid-cols-[1fr_auto_1fr_auto_1fr] gap-2 md:gap-4 justify-between items-stretch">
             
             {/* Step 1 */}
             <div className="bg-gray-50 rounded-2xl p-2 sm:p-4 xl:p-6 border border-gray-100 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[220px] md:min-h-[320px] xl:min-h-[420px]">
@@ -114,7 +114,7 @@ export default function AIDesignFlow() {
               </div>
             </div>
 
-            <ArrowRight className="hidden xl:block w-6 h-6 text-gray-300 shrink-0" />
+            <ArrowRight className="hidden xl:block w-6 h-6 text-gray-300 shrink-0 self-center" />
 
             {/* Step 2 */}
             <div className="bg-orange-50/50 rounded-2xl p-2 sm:p-4 xl:p-6 border border-orange-100 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[220px] md:min-h-[320px] xl:min-h-[420px] relative overflow-hidden">
@@ -142,7 +142,7 @@ export default function AIDesignFlow() {
               </div>
             </div>
 
-            <ArrowRight className="hidden xl:block w-6 h-6 text-gray-300 shrink-0" />
+            <ArrowRight className="hidden xl:block w-6 h-6 text-gray-300 shrink-0 self-center" />
 
             {/* Step 3 */}
             <div className="bg-white rounded-2xl p-2 sm:p-4 xl:p-6 border border-green-200 shadow-xl shadow-green-500/5 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[220px] md:min-h-[320px] xl:min-h-[420px] relative overflow-hidden">

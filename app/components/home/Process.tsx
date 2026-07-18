@@ -26,7 +26,7 @@ export default function Process() {
             </p>
           </div>
 
-          <div className="lg:flex-1 w-full flex flex-col lg:flex-row justify-between items-stretch gap-4">
+          <div className="lg:flex-1 w-full grid grid-cols-5 gap-1 sm:gap-3 lg:gap-4 items-stretch">
             {steps.map((step, i) => {
               // Different colors for each step to match mockup
               const colors = [
@@ -37,31 +37,31 @@ export default function Process() {
               ];
               
               return (
-                <div key={i} className="flex flex-col lg:flex-row items-stretch lg:items-center gap-4 flex-1 min-w-0 w-full">
+                <div key={i} className="flex items-center gap-1 sm:gap-2 w-full">
                   <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.1 }}
-                    className="w-full bg-white rounded-3xl p-4 xl:p-5 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-50 flex flex-col items-start relative h-full"
+                    className="w-full bg-white rounded-2xl p-1.5 py-3 sm:p-4 xl:p-5 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-50 flex flex-col items-center text-center relative h-full"
                   >
-                    <div className="relative mb-6">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${colors[i]} text-white shadow-lg`}>
-                        <step.icon className="w-6 h-6" />
+                    <div className="relative mb-3 sm:mb-6">
+                      <div className={`w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center ${colors[i]} text-white shadow-md`}>
+                        <step.icon className="w-4 h-4 sm:w-6 sm:h-6" />
                       </div>
-                      <div className="absolute -bottom-2 -left-2 w-6 h-6 rounded-full flex items-center justify-center text-xs font-black text-white bg-inherit" style={{ backgroundColor: "inherit" }}>
-                        <div className={`w-full h-full rounded-full flex items-center justify-center ${colors[i]} border-2 border-white`}>
+                      <div className="absolute -bottom-1 -left-1 w-4 h-4 sm:w-6 sm:h-6 rounded-full flex items-center justify-center text-[8px] sm:text-xs font-black text-white bg-inherit" style={{ backgroundColor: "inherit" }}>
+                        <div className={`w-full h-full rounded-full flex items-center justify-center ${colors[i]} border border-white sm:border-2`}>
                           {i + 1}
                         </div>
                       </div>
                     </div>
                     
-                    <h3 className="text-sm font-extrabold text-gray-900 mb-2">{step.title}</h3>
-                    <p className="text-[11px] text-gray-500 font-medium leading-relaxed">{step.desc}</p>
+                    <h3 className="text-[10px] sm:text-sm font-extrabold text-gray-900 mb-1 sm:mb-2 leading-tight">{step.title}</h3>
+                    <p className="text-[8px] sm:text-[11px] text-gray-500 font-medium leading-relaxed hidden sm:block">{step.desc}</p>
                   </motion.div>
                   
                   {i < steps.length - 1 && (
-                    <ArrowRight className="w-5 h-5 text-gray-400 shrink-0 hidden lg:block" />
+                    <ArrowRight className="w-4 h-4 text-gray-400 shrink-0 hidden md:block" />
                   )}
                 </div>
               );
