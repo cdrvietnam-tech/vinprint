@@ -1,0 +1,1817 @@
+/* Conversion-first VinPrint storefront */
+
+.skip-link {
+  position: fixed;
+  z-index: 2000;
+  top: 12px;
+  left: 12px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 99px;
+  padding: 0 18px;
+  color: #fff;
+  background: #171310;
+  font-weight: 800;
+  transform: translateY(-160%);
+  transition: transform 180ms ease-out;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.sales-home svg,
+.ai-landing svg {
+  flex: 0 0 auto;
+}
+
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: #ffb62e;
+}
+
+.stars svg {
+  width: 11px;
+  height: 11px;
+}
+
+.nav-upload {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--ink);
+  border-radius: 99px;
+  padding: 0 14px;
+  text-decoration: none !important;
+}
+
+.nav-upload svg,
+.nav-zalo svg {
+  width: 16px;
+  height: 16px;
+}
+
+.nav-actions .nav-zalo {
+  text-decoration: none;
+}
+
+.sales-hero {
+  background:
+    radial-gradient(circle at 8% 16%, rgba(213, 255, 67, 0.24), transparent 24%),
+    radial-gradient(circle at 82% 22%, rgba(255, 81, 47, 0.15), transparent 26%),
+    var(--paper);
+}
+
+.sales-hero .hero__layout {
+  min-height: 775px;
+  grid-template-columns: minmax(0, 0.94fr) minmax(590px, 1.06fr);
+  gap: clamp(32px, 5vw, 78px);
+  padding-block: 55px 48px;
+}
+
+.sales-hero .hero__copy {
+  max-width: 760px;
+}
+
+.sales-hero h1 {
+  max-width: 800px;
+  font-size: clamp(68px, 6.75vw, 108px);
+}
+
+.sales-hero .hero__lead strong {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.sales-hero .button-primary svg,
+.sales-hero .button-secondary svg {
+  width: 19px;
+  height: 19px;
+}
+
+.sales-hero .button-primary svg:first-child {
+  color: var(--lime);
+}
+
+.sales-proof-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.sales-proof-pills span {
+  min-height: 39px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  padding: 0 12px;
+  color: var(--muted);
+  background: rgba(255, 253, 248, 0.72);
+  font-size: 9px;
+}
+
+.sales-proof-pills span > svg {
+  width: 15px;
+  height: 15px;
+  color: var(--coral);
+}
+
+.sales-proof-pills span > b {
+  width: auto;
+  height: auto;
+  display: inline;
+  border: 0;
+  border-radius: 0;
+  color: var(--ink);
+  background: transparent;
+  font-size: 9px;
+}
+
+.sales-hero__visual {
+  height: 665px;
+}
+
+.sales-hero__visual::before {
+  width: 570px;
+  height: 555px;
+  right: 0;
+  bottom: 36px;
+  background: var(--violet);
+}
+
+.sales-hero__visual .hero__visual-frame {
+  width: min(650px, 96%);
+  height: 575px;
+  right: 0;
+  bottom: 22px;
+  border-radius: 220px 35px 35px 35px;
+}
+
+.sales-order-ticket {
+  position: absolute;
+  z-index: 8;
+  width: 305px;
+  left: -42px;
+  bottom: -5px;
+  border: 1px solid var(--ink);
+  border-radius: 23px;
+  padding: 21px;
+  background: var(--white);
+  box-shadow: 9px 9px 0 var(--lime), 0 25px 55px rgba(23, 19, 16, 0.18);
+  transform: rotate(-2deg);
+}
+
+.sales-order-ticket__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ink);
+  color: var(--coral);
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.sales-order-ticket__head b {
+  color: var(--ink);
+}
+
+.sales-order-ticket h2 {
+  margin: 17px 0 13px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.055em;
+}
+
+.sales-order-ticket ul {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sales-order-ticket li {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  align-items: center;
+  gap: 8px;
+}
+
+.sales-order-ticket li > svg {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  padding: 5px;
+  color: var(--white);
+  background: var(--ink);
+}
+
+.sales-order-ticket li span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sales-order-ticket li b {
+  font-size: 9px;
+}
+
+.sales-order-ticket li small {
+  color: var(--muted);
+  font-size: 7px;
+}
+
+.sales-order-ticket > a {
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 16px;
+  border-radius: 99px;
+  color: #fff;
+  background: var(--violet);
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.sales-order-ticket > a svg {
+  width: 15px;
+  height: 15px;
+}
+
+.sales-rating-card {
+  width: 218px;
+  min-height: 151px;
+  top: 35px;
+  right: -18px;
+  bottom: auto;
+  padding: 17px;
+  box-shadow: 9px 9px 0 var(--coral);
+  transform: rotate(3deg);
+}
+
+.sales-rating-card strong {
+  font-size: 27px;
+}
+
+.sales-rating-card .stars {
+  margin-top: 5px;
+}
+
+.sales-rating-card .stars svg {
+  width: 8px;
+  height: 8px;
+}
+
+.sales-rating-card a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sales-rating-card a svg {
+  width: 13px;
+  height: 13px;
+}
+
+.trust-dashboard__grid > a {
+  gap: 2px;
+}
+
+.trust-dashboard__grid > a > svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* Need-led selector */
+.decision-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(23, 19, 16, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 19, 16, 0.035) 1px, transparent 1px),
+    var(--paper);
+  background-size: 56px 56px;
+}
+
+.decision-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 17px;
+}
+
+.decision-card {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(215px, 0.82fr) 1.18fr;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 29px;
+  background: var(--white);
+  box-shadow: 0 14px 35px rgba(54, 43, 33, 0.06);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.decision-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 55px rgba(54, 43, 33, 0.13);
+}
+
+.decision-card__image {
+  position: relative;
+  min-height: 330px;
+  overflow: hidden;
+  background: var(--paper-2);
+}
+
+.decision-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 450ms ease;
+}
+
+.decision-card:hover .decision-card__image img {
+  transform: scale(1.045);
+}
+
+.decision-card__image > span {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  color: var(--ink);
+  background: var(--lime);
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.decision-card--coral .decision-card__image > span { background: #ff8d75; }
+.decision-card--violet .decision-card__image > span { color: #fff; background: var(--violet); }
+.decision-card--silver .decision-card__image > span { background: #d7dbe0; }
+
+.decision-card__body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(24px, 2.6vw, 39px);
+}
+
+.decision-card__body > small {
+  color: var(--coral);
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.11em;
+}
+
+.decision-card__body h3 {
+  margin: 18px 0 5px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: clamp(23px, 2vw, 31px);
+  font-weight: 900;
+  letter-spacing: -0.055em;
+}
+
+.decision-card__body > strong {
+  color: var(--violet);
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: clamp(20px, 1.7vw, 27px);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+}
+
+.decision-card__body > p {
+  margin: 17px 0 23px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.decision-card__body footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: auto;
+  padding-top: 17px;
+  border-top: 1px solid var(--line);
+}
+
+.decision-card__body footer > b {
+  font-size: 9px;
+}
+
+.decision-card__body footer > a {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--ink);
+}
+
+.decision-card__body footer svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* Transparent pricing */
+.pricing-section {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(circle at 9% 10%, rgba(101, 69, 237, 0.33), transparent 30%),
+    radial-gradient(circle at 95% 88%, rgba(213, 255, 67, 0.13), transparent 28%),
+    #12100f;
+}
+
+.pricing-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 58px 58px;
+  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+}
+
+.pricing-section > .shell {
+  position: relative;
+  z-index: 2;
+}
+
+.pricing-heading {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  align-items: end;
+  gap: 70px;
+  margin-bottom: 56px;
+}
+
+.pricing-heading h2 {
+  margin: 0;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: clamp(50px, 5vw, 78px);
+  font-weight: 900;
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+}
+
+.pricing-heading h2 em {
+  color: var(--lime);
+  font-style: normal;
+}
+
+.pricing-heading__note {
+  border-left: 2px solid var(--coral);
+  padding-left: 20px;
+}
+
+.pricing-heading__note span {
+  color: var(--coral);
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.pricing-heading__note p {
+  margin: 11px 0 0;
+  color: rgba(255, 255, 255, 0.57);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
+}
+
+.price-card {
+  min-height: 356px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(10px);
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+
+.price-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.085);
+}
+
+.price-card--featured {
+  color: var(--ink);
+  border-color: var(--coral);
+  background: var(--coral);
+  box-shadow: 8px 8px 0 var(--lime);
+  transform: translateY(-10px) rotate(-1deg);
+}
+
+.price-card--featured:hover {
+  border-color: var(--coral);
+  background: var(--coral);
+  transform: translateY(-15px) rotate(-1deg);
+}
+
+.price-card__top {
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--lime);
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.price-card__top b {
+  border-radius: 99px;
+  padding: 6px 8px;
+  color: var(--ink);
+  background: var(--lime);
+  font-size: 6px;
+}
+
+.price-card--featured .price-card__top {
+  color: var(--ink);
+}
+
+.price-card h3 {
+  margin: 24px 0 17px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.price-card__price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-block: 19px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.price-card--featured .price-card__price {
+  border-color: rgba(23, 19, 16, 0.22);
+}
+
+.price-card__price strong {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: clamp(27px, 2.4vw, 39px);
+  font-weight: 900;
+  letter-spacing: -0.065em;
+  line-height: 1;
+}
+
+.price-card__price small {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 8px;
+}
+
+.price-card--featured .price-card__price small {
+  color: rgba(23, 19, 16, 0.62);
+}
+
+.price-card > p {
+  margin: 17px 0 22px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 9px;
+  line-height: 1.65;
+}
+
+.price-card--featured > p {
+  color: rgba(23, 19, 16, 0.72);
+}
+
+.price-card > a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding-top: 13px;
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.price-card--featured > a {
+  border-color: rgba(23, 19, 16, 0.2);
+}
+
+.price-card > a svg {
+  width: 17px;
+  height: 17px;
+}
+
+.price-action {
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  margin-top: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 22px;
+  padding: 18px 21px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.price-action > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.price-action > div:first-child > svg {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  padding: 9px;
+  color: var(--ink);
+  background: var(--lime);
+}
+
+.price-action p {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+}
+
+.price-action p b {
+  font-size: 11px;
+}
+
+.price-action p span {
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 8px;
+}
+
+.price-action > div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.price-action > div:last-child > a {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 99px;
+  padding: 0 17px;
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.price-action > div:last-child > a:last-child {
+  color: var(--ink);
+  border-color: var(--lime);
+  background: var(--lime);
+}
+
+.price-action a svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Conversion checkpoints */
+.process-heading > a {
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 99px;
+  padding: 0 21px;
+  color: var(--ink);
+  background: var(--lime);
+  font-size: 9px;
+  font-weight: 900;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.process-heading > a:hover {
+  transform: translateY(-3px);
+}
+
+.process-heading > a svg {
+  width: 16px;
+  height: 16px;
+}
+
+.process-note {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 26px;
+  border: 1px solid var(--line);
+  border-radius: 19px;
+  padding: 14px 18px;
+  color: var(--ink);
+  background: var(--white);
+  text-align: left;
+}
+
+.process-note > svg {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  padding: 9px;
+  color: #fff;
+  background: var(--violet);
+}
+
+.process-note p {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+}
+
+.process-note p b {
+  font-size: 10px;
+}
+
+.process-note p span {
+  color: var(--muted);
+  font-size: 8px;
+}
+
+.process-note > a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 99px;
+  padding: 0 15px;
+  color: #fff;
+  background: var(--ink);
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.process-note > a svg {
+  width: 15px;
+  height: 15px;
+}
+
+.case-card__body a,
+.review-card__links a,
+.reviews-top > a small,
+.faq-title a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.case-card__body a svg,
+.review-card__links a svg,
+.reviews-top > a small svg,
+.faq-title a svg {
+  width: 14px;
+  height: 14px;
+}
+
+.reviews-top > a .stars svg {
+  width: 10px;
+  height: 10px;
+}
+
+.review-card__stars > .stars svg {
+  width: 11px;
+  height: 11px;
+}
+
+.review-card__links button,
+.review-card__links a {
+  min-height: 44px;
+  align-items: center;
+}
+
+.case-card__body a {
+  min-height: 44px;
+}
+
+.review-conversion {
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  margin-top: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 21px;
+  padding: 18px 21px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.review-conversion p {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+}
+
+.review-conversion p b {
+  color: var(--lime);
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 15px;
+}
+
+.review-conversion p span {
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 9px;
+}
+
+.review-conversion > a {
+  min-height: 49px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 99px;
+  padding: 0 18px;
+  color: var(--ink);
+  background: var(--lime);
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.review-conversion > a svg {
+  width: 16px;
+  height: 16px;
+}
+
+.faq-title > a {
+  min-height: 48px;
+}
+
+.sales-final-cta {
+  background:
+    radial-gradient(circle at 86% 16%, rgba(213, 255, 67, 0.32), transparent 25%),
+    var(--coral);
+}
+
+.final-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.final-cta__actions > a {
+  min-height: 57px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--ink);
+  border-radius: 99px;
+  padding: 0 19px;
+  color: var(--ink);
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.final-cta__actions > a:last-child {
+  color: #fff;
+  background: var(--ink);
+}
+
+.final-cta__actions svg {
+  width: 16px;
+  height: 16px;
+}
+
+.product-tile__body footer a svg,
+.related-products a b svg {
+  width: 16px;
+  height: 16px;
+}
+
+.sales-fab {
+  position: fixed;
+  z-index: 110;
+  right: 22px;
+  bottom: 22px;
+  min-width: 310px;
+  display: grid;
+  grid-template-columns: 45px 1fr 44px;
+  align-items: center;
+  gap: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  padding: 11px;
+  color: #fff;
+  background: rgba(23, 19, 16, 0.94);
+  box-shadow: 0 18px 45px rgba(17, 12, 9, 0.28);
+  backdrop-filter: blur(15px);
+}
+
+.sales-fab > span,
+.sales-fab > a {
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.sales-fab > span {
+  color: var(--ink);
+  background: var(--lime);
+}
+
+.sales-fab > a {
+  width: 44px;
+  height: 44px;
+  color: #fff;
+  background: var(--violet);
+}
+
+.sales-fab svg {
+  width: 18px;
+  height: 18px;
+}
+
+.sales-fab > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sales-fab small {
+  color: var(--lime);
+  font-size: 6px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.sales-fab b {
+  font-size: 10px;
+}
+
+.sales-fab em {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 7px;
+  font-style: normal;
+}
+
+.sales-home .mobile-cta {
+  grid-template-columns: 1fr 0.68fr;
+}
+
+/* Dedicated upload and AI design landing */
+.ai-landing {
+  min-height: 100vh;
+  background: var(--paper);
+}
+
+.ai-landing__header {
+  position: sticky;
+  z-index: 90;
+  top: 0;
+  background: rgba(245, 240, 231, 0.92);
+  backdrop-filter: blur(18px);
+}
+
+.ai-landing__header nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ai-landing__header nav a svg {
+  width: 15px;
+  height: 15px;
+}
+
+.ai-landing-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 12%, rgba(213, 255, 67, 0.27), transparent 22%),
+    radial-gradient(circle at 84% 18%, rgba(101, 69, 237, 0.24), transparent 25%),
+    var(--paper);
+}
+
+.ai-landing-grid {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  right: -80px;
+  bottom: -120px;
+  opacity: 0.12;
+  background-image: linear-gradient(var(--ink) 1px, transparent 1px), linear-gradient(90deg, var(--ink) 1px, transparent 1px);
+  background-size: 28px 28px;
+  transform: rotate(-9deg);
+}
+
+.ai-landing-hero__grid {
+  position: relative;
+  z-index: 2;
+  min-height: 735px;
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  align-items: center;
+  gap: clamp(48px, 7vw, 110px);
+  padding-block: 65px 50px;
+}
+
+.ai-landing-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 25px;
+  color: var(--violet);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.ai-landing-kicker svg {
+  width: 18px;
+  height: 18px;
+}
+
+.ai-landing-hero h1 {
+  margin-bottom: 27px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: clamp(63px, 6.4vw, 102px);
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  line-height: 0.91;
+}
+
+.ai-landing-hero h1 em {
+  color: var(--violet);
+  font-style: normal;
+}
+
+.ai-landing-hero__copy > p {
+  max-width: 680px;
+  margin-bottom: 27px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.ai-landing-hero__copy > p strong {
+  color: var(--ink);
+}
+
+.ai-landing-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 31px;
+}
+
+.ai-landing-hero__actions > a {
+  min-height: 57px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid var(--ink);
+  border-radius: 99px;
+  padding: 0 21px;
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.ai-landing-hero__actions > a:first-child {
+  color: #fff;
+  background: var(--ink);
+}
+
+.ai-landing-hero__actions > a:first-child svg:first-child {
+  color: var(--lime);
+}
+
+.ai-landing-hero__actions svg {
+  width: 18px;
+  height: 18px;
+}
+
+.ai-landing-paths {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.ai-landing-paths article {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 17px;
+  background: rgba(255, 253, 248, 0.78);
+}
+
+.ai-landing-paths article > span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--violet);
+}
+
+.ai-landing-paths article:first-child > span {
+  color: var(--ink);
+  background: var(--lime);
+}
+
+.ai-landing-paths svg {
+  width: 18px;
+  height: 18px;
+}
+
+.ai-landing-paths small {
+  color: var(--coral);
+  font-size: 6px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.ai-landing-paths h2 {
+  margin: 8px 0 6px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+}
+
+.ai-landing-paths p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 7.5px;
+  line-height: 1.55;
+}
+
+.ai-landing-hero__visual {
+  position: relative;
+  height: 610px;
+}
+
+.ai-landing-hero__visual::before {
+  content: "";
+  position: absolute;
+  width: 555px;
+  height: 520px;
+  right: 0;
+  bottom: 35px;
+  border-radius: 43% 57% 40% 60% / 58% 42% 58% 42%;
+  background: var(--coral);
+  transform: rotate(7deg);
+}
+
+.ai-landing-hero__image {
+  position: absolute;
+  z-index: 2;
+  width: min(610px, 96%);
+  height: 535px;
+  right: 0;
+  bottom: 25px;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  border-radius: 42px 210px 42px 42px;
+  background: #fff;
+  box-shadow: 0 30px 70px rgba(50, 34, 26, 0.18);
+  transform: rotate(-1.2deg);
+}
+
+.ai-landing-hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ai-result-ticket {
+  position: absolute;
+  z-index: 5;
+  width: 215px;
+  left: -25px;
+  bottom: 5px;
+  border: 1px solid var(--ink);
+  border-radius: 22px;
+  padding: 19px;
+  color: #fff;
+  background: var(--ink);
+  box-shadow: 9px 9px 0 var(--lime);
+  transform: rotate(-3deg);
+}
+
+.ai-result-ticket > span {
+  color: var(--lime);
+  font-size: 6px;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.ai-result-ticket > strong {
+  display: block;
+  margin: 13px 0 4px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 49px;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  line-height: 1;
+}
+
+.ai-result-ticket > p {
+  margin: 0 0 14px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 8px;
+  line-height: 1.55;
+}
+
+.ai-result-ticket > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 12px;
+  font-size: 7px;
+  font-weight: 800;
+}
+
+.ai-result-ticket svg {
+  width: 14px;
+  height: 14px;
+  color: var(--lime);
+}
+
+.ai-prompt-chip {
+  position: absolute;
+  z-index: 5;
+  width: 290px;
+  top: 15px;
+  right: -15px;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--ink);
+  border-radius: 18px;
+  padding: 11px;
+  background: var(--white);
+  box-shadow: 7px 7px 0 var(--violet);
+  transform: rotate(2deg);
+}
+
+.ai-prompt-chip > svg {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  padding: 9px;
+  color: var(--ink);
+  background: var(--lime);
+}
+
+.ai-prompt-chip span {
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.ai-landing-proofbar {
+  position: relative;
+  z-index: 3;
+  min-height: 78px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+}
+
+.ai-landing-proofbar span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border-right: 1px solid var(--line);
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.ai-landing-proofbar span:last-child {
+  border-right: 0;
+}
+
+.ai-landing-proofbar svg {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 4px;
+  color: #fff;
+  background: var(--violet);
+}
+
+.ai-landing .studio-section {
+  padding-top: clamp(105px, 9vw, 150px);
+}
+
+.ai-how {
+  background: var(--paper);
+}
+
+.ai-how__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.ai-how__grid article {
+  min-height: 255px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 23px;
+  padding: 23px;
+  background: var(--white);
+}
+
+.ai-how__grid article > span {
+  width: 49px;
+  height: 49px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--ink);
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.ai-how__grid article:nth-child(2) > span { color: var(--ink); background: var(--coral); }
+.ai-how__grid article:nth-child(3) > span { color: var(--ink); background: var(--lime); }
+.ai-how__grid article:nth-child(4) > span { background: var(--violet); }
+
+.ai-how__grid h3 {
+  margin: auto 0 10px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.ai-how__grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.65;
+}
+
+.ai-disclaimer {
+  color: #fff;
+  background: var(--violet);
+}
+
+.ai-disclaimer > .shell {
+  min-height: 120px;
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
+  align-items: center;
+  gap: 18px;
+}
+
+.ai-disclaimer > .shell > svg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 13px;
+  color: var(--ink);
+  background: var(--lime);
+}
+
+.ai-disclaimer p {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 0;
+}
+
+.ai-disclaimer p b {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 15px;
+}
+
+.ai-disclaimer p span {
+  color: rgba(255, 255, 255, 0.59);
+  font-size: 9px;
+}
+
+.ai-disclaimer a {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 99px;
+  padding: 0 17px;
+  color: var(--ink);
+  background: var(--lime);
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.ai-disclaimer a svg {
+  width: 16px;
+  height: 16px;
+}
+
+.ai-landing-footer {
+  padding-top: 68px;
+}
+
+.ai-mobile-cta {
+  grid-template-columns: 1.2fr 0.8fr;
+}
+
+@media (max-width: 1240px) {
+  .sales-hero .hero__layout {
+    grid-template-columns: minmax(0, 0.9fr) minmax(520px, 1.1fr);
+    gap: 26px;
+  }
+
+  .sales-order-ticket {
+    left: -18px;
+  }
+
+  .sales-rating-card {
+    right: -4px;
+  }
+
+  .decision-card {
+    grid-template-columns: minmax(180px, 0.78fr) 1.22fr;
+  }
+
+  .decision-card__image {
+    min-height: 310px;
+  }
+
+  .price-card {
+    padding: 20px;
+  }
+
+  .ai-landing-hero__grid {
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 40px;
+  }
+
+  .ai-result-ticket {
+    left: -5px;
+  }
+}
+
+@media (max-width: 1040px) {
+  .nav-upload {
+    display: none;
+  }
+
+  .sales-hero .hero__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sales-hero__visual {
+    width: min(820px, 100%);
+    margin-inline: auto;
+  }
+
+  .decision-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .decision-card {
+    grid-template-columns: minmax(260px, 0.7fr) 1.3fr;
+  }
+
+  .price-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .price-card--featured {
+    transform: none;
+  }
+
+  .price-card--featured:hover {
+    transform: translateY(-6px);
+  }
+
+  .pricing-heading {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .pricing-heading__note {
+    max-width: 600px;
+  }
+
+  .sales-fab {
+    display: none;
+  }
+
+  .ai-landing-hero__grid {
+    grid-template-columns: 1fr;
+    padding-top: 72px;
+  }
+
+  .ai-landing-hero__copy {
+    max-width: 860px;
+  }
+
+  .ai-landing-hero__visual {
+    width: min(780px, 100%);
+    margin-inline: auto;
+  }
+
+  .ai-how__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .sales-hero .hero__layout {
+    padding-top: 48px;
+  }
+
+  .sales-hero h1 {
+    font-size: clamp(55px, 16.2vw, 76px);
+  }
+
+  .sales-proof-pills {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .sales-hero__visual {
+    height: 555px;
+    margin-top: 10px;
+  }
+
+  .sales-hero__visual::before {
+    width: 390px;
+    height: 405px;
+    right: -38px;
+    bottom: 59px;
+  }
+
+  .sales-hero__visual .hero__visual-frame {
+    width: 100%;
+    height: 430px;
+    right: 0;
+    bottom: 60px;
+    border-radius: 135px 24px 24px 24px;
+  }
+
+  .sales-order-ticket {
+    width: min(290px, 86%);
+    left: 3px;
+    bottom: 2px;
+    padding: 17px;
+  }
+
+  .sales-rating-card {
+    width: 185px;
+    min-height: 130px;
+    top: 0;
+    right: 3px;
+    padding: 14px;
+  }
+
+  .sales-rating-card p {
+    margin-block: 12px 9px;
+  }
+
+  .decision-card {
+    grid-template-columns: 1fr;
+  }
+
+  .decision-card__image {
+    min-height: 280px;
+  }
+
+  .decision-card__body {
+    padding: 23px;
+  }
+
+  .price-grid {
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+
+  .price-card {
+    min-height: 315px;
+  }
+
+  .price-card--featured {
+    box-shadow: 6px 6px 0 var(--lime);
+  }
+
+  .pricing-heading h2 {
+    font-size: clamp(44px, 13vw, 62px);
+  }
+
+  .price-action,
+  .review-conversion {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .price-action > div:last-child,
+  .final-cta__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .price-action > div:last-child > a,
+  .review-conversion > a,
+  .final-cta__actions > a {
+    width: 100%;
+  }
+
+  .process-heading > a {
+    grid-column: 1;
+    width: 100%;
+  }
+
+  .process-note {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .process-note p {
+    min-width: calc(100% - 56px);
+  }
+
+  .process-note > a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .review-conversion > a {
+    justify-content: center;
+  }
+
+  .sales-proof-pills span { min-height: 44px; font-size: 11px; }
+  .sales-proof-pills span > b { font-size: 11px; }
+  .decision-card__body > small { font-size: 11px; }
+  .decision-card__body > p { font-size: 15px; }
+  .decision-card__body footer > b { font-size: 12px; }
+  .pricing-heading__note p { font-size: 15px; }
+  .price-card > p { font-size: 14px; }
+  .price-card > a { font-size: 12px; }
+  .price-action p span,
+  .process-note p span,
+  .review-conversion p span { font-size: 13px; line-height: 1.5; }
+  .process-note > a,
+  .review-conversion > a { min-height: 48px; font-size: 12px; }
+
+  .sales-home .mobile-cta a,
+  .ai-landing .mobile-cta a {
+    gap: 6px;
+  }
+
+  .sales-home .mobile-cta svg,
+  .ai-landing .mobile-cta svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .ai-landing__header nav a:not(:last-child) {
+    display: none;
+  }
+
+  .ai-landing-hero__grid {
+    min-height: auto;
+    gap: 28px;
+    padding-block: 52px 30px;
+  }
+
+  .ai-landing-hero h1 {
+    font-size: clamp(54px, 16vw, 74px);
+  }
+
+  .ai-landing-hero__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .ai-landing-hero__actions > a {
+    width: 100%;
+  }
+
+  .ai-landing-paths {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-landing-hero__visual {
+    height: 520px;
+  }
+
+  .ai-landing-hero__visual::before {
+    width: 390px;
+    height: 405px;
+    right: -45px;
+    bottom: 50px;
+  }
+
+  .ai-landing-hero__image {
+    width: 100%;
+    height: 420px;
+    bottom: 53px;
+    border-radius: 24px 135px 24px 24px;
+  }
+
+  .ai-result-ticket {
+    width: 185px;
+    left: 3px;
+    bottom: 0;
+    padding: 16px;
+  }
+
+  .ai-result-ticket > strong {
+    font-size: 38px;
+  }
+
+  .ai-prompt-chip {
+    width: 235px;
+    top: 2px;
+    right: 3px;
+  }
+
+  .ai-landing-proofbar {
+    grid-template-columns: repeat(2, 1fr);
+    padding-block: 10px;
+  }
+
+  .ai-landing-proofbar span {
+    min-height: 62px;
+    justify-content: flex-start;
+    border-bottom: 1px solid var(--line);
+    padding-inline: 10px;
+    font-size: 7px;
+  }
+
+  .ai-how__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-how__grid article {
+    min-height: 220px;
+  }
+
+  .ai-disclaimer > .shell {
+    grid-template-columns: 44px 1fr;
+    padding-block: 24px;
+  }
+
+  .ai-disclaimer > .shell > svg {
+    width: 44px;
+    height: 44px;
+  }
+
+  .ai-disclaimer a {
+    grid-column: span 2;
+    justify-content: center;
+  }
+}

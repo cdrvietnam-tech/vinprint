@@ -1,0 +1,7 @@
+[31merror when starting dev server:
+[Error: EPERM: operation not permitted, unlink 'D:\vinprint\node_modules\.vite\deps_rsc\react-dom.js'] {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'unlink',
+  path: 'D:\\vinprint\\node_modules\\.vite\\deps_rsc\\react-dom.js'
+}[39m
