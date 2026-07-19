@@ -3,9 +3,9 @@ import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } fr
 import handler from "vinext/server/app-router-entry";
 
 interface Env {
-  ASSETS: Fetcher;
+  ASSETS?: Fetcher;
   DB: D1Database;
-  IMAGES: {
+  IMAGES?: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {
         output(options: { format: string; quality: number }): Promise<{ response(): Response }>;
@@ -19,6 +19,33 @@ interface ExecutionContext {
   passThroughOnException(): void;
 }
 
+const PREVIEW_REMOTE_IMAGE_HOSTS = new Set([
+  "down-vn.img.susercontent.com",
+]);
+
+function resolvePreviewImageUrl(value: string | null, requestUrl: string) {
+  if (!value) return null;
+
+  try {
+    if (value.startsWith("/") && !value.startsWith("//")) {
+      const localUrl = new URL(value, requestUrl);
+      return localUrl.pathname.startsWith("/images/") ? localUrl : null;
+    }
+
+    const remoteUrl = new URL(value);
+    if (
+      remoteUrl.protocol === "https:" &&
+      PREVIEW_REMOTE_IMAGE_HOSTS.has(remoteUrl.hostname)
+    ) {
+      return remoteUrl;
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
+}
+
 // Image security config. SVG sources with .svg extension auto-skip the
 // optimization endpoint on the client side (served directly, no proxy).
 // To route SVGs through the optimizer (with security headers), set
@@ -30,9 +57,26 @@ const worker = {
     const url = new URL(request.url);
 
     if (url.pathname === "/_vinext/image") {
+      const fetchSourceAsset = (path: string) => {
+        const assetRequest = new Request(new URL(path, request.url));
+        return env.ASSETS?.fetch
+          ? env.ASSETS.fetch(assetRequest)
+          : fetch(assetRequest);
+      };
+
+      if (!env.IMAGES) {
+        const imageUrl = resolvePreviewImageUrl(url.searchParams.get("url"), request.url);
+        if (!imageUrl) {
+          return new Response("Invalid image URL", { status: 400 });
+        }
+        return imageUrl.origin === url.origin
+          ? fetchSourceAsset(`${imageUrl.pathname}${imageUrl.search}`)
+          : fetch(new Request(imageUrl));
+      }
+
       const allowedWidths = [...DEFAULT_DEVICE_SIZES, ...DEFAULT_IMAGE_SIZES];
       return handleImageOptimization(request, {
-        fetchAsset: (path) => env.ASSETS.fetch(new Request(new URL(path, request.url))),
+        fetchAsset: fetchSourceAsset,
         transformImage: async (body, { width, format, quality }) => {
           const result = await env.IMAGES.input(body).transform(width > 0 ? { width } : {}).output({ format, quality });
           return result.response();

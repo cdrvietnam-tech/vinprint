@@ -172,3 +172,51 @@ test("conversion endpoint accepts known events and rejects unknown events", asyn
   }), env, ctx);
   assert.equal(rejected.status, 400);
 });
+
+test("image endpoint falls back to the raw asset when preview bindings are unavailable", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-preview-image`);
+  const { default: worker } = await import(workerUrl.href);
+  const originalFetch = globalThis.fetch;
+  const fetchedPaths = [];
+
+  globalThis.fetch = async (input) => {
+    const request = input instanceof Request ? input : new Request(input);
+    fetchedPaths.push(new URL(request.url).pathname);
+    return new Response(new Uint8Array([0x52, 0x49, 0x46, 0x46]), {
+      status: 200,
+      headers: { "Content-Type": "image/webp" },
+    });
+  };
+
+  try {
+    const response = await worker.fetch(
+      new Request("http://localhost/_vinext/image?url=%2Fimages%2Fhero-collage.webp&w=640&q=82"),
+      {},
+      { waitUntil() {}, passThroughOnException() {} },
+    );
+
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get("content-type"), "image/webp");
+
+    const remoteResponse = await worker.fetch(
+      new Request("http://localhost/_vinext/image?url=https%3A%2F%2Fdown-vn.img.susercontent.com%2Ffile%2Fsample&w=640&q=82"),
+      {},
+      { waitUntil() {}, passThroughOnException() {} },
+    );
+    assert.equal(remoteResponse.status, 200);
+
+    const blockedResponse = await worker.fetch(
+      new Request("http://localhost/_vinext/image?url=https%3A%2F%2Fexample.com%2Ftracking.gif&w=640&q=82"),
+      {},
+      { waitUntil() {}, passThroughOnException() {} },
+    );
+    assert.equal(blockedResponse.status, 400);
+    assert.deepEqual(fetchedPaths, [
+      "/images/hero-collage.webp",
+      "/file/sample",
+    ]);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
