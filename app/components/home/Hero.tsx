@@ -5,13 +5,7 @@ import { CheckCircle2, ArrowRight, Star } from "lucide-react";
 import Image from "next/image";
 import { ZaloIcon } from "../icons";
 import { trackEvent } from "../../lib/analytics";
-
-const customerAvatars = [
-  "/images/avatars/review-hong.webp",
-  "/images/avatars/review-tuan.webp",
-  "/images/avatars/review-yen.webp",
-  "/images/avatars/hero-customer-4.webp",
-] as const;
+import { CUSTOMER_AVATARS } from "./customer-avatars";
 
 export default function Hero() {
   return (
@@ -91,7 +85,7 @@ export default function Hero() {
               className="mt-10 flex items-center justify-center lg:justify-start gap-4"
             >
               <div className="flex -space-x-2" aria-label="Avatar khách hàng minh họa">
-                {customerAvatars.map((avatar) => (
+                {CUSTOMER_AVATARS.map((avatar) => (
                   <div key={avatar} className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white bg-orange-50 shadow-sm">
                     <Image src={avatar} alt="" fill loading="lazy" sizes="40px" className="object-cover" />
                   </div>

@@ -5,6 +5,7 @@ import { ArrowRight, Plus } from "lucide-react";
 import Image from "next/image";
 import { ZaloIcon } from "../icons";
 import { trackEvent } from "../../lib/analytics";
+import { CUSTOMER_AVATARS } from "./customer-avatars";
 
 export default function FAQAndMockup() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -160,9 +161,11 @@ export default function FAQAndMockup() {
             </div>
             
             <div className="flex items-center gap-4 mt-2">
-              <div className="flex -space-x-3">
-                {[1,2,3,4].map(i => (
-                  <span key={i} className="flex h-10 w-10 items-center justify-center rounded-full border-[3px] border-[#D80045] bg-white text-xs font-black text-[#D80045] shadow-md" aria-hidden="true">{i + 1}</span>
+              <div className="flex -space-x-3" aria-label="Avatar khách hàng minh họa">
+                {CUSTOMER_AVATARS.map((avatar) => (
+                  <span key={avatar} className="relative h-10 w-10 overflow-hidden rounded-full border-[3px] border-[#D80045] bg-white shadow-md">
+                    <Image src={avatar} alt="" fill loading="lazy" sizes="40px" className="object-cover" />
+                  </span>
                 ))}
               </div>
               <div className="text-[13px] font-black text-white/90">Hơn 90.000 khách hàng đã tin tưởng VinPrint</div>

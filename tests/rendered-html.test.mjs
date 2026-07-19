@@ -103,6 +103,20 @@ test("homepage renders local review avatars and the Zalo QR image", async () => 
   assert.match(html, /alt="Mã QR Zalo VinPrint"/);
 });
 
+test("final quote CTA renders customer avatars instead of numeric placeholders", async () => {
+  const response = await render();
+  const html = await response.text();
+  const ctaStart = html.indexOf("Bạn đã có file thiết kế?");
+  const finalCta = html.slice(ctaStart, ctaStart + 8000);
+
+  assert.notEqual(ctaStart, -1);
+  assert.match(finalCta, /review-hong\.webp/);
+  assert.match(finalCta, /review-tuan\.webp/);
+  assert.match(finalCta, /review-yen\.webp/);
+  assert.match(finalCta, /hero-customer-4\.webp/);
+  assert.doesNotMatch(finalCta, />[2-5]<\/span>/);
+});
+
 test("homepage keeps the workshop map collapsed and the footer customer-facing", async () => {
   const response = await render();
   const html = await response.text();
