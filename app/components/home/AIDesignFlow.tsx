@@ -1,9 +1,50 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { ACTIVE_AI_DESIGN_SHOWCASE } from "./ai-design-showcases";
+import { AI_DESIGN_SHOWCASES } from "./ai-design-showcases";
+
+type ShowcaseStage = (typeof AI_DESIGN_SHOWCASES)[number]["old" | "ai" | "final"];
+
+function ShowcaseStageImage({
+  showcaseId,
+  stageName,
+  stage,
+  animation = "scale",
+  imageClassName,
+}: {
+  showcaseId: string;
+  stageName: "old" | "ai" | "final";
+  stage: ShowcaseStage;
+  animation?: "scale" | "slide";
+  imageClassName: string;
+}) {
+  const slidesHorizontally = animation === "slide";
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={`${showcaseId}-${stageName}`}
+        initial={slidesHorizontally ? { opacity: 0, x: 20 } : { opacity: 0, scale: 0.9 }}
+        animate={slidesHorizontally ? { opacity: 1, x: 0 } : { opacity: 1, scale: 1 }}
+        exit={slidesHorizontally ? { opacity: 0, x: -20 } : { opacity: 0, scale: 1.05 }}
+        transition={{ duration: 0.4 }}
+        className="absolute inset-0 flex items-center justify-center scale-90 sm:scale-100"
+      >
+        <Image
+          src={stage.src}
+          width={stage.width}
+          height={stage.height}
+          alt={stage.alt}
+          sizes="(max-width: 768px) 30vw, 20vw"
+          className={`h-full w-full object-contain ${imageClassName}`}
+        />
+      </motion.div>
+    </AnimatePresence>
+  );
+}
 
 export default function AIDesignFlow() {
   const leftFeatures = [
@@ -13,14 +54,11 @@ export default function AIDesignFlow() {
     "Tăng giá trị sản phẩm"
   ];
 
-  const kimHieuShowcase = {
-    old: <Image src={ACTIVE_AI_DESIGN_SHOWCASE.old.src} width={ACTIVE_AI_DESIGN_SHOWCASE.old.width} height={ACTIVE_AI_DESIGN_SHOWCASE.old.height} alt={ACTIVE_AI_DESIGN_SHOWCASE.old.alt} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-md" />,
-    ai: <Image src={ACTIVE_AI_DESIGN_SHOWCASE.ai.src} width={ACTIVE_AI_DESIGN_SHOWCASE.ai.width} height={ACTIVE_AI_DESIGN_SHOWCASE.ai.height} alt={ACTIVE_AI_DESIGN_SHOWCASE.ai.alt} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-lg" />,
-    final: <Image src={ACTIVE_AI_DESIGN_SHOWCASE.final.src} width={ACTIVE_AI_DESIGN_SHOWCASE.final.width} height={ACTIVE_AI_DESIGN_SHOWCASE.final.height} alt={ACTIVE_AI_DESIGN_SHOWCASE.final.alt} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full rounded-2xl object-contain drop-shadow-xl" />
-  };
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const currentShowcase = AI_DESIGN_SHOWCASES[currentIndex];
 
   return (
-    <section id="ai-thiet-ke" className="py-12 bg-white">
+    <section id="ai-thiet-ke" data-ai-design-showcases={AI_DESIGN_SHOWCASES.length} className="py-12 bg-white">
       <div className="max-w-[1440px] mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
           
@@ -48,7 +86,8 @@ export default function AIDesignFlow() {
           </div>
 
           {/* Right Flow & Checklist */}
-          <div className="lg:flex-1 w-full flex flex-row items-stretch justify-between gap-2 md:gap-4">
+          <div className="lg:flex-1 w-full flex flex-col gap-4">
+            <div className="w-full flex flex-row items-stretch justify-between gap-2 md:gap-4">
             
             {/* Step 1 */}
             <div className="flex-1 bg-gray-50 rounded-2xl p-2 sm:p-4 xl:p-6 border border-gray-100 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[220px] md:min-h-[320px] xl:min-h-[420px]">
@@ -57,15 +96,7 @@ export default function AIDesignFlow() {
                 <span className="hidden xl:inline">Tem cũ (Khách gửi)</span>
               </div>
               <div className="flex-1 w-full relative min-h-[80px] sm:min-h-[120px] md:min-h-[180px] xl:min-h-0">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 flex items-center justify-center scale-90 sm:scale-100"
-                >
-                  {kimHieuShowcase.old}
-                </motion.div>
+                <ShowcaseStageImage showcaseId={currentShowcase.id} stageName="old" stage={currentShowcase.old} imageClassName="drop-shadow-md" />
               </div>
             </div>
 
@@ -79,15 +110,7 @@ export default function AIDesignFlow() {
                 <span className="hidden xl:inline">AI + Designer</span>
               </div>
               <div className="flex-1 w-full relative z-10 flex items-center justify-center min-h-[80px] sm:min-h-[120px] md:min-h-[180px] xl:min-h-0">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 flex items-center justify-center scale-90 sm:scale-100"
-                >
-                  {kimHieuShowcase.ai}
-                </motion.div>
+                <ShowcaseStageImage showcaseId={currentShowcase.id} stageName="ai" stage={currentShowcase.ai} imageClassName="drop-shadow-lg" />
                 {/* Ping nodes */}
                 <div className="absolute top-1 right-1 w-2 h-2 sm:w-3 sm:h-3 bg-orange-400 rounded-full animate-ping" />
                 <div className="absolute bottom-2 left-1 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-pink-400 rounded-full animate-ping" style={{ animationDelay: '0.8s' }} />
@@ -102,20 +125,30 @@ export default function AIDesignFlow() {
                 Thành phẩm
               </div>
               <div className="flex-1 w-full relative z-10 flex items-center justify-center min-h-[80px] sm:min-h-[120px] md:min-h-[180px] xl:min-h-0">
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 flex items-center justify-center scale-90 sm:scale-100"
-                >
-                  {kimHieuShowcase.final}
-                </motion.div>
+                <ShowcaseStageImage showcaseId={currentShowcase.id} stageName="final" stage={currentShowcase.final} animation="slide" imageClassName="rounded-2xl drop-shadow-xl" />
               </div>
             </div>
+            </div>
 
-
-
+            <div className="flex items-center justify-center gap-2" aria-label="Chọn combo AI Design">
+              {AI_DESIGN_SHOWCASES.map((showcase, index) => (
+                <button
+                  key={showcase.id}
+                  type="button"
+                  onClick={() => setCurrentIndex(index)}
+                  aria-label={`Xem combo ${showcase.name}`}
+                  aria-pressed={currentIndex === index}
+                  className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-full px-3 text-xs font-bold transition-colors ${
+                    currentIndex === index
+                      ? "bg-orange-600 text-white shadow-sm"
+                      : "border border-gray-200 bg-white text-gray-700 hover:bg-orange-50"
+                  }`}
+                >
+                  <span className="sm:hidden">{index + 1}</span>
+                  <span className="hidden sm:inline">{showcase.name}</span>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>

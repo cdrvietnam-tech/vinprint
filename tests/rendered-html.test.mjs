@@ -103,7 +103,7 @@ test("homepage renders local review avatars and the Zalo QR image", async () => 
   assert.match(html, /alt="Mã QR Zalo VinPrint"/);
 });
 
-test("AI Design flow shows the Kim Hieu label transformation", async () => {
+test("AI Design flow exposes all approved label transformations", async () => {
   const response = await render();
   const html = await response.text();
   const section = html.match(/<section[^>]*id="ai-thiet-ke"[\s\S]*?<\/section>/i)?.[0] ?? "";
@@ -117,6 +117,9 @@ test("AI Design flow shows the Kim Hieu label transformation", async () => {
   assert.match(section, /Tem cũ Kim Hiếu/);
   assert.match(section, /Thiết kế AI Kim Hiếu/);
   assert.match(section, /Thành phẩm tem trà sữa Kim Hiếu/);
+  assert.match(section, /data-ai-design-showcases="2"/);
+  assert.match(section, /aria-label="Xem combo Kim Hiếu"/);
+  assert.match(section, /aria-label="Xem combo Mina Honey"/);
   assert.notEqual(mockupStart, -1);
   assert.match(mockupPanel, /milk-tea-old\.webp/);
   assert.match(mockupPanel, /milk-tea-final\.webp/);
