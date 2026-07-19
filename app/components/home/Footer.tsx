@@ -1,6 +1,5 @@
 import Link from "next/link";
 import ConversionLink from "../ConversionLink";
-import { GOOGLE_BUSINESS_PROFILE_URL } from "../../lib/business-info";
 
 const serviceLinks = [
   ["Tem UV DTF", "/san-pham/tem-uv-dtf"],
@@ -24,10 +23,6 @@ export default function Footer() {
         <div>
           <h3 className="mb-3 text-lg font-black uppercase tracking-wider text-gray-950">VinPrint</h3>
           <p className="max-w-xs leading-7 text-gray-700">In tem nhãn theo yêu cầu tại TP.HCM. Hỗ trợ thiết kế, nhận số lượng ít và giao hàng toàn quốc.</p>
-          <div className="mt-5 flex flex-wrap gap-3">
-            <a href="https://shopee.vn/chaucay_senda" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center font-bold text-orange-700 underline">Shopee</a>
-            <a href={GOOGLE_BUSINESS_PROFILE_URL} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center font-bold text-blue-800 underline">Google Maps</a>
-          </div>
         </div>
         <div>
           <h3 className="mb-3 font-black uppercase tracking-wider text-gray-950">Sản phẩm</h3>
@@ -42,13 +37,16 @@ export default function Footer() {
           <ul className="space-y-3 leading-6 text-gray-700">
             <li><ConversionLink href="tel:0844998499" eventName="click_phone" eventPosition="footer" className="inline-flex min-h-11 items-center font-bold underline">0844 998 499</ConversionLink></li>
             <li>254/5/40 Lê Văn Thọ, Phường Thông Tây Hội, TP.HCM</li>
-            <li>09:00–17:30 · Thứ 2–Thứ 7</li>
+            <li>09:00–17:30 · Thứ 2–Thứ 7<br />Nghỉ Chủ nhật và ngày lễ</li>
           </ul>
         </div>
       </div>
-      <div className="mx-auto flex max-w-[1440px] flex-col gap-3 border-t border-gray-200 px-4 py-8 text-sm font-medium text-gray-700 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-4 border-t border-gray-200 px-4 py-8 pb-28 text-center text-sm font-medium text-gray-700 sm:flex-row sm:justify-between sm:pb-8 sm:text-left">
         <span>© 2026 VinPrint. In ấn siêu tốc.</span>
-        <div className="flex gap-5"><Link href="/chinh-sach">Chính sách</Link><Link href="/bao-hanh">Bảo hành</Link><Link href="/llms.txt">llms.txt</Link></div>
+        <nav aria-label="Liên kết pháp lý" className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          <Link className="inline-flex min-h-11 items-center hover:text-[#D83B00]" href="/chinh-sach">Chính sách</Link>
+          <Link className="inline-flex min-h-11 items-center hover:text-[#D83B00]" href="/bao-hanh">Bảo hành</Link>
+        </nav>
       </div>
     </footer>
   );

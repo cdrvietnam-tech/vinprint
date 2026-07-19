@@ -8,7 +8,7 @@ const localBusinessSchema = {
   "@id": "https://vinprint.vn/#localbusiness",
   url: "https://vinprint.vn",
   telephone: "+84844998499",
-  image: "https://vinprint.vn/images/hero-collage.webp",
+  image: "https://vinprint.vn/images/hero-products.webp",
   priceRange: "₫₫",
   hasMap: GOOGLE_BUSINESS_PROFILE_URL,
   geo: {

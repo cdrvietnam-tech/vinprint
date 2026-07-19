@@ -63,7 +63,6 @@ test("homepage includes JSON-LD structured data", async () => {
   assert.match(html, /"@type":"FAQPage"/);
   assert.match(html, /"hasMap":"https:\/\/maps\.app\.goo\.gl\/gqrqcsTp6CHHGi73A"/);
   assert.match(html, /"sameAs":\[[^\]]*https:\/\/maps\.app\.goo\.gl\/gqrqcsTp6CHHGi73A/);
-  assert.match(html, /href="https:\/\/maps\.app\.goo\.gl\/gqrqcsTp6CHHGi73A"/);
   assert.match(html, /"areaServed"/);
 });
 
@@ -81,10 +80,26 @@ test("homepage exposes an accessible mobile menu and optimized hero image", asyn
   const html = await response.text();
 
   assert.match(html, /aria-controls="mobile-navigation"/);
-  assert.match(html, /\/images\/hero-collage\.webp/);
+  assert.match(html, /\/images\/hero-products\.webp/);
   assert.match(html, /_vinext\/image/);
-  assert.doesNotMatch(html, /\/images\/hero-collage\.png/);
+  assert.doesNotMatch(html, /\/images\/hero-collage\.(?:png|webp)/);
   assert.doesNotMatch(html, /complete_ai_mockup/);
+});
+
+test("homepage keeps the workshop map collapsed and the footer customer-facing", async () => {
+  const response = await render();
+  const html = await response.text();
+  const footer = html.match(/<footer[\s\S]*?<\/footer>/i)?.[0] ?? "";
+
+  assert.equal(response.status, 200);
+  assert.doesNotMatch(html, /Ghé thăm VinPrint/i);
+  assert.doesNotMatch(html, /Bản đồ chỉ được tải/i);
+  assert.match(html, /aria-expanded="false"/);
+  assert.match(html, /Chủ nhật và ngày lễ/i);
+  assert.doesNotMatch(footer, />Shopee</i);
+  assert.doesNotMatch(footer, />Google Maps</i);
+  assert.doesNotMatch(footer, />llms\.txt</i);
+  assert.match(footer, /aria-label="Liên kết pháp lý"/i);
 });
 
 test("renders product detail pages with source and order process", async () => {
@@ -191,7 +206,7 @@ test("image endpoint falls back to the raw asset when preview bindings are unava
 
   try {
     const response = await worker.fetch(
-      new Request("http://localhost/_vinext/image?url=%2Fimages%2Fhero-collage.webp&w=640&q=82"),
+      new Request("http://localhost/_vinext/image?url=%2Fimages%2Fhero-products.webp&w=640&q=82"),
       {},
       { waitUntil() {}, passThroughOnException() {} },
     );
@@ -213,7 +228,7 @@ test("image endpoint falls back to the raw asset when preview bindings are unava
     );
     assert.equal(blockedResponse.status, 400);
     assert.deepEqual(fetchedPaths, [
-      "/images/hero-collage.webp",
+      "/images/hero-products.webp",
       "/file/sample",
     ]);
   } finally {

@@ -40,9 +40,9 @@ export const metadata: Metadata = {
       "Xem các loại tem, giá tham khảo, ảnh thật và gửi file đặt in tại TP.HCM.",
     images: [
       {
-        url: "/images/hero-collage.webp",
-        width: 1448,
-        height: 1086,
+        url: "/images/hero-products.webp",
+        width: 1024,
+        height: 682,
         alt: "Bộ sưu tập tem nhãn VinPrint",
       },
     ],
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "VinPrint — In tem nhãn theo yêu cầu tại TP.HCM",
     description: "Tem giấy, tem nhựa, UV DTF và tem ánh kim. Gửi file để chốt đơn qua Zalo.",
-    images: ["/images/hero-collage.webp"],
+    images: ["/images/hero-products.webp"],
   },
   robots: {
     index: true,

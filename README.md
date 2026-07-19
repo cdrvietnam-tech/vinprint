@@ -18,7 +18,7 @@ The current release intentionally has no public AI design studio and no website 
 ## Business information
 
 - Address: 254/5/40 Lê Văn Thọ, Phường Thông Tây Hội, TP.HCM
-- Working hours: 09:00–17:30, Monday–Saturday; closed Sunday
+- Working hours: 09:00–17:30, Monday–Saturday; closed Sunday and public holidays
 - Canonical domain: `https://vinprint.vn`
 
 ## Run locally

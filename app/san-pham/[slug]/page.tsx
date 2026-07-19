@@ -159,7 +159,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       </section>
 
       <footer className="product-page__footer">
-        <div className="shell"><span>VINPRINT · 254/5/40 Lê Văn Thọ, Phường Thông Tây Hội, TP.HCM</span><span>09:00–17:30 · Thứ 2–Thứ 7 · Chủ nhật nghỉ</span></div>
+        <div className="shell"><span>VINPRINT · 254/5/40 Lê Văn Thọ, Phường Thông Tây Hội, TP.HCM</span><span>09:00–17:30 · Thứ 2–Thứ 7 · Nghỉ Chủ nhật và ngày lễ</span></div>
       </footer>
     </main>
   );

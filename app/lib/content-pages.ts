@@ -23,7 +23,7 @@ export const companyPages: Record<string, ContentPageData> = {
     sections: [
       { heading: "Chúng tôi giải quyết điều gì?", paragraphs: ["Một chiếc tem cần đúng màu, đúng kích thước và phù hợp bề mặt sử dụng. VinPrint tư vấn từ chất liệu đến cách gia công để khách hàng không phải chọn bằng cảm tính."], bullets: ["Nhận số lượng ít để thử mẫu", "Hỗ trợ thiết kế khi chưa có file hoàn chỉnh", "Báo giá theo kích thước, số lượng và kỹ thuật gia công", "Giao hàng toàn quốc"] },
       { heading: "Quy trình minh bạch", paragraphs: ["Mỗi đơn hàng được xác nhận lại nội dung, kích thước, chất liệu, số lượng và thời gian dự kiến. Khách hàng duyệt mẫu trước khi xưởng tiến hành in."], bullets: ["Gửi yêu cầu và file", "Nhận tư vấn, báo giá", "Duyệt nội dung và mẫu", "In, kiểm tra, đóng gói", "Nhận hàng và phản hồi"] },
-      { heading: "Thông tin xưởng", paragraphs: ["Địa chỉ: 254/5/40 Lê Văn Thọ, Phường Thông Tây Hội, TP.HCM. Giờ làm việc: 09:00–17:30 từ Thứ 2 đến Thứ 7. Hotline/Zalo: 0844 998 499."] },
+      { heading: "Thông tin xưởng", paragraphs: ["Địa chỉ: 254/5/40 Lê Văn Thọ, Phường Thông Tây Hội, TP.HCM. Giờ làm việc: 09:00–17:30 từ Thứ 2 đến Thứ 7; nghỉ Chủ nhật và ngày lễ. Hotline/Zalo: 0844 998 499."] },
     ],
   },
   "lien-he": {

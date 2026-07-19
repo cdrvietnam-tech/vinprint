@@ -164,7 +164,7 @@ export default function Hero() {
                     </motion.div>
 
                     <Image
-                      src="/images/hero-collage.webp"
+                      src="/images/hero-products.webp"
                       alt="Bộ sưu tập tem nhãn VinPrint"
                       fill
                       priority
