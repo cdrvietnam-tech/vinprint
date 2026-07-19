@@ -70,12 +70,12 @@ function CustomAutoSlider({ item }: { item: SliderItem }) {
 
 export default function BeforeAfter() {
   const cases = [
-    { name: "Chai mỹ phẩm", before: "/images/mockups/cosmetic_bottle.webp", after: "/images/mockups/cosmetic_bottle.webp" },
-    { name: "Túi zip đựng sản phẩm", before: "/images/mockups/zip_pouch.webp", after: "/images/mockups/zip_pouch.webp" },
-    { name: "Hũ thủy tinh", before: "/images/mockups/glass_jar.webp", after: "/images/mockups/glass_jar.webp" },
-    { name: "Hộp kraft", before: "/images/mockups/kraft_box.webp", after: "/images/mockups/kraft_box.webp" },
-    { name: "Ly nhựa", before: "/images/mockups/plastic_cup.webp", after: "/images/mockups/plastic_cup.webp" },
-    { name: "Hộp giấy", before: "/images/mockups/paper_box.webp", after: "/images/mockups/paper_box.webp" },
+    { name: "Chai mỹ phẩm", before: "/images/mockups/cosmetic_bottle-before.webp", after: "/images/mockups/cosmetic_bottle.webp" },
+    { name: "Túi zip đựng sản phẩm", before: "/images/mockups/zip_pouch-before.webp", after: "/images/mockups/zip_pouch.webp" },
+    { name: "Hũ thủy tinh", before: "/images/mockups/glass_jar-before.webp", after: "/images/mockups/glass_jar.webp" },
+    { name: "Hộp kraft", before: "/images/mockups/kraft_box-before.webp", after: "/images/mockups/kraft_box.webp" },
+    { name: "Ly nhựa", before: "/images/mockups/plastic_cup-before.webp", after: "/images/mockups/plastic_cup.webp" },
+    { name: "Hộp giấy", before: "/images/mockups/paper_box-before.webp", after: "/images/mockups/paper_box.webp" },
   ];
 
   return (
