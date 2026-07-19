@@ -18,3 +18,9 @@ test("before/after showcase uses six distinct image pairs", () => {
     assert.ok(existsSync(path.join(projectRoot, "public", after)), `Missing ${after}`);
   }
 });
+
+test("the before layer is fully opaque so the after label cannot bleed through", () => {
+  const source = readFileSync(componentPath, "utf8");
+
+  assert.doesNotMatch(source, /filter:\s*"[^"]*opacity\(/);
+});
