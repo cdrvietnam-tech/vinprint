@@ -56,11 +56,11 @@ export default function Reviews() {
               </div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100">
-                  <Image src={rev.avatar} alt={`Ảnh đại diện của ${rev.name}`} fill loading="lazy" sizes="40px" className="object-cover" />
+                  <Image src={rev.avatar} alt="" fill loading="lazy" sizes="40px" className="object-cover" />
                 </div>
                 <div>
                   <div className="text-sm font-bold text-gray-900">{rev.name}</div>
-                  <div className="text-[12px] uppercase font-bold text-gray-600">{rev.platform} Review</div>
+                  <div className="text-[12px] uppercase font-bold text-gray-600">{rev.platform} Review · Avatar minh họa</div>
                 </div>
               </div>
               <p className="text-sm text-gray-600 font-medium leading-relaxed flex-1">

@@ -86,7 +86,7 @@ test("homepage exposes an accessible mobile menu and optimized hero image", asyn
   assert.doesNotMatch(html, /complete_ai_mockup/);
 });
 
-test("homepage renders local review avatars and a scannable Zalo QR", async () => {
+test("homepage renders local review avatars and the Zalo QR image", async () => {
   const response = await render();
   const html = await response.text();
 
