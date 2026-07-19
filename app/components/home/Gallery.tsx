@@ -11,14 +11,12 @@ export default function Gallery() {
     "/images/mockups/zip_pouch.webp",
     "/images/mockups/glass_jar.webp",
     "/images/mockups/kraft_box.webp",
-    "/images/ai-design/honey_final.webp",
     "/images/mockups/plastic_cup.webp",
     "/images/mockups/paper_box.webp",
-    "/images/ai-design/coffee_old.webp",
     "/images/holographic_sticker.webp",
-    "/images/ai-design/coffee_ai.webp",
-    "/images/ai-design/honey_ai.webp",
-    "/images/mockups/cosmetic_bottle.webp"
+    "/images/products/tem-uv-dtf.webp",
+    "/images/products/tem-giay.webp",
+    "/images/products/tem-ep-kim.webp"
   ];
 
   return (

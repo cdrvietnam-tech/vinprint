@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { ACTIVE_AI_DESIGN_SHOWCASE } from "./ai-design-showcases";
 
 export default function AIDesignFlow() {
   const leftFeatures = [
@@ -13,9 +14,9 @@ export default function AIDesignFlow() {
   ];
 
   const kimHieuShowcase = {
-    old: <Image src="/images/ai-design/milk-tea-old.webp" width={588} height={588} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-md" alt="Tem cũ Kim Hiếu" />,
-    ai: <Image src="/images/ai-design/milk-tea-ai.webp" width={562} height={570} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-lg" alt="Thiết kế AI Kim Hiếu" />,
-    final: <Image src="/images/ai-design/milk-tea-final.webp" width={1024} height={1365} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full rounded-2xl object-contain drop-shadow-xl" alt="Thành phẩm tem trà sữa Kim Hiếu" />
+    old: <Image src={ACTIVE_AI_DESIGN_SHOWCASE.old.src} width={ACTIVE_AI_DESIGN_SHOWCASE.old.width} height={ACTIVE_AI_DESIGN_SHOWCASE.old.height} alt={ACTIVE_AI_DESIGN_SHOWCASE.old.alt} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-md" />,
+    ai: <Image src={ACTIVE_AI_DESIGN_SHOWCASE.ai.src} width={ACTIVE_AI_DESIGN_SHOWCASE.ai.width} height={ACTIVE_AI_DESIGN_SHOWCASE.ai.height} alt={ACTIVE_AI_DESIGN_SHOWCASE.ai.alt} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-lg" />,
+    final: <Image src={ACTIVE_AI_DESIGN_SHOWCASE.final.src} width={ACTIVE_AI_DESIGN_SHOWCASE.final.width} height={ACTIVE_AI_DESIGN_SHOWCASE.final.height} alt={ACTIVE_AI_DESIGN_SHOWCASE.final.alt} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full rounded-2xl object-contain drop-shadow-xl" />
   };
 
   return (

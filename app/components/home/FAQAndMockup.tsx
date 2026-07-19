@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ZaloIcon } from "../icons";
 import { trackEvent } from "../../lib/analytics";
 import { CUSTOMER_AVATARS } from "./customer-avatars";
+import { ACTIVE_AI_DESIGN_SHOWCASE } from "./ai-design-showcases";
 
 export default function FAQAndMockup() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -103,8 +104,8 @@ export default function FAQAndMockup() {
                 
                 <div className="flex items-start justify-between w-full relative z-10">
                   {[
-                    { step: 1, title: "Tải mẫu tem của bạn", sub: "Định dạng ảnh/pdf", img: "/images/ai-design/honey_old.webp" },
-                    { step: 2, title: "Chọn sản phẩm muốn dán xem", sub: "AI dán tự động", img: "/images/ai-design/honey_final.webp" },
+                    { step: 1, title: "Tải mẫu tem của bạn", sub: "Định dạng ảnh/pdf", img: ACTIVE_AI_DESIGN_SHOWCASE.old.src },
+                    { step: 2, title: "Chọn sản phẩm muốn dán xem", sub: "AI dán tự động", img: ACTIVE_AI_DESIGN_SHOWCASE.final.src },
                     { step: 3, title: "Gửi cho xưởng in", sub: "Báo giá nhanh chóng", img: "/images/mockups/kraft_box.webp" }
                   ].map((s, i) => (
                     <div key={s.step} className="relative flex flex-col items-center gap-5 w-1/3 px-2">

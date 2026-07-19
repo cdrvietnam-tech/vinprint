@@ -107,6 +107,8 @@ test("AI Design flow shows the Kim Hieu label transformation", async () => {
   const response = await render();
   const html = await response.text();
   const section = html.match(/<section[^>]*id="ai-thiet-ke"[\s\S]*?<\/section>/i)?.[0] ?? "";
+  const mockupStart = html.indexOf("Xem thử tem trên sản phẩm");
+  const mockupPanel = html.slice(mockupStart, mockupStart + 12000);
 
   assert.equal(response.status, 200);
   assert.match(section, /milk-tea-old\.webp/);
@@ -115,7 +117,10 @@ test("AI Design flow shows the Kim Hieu label transformation", async () => {
   assert.match(section, /Tem cũ Kim Hiếu/);
   assert.match(section, /Thiết kế AI Kim Hiếu/);
   assert.match(section, /Thành phẩm tem trà sữa Kim Hiếu/);
-  assert.doesNotMatch(section, /honey_(?:old|ai|final)\.webp/);
+  assert.notEqual(mockupStart, -1);
+  assert.match(mockupPanel, /milk-tea-old\.webp/);
+  assert.match(mockupPanel, /milk-tea-final\.webp/);
+  assert.doesNotMatch(html, /(?:honey|coffee)_(?:old|ai|final)\.webp/);
 });
 
 test("final quote CTA renders customer avatars instead of numeric placeholders", async () => {
