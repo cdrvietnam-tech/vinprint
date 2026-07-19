@@ -103,6 +103,21 @@ test("homepage renders local review avatars and the Zalo QR image", async () => 
   assert.match(html, /alt="Mã QR Zalo VinPrint"/);
 });
 
+test("AI Design flow shows the Kim Hieu label transformation", async () => {
+  const response = await render();
+  const html = await response.text();
+  const section = html.match(/<section[^>]*id="ai-thiet-ke"[\s\S]*?<\/section>/i)?.[0] ?? "";
+
+  assert.equal(response.status, 200);
+  assert.match(section, /milk-tea-old\.webp/);
+  assert.match(section, /milk-tea-ai\.webp/);
+  assert.match(section, /milk-tea-final\.webp/);
+  assert.match(section, /Tem cũ Kim Hiếu/);
+  assert.match(section, /Thiết kế AI Kim Hiếu/);
+  assert.match(section, /Thành phẩm tem trà sữa Kim Hiếu/);
+  assert.doesNotMatch(section, /honey_(?:old|ai|final)\.webp/);
+});
+
 test("final quote CTA renders customer avatars instead of numeric placeholders", async () => {
   const response = await render();
   const html = await response.text();

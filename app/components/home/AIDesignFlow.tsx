@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
@@ -13,46 +12,11 @@ export default function AIDesignFlow() {
     "Tăng giá trị sản phẩm"
   ];
 
-  const combos = [
-    {
-      old: <Image src="/images/ai-design/honey_old.webp" width={768} height={768} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-md" alt="Tem cũ mật ong" />,
-      ai: <Image src="/images/ai-design/honey_ai.webp" width={768} height={768} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-lg" alt="Thiết kế AI mật ong" />,
-      final: <Image src="/images/ai-design/honey_final.webp" width={768} height={768} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-xl" alt="Thành phẩm mật ong" />
-    },
-    {
-      old: <Image src="/images/ai-design/coffee_old.webp" width={768} height={768} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-md" alt="Tem cũ cà phê" />,
-      ai: <Image src="/images/ai-design/coffee_ai.webp" width={768} height={768} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-lg" alt="Thiết kế AI cà phê" />,
-      final: <Image src="/images/mockups/plastic_cup.webp" width={768} height={768} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-xl rounded-2xl" alt="Thành phẩm cà phê" />
-    },
-    {
-      old: (
-        <div className="w-48 h-48 bg-gray-100 flex flex-col items-center justify-center p-4 border border-gray-300 rounded-2xl opacity-70 grayscale" aria-label="Tem cũ mỹ phẩm">
-          <div className="font-sans text-xl font-bold text-gray-500 leading-tight">serum</div>
-          <div className="text-xs text-gray-700 font-medium uppercase mt-1 tracking-wide">mỹ phẩm</div>
-          <div className="mt-3 h-px w-16 bg-gray-300" />
-          <div className="text-xs text-gray-700 mt-2">100 ml</div>
-        </div>
-      ),
-      ai: (
-        <div className="w-48 h-48 bg-white flex flex-col items-center justify-center p-4 border-2 border-orange-200 rounded-full shadow-lg">
-          <div className="font-serif text-2xl font-bold text-orange-800 leading-tight">LUXURY</div>
-          <div className="text-xs text-orange-800 font-bold uppercase mt-1 tracking-wider">SERUM</div>
-        </div>
-      ),
-      final: <Image src="/images/mockups/cosmetic_bottle.webp" width={768} height={768} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-xl" alt="Thành phẩm mỹ phẩm" />
-    }
-  ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % combos.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [combos.length]);
-
-  const currentCombo = combos[currentIndex];
+  const kimHieuShowcase = {
+    old: <Image src="/images/ai-design/milk-tea-old.webp" width={588} height={588} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-md" alt="Tem cũ Kim Hiếu" />,
+    ai: <Image src="/images/ai-design/milk-tea-ai.webp" width={562} height={570} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full object-contain drop-shadow-lg" alt="Thiết kế AI Kim Hiếu" />,
+    final: <Image src="/images/ai-design/milk-tea-final.webp" width={1024} height={1365} sizes="(max-width: 768px) 30vw, 20vw" className="w-full h-full rounded-2xl object-contain drop-shadow-xl" alt="Thành phẩm tem trà sữa Kim Hiếu" />
+  };
 
   return (
     <section id="ai-thiet-ke" className="py-12 bg-white">
@@ -92,18 +56,15 @@ export default function AIDesignFlow() {
                 <span className="hidden xl:inline">Tem cũ (Khách gửi)</span>
               </div>
               <div className="flex-1 w-full relative min-h-[80px] sm:min-h-[120px] md:min-h-[180px] xl:min-h-0">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentIndex}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
-                    className="absolute inset-0 flex items-center justify-center scale-90 sm:scale-100"
-                  >
-                    {currentCombo.old}
-                  </motion.div>
-                </AnimatePresence>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0 flex items-center justify-center scale-90 sm:scale-100"
+                >
+                  {kimHieuShowcase.old}
+                </motion.div>
               </div>
             </div>
 
@@ -117,18 +78,15 @@ export default function AIDesignFlow() {
                 <span className="hidden xl:inline">AI + Designer</span>
               </div>
               <div className="flex-1 w-full relative z-10 flex items-center justify-center min-h-[80px] sm:min-h-[120px] md:min-h-[180px] xl:min-h-0">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentIndex}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
-                    className="absolute inset-0 flex items-center justify-center scale-90 sm:scale-100"
-                  >
-                    {currentCombo.ai}
-                  </motion.div>
-                </AnimatePresence>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0 flex items-center justify-center scale-90 sm:scale-100"
+                >
+                  {kimHieuShowcase.ai}
+                </motion.div>
                 {/* Ping nodes */}
                 <div className="absolute top-1 right-1 w-2 h-2 sm:w-3 sm:h-3 bg-orange-400 rounded-full animate-ping" />
                 <div className="absolute bottom-2 left-1 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-pink-400 rounded-full animate-ping" style={{ animationDelay: '0.8s' }} />
@@ -143,18 +101,15 @@ export default function AIDesignFlow() {
                 Thành phẩm
               </div>
               <div className="flex-1 w-full relative z-10 flex items-center justify-center min-h-[80px] sm:min-h-[120px] md:min-h-[180px] xl:min-h-0">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentIndex}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.5 }}
-                    className="absolute inset-0 flex items-center justify-center scale-90 sm:scale-100"
-                  >
-                    {currentCombo.final}
-                  </motion.div>
-                </AnimatePresence>
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0 flex items-center justify-center scale-90 sm:scale-100"
+                >
+                  {kimHieuShowcase.final}
+                </motion.div>
               </div>
             </div>
 
