@@ -6,6 +6,13 @@ import Image from "next/image";
 import { ZaloIcon } from "../icons";
 import { trackEvent } from "../../lib/analytics";
 
+const customerAvatars = [
+  "/images/avatars/review-hong.webp",
+  "/images/avatars/review-tuan.webp",
+  "/images/avatars/review-yen.webp",
+  "/images/avatars/hero-customer-4.webp",
+] as const;
+
 export default function Hero() {
   return (
     <section id="trang-chu" className="pt-32 relative overflow-hidden bg-white">
@@ -83,10 +90,10 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.6 }}
               className="mt-10 flex items-center justify-center lg:justify-start gap-4"
             >
-              <div className="flex -space-x-3">
-                {[1,2,3,4].map((i) => (
-                  <div key={i} className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-orange-100 text-xs font-black text-orange-800 shadow-sm -ml-3 first:ml-0" aria-hidden="true">
-                    {i}
+              <div className="flex -space-x-2" aria-label="Avatar khách hàng minh họa">
+                {customerAvatars.map((avatar) => (
+                  <div key={avatar} className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white bg-orange-50 shadow-sm">
+                    <Image src={avatar} alt="" fill loading="lazy" sizes="40px" className="object-cover" />
                   </div>
                 ))}
               </div>

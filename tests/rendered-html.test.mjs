@@ -78,12 +78,17 @@ test("public HTML responses include production security headers", async () => {
 test("homepage exposes an accessible mobile menu and optimized hero image", async () => {
   const response = await render();
   const html = await response.text();
+  const hero = html.match(/<section[^>]*id="trang-chu"[\s\S]*?<\/section>/i)?.[0] ?? "";
 
   assert.match(html, /aria-controls="mobile-navigation"/);
   assert.match(html, /\/images\/hero-products\.webp/);
   assert.match(html, /_vinext\/image/);
   assert.doesNotMatch(html, /\/images\/hero-collage\.(?:png|webp)/);
   assert.doesNotMatch(html, /complete_ai_mockup/);
+  assert.match(hero, /review-hong\.webp/);
+  assert.match(hero, /review-tuan\.webp/);
+  assert.match(hero, /review-yen\.webp/);
+  assert.match(hero, /hero-customer-4\.webp/);
 });
 
 test("homepage renders local review avatars and the Zalo QR image", async () => {
