@@ -3,9 +3,10 @@
 import { Clock, MapPin, Navigation, Phone } from "lucide-react";
 import { useState } from "react";
 import { trackEvent } from "../../lib/analytics";
-
-const MAP_URL = "https://www.google.com/maps/search/?api=1&query=VinPrint%2C%20254%2F5%2F40%20L%C3%AA%20V%C4%83n%20Th%E1%BB%8D%2C%20TP.HCM";
-const MAP_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.7758368508537!2d106.6631853!3d10.8284534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175290130dfd7f5%3A0x632e1858a74e50eb!2zMjU0LzUvNDAgTMSqIFbEg24gVGjhu40sIFBoxrDhu51uZyAxMSwgR8OyIFbhuqVwLCBI4buTIENow60gTWluaCwgVmllaG5hbQ!5e0!3m2!1svi!2s!4v1721210000000!5m2!1svi!2s";
+import {
+  GOOGLE_BUSINESS_PROFILE_EMBED_URL,
+  GOOGLE_BUSINESS_PROFILE_URL,
+} from "../../lib/business-info";
 
 export default function MapSection() {
   const [showMap, setShowMap] = useState(false);
@@ -35,12 +36,12 @@ export default function MapSection() {
                 <a href="tel:0844998499" onClick={() => trackEvent("click_phone", { position: "map_section" })} className="ml-7 inline-flex min-h-11 items-center font-bold text-gray-900 hover:text-orange-800">0844 998 499</a>
               </div>
             </div>
-            <a href={MAP_URL} target="_blank" rel="noreferrer" onClick={() => trackEvent("open_google_maps", { position: "map_section" })} className="mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-gray-950 px-6 text-sm font-bold text-white hover:bg-gray-800"><Navigation className="h-4 w-4" /> Chỉ đường Google Maps</a>
+            <a href={GOOGLE_BUSINESS_PROFILE_URL} target="_blank" rel="noreferrer" onClick={() => trackEvent("open_google_maps", { position: "map_section" })} className="mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-gray-950 px-6 text-sm font-bold text-white hover:bg-gray-800"><Navigation className="h-4 w-4" /> Chỉ đường Google Maps</a>
           </div>
 
           <div className="relative min-h-[350px] overflow-hidden rounded-3xl border border-gray-200 bg-[#EDE8DF] shadow-sm lg:min-h-[450px]">
             {showMap ? (
-              <iframe src={MAP_EMBED_URL} width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Địa chỉ xưởng VinPrint trên Google Maps" className="absolute inset-0 h-full w-full" />
+              <iframe src={GOOGLE_BUSINESS_PROFILE_EMBED_URL} width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Địa chỉ xưởng VinPrint trên Google Maps" className="absolute inset-0 h-full w-full" />
             ) : (
               <button type="button" onClick={() => { setShowMap(true); trackEvent("load_google_map", { position: "map_section" }); }} className="absolute inset-0 flex h-full w-full flex-col items-center justify-center gap-4 p-8 text-center text-gray-950 hover:bg-white/30">
                 <MapPin className="h-12 w-12 text-[#D83B00]" aria-hidden="true" />

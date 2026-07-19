@@ -61,7 +61,9 @@ test("homepage includes JSON-LD structured data", async () => {
   assert.match(html, /"@type":"LocalBusiness"/);
   assert.match(html, /"@type":"ItemList"/);
   assert.match(html, /"@type":"FAQPage"/);
-  assert.match(html, /"hasMap":"https:\/\/www\.google\.com\/maps\/search\//);
+  assert.match(html, /"hasMap":"https:\/\/maps\.app\.goo\.gl\/gqrqcsTp6CHHGi73A"/);
+  assert.match(html, /"sameAs":\[[^\]]*https:\/\/maps\.app\.goo\.gl\/gqrqcsTp6CHHGi73A/);
+  assert.match(html, /href="https:\/\/maps\.app\.goo\.gl\/gqrqcsTp6CHHGi73A"/);
   assert.match(html, /"areaServed"/);
 });
 

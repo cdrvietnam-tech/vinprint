@@ -1,6 +1,5 @@
 import { products, SHOPEE_SHOP_URL } from "../../lib/products";
-
-const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=VinPrint%2C%20254%2F5%2F40%20L%C3%AA%20V%C4%83n%20Th%E1%BB%8D%2C%20TP.HCM";
+import { GOOGLE_BUSINESS_PROFILE_URL } from "../../lib/business-info";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -11,7 +10,7 @@ const localBusinessSchema = {
   telephone: "+84844998499",
   image: "https://vinprint.vn/images/hero-collage.webp",
   priceRange: "₫₫",
-  hasMap: GOOGLE_MAPS_URL,
+  hasMap: GOOGLE_BUSINESS_PROFILE_URL,
   geo: {
     "@type": "GeoCoordinates",
     latitude: 10.8284534,
@@ -36,7 +35,7 @@ const localBusinessSchema = {
       closes: "17:30",
     },
   ],
-  sameAs: [SHOPEE_SHOP_URL],
+  sameAs: [SHOPEE_SHOP_URL, GOOGLE_BUSINESS_PROFILE_URL],
 };
 
 const itemListSchema = {

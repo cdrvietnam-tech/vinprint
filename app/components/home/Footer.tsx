@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ConversionLink from "../ConversionLink";
+import { GOOGLE_BUSINESS_PROFILE_URL } from "../../lib/business-info";
 
 const serviceLinks = [
   ["Tem UV DTF", "/san-pham/tem-uv-dtf"],
@@ -25,7 +26,7 @@ export default function Footer() {
           <p className="max-w-xs leading-7 text-gray-700">In tem nhãn theo yêu cầu tại TP.HCM. Hỗ trợ thiết kế, nhận số lượng ít và giao hàng toàn quốc.</p>
           <div className="mt-5 flex flex-wrap gap-3">
             <a href="https://shopee.vn/chaucay_senda" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center font-bold text-orange-700 underline">Shopee</a>
-            <a href="https://www.google.com/maps/search/?api=1&amp;query=VinPrint%2C%20254%2F5%2F40%20L%C3%AA%20V%C4%83n%20Th%E1%BB%8D%2C%20TP.HCM" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center font-bold text-blue-800 underline">Google Maps</a>
+            <a href={GOOGLE_BUSINESS_PROFILE_URL} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center font-bold text-blue-800 underline">Google Maps</a>
           </div>
         </div>
         <div>
