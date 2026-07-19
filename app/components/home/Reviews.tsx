@@ -2,13 +2,14 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
+import Image from "next/image";
 
 export default function Reviews() {
   const tabs = ["Tất cả", "Google", "Shopee", "Facebook"];
   const reviews = [
-    { name: "Nguyễn Thị Hồng", platform: "Google", text: "Tem in rất đẹp, màu sắc chuẩn, giao hàng nhanh, tư vấn nhiệt tình. Sẽ ủng hộ lâu dài!", rating: 5 },
-    { name: "Trần Minh Tuấn", platform: "Shopee", text: "In tem UV DTF nổi cực đẹp, chống nước tốt, đóng ngay gửi cẩn thận.", rating: 5 },
-    { name: "Lê Hoàng Yến", platform: "Facebook", text: "Thiết kế bằng AI rất ưng ý, chỉnh sửa nhanh chóng. Chất lượng in quá tốt!", rating: 5 },
+    { name: "Nguyễn Thị Hồng", platform: "Google", avatar: "/images/avatars/review-hong.webp", text: "Tem in rất đẹp, màu sắc chuẩn, giao hàng nhanh, tư vấn nhiệt tình. Sẽ ủng hộ lâu dài!", rating: 5 },
+    { name: "Trần Minh Tuấn", platform: "Shopee", avatar: "/images/avatars/review-tuan.webp", text: "In tem UV DTF nổi cực đẹp, chống nước tốt, đóng ngay gửi cẩn thận.", rating: 5 },
+    { name: "Lê Hoàng Yến", platform: "Facebook", avatar: "/images/avatars/review-yen.webp", text: "Thiết kế bằng AI rất ưng ý, chỉnh sửa nhanh chóng. Chất lượng in quá tốt!", rating: 5 },
   ];
 
   return (
@@ -54,8 +55,8 @@ export default function Reviews() {
                 {[1,2,3,4,5].map(star => <Star key={star} className="w-4 h-4 fill-current" />)}
               </div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100 text-sm font-black text-indigo-800" aria-hidden="true">
-                  {rev.name.split(" ").at(-1)?.charAt(0)}
+                <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100">
+                  <Image src={rev.avatar} alt={`Ảnh đại diện của ${rev.name}`} fill loading="lazy" sizes="40px" className="object-cover" />
                 </div>
                 <div>
                   <div className="text-sm font-bold text-gray-900">{rev.name}</div>

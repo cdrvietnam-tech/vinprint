@@ -79,8 +79,8 @@ export default function FAQAndMockup() {
                   Báo giá nhanh - Không chờ lâu!
                 </p>
                 
-                <div className="mb-4 flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border border-purple-100 bg-white p-4 shadow-sm sm:mb-6 sm:h-28 sm:w-28">
-                  <ZaloIcon className="h-full w-full" />
+                <div className="relative mb-4 aspect-square w-full max-w-28 shrink-0 overflow-hidden rounded-2xl border border-purple-100 bg-white p-2 shadow-sm sm:mb-6 sm:max-w-36">
+                  <Image src="/images/zalo-qr.png" alt="Mã QR Zalo VinPrint" fill loading="lazy" sizes="(max-width: 640px) 112px, 144px" className="object-contain p-2" />
                 </div>
 
                 <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" onClick={() => trackEvent("click_zalo", { position: "faq_qr" })} className="inline-flex min-h-11 items-center gap-1.5 px-3 py-2.5 sm:px-6 sm:py-3 rounded-full bg-[#6545ED] text-white text-xs sm:text-sm font-bold shadow-sm hover:bg-[#5234D2] transition-colors w-full justify-center">

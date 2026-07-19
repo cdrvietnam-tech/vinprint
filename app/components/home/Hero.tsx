@@ -171,7 +171,7 @@ export default function Hero() {
                       fetchPriority="high"
                       quality={82}
                       sizes="(max-width: 1024px) 100vw, 55vw"
-                      className="object-contain drop-shadow-2xl scale-[1.1] lg:scale-[1.3]"
+                      className="object-contain object-center p-4 drop-shadow-2xl sm:p-6 lg:p-10"
                     />
                   </div>
 

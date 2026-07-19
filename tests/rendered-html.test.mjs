@@ -86,6 +86,18 @@ test("homepage exposes an accessible mobile menu and optimized hero image", asyn
   assert.doesNotMatch(html, /complete_ai_mockup/);
 });
 
+test("homepage renders local review avatars and a scannable Zalo QR", async () => {
+  const response = await render();
+  const html = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(html, /review-hong\.webp/);
+  assert.match(html, /review-tuan\.webp/);
+  assert.match(html, /review-yen\.webp/);
+  assert.match(html, /zalo-qr\.png/);
+  assert.match(html, /alt="Mã QR Zalo VinPrint"/);
+});
+
 test("homepage keeps the workshop map collapsed and the footer customer-facing", async () => {
   const response = await render();
   const html = await response.text();
