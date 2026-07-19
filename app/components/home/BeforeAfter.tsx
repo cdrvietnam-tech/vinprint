@@ -3,7 +3,13 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 
-function CustomAutoSlider({ item }: { item: any }) {
+interface BeforeAfterItem {
+  name: string;
+  before: string;
+  after: string;
+}
+
+function CustomAutoSlider({ item }: { item: BeforeAfterItem }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const position = useMotionValue(50);
   const [isDragging, setIsDragging] = useState(false);
