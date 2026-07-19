@@ -117,9 +117,10 @@ test("AI Design flow exposes all approved label transformations", async () => {
   assert.match(section, /Tem cũ Kim Hiếu/);
   assert.match(section, /Thiết kế AI Kim Hiếu/);
   assert.match(section, /Thành phẩm tem trà sữa Kim Hiếu/);
-  assert.match(section, /data-ai-design-showcases="2"/);
+  assert.match(section, /data-ai-design-showcases="3"/);
   assert.match(section, /aria-label="Xem combo Kim Hiếu"/);
   assert.match(section, /aria-label="Xem combo Mina Honey"/);
+  assert.match(section, /aria-label="Xem combo Thy Kiều"/);
   assert.notEqual(mockupStart, -1);
   assert.match(mockupPanel, /milk-tea-old\.webp/);
   assert.match(mockupPanel, /milk-tea-final\.webp/);

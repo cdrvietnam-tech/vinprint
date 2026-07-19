@@ -7,7 +7,7 @@ import { AI_DESIGN_SHOWCASES } from "../app/components/home/ai-design-showcases"
 test("approved AI Design showcases have complete optimized asset sets", async () => {
   assert.deepEqual(
     AI_DESIGN_SHOWCASES.map((showcase) => showcase.id),
-    ["kim-hieu-milk-tea", "mina-honey"],
+    ["kim-hieu-milk-tea", "mina-honey", "thy-kieu-body"],
   );
 
   for (const showcase of AI_DESIGN_SHOWCASES) {

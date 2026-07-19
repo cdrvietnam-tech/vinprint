@@ -43,6 +43,28 @@ export const AI_DESIGN_SHOWCASES = [
       alt: "Thành phẩm hũ mật ong Mina",
     },
   },
+  {
+    id: "thy-kieu-body",
+    name: "Thy Kiều",
+    old: {
+      src: "/images/ai-design/thy-kieu-body-old.webp",
+      width: 374,
+      height: 374,
+      alt: "Tem cũ mỹ phẩm Thy Kiều",
+    },
+    ai: {
+      src: "/images/ai-design/thy-kieu-body-ai.webp",
+      width: 550,
+      height: 551,
+      alt: "Thiết kế AI mỹ phẩm Thy Kiều",
+    },
+    final: {
+      src: "/images/ai-design/thy-kieu-body-final.webp",
+      width: 900,
+      height: 1501,
+      alt: "Thành phẩm hũ body Thy Kiều",
+    },
+  },
 ] as const;
 
 export const ACTIVE_AI_DESIGN_SHOWCASE = AI_DESIGN_SHOWCASES[0];
