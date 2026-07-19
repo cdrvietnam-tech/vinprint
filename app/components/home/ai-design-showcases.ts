@@ -16,8 +16,8 @@ export const AI_DESIGN_SHOWCASES = [
     },
     final: {
       src: "/images/ai-design/milk-tea-final.webp",
-      width: 1024,
-      height: 1365,
+      width: 715,
+      height: 1481,
       alt: "Thành phẩm tem trà sữa Kim Hiếu",
     },
   },
@@ -38,8 +38,8 @@ export const AI_DESIGN_SHOWCASES = [
     },
     final: {
       src: "/images/ai-design/mina-honey-final.webp",
-      width: 900,
-      height: 1501,
+      width: 747,
+      height: 1307,
       alt: "Thành phẩm hũ mật ong Mina",
     },
   },
@@ -60,8 +60,8 @@ export const AI_DESIGN_SHOWCASES = [
     },
     final: {
       src: "/images/ai-design/thy-kieu-body-final.webp",
-      width: 900,
-      height: 1501,
+      width: 835,
+      height: 1095,
       alt: "Thành phẩm hũ body Thy Kiều",
     },
   },

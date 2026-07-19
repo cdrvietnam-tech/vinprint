@@ -10,6 +10,20 @@ test("approved AI Design showcases have complete optimized asset sets", async ()
     ["kim-hieu-milk-tea", "mina-honey", "thy-kieu-body"],
   );
 
+  assert.deepEqual(
+    AI_DESIGN_SHOWCASES.map((showcase) => [
+      showcase.id,
+      showcase.final.src,
+      showcase.final.width,
+      showcase.final.height,
+    ]),
+    [
+      ["kim-hieu-milk-tea", "/images/ai-design/milk-tea-final.webp", 715, 1481],
+      ["mina-honey", "/images/ai-design/mina-honey-final.webp", 747, 1307],
+      ["thy-kieu-body", "/images/ai-design/thy-kieu-body-final.webp", 835, 1095],
+    ],
+  );
+
   for (const showcase of AI_DESIGN_SHOWCASES) {
     for (const stage of [showcase.old, showcase.ai, showcase.final]) {
       assert.match(stage.src, /^\/images\/ai-design\/.+\.webp$/);
