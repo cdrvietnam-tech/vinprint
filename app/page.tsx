@@ -35,7 +35,7 @@ export default function Page() {
         <FAQAndMockup />
         <MapSection />
       </main>
-      <Footer />
+      <Footer hasMobileActionBar />
       <MobileActionBar />
       <ScrollToTop />
     </div>

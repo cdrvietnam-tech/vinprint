@@ -16,7 +16,7 @@ const companyLinks = [
   ["Case study", "/case-study"],
 ] as const;
 
-export default function Footer() {
+export default function Footer({ hasMobileActionBar = false }: { hasMobileActionBar?: boolean }) {
   return (
     <footer id="lien-he" className="bg-white">
       <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-10 border-t border-gray-200 px-4 py-14 text-sm sm:grid-cols-2 lg:grid-cols-4">
@@ -41,7 +41,7 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-4 border-t border-gray-200 px-4 py-8 pb-28 text-center text-sm font-medium text-gray-700 sm:flex-row sm:justify-between sm:pb-8 sm:text-left">
+      <div className={`mx-auto flex max-w-[1440px] flex-col items-center gap-4 border-t border-gray-200 px-4 py-8 text-center text-sm font-medium text-gray-700 sm:flex-row sm:justify-between sm:pb-8 sm:text-left ${hasMobileActionBar ? "pb-28" : "pb-8"}`}>
         <span>© 2026 VinPrint. In ấn siêu tốc.</span>
         <nav aria-label="Liên kết pháp lý" className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
           <Link className="inline-flex min-h-11 items-center hover:text-[#D83B00]" href="/chinh-sach">Chính sách</Link>

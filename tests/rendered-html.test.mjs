@@ -94,7 +94,9 @@ test("homepage keeps the workshop map collapsed and the footer customer-facing",
   assert.equal(response.status, 200);
   assert.doesNotMatch(html, /Ghé thăm VinPrint/i);
   assert.doesNotMatch(html, /Bản đồ chỉ được tải/i);
-  assert.match(html, /aria-expanded="false"/);
+  assert.match(html, /<button[^>]*aria-expanded="false"[^>]*aria-controls="vinprint-map-panel"/);
+  assert.match(html, /id="vinprint-map-panel"[^>]*hidden=""[^>]*aria-hidden="true"/);
+  assert.doesNotMatch(html, /<iframe[^>]*title="Địa chỉ xưởng VinPrint trên Google Maps"/i);
   assert.match(html, /Chủ nhật và ngày lễ/i);
   assert.doesNotMatch(footer, />Shopee</i);
   assert.doesNotMatch(footer, />Google Maps</i);
