@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: read
+  issues: read
   pull-requests: read
 
 concurrency:
@@ -83,7 +84,23 @@ jobs:
               });
               if (permission.data.permission === "admin") approvedByAdmin = true;
             }
-            if (!approvedByAdmin) throw new Error("System changes require an APPROVED review from a repository admin.");
+            if (!approvedByAdmin) {
+              const approvalCommand = `/approve-agent-evolution ${pullRequest.head.sha}`;
+              const comments = (await github.rest.issues.listComments({
+                ...context.repo,
+                issue_number: pullRequest.number,
+                per_page: 100,
+              })).data;
+              for (const comment of comments) {
+                if (comment.body.trim() !== approvalCommand) continue;
+                const permission = await github.rest.repos.getCollaboratorPermissionLevel({
+                  ...context.repo,
+                  username: comment.user.login,
+                });
+                if (permission.data.permission === "admin") approvedByAdmin = true;
+              }
+            }
+            if (!approvedByAdmin) throw new Error(`System changes require an admin review on HEAD or the exact approval comment: /approve-agent-evolution ${pullRequest.head.sha}`);
             core.setOutput("approved", "true");
       - name: Validate SEO-GEO content gate
         run: npm run content:audit
