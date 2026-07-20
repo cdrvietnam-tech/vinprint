@@ -14,6 +14,7 @@ const companyLinks = [
   ["Chính sách", "/chinh-sach"],
   ["Bảo hành", "/bao-hanh"],
   ["Case study", "/case-study"],
+  ["Cẩm nang tem nhãn", "/blog"],
 ] as const;
 
 export default function Footer({ hasMobileActionBar = false }: { hasMobileActionBar?: boolean }) {

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { products } from "./lib/products";
 import { companyPages, guidePages, industryPages } from "./lib/content-pages";
+import { blogPosts } from "./lib/blog-posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://vinprint.vn";
@@ -30,6 +31,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly" as const,
       priority: route.startsWith("/huong-dan/") ? 0.7 : 0.75,
+    })),
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date("2026-07-20T00:00:00+07:00"),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...blogPosts.map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(`${post.updatedAt}T00:00:00+07:00`),
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
     })),
   ];
 }

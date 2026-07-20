@@ -52,6 +52,22 @@ test("renders the new storefront homepage with key sections", async () => {
   assert.doesNotMatch(html, /images\.unsplash\.com/i);
 });
 
+test("homepage exposes a server-rendered GEO knowledge hub", async () => {
+  const response = await render();
+  const html = await response.text();
+  const section = html.match(/<section[^>]*id="cam-nang-tem-nhan"[\s\S]*?<\/section>/i)?.[0] ?? "";
+
+  assert.equal(response.status, 200);
+  assert.match(section, /Cẩm nang tem nhãn/i);
+  assert.match(section, /Chọn chất liệu/i);
+  assert.match(section, /Thiết kế tem/i);
+  assert.match(section, /Theo ngành/i);
+  assert.match(section, /Kỹ thuật in/i);
+  assert.match(section, /href="\/blog\/tem-giay-va-tem-nhua-nen-chon-loai-nao"/i);
+  assert.match(section, /href="\/blog\/tem-uv-dtf-la-gi"/i);
+  assert.match(section, /href="\/blog\/cach-chon-kich-thuoc-tem-nhan"/i);
+});
+
 test("homepage includes JSON-LD structured data", async () => {
   const response = await render();
   const html = await response.text();
@@ -170,6 +186,36 @@ test("renders product detail pages with source and order process", async () => {
   assert.match(html, /application\/ld\+json/i);
 });
 
+test("renders a crawlable blog index with category navigation", async () => {
+  const response = await render("/blog");
+  const html = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(html, /Cẩm nang tem nhãn/i);
+  assert.match(html, /aria-label="Lọc bài viết theo chuyên mục"/i);
+  assert.match(html, /href="\/blog\?chuyen-muc=chat-lieu"/i);
+  assert.match(html, /href="\/blog\/tem-giay-va-tem-nhua-nen-chon-loai-nao"/i);
+  assert.match(html, /href="\/blog\/loi-thiet-ke-tem-nhan"/i);
+});
+
+test("renders GEO-ready blog articles with citable answers and BlogPosting schema", async () => {
+  const response = await render("/blog/tem-giay-va-tem-nhua-nen-chon-loai-nao");
+  const html = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(html, /Tem giấy và tem nhựa: nên chọn loại nào\?/i);
+  assert.match(html, /Câu trả lời ngắn/i);
+  assert.match(html, /Không có một chất liệu tốt nhất cho mọi sản phẩm/i);
+  assert.match(html, /Nguồn và phương pháp biên soạn/i);
+  assert.match(html, /Đội ngũ VinPrint/i);
+  assert.match(html, /href="\/san-pham\/tem-giay"/i);
+  assert.match(html, /href="\/san-pham\/tem-nhua-chong-nuoc"/i);
+  assert.match(html, /"@type":"BlogPosting"/i);
+  assert.match(html, /"datePublished":"2026-07-20"/i);
+  assert.match(html, /"dateModified":"2026-07-20"/i);
+  assert.match(html, /"@type":"BreadcrumbList"/i);
+});
+
 test("all public routes render successfully", async () => {
   const routes = [
     "/",
@@ -196,6 +242,13 @@ test("all public routes render successfully", async () => {
     "/huong-dan/chon-chat-lieu-tem",
     "/huong-dan/chon-kich-thuoc-tem",
     "/huong-dan/ky-thuat-in-tem",
+    "/blog",
+    "/blog/tem-giay-va-tem-nhua-nen-chon-loai-nao",
+    "/blog/tem-uv-dtf-la-gi",
+    "/blog/cach-chon-kich-thuoc-tem-nhan",
+    "/blog/chuan-bi-file-in-tem-khong-bi-mo",
+    "/blog/tem-chong-nuoc-cho-my-pham-va-do-uong",
+    "/blog/loi-thiet-ke-tem-nhan",
   ];
 
   for (const route of routes) {
@@ -212,6 +265,17 @@ test("AI discovery file is published", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/plain/i);
   assert.match(text, /# VinPrint/);
   assert.match(text, /\/san-pham\/tem-uv-dtf/);
+  assert.match(text, /\/blog\/tem-giay-va-tem-nhua-nen-chon-loai-nao/);
+});
+
+test("sitemap publishes the blog hub and every GEO article", async () => {
+  const response = await render("/sitemap.xml");
+  const xml = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(xml, /https:\/\/vinprint\.vn\/blog<\/loc>/i);
+  assert.match(xml, /https:\/\/vinprint\.vn\/blog\/tem-uv-dtf-la-gi<\/loc>/i);
+  assert.match(xml, /https:\/\/vinprint\.vn\/blog\/loi-thiet-ke-tem-nhan<\/loc>/i);
 });
 
 test("robots policy allows AI search but blocks model-training crawlers", async () => {

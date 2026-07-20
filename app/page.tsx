@@ -13,6 +13,7 @@ import StructuredData from "./components/home/StructuredData";
 import MobileActionBar from "./components/home/MobileActionBar";
 import ScrollToTop from "./components/home/ScrollToTop";
 import MapSection from "./components/home/MapSection";
+import BlogHighlights from "./components/home/BlogHighlights";
 
 export default function Page() {
   return (
@@ -24,6 +25,7 @@ export default function Page() {
         <AIDesignFlow />
         <BeforeAfter />
         <Categories />
+        <BlogHighlights />
         <Pricing />
         <Process />
         <section className="py-12 bg-gray-50/50">

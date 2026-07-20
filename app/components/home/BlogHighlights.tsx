@@ -1,0 +1,39 @@
+import Link from "next/link";
+import BlogCard from "../blog/BlogCard";
+import { blogCategories, blogPosts } from "../../lib/blog-posts";
+
+export default function BlogHighlights() {
+  return (
+    <section id="cam-nang-tem-nhan" className="bg-[#F7F4EE] py-16 sm:py-20">
+      <div className="mx-auto max-w-[1440px] px-4">
+        <div className="max-w-3xl">
+          <p className="text-sm font-black uppercase tracking-[0.2em] text-[#D83B00]">Kiến thức từ xưởng</p>
+          <h2 className="mt-3 text-3xl font-black uppercase leading-tight text-gray-950 sm:text-5xl">Cẩm nang tem nhãn</h2>
+          <p className="mt-4 text-lg leading-8 text-gray-700">Câu trả lời rõ ràng về vật liệu, kích thước, file in và cách dùng tem trên sản phẩm thật.</p>
+        </div>
+
+        <nav aria-label="Chuyên mục cẩm nang tem nhãn" className="mt-8 flex gap-3 overflow-x-auto pb-2">
+          {blogCategories.map((category) => (
+            <Link
+              key={category.slug}
+              href={category.slug === "tat-ca" ? "/blog" : `/blog?chuyen-muc=${category.slug}`}
+              className="inline-flex min-h-11 shrink-0 items-center rounded-full border border-black/15 bg-white px-5 text-sm font-black text-gray-900 hover:border-[#D83B00] hover:text-[#D83B00]"
+            >
+              {category.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {blogPosts.map((post) => <BlogCard key={post.slug} post={post} />)}
+        </div>
+
+        <div className="mt-10 text-center">
+          <Link href="/blog" className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#171310] px-7 font-black text-white hover:bg-[#D83B00]">
+            Xem toàn bộ cẩm nang
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}

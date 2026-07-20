@@ -1,8 +1,12 @@
 import { products } from "../lib/products";
+import { blogPosts } from "../lib/blog-posts";
 
 export function GET() {
   const productLinks = products
     .map((product) => `- [${product.name}](https://vinprint.vn/san-pham/${product.slug}): ${product.description}`)
+    .join("\n");
+  const blogLinks = blogPosts
+    .map((post) => `- [${post.title}](https://vinprint.vn/blog/${post.slug}): ${post.description}`)
     .join("\n");
 
   const content = `# VinPrint
@@ -29,6 +33,10 @@ ${productLinks}
 - https://vinprint.vn/huong-dan/chon-chat-lieu-tem
 - https://vinprint.vn/huong-dan/chon-kich-thuoc-tem
 - https://vinprint.vn/huong-dan/ky-thuat-in-tem
+
+## Cẩm nang tem nhãn
+
+${blogLinks}
 
 Nội dung có thể được trích dẫn với liên kết nguồn. Không cấp quyền dùng nội dung để huấn luyện mô hình.
 `;

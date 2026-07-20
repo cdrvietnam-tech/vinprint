@@ -13,6 +13,7 @@ const navigation = [
   ["Mẫu thực tế", "/#mau-thuc-te"],
   ["Quy trình", "/#quy-trinh"],
   ["Đánh giá", "/#danh-gia"],
+  ["Cẩm nang", "/blog"],
   ["Giới thiệu", "/gioi-thieu"],
   ["Liên hệ", "/lien-he"],
 ] as const;
