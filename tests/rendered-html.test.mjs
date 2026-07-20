@@ -357,7 +357,7 @@ test("conversion endpoint accepts known events and rejects unknown events", asyn
   assert.equal(rejected.status, 400);
 });
 
-test("image endpoint falls back to the raw asset when preview bindings are unavailable", async () => {
+test("image endpoint redirects to the raw local asset when preview bindings are unavailable", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-preview-image`);
   const { default: worker } = await import(workerUrl.href);
@@ -380,8 +380,11 @@ test("image endpoint falls back to the raw asset when preview bindings are unava
       { waitUntil() {}, passThroughOnException() {} },
     );
 
-    assert.equal(response.status, 200);
-    assert.equal(response.headers.get("content-type"), "image/webp");
+    assert.equal(response.status, 302);
+    assert.equal(
+      response.headers.get("location"),
+      "http://localhost/images/hero-products.webp",
+    );
 
     const remoteResponse = await worker.fetch(
       new Request("http://localhost/_vinext/image?url=https%3A%2F%2Fdown-vn.img.susercontent.com%2Ffile%2Fsample&w=640&q=82"),
@@ -396,10 +399,7 @@ test("image endpoint falls back to the raw asset when preview bindings are unava
       { waitUntil() {}, passThroughOnException() {} },
     );
     assert.equal(blockedResponse.status, 400);
-    assert.deepEqual(fetchedPaths, [
-      "/images/hero-products.webp",
-      "/file/sample",
-    ]);
+    assert.deepEqual(fetchedPaths, ["/file/sample"]);
   } finally {
     globalThis.fetch = originalFetch;
   }
