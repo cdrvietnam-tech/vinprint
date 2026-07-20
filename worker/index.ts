@@ -75,26 +75,39 @@ const worker = {
           ? env.ASSETS.fetch(assetRequest)
           : fetch(assetRequest);
       };
+      const imageUrl = resolvePreviewImageUrl(url.searchParams.get("url"), request.url);
+      if (!imageUrl) {
+        return new Response("Invalid image URL", { status: 400 });
+      }
+      const fetchFallbackImage = () => imageUrl.origin === url.origin
+        ? fetchSourceAsset(`${imageUrl.pathname}${imageUrl.search}`)
+        : fetch(new Request(imageUrl));
       const images = env.IMAGES;
 
       if (!images) {
-        const imageUrl = resolvePreviewImageUrl(url.searchParams.get("url"), request.url);
-        if (!imageUrl) {
-          return new Response("Invalid image URL", { status: 400 });
-        }
-        return imageUrl.origin === url.origin
-          ? fetchSourceAsset(`${imageUrl.pathname}${imageUrl.search}`)
-          : fetch(new Request(imageUrl));
+        return fetchFallbackImage();
       }
 
       const allowedWidths = [...DEFAULT_DEVICE_SIZES, ...DEFAULT_IMAGE_SIZES];
-      return handleImageOptimization(request, {
-        fetchAsset: fetchSourceAsset,
-        transformImage: async (body, { width, format, quality }) => {
-          const result = await images.input(body).transform(width > 0 ? { width } : {}).output({ format, quality });
-          return result.response();
-        },
-      }, allowedWidths);
+      try {
+        const optimizedResponse = await handleImageOptimization(request, {
+          fetchAsset: fetchSourceAsset,
+          transformImage: async (body, { width, format, quality }) => {
+            const result = await images.input(body).transform(width > 0 ? { width } : {}).output({ format, quality });
+            const transformedResponse = result.response();
+            if (!transformedResponse.ok) {
+              throw new Error(`Image transformation failed with status ${transformedResponse.status}`);
+            }
+            return transformedResponse;
+          },
+        }, allowedWidths);
+
+        return optimizedResponse.ok || optimizedResponse.status < 500
+          ? optimizedResponse
+          : fetchFallbackImage();
+      } catch {
+        return fetchFallbackImage();
+      }
     }
 
     const response = await handler.fetch(request, env, ctx);
