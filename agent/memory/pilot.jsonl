@@ -1,1 +1,2 @@
 {"type":"pilot-start","startedAt":"2026-07-20T00:00:00+07:00","targetDays":7,"minimumPassRate":0.8,"maximumProductionErrors":0,"status":"active","source":"user-approved-plan"}
+{"type":"pilot-run","day":1,"reportDate":"2026-07-20","recordedAt":"2026-07-20T22:43:58+07:00","candidates":7,"passed":7,"productionErrors":0}
