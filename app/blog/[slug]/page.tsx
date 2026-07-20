@@ -158,7 +158,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
 
             <aside className="mt-8 rounded-[32px] bg-[#6545ED] p-7 text-white sm:flex sm:items-center sm:justify-between sm:p-10">
               <div><h2 className="text-2xl font-black">Cần kiểm tra trên sản phẩm thật?</h2><p className="mt-2 max-w-xl leading-7 text-white/80">Gửi ảnh bao bì, kích thước và số lượng để xưởng tư vấn vật liệu hoặc dựng mẫu phù hợp.</p></div>
-              <ConversionLink href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" eventName="click_zalo" eventPosition={`blog_${article.slug}`} className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-gradient-to-r from-[#FF512F] to-[#FF2D6F] px-6 font-black text-white shadow-lg shadow-black/15 sm:mt-0">Nhắn Zalo nhận tư vấn</ConversionLink>
+              <ConversionLink href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" eventName="click_zalo" eventPosition={`blog_${article.slug}`} className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-gradient-to-r from-[#FF4D00] to-[#FF0055] px-6 font-black text-white shadow-lg shadow-black/15 sm:mt-0">Nhắn Zalo nhận tư vấn</ConversionLink>
             </aside>
 
             <section className="mt-14">

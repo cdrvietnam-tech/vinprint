@@ -242,10 +242,12 @@ const missingArticleDetails = blogPosts
   .filter((slug) => !blogArticleDetails[slug]);
 const orphanedArticleDetails = Object.keys(blogArticleDetails)
   .filter((slug) => !blogPostBySlug[slug]);
+const blogPostSlugs = blogPosts.map((post) => post.slug);
+const hasDuplicateBlogSlugs = new Set(blogPostSlugs).size !== blogPostSlugs.length;
 
-if (missingArticleDetails.length || orphanedArticleDetails.length) {
+if (missingArticleDetails.length || orphanedArticleDetails.length || hasDuplicateBlogSlugs) {
   throw new Error(
-    `Blog data is inconsistent. Missing details: ${missingArticleDetails.join(", ") || "none"}; orphaned details: ${orphanedArticleDetails.join(", ") || "none"}.`,
+    `Blog data is inconsistent. Missing details: ${missingArticleDetails.join(", ") || "none"}; orphaned details: ${orphanedArticleDetails.join(", ") || "none"}; duplicate slugs: ${hasDuplicateBlogSlugs ? "found" : "none"}.`,
   );
 }
 

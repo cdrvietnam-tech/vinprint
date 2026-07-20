@@ -34,7 +34,7 @@ export default async function BlogIndexPage({ searchParams }: BlogIndexPageProps
     <div className="min-h-screen bg-[#F7F4EE] text-gray-950">
       <Header />
       <main id="main-content" tabIndex={-1} className="pt-20">
-        <section className="border-b border-black/10 bg-[#171310] px-4 py-14 text-white sm:py-20">
+        <section className="border-b border-black/10 bg-[#171310] px-4 py-12 text-white">
           <div className="mx-auto max-w-5xl">
             <p className="text-sm font-black uppercase tracking-[0.22em] text-[#D5FF43]">Kiến thức từ xưởng</p>
             <h1 className="mt-4 max-w-4xl text-4xl font-black leading-tight sm:text-6xl">Cẩm nang tem nhãn</h1>
@@ -42,7 +42,7 @@ export default async function BlogIndexPage({ searchParams }: BlogIndexPageProps
           </div>
         </section>
 
-        <section className="mx-auto max-w-[1440px] px-4 py-12 sm:py-16">
+        <section className="mx-auto max-w-[1440px] px-4 py-12">
           <BlogCategoryNav ariaLabel="Lọc bài viết theo chuyên mục" selectedCategory={selectedCategory} />
 
           <p className="mt-5 text-sm font-bold text-gray-600">{visiblePosts.length} bài viết · Cập nhật ngày {formatBlogDate(latestUpdatedAt)}</p>
