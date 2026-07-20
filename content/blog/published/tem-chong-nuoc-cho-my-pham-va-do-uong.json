@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-chong-nuoc-cho-my-pham-va-do-uong",
+  "title": "Chọn tem chống nước cho mỹ phẩm và đồ uống",
+  "description": "Cách chọn vật liệu và lớp hoàn thiện cho chai lọ thường xuyên gặp nước, độ ẩm hoặc nhiệt độ thấp.",
+  "category": "theo-nganh",
+  "image": "/images/blog/tem-chong-nuoc.webp",
+  "imageAlt": "Tem chống nước trên chai mỹ phẩm và chai đồ uống",
+  "publishedAt": "2026-07-20",
+  "updatedAt": "2026-07-20",
+  "readingMinutes": 6,
+  "publishAt": "2026-07-20T06:30:00+07:00",
+  "primaryKeyword": "tem chống nước mỹ phẩm đồ uống",
+  "searchIntent": "Chọn tem chống nước theo môi trường ẩm và lạnh",
+  "buyerStage": "consideration",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "manual-baseline-v1",
+  "revisionCount": 0,
+  "directAnswer": "Tem chống nước cho mỹ phẩm và đồ uống nên được chọn theo điều kiện sử dụng, không chỉ theo tên vật liệu. Decal nhựa thường phù hợp hơn decal giấy khi chai gặp nước, hơi lạnh hoặc được lau thường xuyên; lớp cán có thể hỗ trợ bảo vệ bề mặt in nhưng không thay thế việc chọn đúng vật liệu nền và keo. Với chai để lạnh, cần tính đến nước ngưng tụ; với mỹ phẩm, cần tính đến dầu, cồn, ma sát và độ cong của chai. Bề mặt phải được làm sạch và để khô trước khi dán. Cách kiểm tra đáng tin cậy nhất là dán mẫu đúng kích thước lên đúng chai, để sản phẩm trong môi trường sử dụng thật rồi theo dõi mép tem, độ nhăn, màu in và khả năng đọc. Nếu bề mặt quá nhám, có lớp chống bám hoặc cong mạnh, cần thử loại keo hay kỹ thuật khác trước khi sản xuất hàng loạt.",
+  "sections": [
+    {
+      "heading": "Mỹ phẩm và đồ uống tạo ra những rủi ro nào?",
+      "paragraphs": [
+        "Chai mỹ phẩm có thể tiếp xúc nước, dầu, cồn hoặc ma sát khi cầm. Chai và ly đồ uống lạnh thường xuất hiện hơi nước trên bề mặt. Hai môi trường này đòi hỏi vật liệu bền ẩm, keo phù hợp và thao tác dán đúng."
+      ],
+      "table": {
+        "headers": [
+          "Điều kiện",
+          "Rủi ro",
+          "Hướng xử lý"
+        ],
+        "rows": [
+          [
+            "Nước ngưng tụ",
+            "Bong mép, nhăn",
+            "Tem nhựa và thử lạnh"
+          ],
+          [
+            "Dầu hoặc cồn",
+            "Giảm độ bám, ảnh hưởng bề mặt",
+            "Thử tiếp xúc thực tế"
+          ],
+          [
+            "Chai cong",
+            "Hở mép, biến dạng",
+            "Giảm kích thước, bo góc"
+          ],
+          [
+            "Ma sát",
+            "Trầy mực",
+            "Chọn lớp hoàn thiện phù hợp"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Cán màng có biến tem giấy thành tem chống nước không?",
+      "paragraphs": [
+        "Cán màng bảo vệ bề mặt mực tốt hơn, nhưng cạnh cắt và phần nền giấy vẫn có thể hút ẩm. Vì vậy, sản phẩm thường xuyên gặp nước nên bắt đầu từ vật liệu nhựa thay vì chỉ dựa vào lớp cán."
+      ]
+    },
+    {
+      "heading": "Dán tem thế nào để tăng độ bám?",
+      "paragraphs": [
+        "Làm sạch bụi, dầu và hơi nước; để bề mặt khô; canh tem một lần rồi miết từ giữa ra ngoài. Không nên dán khi chai vừa lấy khỏi tủ lạnh và đang đọng nước. Sau khi dán, cho keo thời gian ổn định trước khi thử ma sát hoặc ngâm lạnh."
+      ],
+      "bullets": [
+        "Dán trên bề mặt sạch và khô",
+        "Không chạm tay nhiều vào lớp keo",
+        "Miết đều từ giữa ra mép",
+        "Thử mẫu trong điều kiện sử dụng thật"
+      ]
+    },
+    {
+      "heading": "Khi nào cần yêu cầu mẫu thử?",
+      "paragraphs": [
+        "Nên yêu cầu mẫu thử khi dùng chai mới, bề mặt có phủ, sản phẩm chứa dầu hoặc cồn, tem có kích thước lớn, chai cong hoặc đơn hàng có số lượng đáng kể. Một thử nghiệm nhỏ giúp giảm rủi ro tốt hơn việc chọn vật liệu chỉ từ mô tả."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-nhua-chong-nuoc",
+    "tem-nhua-trong",
+    "tem-uv-dtf"
+  ],
+  "sources": [
+    {
+      "title": "Tem nhựa chống nước VinPrint",
+      "href": "/san-pham/tem-nhua-chong-nuoc",
+      "note": "Thông tin ứng dụng cho mỹ phẩm, đồ uống và môi trường lạnh.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Hướng dẫn tem nhãn mỹ phẩm",
+      "href": "/nganh/my-pham",
+      "note": "Tiêu chí độ bám, độ đọc và chuẩn bị file cho chai lọ.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Hướng dẫn tem nhãn đồ uống",
+      "href": "/nganh/do-uong",
+      "note": "Lưu ý về hơi nước, nhiệt độ thấp và ma sát.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 19,
+      "evidence": 19,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/san-pham/tem-nhua-chong-nuoc",
+      "/nganh/my-pham",
+      "/nganh/do-uong"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [{
+      "claim": "Vật liệu tem phải được chọn theo điều kiện sử dụng thực tế.",
+      "sourceIds": ["/san-pham/tem-nhua-chong-nuoc"]
+    }],
+    "attempts": []
+  }
+}

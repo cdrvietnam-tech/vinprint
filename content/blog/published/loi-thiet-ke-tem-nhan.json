@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "loi-thiet-ke-tem-nhan",
+  "title": "7 lỗi thiết kế tem khiến sản phẩm kém chuyên nghiệp",
+  "description": "Nhận biết các lỗi về thứ bậc thông tin, cỡ chữ, tương phản, khoảng an toàn và lựa chọn vật liệu.",
+  "category": "thiet-ke",
+  "image": "/images/blog/loi-thiet-ke-tem.webp",
+  "imageAlt": "So sánh bản thiết kế tem nhiều lỗi và bản đã tối ưu",
+  "publishedAt": "2026-07-20",
+  "updatedAt": "2026-07-20",
+  "readingMinutes": 7,
+  "publishAt": "2026-07-20T06:30:00+07:00",
+  "primaryKeyword": "lỗi thiết kế tem nhãn",
+  "searchIntent": "Nhận biết và sửa lỗi thiết kế trước khi đặt in",
+  "buyerStage": "implementation",
+  "contentType": "authority",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "manual-baseline-v1",
+  "revisionCount": 0,
+  "directAnswer": "Tem nhãn thường kém chuyên nghiệp khi thông tin không có thứ bậc rõ. Bảy lỗi phổ biến là: logo hoặc tên sản phẩm quá nhỏ; dùng quá nhiều kiểu chữ; tương phản thấp; nhồi quá nhiều nội dung; đặt chữ sát đường cắt; chọn hình ảnh không đủ độ phân giải; và thiết kế không phù hợp vật liệu hoặc hình dạng bao bì. Cách sửa là xác định một thông tin chính người mua phải thấy đầu tiên, giới hạn số kiểu chữ, tăng khoảng trắng, kiểm tra màu trên vật liệu thật và in thử ở kích thước 100%. Với chai cong hoặc tem nhỏ, cần giảm chi tiết thay vì thu nhỏ toàn bộ thiết kế. File đẹp trên màn hình chưa chắc dễ đọc trên sản phẩm; hãy dán mẫu giấy lên bao bì, nhìn ở khoảng cách sử dụng bình thường và kiểm tra lại nội dung cùng đường cắt trước khi in.",
+  "sections": [
+    {
+      "heading": "Bảy lỗi thiết kế tem nhãn thường gặp là gì?",
+      "paragraphs": [
+        "Danh sách dưới đây tập trung vào các lỗi ảnh hưởng trực tiếp đến khả năng đọc, sản xuất và cảm nhận thương hiệu trên bao bì thật."
+      ],
+      "bullets": [
+        "Không có thông tin chính nổi bật",
+        "Dùng quá nhiều font hoặc phong cách",
+        "Chữ và nền thiếu tương phản",
+        "Nhồi quá nhiều nội dung trên diện tích nhỏ",
+        "Logo, chữ hoặc mã đặt sát đường cắt",
+        "Ảnh raster bị phóng lớn và mất nét",
+        "Thiết kế không phù hợp vật liệu hoặc độ cong bao bì"
+      ]
+    },
+    {
+      "heading": "Nên sắp xếp thứ bậc thông tin thế nào?",
+      "paragraphs": [
+        "Chọn một điểm nhìn đầu tiên: tên thương hiệu hoặc tên sản phẩm. Nhóm thứ hai là công dụng, hương vị hoặc đặc tính chính. Thông tin chi tiết như thành phần, hướng dẫn và liên hệ nên có cỡ chữ đủ đọc nhưng không cạnh tranh với tiêu đề."
+      ],
+      "table": {
+        "headers": [
+          "Cấp độ",
+          "Nội dung",
+          "Mục tiêu"
+        ],
+        "rows": [
+          [
+            "1",
+            "Thương hiệu hoặc tên sản phẩm",
+            "Nhận biết ngay"
+          ],
+          [
+            "2",
+            "Loại sản phẩm, công dụng chính",
+            "Hiểu nhanh"
+          ],
+          [
+            "3",
+            "Chi tiết, dung tích, liên hệ",
+            "Đọc khi quan tâm"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Làm sao kiểm tra thiết kế trên sản phẩm thật?",
+      "paragraphs": [
+        "In bản thử ở tỷ lệ 100%, cắt theo kích thước rồi dán lên bao bì. Xem tem ở chính diện, góc nghiêng và khoảng cách người mua thường nhìn. Kiểm tra thêm dưới ánh sáng cửa hàng hoặc nơi sử dụng dự kiến."
+      ],
+      "bullets": [
+        "Đọc được trong vài giây",
+        "Không mất chữ ở vùng cong",
+        "Mép tem không chạm gân hoặc đường gấp",
+        "Màu và vật liệu hỗ trợ đúng phong cách"
+      ]
+    },
+    {
+      "heading": "Khi nào nên giản lược thay vì thêm hiệu ứng?",
+      "paragraphs": [
+        "Khi tem nhỏ, nhiều nội dung hoặc bao bì đã có màu mạnh, thêm bóng, viền, họa tiết và nhiều font thường làm giảm khả năng đọc. Giản lược giúp logo rõ hơn, khoảng trắng tốt hơn và file dễ sản xuất ổn định hơn."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-giay",
+    "tem-nhua-trong",
+    "tem-vang"
+  ],
+  "sources": [
+    {
+      "title": "Quy trình thiết kế và duyệt mẫu VinPrint",
+      "href": "/#quy-trinh",
+      "note": "Các bước gửi yêu cầu, thiết kế, duyệt và sản xuất.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Hướng dẫn chọn kích thước tem",
+      "href": "/huong-dan/chon-kich-thuoc-tem",
+      "note": "Cách thử mẫu giấy và giữ nội dung trong vùng an toàn.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Case study ứng dụng tem nhãn",
+      "href": "/case-study",
+      "note": "Ví dụ chọn vật liệu và bố cục theo ngành hàng.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 19,
+      "evidence": 19,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/#quy-trinh",
+      "/huong-dan/chon-kich-thuoc-tem",
+      "/case-study"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [{
+      "claim": "Nội dung quan trọng cần giữ khoảng an toàn với đường cắt.",
+      "sourceIds": ["/huong-dan/chon-kich-thuoc-tem"]
+    }],
+    "attempts": []
+  }
+}

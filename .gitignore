@@ -41,3 +41,6 @@ next-env.d.ts
 /outputs/
 /work/
 /vinprint-deploy.zip
+
+# Customer or workshop evidence that has not been approved for publication
+/agent/evidence/private/

@@ -11,7 +11,7 @@ export default function BlogCategoryNav({ ariaLabel, selectedCategory }: BlogCat
     <nav aria-label={ariaLabel} className="flex gap-3 overflow-x-auto pb-3">
       {blogCategories.map((category) => {
         const active = category.slug === selectedCategory;
-        const href = category.slug === "tat-ca" ? "/blog" : `/blog?chuyen-muc=${category.slug}`;
+        const href = category.slug === "tat-ca" ? "/blog" : `/blog/chuyen-muc/${category.slug}`;
         return (
           <Link
             key={category.slug}

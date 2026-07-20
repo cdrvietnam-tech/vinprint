@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-uv-dtf-la-gi",
+  "title": "Tem UV DTF là gì? Phù hợp với sản phẩm nào?",
+  "description": "Hiểu cấu tạo, ưu điểm, giới hạn và các bề mặt phù hợp trước khi chọn tem UV DTF cho logo thương hiệu.",
+  "category": "ky-thuat-in",
+  "image": "/images/blog/tem-uv-dtf-la-gi.webp",
+  "imageAlt": "Bóc màng chuyển sau khi dán tem UV DTF nổi lên ly thủy tinh",
+  "publishedAt": "2026-07-20",
+  "updatedAt": "2026-07-20",
+  "readingMinutes": 6,
+  "publishAt": "2026-07-20T06:30:00+07:00",
+  "primaryKeyword": "tem UV DTF là gì",
+  "searchIntent": "Tìm hiểu UV DTF và bề mặt phù hợp",
+  "buyerStage": "awareness",
+  "contentType": "authority",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "manual-baseline-v1",
+  "revisionCount": 0,
+  "directAnswer": "Tem UV DTF là lớp hình in nổi được chuyển từ màng trung gian sang bề mặt sản phẩm. Sau khi miết và bóc màng, phần logo hoặc chữ ở lại mà không cần một mảng nền lớn như decal thông thường. Loại tem này tạo bề mặt bóng, có độ nổi và phù hợp với nhiều vật liệu cứng, tương đối phẳng như thủy tinh, kim loại, nhựa cứng, gốm hoặc hộp phủ bề mặt. UV DTF không phải lựa chọn mặc định cho mọi sản phẩm: bề mặt quá nhám, nhiều dầu, quá cong, co giãn hoặc thường xuyên chịu ma sát mạnh có thể làm giảm độ bám. Trước khi đặt số lượng lớn, nên vệ sinh bề mặt, dán thử đúng kích thước và theo dõi mép tem trong điều kiện sử dụng thật. Thiết kế càng ít chi tiết cực nhỏ thì quá trình bóc và dán càng ổn định.",
+  "sections": [
+    {
+      "heading": "Tem UV DTF hoạt động như thế nào?",
+      "paragraphs": [
+        "Hình in được tạo trên một hệ màng chuyển. Người dùng đặt màng lên sản phẩm, miết đều rồi bóc lớp mang đi; phần mực và keo của thiết kế bám lại trên bề mặt.",
+        "Vì phần nền thừa không ở lại, logo có cảm giác gần giống in trực tiếp. Kết quả phụ thuộc đồng thời vào file, kích thước chi tiết, lực miết, loại bề mặt và cách vệ sinh trước khi dán."
+      ]
+    },
+    {
+      "heading": "Bề mặt nào phù hợp với tem UV DTF?",
+      "paragraphs": [
+        "Bề mặt cứng, sạch, ít nhám và không co giãn thường cho kết quả dễ kiểm soát hơn. Bề mặt có lớp phủ chống bám, nhiều gân, nhiều dầu hoặc cong gắt cần được thử trước."
+      ],
+      "table": {
+        "headers": [
+          "Mức phù hợp",
+          "Ví dụ",
+          "Lưu ý"
+        ],
+        "rows": [
+          [
+            "Nên thử",
+            "Thủy tinh, kim loại, nhựa cứng, gốm",
+            "Làm sạch và để khô trước khi dán"
+          ],
+          [
+            "Cần kiểm tra kỹ",
+            "Bề mặt sơn, cong hoặc có phủ",
+            "Theo dõi mép và độ bám"
+          ],
+          [
+            "Không ưu tiên",
+            "Vải, cao su co giãn, bề mặt rất nhám",
+            "Chọn kỹ thuật khác phù hợp hơn"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "File UV DTF cần chuẩn bị ra sao?",
+      "paragraphs": [
+        "Ưu tiên logo vector, đường nét đủ dày và khoảng trống rõ. Tránh các hạt rời quá nhỏ hoặc chữ quá mảnh vì chúng khó bóc, khó canh và dễ mất chi tiết trên sản phẩm thật."
+      ],
+      "bullets": [
+        "Gửi file vector nếu có",
+        "Chốt kích thước thành phẩm bằng milimet",
+        "Tách rõ vùng cần giữ và vùng cần bỏ",
+        "Dán thử trước khi chạy số lượng lớn"
+      ]
+    },
+    {
+      "heading": "Khi nào nên dùng decal thay cho UV DTF?",
+      "paragraphs": [
+        "Nếu tem cần chứa nhiều thông tin nhỏ, cần một mảng nền rõ ràng hoặc dán trên bề mặt mềm, decal giấy hay decal nhựa thường dễ đọc và dễ sản xuất hơn. UV DTF phù hợp nhất khi cần logo hoặc chi tiết trang trí nổi, gọn và không có nền thừa."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-uv-dtf",
+    "tem-nhua-trong",
+    "tem-vang"
+  ],
+  "sources": [
+    {
+      "title": "Trang sản phẩm tem UV DTF VinPrint",
+      "href": "/san-pham/tem-uv-dtf",
+      "note": "Ứng dụng, ảnh sản phẩm và quy trình đặt in.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Các kỹ thuật in và gia công tem",
+      "href": "/huong-dan/ky-thuat-in-tem",
+      "note": "So sánh UV DTF với cán màng, cắt bế và hiệu ứng khác.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 19,
+      "evidence": 19,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/san-pham/tem-uv-dtf",
+      "/huong-dan/ky-thuat-in-tem"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [{
+      "claim": "Tem UV DTF cần được thử trên đúng bề mặt trước khi đặt số lượng lớn.",
+      "sourceIds": ["/san-pham/tem-uv-dtf"]
+    }],
+    "attempts": []
+  }
+}

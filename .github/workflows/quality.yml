@@ -2,11 +2,14 @@ name: Quality gates
 
 on:
   pull_request:
+  pull_request_review:
+    types: [submitted, dismissed]
   push:
     branches: [main]
 
 permissions:
   contents: read
+  pull-requests: read
 
 concurrency:
   group: quality-${{ github.ref }}
@@ -19,6 +22,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
@@ -26,6 +31,70 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci
+      - name: Verify human approval for system changes
+        id: evolution
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pullRequest = context.payload.pull_request ?? (
+              await github.rest.repos.listPullRequestsAssociatedWithCommit({
+                ...context.repo,
+                commit_sha: context.sha,
+              })
+            ).data.find((candidate) => candidate.merged_at);
+
+            const baseSha = pullRequest?.base.sha ?? context.payload.before;
+            const headSha = pullRequest?.head.sha ?? context.sha;
+            const comparison = await github.rest.repos.compareCommitsWithBasehead({
+              ...context.repo,
+              basehead: `${baseSha}...${headSha}`,
+            });
+            const autonomousPrefixes = [
+              "content/blog/",
+              "public/images/blog/",
+              "agent/memory/",
+              "agent/reports/",
+            ];
+            const systemChange = comparison.data.files.some(({ filename }) =>
+              !autonomousPrefixes.some((prefix) => filename.startsWith(prefix))
+            );
+            if (!systemChange) {
+              core.setOutput("approved", "false");
+              return;
+            }
+
+            if (!pullRequest) throw new Error("System changes must arrive through an approved Agent Evolution PR.");
+            if (!pullRequest.title.startsWith("[Agent Evolution]")) throw new Error("System PR title must start with [Agent Evolution].");
+            if (!pullRequest.head.ref.startsWith("agent-evolution/")) throw new Error("System PR branch must start with agent-evolution/.");
+
+            const reviews = (await github.rest.pulls.listReviews({
+              ...context.repo,
+              pull_number: pullRequest.number,
+              per_page: 100,
+            })).data;
+            const latestReviews = new Map();
+            for (const review of reviews) latestReviews.set(review.user.login, review);
+            let approvedByAdmin = false;
+            for (const review of latestReviews.values()) {
+              if (review.state !== "APPROVED" || review.commit_id !== pullRequest.head.sha || review.user.login === pullRequest.user.login) continue;
+              const permission = await github.rest.repos.getCollaboratorPermissionLevel({
+                ...context.repo,
+                username: review.user.login,
+              });
+              if (permission.data.permission === "admin") approvedByAdmin = true;
+            }
+            if (!approvedByAdmin) throw new Error("System changes require an APPROVED review from a repository admin.");
+            core.setOutput("approved", "true");
+      - name: Validate SEO-GEO content gate
+        run: npm run content:audit
+      - name: Verify sources and governance diff
+        shell: bash
+        env:
+          AGENT_EVOLUTION_APPROVED: ${{ steps.evolution.outputs.approved }}
+        run: |
+          npm run content:audit:links
+          BASE_SHA="${{ github.event.pull_request.base.sha || github.event.before }}"
+          npm run agent:guard -- --mode auto --base "$BASE_SHA"
       - name: Lint
         run: npm run lint
       - name: Build and test

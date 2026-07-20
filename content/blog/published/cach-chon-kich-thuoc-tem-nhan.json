@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "cach-chon-kich-thuoc-tem-nhan",
+  "title": "Cách chọn kích thước tem nhãn chuẩn",
+  "description": "Quy trình đo vùng dán, thử mẫu giấy và kiểm tra khả năng đọc trên chai, hũ, hộp và túi.",
+  "category": "thiet-ke",
+  "image": "/images/blog/cach-chon-kich-thuoc-tem.webp",
+  "imageAlt": "Đo chu vi hũ thủy tinh để chọn kích thước tem nhãn",
+  "publishedAt": "2026-07-20",
+  "updatedAt": "2026-07-20",
+  "readingMinutes": 5,
+  "publishAt": "2026-07-20T06:30:00+07:00",
+  "primaryKeyword": "cách chọn kích thước tem nhãn",
+  "searchIntent": "Đo và chọn kích thước tem cho bao bì thật",
+  "buyerStage": "implementation",
+  "contentType": "authority",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "manual-baseline-v1",
+  "revisionCount": 0,
+  "directAnswer": "Kích thước tem nhãn nên được chọn từ vùng dán thực tế, không chọn chỉ theo kích thước file hoặc cảm giác trên màn hình. Trước tiên, đo phần bề mặt phẳng bằng milimet và loại trừ vai chai, đường gân, mép gấp hoặc khu vực thường xuyên cầm nắm. Tiếp theo, cắt một mẫu giấy đúng kích thước, đặt lên sản phẩm rồi kiểm tra ở khoảng cách sử dụng bình thường: tên sản phẩm có dễ thấy không, chữ nhỏ có đọc được không và hai mép tem có bị chạm nhau không. Với chai cong, nên chừa khoảng hở giữa hai mép và bo góc để giảm nguy cơ bong. Sau khi chốt kích thước, thiết kế file đúng tỷ lệ thành phẩm, giữ nội dung quan trọng cách đường cắt một khoảng an toàn và gửi ảnh mẫu dán cho xưởng đối chiếu trước khi in.",
+  "sections": [
+    {
+      "heading": "Đo vùng dán tem theo ba bước nào?",
+      "paragraphs": [
+        "Bước một, đo chiều rộng và chiều cao của vùng phẳng có thể dán. Bước hai, cắt mẫu giấy đúng số đo và đặt lên bao bì. Bước ba, chụp ảnh chính diện và góc nghiêng để kiểm tra độ cong, mép dán và tỷ lệ với toàn bộ sản phẩm."
+      ],
+      "bullets": [
+        "Dùng đơn vị milimet",
+        "Không tính vai chai hoặc đường gân",
+        "Đo trên đúng mẫu bao bì sẽ sản xuất",
+        "Kiểm tra cả khi sản phẩm được cầm trên tay"
+      ]
+    },
+    {
+      "heading": "Chai, hũ, hộp và túi cần lưu ý gì?",
+      "paragraphs": [
+        "Mỗi dạng bao bì có một rủi ro khác nhau. Chai tròn dễ hở hoặc chồng mép; hũ thấp cần ưu tiên khả năng đọc; hộp giấy cần tránh đường gấp; túi mềm có thể làm tem nhăn khi bao bì thay đổi hình dạng."
+      ],
+      "table": {
+        "headers": [
+          "Bao bì",
+          "Ưu tiên",
+          "Tránh"
+        ],
+        "rows": [
+          [
+            "Chai tròn",
+            "Chừa khoảng hở giữa hai mép",
+            "Dán qua vai hoặc gân chai"
+          ],
+          [
+            "Hũ thấp",
+            "Tên sản phẩm và logo dễ đọc",
+            "Quá nhiều chữ nhỏ"
+          ],
+          [
+            "Hộp giấy",
+            "Canh theo mặt phẳng chính",
+            "Đường gấp và mép mở"
+          ],
+          [
+            "Túi mềm",
+            "Tem nhỏ, bo góc",
+            "Mảng tem quá lớn, cứng"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Khoảng an toàn và vùng xén là gì?",
+      "paragraphs": [
+        "Vùng xén là phần hình nền kéo ra ngoài đường cắt để tránh lộ viền trắng khi thành phẩm có sai số nhỏ. Khoảng an toàn là vùng bên trong nơi logo, chữ và mã quan trọng nên được giữ cách xa đường cắt. Mức cụ thể cần hỏi xưởng theo máy và quy cách cắt."
+      ]
+    },
+    {
+      "heading": "Cách kiểm tra cuối trước khi gửi in?",
+      "paragraphs": [
+        "In thử trên giấy ở tỷ lệ 100%, cắt theo đường thành phẩm rồi dán lên bao bì. Đây là bước đơn giản nhưng giúp phát hiện phần lớn lỗi về tỷ lệ, chữ quá nhỏ, mép chạm nhau và bố cục bị cong."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-nhua-chong-nuoc",
+    "tem-giay",
+    "tem-phu-san-pham"
+  ],
+  "sources": [
+    {
+      "title": "Hướng dẫn đo và chọn kích thước tem",
+      "href": "/huong-dan/chon-kich-thuoc-tem",
+      "note": "Quy trình đo vùng dán và thử mẫu giấy của VinPrint.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Ứng dụng tem trên chai lọ",
+      "href": "/nganh/chai-lo",
+      "note": "Lưu ý theo độ cong và vật liệu bề mặt.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 19,
+      "evidence": 19,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/huong-dan/chon-kich-thuoc-tem",
+      "/nganh/chai-lo"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [{
+      "claim": "Kích thước tem phải được đối chiếu trên vùng dán thực tế.",
+      "sourceIds": ["/huong-dan/chon-kich-thuoc-tem"]
+    }],
+    "attempts": []
+  }
+}

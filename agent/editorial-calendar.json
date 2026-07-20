@@ -1,0 +1,16 @@
+{
+  "version": "2026-W30",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "dailyCandidateTarget": 7,
+  "dailyPublishMaximum": 5,
+  "dailyMix": { "conversion": 3, "authority": 2 },
+  "days": [
+    { "day": 1, "topics": ["Giá in tem số lượng ít phụ thuộc gì", "Tem nhựa trong cho chai", "Tem bạc hay tem vàng ánh kim", "Cách thử độ bám trên năm bề mặt", "Cán bóng và cán mờ", "Keo tem cho chai nhựa", "Tem giấy kraft dùng khi nào"] },
+    { "day": 2, "topics": ["Tem chai serum", "Tem thực phẩm cho túi kraft", "Tem ly cà phê chống nước", "Thử tem trong môi trường lạnh", "Vì sao chai đọng sương làm bong tem", "Tem cho hũ kem", "Tem cho chai nước ép"] },
+    { "day": 3, "topics": ["Làm nét logo trước khi in", "Tem cho chai 10 đến 30 ml", "Chuẩn bị file autocut sticker", "Bleed safe zone và cutline", "RGB và CMYK", "Font nhỏ nhất trên tem", "Chuyển JPG sang vector"] },
+    { "day": 4, "topics": ["UV DTF hay decal trong", "Kiss-cut hay die-cut", "Tem hologram dùng khi nào", "Nguyên nhân tem hở mép", "Quy trình kiểm tra độ bền", "Bế demi là gì", "Tem ánh kim trên nền tối"] },
+    { "day": 5, "topics": ["Các yếu tố quyết định báo giá", "Tối ưu chi phí đơn nhỏ", "In tem lấy gấp tại TP.HCM", "Checklist gửi yêu cầu báo giá", "Cách duyệt mẫu trước sản xuất", "Chọn số lượng in thử", "Nhận tem tại Gò Vấp"] },
+    { "day": 6, "topics": ["Tem shop handmade", "Tem bảo hành", "Tem phụ chữ nhỏ", "Case study có bằng chứng thật", "Các lỗi chọn keo theo bề mặt", "Sticker cảm ơn", "Tem niêm phong hộp"] },
+    { "day": 7, "topics": ["In tem tại Gò Vấp", "Đặt in và giao toàn quốc", "Poster và decal cho xe đẩy", "Cây quyết định chọn vật liệu", "FAQ thực tế trong tuần", "Tem cho quán cà phê", "Cách gửi mẫu bao bì"] }
+  ]
+}

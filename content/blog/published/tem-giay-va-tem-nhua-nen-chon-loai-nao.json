@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-giay-va-tem-nhua-nen-chon-loai-nao",
+  "title": "Tem giấy và tem nhựa: nên chọn loại nào?",
+  "description": "So sánh theo môi trường sử dụng, độ bền, bề mặt dán và ngân sách để chọn đúng vật liệu ngay từ đầu.",
+  "category": "chat-lieu",
+  "image": "/images/blog/tem-giay-va-tem-nhua.webp",
+  "imageAlt": "So sánh bề mặt tem giấy và tem nhựa chống nước trên hũ sản phẩm",
+  "publishedAt": "2026-07-20",
+  "updatedAt": "2026-07-20",
+  "readingMinutes": 5,
+  "publishAt": "2026-07-20T06:30:00+07:00",
+  "primaryKeyword": "tem giấy và tem nhựa",
+  "searchIntent": "So sánh tem giấy và tem nhựa theo điều kiện sử dụng",
+  "buyerStage": "consideration",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "manual-baseline-v1",
+  "revisionCount": 0,
+  "directAnswer": "Không có một chất liệu tốt nhất cho mọi sản phẩm. Tem giấy phù hợp bao bì khô, vòng đời sử dụng ngắn và đơn hàng cần tối ưu chi phí; bề mặt giấy cho màu in rõ nhưng dễ ảnh hưởng khi gặp nước hoặc ma sát kéo dài. Tem nhựa phù hợp chai lọ, mỹ phẩm, đồ uống lạnh và môi trường ẩm vì vật liệu bền nước hơn, khó rách hơn và dễ lau bề mặt. Tuy nhiên, độ bám còn phụ thuộc loại keo, độ cong, độ nhám và độ sạch của vị trí dán. Cách chọn an toàn là xác định điều kiện sử dụng thật, chọn hai phương án gần nhất rồi dán thử trên đúng bao bì trước khi sản xuất số lượng lớn. Nếu sản phẩm chỉ dùng trong môi trường khô, tem giấy thường đủ; nếu có nước, hơi lạnh hoặc cầm nắm nhiều, nên ưu tiên tem nhựa.",
+  "sections": [
+    {
+      "heading": "Khi nào nên chọn tem giấy?",
+      "paragraphs": [
+        "Tem giấy phù hợp khi bao bì được bảo quản khô, ít ma sát và cần thay đổi mẫu thường xuyên. Các ứng dụng phổ biến gồm hộp giấy, túi kraft, tem cảm ơn, nhãn phân loại và bao bì thực phẩm khô.",
+        "Ưu điểm lớn nhất là chi phí dễ tiếp cận và bề mặt in màu tốt. Điểm cần cân nhắc là giấy có thể mềm, nhăn hoặc bong khi tiếp xúc nước; cán màng giúp bảo vệ bề mặt nhưng không biến phần nền giấy thành vật liệu chống nước hoàn toàn."
+      ],
+      "bullets": [
+        "Bao bì khô và sạch",
+        "Nhu cầu thử mẫu hoặc đổi thiết kế",
+        "Ưu tiên chi phí và màu in"
+      ]
+    },
+    {
+      "heading": "Khi nào nên chọn tem nhựa?",
+      "paragraphs": [
+        "Tem nhựa nên được cân nhắc cho chai mỹ phẩm, ly nước, sản phẩm bảo quản lạnh và bao bì thường xuyên được cầm nắm. Vật liệu bền ẩm và khó rách hơn giấy, nhưng chất lượng cuối cùng vẫn phụ thuộc bề mặt dán và loại keo.",
+        "Với chai cong, chai có gân hoặc bề mặt nhám, hãy dán thử một mẫu đúng kích thước. Mẫu thử giúp phát hiện sớm hiện tượng nhăn, hở mép hoặc logo bị biến dạng khi nhìn trên sản phẩm thật."
+      ],
+      "bullets": [
+        "Môi trường ẩm hoặc có nước",
+        "Chai lọ được cầm nắm nhiều",
+        "Cần độ bền và khả năng lau sạch"
+      ]
+    },
+    {
+      "heading": "Tem giấy và tem nhựa khác nhau thế nào?",
+      "paragraphs": [
+        "Bảng dưới đây là hướng chọn ban đầu. Báo giá và vật liệu cuối cùng cần dựa trên kích thước, số lượng, bề mặt dán và yêu cầu gia công thực tế."
+      ],
+      "table": {
+        "headers": [
+          "Tiêu chí",
+          "Tem giấy",
+          "Tem nhựa"
+        ],
+        "rows": [
+          [
+            "Môi trường",
+            "Khô, ít ma sát",
+            "Ẩm, lạnh hoặc có nước"
+          ],
+          [
+            "Độ bền",
+            "Phù hợp vòng đời ngắn",
+            "Bền ẩm và khó rách hơn"
+          ],
+          [
+            "Chi phí",
+            "Thường dễ tối ưu",
+            "Cao hơn tùy quy cách"
+          ],
+          [
+            "Ứng dụng",
+            "Hộp, túi kraft, tem cảm ơn",
+            "Mỹ phẩm, đồ uống, chai lọ"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Làm sao chốt vật liệu mà không phải đoán?",
+      "paragraphs": [
+        "Gửi xưởng ảnh bao bì, kích thước vùng dán, số lượng và điều kiện sử dụng. Nếu có thể, thử mẫu trên đúng sản phẩm trong điều kiện lạnh, ẩm hoặc ma sát dự kiến. Quyết định dựa trên mẫu thật đáng tin cậy hơn chỉ nhìn mô phỏng trên màn hình."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-giay",
+    "tem-nhua-chong-nuoc",
+    "tem-nhua-trong"
+  ],
+  "sources": [
+    {
+      "title": "Hướng dẫn chọn chất liệu tem của VinPrint",
+      "href": "/huong-dan/chon-chat-lieu-tem",
+      "note": "Tổng hợp tiêu chí theo môi trường sử dụng và bề mặt dán.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Trang sản phẩm tem giấy",
+      "href": "/san-pham/tem-giay",
+      "note": "Thông tin ứng dụng và giá tham khảo công khai.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Trang sản phẩm tem nhựa chống nước",
+      "href": "/san-pham/tem-nhua-chong-nuoc",
+      "note": "Thông tin ứng dụng cho môi trường ẩm và chai lọ.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 19,
+      "evidence": 19,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/huong-dan/chon-chat-lieu-tem",
+      "/san-pham/tem-giay",
+      "/san-pham/tem-nhua-chong-nuoc"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [{
+      "claim": "Tem giấy và tem nhựa phù hợp với các môi trường sử dụng khác nhau.",
+      "sourceIds": ["/huong-dan/chon-chat-lieu-tem"]
+    }],
+    "attempts": []
+  }
+}
