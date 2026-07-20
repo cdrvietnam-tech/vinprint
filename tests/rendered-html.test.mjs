@@ -405,6 +405,40 @@ test("image endpoint falls back to the raw asset when preview bindings are unava
   }
 });
 
+test("image endpoint falls back when Cloudflare image transformation fails", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-failed-image-transform`);
+  const { default: worker } = await import(workerUrl.href);
+  const rawImage = new Uint8Array([0x52, 0x49, 0x46, 0x46]);
+  const env = {
+    ASSETS: {
+      fetch: async () => new Response(rawImage, {
+        status: 200,
+        headers: { "Content-Type": "image/webp" },
+      }),
+    },
+    IMAGES: {
+      input: () => ({
+        transform: () => ({
+          output: async () => ({
+            response: () => new Response("Image service unavailable", { status: 522 }),
+          }),
+        }),
+      }),
+    },
+  };
+
+  const response = await worker.fetch(
+    new Request("http://localhost/_vinext/image?url=%2Fimages%2Fhero-products.webp&w=640&q=82"),
+    env,
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get("content-type"), "image/webp");
+  assert.deepEqual(new Uint8Array(await response.arrayBuffer()), rawImage);
+});
+
 test("permanently redirects the verified WordPress sticker URL in one hop", async () => {
   const cases = [
     {
