@@ -1,6 +1,7 @@
 /** Cloudflare Worker entry point for the vinext-starter template. */
 import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } from "vinext/server/image-optimization";
 import handler from "vinext/server/app-router-entry";
+import { resolveLegacyRedirect } from "../app/lib/legacy-redirects";
 
 interface Env {
   ASSETS?: Fetcher;
@@ -55,6 +56,17 @@ function resolvePreviewImageUrl(value: string | null, requestUrl: string) {
 const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
+    const legacyRedirect = resolveLegacyRedirect(url);
+
+    if (legacyRedirect) {
+      return new Response(null, {
+        status: 301,
+        headers: {
+          location: legacyRedirect.toString(),
+          "cache-control": "public, max-age=3600",
+        },
+      });
+    }
 
     if (url.pathname === "/_vinext/image") {
       const fetchSourceAsset = (path: string) => {
@@ -63,8 +75,9 @@ const worker = {
           ? env.ASSETS.fetch(assetRequest)
           : fetch(assetRequest);
       };
+      const images = env.IMAGES;
 
-      if (!env.IMAGES) {
+      if (!images) {
         const imageUrl = resolvePreviewImageUrl(url.searchParams.get("url"), request.url);
         if (!imageUrl) {
           return new Response("Invalid image URL", { status: 400 });
@@ -78,7 +91,7 @@ const worker = {
       return handleImageOptimization(request, {
         fetchAsset: fetchSourceAsset,
         transformImage: async (body, { width, format, quality }) => {
-          const result = await env.IMAGES.input(body).transform(width > 0 ? { width } : {}).output({ format, quality });
+          const result = await images.input(body).transform(width > 0 ? { width } : {}).output({ format, quality });
           return result.response();
         },
       }, allowedWidths);

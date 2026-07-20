@@ -292,3 +292,25 @@ test("image endpoint falls back to the raw asset when preview bindings are unava
     globalThis.fetch = originalFetch;
   }
 });
+
+test("permanently redirects the verified WordPress sticker URL in one hop", async () => {
+  const cases = [
+    {
+      source:
+        "/product/sticker-trang-tri-pvc-chong-nuoc-sieu-ben-boc-khong-de-lai-keo-1000-mau-hot-trend-doc-la",
+      target: "http://localhost/san-pham/sticker-trang-tri",
+    },
+    {
+      source:
+        "/product/sticker-trang-tri-pvc-chong-nuoc-sieu-ben-boc-khong-de-lai-keo-1000-mau-hot-trend-doc-la/?utm_source=google",
+      target:
+        "http://localhost/san-pham/sticker-trang-tri?utm_source=google",
+    },
+  ];
+
+  for (const { source, target } of cases) {
+    const response = await render(source);
+    assert.equal(response.status, 301, source);
+    assert.equal(response.headers.get("location"), target, source);
+  }
+});
