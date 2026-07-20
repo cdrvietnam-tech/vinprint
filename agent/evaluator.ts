@@ -5,6 +5,7 @@ type EvaluationOptions = {
   existingArticles: BlogArticleRecord[];
   assetExists: (imagePath: string) => boolean;
   validRelatedProductSlugs?: Set<string>;
+  enforcePublishTime?: boolean;
   now?: Date;
 };
 
@@ -105,7 +106,9 @@ export function evaluateArticleRecord(input: unknown, options: EvaluationOptions
   if (duplicate) failures.push("duplicate search intent");
 
   const now = options.now ?? new Date();
-  if (article.status === "published" && new Date(article.publishAt) > now) failures.push("published article has a future publish time");
+  if (options.enforcePublishTime !== false && article.status === "published" && new Date(article.publishAt) > now) {
+    failures.push("published article has a future publish time");
+  }
 
   return { score, publishable: failures.length === 0, failures, dimensions: scores };
 }

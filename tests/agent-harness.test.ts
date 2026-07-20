@@ -205,6 +205,23 @@ test("public selector excludes drafts, rejected, future and sub-95 articles", ()
   assert.deepEqual(selected.map((article) => article.slug), [good.slug]);
 });
 
+test("published content does not depend on a Cloudflare global-scope clock", () => {
+  const SystemDate = globalThis.Date;
+  class EpochDate extends SystemDate {
+    constructor(value?: string | number | Date) {
+      super(value === undefined ? 0 : value instanceof SystemDate ? value.getTime() : value);
+    }
+    static now() { return 0; }
+  }
+
+  globalThis.Date = EpochDate as DateConstructor;
+  try {
+    assert.deepEqual(selectPublicArticles([makeArticle()]).map((article) => article.slug), [makeArticle().slug]);
+  } finally {
+    globalThis.Date = SystemDate;
+  }
+});
+
 test("blog pagination exposes twelve articles per page", () => {
   const posts = Array.from({ length: 25 }, (_, index) => ({ ...makeArticle(), slug: `article-${index + 1}` }));
   const page = paginateBlogPosts(posts, 2);

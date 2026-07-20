@@ -36,9 +36,9 @@ export type BlogArticle = BlogPost & BlogArticleDetails;
 
 export const allBlogArticles: BlogArticleRecord[] = rawBlogArticles.map((article) => articleSchema.parse(article));
 
-export function selectPublicArticles(records: BlogArticleRecord[], now = new Date()): BlogArticleRecord[] {
+export function selectPublicArticles(records: BlogArticleRecord[], now?: Date): BlogArticleRecord[] {
   const candidates = records
-    .filter((article) => article.status === "published" && new Date(article.publishAt) <= now)
+    .filter((article) => article.status === "published" && (!now || new Date(article.publishAt) <= now))
     .sort((a, b) => new Date(a.publishAt).getTime() - new Date(b.publishAt).getTime());
   const accepted: BlogArticleRecord[] = [];
 
@@ -47,6 +47,7 @@ export function selectPublicArticles(records: BlogArticleRecord[], now = new Dat
       existingArticles: accepted,
       assetExists: () => true,
       validRelatedProductSlugs: new Set(products.map((product) => product.slug)),
+      enforcePublishTime: Boolean(now),
       now,
     });
     if (evaluation.publishable) accepted.push(article);
