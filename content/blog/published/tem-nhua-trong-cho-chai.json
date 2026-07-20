@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-nhua-trong-cho-chai",
+  "title": "Tem nhựa trong cho chai: chọn theo nền, keo và độ cong",
+  "description": "Cách chọn tem nhựa trong cho chai theo màu sản phẩm, độ tương phản, vật liệu chai, độ cong và điều kiện dán để tránh chữ chìm hoặc tem bị đục.",
+  "category": "chat-lieu",
+  "image": "/images/blog/tem-nhua-trong-cho-chai.webp",
+  "imageAlt": "Minh họa tem nhựa trong trên chai thủy tinh, chai PET và chai nhựa đục",
+  "publishedAt": "2026-07-20",
+  "updatedAt": "2026-07-20",
+  "publishAt": "2026-07-20T05:05:00+07:00",
+  "readingMinutes": 6,
+  "primaryKeyword": "tem nhựa trong cho chai",
+  "searchIntent": "Chọn tem nhựa trong cho chai theo nền bao bì và điều kiện sử dụng",
+  "buyerStage": "consideration",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-content-v1",
+  "revisionCount": 2,
+  "directAnswer": "Tem nhựa trong cho chai phù hợp khi muốn giữ màu và bề mặt bao bì làm một phần của thiết kế. Trước khi chọn, cần kiểm tra bốn điểm: chai là thủy tinh, PET hay nhựa khác; vùng dán có phẳng và nhẵn không; sản phẩm phía sau nhãn có màu gì; và chai có gặp nước ngưng tụ, dầu hoặc bóp cong hay không. Phần trong suốt không tự tạo tương phản, nên chữ sáng trên nền sáng hoặc chữ tối trên sản phẩm tối có thể bị chìm. Khi đó, có thể cần mực trắng lót hoặc chuyển một phần thiết kế sang mảng đục. Chai phải sạch và khô lúc dán; nước bị giữ dưới nhãn trong có thể làm lớp keo trông đục. Với chai cong hoặc có đường gân, dùng mẫu đúng kích thước để kiểm tra bọt khí, nếp nhăn và mép hở. Chỉ chốt sau khi xem mẫu trên đúng chai và trong điều kiện sử dụng thực tế.",
+  "sections": [
+    {
+      "heading": "Khi nào tem nhựa trong tạo được hiệu ứng nhìn xuyên nền?",
+      "paragraphs": [
+        "Vật liệu film trong thường được dùng cho cảm giác “không nhãn”, nhưng hiệu ứng còn phụ thuộc độ trong của keo, độ sạch của chai và thiết kế in. Nền chai trở thành nền của chữ, logo và hình ảnh.",
+        "Nếu sản phẩm có màu thay đổi theo lô hoặc mức đầy trong chai khác nhau, cần xem mẫu ở nhiều trạng thái. Một thiết kế chỉ đẹp trên chai rỗng có thể mất tương phản khi chứa sản phẩm thật."
+      ],
+      "table": {
+        "headers": ["Tình huống", "Điểm cần kiểm tra"],
+        "rows": [
+          ["Chai và sản phẩm đều trong", "Tương phản chữ và bọt khí dưới tem"],
+          ["Sản phẩm có màu đậm", "Vùng chữ có cần mực trắng lót"],
+          ["Chai trắng đục", "Tem trong có tạo khác biệt đủ rõ hay không"],
+          ["Chai bóp mềm", "Film có đủ mềm theo biến dạng của chai"],
+          ["Chai để lạnh", "Bề mặt phải khô khi dán và cần thử ngưng tụ"]
+        ]
+      }
+    },
+    {
+      "heading": "Vì sao tem trong có thể bị đục, bọt khí hoặc hở mép?",
+      "paragraphs": [
+        "Nước, bụi, dầu và dấu tay làm giảm tiếp xúc giữa keo và bề mặt. Trên nhãn trong, những khuyết điểm này dễ nhìn thấy hơn vì ánh sáng đi qua toàn bộ cấu trúc.",
+        "Độ cong, đường gân hoặc vùng chuyển tiếp ở vai chai khiến film khó áp sát. Tem quá rộng có thể kéo hai mép vào vùng cong và tăng nguy cơ nhăn hoặc bật mép."
+      ],
+      "bullets": [
+        "Làm sạch và để chai khô hoàn toàn trước khi dán",
+        "Không chạm tay vào mặt keo",
+        "Miết đều từ giữa ra ngoài để đẩy khí",
+        "Tránh để mép tem nằm trên đường gân hoặc vai chai",
+        "Theo dõi mẫu sau khi chai được làm lạnh hoặc cầm nắm"
+      ]
+    },
+    {
+      "heading": "Nên duyệt mẫu tem trong trên chai như thế nào?",
+      "paragraphs": [
+        "Dùng đúng chai, đúng sản phẩm bên trong và đúng kích thước thành phẩm. Quan sát dưới ánh sáng bán hàng thông thường, không chỉ dưới đèn studio, rồi đọc lại toàn bộ chữ ở khoảng cách sử dụng.",
+        "Thumbnail của bài chỉ là minh họa bằng AI, không phải ảnh thử độ bám hay ảnh thành phẩm VinPrint. Quyết định vật liệu cần dựa trên mẫu thật được dán và theo dõi trong môi trường dự kiến."
+      ],
+      "bullets": [
+        "Kiểm tra tương phản khi chai đầy",
+        "Quan sát bọt khí và độ trong của keo",
+        "Bóp hoặc xoay chai như lúc sử dụng",
+        "Thử nước ngưng tụ nếu sản phẩm để lạnh",
+        "Chốt mực trắng lót theo mẫu in thật"
+      ]
+    }
+  ],
+  "relatedProductSlugs": ["tem-nhua-trong", "tem-nhua-chong-nuoc", "tem-uv-dtf"],
+  "sources": [
+    {
+      "title": "Trang sản phẩm tem nhựa trong VinPrint",
+      "href": "/san-pham/tem-nhua-trong",
+      "note": "Mô tả mục đích giữ nền bao bì và các ứng dụng chai lọ của tem trong.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Hướng dẫn chọn tem cho chai lọ",
+      "href": "/nganh/chai-lo",
+      "note": "Nêu vai trò của độ cong, vùng dán và thử mẫu trên đúng bao bì.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Avery Dennison Film Labels",
+      "href": "https://label.averydennison.com/ap/en_sa/home/products/film.html",
+      "note": "Nguồn nhà sản xuất về film linh hoạt, khả năng chịu ẩm và hiệu ứng no-label-look.",
+      "kind": "primary",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Avery Dennison AD CleanFlake technical guide",
+      "href": "https://label.averydennison.com/content/dam/averydennison/lpm-responsive/na/doc/technical-bulletins/product/sustainable-solutions/to-ad-cleanflake-pet.pdf",
+      "note": "Hướng dẫn kỹ thuật ghi nhận chai PET cần khô và nước giữ dưới nhãn có thể làm keo nhìn trắng đục.",
+      "kind": "primary",
+      "verifiedAt": "2026-07-20"
+    }
+  ],
+  "quality": {
+    "scores": {"searchIntent": 20, "originality": 20, "evidence": 20, "citability": 15, "authority": 10, "internalLinks": 10, "technical": 5},
+    "evidenceIds": ["/san-pham/tem-nhua-trong", "/nganh/chai-lo", "https://label.averydennison.com/ap/en_sa/home/products/film.html", "https://label.averydennison.com/content/dam/averydennison/lpm-responsive/na/doc/technical-bulletins/product/sustainable-solutions/to-ad-cleanflake-pet.pdf"],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Film trong có thể tạo hiệu ứng nhìn xuyên nền nhưng lựa chọn còn phụ thuộc độ cong và điều kiện sử dụng của chai.",
+        "sourceIds": ["/san-pham/tem-nhua-trong", "/nganh/chai-lo", "https://label.averydennison.com/ap/en_sa/home/products/film.html"]
+      },
+      {
+        "claim": "Nước hoặc ngưng tụ bị giữ dưới nhãn trong có thể làm lớp keo trên chai PET trông trắng đục.",
+        "sourceIds": ["https://label.averydennison.com/content/dam/averydennison/lpm-responsive/na/doc/technical-bulletins/product/sustainable-solutions/to-ad-cleanflake-pet.pdf"]
+      }
+    ],
+    "attempts": [
+      {"attempt": 1, "recordedAt": "2026-07-20T22:26:00+07:00", "score": 100, "outcome": "accepted"},
+      {"attempt": 2, "recordedAt": "2026-07-20T22:40:00+07:00", "score": 100, "outcome": "accepted"}
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-07-20",
+  "candidates": [
+    {"slug": "gia-in-tem-so-luong-it-phu-thuoc-gi", "contentType": "conversion", "outcome": "published", "score": 100, "revisionCount": 2, "failures": []},
+    {"slug": "tem-nhua-trong-cho-chai", "contentType": "conversion", "outcome": "published", "score": 100, "revisionCount": 2, "failures": []},
+    {"slug": "tem-bac-hay-tem-vang-anh-kim", "contentType": "conversion", "outcome": "published", "score": 100, "revisionCount": 2, "failures": []},
+    {"slug": "cach-thu-do-bam-tem-tren-nam-be-mat", "contentType": "authority", "outcome": "published", "score": 100, "revisionCount": 2, "failures": []},
+    {"slug": "can-bong-va-can-mo-cho-tem", "contentType": "authority", "outcome": "published", "score": 100, "revisionCount": 2, "failures": []},
+    {"slug": "keo-tem-cho-chai-nhua", "contentType": "conversion", "outcome": "held", "score": 100, "revisionCount": 1, "failures": ["daily publication cap reached; retained as draft"]},
+    {"slug": "tem-giay-kraft-dung-khi-nao", "contentType": "authority", "outcome": "held", "score": 100, "revisionCount": 1, "failures": ["daily publication cap reached; retained as draft"]}
+  ],
+  "productionErrors": 0
+}

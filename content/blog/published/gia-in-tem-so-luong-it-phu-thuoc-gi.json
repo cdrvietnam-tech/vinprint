@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "gia-in-tem-so-luong-it-phu-thuoc-gi",
+  "title": "Giá in tem số lượng ít phụ thuộc những yếu tố nào?",
+  "description": "Hiểu các yếu tố làm thay đổi báo giá in tem số lượng ít và checklist cần gửi để xưởng xác nhận quy cách, không đoán giá theo một con số chung.",
+  "category": "ky-thuat-in",
+  "image": "/images/blog/gia-in-tem-so-luong-it-phu-thuoc-gi.webp",
+  "imageAlt": "Minh họa các mẫu vật liệu, kích thước và quy cách ảnh hưởng báo giá in tem số lượng ít",
+  "publishedAt": "2026-07-20",
+  "updatedAt": "2026-07-20",
+  "publishAt": "2026-07-20T05:00:00+07:00",
+  "readingMinutes": 5,
+  "primaryKeyword": "giá in tem số lượng ít",
+  "searchIntent": "Hiểu yếu tố hình thành báo giá in tem số lượng ít trước khi gửi yêu cầu",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-content-v1",
+  "revisionCount": 2,
+  "directAnswer": "Giá in tem số lượng ít không thể xác định chỉ từ số lượng. Xưởng cần đồng thời biết kích thước thành phẩm, số mẫu thiết kế, chất liệu, hình dạng cắt, yêu cầu cán hoặc hiệu ứng, tình trạng file và cách giao nhận. Cùng một số tem, mẫu nhỏ bố trí gọn trên khổ in sẽ khác mẫu lớn hoặc nhiều đường cắt phức tạp. Tem giấy cho bao bì khô cũng có cấu trúc khác tem nhựa, tem trong hay tem ánh kim. Vì vậy, cách nhận báo giá có thể đối chiếu là gửi file hoặc ảnh tham khảo, kích thước tính bằng milimet, số lượng của từng mẫu, bề mặt dự kiến dán và điều kiện sử dụng. Nếu chưa chắc vật liệu, hãy mô tả sản phẩm có gặp nước, lạnh, dầu hay ma sát hay không. Báo giá chỉ nên được chốt sau khi hai bên xác nhận cùng một quy cách; bài viết này không đưa ra giá hay thời gian giao hàng cố định.",
+  "sections": [
+    {
+      "heading": "Những biến số nào làm thay đổi báo giá in tem số lượng ít?",
+      "paragraphs": [
+        "Kích thước và số lượng quyết định diện tích vật liệu, nhưng chưa phản ánh toàn bộ công việc. Một đơn có nhiều mẫu, đường bế nhiều góc nhỏ hoặc cần tách file sẽ cần xử lý khác một mẫu hình chữ nhật đã sẵn sàng in.",
+        "Chất liệu và gia công cũng phải được xác nhận riêng. Cán màng, tem trong, ánh kim hoặc yêu cầu cắt theo viền là các cấu phần của quy cách, không nên gộp thành một mức giá mặc định."
+      ],
+      "table": {
+        "headers": ["Thông tin", "Vì sao cần khi báo giá"],
+        "rows": [
+          ["Kích thước và số lượng", "Xác định diện tích và cách bố trí trên khổ in"],
+          ["Số mẫu và hình cắt", "Xác định khối lượng chuẩn bị file và cắt bế"],
+          ["Chất liệu và cán", "Xác định cấu trúc vật liệu thành phẩm"],
+          ["Tình trạng file", "Xác định file đã sẵn sàng hay cần hỗ trợ"],
+          ["Bề mặt sử dụng", "Loại trừ vật liệu hoặc keo không phù hợp"]
+        ]
+      }
+    },
+    {
+      "heading": "Cần gửi gì để nhận báo giá có thể đối chiếu?",
+      "paragraphs": [
+        "Một yêu cầu rõ giúp xưởng và người đặt cùng nói về một thành phẩm. Hãy ghi đơn vị đo, tách số lượng theo từng mẫu và gửi ảnh bao bì thật nếu vùng dán có độ cong, gân hoặc bề mặt đặc biệt.",
+        "Nếu chưa có file hoàn chỉnh, nên nói rõ ngay từ đầu thay vì gửi ảnh mờ như file in. Xưởng có thể xác nhận phần nào cần dựng lại trước khi chốt quy cách."
+      ],
+      "bullets": [
+        "File hoặc ảnh tham khảo của từng mẫu",
+        "Kích thước ngang × cao tính bằng milimet",
+        "Số lượng cho từng mẫu, không chỉ tổng số",
+        "Chất liệu mong muốn hoặc điều kiện sử dụng",
+        "Hình cắt, cán màng và yêu cầu gia công",
+        "Địa điểm nhận hàng để tách phần vận chuyển"
+      ]
+    },
+    {
+      "heading": "Làm sao so sánh hai báo giá mà không lệch quy cách?",
+      "paragraphs": [
+        "Chỉ so sánh khi kích thước, số lượng, vật liệu, cán, kiểu cắt và phạm vi hỗ trợ file giống nhau. Một báo giá thấp hơn nhưng dùng vật liệu khác hoặc chưa gồm gia công không phải là cùng một phương án.",
+        "Trước khi duyệt, hãy yêu cầu xác nhận lại nội dung, quy cách và mẫu. Không suy diễn mức giá tham khảo của một sản phẩm thành cam kết cho mọi đơn hàng."
+      ],
+      "bullets": [
+        "Đối chiếu cùng đơn vị và cùng số lượng",
+        "Ghi rõ phần đã gồm hoặc chưa gồm",
+        "Xác nhận mẫu trước sản xuất",
+        "Chốt giá và thời gian theo đơn thực tế"
+      ]
+    }
+  ],
+  "relatedProductSlugs": ["tem-giay", "tem-nhua-chong-nuoc", "tem-nhua-trong"],
+  "sources": [
+    {
+      "title": "Trang liên hệ và yêu cầu báo giá VinPrint",
+      "href": "/lien-he",
+      "note": "Liệt kê thông tin cần gửi để xưởng xác nhận báo giá theo quy cách thực tế.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Quy trình làm việc của VinPrint",
+      "href": "/gioi-thieu",
+      "note": "Mô tả bước nhận file, xác nhận quy cách và duyệt mẫu trước khi in.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Hướng dẫn kỹ thuật in và gia công tem",
+      "href": "/huong-dan/ky-thuat-in-tem",
+      "note": "Giải thích cán màng, cắt bế và hiệu ứng là các phần riêng của quy cách.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    }
+  ],
+  "quality": {
+    "scores": {"searchIntent": 20, "originality": 20, "evidence": 20, "citability": 15, "authority": 10, "internalLinks": 10, "technical": 5},
+    "evidenceIds": ["/lien-he", "/gioi-thieu", "/huong-dan/ky-thuat-in-tem"],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Báo giá cần được xác nhận theo kích thước, số lượng, chất liệu và yêu cầu gia công của đơn thực tế.",
+        "sourceIds": ["/lien-he", "/gioi-thieu"]
+      },
+      {
+        "claim": "Cán màng và cắt bế là các cấu phần kỹ thuật cần được nêu rõ khi yêu cầu báo giá.",
+        "sourceIds": ["/huong-dan/ky-thuat-in-tem"]
+      }
+    ],
+    "attempts": [
+      {"attempt": 1, "recordedAt": "2026-07-20T22:25:00+07:00", "score": 100, "outcome": "accepted"},
+      {"attempt": 2, "recordedAt": "2026-07-20T22:40:00+07:00", "score": 100, "outcome": "accepted"}
+    ]
+  }
+}

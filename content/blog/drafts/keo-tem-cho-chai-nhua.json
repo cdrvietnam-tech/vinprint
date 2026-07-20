@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "status": "draft",
+  "slug": "keo-tem-cho-chai-nhua",
+  "title": "Keo tem cho chai nhựa: phân biệt PET, PP và PE trước",
+  "description": "Cách mô tả chai PET, PP hoặc PE, điều kiện dán và môi trường sử dụng để chọn keo tem phù hợp thay vì dùng một loại cho mọi chai nhựa.",
+  "category": "ky-thuat-in",
+  "image": "/images/blog/keo-tem-cho-chai-nhua.webp",
+  "imageAlt": "Minh họa các chai PET, PP và PE với mẫu tem dùng để đánh giá keo dán",
+  "publishedAt": "2026-07-20",
+  "updatedAt": "2026-07-20",
+  "publishAt": "2026-07-20T21:55:00+07:00",
+  "readingMinutes": 6,
+  "primaryKeyword": "keo tem cho chai nhựa",
+  "searchIntent": "Chọn keo tem cho chai nhựa theo loại polymer, bề mặt và môi trường sử dụng",
+  "buyerStage": "consideration",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-content-v1",
+  "revisionCount": 1,
+  "directAnswer": "Keo tem cho chai nhựa phải được chọn theo loại nhựa và điều kiện dán; từ “chai nhựa” chưa đủ để chốt. PET thường có năng lượng bề mặt cao hơn PP và PE, nên cùng một keo có thể dàn trải tốt trên PET nhưng bám ban đầu kém trên polyolefin. Ngoài vật liệu, cần biết chai cứng hay bóp mềm, bề mặt nhẵn hay có gân, có phụ gia hoặc lớp chống trầy không, dán khi chai khô hay lạnh, và sau đó sản phẩm gặp nước, dầu hay ma sát thế nào. Hãy kiểm tra ký hiệu vật liệu ở đáy chai hoặc hỏi nhà cung cấp bao bì, rồi gửi mẫu chai thật cho xưởng. Trước khi dán, làm sạch theo hướng dẫn tương thích và để bề mặt khô. Dán nhiều mẫu cùng kích thước, miết đều và theo dõi mép trong điều kiện thật. Không suy rộng kết quả từ một chai PET sang PP hoặc PE, và không xem “keo vĩnh viễn” là bảo đảm cho mọi bề mặt.",
+  "sections": [
+    {
+      "heading": "Vì sao PET, PP và PE không dùng keo theo cùng một giả định?",
+      "paragraphs": [
+        "Khả năng keo lan và tiếp xúc phụ thuộc năng lượng bề mặt. Tài liệu kỹ thuật của 3M xếp PP và PE vào nhóm nhựa năng lượng bề mặt thấp, thường khó kết dính hơn nhiều bề mặt năng lượng cao.",
+        "Tên polymer vẫn chưa phải biến số duy nhất. Phụ gia, chất tách khuôn, lớp phủ, độ nhám và công thức của nhà cung cấp có thể làm kết quả thay đổi."
+      ],
+      "table": {
+        "headers": ["Thông tin chai", "Câu hỏi cần trả lời"],
+        "rows": [
+          ["PET", "Chai có khô khi dán và có để lạnh không"],
+          ["PP", "Có phụ gia hoặc bề mặt năng lượng thấp không"],
+          ["PE", "Chai có bóp mềm hoặc biến dạng khi dùng không"],
+          ["Mọi loại", "Bề mặt có gân, dầu, bụi hoặc độ cong mạnh không"]
+        ]
+      }
+    },
+    {
+      "heading": "Cần gửi dữ liệu gì khi yêu cầu chọn keo tem?",
+      "paragraphs": [
+        "Một ảnh chai không cho biết chắc loại nhựa. Hãy ghi mã vật liệu, kích thước vùng dán, nhiệt độ lúc dán và môi trường trong suốt vòng đời sử dụng.",
+        "Nếu không xác định được polymer, mẫu chai thật có giá trị hơn việc đoán. Mọi thay đổi nhà cung cấp hoặc công thức chai nên được xem là lý do để thử lại."
+      ],
+      "bullets": ["Loại nhựa hoặc ký hiệu dưới đáy chai", "Chai cứng hay bóp mềm", "Bề mặt nhẵn, nhám hay có gân", "Nhiệt độ và độ ẩm lúc dán", "Nước, dầu, lạnh và ma sát khi sử dụng"]
+    },
+    {
+      "heading": "Một phép thử keo trên chai nhựa cần ghi nhận gì?",
+      "paragraphs": [
+        "Giữ cùng loại tem, kích thước và cách miết khi so sánh các chai. Theo dõi mép, bọt khí, nếp nhăn, trượt và thay đổi sau khi chai được bóp hoặc làm lạnh.",
+        "Đây là bản nháp đạt chuẩn nhưng được giữ lại do giới hạn xuất bản hằng ngày. Thumbnail AI chỉ minh họa, không phải bằng chứng của phép thử thực tế."
+      ],
+      "bullets": ["Mã chai và mã mẫu tem", "Thời điểm dán", "Điều kiện bề mặt", "Dấu hiệu sau các mốc giống nhau", "Ảnh trước và sau điều kiện sử dụng"]
+    }
+  ],
+  "relatedProductSlugs": ["tem-nhua-chong-nuoc", "tem-nhua-trong", "tem-giay"],
+  "sources": [
+    {"title": "Hướng dẫn chọn tem cho chai lọ", "href": "/nganh/chai-lo", "note": "Nêu vai trò của chất liệu bề mặt, độ cong và việc thử trên chai thật.", "kind": "first-party", "verifiedAt": "2026-07-20"},
+    {"title": "Trang sản phẩm tem nhựa chống nước VinPrint", "href": "/san-pham/tem-nhua-chong-nuoc", "note": "Mô tả nhóm ứng dụng chai lọ, môi trường ẩm và nhu cầu chọn vật liệu phù hợp.", "kind": "first-party", "verifiedAt": "2026-07-20"},
+    {"title": "3M Bonding Low Surface Energy Plastics", "href": "https://www.3m.com/3M/en_US/bonding-and-assembly-us/applications/material-bonding/lse-plastics/", "note": "Nguồn kỹ thuật phân loại PP và PE là nhựa năng lượng bề mặt thấp và cần giải pháp keo phù hợp.", "kind": "primary", "verifiedAt": "2026-07-20"}
+  ],
+  "quality": {
+    "scores": {"searchIntent": 20, "originality": 20, "evidence": 20, "citability": 15, "authority": 10, "internalLinks": 10, "technical": 5},
+    "evidenceIds": ["/nganh/chai-lo", "/san-pham/tem-nhua-chong-nuoc", "https://www.3m.com/3M/en_US/bonding-and-assembly-us/applications/material-bonding/lse-plastics/"],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {"claim": "PP và PE là các nhựa năng lượng bề mặt thấp nên có thể cần hệ keo được thiết kế cho bề mặt khó dính.", "sourceIds": ["https://www.3m.com/3M/en_US/bonding-and-assembly-us/applications/material-bonding/lse-plastics/"]},
+      {"claim": "Việc chọn tem cho chai cần xét loại bề mặt, độ cong và thử trên bao bì thật.", "sourceIds": ["/nganh/chai-lo", "/san-pham/tem-nhua-chong-nuoc"]}
+    ],
+    "attempts": [{"attempt": 1, "recordedAt": "2026-07-20T22:30:00+07:00", "score": 100, "outcome": "accepted"}]
+  }
+}

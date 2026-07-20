@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "cach-thu-do-bam-tem-tren-nam-be-mat",
+  "title": "Cách thử độ bám tem trên năm bề mặt trước khi in nhiều",
+  "description": "Quy trình thử độ bám tem có kiểm soát trên kính, PET, PP hoặc PE, kim loại sơn và giấy carton để phát hiện bong mép trước khi đặt số lượng lớn.",
+  "category": "ky-thuat-in",
+  "image": "/images/blog/cach-thu-do-bam-tem-tren-nam-be-mat.webp",
+  "imageAlt": "Minh họa năm mẫu bề mặt được dán nhãn thử và theo dõi theo cùng một quy trình",
+  "publishedAt": "2026-07-20",
+  "updatedAt": "2026-07-20",
+  "publishAt": "2026-07-20T05:15:00+07:00",
+  "readingMinutes": 7,
+  "primaryKeyword": "cách thử độ bám tem trên năm bề mặt",
+  "searchIntent": "Thực hiện phép thử độ bám tem có đối chứng trên năm vật liệu bao bì phổ biến",
+  "buyerStage": "implementation",
+  "contentType": "authority",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-content-v1",
+  "revisionCount": 2,
+  "directAnswer": "Cách thử độ bám tem trên năm bề mặt cần giữ quy trình giống nhau và chỉ thay vật liệu. Chuẩn bị mẫu kính, chai PET, chai PP hoặc PE, kim loại sơn và hộp carton đúng loại sẽ dùng; không thay bằng vật liệu “gần giống”. Làm sạch theo hướng dẫn an toàn của bao bì, để khô, dán các tem cùng kích thước và miết với lực nhất quán. Ghi giờ dán, nhiệt độ, tình trạng bề mặt và mã mẫu. Quan sát mép, bọt khí, nếp nhăn và sự dịch chuyển sau các mốc thời gian giống nhau; sau đó đưa mẫu vào điều kiện thật như lạnh, ẩm, bóp chai hoặc ma sát. Không bóc thử liên tục vì thao tác này làm thay đổi mẫu. Kính và PET thường dễ cho keo dàn trải hơn bề mặt năng lượng thấp như PP, PE; carton lại chịu ảnh hưởng bởi bụi, sợi và lớp phủ. Kết quả chỉ áp dụng cho đúng tổ hợp tem, keo, bề mặt và điều kiện đã thử.",
+  "sections": [
+    {
+      "heading": "Năm bề mặt cần chuẩn bị khác nhau ra sao?",
+      "paragraphs": [
+        "Tên chung như “chai nhựa” chưa đủ để dự đoán độ bám. PET, PP và PE có đặc tính bề mặt khác nhau; sơn, phụ gia chống trầy hoặc chất tách khuôn cũng có thể làm thay đổi khả năng keo tiếp xúc.",
+        "Mẫu thử nên lấy từ cùng nhà cung cấp và cùng lô bao bì dự kiến nếu có thể. Kết quả trên tấm mẫu phẳng không thay thế thử trên chai cong hoặc hộp có lớp phủ."
+      ],
+      "table": {
+        "headers": ["Bề mặt", "Điểm cần ghi nhận"],
+        "rows": [
+          ["Kính", "Độ sạch, hơi ẩm và độ cong"],
+          ["PET", "Bề mặt khô, đường gân và nước ngưng tụ"],
+          ["PP hoặc PE", "Loại nhựa, phụ gia và khả năng keo dàn trải"],
+          ["Kim loại sơn", "Loại sơn, dầu và độ nhám"],
+          ["Carton", "Bụi giấy, lớp phủ và độ xốp"]
+        ]
+      }
+    },
+    {
+      "heading": "Quy trình dán thử nào giúp so sánh công bằng?",
+      "paragraphs": [
+        "Dùng tem cùng kích thước, cùng cuộn vật liệu và cùng cách miết cho mọi mẫu. Ghi chép trước khi đưa mẫu vào môi trường khác để phân biệt lỗi dán ban đầu với ảnh hưởng do sử dụng.",
+        "Các dung môi vệ sinh phải tương thích với bao bì và được dùng theo hướng dẫn an toàn của nhà sản xuất. Bài viết không khuyến nghị một hóa chất chung cho mọi nhựa, sơn hoặc giấy."
+      ],
+      "bullets": [
+        "Đánh mã từng bề mặt và từng mẫu tem",
+        "Làm sạch, để khô rồi dán trong cùng một ca thử",
+        "Miết đều toàn bộ tem, đặc biệt ở mép",
+        "Chụp ảnh ngay sau dán và tại các mốc giống nhau",
+        "Giữ một mẫu đối chứng ở điều kiện phòng",
+        "Không thay keo giữa chừng mà không đổi mã mẫu"
+      ]
+    },
+    {
+      "heading": "Dấu hiệu nào khiến một mẫu chưa nên đưa vào sản xuất?",
+      "paragraphs": [
+        "Mép tự nâng, bọt khí lan rộng, tem trượt, nhăn theo thân chai hoặc mất tiếp xúc sau khi làm lạnh đều là tín hiệu cần xem lại. Đừng chỉ đánh giá bằng việc tem có bóc được bằng tay hay không.",
+        "Nếu thay nhà cung cấp chai, công thức nhựa, lớp sơn hoặc điều kiện dán, nên xem đó là một tổ hợp mới và thử lại. Không công bố kết quả mẫu này như bằng chứng cho mọi bề mặt."
+      ],
+      "bullets": [
+        "Bong mép mà không có tác động bên ngoài",
+        "Keo không dàn đều hoặc xuất hiện vùng bạc trắng",
+        "Tem dịch chuyển sau dán",
+        "Nếp nhăn tăng khi bóp hoặc làm lạnh",
+        "Kết quả giữa các mẫu cùng điều kiện không nhất quán"
+      ]
+    }
+  ],
+  "relatedProductSlugs": ["tem-nhua-chong-nuoc", "tem-nhua-trong", "tem-giay"],
+  "sources": [
+    {
+      "title": "Hướng dẫn chọn chất liệu tem VinPrint",
+      "href": "/huong-dan/chon-chat-lieu-tem",
+      "note": "Khuyến nghị chọn theo bề mặt, độ ẩm và thử vật liệu trên bao bì thật.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "3M Changing Surface Properties for Better Adhesion",
+      "href": "https://www.3m.com/3M/en_US/bonding-and-assembly-us/resources/science-of-adhesion/changing-surface-properties/",
+      "note": "Nguồn kỹ thuật của nhà sản xuất về làm sạch, nhiễm bẩn, năng lượng bề mặt và khả năng wet-out của keo.",
+      "kind": "primary",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "3M Substrate Surface Consideration for Adhesive Selection",
+      "href": "https://www.3m.com/3M/en_US/bonding-and-assembly-us/resources/full-story/?storyid=203aff92-f751-4db2-a75a-2ed3c40dd926",
+      "note": "Giải thích vật liệu năng lượng bề mặt cao và thấp ảnh hưởng khả năng keo tiếp xúc.",
+      "kind": "primary",
+      "verifiedAt": "2026-07-20"
+    }
+  ],
+  "quality": {
+    "scores": {"searchIntent": 20, "originality": 20, "evidence": 20, "citability": 15, "authority": 10, "internalLinks": 10, "technical": 5},
+    "evidenceIds": ["/huong-dan/chon-chat-lieu-tem", "https://www.3m.com/3M/en_US/bonding-and-assembly-us/resources/science-of-adhesion/changing-surface-properties/", "https://www.3m.com/3M/en_US/bonding-and-assembly-us/resources/full-story/?storyid=203aff92-f751-4db2-a75a-2ed3c40dd926"],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Bề mặt sạch và khả năng keo dàn trải là điều kiện quan trọng để hình thành liên kết dính.",
+        "sourceIds": ["https://www.3m.com/3M/en_US/bonding-and-assembly-us/resources/science-of-adhesion/changing-surface-properties/", "https://www.3m.com/3M/en_US/bonding-and-assembly-us/resources/full-story/?storyid=203aff92-f751-4db2-a75a-2ed3c40dd926"]
+      },
+      {
+        "claim": "Kết quả thử cần gắn với đúng vật liệu, bề mặt và điều kiện sử dụng thay vì suy rộng cho mọi bao bì.",
+        "sourceIds": ["/huong-dan/chon-chat-lieu-tem"]
+      }
+    ],
+    "attempts": [
+      {"attempt": 1, "recordedAt": "2026-07-20T22:28:00+07:00", "score": 100, "outcome": "accepted"},
+      {"attempt": 2, "recordedAt": "2026-07-20T22:40:00+07:00", "score": 100, "outcome": "accepted"}
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "status": "draft",
+  "slug": "tem-giay-kraft-dung-khi-nao",
+  "title": "Tem giấy kraft dùng khi nào và khi nào nên chọn vật liệu khác?",
+  "description": "Xác định tem giấy kraft phù hợp bao bì khô, phong cách tự nhiên và thiết kế tương phản cao; đồng thời nhận biết giới hạn với nước và màu nền nâu.",
+  "category": "chat-lieu",
+  "image": "/images/blog/tem-giay-kraft-dung-khi-nao.webp",
+  "imageAlt": "Minh họa tem giấy kraft không in trên túi, hộp và chai màu hổ phách",
+  "publishedAt": "2026-07-20",
+  "updatedAt": "2026-07-20",
+  "publishAt": "2026-07-20T22:00:00+07:00",
+  "readingMinutes": 5,
+  "primaryKeyword": "tem giấy kraft dùng khi nào",
+  "searchIntent": "Xác định trường hợp nên dùng tem giấy kraft theo bao bì, thiết kế và môi trường",
+  "buyerStage": "consideration",
+  "contentType": "authority",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-content-v1",
+  "revisionCount": 1,
+  "directAnswer": "Tem giấy kraft dùng khi bao bì khô, bề mặt tương đối phẳng và thiết kế muốn tận dụng màu nâu cùng vân giấy làm một phần nhận diện. Vật liệu này thường hợp túi kraft, hộp carton, tem cảm ơn hoặc sản phẩm handmade có bảng màu đơn giản. Nền kraft không trắng, nên màu in có thể trầm và thay đổi so với bản thiết kế trên màn hình; chữ đen hoặc màu đậm thường dễ kiểm soát hơn các mảng sáng, pastel hay ảnh cần đúng màu. Kraft thông thường không phải lựa chọn mặc định cho chai lạnh, khu vực thường xuyên gặp nước, dầu hoặc ma sát. Từ “kraft” cũng không tự chứng minh một bao bì thân thiện môi trường: muốn đưa ra tuyên bố môi trường cần dữ liệu cụ thể về nguồn sợi, keo, lớp phủ và khả năng xử lý sau sử dụng. Trước khi đặt in, hãy dán mẫu lên đúng bao bì, kiểm tra độ bám, tương phản, độ đọc và phản ứng trong điều kiện sử dụng thật.",
+  "sections": [
+    {
+      "heading": "Bao bì nào phù hợp với tem giấy kraft?",
+      "paragraphs": [
+        "Kraft phát huy rõ nhất khi nền nâu và cảm giác sợi giấy hỗ trợ phong cách thiết kế. Bao bì khô, hộp, túi giấy và các bề mặt ít cong thường dễ thử hơn chai lạnh hoặc chai bóp mềm.",
+        "Màu của bao bì phía dưới vẫn ảnh hưởng cảm nhận tổng thể. Dán kraft lên túi cùng màu tạo hiệu ứng liền mạch, còn đặt lên chai tối có thể làm tương phản giữa nhãn và nền giảm."
+      ],
+      "table": {
+        "headers": ["Tình huống", "Đánh giá ban đầu"],
+        "rows": [
+          ["Túi kraft đựng hàng khô", "Phù hợp để thử"],
+          ["Hộp carton hoặc hộp quà", "Phù hợp nếu bề mặt sạch và ít bụi"],
+          ["Bao bì handmade", "Phù hợp khi thiết kế dùng màu nền tự nhiên"],
+          ["Chai để lạnh", "Nên xem vật liệu chịu ẩm khác"],
+          ["Sản phẩm gặp dầu hoặc lau rửa", "Cần thử cấu trúc khác trước"]
+        ]
+      }
+    },
+    {
+      "heading": "Thiết kế trên nền kraft cần thay đổi điều gì?",
+      "paragraphs": [
+        "Nền giấy nâu làm màu sáng và màu pastel mất độ trong so với nền trắng. Nếu thông tin bắt buộc phải đọc nhanh, nên tăng tương phản, giảm số màu và xem bản in thật ở kích thước thành phẩm.",
+        "Ảnh có vùng sáng hoặc màu da cần độ chính xác cao thường khó kiểm soát trên nền kraft. Đừng giả lập bằng cách chỉ đổi nền trong phần mềm rồi xem đó là màu in cuối."
+      ],
+      "bullets": ["Ưu tiên chữ tối và nét đủ dày", "Giảm chi tiết có tương phản thấp", "Xem mẫu dưới ánh sáng sử dụng", "Kiểm tra mã và chữ nhỏ ở kích thước thật", "Không duyệt màu chỉ qua màn hình"]
+    },
+    {
+      "heading": "Vì sao không nên mặc định kraft đồng nghĩa bền vững?",
+      "paragraphs": [
+        "Màu nâu hoặc cảm giác tự nhiên là đặc điểm thẩm mỹ, không phải chứng nhận môi trường. Một tuyên bố cần dựa trên thông tin có thể kiểm chứng về vật liệu, nguồn sợi, lớp phủ, keo và hệ thống thu gom thực tế.",
+        "Bản nháp này được giữ lại do giới hạn năm bài xuất bản mỗi ngày. Thumbnail AI chỉ minh họa kiểu bao bì và không chứng minh nguồn gốc hay tác động môi trường của vật liệu."
+      ],
+      "bullets": ["Không dùng biểu tượng xanh khi chưa có căn cứ", "Yêu cầu tài liệu vật liệu nếu cần tuyên bố", "Tách lợi ích thẩm mỹ khỏi lợi ích môi trường", "Kiểm tra khả năng tái chế theo toàn bộ cấu trúc bao bì"]
+    }
+  ],
+  "relatedProductSlugs": ["tem-giay", "tem-nhua-chong-nuoc", "tem-nhua-trong"],
+  "sources": [
+    {"title": "Trang sản phẩm tem giấy VinPrint", "href": "/san-pham/tem-giay", "note": "Mô tả tem giấy phù hợp bao bì khô, hộp giấy và túi kraft.", "kind": "first-party", "verifiedAt": "2026-07-20"},
+    {"title": "Hướng dẫn tem nhãn thực phẩm và bao bì", "href": "/nganh/thuc-pham", "note": "Phân biệt bao bì khô có thể dùng giấy và môi trường lạnh cần vật liệu khác.", "kind": "first-party", "verifiedAt": "2026-07-20"},
+    {"title": "Avery Dennison Wine, Spirits and Craft Beer Guide ASEAN 2026", "href": "https://label.averydennison.com/content/dam/2026-ap-lpm-assets/amea/po/asean/po/f-b/Wine%20Spirits%20Craft%20Beer%20Guide%20ASEAN%202025.pdf", "note": "Nguồn nhà sản xuất mô tả kraft là giấy nâu nhạt tạo diện mạo tự nhiên và mộc.", "kind": "primary", "verifiedAt": "2026-07-20"}
+  ],
+  "quality": {
+    "scores": {"searchIntent": 20, "originality": 20, "evidence": 20, "citability": 15, "authority": 10, "internalLinks": 10, "technical": 5},
+    "evidenceIds": ["/san-pham/tem-giay", "/nganh/thuc-pham", "https://label.averydennison.com/content/dam/2026-ap-lpm-assets/amea/po/asean/po/f-b/Wine%20Spirits%20Craft%20Beer%20Guide%20ASEAN%202025.pdf"],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {"claim": "Tem giấy kraft phù hợp nhất với bao bì khô và được lựa chọn một phần vì diện mạo nâu tự nhiên.", "sourceIds": ["/san-pham/tem-giay", "/nganh/thuc-pham", "https://label.averydennison.com/content/dam/2026-ap-lpm-assets/amea/po/asean/po/f-b/Wine%20Spirits%20Craft%20Beer%20Guide%20ASEAN%202025.pdf"]},
+      {"claim": "Bao bì lạnh hoặc thường xuyên gặp ẩm cần được đánh giá với vật liệu khác thay vì mặc định dùng tem giấy.", "sourceIds": ["/nganh/thuc-pham"]}
+    ],
+    "attempts": [{"attempt": 1, "recordedAt": "2026-07-20T22:31:00+07:00", "score": 100, "outcome": "accepted"}]
+  }
+}

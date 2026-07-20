@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "can-bong-va-can-mo-cho-tem",
+  "title": "Cán bóng và cán mờ cho tem: chọn theo màu, chữ và bề mặt",
+  "description": "So sánh cán bóng và cán mờ cho tem theo độ phản sáng, cảm giác màu, khả năng đọc, ma sát và môi trường sử dụng trước khi duyệt mẫu.",
+  "category": "ky-thuat-in",
+  "image": "/images/blog/can-bong-va-can-mo-cho-tem.webp",
+  "imageAlt": "Minh họa hai mẫu tem cùng thiết kế với một bề mặt cán bóng và một bề mặt cán mờ",
+  "publishedAt": "2026-07-20",
+  "updatedAt": "2026-07-20",
+  "publishAt": "2026-07-20T05:20:00+07:00",
+  "readingMinutes": 6,
+  "primaryKeyword": "cán bóng và cán mờ cho tem",
+  "searchIntent": "So sánh cán bóng và cán mờ để chọn lớp hoàn thiện phù hợp cho tem nhãn",
+  "buyerStage": "consideration",
+  "contentType": "authority",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-content-v1",
+  "revisionCount": 2,
+  "directAnswer": "Cán bóng và cán mờ cho tem đều thêm một lớp bảo vệ lên bề mặt in, nhưng tạo cảm giác thị giác khác nhau. Cán bóng phản sáng rõ, thường làm vùng màu và hình ảnh trông rực hơn; cán mờ khuếch tán ánh sáng, giảm chói và cho cảm giác dịu hơn. Không có lựa chọn tốt nhất cho mọi sản phẩm. Tem nhiều ảnh, màu bão hòa hoặc cần lau bề mặt có thể hợp cán bóng; nhãn có nhiều chữ nhỏ, chụp ảnh dưới đèn mạnh hoặc theo phong cách tối giản có thể dễ đọc hơn với cán mờ. Lớp cán có thể hỗ trợ chống cọ xát, ẩm và bảo vệ mực, nhưng không biến tem giấy thành tem phù hợp cho mọi môi trường nước, cũng không sửa được loại keo sai. Hãy so hai mẫu cùng file, cùng vật liệu nền và cùng kích thước trên đúng bao bì. Kiểm tra phản sáng, màu, độ đọc, mép tem và ma sát thực tế trước khi chốt.",
+  "sections": [
+    {
+      "heading": "Cán bóng và cán mờ thay đổi hình ảnh như thế nào?",
+      "paragraphs": [
+        "Độ phản sáng quyết định phần khác biệt dễ thấy nhất. Bề mặt bóng tạo highlight mạnh theo góc đèn, còn bề mặt mờ tán ánh sáng nên ít phản chiếu trực diện hơn.",
+        "Cảm nhận màu cũng thay đổi theo bề mặt và nguồn sáng. Vì vậy, mockup trên màn hình không đủ để duyệt; cần nhìn mẫu thành phẩm ở nơi sản phẩm được sử dụng hoặc trưng bày."
+      ],
+      "table": {
+        "headers": ["Tiêu chí", "Cán bóng", "Cán mờ"],
+        "rows": [
+          ["Phản sáng", "Highlight rõ", "Giảm chói hơn"],
+          ["Cảm giác màu", "Rực và tương phản mạnh", "Dịu và trầm hơn"],
+          ["Hình ảnh", "Hợp ảnh và mảng màu nổi", "Hợp bố cục tối giản"],
+          ["Chữ nhỏ", "Cần kiểm tra chói dưới đèn", "Thường dễ quan sát hơn ở góc xiên"],
+          ["Điều cần thử", "Dấu tay, phản chiếu, mép", "Ma sát, vết cọ, mép"]
+        ]
+      }
+    },
+    {
+      "heading": "Lớp cán bảo vệ được gì và không thay thế được gì?",
+      "paragraphs": [
+        "Overlaminate có thể tạo rào cản giúp bảo vệ phần in trước cọ xát, nước hoặc độ ẩm và hóa chất trong phạm vi cấu trúc đã được thiết kế. Bụi hoặc mảnh vụn bị kẹt khi cán có thể làm xấu bề mặt và giảm tiếp xúc.",
+        "Lớp cán chỉ nằm phía trên; nước vẫn có thể tác động từ mép hoặc mặt sau của vật liệu giấy. Keo, vật liệu nền và quy trình dán vẫn phải phù hợp với bề mặt sử dụng."
+      ],
+      "bullets": [
+        "Hỗ trợ bảo vệ mực trước cọ xát",
+        "Thay đổi độ bóng hoặc mờ của bề mặt",
+        "Không thay thế vật liệu nền chịu nước",
+        "Không sửa được keo không hợp bề mặt",
+        "Không che được bụi hoặc lỗi đã nằm dưới lớp cán"
+      ]
+    },
+    {
+      "heading": "Quy trình duyệt mẫu cán nào giảm quyết định cảm tính?",
+      "paragraphs": [
+        "Tạo hai mẫu từ cùng file, cùng máy in, cùng vật liệu và cùng kích thước; chỉ thay lớp cán. Đặt lên bao bì thật rồi xem ở ánh sáng cửa hàng, ánh sáng tự nhiên và góc chụp ảnh thường dùng.",
+        "Sau đó, lau và cọ xát theo cách sản phẩm thực sự được dùng. Không công bố kết quả của một mẫu như cam kết độ bền chung vì cấu trúc, mực, vật liệu, keo và môi trường đều ảnh hưởng."
+      ],
+      "bullets": [
+        "Giữ mọi biến số ngoài lớp cán giống nhau",
+        "Đọc chữ ở kích thước và khoảng cách thật",
+        "Quan sát dưới nhiều góc đèn",
+        "Kiểm tra dấu tay và ma sát",
+        "Chốt bằng mẫu có ghi rõ cấu trúc vật liệu"
+      ]
+    }
+  ],
+  "relatedProductSlugs": ["tem-giay", "tem-nhua-chong-nuoc", "tem-nhua-trong"],
+  "sources": [
+    {
+      "title": "Hướng dẫn kỹ thuật in và gia công tem VinPrint",
+      "href": "/huong-dan/ky-thuat-in-tem",
+      "note": "Mô tả cán bóng làm màu nổi và cán mờ giảm phản sáng, đồng thời nêu giới hạn của lớp cán.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Avery Dennison Pressure-Sensitive Overlamination Tips",
+      "href": "https://label.averydennison.com/content/dam/averydennison/lpm-responsive/na/doc/technical-bulletins/technical%20marketing%20bulletins/ps-overlamination-tips-technical-bulletin.pdf/subassets/page1.pdf",
+      "note": "Tài liệu kỹ thuật về chức năng bảo vệ, hoàn thiện bóng hoặc mờ và ảnh hưởng của bụi khi cán.",
+      "kind": "primary",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Fedrigoni Laminated Labels",
+      "href": "https://selfadhesives.fedrigoni.com/product/labels/laminations/",
+      "note": "Nguồn nhà sản xuất về khả năng tăng độ bền, chống cọ xát và tạo hoàn thiện mờ cho nhãn.",
+      "kind": "primary",
+      "verifiedAt": "2026-07-20"
+    }
+  ],
+  "quality": {
+    "scores": {"searchIntent": 20, "originality": 20, "evidence": 20, "citability": 15, "authority": 10, "internalLinks": 10, "technical": 5},
+    "evidenceIds": ["/huong-dan/ky-thuat-in-tem", "https://label.averydennison.com/content/dam/averydennison/lpm-responsive/na/doc/technical-bulletins/technical%20marketing%20bulletins/ps-overlamination-tips-technical-bulletin.pdf/subassets/page1.pdf", "https://selfadhesives.fedrigoni.com/product/labels/laminations/"],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Overlaminate có thể bảo vệ phần in và đồng thời tạo đặc tính bề mặt bóng hoặc mờ.",
+        "sourceIds": ["https://label.averydennison.com/content/dam/averydennison/lpm-responsive/na/doc/technical-bulletins/technical%20marketing%20bulletins/ps-overlamination-tips-technical-bulletin.pdf/subassets/page1.pdf", "https://selfadhesives.fedrigoni.com/product/labels/laminations/"]
+      },
+      {
+        "claim": "Lớp cán không thay thế việc chọn đúng vật liệu nền và keo cho môi trường sử dụng.",
+        "sourceIds": ["/huong-dan/ky-thuat-in-tem"]
+      }
+    ],
+    "attempts": [
+      {"attempt": 1, "recordedAt": "2026-07-20T22:29:00+07:00", "score": 100, "outcome": "accepted"},
+      {"attempt": 2, "recordedAt": "2026-07-20T22:40:00+07:00", "score": 100, "outcome": "accepted"}
+    ]
+  }
+}

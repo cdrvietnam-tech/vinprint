@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-bac-hay-tem-vang-anh-kim",
+  "title": "Tem bạc hay tem vàng ánh kim: chọn theo nền và mục tiêu",
+  "description": "So sánh tem bạc và tem vàng ánh kim theo sắc độ, màu in, nền bao bì, khả năng đọc và phong cách thương hiệu trước khi duyệt mẫu.",
+  "category": "chat-lieu",
+  "image": "/images/blog/tem-bac-hay-tem-vang-anh-kim.webp",
+  "imageAlt": "Minh họa so sánh nhãn bạc và nhãn vàng ánh kim trên hai hộp tối màu",
+  "publishedAt": "2026-07-20",
+  "updatedAt": "2026-07-20",
+  "publishAt": "2026-07-20T05:10:00+07:00",
+  "readingMinutes": 5,
+  "primaryKeyword": "tem bạc hay tem vàng ánh kim",
+  "searchIntent": "So sánh tem bạc và tem vàng ánh kim để chọn hiệu ứng phù hợp bao bì",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-content-v1",
+  "revisionCount": 2,
+  "directAnswer": "Chọn tem bạc hay tem vàng ánh kim nên bắt đầu từ màu nền bao bì và vai trò của hiệu ứng, không phải từ nhận định màu nào “cao cấp hơn”. Bạc tạo ánh kim trung tính, thường hợp thiết kế kỹ thuật, lạnh hoặc cần phối với nhiều màu. Vàng tạo sắc ấm, phù hợp khi logo hay chi tiết trang trí cần điểm nhấn ấm. Tuy nhiên, màu nhìn thấy còn thay đổi theo vật liệu bóng hay mờ, lớp mực phủ và ánh sáng. Mực in trong có thể cho ánh kim xuyên qua; vùng cần màu ổn định có thể phải dùng lớp trắng lót. Trên nền tối, cả bạc lẫn vàng đều nổi nhưng chữ nhỏ và độ phản sáng phải được kiểm tra để tránh khó đọc. Cách chốt an toàn là đặt hai mẫu cùng kích thước, cùng thiết kế và cùng bao bì, rồi xem ở ánh sáng sử dụng thật. Tên gọi vật liệu không thay thế mẫu in, và ảnh AI của bài chỉ dùng để minh họa sự khác biệt màu.",
+  "sections": [
+    {
+      "heading": "Tem bạc và tem vàng ánh kim khác nhau ở điểm nào?",
+      "paragraphs": [
+        "Vật liệu ánh kim có thể là giấy kim loại hóa, film hoặc cấu trúc foil cán. Mỗi cấu trúc lại có bề mặt bóng, mờ và độ mềm khác nhau, nên không thể kết luận chỉ bằng tên màu bạc hoặc vàng.",
+        "Màu bạc thường phản chiếu sắc trung tính; màu vàng thêm sắc ấm vào vùng không phủ mực. Khi in màu lên bề mặt kim loại hóa, kết quả phụ thuộc độ che phủ của mực và lớp trắng lót."
+      ],
+      "table": {
+        "headers": ["Tiêu chí", "Bạc ánh kim", "Vàng ánh kim"],
+        "rows": [
+          ["Sắc độ", "Trung tính, lạnh", "Ấm, vàng"],
+          ["Phong cách thường gặp", "Kỹ thuật, tối giản, hiện đại", "Quà tặng, mỹ phẩm, điểm nhấn ấm"],
+          ["Phối màu", "Linh hoạt với nhiều màu lạnh và trung tính", "Cần kiểm tra màu in để tránh lệch sắc"],
+          ["Nền tối", "Tạo tương phản sáng rõ", "Tạo điểm nhấn ấm nổi bật"],
+          ["Điều bắt buộc", "Xem mẫu vật liệu thật", "Xem mẫu vật liệu thật"]
+        ]
+      }
+    },
+    {
+      "heading": "Thiết kế nào cần mực trắng lót trên nền ánh kim?",
+      "paragraphs": [
+        "Nếu muốn giữ hiệu ứng kim loại, có thể để một số vùng không lót trắng để ánh kim đi qua màu in. Nếu logo, chữ hoặc màu nhận diện phải ổn định, cần trao đổi về lớp trắng lót dưới vùng đó.",
+        "Chữ nhỏ đặt trên vùng phản sáng mạnh có thể mất nét thị giác theo góc nhìn. Hãy ưu tiên tương phản, giảm chi tiết cực nhỏ và thử trong cả ánh sáng trực diện lẫn ánh sáng xiên."
+      ],
+      "bullets": [
+        "Đánh dấu vùng cần giữ ánh kim",
+        "Đánh dấu vùng cần màu đặc và ổn định",
+        "Tránh dùng quá nhiều hiệu ứng trong một nhãn nhỏ",
+        "Kiểm tra chữ và mã quan trọng ở kích thước thật",
+        "Không duyệt màu chỉ qua màn hình"
+      ]
+    },
+    {
+      "heading": "Làm sao chọn giữa bạc và vàng mà không dựa vào cảm tính?",
+      "paragraphs": [
+        "In hoặc xin mẫu cùng thiết kế trên hai vật liệu, đặt lên đúng bao bì và quan sát ở nơi sản phẩm được trưng bày. Giữ mọi yếu tố khác giống nhau để màu nền là biến số chính.",
+        "Nếu chai hoặc hộp có độ cong, cần kiểm tra thêm độ ôm và mép tem; hiệu ứng đẹp trên tờ mẫu phẳng chưa bảo đảm phù hợp với thành phẩm."
+      ],
+      "bullets": [
+        "So cùng một file và cùng kích thước",
+        "Đặt mẫu trên đúng nền bao bì",
+        "Xem dưới nhiều góc ánh sáng",
+        "Kiểm tra khả năng đọc trước hiệu ứng",
+        "Chốt vật liệu bằng mã hoặc mẫu thật"
+      ]
+    }
+  ],
+  "relatedProductSlugs": ["tem-bac", "tem-vang", "tem-7-mau"],
+  "sources": [
+    {
+      "title": "Trang sản phẩm tem bạc ánh kim VinPrint",
+      "href": "/san-pham/tem-bac",
+      "note": "Mô tả sắc bạc phản sáng và các nhóm ứng dụng của tem bạc.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Trang sản phẩm tem vàng ánh kim VinPrint",
+      "href": "/san-pham/tem-vang",
+      "note": "Mô tả sắc vàng ấm và vai trò tạo điểm nhấn trên bao bì.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Fedrigoni Metallized Range",
+      "href": "https://selfadhesives.fedrigoni.com/focus/metallized-range/",
+      "note": "Nguồn nhà sản xuất xác nhận giấy và film ánh kim có màu bạc, vàng cùng các hoàn thiện bóng hoặc mờ.",
+      "kind": "primary",
+      "verifiedAt": "2026-07-20"
+    }
+  ],
+  "quality": {
+    "scores": {"searchIntent": 20, "originality": 20, "evidence": 20, "citability": 15, "authority": 10, "internalLinks": 10, "technical": 5},
+    "evidenceIds": ["/san-pham/tem-bac", "/san-pham/tem-vang", "https://selfadhesives.fedrigoni.com/focus/metallized-range/"],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Danh mục vật liệu ánh kim gồm nhiều cấu trúc giấy, film và hoàn thiện bóng hoặc mờ chứ không chỉ khác màu.",
+        "sourceIds": ["https://selfadhesives.fedrigoni.com/focus/metallized-range/"]
+      },
+      {
+        "claim": "Tem bạc tạo sắc phản sáng trung tính còn tem vàng tạo điểm nhấn ấm trên bao bì.",
+        "sourceIds": ["/san-pham/tem-bac", "/san-pham/tem-vang"]
+      }
+    ],
+    "attempts": [
+      {"attempt": 1, "recordedAt": "2026-07-20T22:27:00+07:00", "score": 100, "outcome": "accepted"},
+      {"attempt": 2, "recordedAt": "2026-07-20T22:40:00+07:00", "score": 100, "outcome": "accepted"}
+    ]
+  }
+}
