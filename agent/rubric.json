@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "locked": true,
+  "publishThreshold": 95,
+  "minimumDimensionRatio": 0.8,
+  "dimensions": {
+    "searchIntent": 20,
+    "originality": 20,
+    "evidence": 20,
+    "citability": 15,
+    "authority": 10,
+    "internalLinks": 10,
+    "technical": 5
+  },
+  "hardGates": [
+    "schema-valid",
+    "two-verifiable-sources",
+    "primary-or-first-party-source",
+    "claims-verified",
+    "duplicate-intent-checked",
+    "no-unapproved-commercial-claims",
+    "unique-search-intent",
+    "thumbnail-present",
+    "publish-time-valid"
+  ],
+  "excludedSignals": ["llms.txt"]
+}

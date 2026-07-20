@@ -24,6 +24,7 @@ export function GET() {
 - Chính sách: https://vinprint.vn/chinh-sach
 - Bảo hành: https://vinprint.vn/bao-hanh
 - Quy trình biên soạn và sử dụng AI: https://vinprint.vn/quy-trinh-bien-soan
+- RSS cẩm nang: https://vinprint.vn/feed.xml
 
 ## Sản phẩm
 

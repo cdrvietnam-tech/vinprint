@@ -193,7 +193,7 @@ test("renders a crawlable blog index with category navigation", async () => {
   assert.equal(response.status, 200);
   assert.match(html, /Cẩm nang tem nhãn/i);
   assert.match(html, /aria-label="Lọc bài viết theo chuyên mục"/i);
-  assert.match(html, /href="\/blog\?chuyen-muc=chat-lieu"/i);
+  assert.match(html, /href="\/blog\/chuyen-muc\/chat-lieu"/i);
   assert.match(html, /href="\/blog\/tem-giay-va-tem-nhua-nen-chon-loai-nao"/i);
   assert.match(html, /href="\/blog\/loi-thiet-ke-tem-nhan"/i);
   assert.match(html, /data-blog-thumbnail="compact"/i);
@@ -204,6 +204,26 @@ test("renders a crawlable blog index with category navigation", async () => {
   assert.match(html, /\/images\/blog\/chuan-bi-file-in-tem\.webp/i);
   assert.match(html, /\/images\/blog\/tem-chong-nuoc\.webp/i);
   assert.match(html, /\/images\/blog\/loi-thiet-ke-tem\.webp/i);
+});
+
+test("renders clean blog category pages", async () => {
+  const response = await render("/blog/chuyen-muc/chat-lieu");
+  const html = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(html, /Chọn chất liệu/i);
+  assert.match(html, /href="\/blog\/tem-giay-va-tem-nhua-nen-chon-loai-nao"/i);
+  assert.doesNotMatch(html, /href="\/blog\/tem-uv-dtf-la-gi"/i);
+});
+
+test("publishes an RSS feed for public blog articles", async () => {
+  const response = await render("/feed.xml");
+  const xml = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get("content-type") ?? "", /^application\/rss\+xml/i);
+  assert.match(xml, /<rss version="2.0">/i);
+  assert.match(xml, /https:\/\/vinprint\.vn\/blog\/tem-uv-dtf-la-gi/i);
 });
 
 test("renders GEO-ready blog articles with citable answers and BlogPosting schema", async () => {
@@ -266,6 +286,7 @@ test("all public routes render successfully", async () => {
     "/huong-dan/chon-kich-thuoc-tem",
     "/huong-dan/ky-thuat-in-tem",
     "/blog",
+    "/blog/chuyen-muc/chat-lieu",
     "/blog/tem-giay-va-tem-nhua-nen-chon-loai-nao",
     "/blog/tem-uv-dtf-la-gi",
     "/blog/cach-chon-kich-thuoc-tem-nhan",
@@ -298,8 +319,10 @@ test("sitemap publishes the blog hub and every GEO article", async () => {
 
   assert.equal(response.status, 200);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog<\/loc>/i);
+  assert.match(xml, /https:\/\/vinprint\.vn\/blog\/chuyen-muc\/chat-lieu<\/loc>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/tem-uv-dtf-la-gi<\/loc>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/loi-thiet-ke-tem-nhan<\/loc>/i);
+  assert.match(xml, /<image:image>[\s\S]*tem-uv-dtf-la-gi\.webp[\s\S]*<\/image:image>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/quy-trinh-bien-soan<\/loc>/i);
 });
 

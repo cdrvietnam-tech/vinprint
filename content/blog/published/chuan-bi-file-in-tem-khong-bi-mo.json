@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "chuan-bi-file-in-tem-khong-bi-mo",
+  "title": "Chuẩn bị file in tem thế nào để không bị mờ?",
+  "description": "Checklist về kích thước thật, độ phân giải, font chữ, hệ màu, vùng xén và đường cắt trước khi gửi xưởng.",
+  "category": "ky-thuat-in",
+  "image": "/images/blog/chuan-bi-file-in-tem.webp",
+  "imageAlt": "Kiểm tra đường nét vector và bản in thử bằng kính soi",
+  "publishedAt": "2026-07-20",
+  "updatedAt": "2026-07-20",
+  "readingMinutes": 7,
+  "publishAt": "2026-07-20T06:30:00+07:00",
+  "primaryKeyword": "chuẩn bị file in tem",
+  "searchIntent": "Chuẩn bị file sắc nét và đúng kỹ thuật trước khi in",
+  "buyerStage": "implementation",
+  "contentType": "authority",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "manual-baseline-v1",
+  "revisionCount": 0,
+  "directAnswer": "Để file in tem không bị mờ, hãy chuẩn bị thiết kế đúng kích thước thành phẩm và kiểm tra từng loại nội dung theo nguồn gốc của nó. Logo, chữ và đường cắt nên dùng dữ liệu vector để giữ cạnh sắc khi thay đổi kích thước. Ảnh raster cần đủ số điểm ảnh ở kích thước in thật; 300 ppi là mốc thực hành phổ biến cho bản in chất lượng cao, nhưng vẫn cần xác nhận với xưởng theo thiết bị và vật liệu. Chuyển tài liệu sang hệ màu phù hợp cho in, nhúng hoặc chuyển font thành đường nét khi được yêu cầu, đồng thời kéo nền ra vùng xén để tránh viền trắng sau cắt. Trước khi gửi, xuất PDF chất lượng in, mở lại ở tỷ lệ 100% và kiểm tra chữ nhỏ, mã QR, ảnh, kích thước trang, vùng an toàn và đường cắt. Không nên phóng lớn ảnh lấy từ mạng hoặc ảnh chụp màn hình.",
+  "sections": [
+    {
+      "heading": "Vector và ảnh raster khác nhau thế nào khi in tem?",
+      "paragraphs": [
+        "Vector mô tả logo và chữ bằng đường nét nên có thể thay đổi kích thước mà vẫn giữ cạnh sắc. Ảnh raster được tạo từ điểm ảnh; khi phóng lớn quá mức, các điểm ảnh lộ ra và thành phẩm trông mờ hoặc răng cưa."
+      ],
+      "bullets": [
+        "Ưu tiên AI, EPS, SVG hoặc PDF vector cho logo",
+        "Không dùng ảnh chụp màn hình làm logo",
+        "Kiểm tra ảnh ở kích thước in thật",
+        "Không tăng ppi chỉ bằng cách nhập lại con số"
+      ]
+    },
+    {
+      "heading": "Độ phân giải, hệ màu và font cần kiểm tra gì?",
+      "paragraphs": [
+        "Adobe xem 300 ppi là mốc tiêu chuẩn phổ biến cho ảnh in chất lượng cao. Với màu sắc, tài liệu in thường cần làm việc trong CMYK và xem trước màu ngoài dải in; màu trên màn hình vẫn có thể khác thành phẩm do thiết bị, vật liệu và lớp hoàn thiện."
+      ],
+      "table": {
+        "headers": [
+          "Hạng mục",
+          "Nên làm",
+          "Rủi ro cần tránh"
+        ],
+        "rows": [
+          [
+            "Logo và chữ",
+            "Giữ dạng vector",
+            "Ảnh nhỏ bị phóng lớn"
+          ],
+          [
+            "Ảnh",
+            "Đủ độ phân giải ở kích thước thật",
+            "Chỉ đổi thông số ppi"
+          ],
+          [
+            "Màu",
+            "Kiểm tra CMYK và mẫu in",
+            "Kỳ vọng giống tuyệt đối màn hình"
+          ],
+          [
+            "Font",
+            "Nhúng hoặc chuyển outline theo yêu cầu",
+            "Thiếu font khi mở file"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Vùng xén và đường cắt cần đặt thế nào?",
+      "paragraphs": [
+        "Nếu nền chạm mép tem, hình nền cần kéo qua đường cắt vào vùng xén. Adobe mô tả bleed là phần mở rộng ngoài mép trang để bù sai lệch nhỏ khi cắt; mức cụ thể phải xác nhận với nhà in vì mỗi quy trình có yêu cầu khác nhau."
+      ],
+      "bullets": [
+        "Giữ nội dung quan trọng trong vùng an toàn",
+        "Không đặt chữ sát đường cắt",
+        "Tách đường cắt khỏi phần hình in",
+        "Xác nhận quy cách với xưởng trước khi xuất file"
+      ]
+    },
+    {
+      "heading": "Checklist nào nên dùng trước khi gửi xưởng?",
+      "paragraphs": [
+        "Mở lại bản PDF cuối cùng thay vì chỉ nhìn file thiết kế đang làm. Kiểm tra kích thước trang, chính tả, mã QR, số điện thoại, độ nét ảnh, font, vùng xén và tên phiên bản. Gửi kèm kích thước, số lượng, chất liệu dự kiến và ảnh bao bì để xưởng đối chiếu."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-giay",
+    "tem-nhua-chong-nuoc",
+    "tem-uv-dtf"
+  ],
+  "sources": [
+    {
+      "title": "Adobe: Resolution specs for printing images",
+      "href": "https://helpx.adobe.com/photoshop/desktop/crop-resize-transform/resize-adjust-resolution/resolution-specs-for-printing-images.html",
+      "note": "Giải thích độ phân giải ảnh in và mốc 300 ppi.",
+      "kind": "primary",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Adobe: Printer’s marks and bleeds",
+      "href": "https://helpx.adobe.com/indesign/desktop/print/page-set-up-and-printer-marks/print-bleed-and-slug-areas.html",
+      "note": "Giải thích bleed, slug và dấu cắt trong quy trình in.",
+      "kind": "primary",
+      "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Adobe: CMYK color for print",
+      "href": "https://helpx.adobe.com/illustrator/desktop/manage-colors/select-and-adjust-colors/make-colors-printable-or-web-safe.html",
+      "note": "Hướng dẫn chọn CMYK cho tài liệu in và kiểm tra màu ngoài dải.",
+      "kind": "primary",
+      "verifiedAt": "2026-07-20"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 19,
+      "evidence": 19,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "https://helpx.adobe.com/photoshop/desktop/crop-resize-transform/resize-adjust-resolution/resolution-specs-for-printing-images.html",
+      "https://helpx.adobe.com/indesign/desktop/print/page-set-up-and-printer-marks/print-bleed-and-slug-areas.html",
+      "https://helpx.adobe.com/illustrator/desktop/manage-colors/select-and-adjust-colors/make-colors-printable-or-web-safe.html"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [{
+      "claim": "Ảnh raster cần đủ độ phân giải ở đúng kích thước in thực tế.",
+      "sourceIds": ["https://helpx.adobe.com/photoshop/desktop/crop-resize-transform/resize-adjust-resolution/resolution-specs-for-printing-images.html"]
+    }],
+    "attempts": []
+  }
+}

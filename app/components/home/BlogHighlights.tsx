@@ -16,7 +16,7 @@ export default function BlogHighlights() {
         <div className="mt-8"><BlogCategoryNav ariaLabel="Chuyên mục cẩm nang tem nhãn" /></div>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {blogPosts.map((post) => <BlogCard key={post.slug} post={post} />)}
+          {blogPosts.slice(0, 6).map((post) => <BlogCard key={post.slug} post={post} />)}
         </div>
 
         <div className="mt-10 text-center">
