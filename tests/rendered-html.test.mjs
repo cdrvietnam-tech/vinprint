@@ -196,6 +196,8 @@ test("renders a crawlable blog index with category navigation", async () => {
   assert.match(html, /href="\/blog\?chuyen-muc=chat-lieu"/i);
   assert.match(html, /href="\/blog\/tem-giay-va-tem-nhua-nen-chon-loai-nao"/i);
   assert.match(html, /href="\/blog\/loi-thiet-ke-tem-nhan"/i);
+  assert.match(html, /data-blog-thumbnail="compact"/i);
+  assert.match(html, /object-fit:contain/i);
 });
 
 test("renders GEO-ready blog articles with citable answers and BlogPosting schema", async () => {
