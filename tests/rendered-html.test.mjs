@@ -198,6 +198,12 @@ test("renders a crawlable blog index with category navigation", async () => {
   assert.match(html, /href="\/blog\/loi-thiet-ke-tem-nhan"/i);
   assert.match(html, /data-blog-thumbnail="compact"/i);
   assert.match(html, /object-fit:contain/i);
+  assert.match(html, /\/images\/blog\/tem-giay-va-tem-nhua\.webp/i);
+  assert.match(html, /\/images\/blog\/tem-uv-dtf-la-gi\.webp/i);
+  assert.match(html, /\/images\/blog\/cach-chon-kich-thuoc-tem\.webp/i);
+  assert.match(html, /\/images\/blog\/chuan-bi-file-in-tem\.webp/i);
+  assert.match(html, /\/images\/blog\/tem-chong-nuoc\.webp/i);
+  assert.match(html, /\/images\/blog\/loi-thiet-ke-tem\.webp/i);
 });
 
 test("renders GEO-ready blog articles with citable answers and BlogPosting schema", async () => {
