@@ -12,6 +12,9 @@ import { productBySlug } from "../../lib/products";
 
 type BlogArticlePageProps = { params: Promise<{ slug: string }> };
 
+const editorialProcessPath = "/quy-trinh-bien-soan";
+const editorialTeamId = `https://vinprint.vn${editorialProcessPath}#editorial-team`;
+
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
@@ -69,7 +72,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
     datePublished: article.publishedAt,
     dateModified: article.updatedAt,
     mainEntityOfPage: canonicalUrl,
-    author: { "@type": "Organization", name: "Đội ngũ VinPrint", url: "https://vinprint.vn/gioi-thieu" },
+    author: { "@type": "Organization", "@id": editorialTeamId, name: "Đội ngũ biên tập VinPrint", url: `https://vinprint.vn${editorialProcessPath}` },
     publisher: { "@type": "Organization", name: "VinPrint", url: "https://vinprint.vn", logo: { "@type": "ImageObject", url: "https://vinprint.vn/favicon.svg" } },
     articleSection: getBlogCategoryLabel(article.category),
     wordCount,
@@ -106,7 +109,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
               <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm font-bold text-white/70">
                 <time dateTime={article.updatedAt} className="inline-flex items-center gap-2"><CalendarDays aria-hidden="true" className="h-4 w-4" /> Cập nhật {formatBlogDate(article.updatedAt)}</time>
                 <span className="inline-flex items-center gap-2"><Clock3 aria-hidden="true" className="h-4 w-4" /> {article.readingMinutes} phút đọc</span>
-                <span>Biên tập: <Link href="/gioi-thieu" className="underline underline-offset-4 hover:text-white">Đội ngũ VinPrint</Link></span>
+                <span>Biên tập: <Link href={editorialProcessPath} className="underline underline-offset-4 hover:text-white">Đội ngũ VinPrint</Link></span>
               </div>
             </div>
           </header>
@@ -144,6 +147,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
               <p className="text-xs font-black uppercase tracking-[0.2em] text-[#4933D4]">Minh bạch nội dung</p>
               <h2 className="mt-3 text-2xl font-black">Nguồn và phương pháp biên soạn</h2>
               <p className="mt-4 leading-8 text-gray-700">Đội ngũ VinPrint tổng hợp bài viết từ dữ liệu sản phẩm đang công khai, hướng dẫn kỹ thuật nội bộ trên website và các nguồn chuyên môn được liệt kê dưới đây. AI hỗ trợ sắp xếp cấu trúc; nội dung cần được rà soát lại khi vật liệu, thiết bị hoặc quy cách sản xuất thay đổi.</p>
+              <Link href={editorialProcessPath} className="mt-4 inline-flex min-h-11 items-center font-black text-[#4933D4] underline decoration-2 underline-offset-4">Xem toàn bộ quy trình biên soạn</Link>
               <ul className="mt-6 space-y-4">
                 {article.sources.map((source) => <li key={source.href} className="rounded-2xl bg-white p-5"><SourceLink href={source.href}>{source.title}</SourceLink><p className="mt-2 leading-7 text-gray-600">{source.note}</p></li>)}
               </ul>

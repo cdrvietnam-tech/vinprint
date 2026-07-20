@@ -33,6 +33,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: route.startsWith("/huong-dan/") ? 0.7 : 0.75,
     })),
     {
+      url: `${baseUrl}/quy-trinh-bien-soan`,
+      lastModified: new Date("2026-07-20T00:00:00+07:00"),
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
       url: `${baseUrl}/blog`,
       lastModified: new Date("2026-07-20T00:00:00+07:00"),
       changeFrequency: "weekly",

@@ -23,6 +23,7 @@ export function GET() {
 - Liên hệ: https://vinprint.vn/lien-he
 - Chính sách: https://vinprint.vn/chinh-sach
 - Bảo hành: https://vinprint.vn/bao-hanh
+- Quy trình biên soạn và sử dụng AI: https://vinprint.vn/quy-trinh-bien-soan
 
 ## Sản phẩm
 

@@ -216,12 +216,26 @@ test("renders GEO-ready blog articles with citable answers and BlogPosting schem
   assert.match(html, /Không có một chất liệu tốt nhất cho mọi sản phẩm/i);
   assert.match(html, /Nguồn và phương pháp biên soạn/i);
   assert.match(html, /Đội ngũ VinPrint/i);
+  assert.match(html, /href="\/quy-trinh-bien-soan"/i);
+  assert.match(html, /https:\/\/vinprint\.vn\/quy-trinh-bien-soan#editorial-team/i);
   assert.match(html, /href="\/san-pham\/tem-giay"/i);
   assert.match(html, /href="\/san-pham\/tem-nhua-chong-nuoc"/i);
   assert.match(html, /"@type":"BlogPosting"/i);
   assert.match(html, /"datePublished":"2026-07-20"/i);
   assert.match(html, /"dateModified":"2026-07-20"/i);
   assert.match(html, /"@type":"BreadcrumbList"/i);
+});
+
+test("publishes a transparent editorial process and author entity", async () => {
+  const response = await render("/quy-trinh-bien-soan");
+  const html = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(html, /Quy trình biên soạn nội dung/i);
+  assert.match(html, /Ai chịu trách nhiệm cho nội dung/i);
+  assert.match(html, /AI được sử dụng như thế nào/i);
+  assert.match(html, /"@type":"AboutPage"/i);
+  assert.match(html, /"@id":"https:\/\/vinprint\.vn\/quy-trinh-bien-soan#editorial-team"/i);
 });
 
 test("all public routes render successfully", async () => {
@@ -238,6 +252,7 @@ test("all public routes render successfully", async () => {
     "/san-pham/tem-phu-san-pham",
     "/san-pham/sticker-trang-tri",
     "/gioi-thieu",
+    "/quy-trinh-bien-soan",
     "/lien-he",
     "/chinh-sach",
     "/bao-hanh",
@@ -274,6 +289,7 @@ test("AI discovery file is published", async () => {
   assert.match(text, /# VinPrint/);
   assert.match(text, /\/san-pham\/tem-uv-dtf/);
   assert.match(text, /\/blog\/tem-giay-va-tem-nhua-nen-chon-loai-nao/);
+  assert.match(text, /\/quy-trinh-bien-soan/);
 });
 
 test("sitemap publishes the blog hub and every GEO article", async () => {
@@ -284,6 +300,7 @@ test("sitemap publishes the blog hub and every GEO article", async () => {
   assert.match(xml, /https:\/\/vinprint\.vn\/blog<\/loc>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/tem-uv-dtf-la-gi<\/loc>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/loi-thiet-ke-tem-nhan<\/loc>/i);
+  assert.match(xml, /https:\/\/vinprint\.vn\/quy-trinh-bien-soan<\/loc>/i);
 });
 
 test("robots policy allows AI search but blocks model-training crawlers", async () => {
