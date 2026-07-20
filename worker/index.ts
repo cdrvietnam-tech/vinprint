@@ -79,9 +79,20 @@ const worker = {
       if (!imageUrl) {
         return new Response("Invalid image URL", { status: 400 });
       }
-      const fetchFallbackImage = () => imageUrl.origin === url.origin
-        ? fetchSourceAsset(`${imageUrl.pathname}${imageUrl.search}`)
-        : fetch(new Request(imageUrl));
+      const fetchFallbackImage = () => {
+        if (imageUrl.origin !== url.origin) {
+          return fetch(new Request(imageUrl));
+        }
+
+        if (env.ASSETS?.fetch) {
+          return fetchSourceAsset(`${imageUrl.pathname}${imageUrl.search}`);
+        }
+
+        // Cloudflare production builds can serve static assets without exposing
+        // an ASSETS binding to the Worker. Fetching the same zone from here
+        // triggers error 1042, so let the browser request the verified raw path.
+        return Response.redirect(imageUrl.toString(), 302);
+      };
       const images = env.IMAGES;
 
       if (!images) {
