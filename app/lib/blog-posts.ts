@@ -237,6 +237,18 @@ const blogArticleDetails: Record<string, BlogArticleDetails> = {
   },
 };
 
+const missingArticleDetails = blogPosts
+  .map((post) => post.slug)
+  .filter((slug) => !blogArticleDetails[slug]);
+const orphanedArticleDetails = Object.keys(blogArticleDetails)
+  .filter((slug) => !blogPostBySlug[slug]);
+
+if (missingArticleDetails.length || orphanedArticleDetails.length) {
+  throw new Error(
+    `Blog data is inconsistent. Missing details: ${missingArticleDetails.join(", ") || "none"}; orphaned details: ${orphanedArticleDetails.join(", ") || "none"}.`,
+  );
+}
+
 export function getBlogArticle(slug: string): BlogArticle | undefined {
   const post = blogPostBySlug[slug];
   const details = blogArticleDetails[slug];
@@ -245,4 +257,9 @@ export function getBlogArticle(slug: string): BlogArticle | undefined {
 
 export function getBlogCategoryLabel(slug: BlogCategorySlug) {
   return blogCategories.find((category) => category.slug === slug)?.label ?? slug;
+}
+
+export function formatBlogDate(date: string) {
+  const [year, month, day] = date.split("-");
+  return [day, month, year].filter(Boolean).join("/");
 }

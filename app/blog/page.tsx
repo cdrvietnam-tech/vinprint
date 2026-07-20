@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import BlogCard from "../components/blog/BlogCard";
+import BlogCategoryNav from "../components/blog/BlogCategoryNav";
 import Footer from "../components/home/Footer";
 import Header from "../components/home/Header";
-import { blogCategories, blogPosts } from "../lib/blog-posts";
+import { blogCategories, blogPosts, formatBlogDate } from "../lib/blog-posts";
 
 export const metadata: Metadata = {
   title: "Cẩm nang tem nhãn: vật liệu, thiết kế và kỹ thuật in",
@@ -28,6 +28,7 @@ export default async function BlogIndexPage({ searchParams }: BlogIndexPageProps
   const visiblePosts = selectedCategory === "tat-ca"
     ? blogPosts
     : blogPosts.filter((post) => post.category === selectedCategory);
+  const latestUpdatedAt = blogPosts.reduce((latest, post) => post.updatedAt > latest ? post.updatedAt : latest, blogPosts[0]?.updatedAt ?? "2026-07-20");
 
   return (
     <div className="min-h-screen bg-[#F7F4EE] text-gray-950">
@@ -42,24 +43,9 @@ export default async function BlogIndexPage({ searchParams }: BlogIndexPageProps
         </section>
 
         <section className="mx-auto max-w-[1440px] px-4 py-12 sm:py-16">
-          <nav aria-label="Lọc bài viết theo chuyên mục" className="flex gap-3 overflow-x-auto pb-3">
-            {blogCategories.map((category) => {
-              const active = category.slug === selectedCategory;
-              const href = category.slug === "tat-ca" ? "/blog" : `/blog?chuyen-muc=${category.slug}`;
-              return (
-                <Link
-                  key={category.slug}
-                  href={href}
-                  aria-current={active ? "page" : undefined}
-                  className={`inline-flex min-h-11 shrink-0 items-center rounded-full border px-5 text-sm font-black ${active ? "border-[#D83B00] bg-[#D83B00] text-white" : "border-black/15 bg-white text-gray-900 hover:border-[#D83B00] hover:text-[#D83B00]"}`}
-                >
-                  {category.label}
-                </Link>
-              );
-            })}
-          </nav>
+          <BlogCategoryNav ariaLabel="Lọc bài viết theo chuyên mục" selectedCategory={selectedCategory} />
 
-          <p className="mt-5 text-sm font-bold text-gray-600">{visiblePosts.length} bài viết · Cập nhật ngày 20/07/2026</p>
+          <p className="mt-5 text-sm font-bold text-gray-600">{visiblePosts.length} bài viết · Cập nhật ngày {formatBlogDate(latestUpdatedAt)}</p>
           <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {visiblePosts.map((post) => <BlogCard key={post.slug} post={post} />)}
           </div>

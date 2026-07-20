@@ -7,7 +7,7 @@ import BlogCard from "../../components/blog/BlogCard";
 import ConversionLink from "../../components/ConversionLink";
 import Footer from "../../components/home/Footer";
 import Header from "../../components/home/Header";
-import { blogPosts, getBlogArticle, getBlogCategoryLabel } from "../../lib/blog-posts";
+import { blogPosts, formatBlogDate, getBlogArticle, getBlogCategoryLabel } from "../../lib/blog-posts";
 import { productBySlug } from "../../lib/products";
 
 type BlogArticlePageProps = { params: Promise<{ slug: string }> };
@@ -104,7 +104,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
               <h1 className="mt-4 max-w-4xl text-4xl font-black leading-tight sm:text-6xl">{article.title}</h1>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-white/80">{article.description}</p>
               <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm font-bold text-white/70">
-                <time dateTime={article.updatedAt} className="inline-flex items-center gap-2"><CalendarDays aria-hidden="true" className="h-4 w-4" /> Cập nhật 20/07/2026</time>
+                <time dateTime={article.updatedAt} className="inline-flex items-center gap-2"><CalendarDays aria-hidden="true" className="h-4 w-4" /> Cập nhật {formatBlogDate(article.updatedAt)}</time>
                 <span className="inline-flex items-center gap-2"><Clock3 aria-hidden="true" className="h-4 w-4" /> {article.readingMinutes} phút đọc</span>
                 <span>Biên tập: <Link href="/gioi-thieu" className="underline underline-offset-4 hover:text-white">Đội ngũ VinPrint</Link></span>
               </div>
@@ -116,7 +116,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
               <Image src={article.image} alt={article.imageAlt} fill priority sizes="(max-width: 1024px) 100vw, 1024px" className="object-cover" />
             </div>
 
-            <section aria-labelledby="short-answer" className="mt-8 rounded-[32px] border-2 border-[#D83B00] bg-orange-50 p-6 sm:p-9">
+            <section aria-labelledby="short-answer" className="mt-8 rounded-[32px] border border-orange-200 bg-orange-50 p-6 sm:p-9">
               <p className="text-xs font-black uppercase tracking-[0.2em] text-[#D83B00]">Câu trả lời ngắn</p>
               <h2 id="short-answer" className="mt-3 text-2xl font-black sm:text-3xl">Điểm cần nhớ trước khi đặt in</h2>
               <p className="mt-5 text-lg leading-8 text-gray-800">{article.directAnswer}</p>
@@ -158,7 +158,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
 
             <aside className="mt-8 rounded-[32px] bg-[#6545ED] p-7 text-white sm:flex sm:items-center sm:justify-between sm:p-10">
               <div><h2 className="text-2xl font-black">Cần kiểm tra trên sản phẩm thật?</h2><p className="mt-2 max-w-xl leading-7 text-white/80">Gửi ảnh bao bì, kích thước và số lượng để xưởng tư vấn vật liệu hoặc dựng mẫu phù hợp.</p></div>
-              <ConversionLink href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" eventName="click_zalo" eventPosition={`blog_${article.slug}`} className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 font-black text-[#3D28BC] sm:mt-0">Nhắn Zalo nhận tư vấn</ConversionLink>
+              <ConversionLink href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" eventName="click_zalo" eventPosition={`blog_${article.slug}`} className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-gradient-to-r from-[#FF512F] to-[#FF2D6F] px-6 font-black text-white shadow-lg shadow-black/15 sm:mt-0">Nhắn Zalo nhận tư vấn</ConversionLink>
             </aside>
 
             <section className="mt-14">
