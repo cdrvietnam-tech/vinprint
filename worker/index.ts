@@ -128,9 +128,13 @@ const worker = {
     headers.set("X-Frame-Options", "SAMEORIGIN");
     headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=(), usb=()");
     headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
+    const contentSecurityPolicy =
+      "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.google.com https://www.google.com.vn; manifest-src 'self' https://vinprint.vn";
     headers.set(
       "Content-Security-Policy",
-      "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.google.com https://www.google.com.vn; manifest-src 'self' https://vinprint.vn; upgrade-insecure-requests",
+      url.protocol === "https:"
+        ? `${contentSecurityPolicy}; upgrade-insecure-requests`
+        : contentSecurityPolicy,
     );
 
     return new Response(response.body, {
