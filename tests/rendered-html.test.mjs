@@ -113,10 +113,13 @@ test("homepage exposes an accessible mobile menu and optimized hero image", asyn
   assert.match(html, /_vinext\/image/);
   assert.doesNotMatch(html, /\/images\/hero-collage\.(?:png|webp)/);
   assert.doesNotMatch(html, /complete_ai_mockup/);
+  assert.match(hero, /object-fit:contain/);
   assert.match(hero, /review-hong\.webp/);
   assert.match(hero, /review-tuan\.webp/);
   assert.match(hero, /review-yen\.webp/);
   assert.match(hero, /hero-customer-4\.webp/);
+  assert.match(hero, /Hơn 32000 lượt đánh giá cho shop ở Shopee/);
+  assert.doesNotMatch(hero, /Xem đánh giá trên Shopee/);
 });
 
 test("homepage renders local review avatars and the Zalo QR image", async () => {

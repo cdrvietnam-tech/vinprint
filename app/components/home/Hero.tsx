@@ -91,12 +91,12 @@ export default function Hero() {
                   </div>
                 ))}
               </div>
-              <div className="text-left flex flex-col justify-center h-10">
+              <div className="flex min-w-0 flex-col justify-center text-left">
                 <div className="flex items-center gap-1 text-[#F5A623]">
                   {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
                   <span className="text-gray-900 font-extrabold text-[15px] ml-1">4.9/5</span>
                 </div>
-                <a href="https://shopee.vn/chaucay_senda" target="_blank" rel="noreferrer" className="mt-0.5 text-[12px] font-bold text-gray-700 underline decoration-gray-300 underline-offset-2">Xem đánh giá trên Shopee</a>
+                <a href="https://shopee.vn/chaucay_senda" target="_blank" rel="noreferrer" className="mt-0.5 max-w-[260px] text-[12px] font-bold leading-tight text-gray-700 underline decoration-gray-300 underline-offset-2">Hơn 32000 lượt đánh giá cho shop ở Shopee</a>
               </div>
             </motion.div>
 
@@ -172,7 +172,8 @@ export default function Hero() {
                       fetchPriority="high"
                       quality={82}
                       sizes="(max-width: 1024px) 100vw, 55vw"
-                      className="object-contain object-center p-4 drop-shadow-2xl sm:p-6 lg:p-10"
+                      style={{ objectFit: "contain", objectPosition: "center" }}
+                      className="p-4 drop-shadow-2xl sm:p-6 lg:p-10"
                     />
                   </div>
 
