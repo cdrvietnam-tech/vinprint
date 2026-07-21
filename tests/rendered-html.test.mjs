@@ -4,12 +4,12 @@ import test from "node:test";
 const developmentPreviewMeta =
   /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
 
-async function render(pathname = "/") {
+async function render(pathname = "/", origin = "http://localhost") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${pathname}`);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${origin}-${pathname}`);
   const { default: worker } = await import(workerUrl.href);
   return worker.fetch(
-    new Request(`http://localhost${pathname}`, {
+    new Request(new URL(pathname, origin), {
       headers: { accept: "text/html" },
     }),
     {
@@ -85,6 +85,22 @@ test("public HTML responses include production security headers", async () => {
   assert.equal(response.headers.get("referrer-policy"), "strict-origin-when-cross-origin");
   assert.match(response.headers.get("content-security-policy") ?? "", /frame-ancestors 'self'/);
   assert.match(response.headers.get("permissions-policy") ?? "", /camera=\(\)/);
+});
+
+
+
+test("security policy upgrades insecure requests only on HTTPS origins", async () => {
+  const localResponse = await render("/", "http://localhost");
+  const productionResponse = await render("/", "https://vinprint.vn");
+
+  assert.doesNotMatch(
+    localResponse.headers.get("content-security-policy") ?? "",
+    /upgrade-insecure-requests/,
+  );
+  assert.match(
+    productionResponse.headers.get("content-security-policy") ?? "",
+    /upgrade-insecure-requests/,
+  );
 });
 
 test("homepage exposes an accessible mobile menu and optimized hero image", async () => {
