@@ -52,20 +52,16 @@ test("renders the new storefront homepage with key sections", async () => {
   assert.doesNotMatch(html, /images\.unsplash\.com/i);
 });
 
-test("homepage exposes a server-rendered GEO knowledge hub", async () => {
+test("homepage keeps the print guide in the header instead of an inline section", async () => {
   const response = await render();
   const html = await response.text();
-  const section = html.match(/<section[^>]*id="cam-nang-tem-nhan"[\s\S]*?<\/section>/i)?.[0] ?? "";
+  const header = html.match(/<header[\s\S]*?<\/header>/i)?.[0] ?? "";
 
   assert.equal(response.status, 200);
-  assert.match(section, /Cẩm nang tem nhãn/i);
-  assert.match(section, /Chọn chất liệu/i);
-  assert.match(section, /Thiết kế tem/i);
-  assert.match(section, /Theo ngành/i);
-  assert.match(section, /Kỹ thuật in/i);
-  assert.match(section, /href="\/blog\/tem-giay-va-tem-nhua-nen-chon-loai-nao"/i);
-  assert.match(section, /href="\/blog\/tem-uv-dtf-la-gi"/i);
-  assert.match(section, /href="\/blog\/cach-chon-kich-thuoc-tem-nhan"/i);
+  assert.match(header, /href="\/blog"/i);
+  assert.match(header, /Cẩm nang in ấn/i);
+  assert.doesNotMatch(html, /id="cam-nang-tem-nhan"/i);
+  assert.doesNotMatch(html, /Xem toàn bộ cẩm nang/i);
 });
 
 test("homepage includes JSON-LD structured data", async () => {
@@ -123,8 +119,6 @@ test("AI Design flow exposes all approved label transformations", async () => {
   const response = await render();
   const html = await response.text();
   const section = html.match(/<section[^>]*id="ai-thiet-ke"[\s\S]*?<\/section>/i)?.[0] ?? "";
-  const mockupStart = html.indexOf("Xem thử tem trên sản phẩm");
-  const mockupPanel = html.slice(mockupStart, mockupStart + 12000);
 
   assert.equal(response.status, 200);
   assert.match(section, /milk-tea-old\.webp/);
@@ -137,9 +131,8 @@ test("AI Design flow exposes all approved label transformations", async () => {
   assert.match(section, /aria-label="Xem combo Kim Hiếu"/);
   assert.match(section, /aria-label="Xem combo Mina Honey"/);
   assert.match(section, /aria-label="Xem combo Thy Kiều"/);
-  assert.notEqual(mockupStart, -1);
-  assert.match(mockupPanel, /milk-tea-old\.webp/);
-  assert.match(mockupPanel, /milk-tea-final\.webp/);
+  assert.doesNotMatch(html, /Xem thử tem trên sản phẩm/i);
+  assert.doesNotMatch(html, /Gửi mẫu để dựng mockup/i);
   assert.doesNotMatch(html, /(?:honey|coffee)_(?:old|ai|final)\.webp/);
 });
 

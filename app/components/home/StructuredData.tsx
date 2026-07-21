@@ -66,7 +66,7 @@ const itemListSchema = {
   })),
 };
 
-// Câu hỏi PHẢI khớp với danh sách đang hiển thị trong FAQAndMockup.tsx
+// Câu hỏi PHẢI khớp với danh sách đang hiển thị trong FAQAndZaloCTA.tsx
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",

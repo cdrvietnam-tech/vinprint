@@ -2,7 +2,6 @@ import type { VinPrintEventName } from "../../lib/analytics";
 
 const allowedEvents = new Set<VinPrintEventName>([
   "ai_design_click",
-  "click_ai_mockup_interest",
   "click_phone",
   "click_zalo",
   "load_google_map",

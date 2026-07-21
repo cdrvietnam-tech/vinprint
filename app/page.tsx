@@ -7,13 +7,12 @@ import Pricing from "./components/home/Pricing";
 import Process from "./components/home/Process";
 import Gallery from "./components/home/Gallery";
 import Reviews from "./components/home/Reviews";
-import FAQAndMockup from "./components/home/FAQAndMockup";
+import FAQAndZaloCTA from "./components/home/FAQAndZaloCTA";
 import Footer from "./components/home/Footer";
 import StructuredData from "./components/home/StructuredData";
 import MobileActionBar from "./components/home/MobileActionBar";
 import ScrollToTop from "./components/home/ScrollToTop";
 import MapSection from "./components/home/MapSection";
-import BlogHighlights from "./components/home/BlogHighlights";
 
 export default function Page() {
   return (
@@ -25,7 +24,6 @@ export default function Page() {
         <AIDesignFlow />
         <BeforeAfter />
         <Categories />
-        <BlogHighlights />
         <Pricing />
         <Process />
         <section className="py-12 bg-gray-50/50">
@@ -34,7 +32,7 @@ export default function Page() {
             <Reviews />
           </div>
         </section>
-        <FAQAndMockup />
+        <FAQAndZaloCTA />
         <MapSection />
       </main>
       <Footer hasMobileActionBar />
