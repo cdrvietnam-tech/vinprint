@@ -1,5 +1,4 @@
 export type VinPrintEventName =
-  | "ai_design_click"
   | "click_phone"
   | "click_zalo"
   | "load_google_map"

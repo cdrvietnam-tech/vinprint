@@ -61,9 +61,9 @@ The application uses Next.js-compatible App Router code through Vinext and produ
 
 ## Conversion analytics
 
-The storefront sends the allow-listed conversion events to `POST /api/analytics`. The Worker writes structured, privacy-minimized event records to Cloudflare Worker logs and also forwards them to `window.dataLayer` when a tag manager is present. No contact details or uploaded artwork are included.
+The storefront sends the allow-listed conversion events to `POST /api/analytics`. The Worker writes structured, privacy-minimized event records to Cloudflare Worker logs and also forwards them to `window.dataLayer` when a tag manager is present. Set `NEXT_PUBLIC_GTM_ID` to an approved `GTM-...` container ID to activate Google Tag Manager. No contact details or uploaded artwork are included.
 
-Tracked events include AI Design interactions, Zalo clicks, phone clicks, pricing views and map actions.
+Tracked events include Zalo clicks, phone clicks, pricing views and map actions.
 
 ## AI crawler policy
 

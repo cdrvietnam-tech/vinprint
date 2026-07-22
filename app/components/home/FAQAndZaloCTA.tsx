@@ -25,7 +25,7 @@ export default function FAQAndZaloCTA() {
     },
     {
       q: "Chưa có file thiết kế thì sao?",
-      a: "Không cần lo! Chỉ cần gửi ý tưởng hoặc logo. AI & Designer của VinPrint sẽ dựng mẫu thiết kế hoàn toàn miễn phí và cho xem trước kết quả trên sản phẩm thật.",
+      a: "VinPrint hỗ trợ thiết kế cho đơn hàng từ 200.000đ, tối đa 3 lần chỉnh sửa. Bạn chỉ cần gửi logo, nội dung và ý tưởng qua Zalo để được tư vấn.",
     },
     {
       q: "Có giao hàng toàn quốc không?",
@@ -116,10 +116,10 @@ export default function FAQAndZaloCTA() {
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" onClick={() => trackEvent("click_zalo", { position: "final_cta" })} className="inline-flex items-center justify-center gap-3 px-8 py-5 rounded-full bg-white text-blue-800 text-lg font-black shadow-xl hover:bg-gray-50 hover:scale-105 transition-all shrink-0">
                 <ZaloIcon className="w-6 h-6" />
-                Nhắn Zalo nhận giá <ArrowRight className="w-5 h-5" />
+                Nhắn Zalo chốt in <ArrowRight className="w-5 h-5" />
               </a>
               <a href="#bang-gia" onClick={() => trackEvent("view_pricing", { position: "final_cta" })} className="inline-flex items-center justify-center gap-3 px-8 py-5 rounded-full border-2 border-white/70 text-white text-lg font-black hover:bg-white/10 hover:border-white transition-all shrink-0">
-                Xem bảng giá ngay
+                Xem combo siêu hời
               </a>
             </div>
             

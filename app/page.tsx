@@ -1,8 +1,6 @@
 import Header from "./components/home/Header";
 import Hero from "./components/home/Hero";
-import BeforeAfter from "./components/home/BeforeAfter";
-import AIDesignFlow from "./components/home/AIDesignFlow";
-import Categories from "./components/home/Categories";
+import HotProductsMarquee from "./components/home/HotProductsMarquee";
 import Pricing from "./components/home/Pricing";
 import Process from "./components/home/Process";
 import Gallery from "./components/home/Gallery";
@@ -21,9 +19,7 @@ export default function Page() {
       <Header />
       <main id="main-content" tabIndex={-1}>
         <Hero />
-        <AIDesignFlow />
-        <BeforeAfter />
-        <Categories />
+        <HotProductsMarquee />
         <Pricing />
         <Process />
         <section className="py-12 bg-gray-50/50">

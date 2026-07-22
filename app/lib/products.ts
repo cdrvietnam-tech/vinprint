@@ -64,8 +64,7 @@ export const products: Product[] = [
     uses: ["Mỹ phẩm", "Đồ uống", "Đông lạnh", "Dán xe", "Ngoài trời"],
     priceLabel: "Từ 15.000đ / A4",
     price: 15000,
-    image:
-      "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ly3shefsnetf63",
+    image: "/images/products/tem-nhua-chong-nuoc.webp",
     source: productSources.label,
     tone: "coral",
   },
@@ -78,8 +77,7 @@ export const products: Product[] = [
     benefit: "Nhãn hòa vào bao bì, tạo cảm giác sạch và hiện đại.",
     uses: ["Chai serum", "Ly nhựa", "Hũ mỹ phẩm", "Bao bì trong"],
     priceLabel: "Gửi file để xác nhận",
-    image:
-      "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lklsrilsqsq267",
+    image: "/images/products/tem-nhua-trong.webp",
     source: productSources.label,
     tone: "aqua",
   },
@@ -92,8 +90,7 @@ export const products: Product[] = [
     benefit: "Tạo hiệu ứng kim loại nổi bật dưới ánh sáng.",
     uses: ["Máy móc", "Điện tử", "Thông số", "Logo cao cấp"],
     priceLabel: "Gửi file để xác nhận",
-    image:
-      "https://down-vn.img.susercontent.com/file/642690f2753959deb5b48093e7b43680",
+    image: "/images/products/tem-bac.webp",
     source: SHOPEE_SHOP_URL,
     tone: "silver",
   },
@@ -132,8 +129,7 @@ export const products: Product[] = [
     benefit: "Gọn, dễ kiểm tra và có thể thiết kế theo nhận diện riêng.",
     uses: ["Điện tử", "Linh kiện", "Thiết bị", "Niêm phong hộp"],
     priceLabel: "Gửi quy cách để xác nhận",
-    image:
-      "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ly3shefsnetf63",
+    image: "/images/products/tem-nhua-chong-nuoc.webp",
     source: SHOPEE_SHOP_URL,
     tone: "ink",
   },
@@ -147,8 +143,7 @@ export const products: Product[] = [
     uses: ["Hàng nhập", "Mỹ phẩm", "Thực phẩm", "Đồ gia dụng"],
     priceLabel: "Từ 180đ / tem",
     price: 180,
-    image:
-      "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lklsrilsqsq267",
+    image: "/images/products/tem-nhua-trong.webp",
     source: productSources.supplement,
     tone: "blue",
   },
@@ -161,8 +156,7 @@ export const products: Product[] = [
     benefit: "Dễ ứng dụng, màu sắc bắt mắt và linh hoạt theo bộ sưu tập.",
     uses: ["Laptop", "Vali", "Nón bảo hiểm", "Xe", "Bình nước"],
     priceLabel: "Theo kích thước & số lượng",
-    image:
-      "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ly3shefsnetf63",
+    image: "/images/products/tem-nhua-chong-nuoc.webp",
     source: SHOPEE_SHOP_URL,
     tone: "pink",
   },

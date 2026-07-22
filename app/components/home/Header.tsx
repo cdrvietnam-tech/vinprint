@@ -8,8 +8,8 @@ import { ZaloIcon } from "../icons";
 
 const navigation = [
   ["Trang chủ", "/#trang-chu"],
-  ["Các loại tem", "/#cac-loai-tem"],
-  ["Bảng giá", "/#bang-gia"],
+  ["Tất cả sản phẩm", "/san-pham"],
+  ["Combo ưu đãi", "/#bang-gia"],
   ["Mẫu thực tế", "/#mau-thuc-te"],
   ["Quy trình", "/#quy-trinh"],
   ["Đánh giá", "/#danh-gia"],
@@ -52,7 +52,7 @@ export default function Header() {
             onClick={() => trackEvent("view_pricing", { position: "header" })}
             className="inline-flex min-h-11 items-center rounded-full border-2 border-gray-300 px-5 text-sm font-bold text-gray-900 hover:border-gray-500"
           >
-            Xem bảng giá
+            Xem combo
           </Link>
           <a
             href="https://zalo.me/0844998499"

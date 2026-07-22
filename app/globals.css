@@ -3110,6 +3110,39 @@ blockquote {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
 
+.hot-products-track {
+  will-change: transform;
+}
+
+.hero-sparkle-star {
+  z-index: 15;
+  line-height: 1;
+  opacity: 0.4;
+  filter: drop-shadow(0 0 6px currentColor) brightness(1.1);
+  text-shadow: 0 0 4px currentColor, 0 0 8px currentColor;
+  animation: hero-star-twinkle 2s ease-in-out infinite;
+  animation-duration: 2s !important;
+  animation-iteration-count: infinite !important;
+  will-change: transform, opacity, filter;
+}
+
+@keyframes hero-star-twinkle {
+  0%, 100% { opacity: 0.1; transform: scale(0.7) rotate(0deg); filter: drop-shadow(0 0 2px currentColor) brightness(0.9); }
+  45% { opacity: 0.5; transform: scale(1.2) rotate(24deg); filter: drop-shadow(0 0 8px currentColor) brightness(1.3); }
+  68% { opacity: 0.22; transform: scale(0.88) rotate(12deg); filter: drop-shadow(0 0 3px currentColor) brightness(1); }
+}
+
+.hot-product-card {
+  transform-style: preserve-3d;
+  isolation: isolate;
+}
+
+.hot-product-visual {
+  transform-origin: center center;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
 /* Skip-link (chuyển từ sales.css — dùng bởi layout.tsx) */
 .skip-link {
   position: fixed;

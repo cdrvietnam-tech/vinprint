@@ -29,6 +29,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -41,6 +42,10 @@ next-env.d.ts
 /outputs/
 /work/
 /vinprint-deploy.zip
+*.tsbuildinfo
+.codex-preview-*.log
+preview-*.html
+.asset-work/
 
 # Customer or workshop evidence that has not been approved for publication
 /agent/evidence/private/

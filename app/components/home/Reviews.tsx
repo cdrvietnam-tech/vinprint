@@ -13,7 +13,7 @@ export default function Reviews() {
   ];
 
   return (
-    <div className="bg-white rounded-[32px] p-6 lg:p-8 flex flex-col h-full shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100">
+    <div id="danh-gia" className="scroll-mt-24 bg-white rounded-[32px] p-6 lg:p-8 flex flex-col h-full shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100">
       <div className="flex flex-col xl:flex-row xl:justify-between xl:items-end mb-8 gap-4 shrink-0">
         <div>
           <h2 className="text-2xl font-extrabold text-gray-900 uppercase mb-2">

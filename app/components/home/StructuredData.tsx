@@ -58,7 +58,7 @@ const itemListSchema = {
               priceCurrency: "VND",
               price: product.price,
               availability: "https://schema.org/InStock",
-              url: product.source,
+              url: `https://vinprint.vn/san-pham/${product.slug}`,
             },
           }
         : {}),
@@ -85,7 +85,7 @@ const faqSchema = {
     },
     {
       q: "Chưa có file thiết kế thì sao?",
-      a: "Không cần lo! Chỉ cần gửi ý tưởng hoặc logo. AI & Designer của VinPrint sẽ dựng mẫu thiết kế hoàn toàn miễn phí và cho xem trước kết quả trên sản phẩm thật.",
+      a: "VinPrint hỗ trợ thiết kế cho đơn hàng từ 200.000đ, tối đa 3 lần chỉnh sửa. Bạn chỉ cần gửi logo, nội dung và ý tưởng qua Zalo để được tư vấn.",
     },
     {
       q: "Có giao hàng toàn quốc không?",

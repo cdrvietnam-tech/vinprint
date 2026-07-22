@@ -20,6 +20,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     },
+    {
+      url: `${baseUrl}/san-pham`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
     ...products.map((product) => ({
       url: `${baseUrl}/san-pham/${product.slug}`,
       lastModified,
