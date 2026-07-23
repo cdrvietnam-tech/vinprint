@@ -78,7 +78,7 @@ export default function QuoteRequestsAdmin() {
   };
 
   const remove = async (item: QuoteRequest) => {
-    if (!window.confirm(`Xóa yêu cầu ${item.code} và file đã gửi?`)) return;
+    if (!window.confirm(`Xóa yêu cầu báo giá ${item.code}?`)) return;
     setBusyId(item.id);
     try {
       const response = await fetch(`/api/admin/quote-requests?id=${encodeURIComponent(item.id)}`, { method: "DELETE" });
@@ -114,8 +114,9 @@ export default function QuoteRequestsAdmin() {
             <p className="text-xs font-black uppercase tracking-[0.16em] text-orange-700">Yêu cầu từ website</p>
             <h1 className="mt-2 text-3xl font-black sm:text-5xl">Quản trị yêu cầu báo giá</h1>
             <p className="mt-4 font-medium leading-7 text-gray-700">
-              Xem tên, số điện thoại, số lượng và tải file khách đã gửi. Dữ liệu chỉ hiển thị trong khu vực được Cloudflare Access bảo vệ.
-              File do khách tải lên là dữ liệu chưa tin cậy; nên quét virus trước khi mở.
+              Xem tên, số điện thoại, vật liệu, kích thước, số lượng và nhu cầu giá lẻ hoặc giá sỉ.
+              Dữ liệu chỉ hiển thị trong khu vực được Cloudflare Access bảo vệ.
+              Nếu mở file từ yêu cầu cũ, anh vẫn nên quét virus trước.
             </p>
           </div>
           <button type="button" onClick={() => void load()} className="inline-flex min-h-11 items-center gap-2 rounded-full border border-orange-200 bg-white px-5 text-sm font-black text-orange-800">
@@ -153,22 +154,42 @@ export default function QuoteRequestsAdmin() {
 
                   <dl className="mt-5 space-y-2 text-sm">
                     <div className="flex justify-between gap-4"><dt className="font-bold text-gray-500">Điện thoại</dt><dd className="font-black">{item.phone}</dd></div>
+                    <div className="flex justify-between gap-4"><dt className="font-bold text-gray-500">Vật liệu</dt><dd className="text-right font-black">{item.material || item.productTitle || "Chưa rõ"}</dd></div>
+                    <div className="flex justify-between gap-4"><dt className="font-bold text-gray-500">Kích thước</dt><dd className="font-black">{item.widthMm && item.heightMm ? `${item.widthMm} × ${item.heightMm} mm` : "Chưa rõ"}</dd></div>
                     <div className="flex justify-between gap-4"><dt className="font-bold text-gray-500">Số lượng</dt><dd className="font-black">{item.quantity.toLocaleString("vi-VN")}</dd></div>
+                    <div className="flex justify-between gap-4">
+                      <dt className="font-bold text-gray-500">Báo giá</dt>
+                      <dd className={`rounded-full px-2.5 py-1 text-xs font-black ${
+                        item.priceTier === "wholesale"
+                          ? "bg-violet-100 text-violet-800"
+                          : item.priceTier === "retail"
+                            ? "bg-orange-100 text-orange-800"
+                            : "bg-gray-200 text-gray-700"
+                      }`}>
+                        {item.priceTier === "wholesale" ? "Giá sỉ" : item.priceTier === "retail" ? "Giá lẻ" : "Chưa phân loại"}
+                      </dd>
+                    </div>
                     <div className="flex justify-between gap-4"><dt className="font-bold text-gray-500">Sản phẩm</dt><dd className="text-right font-black">{item.productTitle || "Chưa chọn"}</dd></div>
-                    <div className="flex justify-between gap-4"><dt className="font-bold text-gray-500">File</dt><dd className="max-w-[65%] truncate text-right font-black" title={item.fileName}>{item.fileName}</dd></div>
-                    <div className="flex justify-between gap-4"><dt className="font-bold text-gray-500">Dung lượng</dt><dd className="font-black">{formatBytes(item.fileSize)}</dd></div>
+                    {item.fileName && (
+                      <>
+                        <div className="flex justify-between gap-4"><dt className="font-bold text-gray-500">File cũ</dt><dd className="max-w-[65%] truncate text-right font-black" title={item.fileName}>{item.fileName}</dd></div>
+                        <div className="flex justify-between gap-4"><dt className="font-bold text-gray-500">Dung lượng</dt><dd className="font-black">{formatBytes(item.fileSize || 0)}</dd></div>
+                      </>
+                    )}
                   </dl>
 
                   <div className="mt-5 grid grid-cols-2 gap-2">
-                    <a href={`tel:${item.phone.replace(/[^\d+]/g, "")}`} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-emerald-700 px-3 text-xs font-black text-white">
+                    <a href={`tel:${item.phone.replace(/[^\d+]/g, "")}`} className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-emerald-700 px-3 text-xs font-black text-white ${item.fileName ? "" : "col-span-2"}`}>
                       <Phone className="h-4 w-4" aria-hidden="true" /> Gọi khách
                     </a>
-                    <a href={`/api/admin/quote-requests?id=${encodeURIComponent(item.id)}&file=1`} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-violet-700 px-3 text-xs font-black text-white">
-                      <Download className="h-4 w-4" aria-hidden="true" /> Tải file
-                    </a>
+                    {item.fileName && (
+                      <a href={`/api/admin/quote-requests?id=${encodeURIComponent(item.id)}&file=1`} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-violet-700 px-3 text-xs font-black text-white">
+                        <Download className="h-4 w-4" aria-hidden="true" /> Tải file cũ
+                      </a>
+                    )}
                     <button type="button" disabled={busyId === item.id} onClick={() => void remove(item)} className="col-span-2 inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-red-200 bg-white px-3 text-xs font-black text-red-700 disabled:opacity-60">
                       {busyId === item.id ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Trash2 className="h-4 w-4" aria-hidden="true" />}
-                      Xóa yêu cầu và file
+                      Xóa yêu cầu
                     </button>
                   </div>
                   </article>

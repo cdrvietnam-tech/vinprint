@@ -18,6 +18,21 @@ const scenarios = [
     need: "Tem tạo điểm nhấn thương hiệu trên hộp, túi và bao bì nhỏ.",
     image: "/images/products/tem-ep-kim.webp",
   },
+  {
+    title: "Chai lọ trong suốt",
+    need: "Tem cần giữ vẻ trong trẻo của bao bì nhưng nội dung vẫn đủ tương phản.",
+    image: "/images/products/tem-nhua-trong.webp",
+  },
+  {
+    title: "Thiết bị & tem bảo hành",
+    need: "Nhãn cần gọn, dễ đọc và phù hợp với bề mặt kim loại hoặc nhựa cứng.",
+    image: "/images/products/tem-bac.webp",
+  },
+  {
+    title: "Ly, cốc & quà tặng cứng",
+    need: "UV DTF giúp logo nổi bật trên bề mặt cứng khi điều kiện dán phù hợp.",
+    image: "/images/products/tem-uv-dtf.webp",
+  },
 ] as const;
 
 export default function CaseStudies() {
@@ -34,12 +49,12 @@ export default function CaseStudies() {
       </div>
 
       <p className="mt-4 max-w-2xl text-sm font-medium leading-6 text-gray-600">
-        Các tình huống dưới đây giúp xác định câu hỏi cần trả lời trước khi chọn chất liệu. Báo giá cuối cùng được xác nhận sau khi kiểm tra file và quy cách thực tế.
+        Các tình huống dưới đây giúp chọn vật liệu phù hợp. Để nhận báo giá, chỉ cần cung cấp vật liệu, kích thước, số lượng và nhu cầu giá lẻ hoặc giá sỉ.
       </p>
 
-      <div className="mt-6 grid flex-1 gap-4 sm:grid-cols-3">
+      <div data-case-study-grid="six" className="mt-6 grid flex-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {scenarios.map((scenario) => (
-          <article key={scenario.title} className="overflow-hidden rounded-[24px] border border-gray-100 bg-[#fffaf4]">
+          <article data-case-scenario key={scenario.title} className="overflow-hidden rounded-[24px] border border-gray-100 bg-[#fffaf4]">
             <div className="relative aspect-[4/3] bg-white">
               <Image
                 src={scenario.image}

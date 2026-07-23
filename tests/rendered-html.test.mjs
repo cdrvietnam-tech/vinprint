@@ -176,7 +176,7 @@ test("homepage replaces AI Design with the wholesale pricing path", async () => 
   assert.equal(response.status, 200);
   assert.match(html, /Combo ưu đãi/);
   assert.match(html, /Giá tham khảo/);
-  assert.match(html, /Báo giá chính xác sau khi xem file/i);
+  assert.match(html, /Báo giá chính xác theo vật liệu, kích thước, số lượng/i);
   assert.doesNotMatch(html, /Giá demo/);
   assert.doesNotMatch(html, /Gợi ý combo để anh xem trước bố cục/i);
   assert.match(html, /Hỗ trợ thiết kế đơn từ 200\.000đ/);
@@ -191,17 +191,23 @@ test("homepage replaces AI Design with the wholesale pricing path", async () => 
   assert.match(html, /Xem tất cả sản phẩm của shop/i);
 });
 
-test("final quote CTA offers direct file submission without unverifiable customer counts", async () => {
+test("final quote CTA collects pricing details without requiring a file", async () => {
   const response = await render();
   const html = await response.text();
-  const ctaStart = html.indexOf("Bạn đã có file thiết kế?");
+  const ctaStart = html.indexOf("Cần báo giá ngay?");
   const finalCta = html.slice(ctaStart, ctaStart + 16000);
 
   assert.notEqual(ctaStart, -1);
   assert.match(finalCta, /name="customerName"/);
   assert.match(finalCta, /name="phone"/);
+  assert.match(finalCta, /name="material"/);
+  assert.match(finalCta, /name="widthMm"/);
+  assert.match(finalCta, /name="heightMm"/);
   assert.match(finalCta, /name="quantity"/);
-  assert.match(finalCta, /name="artwork"/);
+  assert.match(finalCta, /name="priceTier"/);
+  assert.doesNotMatch(finalCta, /name="artwork"/);
+  assert.match(finalCta, /Giá lẻ/i);
+  assert.match(finalCta, /Giá sỉ/i);
   assert.doesNotMatch(finalCta, /90\.000/);
 });
 
@@ -234,7 +240,7 @@ test("renders product detail pages with source and order process", async () => {
   assert.match(html, /Xem nguồn/i);
   assert.match(html, /data-product-showcase="premium"/i);
   assert.match(html, /Phù hợp với/i);
-  assert.match(html, /Gửi file là báo giá được/i);
+  assert.match(html, /Không cần gửi file để báo giá/i);
   assert.match(html, /application\/ld\+json/i);
   assert.match(header, /href="\/blog"/i);
   assert.match(header, /href="\/gioi-thieu"/i);
@@ -249,8 +255,12 @@ test("renders product detail pages with source and order process", async () => {
   assert.doesNotMatch(html, /"@type":"Offer"/i);
   assert.match(html, /name="customerName"/);
   assert.match(html, /name="phone"/);
+  assert.match(html, /name="material"/);
+  assert.match(html, /name="widthMm"/);
+  assert.match(html, /name="heightMm"/);
   assert.match(html, /name="quantity"/);
-  assert.match(html, /name="artwork"/);
+  assert.match(html, /name="priceTier"/);
+  assert.doesNotMatch(html, /name="artwork"/);
 });
 
 test("homepage promotes verifiable case-study scenarios instead of illustrative reviews", async () => {
@@ -260,6 +270,8 @@ test("homepage promotes verifiable case-study scenarios instead of illustrative 
   assert.equal(response.status, 200);
   assert.match(html, /Tình huống ứng dụng/i);
   assert.match(html, /href="\/case-study"/i);
+  assert.match(html, /data-case-study-grid="six"/i);
+  assert.equal((html.match(/data-case-scenario=/gi) || []).length, 6);
   assert.doesNotMatch(html, /Avatar minh họa/i);
 });
 

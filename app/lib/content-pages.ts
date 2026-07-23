@@ -22,7 +22,7 @@ export const companyPages: Record<string, ContentPageData> = {
     intro: "VinPrint là xưởng in tem nhãn theo yêu cầu tại TP.HCM, tập trung vào quy trình rõ ràng: nhận file, xác nhận quy cách, duyệt mẫu rồi mới in.",
     sections: [
       { heading: "Chúng tôi giải quyết điều gì?", paragraphs: ["Một chiếc tem cần đúng màu, đúng kích thước và phù hợp bề mặt sử dụng. VinPrint tư vấn từ chất liệu đến cách gia công để khách hàng không phải chọn bằng cảm tính."], bullets: ["Nhận số lượng ít để thử mẫu", "Hỗ trợ thiết kế khi chưa có file hoàn chỉnh", "Báo giá theo kích thước, số lượng và kỹ thuật gia công", "Giao hàng toàn quốc"] },
-      { heading: "Quy trình minh bạch", paragraphs: ["Mỗi đơn hàng được xác nhận lại nội dung, kích thước, chất liệu, số lượng và thời gian dự kiến. Khách hàng duyệt mẫu trước khi xưởng tiến hành in."], bullets: ["Gửi yêu cầu và file", "Nhận tư vấn, báo giá", "Duyệt nội dung và mẫu", "In, kiểm tra, đóng gói", "Nhận hàng và phản hồi"] },
+      { heading: "Quy trình minh bạch", paragraphs: ["Mỗi đơn hàng được xác nhận lại nội dung, kích thước, chất liệu, số lượng và thời gian dự kiến. Khách hàng duyệt mẫu trước khi xưởng tiến hành in."], bullets: ["Gửi thông tin và quy cách", "Nhận tư vấn, báo giá", "Duyệt nội dung và mẫu", "In, kiểm tra, đóng gói", "Nhận hàng và phản hồi"] },
       { heading: "Thông tin xưởng", paragraphs: ["Địa chỉ: 254/5/40 Lê Văn Thọ, Phường Thông Tây Hội, TP.HCM. Giờ làm việc: 09:00–17:30 từ Thứ 2 đến Thứ 7; nghỉ Chủ nhật và ngày lễ. Hotline/Zalo: 0844 998 499."] },
     ],
   },
@@ -31,7 +31,7 @@ export const companyPages: Record<string, ContentPageData> = {
     title: "Liên hệ VinPrint — Nhận tư vấn và báo giá in tem",
     description: "Liên hệ xưởng VinPrint qua điện thoại, Zalo hoặc Google Maps để nhận tư vấn chất liệu và báo giá in tem.",
     eyebrow: "Liên hệ xưởng",
-    intro: "Để báo giá chính xác, hãy gửi file hoặc hình tham khảo kèm kích thước, số lượng và bề mặt dự kiến dán tem.",
+    intro: "Để nhận báo giá, hãy cung cấp tên, số điện thoại, vật liệu, kích thước và số lượng dự kiến. VinPrint có báo giá lẻ và báo giá sỉ cho số lượng lớn.",
     sections: [
       { heading: "Kênh liên hệ", paragraphs: ["Hotline/Zalo: 0844 998 499. Địa chỉ: 254/5/40 Lê Văn Thọ, Phường Thông Tây Hội, TP.HCM."], bullets: ["Zalo phù hợp để gửi file và hình ảnh", "Điện thoại phù hợp khi cần xác nhận gấp", "Xem đường đi trên Google Maps trước khi đến xưởng"] },
       { heading: "Thông tin cần gửi", paragraphs: ["Báo giá phụ thuộc vào quy cách thực tế. Càng đủ thông tin, thời gian xác nhận càng nhanh."], bullets: ["Kích thước tem", "Số lượng", "Chất liệu mong muốn", "Hình dạng và kỹ thuật cắt", "Yêu cầu cán màng, ép kim hoặc hiệu ứng khác"] },
@@ -47,7 +47,7 @@ export const companyPages: Record<string, ContentPageData> = {
     sections: [
       { heading: "Xác nhận đơn hàng", paragraphs: ["Đơn hàng chỉ được đưa vào sản xuất sau khi khách hàng xác nhận nội dung, kích thước, chất liệu, số lượng, giá và thời gian dự kiến."], bullets: ["Màu trên màn hình có thể khác nhẹ so với bản in", "Nội dung do khách duyệt là căn cứ sản xuất", "Thay đổi sau khi đã in có thể phát sinh chi phí"] },
       { heading: "Thanh toán và giao nhận", paragraphs: ["Mức đặt cọc và phương thức thanh toán được xác nhận theo từng đơn. Phí vận chuyển và thời gian giao phụ thuộc địa chỉ, đơn vị vận chuyển và tình trạng thực tế."], bullets: ["Kiểm tra thông tin nhận hàng trước khi gửi", "Quay video khi mở kiện nếu phát hiện hư hỏng", "Liên hệ ngay khi kiện hàng có dấu hiệu bất thường"] },
-      { heading: "Bảo mật thông tin và file", paragraphs: ["VinPrint sử dụng tên, số điện thoại và file khách gửi để tư vấn, báo giá, thiết kế và sản xuất đơn hàng. File không được công khai làm mẫu nếu chưa có sự đồng ý của khách hàng.", "Khách hàng có thể yêu cầu xóa file sau khi kết thúc tư vấn, trừ thông tin cần lưu để thực hiện giao dịch hoặc đáp ứng nghĩa vụ pháp luật. Khu vực quản trị file được giới hạn bằng lớp đăng nhập Cloudflare Access."] },
+      { heading: "Bảo mật thông tin và file", paragraphs: ["VinPrint sử dụng tên, số điện thoại, vật liệu, kích thước và số lượng khách cung cấp để tư vấn và báo giá. Nếu khách chủ động gửi file ở bước sau, file không được công khai làm mẫu khi chưa có sự đồng ý.", "Khách hàng có thể yêu cầu xóa thông tin hoặc file sau khi kết thúc tư vấn, trừ dữ liệu cần lưu để thực hiện giao dịch hoặc đáp ứng nghĩa vụ pháp luật. Khu vực quản trị được giới hạn bằng lớp đăng nhập Cloudflare Access."] },
     ],
   },
   "bao-hanh": {
@@ -103,14 +103,14 @@ export const areaPages: Record<string, ContentPageData> = {
   "go-vap": {
     slug: "go-vap",
     title: "In tem nhãn Gò Vấp — Xem mẫu và nhận hàng tại xưởng",
-    description: "In tem nhãn theo yêu cầu tại Gò Vấp, TP.HCM. Gửi file nhận báo giá hoặc đến xưởng VinPrint tại 254/5/40 Lê Văn Thọ.",
+    description: "In tem nhãn theo yêu cầu tại Gò Vấp, TP.HCM. Gửi vật liệu, kích thước và số lượng để nhận báo giá hoặc đến xưởng VinPrint tại 254/5/40 Lê Văn Thọ.",
     eyebrow: "Khu vực phục vụ · Gò Vấp",
-    intro: "VinPrint có xưởng tại 254/5/40 Lê Văn Thọ, Phường Thông Tây Hội, TP.HCM. Khách tại Gò Vấp có thể gửi file từ xa hoặc hẹn đến xem mẫu chất liệu trước khi chốt quy cách.",
+    intro: "VinPrint có xưởng tại 254/5/40 Lê Văn Thọ, Phường Thông Tây Hội, TP.HCM. Khách tại Gò Vấp có thể gửi quy cách từ xa hoặc hẹn đến xem mẫu chất liệu trước khi chốt.",
     sections: [
       {
         heading: "Dịch vụ tại xưởng Gò Vấp",
-        paragraphs: ["Xưởng nhận in tem giấy, tem nhựa, tem trong, tem ánh kim, UV DTF và các ấn phẩm theo yêu cầu. Báo giá được xác nhận theo file, kích thước, số lượng và gia công."],
-        bullets: ["Gửi file trực tiếp trên website hoặc Zalo", "Hẹn xem mẫu chất liệu tại xưởng", "Nhận hàng tại xưởng hoặc chọn phương thức giao phù hợp"],
+        paragraphs: ["Xưởng nhận in tem giấy, tem nhựa, tem trong, tem ánh kim, UV DTF và các ấn phẩm theo yêu cầu. Báo giá được xác nhận theo vật liệu, kích thước, số lượng và gia công."],
+        bullets: ["Gửi vật liệu, kích thước và số lượng trên website", "Hẹn xem mẫu chất liệu tại xưởng", "Nhận hàng tại xưởng hoặc chọn phương thức giao phù hợp"],
       },
       {
         heading: "Thông tin trước khi đến",
@@ -121,14 +121,14 @@ export const areaPages: Record<string, ContentPageData> = {
   },
   "quan-12": {
     slug: "quan-12",
-    title: "In tem nhãn giao Quận 12 — Báo giá theo file",
-    description: "Đặt in tem nhãn cho shop và doanh nghiệp tại Quận 12. Gửi file, kích thước và số lượng để VinPrint tư vấn quy cách và phương thức giao.",
+    title: "In tem nhãn giao Quận 12 — Báo giá theo quy cách",
+    description: "Đặt in tem nhãn cho shop và doanh nghiệp tại Quận 12. Gửi vật liệu, kích thước và số lượng để VinPrint báo giá và tư vấn phương thức giao.",
     eyebrow: "Khu vực phục vụ · Quận 12",
     intro: "VinPrint phục vụ khách hàng tại Quận 12 từ xưởng ở Phường Thông Tây Hội, TP.HCM. Đây là khu vực giao hàng, không phải địa chỉ chi nhánh riêng tại Quận 12.",
     sections: [
       {
         heading: "Cách nhận báo giá",
-        paragraphs: ["Gửi file thiết kế hoặc ảnh mẫu kèm kích thước và số lượng dự kiến. Với chai lọ hoặc bao bì đặc biệt, nên gửi thêm ảnh bề mặt dán để chọn chất liệu phù hợp."],
+        paragraphs: ["Chỉ cần cung cấp vật liệu, kích thước và số lượng dự kiến để nhận báo giá. Với chai lọ hoặc bao bì đặc biệt, xưởng có thể hỏi thêm ảnh bề mặt dán trước khi chốt sản xuất."],
         bullets: ["Tem giấy cho bao bì khô", "Tem nhựa cho môi trường ẩm", "Tem trong, ánh kim hoặc UV DTF cho nhu cầu tạo điểm nhấn"],
       },
       {
@@ -140,7 +140,7 @@ export const areaPages: Record<string, ContentPageData> = {
   "tan-binh": {
     slug: "tan-binh",
     title: "In tem nhãn giao Tân Bình — Tem giấy, tem nhựa, UV DTF",
-    description: "Đặt in tem nhãn theo yêu cầu cho cửa hàng và doanh nghiệp tại Tân Bình. Gửi file để nhận tư vấn chất liệu, quy cách và báo giá.",
+    description: "Đặt in tem nhãn theo yêu cầu cho cửa hàng và doanh nghiệp tại Tân Bình. Gửi vật liệu, kích thước và số lượng để nhận báo giá lẻ hoặc sỉ.",
     eyebrow: "Khu vực phục vụ · Tân Bình",
     intro: "VinPrint nhận yêu cầu từ khách hàng tại Tân Bình và sản xuất tại xưởng ở Phường Thông Tây Hội, TP.HCM. VinPrint không công bố chi nhánh riêng tại Tân Bình.",
     sections: [

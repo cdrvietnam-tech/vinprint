@@ -838,6 +838,10 @@
       "bytes": 21006,
       "usages": [
         {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
           "href": "/san-pham",
           "label": "Trang liên quan"
         }
@@ -909,6 +913,10 @@
       "height": 1024,
       "bytes": 94172,
       "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
         {
           "href": "/san-pham",
           "label": "Trang liên quan"

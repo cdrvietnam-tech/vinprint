@@ -124,11 +124,11 @@ export function getProductFaqs(product: Product): ProductFaq[] {
     productSpecific[0],
     {
       q: `Giá in ${product.name.toLocaleLowerCase("vi-VN")} được tính như thế nào?`,
-      a: "Giá phụ thuộc kích thước, số lượng, chất liệu, hình dáng bế và yêu cầu gia công. Mức hiển thị trên trang chỉ là tham khảo; báo giá chính xác được gửi sau khi xem file.",
+      a: "Giá phụ thuộc kích thước, số lượng, chất liệu, hình dáng bế và yêu cầu gia công. VinPrint có báo giá lẻ và báo giá sỉ cho nhu cầu số lượng lớn.",
     },
     {
       q: `Cần gửi gì để báo giá ${product.name.toLocaleLowerCase("vi-VN")}?`,
-      a: `Cần file hoặc ảnh mẫu, kích thước thành phẩm, số lượng dự kiến và bề mặt sử dụng. Với ${product.uses.slice(0, 2).join(" hoặc ").toLocaleLowerCase("vi-VN")}, nên gửi thêm ảnh sản phẩm thật.`,
+      a: `Chỉ cần tên, số điện thoại, vật liệu, kích thước thành phẩm và số lượng dự kiến. Với ${product.uses.slice(0, 2).join(" hoặc ").toLocaleLowerCase("vi-VN")}, xưởng có thể hỏi thêm bề mặt sử dụng trước khi chốt sản xuất.`,
     },
     productSpecific[1],
   ];

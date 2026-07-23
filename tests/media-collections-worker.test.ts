@@ -282,21 +282,29 @@ test("production admin APIs verify the signed Cloudflare Access assertion", asyn
   }
 });
 
-test("customers can submit a print file and admin can download then delete the quote request", async () => {
+test("customers can request retail or wholesale pricing without uploading a file", async () => {
   const worker = await loadWorker("quote-request-lifecycle");
   const bucket = createMemoryBucket();
   const env = { HERO_IMAGES: bucket };
   const context = { waitUntil() {}, passThroughOnException() {} };
-  const form = new FormData();
-  form.set("customerName", "Nguyễn An");
-  form.set("phone", "0901234567");
-  form.set("quantity", "1000");
-  form.set("productSlug", "tem-uv-dtf");
-  form.set("productTitle", "Tem UV DTF nổi");
-  form.set("artwork", new Blob(["%PDF-1.4 vinprint"], { type: "application/pdf" }), "mau-tem.pdf");
+  const quote = {
+    customerName: "Nguyễn An",
+    phone: "0901234567",
+    material: "Tem UV DTF",
+    widthMm: "50",
+    heightMm: "30",
+    quantity: "1000",
+    priceTier: "wholesale",
+    productSlug: "tem-uv-dtf",
+    productTitle: "Tem UV DTF nổi",
+  };
 
   const submitResponse = await worker.fetch(
-    new Request("http://localhost/api/quote-requests", { method: "POST", body: form }),
+    new Request("http://localhost/api/quote-requests", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(quote),
+    }),
     env,
     context,
   );
@@ -312,22 +320,25 @@ test("customers can submit a print file and admin can download then delete the q
   );
   assert.equal(listResponse.status, 200);
   const listed = await listResponse.json() as {
-    items: Array<{ id: string; customerName: string; phone: string; quantity: number; fileName: string }>;
+    items: Array<{
+      id: string;
+      customerName: string;
+      phone: string;
+      material: string;
+      widthMm: number;
+      heightMm: number;
+      quantity: number;
+      priceTier: string;
+    }>;
   };
   assert.equal(listed.items.length, 1);
   assert.equal(listed.items[0].customerName, "Nguyễn An");
   assert.equal(listed.items[0].phone, "0901234567");
+  assert.equal(listed.items[0].material, "Tem UV DTF");
+  assert.equal(listed.items[0].widthMm, 50);
+  assert.equal(listed.items[0].heightMm, 30);
   assert.equal(listed.items[0].quantity, 1000);
-  assert.equal(listed.items[0].fileName, "mau-tem.pdf");
-
-  const fileResponse = await worker.fetch(
-    new Request(`http://localhost/api/admin/quote-requests?id=${submitted.id}&file=1`),
-    env,
-    context,
-  );
-  assert.equal(fileResponse.status, 200);
-  assert.equal(fileResponse.headers.get("content-type"), "application/pdf");
-  assert.equal(await fileResponse.text(), "%PDF-1.4 vinprint");
+  assert.equal(listed.items[0].priceTier, "wholesale");
 
   const deleteResponse = await worker.fetch(
     new Request(`http://localhost/api/admin/quote-requests?id=${submitted.id}`, { method: "DELETE" }),
@@ -344,48 +355,55 @@ test("customers can submit a print file and admin can download then delete the q
   assert.deepEqual((await emptyListResponse.json() as { items: unknown[] }).items, []);
 });
 
-test("quote request validation rejects invalid phone numbers and unsupported files", async () => {
+test("quote request validation rejects missing pricing details", async () => {
   const worker = await loadWorker("quote-request-validation");
   const bucket = createMemoryBucket();
   const env = { HERO_IMAGES: bucket };
   const context = { waitUntil() {}, passThroughOnException() {} };
-  const form = new FormData();
-  form.set("customerName", "Khách thử");
-  form.set("phone", "123");
-  form.set("quantity", "500");
-  form.set("artwork", new Blob(["bad"], { type: "application/x-msdownload" }), "virus.exe");
+  const invalidQuote = {
+    customerName: "Khách thử",
+    phone: "123",
+    material: "",
+    widthMm: "0",
+    heightMm: "30",
+    quantity: "500",
+    priceTier: "vip",
+  };
 
   const response = await worker.fetch(
-    new Request("http://localhost/api/quote-requests", { method: "POST", body: form }),
+    new Request("http://localhost/api/quote-requests", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(invalidQuote),
+    }),
     env,
     context,
   );
   assert.equal(response.status, 400);
-  assert.match((await response.json() as { error: string }).error, /invalid_phone|invalid_file/i);
+  assert.equal((await response.json() as { error: string }).error, "invalid_phone");
 
   const crossOriginResponse = await worker.fetch(
     new Request("http://localhost/api/quote-requests", {
       method: "POST",
-      headers: { origin: "https://example.com" },
-      body: form,
+      headers: { origin: "https://example.com", "content-type": "application/json" },
+      body: JSON.stringify(invalidQuote),
     }),
     env,
     context,
   );
   assert.equal(crossOriginResponse.status, 403);
 
-  const disguisedForm = new FormData();
-  disguisedForm.set("customerName", "Khách thử");
-  disguisedForm.set("phone", "0901234567");
-  disguisedForm.set("quantity", "500");
-  disguisedForm.set("artwork", new Blob(["not really a pdf"], { type: "application/pdf" }), "mau-tem.pdf");
-  const disguisedResponse = await worker.fetch(
-    new Request("http://localhost/api/quote-requests", { method: "POST", body: disguisedForm }),
+  const invalidSizeResponse = await worker.fetch(
+    new Request("http://localhost/api/quote-requests", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ ...invalidQuote, phone: "0901234567", material: "Tem giấy" }),
+    }),
     env,
     context,
   );
-  assert.equal(disguisedResponse.status, 400);
-  assert.equal((await disguisedResponse.json() as { error: string }).error, "invalid_file");
+  assert.equal(invalidSizeResponse.status, 400);
+  assert.equal((await invalidSizeResponse.json() as { error: string }).error, "invalid_width");
 });
 
 test("quote request admin endpoint remains protected by Cloudflare Access in production", async () => {
@@ -410,19 +428,23 @@ test("public quote intake atomically limits concurrent submissions from one prod
 
   const responses = await Promise.all(Array.from({ length: 6 }, async (_, index) => {
     const attempt = index + 1;
-    const form = new FormData();
-    form.set("customerName", "Khách hợp lệ");
-    form.set("phone", "0901234567");
-    form.set("quantity", "500");
-    form.set("artwork", new Blob(["%PDF-1.4 vinprint"], { type: "application/pdf" }), `mau-${attempt}.pdf`);
     const response = await worker.fetch(
       new Request("https://vinprint.vn/api/quote-requests", {
         method: "POST",
         headers: {
           origin: "https://vinprint.vn",
           "cf-connecting-ip": "203.0.113.20",
+          "content-type": "application/json",
         },
-        body: form,
+        body: JSON.stringify({
+          customerName: `Khách hợp lệ ${attempt}`,
+          phone: "0901234567",
+          material: "Tem giấy",
+          widthMm: "50",
+          heightMm: "30",
+          quantity: "500",
+          priceTier: "retail",
+        }),
       }),
       env,
       context,

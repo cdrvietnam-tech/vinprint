@@ -78,7 +78,7 @@ export default function Pricing() {
               </span>
               <h2 className="max-w-3xl text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">Combo khuyến mãi siêu hời</h2>
               <p className="mt-3 max-w-2xl text-sm font-medium leading-relaxed text-purple-100 sm:text-base">
-                Giá tham khảo theo cấu hình ghi trên từng combo. Báo giá chính xác sau khi xem file, kích thước và yêu cầu gia công.
+                Giá tham khảo theo cấu hình ghi trên từng combo. Báo giá chính xác theo vật liệu, kích thước, số lượng và yêu cầu gia công.
               </p>
             </div>
             <button

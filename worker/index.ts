@@ -4,7 +4,7 @@ import handler from "vinext/server/app-router-entry";
 import { resolveLegacyRedirect } from "../app/lib/legacy-redirects";
 import { DEFAULT_MEDIA_COLLECTIONS, isValidManagedMediaItemId, type ManagedMediaItem, type MediaCollectionId } from "../app/lib/media-collections";
 import { isManagedContentType, parseManagedContentOverride, type ManagedContentType } from "../app/lib/content-management";
-import { QUOTE_FILE_EXTENSIONS, QUOTE_FILE_MAX_BYTES, type QuoteRequestRecord } from "../app/lib/quote-requests";
+import { QUOTE_REQUEST_MAX_BYTES, type QuotePriceTier, type QuoteRequestRecord } from "../app/lib/quote-requests";
 
 interface Env {
   ASSETS?: Fetcher;
@@ -158,7 +158,6 @@ const maxManagedVideoSize = 95 * 1024 * 1024;
 const managedCollectionMediaTypes = new Set(["image/png", "image/jpeg", "image/webp", "image/avif", "image/gif", "video/mp4", "video/webm"]);
 const managedCollectionIds = new Set(Object.keys(DEFAULT_MEDIA_COLLECTIONS));
 const maxManagedCollectionImageSize = 12 * 1024 * 1024;
-const allowedQuoteFileExtensions = new Set<string>(QUOTE_FILE_EXTENSIONS);
 let cachedOverridePaths: Set<string> | null = null;
 let overridePathsExpireAt = 0;
 
@@ -166,61 +165,14 @@ function getQuoteRequestId(value: string | null) {
   return value && /^[a-z0-9-]{8,64}$/i.test(value) ? value : null;
 }
 
-function getQuoteField(form: FormData, name: string, maxLength: number) {
-  const value = form.get(name);
+function getQuoteField(payload: Record<string, unknown>, name: string, maxLength: number) {
+  const value = payload[name];
   return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
 }
 
-function getQuoteFileExtension(fileName: string) {
-  const dot = fileName.lastIndexOf(".");
-  return dot >= 0 ? fileName.slice(dot + 1).toLowerCase() : "";
-}
-
-function safeDownloadFileName(value: string) {
-  return value.replace(/[\r\n"]/g, "").slice(0, 180) || "vinprint-file";
-}
-
-function startsWithBytes(bytes: Uint8Array, expected: number[]) {
-  return expected.every((value, index) => bytes[index] === value);
-}
-
-async function validateQuoteFile(file: File) {
-  const extension = getQuoteFileExtension(file.name);
-  if (!allowedQuoteFileExtensions.has(extension)) return null;
-
-  const bytes = new Uint8Array(await file.slice(0, 1024).arrayBuffer());
-  const text = new TextDecoder("utf-8", { fatal: false }).decode(bytes).replace(/^\uFEFF/, "").trimStart();
-  const isPdf = text.startsWith("%PDF-");
-  const isPostScript = text.startsWith("%!PS");
-  const isZip = startsWithBytes(bytes, [0x50, 0x4b, 0x03, 0x04])
-    || startsWithBytes(bytes, [0x50, 0x4b, 0x05, 0x06])
-    || startsWithBytes(bytes, [0x50, 0x4b, 0x07, 0x08]);
-  const isRiff = startsWithBytes(bytes, [0x52, 0x49, 0x46, 0x46]);
-  const isValid = {
-    pdf: isPdf,
-    png: startsWithBytes(bytes, [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]),
-    jpg: startsWithBytes(bytes, [0xff, 0xd8, 0xff]),
-    jpeg: startsWithBytes(bytes, [0xff, 0xd8, 0xff]),
-    webp: isRiff && startsWithBytes(bytes.slice(8), [0x57, 0x45, 0x42, 0x50]),
-    zip: isZip,
-    svg: /^<\?xml[\s\S]{0,300}<svg\b/i.test(text) || /^<svg\b/i.test(text),
-    ai: isPdf || isPostScript,
-    eps: isPostScript,
-    cdr: isRiff || isZip,
-  }[extension];
-  if (!isValid) return null;
-
-  if (extension === "pdf") return "application/pdf";
-  if (extension === "png") return "image/png";
-  if (extension === "jpg" || extension === "jpeg") return "image/jpeg";
-  if (extension === "webp") return "image/webp";
-  if (extension === "zip") return "application/zip";
-  return "application/octet-stream";
-}
-
-async function parseBoundedMultipartForm(request: Request, maxBytes: number) {
+async function parseBoundedJson(request: Request, maxBytes: number) {
   const contentType = request.headers.get("content-type") || "";
-  if (!contentType.toLowerCase().startsWith("multipart/form-data") || !request.body) {
+  if (!contentType.toLowerCase().startsWith("application/json") || !request.body) {
     return { error: "invalid_form" as const };
   }
 
@@ -233,7 +185,7 @@ async function parseBoundedMultipartForm(request: Request, maxBytes: number) {
     totalBytes += value.byteLength;
     if (totalBytes > maxBytes) {
       await reader.cancel();
-      return { error: "file_too_large" as const };
+      return { error: "request_too_large" as const };
     }
     chunks.push(value);
   }
@@ -246,8 +198,11 @@ async function parseBoundedMultipartForm(request: Request, maxBytes: number) {
   }
 
   try {
-    const form = await new Response(body, { headers: { "content-type": contentType } }).formData();
-    return { form };
+    const payload = JSON.parse(new TextDecoder().decode(body)) as unknown;
+    if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+      return { error: "invalid_form" as const };
+    }
+    return { payload: payload as Record<string, unknown> };
   } catch {
     return { error: "invalid_form" as const };
   }
@@ -535,8 +490,8 @@ const worker = {
         return Response.json({ error: "cross_origin_request" }, { status: 403 });
       }
       const declaredSize = Number(request.headers.get("content-length") || 0);
-      if (declaredSize > QUOTE_FILE_MAX_BYTES + 1024 * 1024) {
-        return Response.json({ error: "file_too_large" }, { status: 413 });
+      if (declaredSize > QUOTE_REQUEST_MAX_BYTES) {
+        return Response.json({ error: "request_too_large" }, { status: 413 });
       }
       if (!env.HERO_IMAGES) {
         return Response.json({ error: "storage_unavailable" }, { status: 503 });
@@ -552,26 +507,29 @@ const worker = {
         return Response.json({ error: "rate_limit_unavailable" }, { status: 503 });
       }
 
-      const parsedForm = await parseBoundedMultipartForm(request, QUOTE_FILE_MAX_BYTES + 1024 * 1024);
-      if ("error" in parsedForm) {
+      const parsedRequest = await parseBoundedJson(request, QUOTE_REQUEST_MAX_BYTES);
+      if ("error" in parsedRequest) {
         return Response.json(
-          { error: parsedForm.error },
-          { status: parsedForm.error === "file_too_large" ? 413 : 400 },
+          { error: parsedRequest.error },
+          { status: parsedRequest.error === "request_too_large" ? 413 : 400 },
         );
       }
-      const form = parsedForm.form;
+      const payload = parsedRequest.payload;
 
-      if (getQuoteField(form, "companyWebsite", 200)) {
+      if (getQuoteField(payload, "companyWebsite", 200)) {
         return Response.json({ ok: true, code: "VP-RECEIVED" }, { status: 201 });
       }
 
-      const customerName = getQuoteField(form, "customerName", 80);
-      const phone = getQuoteField(form, "phone", 20);
+      const customerName = getQuoteField(payload, "customerName", 80);
+      const phone = getQuoteField(payload, "phone", 20);
       const phoneDigits = phone.replace(/\D/g, "");
-      const quantity = Number(getQuoteField(form, "quantity", 12));
-      const productSlug = getQuoteField(form, "productSlug", 80);
-      const productTitle = getQuoteField(form, "productTitle", 120);
-      const artwork = form.get("artwork");
+      const material = getQuoteField(payload, "material", 100);
+      const widthMm = Number(getQuoteField(payload, "widthMm", 12));
+      const heightMm = Number(getQuoteField(payload, "heightMm", 12));
+      const quantity = Number(getQuoteField(payload, "quantity", 12));
+      const priceTier = getQuoteField(payload, "priceTier", 20) as QuotePriceTier;
+      const productSlug = getQuoteField(payload, "productSlug", 80);
+      const productTitle = getQuoteField(payload, "productTitle", 120);
 
       if (customerName.length < 2) {
         return Response.json({ error: "invalid_customer_name" }, { status: 400 });
@@ -579,18 +537,20 @@ const worker = {
       if (phoneDigits.length < 9 || phoneDigits.length > 15) {
         return Response.json({ error: "invalid_phone" }, { status: 400 });
       }
+      if (material.length < 2) {
+        return Response.json({ error: "invalid_material" }, { status: 400 });
+      }
+      if (!Number.isFinite(widthMm) || widthMm < 1 || widthMm > 10_000) {
+        return Response.json({ error: "invalid_width" }, { status: 400 });
+      }
+      if (!Number.isFinite(heightMm) || heightMm < 1 || heightMm > 10_000) {
+        return Response.json({ error: "invalid_height" }, { status: 400 });
+      }
       if (!Number.isInteger(quantity) || quantity < 1 || quantity > 10_000_000) {
         return Response.json({ error: "invalid_quantity" }, { status: 400 });
       }
-      if (!(artwork instanceof File) || !artwork.size) {
-        return Response.json({ error: "invalid_file" }, { status: 400 });
-      }
-      if (artwork.size > QUOTE_FILE_MAX_BYTES) {
-        return Response.json({ error: "file_too_large" }, { status: 413 });
-      }
-      const safeFileType = await validateQuoteFile(artwork);
-      if (!safeFileType) {
-        return Response.json({ error: "invalid_file" }, { status: 400 });
+      if (priceTier !== "retail" && priceTier !== "wholesale") {
+        return Response.json({ error: "invalid_price_tier" }, { status: 400 });
       }
 
       const id = crypto.randomUUID();
@@ -601,29 +561,23 @@ const worker = {
         code,
         customerName,
         phone,
+        material,
+        widthMm,
+        heightMm,
         quantity,
+        priceTier,
         productSlug,
         productTitle,
-        fileName: safeDownloadFileName(artwork.name),
-        fileType: safeFileType,
-        fileSize: artwork.size,
         createdAt: now.toISOString(),
       };
 
       const recordKey = `quote-requests/records/${id}.json`;
-      const fileKey = `quote-requests/files/${id}/artwork`;
       try {
-        await env.HERO_IMAGES.put(fileKey, artwork.stream(), {
-          httpMetadata: { contentType: record.fileType, cacheControl: "private, no-store" },
-        });
         await env.HERO_IMAGES.put(recordKey, JSON.stringify(record), {
           httpMetadata: { contentType: "application/json", cacheControl: "no-store" },
         });
       } catch {
-        await Promise.allSettled([
-          env.HERO_IMAGES.delete(recordKey),
-          env.HERO_IMAGES.delete(fileKey),
-        ]);
+        await Promise.allSettled([env.HERO_IMAGES.delete(recordKey)]);
         return Response.json({ error: "storage_failed" }, { status: 503 });
       }
 
@@ -650,6 +604,7 @@ const worker = {
         ]);
         if (!recordObject || !fileObject) return new Response(null, { status: 404 });
         const record = await recordObject.json<QuoteRequestRecord>();
+        if (!record.fileName) return new Response(null, { status: 404 });
         return new Response(fileObject.body, {
           headers: {
             "cache-control": "private, no-store",

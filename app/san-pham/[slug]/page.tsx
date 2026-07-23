@@ -9,7 +9,7 @@ import {
   BadgeCheck,
   Check,
   Clock3,
-  FileCheck2,
+  Layers3,
   MessageCircle,
   PackageCheck,
   Ruler,
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 
   return {
     title: `In ${product.name} theo yêu cầu tại TP.HCM`,
-    description: `${product.description} Xem ứng dụng, giá tham khảo và gửi file để VinPrint báo giá nhanh.`,
+    description: `${product.description} Xem ứng dụng, giá tham khảo và gửi quy cách để VinPrint báo giá lẻ hoặc sỉ.`,
     alternates: { canonical: `/san-pham/${product.slug}` },
     openGraph: {
       title: `${product.name} | VinPrint`,
@@ -229,14 +229,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <section className="product-brief">
           <div className="shell product-brief__inner">
             <div>
-              <span>Gửi file là báo giá được</span>
-              <h2>Chỉ cần 3 thông tin.</h2>
+              <span>Không cần gửi file để báo giá</span>
+              <h2>Thông tin liên hệ và 3 quy cách.</h2>
             </div>
             <div className="product-brief__items">
               <article>
-                <FileCheck2 aria-hidden="true" />
-                <strong>File thiết kế</strong>
-                <small>AI, PDF, CDR hoặc ảnh mẫu rõ nét</small>
+                <Layers3 aria-hidden="true" />
+                <strong>Vật liệu</strong>
+                <small>Chọn chất liệu tem hoặc loại ấn phẩm cần in</small>
               </article>
               <article>
                 <Ruler aria-hidden="true" />
@@ -280,8 +280,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <p>Mỗi bước đều có người kiểm tra trực tiếp trước khi chuyển sang công đoạn tiếp theo.</p>
             </div>
             <ol>
-              <li><b>01</b><span><strong>Gửi yêu cầu</strong><small>File + kích thước + số lượng</small></span></li>
-              <li><b>02</b><span><strong>Chốt quy cách</strong><small>Tư vấn chất liệu và báo giá</small></span></li>
+              <li><b>01</b><span><strong>Gửi yêu cầu</strong><small>Liên hệ + vật liệu + kích thước + số lượng</small></span></li>
+              <li><b>02</b><span><strong>Chốt quy cách</strong><small>Chọn báo giá lẻ hoặc sỉ</small></span></li>
               <li><b>03</b><span><strong>Xác nhận in</strong><small>Duyệt file và tiến hành sản xuất</small></span></li>
               <li><b>04</b><span><strong>Nhận thành phẩm</strong><small>Nhận tại xưởng hoặc giao tận nơi</small></span></li>
             </ol>

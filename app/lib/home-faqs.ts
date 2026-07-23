@@ -4,6 +4,10 @@ export const homeFaqs = [
     a: "Có. Số lượng tối thiểu phụ thuộc kích thước, chất liệu và kỹ thuật in. Gửi quy cách dự kiến để VinPrint kiểm tra phương án phù hợp trước khi báo giá.",
   },
   {
+    q: "VinPrint có giá lẻ và giá sỉ không?",
+    a: "Có. Giá lẻ áp dụng cho nhu cầu thông thường; giá sỉ dành cho số lượng lớn. Mức giá được xác nhận theo vật liệu, kích thước, số lượng và yêu cầu gia công.",
+  },
+  {
     q: "Thời gian hoàn thành là bao lâu?",
     a: "Thời gian được xác nhận sau khi kiểm tra file, quy cách và lịch sản xuất tại xưởng. Đơn cần gấp sẽ được kiểm tra khả năng đáp ứng trước khi chốt.",
   },

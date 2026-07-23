@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, FileCheck2 } from "lucide-react";
+import { ArrowRight, Calculator, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { ZaloIcon } from "../icons";
@@ -112,12 +112,12 @@ export default function Hero() {
 
             <div className="mx-auto mt-8 flex max-w-[520px] items-start gap-3 rounded-2xl border border-orange-100 bg-white/80 px-4 py-3 text-left shadow-sm lg:mx-0">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-100 text-orange-700">
-                <FileCheck2 className="h-5 w-5" aria-hidden="true" />
+                <Calculator className="h-5 w-5" aria-hidden="true" />
               </span>
               <div>
-                <strong className="block text-sm font-black text-gray-950">Gửi file trực tiếp hoặc qua Zalo</strong>
+                <strong className="block text-sm font-black text-gray-950">Báo giá không cần gửi file</strong>
                 <span className="mt-0.5 block text-xs font-semibold leading-relaxed text-gray-600">
-                  Xưởng kiểm tra file và báo giá theo đúng kích thước, số lượng, chất liệu.
+                  Chỉ cần vật liệu, kích thước và số lượng; có giá lẻ và giá sỉ.
                 </span>
               </div>
             </div>

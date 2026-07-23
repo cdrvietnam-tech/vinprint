@@ -80,12 +80,12 @@ export default function FAQAndZaloCTA() {
         <div className="max-w-[1440px] mx-auto px-4 relative z-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           
           <div className="text-white text-center lg:text-left">
-            <h2 className="text-4xl lg:text-5xl font-black mb-3 drop-shadow-sm">Bạn đã có file thiết kế?</h2>
-            <p className="text-2xl lg:text-3xl font-extrabold mb-8 drop-shadow-sm opacity-95">Gửi file để xưởng kiểm tra và báo giá.</p>
+            <h2 className="text-4xl lg:text-5xl font-black mb-3 drop-shadow-sm">Cần báo giá ngay?</h2>
+            <p className="text-2xl lg:text-3xl font-extrabold mb-8 drop-shadow-sm opacity-95">Không cần gửi file — chỉ cần điền đúng quy cách.</p>
             
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-[15px] font-bold text-orange-50">
-              <span className="flex items-center gap-2 bg-black/15 px-4 py-2 rounded-full"><span className="text-green-800 bg-white rounded-full w-5 h-5 flex items-center justify-center text-xs leading-none">✔</span> Báo giá nhanh</span>
-              <span className="flex items-center gap-2 bg-black/15 px-4 py-2 rounded-full"><span className="text-green-800 bg-white rounded-full w-5 h-5 flex items-center justify-center text-xs leading-none">✔</span> Duyệt mẫu trước khi in</span>
+              <span className="flex items-center gap-2 bg-black/15 px-4 py-2 rounded-full"><span className="text-green-800 bg-white rounded-full w-5 h-5 flex items-center justify-center text-xs leading-none">✔</span> Có giá lẻ và giá sỉ</span>
+              <span className="flex items-center gap-2 bg-black/15 px-4 py-2 rounded-full"><span className="text-green-800 bg-white rounded-full w-5 h-5 flex items-center justify-center text-xs leading-none">✔</span> Giá sỉ cho số lượng lớn</span>
               <span className="flex items-center gap-2 bg-black/15 px-4 py-2 rounded-full"><span className="text-red-800 bg-white rounded-full w-5 h-5 flex items-center justify-center text-xs leading-none">✖</span> Không ép đặt hàng</span>
             </div>
           </div>
