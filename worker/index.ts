@@ -2,7 +2,7 @@
 import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } from "vinext/server/image-optimization";
 import handler from "vinext/server/app-router-entry";
 import { resolveLegacyRedirect } from "../app/lib/legacy-redirects";
-import { DEFAULT_MEDIA_COLLECTIONS, type ManagedMediaItem, type MediaCollectionId } from "../app/lib/media-collections";
+import { DEFAULT_MEDIA_COLLECTIONS, isValidManagedMediaItemId, type ManagedMediaItem, type MediaCollectionId } from "../app/lib/media-collections";
 
 interface Env {
   ASSETS?: Fetcher;
@@ -130,7 +130,7 @@ function normalizeMediaCollection(value: string | null) {
 }
 
 function normalizeMediaItemId(value: string | null) {
-  return value && /^[a-z0-9][a-z0-9-]{5,80}$/i.test(value) ? value : null;
+  return isValidManagedMediaItemId(value) ? value : null;
 }
 
 async function getMediaCollection(collection: MediaCollectionId, bucket: R2Bucket) {

@@ -11,6 +11,10 @@ export type ManagedMediaItem = {
 
 export type MediaCollectionId = "hero" | "hot-products" | "gallery";
 
+export function isValidManagedMediaItemId(value: string | null | undefined): value is string {
+  return Boolean(value && /^[a-z0-9][a-z0-9-]{2,80}$/i.test(value));
+}
+
 export const MEDIA_COLLECTIONS: Array<{ id: MediaCollectionId; title: string; description: string; allowVideo: boolean }> = [
   { id: "hero", title: "Ảnh hero trang chủ", description: "Trình chiếu lớn ở đầu trang", allowVideo: false },
   { id: "hot-products", title: "Sản phẩm đang hot", description: "Dải tự chạy, phóng lớn ảnh, GIF hoặc video ở giữa", allowVideo: true },
