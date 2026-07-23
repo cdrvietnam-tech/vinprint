@@ -169,6 +169,7 @@ test("homepage publishes four detailed pricing posters with a wholesale path", a
   assert.match(html, /Combo ưu đãi/);
   assert.match(html, /Bảng giá in tem nhãn/i);
   assert.equal((html.match(/data-pricing-poster/g) ?? []).length, 4);
+  assert.match(html, /md:grid-cols-2 xl:grid-cols-4/);
   assert.match(html, /bang-gia-tem-nhan-tong-hop\.webp/);
   assert.match(html, /bang-gia-tem-nhan-tham-khao\.webp/);
   assert.match(html, /bang-gia-tem-tron\.webp/);
