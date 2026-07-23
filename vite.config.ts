@@ -14,6 +14,9 @@ const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
 const localBindingConfig = {
   main: "./worker/index.ts",
   compatibility_flags: ["nodejs_compat"],
+  // Cloudflare Access values are managed in the Worker dashboard. Preserve
+  // them when CI deploys a new version from the generated Wrangler config.
+  keep_vars: true,
   d1_databases: d1
     ? [
         {
