@@ -40,7 +40,8 @@ test("hot products use transparent PNG assets and an automatic infinite track", 
   assert.match(source, /previousInfluence/);
   assert.match(source, /Math\.exp\(-elapsed \/ 90\)/);
   assert.match(source, /w-\[120px\]/);
-  assert.match(source, /lg:w-\[180px\]/);
+  assert.match(source, /lg:w-\[360px\]/);
+  assert.match(source, /lg:h-\[440px\]/);
   assert.match(source, /Array\.isArray\(result\?\.items\)/);
   assert.doesNotMatch(source, /result\?\.items\.length/);
   assert.match(source, /data-media-fit="contain"/);

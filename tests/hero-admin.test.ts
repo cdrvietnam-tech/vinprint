@@ -49,6 +49,8 @@ test("the complete categorized image library and admin are present", () => {
   assert.match(videoAdmin, /Khôi phục/);
   assert.match(videoAdmin, /restore-item/);
   assert.match(videoAdmin, /restore-missing/);
+  assert.match(videoAdmin, /method: "PATCH"/);
+  assert.match(videoAdmin, /Đổi tiêu đề/);
   assert.match(videoAdmin, /optimizeImageForUpload/);
   assert.match(videoAdmin, /hiển thị trọn vẹn/);
   assert.match(mediaUpload, /image\/webp/);

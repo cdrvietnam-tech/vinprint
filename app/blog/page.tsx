@@ -3,7 +3,7 @@ import BlogListing from "../components/blog/BlogListing";
 import Footer from "../components/home/Footer";
 import Header from "../components/home/Header";
 import { paginateBlogPosts } from "../lib/blog-pagination";
-import { blogPosts } from "../lib/blog-posts";
+import { getManagedBlogPosts } from "../lib/content-overrides.server";
 
 export const metadata: Metadata = {
   title: "Cẩm nang tem nhãn: vật liệu, thiết kế và kỹ thuật in",
@@ -17,9 +17,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogIndexPage() {
-  const pagination = paginateBlogPosts(blogPosts, 1);
-  const latestUpdatedAt = blogPosts.reduce((latest, post) => post.updatedAt > latest ? post.updatedAt : latest, blogPosts[0]?.updatedAt ?? "2026-07-20");
+export default async function BlogIndexPage() {
+  const managedBlogPosts = await getManagedBlogPosts();
+  const pagination = paginateBlogPosts(managedBlogPosts, 1);
+  const latestUpdatedAt = managedBlogPosts.reduce((latest, post) => post.updatedAt > latest ? post.updatedAt : latest, managedBlogPosts[0]?.updatedAt ?? "2026-07-20");
 
   return (
     <div className="min-h-screen bg-[#F7F4EE] text-gray-950">

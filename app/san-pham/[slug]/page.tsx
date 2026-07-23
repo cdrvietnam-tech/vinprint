@@ -20,7 +20,8 @@ import Header from "../../components/home/Header";
 import Footer from "../../components/home/Footer";
 import MobileActionBar from "../../components/home/MobileActionBar";
 import ScrollToTop from "../../components/home/ScrollToTop";
-import { productBySlug, products } from "../../lib/products";
+import { products } from "../../lib/products";
+import { getManagedProduct, getManagedProducts } from "../../lib/content-overrides.server";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
@@ -32,7 +33,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const product = productBySlug[slug];
+  const product = await getManagedProduct(slug);
   if (!product) return {};
 
   return {
@@ -50,10 +51,10 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 
 export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params;
-  const product = productBySlug[slug];
+  const product = await getManagedProduct(slug);
   if (!product) notFound();
 
-  const related = products.filter((item) => item.slug !== product.slug).slice(0, 3);
+  const related = (await getManagedProducts()).filter((item) => item.slug !== product.slug).slice(0, 3);
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",

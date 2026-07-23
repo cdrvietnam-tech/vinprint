@@ -33,7 +33,7 @@ const ZALO_URL = "https://zalo.me/0844998499";
 
 export default function ProductCatalogTabs() {
   const [activeTab, setActiveTab] = useState<ProductCatalogCategoryKey>("all");
-  const [thumbnailSources, setThumbnailSources] = useState<Record<string, string>>({});
+  const [managedThumbnails, setManagedThumbnails] = useState<Record<string, Pick<ManagedMediaItem, "src" | "title">>>({});
   const visibleGroups = activeTab === "all" ? PRODUCT_CATALOG_GROUPS : PRODUCT_CATALOG_GROUPS.filter((group) => group.key === activeTab);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function ProductCatalogTabs() {
       .then(async (response) => response.ok ? response.json() as Promise<{ items: ManagedMediaItem[] }> : null)
       .then((result) => {
         if (!Array.isArray(result?.items)) return;
-        setThumbnailSources(Object.fromEntries(result.items.map((item) => [item.id, item.src])));
+        setManagedThumbnails(Object.fromEntries(result.items.map((item) => [item.id, { src: item.src, title: item.title }])));
       })
       .catch(() => undefined);
   }, []);
@@ -80,8 +80,10 @@ export default function ProductCatalogTabs() {
 
               <div className="grid gap-3 p-4 sm:grid-cols-2 sm:p-6 lg:grid-cols-3 xl:grid-cols-4">
                 {group.items.map((item) => {
-                  const { name, href } = item;
-                  const image = thumbnailSources[item.id] || item.image;
+                  const { href } = item;
+                  const managed = managedThumbnails[item.id];
+                  const name = managed?.title || item.name;
+                  const image = managed?.src || item.image;
                   const content = (
                     <>
                       <span

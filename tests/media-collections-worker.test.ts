@@ -34,6 +34,13 @@ function createMemoryBucket() {
     async delete(key: string) {
       storedObjects.delete(key);
     },
+    async list({ prefix = "" }: { prefix?: string } = {}) {
+      return {
+        objects: [...storedObjects.keys()]
+          .filter((key) => key.startsWith(prefix))
+          .map((key) => ({ key })),
+      };
+    },
   };
 }
 
@@ -93,4 +100,92 @@ test("replacing one product tag thumbnail does not change hero media", async () 
   );
   const heroItems = (await heroResponse.json()).items;
   assert.equal(heroItems[0].src, "/images/hero-admin/hero-1.png?managed=2");
+});
+
+test("admin can rename media without replacing its file", async () => {
+  const worker = await loadWorker("rename-media");
+  const bucket = createMemoryBucket();
+  const env = { HERO_IMAGES: bucket };
+  const context = { waitUntil() {}, passThroughOnException() {} };
+  const endpoint = "http://localhost/api/admin/media-collections?collection=hot-products&id=hot-1";
+
+  const response = await worker.fetch(
+    new Request(`${endpoint}&title=${encodeURIComponent("Tem UV nổi bán chạy")}`, { method: "PATCH" }),
+    env,
+    context,
+  );
+  assert.equal(response.status, 200);
+  const items = (await response.json()).items;
+  const renamed = items.find((item: { id: string }) => item.id === "hot-1");
+  assert.equal(renamed.title, "Tem UV nổi bán chạy");
+  assert.match(renamed.src, /^\/images\//);
+});
+
+test("content overrides persist and can be restored independently", async () => {
+  const worker = await loadWorker("content-overrides");
+  const bucket = createMemoryBucket();
+  const env = { HERO_IMAGES: bucket };
+  const context = { waitUntil() {}, passThroughOnException() {} };
+  const endpoint = "http://localhost/api/admin/content?type=products";
+  const product = {
+    slug: "tem-giay",
+    name: "Tem giấy tiết kiệm",
+    eyebrow: "In nhanh · Sắc nét",
+    description: "Mô tả sản phẩm cập nhật đủ rõ ràng để khách hàng lựa chọn.",
+    benefit: "Lợi ích nổi bật và dễ hiểu.",
+    uses: ["Hộp giấy", "Túi kraft"],
+  };
+
+  const saveResponse = await worker.fetch(
+    new Request(endpoint, {
+      method: "PATCH",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(product),
+    }),
+    env,
+    context,
+  );
+  assert.equal(saveResponse.status, 200);
+
+  const publicResponse = await worker.fetch(
+    new Request("http://localhost/api/content/overrides?type=products"),
+    env,
+    context,
+  );
+  assert.deepEqual((await publicResponse.json()).items, [product]);
+
+  const restoreResponse = await worker.fetch(
+    new Request(`${endpoint}&slug=tem-giay`, { method: "DELETE" }),
+    env,
+    context,
+  );
+  assert.equal(restoreResponse.status, 200);
+  assert.deepEqual((await restoreResponse.json()).items, []);
+});
+
+test("production admin APIs require the configured Access identity and assertion", async () => {
+  const worker = await loadWorker("admin-access");
+  const bucket = createMemoryBucket();
+  const env = { HERO_IMAGES: bucket, ADMIN_EMAIL: "admin@vinprint.vn" };
+  const context = { waitUntil() {}, passThroughOnException() {} };
+  const endpoint = "https://vinprint.vn/api/admin/content?type=products";
+
+  const missingAssertion = await worker.fetch(
+    new Request(endpoint, { headers: { "cf-access-authenticated-user-email": "admin@vinprint.vn" } }),
+    env,
+    context,
+  );
+  assert.equal(missingAssertion.status, 401);
+
+  const allowed = await worker.fetch(
+    new Request(endpoint, {
+      headers: {
+        "cf-access-authenticated-user-email": "admin@vinprint.vn",
+        "cf-access-jwt-assertion": "signed-by-cloudflare-access",
+      },
+    }),
+    env,
+    context,
+  );
+  assert.equal(allowed.status, 200);
 });

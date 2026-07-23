@@ -71,7 +71,7 @@ export default function Hero() {
 
       <div className="relative mx-auto max-w-[1440px] px-4 pb-14">
         <div className="flex flex-col items-center gap-10 lg:flex-row lg:gap-14">
-          <div className="z-10 w-full text-center lg:w-[43%] lg:text-left">
+          <div className="z-10 w-full text-center lg:w-[calc(50%-1.75rem)] lg:text-left">
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
@@ -82,8 +82,8 @@ export default function Hero() {
               In ấn các loại tem nhãn và ấn phẩm
             </motion.div>
 
-            <h1 className="mb-6 text-4xl font-black leading-[1.18] tracking-tight text-gray-950 sm:text-5xl lg:text-[58px] xl:text-[68px]">
-              XƯỞNG IN SIÊU TỐC<br />
+            <h1 className="mb-6 text-4xl font-black leading-[1.18] tracking-tight text-gray-950 sm:text-5xl lg:text-[44px] xl:text-[58px]">
+              <span className="lg:whitespace-nowrap">XƯỞNG IN SIÊU TỐC</span><br />
               <span className="text-[#FF4D00]">In nhanh - Chuẩn đẹp - Giá tốt</span>
             </h1>
 
@@ -136,7 +136,7 @@ export default function Hero() {
             data-hero-carousel="large-auto-drag"
             onMouseEnter={() => setIsHeroHovered(true)}
             onMouseLeave={() => setIsHeroHovered(false)}
-            className="relative h-[470px] w-full min-w-0 overflow-hidden sm:h-[580px] lg:h-[650px] lg:w-[57%]"
+            className="relative h-[470px] w-full min-w-0 overflow-hidden sm:h-[580px] lg:h-[650px] lg:w-[calc(50%-1.75rem)]"
           >
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-10">
               {sparklePositions.map(([left, top, delay, color], index) => (

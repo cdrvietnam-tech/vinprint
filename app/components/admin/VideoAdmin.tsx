@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, Film, ImagePlus, Loader2, RotateCcw, Scissors, Trash2, Upload } from "lucide-react";
+import { CheckCircle2, Film, ImagePlus, Loader2, Pencil, RotateCcw, Scissors, Trash2, Upload } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { DEFAULT_MEDIA_COLLECTIONS, MEDIA_COLLECTIONS, type ManagedMediaItem, type MediaCollectionId } from "../../lib/media-collections";
@@ -171,6 +171,24 @@ export default function VideoAdmin() {
     }
   };
 
+  const renameMedia = async (collection: MediaCollectionId, item: ManagedMediaItem) => {
+    const title = window.prompt("Tiêu đề sản phẩm", item.title)?.trim();
+    if (!title || title === item.title) return;
+    setBusy(`${collection}:${item.id}:title`);
+    try {
+      const params = new URLSearchParams({ collection, id: item.id, title });
+      const response = await fetch(`/api/admin/media-collections?${params}`, { method: "PATCH" });
+      const result = await response.json() as { items?: ManagedMediaItem[] };
+      if (!response.ok || !result.items) throw new Error("rename_failed");
+      setCollections((current) => ({ ...current, [collection]: result.items || current[collection] }));
+      setMessages((current) => ({ ...current, [collection]: "Đã đổi tiêu đề và cập nhật ngoài trang hiển thị." }));
+    } catch {
+      setMessages((current) => ({ ...current, [collection]: "Không thể đổi tiêu đề lúc này." }));
+    } finally {
+      setBusy(null);
+    }
+  };
+
   return (
     <section className="mt-8 rounded-[32px] border border-violet-100 bg-gradient-to-br from-violet-50 via-white to-orange-50 p-4 shadow-[0_18px_50px_rgba(76,29,149,0.08)] sm:p-6">
       <div className="max-w-4xl">
@@ -233,7 +251,10 @@ export default function VideoAdmin() {
                         </div>
                         <p className="mt-2 truncate text-xs font-black" title={item.title}>{item.title}</p>
                         <p className="mt-0.5 truncate text-[10px] font-bold text-gray-500">{item.category}</p>
-                        <div className={`mt-2 grid gap-1.5 ${collection.allowDelete ? "grid-cols-2" : "grid-cols-3"}`}>
+                        <div className="mt-2 grid grid-cols-2 gap-1.5">
+                          <button type="button" disabled={busy !== null} onClick={() => void renameMedia(collection.id, item)} className="flex min-h-9 items-center justify-center gap-1 rounded-full bg-violet-50 px-2 text-[10px] font-black text-violet-700 disabled:opacity-40">
+                            <Pencil className="h-3.5 w-3.5" /> Đổi tiêu đề
+                          </button>
                           <label className="flex min-h-9 cursor-pointer items-center justify-center gap-1 rounded-full bg-gray-950 px-2 text-[10px] font-black text-white">
                             <Upload className="h-3.5 w-3.5" /> Thay
                             <input type="file" accept={collection.allowVideo ? "image/png,image/jpeg,image/webp,image/avif,image/gif,video/mp4,video/webm" : "image/png,image/jpeg,image/webp,image/avif,image/gif"} className="sr-only" disabled={busy !== null} onChange={(event) => { void replaceMedia(collection.id, item, event.target.files?.[0]); event.currentTarget.value = ""; }} />

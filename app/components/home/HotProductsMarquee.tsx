@@ -149,7 +149,7 @@ export default function HotProductsMarquee() {
         onPointerLeave={() => setMarqueePaused(false)}
         onFocusCapture={() => setMarqueePaused(true)}
         onBlurCapture={() => setMarqueePaused(false)}
-        className="relative h-[260px] w-full overflow-hidden sm:h-[310px] lg:h-[340px]"
+        className="relative h-[260px] w-full overflow-hidden sm:h-[310px] lg:h-[560px]"
         aria-label="Các sản phẩm nổi bật chạy ngang tự động; rê chuột để tạm dừng"
       >
         <div className="pointer-events-none absolute inset-y-0 left-0 z-30 w-12 bg-gradient-to-r from-white via-white/80 to-transparent sm:w-32" />
@@ -165,15 +165,15 @@ export default function HotProductsMarquee() {
         ) : null}
         <div ref={trackRef} className="hot-products-track absolute left-0 top-6 flex w-max items-center gap-4 px-4 sm:top-8 sm:gap-7 sm:px-7">
           {infiniteProducts.map((product, index) => (
-            <div key={`${product.id}-${index}`} ref={(node) => { slotRefs.current[index] = node; }} className="w-[120px] shrink-0 sm:w-[155px] lg:w-[180px]" aria-hidden={index >= productCount}>
+            <div key={`${product.id}-${index}`} ref={(node) => { slotRefs.current[index] = node; }} className="w-[120px] shrink-0 sm:w-[155px] lg:w-[360px]" aria-hidden={index >= productCount}>
               <Link href={product.href} tabIndex={index >= productCount ? -1 : undefined} className="block">
-                <article ref={(node) => { cardRefs.current[index] = node; }} data-centered="false" className="hot-product-card relative flex h-[200px] flex-col items-center justify-end sm:h-[250px] lg:h-[285px]">
-                  <div ref={(node) => { visualRefs.current[index] = node; }} className="hot-product-visual relative z-10 h-[145px] w-full p-2 sm:h-[190px] sm:p-3 lg:h-[220px]" data-media-fit="contain">
+                <article ref={(node) => { cardRefs.current[index] = node; }} data-centered="false" className="hot-product-card relative flex h-[200px] flex-col items-center justify-end sm:h-[250px] lg:h-[510px]">
+                  <div ref={(node) => { visualRefs.current[index] = node; }} className="hot-product-visual relative z-10 h-[145px] w-full p-2 sm:h-[190px] sm:p-3 lg:h-[440px]" data-media-fit="contain">
                     <div className="relative h-full w-full">
                       {product.kind === "video" ? (
                         <video ref={(node) => { videoRefs.current[index] = node; }} src={product.src} muted loop playsInline preload="metadata" className="h-full w-full object-contain" aria-label={index < productCount ? product.title : ""} />
                       ) : (
-                        <Image src={product.src} alt={index < productCount ? product.title : ""} fill loading="lazy" unoptimized={product.kind === "gif" || product.src.startsWith("/media/")} sizes="(max-width: 640px) 104px, (max-width: 1024px) 131px, 156px" className="object-contain" />
+                        <Image src={product.src} alt={index < productCount ? product.title : ""} fill loading="lazy" unoptimized={product.kind === "gif" || product.src.startsWith("/media/")} sizes="(max-width: 640px) 104px, (max-width: 1024px) 131px, 320px" className="object-contain" />
                       )}
                     </div>
                   </div>

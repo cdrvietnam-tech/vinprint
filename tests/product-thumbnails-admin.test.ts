@@ -35,7 +35,8 @@ test("product catalog resolves managed thumbnails by stable tag id", () => {
   const source = readFileSync(path.join(projectRoot, "app/components/catalog/ProductCatalogTabs.tsx"), "utf8");
 
   assert.match(source, /collection=product-thumbnails/);
-  assert.match(source, /thumbnailSources/);
+  assert.match(source, /managedThumbnails/);
+  assert.match(source, /managed\?\.title \|\| item\.name/);
   assert.match(source, /item\.id/);
   assert.match(source, /item\.image/);
 });

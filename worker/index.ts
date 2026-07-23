@@ -3,6 +3,7 @@ import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } fr
 import handler from "vinext/server/app-router-entry";
 import { resolveLegacyRedirect } from "../app/lib/legacy-redirects";
 import { DEFAULT_MEDIA_COLLECTIONS, isValidManagedMediaItemId, type ManagedMediaItem, type MediaCollectionId } from "../app/lib/media-collections";
+import { isManagedContentType, parseManagedContentOverride, type ManagedContentType } from "../app/lib/content-management";
 
 interface Env {
   ASSETS?: Fetcher;
@@ -22,9 +23,10 @@ function isAdminRequest(request: Request, env: Env) {
   const url = new URL(request.url);
   if (url.hostname === "127.0.0.1" || url.hostname === "localhost") return true;
 
-  const email = (request.headers.get("cf-access-authenticated-user-email") || request.headers.get("oai-authenticated-user-email") || "").trim().toLowerCase();
+  const email = (request.headers.get("cf-access-authenticated-user-email") || "").trim().toLowerCase();
+  const accessAssertion = request.headers.get("cf-access-jwt-assertion");
   const allowedEmail = env.ADMIN_EMAIL?.trim().toLowerCase();
-  return Boolean(email && (!allowedEmail || email === allowedEmail));
+  return Boolean(accessAssertion && email && allowedEmail && email === allowedEmail);
 }
 
 function normalizeManagedImagePath(value: string | null) {
@@ -146,6 +148,49 @@ async function getMediaCollection(collection: MediaCollectionId, bucket: R2Bucke
 
 async function saveMediaCollection(collection: MediaCollectionId, items: ManagedMediaItem[], bucket: R2Bucket) {
   await bucket.put(`collections/manifests/${collection}.json`, JSON.stringify(items), {
+    httpMetadata: { contentType: "application/json", cacheControl: "no-store" },
+  });
+}
+
+async function getContentOverrides(type: ManagedContentType, bucket: R2Bucket) {
+  const prefix = `content/overrides/${type}/`;
+  const listed = await bucket.list({ prefix, limit: 200 });
+  const objects = await Promise.all(listed.objects.map((entry) => bucket.get(entry.key)));
+  const items = await Promise.all(objects.map(async (object) => {
+    if (!object) return null;
+    try {
+      return parseManagedContentOverride(type, await object.json<unknown>());
+    } catch {
+      return null;
+    }
+  }));
+  const validItems = items.filter((item) => item !== null);
+  if (validItems.length || listed.objects.length) return validItems;
+
+  // Read the original manifest format once so existing deployments migrate
+  // without losing edits. New writes are per slug to avoid lost updates.
+  const legacyObject = await bucket.get(`content/overrides/${type}.json`);
+  if (!legacyObject) return [];
+  try {
+    const values = await legacyObject.json<unknown[]>();
+    if (!Array.isArray(values)) return [];
+    const migratedItems = values.flatMap((value) => {
+      try {
+        return [parseManagedContentOverride(type, value)];
+      } catch {
+        return [];
+      }
+    });
+    await Promise.all(migratedItems.map((item) => saveContentOverride(type, item, bucket)));
+    await bucket.delete(`content/overrides/${type}.json`);
+    return migratedItems;
+  } catch {
+    return [];
+  }
+}
+
+async function saveContentOverride(type: ManagedContentType, item: { slug: string }, bucket: R2Bucket) {
+  await bucket.put(`content/overrides/${type}/${item.slug}.json`, JSON.stringify(item), {
     httpMetadata: { contentType: "application/json", cacheControl: "no-store" },
   });
 }
@@ -301,6 +346,49 @@ const worker = {
       return Response.json({ collection, items }, { headers: { "cache-control": "no-store" } });
     }
 
+    if (url.pathname === "/api/content/overrides" && request.method === "GET") {
+      if (!env.HERO_IMAGES) return Response.json({ items: [] }, { headers: { "cache-control": "no-store" } });
+      const type = url.searchParams.get("type");
+      if (!isManagedContentType(type)) return Response.json({ error: "invalid_content_type" }, { status: 400 });
+      const items = await getContentOverrides(type, env.HERO_IMAGES);
+      return Response.json({ type, items }, { headers: { "cache-control": "no-store" } });
+    }
+
+    if (url.pathname === "/api/admin/content") {
+      if (!isAdminRequest(request, env)) return Response.json({ error: "unauthorized" }, { status: 401 });
+      if (!env.HERO_IMAGES) return Response.json({ error: "storage_unavailable" }, { status: 503 });
+      const type = url.searchParams.get("type");
+      if (!isManagedContentType(type)) return Response.json({ error: "invalid_content_type" }, { status: 400 });
+      const items = await getContentOverrides(type, env.HERO_IMAGES);
+
+      if (request.method === "GET") {
+        return Response.json({ type, items }, { headers: { "cache-control": "no-store" } });
+      }
+
+      if (request.method === "DELETE") {
+        const slug = url.searchParams.get("slug");
+        if (!slug) return Response.json({ error: "invalid_slug" }, { status: 400 });
+        await env.HERO_IMAGES.delete(`content/overrides/${type}/${slug}.json`);
+        const nextItems = items.filter((item) => item.slug !== slug);
+        return Response.json({ ok: true, type, items: nextItems }, { headers: { "cache-control": "no-store" } });
+      }
+
+      if (request.method === "PATCH") {
+        try {
+          const item = parseManagedContentOverride(type, await request.json());
+          const nextItems = items.some((entry) => entry.slug === item.slug)
+            ? items.map((entry) => entry.slug === item.slug ? item : entry)
+            : [...items, item];
+          await saveContentOverride(type, item, env.HERO_IMAGES);
+          return Response.json({ ok: true, type, item, items: nextItems }, { headers: { "cache-control": "no-store" } });
+        } catch {
+          return Response.json({ error: "invalid_content" }, { status: 400 });
+        }
+      }
+
+      return new Response(null, { status: 405, headers: { allow: "GET, PATCH, DELETE" } });
+    }
+
     if (url.pathname === "/api/admin/media-collections") {
       if (!isAdminRequest(request, env)) return Response.json({ error: "unauthorized" }, { status: 401 });
       if (!env.HERO_IMAGES) return Response.json({ error: "storage_unavailable" }, { status: 503 });
@@ -344,6 +432,16 @@ const worker = {
       const id = normalizeMediaItemId(url.searchParams.get("id"));
       if (!id) return Response.json({ error: "invalid_media_id" }, { status: 400 });
 
+      if (request.method === "PATCH") {
+        const title = (url.searchParams.get("title") || "").trim().slice(0, 120);
+        if (!title) return Response.json({ error: "invalid_title" }, { status: 400 });
+        const items = await getMediaCollection(collection, env.HERO_IMAGES);
+        if (!items.some((item) => item.id === id)) return Response.json({ error: "media_not_found" }, { status: 404 });
+        const nextItems = items.map((item) => item.id === id ? { ...item, title } : item);
+        await saveMediaCollection(collection, nextItems, env.HERO_IMAGES);
+        return Response.json({ ok: true, collection, items: nextItems }, { headers: { "cache-control": "no-store" } });
+      }
+
       if (request.method === "DELETE") {
         const items = await getMediaCollection(collection, env.HERO_IMAGES);
         const removed = items.find((item) => item.id === id);
@@ -355,7 +453,7 @@ const worker = {
         return Response.json({ ok: true, collection, id, items: nextItems }, { headers: { "cache-control": "no-store" } });
       }
 
-      if (request.method !== "PUT") return new Response(null, { status: 405, headers: { allow: "GET, PUT, POST, DELETE" } });
+      if (request.method !== "PUT") return new Response(null, { status: 405, headers: { allow: "GET, PUT, PATCH, POST, DELETE" } });
       const contentType = request.headers.get("content-type")?.split(";", 1)[0].trim().toLowerCase() || "";
       if (!managedCollectionMediaTypes.has(contentType)) return Response.json({ error: "invalid_media_type" }, { status: 415 });
       if (contentType.startsWith("video/") && collection !== "hot-products") return Response.json({ error: "video_not_allowed" }, { status: 415 });
