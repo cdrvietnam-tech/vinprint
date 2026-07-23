@@ -2,13 +2,12 @@
 
 import {
   ArrowUpRight,
-  BookOpen,
   BriefcaseBusiness,
   Megaphone,
-  Package,
   ShoppingBag,
   Tag,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { trackEvent } from "../../lib/analytics";
@@ -31,17 +30,17 @@ const groups = [
     icon: Tag,
     tone: "from-orange-100 to-rose-50 text-orange-800",
     items: [
-      ["Tem giấy", "/san-pham/tem-giay"],
-      ["Tem nhựa chống nước", "/san-pham/tem-nhua-chong-nuoc"],
-      ["Tem giấy kraft", "/san-pham/tem-giay"],
-      ["Tem trong", "/san-pham/tem-nhua-trong"],
-      ["Sticker trang trí", "/san-pham/sticker-trang-tri"],
-      ["Tem vàng", "/san-pham/tem-vang"],
-      ["Tem bạc", "/san-pham/tem-bac"],
-      ["Tem UV DTF", "/san-pham/tem-uv-dtf"],
-      ["Tem hologram", "/san-pham/tem-7-mau"],
-      ["Tem bảo hành", "/san-pham/tem-bao-hanh"],
-      ["Tem phụ sản phẩm", "/san-pham/tem-phu-san-pham"],
+      { name: "Tem giấy", href: "/san-pham/tem-giay", image: "/images/products/tem-giay.webp" },
+      { name: "Tem nhựa chống nước", href: "/san-pham/tem-nhua-chong-nuoc", image: "/images/products/tem-nhua-chong-nuoc.webp" },
+      { name: "Tem giấy kraft", href: "/san-pham/tem-giay", image: "/images/mockups/kraft_box.webp" },
+      { name: "Tem trong", href: "/san-pham/tem-nhua-trong", image: "/images/products/tem-nhua-trong.webp" },
+      { name: "Sticker trang trí", href: "/san-pham/sticker-trang-tri", image: "/images/products/tem-nhua-chong-nuoc.webp" },
+      { name: "Tem vàng", href: "/san-pham/tem-vang", image: "/images/products/tem-ep-kim.webp" },
+      { name: "Tem bạc", href: "/san-pham/tem-bac", image: "/images/products/tem-bac.webp" },
+      { name: "Tem UV DTF", href: "/san-pham/tem-uv-dtf", image: "/images/products/tem-uv-dtf.webp" },
+      { name: "Tem hologram", href: "/san-pham/tem-7-mau", image: "/images/holographic_sticker.webp" },
+      { name: "Tem bảo hành", href: "/san-pham/tem-bao-hanh", image: "/images/products/tem-bac.webp" },
+      { name: "Tem phụ sản phẩm", href: "/san-pham/tem-phu-san-pham", image: "/images/products/tem-nhua-trong.webp" },
     ],
   },
   {
@@ -51,13 +50,13 @@ const groups = [
     icon: BriefcaseBusiness,
     tone: "from-blue-100 to-cyan-50 text-blue-800",
     items: [
-      ["In catalog", null],
-      ["In card visit", null],
-      ["In voucher", null],
-      ["In bao thư", null],
-      ["In folder", null],
-      ["In hóa đơn", null],
-      ["In tiêu đề thư", null],
+      { name: "In catalog", href: null, image: "/images/hero-admin/hero-1.png" },
+      { name: "In card visit", href: null, image: "/images/materials-flatlay.webp" },
+      { name: "In voucher", href: null, image: "/images/hero-admin/hero-2.png" },
+      { name: "In bao thư", href: null, image: "/images/mockups/paper_box.webp" },
+      { name: "In folder", href: null, image: "/images/hero-admin/hero-3.png" },
+      { name: "In hóa đơn", href: null, image: "/images/materials-flatlay.webp" },
+      { name: "In tiêu đề thư", href: null, image: "/images/hero-admin/hero-4.png" },
     ],
   },
   {
@@ -67,12 +66,12 @@ const groups = [
     icon: Megaphone,
     tone: "from-violet-100 to-fuchsia-50 text-violet-800",
     items: [
-      ["In tờ rơi", null],
-      ["In brochure", null],
-      ["In poster", null],
-      ["In menu", null],
-      ["In standee", null],
-      ["In phiếu bảo hành", null],
+      { name: "In tờ rơi", href: null, image: "/images/hero-admin/hero-2.png" },
+      { name: "In brochure", href: null, image: "/images/hero-admin/hero-1.png" },
+      { name: "In poster", href: null, image: "/images/hero-products.webp" },
+      { name: "In menu", href: null, image: "/images/materials-flatlay.webp" },
+      { name: "In standee", href: null, image: "/images/application-photo.webp" },
+      { name: "In phiếu bảo hành", href: null, image: "/images/products/tem-bac.webp" },
     ],
   },
   {
@@ -82,11 +81,11 @@ const groups = [
     icon: ShoppingBag,
     tone: "from-emerald-100 to-lime-50 text-emerald-800",
     items: [
-      ["In túi giấy", null],
-      ["In hộp giấy", null],
-      ["In thẻ treo", null],
-      ["In tag sản phẩm", null],
-      ["In giấy gói", null],
+      { name: "In túi giấy", href: null, image: "/images/hero-admin/hero-3.png" },
+      { name: "In hộp giấy", href: null, image: "/images/mockups/paper_box.webp" },
+      { name: "In thẻ treo", href: null, image: "/images/products/tem-giay.webp" },
+      { name: "In tag sản phẩm", href: null, image: "/images/mockups/kraft_box.webp" },
+      { name: "In giấy gói", href: null, image: "/images/materials-flatlay.webp" },
     ],
   },
 ] as const;
@@ -130,20 +129,32 @@ export default function ProductCatalogTabs() {
               </div>
 
               <div className="grid gap-3 p-4 sm:grid-cols-2 sm:p-6 lg:grid-cols-3 xl:grid-cols-4">
-                {group.items.map(([name, href]) => {
+                {group.items.map(({ name, href, image }) => {
                   const content = (
                     <>
-                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 text-gray-800">
-                        {group.key === "labels" ? <Tag className="h-5 w-5" /> : group.key === "office" ? <BookOpen className="h-5 w-5" /> : <Package className="h-5 w-5" />}
+                      <span
+                        className="relative h-16 w-16 shrink-0 overflow-hidden rounded-[14px] bg-white shadow-sm"
+                        data-catalog-thumbnail={name}
+                      >
+                        <Image
+                          src={image}
+                          alt=""
+                          fill
+                          loading="lazy"
+                          sizes="64px"
+                          className="object-contain p-1.5 transition-transform duration-200 group-hover:scale-105"
+                        />
                       </span>
-                      <span className="flex-1 font-black text-gray-950">{name}</span>
-                      <span className="flex items-center gap-1 text-[10px] font-black uppercase tracking-wide text-orange-700">
-                        {href ? "Xem" : "Nhận giá"} <ArrowUpRight className="h-4 w-4" />
+                      <span className="min-w-0 flex-1">
+                        <strong className="block text-sm font-black leading-snug text-gray-950 sm:text-[15px]">{name}</strong>
+                        <small className="mt-1 flex items-center gap-1 text-[10px] font-black uppercase tracking-[0.08em] text-orange-700">
+                          {href ? "Xem chi tiết" : "Nhận giá"} <ArrowUpRight className="h-3.5 w-3.5" />
+                        </small>
                       </span>
                     </>
                   );
 
-                  const className = "group flex min-h-[76px] items-center gap-3 rounded-2xl border border-gray-200 bg-gray-50 px-4 transition-all hover:-translate-y-0.5 hover:border-orange-300 hover:bg-orange-50 hover:shadow-md";
+                  const className = "group flex min-h-[92px] items-center gap-3 rounded-[20px] border border-gray-200 bg-gray-50 p-3 transition-[transform,border-color,background-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-orange-300 hover:bg-orange-50 hover:shadow-md active:scale-[0.98]";
                   return href ? (
                     <Link key={name} href={href} className={className}>{content}</Link>
                   ) : (

@@ -220,7 +220,20 @@ test("renders product detail pages with source and order process", async () => {
   assert.match(html, /Tem UV DTF nổi/i);
   assert.match(html, /QUY TRÌNH ĐẶT IN/i);
   assert.match(html, /Xem nguồn/i);
+  assert.match(html, /data-product-showcase="premium"/i);
+  assert.match(html, /Phù hợp với/i);
+  assert.match(html, /Gửi file là báo giá được/i);
   assert.match(html, /application\/ld\+json/i);
+});
+
+test("renders representative images before every product catalog tag", async () => {
+  const response = await render("/san-pham");
+  const html = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(html, /data-catalog-thumbnail="Tem giấy"/i);
+  assert.match(html, /data-catalog-thumbnail="In catalog"/i);
+  assert.match(html, /data-catalog-thumbnail="In túi giấy"/i);
 });
 
 test("renders a crawlable blog index with category navigation", async () => {
