@@ -167,7 +167,7 @@ export default function Pricing() {
             </a>
           </div>
 
-          <div className="relative z-10 grid items-start gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="relative z-10 grid items-stretch gap-6 md:grid-cols-2 xl:grid-cols-4">
             {pricingPosters.map((poster, index) => (
               <motion.article
                 key={poster.src}
@@ -176,7 +176,7 @@ export default function Pricing() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
-                className="group overflow-hidden rounded-[28px] border border-white/15 bg-white/10 p-2 shadow-2xl backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-orange-300/50"
+                className="group flex h-full flex-col overflow-hidden rounded-[28px] border border-white/15 bg-white/10 p-2 shadow-2xl backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-orange-300/50"
               >
                 <button
                   type="button"
@@ -187,7 +187,7 @@ export default function Pricing() {
                     setSelectedPoster(poster);
                     trackEvent("view_pricing", { position: `pricing_poster_${index + 1}` });
                   }}
-                  className="relative block w-full cursor-zoom-in overflow-hidden rounded-[22px] bg-[#fff7d6] text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-300"
+                  className="relative flex aspect-[4/5] w-full cursor-zoom-in items-center justify-center overflow-hidden rounded-[22px] bg-[#fff7d6] text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-300"
                 >
                   <Image
                     src={poster.src}
@@ -197,13 +197,13 @@ export default function Pricing() {
                     loading="lazy"
                     decoding="async"
                     sizes="(max-width: 767px) calc(100vw - 48px), 680px"
-                    className="h-auto w-full transition duration-500 group-hover:scale-[1.015]"
+                    className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.015]"
                   />
                   <span className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-black/75 px-3 py-2 text-xs font-black text-white shadow-lg backdrop-blur-sm">
                     <ZoomIn className="h-4 w-4" /> Xem rõ
                   </span>
                 </button>
-                <div className="flex items-center justify-between gap-4 px-3 py-3 sm:px-4">
+                <div className="flex flex-1 items-center justify-between gap-4 px-3 py-3 sm:px-4">
                   <div>
                     <h3 className="text-base font-black text-white sm:text-lg">{poster.title}</h3>
                     <p className="mt-0.5 text-xs font-medium text-purple-100 sm:text-sm">{poster.note}</p>
