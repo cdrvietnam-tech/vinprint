@@ -1,42 +1,76 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Gift, Sparkles } from "lucide-react";
-import { useEffect, useRef } from "react";
+import Image from "next/image";
+import { ArrowRight, Gift, Minus, Plus, Sparkles, X, ZoomIn } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "../../lib/analytics";
 
-const paperLabelCombos = [
+const pricingPosters = [
   {
-    tag: "GIÁ TẬN XƯỞNG",
-    name: "Tròn 3 cm (đường kính)",
-    price: "99.000đ",
-    tone: "from-orange-50 to-amber-100",
-    accent: "text-orange-700",
-    benefits: ["1.000 tem giấy", "Đường kính 3 cm", "Duyệt mẫu trước khi in"],
+    title: "Bảng giá tem nhãn tổng hợp",
+    note: "Combo tem giấy và các ứng dụng phổ biến",
+    src: "/images/pricing/bang-gia-tem-nhan-tong-hop.webp",
+    alt: "Bảng giá tem nhãn VinPrint với combo 1.000 tem tròn từ 3 đến 6 cm",
+    width: 1122,
+    height: 1402,
+    details: [
+      "1.000 tem tròn 3 cm: 99.000đ",
+      "1.000 tem tròn 4 cm: 141.000đ",
+      "1.000 tem tròn 5 cm: 229.000đ",
+      "1.000 tem tròn 6 cm: 320.000đ",
+      "Ưu đãi trong poster: miễn phí thiết kế mẫu và freeship đơn từ 500.000đ.",
+      "Poster quảng bá giá tận xưởng, rẻ hơn đến 30% so với thị trường.",
+    ],
   },
   {
-    tag: "BÁN CHẠY",
-    name: "Tròn 4 cm (đường kính)",
-    price: "141.000đ",
-    tone: "from-cyan-50 to-blue-100",
-    accent: "text-blue-700",
-    benefits: ["1.000 tem giấy", "Đường kính 4 cm", "Duyệt mẫu trước khi in"],
+    title: "Bảng giá tem nhãn tham khảo",
+    note: "Tem giấy, tem nhựa và nhiều kiểu cắt bế",
+    src: "/images/pricing/bang-gia-tem-nhan-tham-khao.webp",
+    alt: "Bảng giá tham khảo in tem nhãn VinPrint kèm mẫu ứng dụng trên bao bì",
+    width: 1122,
+    height: 1402,
+    details: [
+      "1.000 tem tròn 3 cm: 99.000đ",
+      "1.000 tem tròn 4 cm: 141.000đ",
+      "1.000 tem tròn 5 cm: 229.000đ",
+      "1.000 tem tròn 6 cm: 320.000đ",
+      "Ưu đãi trong poster: miễn phí thiết kế mẫu và freeship đơn từ 500.000đ.",
+      "Giá có thể thay đổi tùy theo chất liệu và thiết kế.",
+    ],
   },
   {
-    tag: "PHỔ BIẾN",
-    name: "Tròn 5 cm (đường kính)",
-    price: "229.000đ",
-    tone: "from-violet-50 to-purple-100",
-    accent: "text-violet-700",
-    benefits: ["1.000 tem giấy", "Đường kính 5 cm", "Duyệt mẫu trước khi in"],
+    title: "Bảng giá tem tròn",
+    note: "Combo 1.000 tem theo đường kính",
+    src: "/images/pricing/bang-gia-tem-tron.webp",
+    alt: "Bảng giá in tem tròn VinPrint theo đường kính 3, 4, 5 và 6 cm",
+    width: 1122,
+    height: 1402,
+    details: [
+      "1.000 tem tròn 3 cm: 99.000đ",
+      "1.000 tem tròn 4 cm: 141.000đ",
+      "1.000 tem tròn 5 cm: 229.000đ",
+      "1.000 tem tròn 6 cm: 320.000đ",
+      "Ưu đãi trong poster: miễn phí thiết kế mẫu và freeship đơn từ 500.000đ.",
+    ],
   },
   {
-    tag: "TEM KHỔ LỚN",
-    name: "Tròn 6 cm (đường kính)",
-    price: "320.000đ",
-    tone: "from-yellow-50 to-amber-200",
-    accent: "text-amber-800",
-    benefits: ["1.000 tem giấy", "Đường kính 6 cm", "Duyệt mẫu trước khi in"],
+    title: "Bảng giá sticker UV DTF",
+    note: "Khổ tờ và khổ mét cho nhu cầu lấy liền",
+    src: "/images/pricing/bang-gia-sticker-uv-dtf.webp",
+    alt: "Bảng giá in sticker UV DTF VinPrint theo khổ A5, A4, A3 và mét",
+    width: 1024,
+    height: 1536,
+    details: [
+      "Tờ A5: 25.000đ",
+      "Tờ A4: 45.000đ",
+      "Tờ A3: 80.000đ",
+      "1 mét: 250.000đ/m",
+      "3 mét: 200.000đ/m",
+      "5 mét: 185.000đ/m",
+      "Đơn giá chưa bao gồm VAT và phí vận chuyển.",
+      "Hỗ trợ thiết kế miễn phí cho đơn từ 1 mét trở lên.",
+    ],
   },
 ] as const;
 
@@ -50,6 +84,11 @@ const benefits = [
 
 export default function Pricing() {
   const sectionRef = useRef<HTMLElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const lastTriggerRef = useRef<HTMLButtonElement>(null);
+  const [selectedPoster, setSelectedPoster] = useState<(typeof pricingPosters)[number] | null>(null);
+  const [zoom, setZoom] = useState(1);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -64,6 +103,41 @@ export default function Pricing() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!selectedPoster) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedPoster(null);
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+    const focusFrame = window.requestAnimationFrame(() => closeButtonRef.current?.focus());
+
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+      lastTriggerRef.current?.focus();
+    };
+  }, [selectedPoster]);
+
+  const trapDialogFocus = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== "Tab") return;
+    const focusable = dialogRef.current?.querySelectorAll<HTMLButtonElement>("button:not(:disabled)");
+    if (!focusable?.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
   return (
     <section id="bang-gia" ref={sectionRef} className="bg-white py-14 sm:py-20">
       <div className="mx-auto max-w-[1440px] px-4">
@@ -74,11 +148,14 @@ export default function Pricing() {
           <div className="relative z-10 mb-9 flex flex-col items-start justify-between gap-5 lg:flex-row lg:items-end">
             <div>
               <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-orange-300/30 bg-orange-400/15 px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.15em] text-orange-200">
-                <Gift className="h-4 w-4" /> Bảng giá siêu tiết kiệm
+                <Gift className="h-4 w-4" /> Bảng giá tại xưởng
               </span>
-              <h2 className="max-w-3xl text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">Bảng giá combo tem giấy</h2>
+              <h2 className="max-w-3xl text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">Bảng giá in tem nhãn</h2>
               <p className="mt-3 max-w-2xl text-sm font-medium leading-relaxed text-purple-100 sm:text-base">
-                Giá combo cho 1.000 tem giấy tròn, đường kính 3–6 cm. Kích thước khác hoặc số lượng lớn, VinPrint báo giá sỉ theo đúng quy cách cần in.
+                Chọn bảng giá phù hợp và bấm vào ảnh để xem rõ từng chi tiết. Kích thước khác hoặc số lượng lớn, VinPrint báo giá theo đúng quy cách cần in.
+              </p>
+              <p className="mt-2 max-w-2xl text-xs font-semibold leading-relaxed text-orange-100/90">
+                Giá và ưu đãi được xác nhận lại theo vật liệu, quy cách, số lượng và thời điểm đặt in.
               </p>
             </div>
             <a
@@ -90,40 +167,55 @@ export default function Pricing() {
             </a>
           </div>
 
-          <div className="relative z-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {paperLabelCombos.map((combo, index) => (
+          <div className="relative z-10 grid items-start gap-6 md:grid-cols-2">
+            {pricingPosters.map((poster, index) => (
               <motion.article
-                key={combo.name}
+                key={poster.src}
+                data-pricing-poster
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
-                className={`flex min-h-[360px] flex-col rounded-[24px] bg-gradient-to-br ${combo.tone} p-5 text-gray-950 shadow-lg ring-1 ring-white/60`}
+                className="group overflow-hidden rounded-[28px] border border-white/15 bg-white/10 p-2 shadow-2xl backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-orange-300/50"
               >
-                <span className={`text-[10px] font-black uppercase tracking-[0.14em] ${combo.accent}`}>{combo.tag}</span>
-                <h3 className="mt-2 text-xl font-black">{combo.name}</h3>
-                <div className="mt-4 flex items-end gap-2">
-                  <strong className="text-3xl font-black tracking-tight text-[#D83B00]">{combo.price}</strong>
-                </div>
-                <span className="mt-1 text-[11px] font-bold uppercase tracking-wide text-gray-600">Giá combo tem giấy</span>
-
-                <ul className="my-6 space-y-3 text-sm font-bold text-gray-800">
-                  {combo.benefits.map((benefit) => (
-                    <li key={benefit} className="flex items-start gap-2">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-700" /> {benefit}
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="https://zalo.me/0844998499"
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={() => trackEvent("click_zalo", { position: `combo_${index + 1}` })}
-                  className="mt-auto inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-gray-950 px-4 text-sm font-black text-white transition-transform hover:scale-[1.02]"
+                <button
+                  type="button"
+                  aria-label={`Phóng to ${poster.title}`}
+                  onClick={(event) => {
+                    lastTriggerRef.current = event.currentTarget;
+                    setZoom(1);
+                    setSelectedPoster(poster);
+                    trackEvent("view_pricing", { position: `pricing_poster_${index + 1}` });
+                  }}
+                  className="relative block w-full cursor-zoom-in overflow-hidden rounded-[22px] bg-[#fff7d6] text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-orange-300"
                 >
-                  Nhắn Zalo chốt in <ArrowRight className="h-4 w-4" />
-                </a>
+                  <Image
+                    src={poster.src}
+                    alt={poster.alt}
+                    width={poster.width}
+                    height={poster.height}
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(max-width: 767px) calc(100vw - 48px), 680px"
+                    className="h-auto w-full transition duration-500 group-hover:scale-[1.015]"
+                  />
+                  <span className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-black/75 px-3 py-2 text-xs font-black text-white shadow-lg backdrop-blur-sm">
+                    <ZoomIn className="h-4 w-4" /> Xem rõ
+                  </span>
+                </button>
+                <div className="flex items-center justify-between gap-4 px-3 py-3 sm:px-4">
+                  <div>
+                    <h3 className="text-base font-black text-white sm:text-lg">{poster.title}</h3>
+                    <p className="mt-0.5 text-xs font-medium text-purple-100 sm:text-sm">{poster.note}</p>
+                  </div>
+                  <ZoomIn className="h-5 w-5 shrink-0 text-orange-200" />
+                </div>
+                <div className="sr-only">
+                  <h4>{poster.title} dạng chữ</h4>
+                  <ul>
+                    {poster.details.map((detail) => <li key={detail}>{detail}</li>)}
+                  </ul>
+                </div>
               </motion.article>
             ))}
           </div>
@@ -138,6 +230,70 @@ export default function Pricing() {
           </div>
         </div>
       </div>
+
+      {selectedPoster && (
+        <div
+          ref={dialogRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Xem chi tiết ${selectedPoster.title}`}
+          onKeyDown={trapDialogFocus}
+          onClick={() => setSelectedPoster(null)}
+          className="fixed inset-0 z-[100] overflow-auto bg-black/90 backdrop-blur-sm"
+        >
+          <div
+            onClick={(event) => event.stopPropagation()}
+            className="fixed left-1/2 top-4 z-10 flex -translate-x-1/2 items-center gap-1 rounded-full bg-white p-1.5 text-gray-950 shadow-xl"
+          >
+            <button
+              type="button"
+              aria-label="Thu nhỏ bảng giá"
+              disabled={zoom <= 1}
+              onClick={() => setZoom((current) => Math.max(1, current - 0.5))}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-35"
+            >
+              <Minus className="h-5 w-5" />
+            </button>
+            <span className="min-w-14 text-center text-xs font-black">{Math.round(zoom * 100)}%</span>
+            <button
+              type="button"
+              aria-label="Phóng to bảng giá"
+              disabled={zoom >= 2}
+              onClick={() => setZoom((current) => Math.min(2, current + 0.5))}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-35"
+            >
+              <Plus className="h-5 w-5" />
+            </button>
+          </div>
+          <button
+            ref={closeButtonRef}
+            type="button"
+            aria-label="Đóng bảng giá"
+            onClick={() => setSelectedPoster(null)}
+            className="fixed right-4 top-4 z-10 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-gray-950 shadow-xl transition hover:scale-105"
+          >
+            <X className="h-6 w-6" />
+          </button>
+          <div
+            onClick={(event) => event.stopPropagation()}
+            className={`flex min-h-full min-w-full items-start px-3 pb-6 pt-20 sm:px-6 ${zoom > 1 ? "justify-start" : "justify-center"}`}
+          >
+            <Image
+              src={selectedPoster.src}
+              alt={selectedPoster.alt}
+              width={selectedPoster.width}
+              height={selectedPoster.height}
+              sizes="100vw"
+              style={{
+                width: `min(${Math.round(zoom * 100)}vw, ${Math.round(selectedPoster.width * zoom)}px)`,
+                maxWidth: "none",
+                flexShrink: 0,
+              }}
+              className="h-auto max-w-none shrink-0 cursor-default rounded-2xl object-contain shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
