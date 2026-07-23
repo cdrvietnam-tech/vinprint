@@ -1,249 +1,194 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { CheckCircle2, ArrowRight, Star } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowRight, CheckCircle2, Star } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { ZaloIcon } from "../icons";
 import { trackEvent } from "../../lib/analytics";
 import { CUSTOMER_AVATARS } from "./customer-avatars";
+import { DEFAULT_MEDIA_COLLECTIONS, type ManagedMediaItem } from "../../lib/media-collections";
+
+const defaultHeroSlides = DEFAULT_MEDIA_COLLECTIONS.hero;
+
+const sparklePositions = [
+  ["12%", "17%", "-0.1s", "text-orange-400"],
+  ["78%", "13%", "-0.35s", "text-violet-500"],
+  ["88%", "38%", "-0.6s", "text-amber-400"],
+  ["15%", "55%", "-0.85s", "text-pink-500"],
+  ["75%", "70%", "-1.1s", "text-orange-500"],
+  ["32%", "10%", "-1.35s", "text-yellow-400"],
+  ["8%", "80%", "-1.6s", "text-violet-400"],
+  ["92%", "82%", "-1.85s", "text-pink-400"],
+] as const;
 
 export default function Hero() {
-  return (
-    <section id="trang-chu" className="pt-32 relative overflow-hidden bg-white">
-      {/* Background decorations */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-orange-50/50 to-transparent pointer-events-none" />
+  const [heroSlides, setHeroSlides] = useState<ManagedMediaItem[]>(defaultHeroSlides);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isHeroHovered, setIsHeroHovered] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const heroCarouselRef = useRef<HTMLDivElement>(null);
+  const lastManualSlideAtRef = useRef(0);
+  const isInteracting = isHeroHovered || isDragging;
 
-      <div className="max-w-[1440px] mx-auto px-4 pb-16">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          
-          {/* Left Content */}
-          <div className="lg:w-[45%] text-center lg:text-left z-10 mt-4">
+  useEffect(() => {
+    fetch("/api/media/collections?collection=hero", { cache: "no-store" })
+      .then(async (response) => response.ok ? response.json() as Promise<{ items: ManagedMediaItem[] }> : null)
+      .then((result) => {
+        if (result?.items.length) {
+          setHeroSlides(result.items);
+          setActiveSlide(0);
+        }
+      })
+      .catch(() => undefined);
+  }, []);
+
+  useEffect(() => {
+    const syncHoverWithPointer = (event: PointerEvent) => {
+      if (event.pointerType && event.pointerType !== "mouse") return;
+      const box = heroCarouselRef.current?.getBoundingClientRect();
+      if (!box) return;
+      setIsHeroHovered(event.clientX >= box.left && event.clientX <= box.right && event.clientY >= box.top && event.clientY <= box.bottom);
+    };
+    window.addEventListener("pointermove", syncHoverWithPointer, { passive: true });
+    return () => window.removeEventListener("pointermove", syncHoverWithPointer);
+  }, []);
+
+  useEffect(() => {
+    if (isInteracting) return;
+    const timer = window.setInterval(() => {
+      if (Date.now() - lastManualSlideAtRef.current < 1500) return;
+      setActiveSlide((current) => (current + 1) % heroSlides.length);
+    }, 1500);
+    return () => window.clearInterval(timer);
+  }, [heroSlides.length, isInteracting]);
+
+  const slide = heroSlides[activeSlide % heroSlides.length] || defaultHeroSlides[0];
+
+  return (
+    <section id="trang-chu" className="relative overflow-hidden bg-[#fffdf9] pt-28">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_20%,rgba(255,77,0,0.12),transparent_34%),radial-gradient(circle_at_10%_80%,rgba(101,69,237,0.08),transparent_28%)]" />
+
+      <div className="relative mx-auto max-w-[1440px] px-4 pb-14">
+        <div className="flex flex-col items-center gap-10 lg:flex-row lg:gap-14">
+          <div className="z-10 w-full text-center lg:w-[43%] lg:text-left">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-[11px] font-bold tracking-widest uppercase mb-8 border border-indigo-100"
+              transition={{ duration: 0.45 }}
+              className="mb-7 inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-indigo-700"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-600" />
+              <span className="h-1.5 w-1.5 rounded-full bg-indigo-600" />
               In ấn các loại tem nhãn và ấn phẩm
             </motion.div>
-            
-            <h1 className="text-4xl sm:text-5xl lg:text-[60px] xl:text-[72px] font-black tracking-tight text-gray-900 mb-6 leading-[1.25]">
-              <span className="sm:whitespace-nowrap">XƯỞNG IN SIÊU TỐC</span><br/>
-              <span className="text-[#FF4D00]">Gửi file là chốt.</span>
+
+            <h1 className="mb-6 text-4xl font-black leading-[1.18] tracking-tight text-gray-950 sm:text-5xl lg:text-[58px] xl:text-[68px]">
+              XƯỞNG IN SIÊU TỐC<br />
+              <span className="text-[#FF4D00]">In nhanh - Chuẩn đẹp - Giá tốt</span>
             </h1>
 
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg lg:text-[20px] text-gray-600 mb-10 max-w-[540px] mx-auto lg:mx-0 leading-snug font-medium"
-            >
-              VinPrint giúp sản phẩm của bạn nổi bật hơn,<br className="hidden lg:block"/>chuyên nghiệp hơn và bán chạy hơn.
-            </motion.p>
+            <p className="mx-auto mb-8 max-w-[540px] text-lg font-medium leading-relaxed text-gray-700 lg:mx-0 lg:text-[20px]">
+              VinPrint giúp sản phẩm của bạn nổi bật hơn, chuyên nghiệp hơn và bán chạy hơn.
+            </p>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="grid grid-cols-2 gap-x-6 gap-y-5 mb-12 max-w-xl mx-auto lg:mx-0 text-left"
-            >
-              {[
-                "Thiết kế bằng AI & Designer",
-                "Chất liệu cao cấp - Bền đẹp",
-                "In sắc nét - Chuẩn màu",
-                "Số lượng ít vẫn nhận"
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#F5A623] flex items-center justify-center shrink-0">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-white" />
-                  </div>
-                  <span className="text-[15px] font-bold text-gray-800">{item}</span>
+            <div className="mx-auto mb-9 grid max-w-xl grid-cols-2 gap-x-5 gap-y-4 text-left lg:mx-0">
+              {["Hỗ trợ thiết kế đơn từ 200.000đ", "Chất liệu cao cấp - Bền đẹp", "In sắc nét - Chuẩn màu", "Số lượng ít vẫn nhận"].map((item) => (
+                <div key={item} className="flex items-center gap-2.5">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#F5A623]">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-white" />
+                  </span>
+                  <span className="text-[14px] font-bold leading-snug text-gray-800">{item}</span>
                 </div>
               ))}
-            </motion.div>
+            </div>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
-            >
-              <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" onClick={() => trackEvent("click_zalo", { position: "hero" })} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-[#D83B00] text-white text-[15px] font-bold h-[52px] px-8 shadow-[0_8px_30px_rgb(216,59,0,0.28)] hover:scale-105 transition-transform">
-                <ZaloIcon className="w-5 h-5" fill="white" />
-                Nhắn Zalo nhận giá →
+            <div className="flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
+              <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" onClick={() => trackEvent("click_zalo", { position: "hero" })} className="flex h-[54px] w-full items-center justify-center gap-2 rounded-full bg-[#D83B00] px-8 text-[15px] font-black text-white shadow-[0_8px_30px_rgb(216,59,0,0.25)] transition-transform hover:scale-[1.03] sm:w-auto">
+                <ZaloIcon className="h-5 w-5" fill="white" /> Nhắn Zalo chốt in →
               </a>
-              <a href="#ai-thiet-ke" onClick={() => trackEvent("ai_design_click", { position: "hero" })} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full border-2 border-[#6545ED] text-[#5635D8] text-[15px] font-bold h-[52px] px-8 hover:bg-purple-50 transition-colors">
-                Thiết kế tem bằng AI <ArrowRight className="w-4 h-4" />
+              <a href="#bang-gia" onClick={() => trackEvent("view_pricing", { position: "hero_combo" })} className="flex h-[54px] w-full items-center justify-center gap-2 rounded-full border-2 border-[#6545ED] px-8 text-[15px] font-black text-[#5635D8] transition-colors hover:bg-purple-50 sm:w-auto">
+                Xem combo siêu hời <ArrowRight className="h-4 w-4" />
               </a>
-            </motion.div>
+            </div>
 
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="mt-10 flex items-center justify-center lg:justify-start gap-4"
-            >
+            <div className="mt-8 flex items-center justify-center gap-4 lg:justify-start">
               <div className="flex -space-x-2" aria-label="Avatar khách hàng minh họa">
                 {CUSTOMER_AVATARS.map((avatar) => (
-                  <div key={avatar} className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white bg-orange-50 shadow-sm">
+                  <span key={avatar} className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white bg-orange-50 shadow-sm">
                     <Image src={avatar} alt="" fill loading="lazy" sizes="40px" className="object-cover" />
-                  </div>
+                  </span>
                 ))}
               </div>
-              <div className="text-left flex flex-col justify-center h-10">
+              <div className="min-w-0 text-left">
                 <div className="flex items-center gap-1 text-[#F5A623]">
-                  {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
-                  <span className="text-gray-900 font-extrabold text-[15px] ml-1">4.9/5</span>
+                  {[1, 2, 3, 4, 5].map((star) => <Star key={star} className="h-4 w-4 fill-current" />)}
+                  <span className="ml-1 text-[15px] font-extrabold text-gray-900">4.9/5</span>
                 </div>
-                <a href="https://shopee.vn/chaucay_senda" target="_blank" rel="noreferrer" className="mt-0.5 text-[12px] font-bold text-gray-700 underline decoration-gray-300 underline-offset-2">Xem đánh giá trên Shopee</a>
+                <a href="https://shopee.vn/chaucay_senda" target="_blank" rel="noreferrer" className="mt-0.5 block max-w-[270px] text-[12px] font-bold leading-tight text-gray-700 underline decoration-gray-300 underline-offset-2">
+                  Hơn 32000 lượt đánh giá cho shop ở Shopee
+                </a>
               </div>
-            </motion.div>
-
-            {/* Badges row for mobile */}
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.7 }}
-              className="mt-6 flex flex-wrap gap-2 justify-center lg:hidden w-full max-w-xl mx-auto text-left"
-            >
-              <div className="bg-white px-3 py-1.5 rounded-full shadow-sm border border-gray-100 flex items-center gap-1.5">
-                <div className="w-4 h-4 rounded-full bg-green-100 flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-2.5 h-2.5 text-green-600" />
-                </div>
-                <span className="text-[12px] font-bold text-gray-800">Giao toàn quốc</span>
-              </div>
-              <div className="bg-white px-3 py-1.5 rounded-full shadow-sm border border-gray-100 flex items-center gap-1.5">
-                <div className="w-4 h-4 rounded-full bg-green-100 flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-2.5 h-2.5 text-green-600" />
-                </div>
-                <span className="text-[12px] font-bold text-gray-800">In nhanh · Chuẩn đẹp · Giá tốt</span>
-              </div>
-              <div className="bg-white px-3 py-1.5 rounded-full shadow-sm border border-gray-100 flex items-center gap-1.5">
-                <div className="w-4 h-4 rounded-full bg-green-100 flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-2.5 h-2.5 text-green-600" />
-                </div>
-                <span className="text-[12px] font-bold text-gray-800">Sai hàng hoàn tiền 100%</span>
-              </div>
-            </motion.div>
+            </div>
           </div>
 
-          {/* Right Image Composition */}
-          <div className="lg:w-[55%] relative w-full h-[320px] sm:h-[450px] lg:h-[600px] block">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, type: "spring" }}
-              className="absolute inset-0"
-            >
-              <div className="w-full h-full relative flex items-center justify-center">
-                  <div className="w-full h-full relative flex items-center justify-center">
-                    {/* Floating star sparks */}
-                    <motion.div animate={{ opacity: [0, 1, 0], scale: [0.5, 1.5, 0.5], rotate: [0, 90, 180] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} className="absolute top-10 right-10 w-10 h-10 text-[#F5A623] drop-shadow-[0_0_20px_rgba(245,166,35,1)] z-10 scale-75 lg:scale-100">
-                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="currentColor"/></svg>
-                    </motion.div>
-                    <motion.div animate={{ opacity: [0, 1, 0], scale: [0.4, 1.4, 0.4], rotate: [0, -90, -180] }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }} className="absolute bottom-20 right-5 w-8 h-8 text-[#F5A623] drop-shadow-[0_0_20px_rgba(245,166,35,1)] z-10 scale-75 lg:scale-100">
-                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="currentColor"/></svg>
-                    </motion.div>
-                    <motion.div animate={{ opacity: [0, 1, 0], scale: [0.6, 1.6, 0.6], rotate: [0, 180, 360] }} transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }} className="absolute top-1/3 left-10 w-6 h-6 text-[#F5A623] drop-shadow-[0_0_20px_rgba(245,166,35,1)] z-10 scale-75 lg:scale-100">
-                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="currentColor"/></svg>
-                    </motion.div>
-                    <motion.div animate={{ opacity: [0, 1, 0], scale: [0.5, 1.3, 0.5], rotate: [0, -180, -360] }} transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut", delay: 0.2 }} className="absolute bottom-1/3 right-1/4 w-7 h-7 text-[#F5A623] drop-shadow-[0_0_20px_rgba(245,166,35,1)] z-10 scale-75 lg:scale-100">
-                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="currentColor"/></svg>
-                    </motion.div>
-                    <motion.div animate={{ opacity: [0, 1, 0], scale: [0.7, 1.4, 0.7], rotate: [0, 90, 180] }} transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut", delay: 0.8 }} className="absolute top-0 right-1/2 w-9 h-9 text-[#F5A623] drop-shadow-[0_0_20px_rgba(245,166,35,1)] z-10 scale-75 lg:scale-100">
-                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="currentColor"/></svg>
-                    </motion.div>
+          <div
+            ref={heroCarouselRef}
+            data-hero-carousel="large-auto-drag"
+            onMouseEnter={() => setIsHeroHovered(true)}
+            onMouseLeave={() => setIsHeroHovered(false)}
+            className="relative h-[470px] w-full min-w-0 overflow-hidden sm:h-[580px] lg:h-[650px] lg:w-[57%]"
+          >
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-10">
+              {sparklePositions.map(([left, top, delay, color], index) => (
+                <span key={`${left}-${top}`} style={{ left, top, animationDelay: delay }} className={`hero-sparkle-star absolute ${color} ${index % 3 === 0 ? "text-xl" : index % 2 === 0 ? "text-sm" : "text-lg"}`}>✦</span>
+              ))}
+            </div>
+            <AnimatePresence initial={false} mode="popLayout">
+              <motion.figure
+                key={slide.src}
+                initial={{ x: "100%", opacity: 0.7 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: "-100%", opacity: 0.7 }}
+                transition={{ x: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }, opacity: { duration: 0.3 } }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.3}
+                dragDirectionLock
+                onDragStart={() => {
+                  lastManualSlideAtRef.current = Date.now();
+                  setIsDragging(true);
+                }}
+                onDragEnd={(_, info) => {
+                  lastManualSlideAtRef.current = Date.now();
+                  if (info.offset.x < -45) setActiveSlide((current) => (current + 1) % heroSlides.length);
+                  if (info.offset.x > 45) setActiveSlide((current) => (current - 1 + heroSlides.length) % heroSlides.length);
+                  setIsDragging(false);
+                }}
+                className="absolute inset-0 cursor-grab select-none active:cursor-grabbing"
+              >
+                <div className="relative h-full w-full p-5 sm:p-8">
+                  <Image src={slide.src} alt={slide.title} fill priority={activeSlide === 0} unoptimized={slide.kind === "gif" || slide.src.startsWith("/media/")} sizes="(max-width: 1024px) 100vw, 57vw" className="pointer-events-none object-contain p-2 sm:p-4" />
+                </div>
+              </motion.figure>
+            </AnimatePresence>
 
-                    {/* Curvy arrow */}
-                    <motion.div 
-                      animate={{ y: [0, -10, 0], x: [0, 5, 0], rotate: [-12, -20, -12] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                      className="absolute top-[65%] left-[-10px] w-12 h-12 text-[#8B5CF6] z-20 scale-75 lg:scale-100"
-                    >
-                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 18h4v-4"/><path d="M14 18c-3.31-3.31-8.22-3.8-12-1.5"/></svg>
-                    </motion.div>
-
-                    <Image
-                      src="/images/hero-products.webp"
-                      alt="Bộ sưu tập tem nhãn VinPrint"
-                      fill
-                      priority
-                      fetchPriority="high"
-                      quality={82}
-                      sizes="(max-width: 1024px) 100vw, 55vw"
-                      className="object-contain object-center p-4 drop-shadow-2xl sm:p-6 lg:p-10"
-                    />
-                  </div>
-
-                  {/* Floating Badges (Left stacked - Desktop only) */}
-                  <div className="absolute left-[-40px] xl:left-[-120px] top-[40%] hidden lg:flex flex-col gap-4 z-20 scale-90 lg:scale-100 origin-left">
-                    <motion.div animate={{ y: [-5, 5, -5] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="bg-white px-4 py-2.5 rounded-full shadow-lg border border-gray-100 flex items-center gap-2.5 w-max">
-                      <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center"><CheckCircle2 className="w-3.5 h-3.5 text-green-600" /></div>
-                      <span className="text-[13px] font-bold text-gray-700">Giao toàn quốc</span>
-                    </motion.div>
-                    <motion.div animate={{ y: [5, -5, 5] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }} className="bg-white px-4 py-2.5 rounded-full shadow-lg border border-gray-100 flex items-center gap-2.5 w-max ml-6">
-                      <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center"><CheckCircle2 className="w-3.5 h-3.5 text-green-600" /></div>
-                      <span className="text-[13px] font-bold text-gray-700">In nhanh-Chuẩn đẹp-Giá tốt</span>
-                    </motion.div>
-                    <motion.div animate={{ y: [-5, 5, -5] }} transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="bg-white px-4 py-2.5 rounded-full shadow-lg border border-gray-100 flex items-center gap-2.5 w-max">
-                      <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center"><CheckCircle2 className="w-3.5 h-3.5 text-green-600" /></div>
-                      <span className="text-[13px] font-bold text-gray-700">Sai hàng đảm bảo hoàn tiền 100%</span>
-                    </motion.div>
-                  </div>
-
-                  {/* Floating Customer Rating Card (Right) */}
-                  <motion.div 
-                    animate={{ y: [-8, 8, -8] }}
-                    transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-1/4 right-0 lg:right-[-10px] bg-white px-5 py-4 rounded-2xl shadow-xl border border-gray-100 flex flex-col items-center z-20 text-center w-32 sm:w-40 scale-75 sm:scale-100 origin-right"
-                  >
-                    <div className="text-2xl font-black text-[#FF4D00] leading-none mb-1">4.9/5</div>
-                    <div className="flex gap-0.5 text-[#F5A623] mb-2">
-                      {[1,2,3,4,5].map(star => <Star key={star} className="w-4 h-4 fill-current" />)}
-                    </div>
-                    <span className="text-[12px] font-bold text-gray-700 tracking-wide">Đánh giá từ khách hàng</span>
-                  </motion.div>
-                  
-              </div>
-            </motion.div>
+            <div className="absolute bottom-7 right-7 z-20 flex gap-2 rounded-full bg-white/80 p-2 shadow-lg backdrop-blur" aria-label="Vị trí ảnh hero">
+              {heroSlides.map((item, index) => (
+                <button key={item.id} type="button" aria-label={`Xem ${item.title}`} aria-current={index === activeSlide} onClick={() => setActiveSlide(index)} className={`h-2.5 rounded-full transition-all ${index === activeSlide ? "w-8 bg-[#D83B00]" : "w-2.5 bg-gray-400 hover:bg-gray-600"}`} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Statistics Bar */}
-      <div className="w-full bg-[#1A1A2E] py-6 relative z-20 shadow-2xl">
-        <div className="max-w-[1440px] mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x-0 md:divide-x md:divide-white/10">
-            <div className="flex flex-col items-center justify-center gap-1.5">
-              <div className="flex items-center gap-2 text-[#F5A623]">
-                <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                <span className="text-[28px] font-black leading-none">90.000+</span>
-              </div>
-              <span className="text-[13px] font-bold text-white/80">Khách hàng</span>
+      <div className="relative z-20 w-full bg-[#1A1A2E] py-5 shadow-2xl">
+        <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-5 px-4 text-center text-white md:grid-cols-4">
+          {[["90.000+", "Khách hàng"], ["211.000+", "Mẫu tem đã thực hiện"], ["100K+", "Đơn hàng đã in"], ["4.9/5", "Đánh giá trung bình"]].map(([value, label]) => (
+            <div key={label} className="flex flex-col items-center justify-center gap-1 border-white/10 md:border-r md:last:border-r-0">
+              <strong className="text-2xl font-black text-[#F5A623] lg:text-3xl">{value}</strong>
+              <span className="text-xs font-bold text-gray-200">{label}</span>
             </div>
-            <div className="flex flex-col items-center justify-center gap-1.5">
-              <div className="flex items-center gap-2 text-[#F5A623]">
-                <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"/></svg>
-                <span className="text-[28px] font-black leading-none">211.000+</span>
-              </div>
-              <span className="text-[13px] font-bold text-white/80">Mẫu tem đã thực hiện</span>
-            </div>
-            <div className="flex flex-col items-center justify-center gap-1.5">
-              <div className="flex items-center gap-2 text-[#F5A623]">
-                <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/></svg>
-                <span className="text-[28px] font-black leading-none">100K+</span>
-              </div>
-              <span className="text-[13px] font-bold text-white/80">Đơn hàng đã in</span>
-            </div>
-            <div className="flex flex-col items-center justify-center gap-1.5">
-              <div className="flex items-center gap-2 text-[#F5A623]">
-                <Star className="w-7 h-7 fill-current" />
-                <span className="text-[28px] font-black leading-none">4.9/5</span>
-              </div>
-              <span className="text-[13px] font-bold text-white/80">Đánh giá trung bình</span>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

@@ -9,6 +9,7 @@ import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import "./globals.css";
 import SmoothScroll from "./components/smooth-scroll";
+import GoogleTagManager from "./components/GoogleTagManager";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vinprint.vn"),
@@ -65,7 +66,6 @@ export const metadata: Metadata = {
     },
   },
   other: {
-    "codex-preview": "development",
     "geo.region": "VN-SG",
     "geo.placename": "Phường Thông Tây Hội, TP.HCM",
   },
@@ -91,6 +91,7 @@ export default function RootLayout({
       <body>
         <a className="skip-link" href="#main-content">Bỏ qua điều hướng</a>
         <SmoothScroll />
+        <GoogleTagManager />
         {children}
       </body>
     </html>

@@ -5,9 +5,9 @@ import { ArrowRight, MessageSquare, Calculator, Palette, Printer, Truck } from "
 
 export default function Process() {
   const steps = [
-    { icon: MessageSquare, title: "Gửi yêu cầu", desc: "Gửi file / ý tưởng qua Zalo hoặc Website" },
+    { icon: MessageSquare, title: "Gửi yêu cầu", desc: "Gửi file hoặc ý tưởng trực tiếp qua Zalo" },
     { icon: Calculator, title: "Báo giá nhanh", desc: "Nhận báo giá chỉ sau vài phút" },
-    { icon: Palette, title: "Thiết kế & Duyệt", desc: "AI & Designer thiết kế, bạn duyệt mẫu" },
+    { icon: Palette, title: "Thiết kế & Duyệt", desc: "Đơn từ 200.000đ, tối đa 3 lần chỉnh sửa" },
     { icon: Printer, title: "In ấn chất lượng", desc: "In bằng máy hiện đại, kiểm tra kỹ lưỡng" },
     { icon: Truck, title: "Giao hàng tận nơi", desc: "Giao hàng nhanh chóng, đúng hẹn, toàn quốc" },
   ];

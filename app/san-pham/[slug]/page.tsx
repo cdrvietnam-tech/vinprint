@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowDownIcon, ArrowLeftIcon, ArrowUpRightIcon, MessageIcon } from "../../components/icons";
 import ConversionLink from "../../components/ConversionLink";
+import Header from "../../components/home/Header";
+import Footer from "../../components/home/Footer";
 import { productBySlug, products } from "../../lib/products";
 
 type ProductPageProps = {
@@ -54,7 +56,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             priceCurrency: "VND",
             price: product.price,
             availability: "https://schema.org/InStock",
-            url: product.source,
+            url: `https://vinprint.vn/san-pham/${product.slug}`,
             seller: { "@type": "Organization", name: "VinPrint" },
           },
         }
@@ -74,7 +76,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         "@type": "ListItem",
         position: 2,
         name: "Sản phẩm",
-        item: "https://vinprint.vn/#products",
+          item: "https://vinprint.vn/san-pham",
       },
       {
         "@type": "ListItem",
@@ -86,33 +88,21 @@ export default async function ProductPage({ params }: ProductPageProps) {
   };
 
   return (
-    <main className="product-page" id="main-content" tabIndex={-1}>
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-
-      <header className="product-page__header">
-        <div className="shell">
-          <Link className="brand" href="/" aria-label="VinPrint - trang chủ">
-            <span className="brand__mark">V</span>
-            <span><b>VINPRINT</b><small>STICKER LAB</small></span>
-          </Link>
-          <nav aria-label="Điều hướng trang sản phẩm">
-            <Link href="/#products">Tất cả sản phẩm</Link>
-            <Link href="/#pricing">Bảng giá tham khảo</Link>
-            <ConversionLink href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" eventName="click_zalo" eventPosition="product_header">Gửi yêu cầu <ArrowUpRightIcon /></ConversionLink>
-          </nav>
-        </div>
-      </header>
+      <Header />
+      <main className="product-page pt-20" id="main-content" tabIndex={-1}>
 
       <section className={`product-hero product-hero--${product.tone}`}>
         <div className="shell product-hero__grid">
           <div className="product-hero__copy">
-            <Link href="/#products" className="product-breadcrumb"><ArrowLeftIcon /> SẢN PHẨM / {product.eyebrow}</Link>
+              <Link href="/san-pham" className="product-breadcrumb"><ArrowLeftIcon /> SẢN PHẨM / {product.eyebrow}</Link>
             <h1>{product.name}</h1>
             <p>{product.description}</p>
             <div className="product-hero__benefit"><span>Ưu điểm chính</span><strong>{product.benefit}</strong></div>
             <div className="product-hero__actions">
-              <Link href="/#pricing">Xem giá tham khảo <ArrowDownIcon /></Link>
+                <Link href="/#bang-gia">Xem combo ưu đãi <ArrowDownIcon /></Link>
               <ConversionLink href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" eventName="click_zalo" eventPosition={`product_${product.slug}`}><MessageIcon /> Hỏi giá qua Zalo <ArrowUpRightIcon /></ConversionLink>
             </div>
             <small>Giá tham khảo: <b>{product.priceLabel}</b>. Xưởng xác nhận sau khi xem file, số lượng và quy cách.</small>
@@ -158,9 +148,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </div>
       </section>
 
-      <footer className="product-page__footer">
-        <div className="shell"><span>VINPRINT · 254/5/40 Lê Văn Thọ, Phường Thông Tây Hội, TP.HCM</span><span>09:00–17:30 · Thứ 2–Thứ 7 · Nghỉ Chủ nhật và ngày lễ</span></div>
-      </footer>
-    </main>
+      </main>
+      <Footer />
+    </>
   );
 }

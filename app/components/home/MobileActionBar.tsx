@@ -1,6 +1,6 @@
 "use client";
 
-import { Phone, Sparkles } from "lucide-react";
+import { Phone, Tag } from "lucide-react";
 import { ZaloIcon } from "../icons";
 import { trackEvent } from "../../lib/analytics";
 
@@ -24,24 +24,24 @@ export default function MobileActionBar() {
           Gọi ngay
         </a>
         <a
-          href="#ai-thiet-ke"
-          aria-label="AI Design - xem thử thiết kế tem"
-          onClick={() => trackEvent("ai_design_click", { position: "mobile_bar" })}
+          href="#bang-gia"
+          aria-label="Xem combo ưu đãi"
+          onClick={() => trackEvent("view_pricing", { position: "mobile_bar" })}
           className="flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-xl text-indigo-700 font-bold text-xs hover:bg-indigo-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
         >
-          <Sparkles className="w-5 h-5" aria-hidden="true" />
-          AI Design
+          <Tag className="w-5 h-5" aria-hidden="true" />
+          Combo ưu đãi
         </a>
         <a
           href={ZALO_URL}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Chốt đơn Zalo với VinPrint"
+          aria-label="Chốt in qua Zalo với VinPrint"
           onClick={() => trackEvent("click_zalo", { position: "mobile_bar" })}
           className="flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-xl bg-blue-700 text-white font-bold text-xs shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-900"
         >
           <ZaloIcon className="w-5 h-5" aria-hidden="true" />
-          Chốt đơn Zalo
+          Chốt in Zalo
         </a>
       </div>
     </nav>

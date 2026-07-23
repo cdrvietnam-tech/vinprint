@@ -6,9 +6,8 @@ import Image from "next/image";
 import { ZaloIcon } from "../icons";
 import { trackEvent } from "../../lib/analytics";
 import { CUSTOMER_AVATARS } from "./customer-avatars";
-import { ACTIVE_AI_DESIGN_SHOWCASE } from "./ai-design-showcases";
 
-export default function FAQAndMockup() {
+export default function FAQAndZaloCTA() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const faqs = [
@@ -26,7 +25,7 @@ export default function FAQAndMockup() {
     },
     {
       q: "Chưa có file thiết kế thì sao?",
-      a: "Không cần lo! Chỉ cần gửi ý tưởng hoặc logo. AI & Designer của VinPrint sẽ dựng mẫu thiết kế hoàn toàn miễn phí và cho xem trước kết quả trên sản phẩm thật.",
+      a: "VinPrint hỗ trợ thiết kế cho đơn hàng từ 200.000đ, tối đa 3 lần chỉnh sửa. Bạn chỉ cần gửi logo, nội dung và ý tưởng qua Zalo để được tư vấn.",
     },
     {
       q: "Có giao hàng toàn quốc không?",
@@ -38,9 +37,9 @@ export default function FAQAndMockup() {
     <>
       <section className="py-12 bg-gray-50/50">
         <div className="max-w-[1440px] mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1.6fr] gap-6 items-stretch">
+          <div className="w-full">
             
-            {/* Left Column: FAQ & QR (1:1 ratio side-by-side) */}
+            {/* FAQ & QR (1:1 ratio side-by-side) */}
             <div className="grid grid-cols-2 gap-4 items-stretch min-w-0 w-full">
               
               {/* FAQ Card */}
@@ -91,43 +90,6 @@ export default function FAQAndMockup() {
               </div>
 
             </div>
-
-            {/* Right Column: AI Mockup */}
-            <div className="bg-white rounded-[32px] p-6 lg:p-8 flex flex-col border border-gray-100 shadow-sm h-full items-center text-center">
-              <h2 className="text-xl font-extrabold text-gray-900 uppercase mb-8">
-                Xem thử tem trên sản phẩm (AI Mockup)
-              </h2>
-              
-              <div className="flex flex-col items-center justify-center flex-1 w-full relative">
-                {/* Connecting lines between steps */}
-                <div className="hidden sm:block absolute top-[50px] sm:top-[56px] left-[15%] right-[15%] h-0.5 bg-gray-100 z-0" />
-                
-                <div className="flex items-start justify-between w-full relative z-10">
-                  {[
-                    { step: 1, title: "Tải mẫu tem của bạn", sub: "Định dạng ảnh/pdf", img: ACTIVE_AI_DESIGN_SHOWCASE.old.src },
-                    { step: 2, title: "Chọn sản phẩm muốn dán xem", sub: "AI dán tự động", img: ACTIVE_AI_DESIGN_SHOWCASE.final.src },
-                    { step: 3, title: "Gửi cho xưởng in", sub: "Báo giá nhanh chóng", img: "/images/mockups/kraft_box.webp" }
-                  ].map((s, i) => (
-                    <div key={s.step} className="relative flex flex-col items-center gap-5 w-1/3 px-2">
-                      <div className="w-24 h-24 sm:w-28 sm:h-28 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden p-1.5 flex items-center justify-center relative group">
-                        <div className="absolute top-1.5 left-1.5 text-[11px] font-black text-indigo-500 z-10 bg-white/90 rounded-full w-5 h-5 flex items-center justify-center shadow-sm">{s.step}</div>
-                        <Image src={s.img} alt={s.title} fill loading="lazy" sizes="112px" className="object-cover rounded-xl group-hover:scale-110 transition-transform duration-500" />
-                      </div>
-                      <div>
-                        <div className="text-[13px] sm:text-[14px] font-extrabold text-gray-900 leading-tight max-w-[140px] mx-auto">{s.title}</div>
-                        <div className="text-[11px] font-medium text-gray-500 mt-1">{s.sub}</div>
-                      </div>
-                      {i < 2 && <ArrowRight className="absolute top-10 sm:top-12 -right-5 w-6 h-6 text-indigo-300 hidden sm:block" />}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" onClick={() => trackEvent("click_ai_mockup_interest", { position: "mockup_panel" })} className="inline-flex min-h-11 items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-700 text-white text-sm font-bold shadow-lg shadow-indigo-500/30 hover:opacity-90 transition-opacity w-full sm:w-auto justify-center mt-6">
-                Gửi mẫu để dựng mockup <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
-
           </div>
         </div>
       </section>
@@ -154,10 +116,10 @@ export default function FAQAndMockup() {
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" onClick={() => trackEvent("click_zalo", { position: "final_cta" })} className="inline-flex items-center justify-center gap-3 px-8 py-5 rounded-full bg-white text-blue-800 text-lg font-black shadow-xl hover:bg-gray-50 hover:scale-105 transition-all shrink-0">
                 <ZaloIcon className="w-6 h-6" />
-                Nhắn Zalo nhận giá <ArrowRight className="w-5 h-5" />
+                Nhắn Zalo chốt in <ArrowRight className="w-5 h-5" />
               </a>
               <a href="#bang-gia" onClick={() => trackEvent("view_pricing", { position: "final_cta" })} className="inline-flex items-center justify-center gap-3 px-8 py-5 rounded-full border-2 border-white/70 text-white text-lg font-black hover:bg-white/10 hover:border-white transition-all shrink-0">
-                Xem bảng giá ngay
+                Xem combo siêu hời
               </a>
             </div>
             

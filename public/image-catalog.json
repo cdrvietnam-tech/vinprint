@@ -1,0 +1,1027 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "path": "/images/ai-design/milk-tea-ai.webp",
+      "title": "Milk Tea Ai",
+      "category": "design",
+      "categoryLabel": "Thiết kế & tư liệu",
+      "width": 562,
+      "height": 570,
+      "bytes": 52834,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        }
+      ]
+    },
+    {
+      "path": "/images/ai-design/milk-tea-final.webp",
+      "title": "Milk Tea Final",
+      "category": "design",
+      "categoryLabel": "Thiết kế & tư liệu",
+      "width": 715,
+      "height": 1481,
+      "bytes": 138748,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        }
+      ]
+    },
+    {
+      "path": "/images/ai-design/milk-tea-old.webp",
+      "title": "Milk Tea Old",
+      "category": "design",
+      "categoryLabel": "Thiết kế & tư liệu",
+      "width": 588,
+      "height": 588,
+      "bytes": 40250,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        }
+      ]
+    },
+    {
+      "path": "/images/ai-design/mina-honey-ai.webp",
+      "title": "Mina Honey Ai",
+      "category": "design",
+      "categoryLabel": "Thiết kế & tư liệu",
+      "width": 540,
+      "height": 595,
+      "bytes": 65514,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        }
+      ]
+    },
+    {
+      "path": "/images/ai-design/mina-honey-final.webp",
+      "title": "Mina Honey Final",
+      "category": "design",
+      "categoryLabel": "Thiết kế & tư liệu",
+      "width": 747,
+      "height": 1307,
+      "bytes": 146436,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        }
+      ]
+    },
+    {
+      "path": "/images/ai-design/mina-honey-old.webp",
+      "title": "Mina Honey Old",
+      "category": "design",
+      "categoryLabel": "Thiết kế & tư liệu",
+      "width": 800,
+      "height": 800,
+      "bytes": 48276,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        }
+      ]
+    },
+    {
+      "path": "/images/ai-design/thy-kieu-body-ai.webp",
+      "title": "Thy Kieu Body Ai",
+      "category": "design",
+      "categoryLabel": "Thiết kế & tư liệu",
+      "width": 550,
+      "height": 551,
+      "bytes": 56048,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        }
+      ]
+    },
+    {
+      "path": "/images/ai-design/thy-kieu-body-final.webp",
+      "title": "Thy Kieu Body Final",
+      "category": "design",
+      "categoryLabel": "Thiết kế & tư liệu",
+      "width": 835,
+      "height": 1095,
+      "bytes": 126108,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        }
+      ]
+    },
+    {
+      "path": "/images/ai-design/thy-kieu-body-old.webp",
+      "title": "Thy Kieu Body Old",
+      "category": "design",
+      "categoryLabel": "Thiết kế & tư liệu",
+      "width": 374,
+      "height": 374,
+      "bytes": 17998,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        }
+      ]
+    },
+    {
+      "path": "/images/application-photo.webp",
+      "title": "Application Photo",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 46112,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/avatars/hero-customer-4.webp",
+      "title": "Hero Customer 4",
+      "category": "reviews",
+      "categoryLabel": "Đánh giá & khách hàng",
+      "width": 320,
+      "height": 320,
+      "bytes": 10322,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/#danh-gia",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/avatars/review-hong.webp",
+      "title": "Review Hong",
+      "category": "reviews",
+      "categoryLabel": "Đánh giá & khách hàng",
+      "width": 320,
+      "height": 320,
+      "bytes": 9144,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/#danh-gia",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/avatars/review-tuan.webp",
+      "title": "Review Tuan",
+      "category": "reviews",
+      "categoryLabel": "Đánh giá & khách hàng",
+      "width": 320,
+      "height": 320,
+      "bytes": 8166,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/#danh-gia",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/avatars/review-yen.webp",
+      "title": "Review Yen",
+      "category": "reviews",
+      "categoryLabel": "Đánh giá & khách hàng",
+      "width": 320,
+      "height": 320,
+      "bytes": 10772,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/#danh-gia",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/cach-chon-kich-thuoc-tem.webp",
+      "title": "Cach Chon Kich Thuoc Tem",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 768,
+      "height": 768,
+      "bytes": 48446,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/cach-thu-do-bam-tem-tren-nam-be-mat.webp",
+      "title": "Cach Thu Do Bam Tem Tren Nam Be Mat",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1600,
+      "height": 900,
+      "bytes": 51488,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/can-bong-va-can-mo-cho-tem.webp",
+      "title": "Can Bong Va Can Mo Cho Tem",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1600,
+      "height": 900,
+      "bytes": 68776,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/chuan-bi-file-in-tem.webp",
+      "title": "Chuan Bi File In Tem",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 768,
+      "height": 768,
+      "bytes": 68818,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/gia-in-tem-so-luong-it-phu-thuoc-gi.webp",
+      "title": "Gia In Tem So Luong It Phu Thuoc Gi",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1600,
+      "height": 900,
+      "bytes": 74058,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/keo-tem-cho-chai-nhua.webp",
+      "title": "Keo Tem Cho Chai Nhua",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1600,
+      "height": 900,
+      "bytes": 51672,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/loi-thiet-ke-tem.webp",
+      "title": "Loi Thiet Ke Tem",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 768,
+      "height": 768,
+      "bytes": 74366,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-bac-hay-tem-vang-anh-kim.webp",
+      "title": "Tem Bac Hay Tem Vang Anh Kim",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1600,
+      "height": 900,
+      "bytes": 79242,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-chong-nuoc.webp",
+      "title": "Tem Chong Nuoc",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 768,
+      "height": 768,
+      "bytes": 63892,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-giay-kraft-dung-khi-nao.webp",
+      "title": "Tem Giay Kraft Dung Khi Nao",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1600,
+      "height": 900,
+      "bytes": 125502,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-giay-va-tem-nhua.webp",
+      "title": "Tem Giay Va Tem Nhua",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 768,
+      "height": 768,
+      "bytes": 41294,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-nhua-trong-cho-chai.webp",
+      "title": "Tem Nhua Trong Cho Chai",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1600,
+      "height": 900,
+      "bytes": 49982,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-uv-dtf-la-gi.webp",
+      "title": "Tem Uv Dtf La Gi",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 768,
+      "height": 768,
+      "bytes": 54184,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/hero-admin/hero-1.png",
+      "title": "Hero 1",
+      "category": "hero",
+      "categoryLabel": "Ảnh hero",
+      "width": 608,
+      "height": 438,
+      "bytes": 457912,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        }
+      ]
+    },
+    {
+      "path": "/images/hero-admin/hero-2.png",
+      "title": "Hero 2",
+      "category": "hero",
+      "categoryLabel": "Ảnh hero",
+      "width": 667,
+      "height": 458,
+      "bytes": 592012,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        }
+      ]
+    },
+    {
+      "path": "/images/hero-admin/hero-3.png",
+      "title": "Hero 3",
+      "category": "hero",
+      "categoryLabel": "Ảnh hero",
+      "width": 704,
+      "height": 515,
+      "bytes": 701310,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        }
+      ]
+    },
+    {
+      "path": "/images/hero-admin/hero-4.png",
+      "title": "Hero 4",
+      "category": "hero",
+      "categoryLabel": "Ảnh hero",
+      "width": 572,
+      "height": 1000,
+      "bytes": 898423,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        }
+      ]
+    },
+    {
+      "path": "/images/hero-products.webp",
+      "title": "Hero Products",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 1024,
+      "height": 682,
+      "bytes": 143668,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Cẩm nang"
+        },
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/holographic_sticker.webp",
+      "title": "Holographic Sticker",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 768,
+      "height": 768,
+      "bytes": 57572,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/hot-products/hu-my-pham-thy-kieu.png",
+      "title": "Hu My Pham Thy Kieu",
+      "category": "hot-products",
+      "categoryLabel": "Sản phẩm hot",
+      "width": 763,
+      "height": 1000,
+      "bytes": 1053213,
+      "usages": [
+        {
+          "href": "/#san-pham-noi-bat",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/hot-products/mat-ong-mina.png",
+      "title": "Mat Ong Mina",
+      "category": "hot-products",
+      "categoryLabel": "Sản phẩm hot",
+      "width": 572,
+      "height": 1000,
+      "bytes": 898423,
+      "usages": [
+        {
+          "href": "/#san-pham-noi-bat",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/hot-products/tra-sua-kim-hieu.png",
+      "title": "Tra Sua Kim Hieu",
+      "category": "hot-products",
+      "categoryLabel": "Sản phẩm hot",
+      "width": 483,
+      "height": 1000,
+      "bytes": 606164,
+      "usages": [
+        {
+          "href": "/#san-pham-noi-bat",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/materials-flatlay.webp",
+      "title": "Materials Flatlay",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 41790,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/mockups/cosmetic_bottle-before.webp",
+      "title": "Cosmetic Bottle Before",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 768,
+      "height": 768,
+      "bytes": 7234,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/mockups/cosmetic_bottle.webp",
+      "title": "Cosmetic Bottle",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 768,
+      "height": 768,
+      "bytes": 11316,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/mockups/glass_jar-before.webp",
+      "title": "Glass Jar Before",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 768,
+      "height": 768,
+      "bytes": 11354,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/mockups/glass_jar.webp",
+      "title": "Glass Jar",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 768,
+      "height": 768,
+      "bytes": 15274,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/mockups/kraft_box-before.webp",
+      "title": "Kraft Box Before",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 768,
+      "height": 768,
+      "bytes": 15150,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/mockups/kraft_box.webp",
+      "title": "Kraft Box",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 768,
+      "height": 768,
+      "bytes": 22842,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/mockups/paper_box-before.webp",
+      "title": "Paper Box Before",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 768,
+      "height": 768,
+      "bytes": 4902,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/mockups/paper_box.webp",
+      "title": "Paper Box",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 768,
+      "height": 768,
+      "bytes": 8960,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/mockups/plastic_cup-before.webp",
+      "title": "Plastic Cup Before",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 768,
+      "height": 768,
+      "bytes": 10610,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/mockups/plastic_cup.webp",
+      "title": "Plastic Cup",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 768,
+      "height": 768,
+      "bytes": 12138,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/mockups/zip_pouch-before.webp",
+      "title": "Zip Pouch Before",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 768,
+      "height": 768,
+      "bytes": 9754,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/mockups/zip_pouch.webp",
+      "title": "Zip Pouch",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 768,
+      "height": 768,
+      "bytes": 15802,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/products/tem-bac.webp",
+      "title": "Tem Bac",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 392,
+      "height": 392,
+      "bytes": 21006,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/products/tem-ep-kim.webp",
+      "title": "Tem Ep Kim",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 640,
+      "height": 640,
+      "bytes": 52586,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/products/tem-giay.webp",
+      "title": "Tem Giay",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 640,
+      "height": 640,
+      "bytes": 51044,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/products/tem-nhua-chong-nuoc.webp",
+      "title": "Tem Nhua Chong Nuoc",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 31296,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/products/tem-nhua-trong.webp",
+      "title": "Tem Nhua Trong",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 94172,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/products/tem-uv-dtf.webp",
+      "title": "Tem Uv Dtf",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 640,
+      "height": 640,
+      "bytes": 42842,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/reviews/00e16dbd-7847-4b12-b875-3932f1273d92.webp",
+      "title": "00e16dbd 7847 4b12 B875 3932f1273d92",
+      "category": "reviews",
+      "categoryLabel": "Đánh giá & khách hàng",
+      "width": 910,
+      "height": 806,
+      "bytes": 41062,
+      "usages": [
+        {
+          "href": "/#danh-gia",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/reviews/064c6d82-4d23-499d-9e47-3f2f7950debf.webp",
+      "title": "064c6d82 4d23 499d 9e47 3f2f7950debf",
+      "category": "reviews",
+      "categoryLabel": "Đánh giá & khách hàng",
+      "width": 908,
+      "height": 823,
+      "bytes": 47614,
+      "usages": [
+        {
+          "href": "/#danh-gia",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/reviews/3968387d-27f1-4bea-a0c3-b6a156bef49a.webp",
+      "title": "3968387d 27f1 4bea A0c3 B6a156bef49a",
+      "category": "reviews",
+      "categoryLabel": "Đánh giá & khách hàng",
+      "width": 921,
+      "height": 844,
+      "bytes": 42846,
+      "usages": [
+        {
+          "href": "/#danh-gia",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/reviews/ba764839-91f3-4c20-b43c-f6b4bb4139bd.webp",
+      "title": "Ba764839 91f3 4c20 B43c F6b4bb4139bd",
+      "category": "reviews",
+      "categoryLabel": "Đánh giá & khách hàng",
+      "width": 883,
+      "height": 680,
+      "bytes": 34518,
+      "usages": [
+        {
+          "href": "/#danh-gia",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/reviews/c94586dc-ac29-4edc-b6ce-aebdeacf0f47.webp",
+      "title": "C94586dc Ac29 4edc B6ce Aebdeacf0f47",
+      "category": "reviews",
+      "categoryLabel": "Đánh giá & khách hàng",
+      "width": 928,
+      "height": 744,
+      "bytes": 31412,
+      "usages": [
+        {
+          "href": "/#danh-gia",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/reviews/da4ccfbd-d01c-4d63-8318-3b646ddf24ed.webp",
+      "title": "Da4ccfbd D01c 4d63 8318 3b646ddf24ed",
+      "category": "reviews",
+      "categoryLabel": "Đánh giá & khách hàng",
+      "width": 906,
+      "height": 734,
+      "bytes": 38744,
+      "usages": [
+        {
+          "href": "/#danh-gia",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/zalo-qr.png",
+      "title": "Zalo Qr",
+      "category": "brand",
+      "categoryLabel": "Thương hiệu & liên hệ",
+      "width": 320,
+      "height": 320,
+      "bytes": 1845,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/#lien-he",
+          "label": "Trang liên quan"
+        }
+      ]
+    }
+  ]
+}

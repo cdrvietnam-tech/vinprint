@@ -4,12 +4,12 @@ import test from "node:test";
 const developmentPreviewMeta =
   /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
 
-async function render(pathname = "/") {
+async function render(pathname = "/", origin = "http://localhost") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${pathname}`);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${origin}-${pathname}`);
   const { default: worker } = await import(workerUrl.href);
   return worker.fetch(
-    new Request(`http://localhost${pathname}`, {
+    new Request(new URL(pathname, origin), {
       headers: { accept: "text/html" },
     }),
     {
@@ -24,7 +24,7 @@ async function render(pathname = "/") {
   );
 }
 
-test("renders development preview metadata", async () => {
+test("does not expose development preview metadata", async () => {
   const response = await render();
 
   assert.equal(response.status, 200);
@@ -32,7 +32,7 @@ test("renders development preview metadata", async () => {
     response.headers.get("content-type") ?? "",
     /^text\/html\b/i,
   );
-  assert.match(await response.text(), developmentPreviewMeta);
+  assert.doesNotMatch(await response.text(), developmentPreviewMeta);
 });
 
 test("renders the new storefront homepage with key sections", async () => {
@@ -41,8 +41,8 @@ test("renders the new storefront homepage with key sections", async () => {
 
   assert.equal(response.status, 200);
   assert.match(html, /XƯỞNG IN SIÊU TỐC/i);
-  assert.match(html, /BẢNG GIÁ THAM KHẢO/i);
-  assert.match(html, /Chốt đơn Zalo/i);
+  assert.match(html, /Combo khuyến mãi siêu hời/i);
+  assert.match(html, /Chốt in Zalo/i);
   assert.match(html, /Câu hỏi thường gặp/i);
   assert.doesNotMatch(html, /Tải Order Pack ZIP/i);
   assert.match(html, /https:\/\/vinprint\.vn/);
@@ -52,20 +52,16 @@ test("renders the new storefront homepage with key sections", async () => {
   assert.doesNotMatch(html, /images\.unsplash\.com/i);
 });
 
-test("homepage exposes a server-rendered GEO knowledge hub", async () => {
+test("homepage keeps the print guide in the header instead of an inline section", async () => {
   const response = await render();
   const html = await response.text();
-  const section = html.match(/<section[^>]*id="cam-nang-tem-nhan"[\s\S]*?<\/section>/i)?.[0] ?? "";
+  const header = html.match(/<header[\s\S]*?<\/header>/i)?.[0] ?? "";
 
   assert.equal(response.status, 200);
-  assert.match(section, /Cẩm nang tem nhãn/i);
-  assert.match(section, /Chọn chất liệu/i);
-  assert.match(section, /Thiết kế tem/i);
-  assert.match(section, /Theo ngành/i);
-  assert.match(section, /Kỹ thuật in/i);
-  assert.match(section, /href="\/blog\/tem-giay-va-tem-nhua-nen-chon-loai-nao"/i);
-  assert.match(section, /href="\/blog\/tem-uv-dtf-la-gi"/i);
-  assert.match(section, /href="\/blog\/cach-chon-kich-thuoc-tem-nhan"/i);
+  assert.match(header, /href="\/blog"/i);
+  assert.match(header, /Cẩm nang in ấn/i);
+  assert.doesNotMatch(html, /id="cam-nang-tem-nhan"/i);
+  assert.doesNotMatch(html, /Xem toàn bộ cẩm nang/i);
 });
 
 test("homepage includes JSON-LD structured data", async () => {
@@ -91,20 +87,66 @@ test("public HTML responses include production security headers", async () => {
   assert.match(response.headers.get("permissions-policy") ?? "", /camera=\(\)/);
 });
 
-test("homepage exposes an accessible mobile menu and optimized hero image", async () => {
+
+
+test("security policy upgrades insecure requests only on HTTPS origins", async () => {
+  const localResponse = await render("/", "http://localhost");
+  const productionResponse = await render("/", "https://vinprint.vn");
+
+  assert.doesNotMatch(
+    localResponse.headers.get("content-security-policy") ?? "",
+    /upgrade-insecure-requests/,
+  );
+  assert.match(
+    productionResponse.headers.get("content-security-policy") ?? "",
+    /upgrade-insecure-requests/,
+  );
+});
+
+test("homepage exposes an accessible mobile menu and a large automatic hero slider", async () => {
   const response = await render();
   const html = await response.text();
   const hero = html.match(/<section[^>]*id="trang-chu"[\s\S]*?<\/section>/i)?.[0] ?? "";
 
   assert.match(html, /aria-controls="mobile-navigation"/);
-  assert.match(html, /\/images\/hero-products\.webp/);
+  assert.match(html, /id="mau-thuc-te"/);
+  assert.match(html, /id="danh-gia"/);
+  assert.match(html, /data-hero-carousel="large-auto-drag"/);
+  assert.match(html, /(?:\/|%2F)images(?:\/|%2F)hero-admin(?:\/|%2F)hero-1\.png/i);
+  assert.match(html, /In nhanh - Chuẩn đẹp - Giá tốt/i);
   assert.match(html, /_vinext\/image/);
   assert.doesNotMatch(html, /\/images\/hero-collage\.(?:png|webp)/);
   assert.doesNotMatch(html, /complete_ai_mockup/);
+  assert.match(hero, /object-contain/);
   assert.match(hero, /review-hong\.webp/);
   assert.match(hero, /review-tuan\.webp/);
   assert.match(hero, /review-yen\.webp/);
   assert.match(hero, /hero-customer-4\.webp/);
+  assert.match(hero, /Hơn 32000 lượt đánh giá cho shop ở Shopee/);
+  assert.doesNotMatch(hero, /Xem đánh giá trên Shopee/);
+
+  const heroSource = await import("node:fs/promises").then(({ readFile }) => readFile(new URL("../app/components/home/Hero.tsx", import.meta.url), "utf8"));
+  assert.match(heroSource, /}, 1500\);/);
+  assert.match(heroSource, /x: \{ duration: 0\.5/);
+  assert.match(heroSource, /drag="x"/);
+  assert.match(heroSource, /onDragEnd=/);
+  assert.match(heroSource, /onDragStart=/);
+  assert.match(heroSource, /isInteracting/);
+  assert.match(heroSource, /hero-sparkle-star/);
+  assert.match(heroSource, /DEFAULT_MEDIA_COLLECTIONS/);
+  assert.match(heroSource, /api\/media\/collections\?collection=hero/);
+  assert.match(heroSource, /unoptimized/);
+  assert.doesNotMatch(heroSource, /Kéo trái \/ phải/);
+  assert.doesNotMatch(heroSource, /figcaption/);
+});
+
+test("image library is available locally and protected in production", async () => {
+  const localResponse = await render("/admin/hinh-anh");
+  const productionResponse = await render("/admin/hinh-anh", "https://vinprint.vn");
+
+  assert.equal(localResponse.status, 200);
+  assert.match(await localResponse.text(), /Quản trị toàn bộ hình ảnh/i);
+  assert.equal(productionResponse.status, 401);
 });
 
 test("homepage renders local review avatars and the Zalo QR image", async () => {
@@ -119,28 +161,23 @@ test("homepage renders local review avatars and the Zalo QR image", async () => 
   assert.match(html, /alt="Mã QR Zalo VinPrint"/);
 });
 
-test("AI Design flow exposes all approved label transformations", async () => {
+test("homepage replaces AI Design with the wholesale pricing path", async () => {
   const response = await render();
   const html = await response.text();
-  const section = html.match(/<section[^>]*id="ai-thiet-ke"[\s\S]*?<\/section>/i)?.[0] ?? "";
-  const mockupStart = html.indexOf("Xem thử tem trên sản phẩm");
-  const mockupPanel = html.slice(mockupStart, mockupStart + 12000);
 
   assert.equal(response.status, 200);
-  assert.match(section, /milk-tea-old\.webp/);
-  assert.match(section, /milk-tea-ai\.webp/);
-  assert.match(section, /milk-tea-final\.webp/);
-  assert.match(section, /Tem cũ Kim Hiếu/);
-  assert.match(section, /Thiết kế AI Kim Hiếu/);
-  assert.match(section, /Thành phẩm tem trà sữa Kim Hiếu/);
-  assert.match(section, /data-ai-design-showcases="3"/);
-  assert.match(section, /aria-label="Xem combo Kim Hiếu"/);
-  assert.match(section, /aria-label="Xem combo Mina Honey"/);
-  assert.match(section, /aria-label="Xem combo Thy Kiều"/);
-  assert.notEqual(mockupStart, -1);
-  assert.match(mockupPanel, /milk-tea-old\.webp/);
-  assert.match(mockupPanel, /milk-tea-final\.webp/);
-  assert.doesNotMatch(html, /(?:honey|coffee)_(?:old|ai|final)\.webp/);
+  assert.match(html, /Combo ưu đãi/);
+  assert.match(html, /Giá demo/);
+  assert.match(html, /Hỗ trợ thiết kế đơn từ 200\.000đ/);
+  assert.match(html, /tối đa 3 lần chỉnh sửa/);
+  assert.doesNotMatch(html, /id="ai-thiet-ke"/);
+  assert.doesNotMatch(html, /data-ai-design-showcases/);
+  assert.doesNotMatch(html, /images\/ai-design/);
+  assert.doesNotMatch(html, /Một chiếc tem nhỏ/i);
+  assert.doesNotMatch(html, /Trước khi dán tem/i);
+  assert.doesNotMatch(html, /Các loại tem nhãn phổ biến/i);
+  assert.match(html, /Các sản phẩm[^<]*<span[^>]*>đang hot/i);
+  assert.match(html, /Xem tất cả sản phẩm của shop/i);
 });
 
 test("final quote CTA renders customer avatars instead of numeric placeholders", async () => {
@@ -261,6 +298,7 @@ test("publishes a transparent editorial process and author entity", async () => 
 test("all public routes render successfully", async () => {
   const routes = [
     "/",
+    "/san-pham",
     "/san-pham/tem-uv-dtf",
     "/san-pham/tem-giay",
     "/san-pham/tem-nhua-chong-nuoc",
@@ -391,7 +429,7 @@ test("image endpoint redirects to the raw local asset when preview bindings are 
       {},
       { waitUntil() {}, passThroughOnException() {} },
     );
-    assert.equal(remoteResponse.status, 200);
+    assert.equal(remoteResponse.status, 400);
 
     const blockedResponse = await worker.fetch(
       new Request("http://localhost/_vinext/image?url=https%3A%2F%2Fexample.com%2Ftracking.gif&w=640&q=82"),
@@ -399,7 +437,7 @@ test("image endpoint redirects to the raw local asset when preview bindings are 
       { waitUntil() {}, passThroughOnException() {} },
     );
     assert.equal(blockedResponse.status, 400);
-    assert.deepEqual(fetchedPaths, ["/file/sample"]);
+    assert.deepEqual(fetchedPaths, []);
   } finally {
     globalThis.fetch = originalFetch;
   }
