@@ -40,3 +40,24 @@ test("product catalog resolves managed thumbnails by stable tag id", () => {
   assert.match(source, /item\.id/);
   assert.match(source, /item\.image/);
 });
+
+test("product catalog prioritizes large imagery in a five-column desktop grid", () => {
+  const source = readFileSync(path.join(projectRoot, "app/components/catalog/ProductCatalogTabs.tsx"), "utf8");
+
+  assert.match(source, /lg:grid-cols-5/);
+  assert.match(source, /group\.items\.slice\(0, 15\)/);
+  assert.match(source, /aspect-\[4\/3\]/);
+  assert.match(source, /sizes="\(max-width: 639px\) 100vw, \(max-width: 1023px\) 50vw, 20vw"/);
+  assert.match(source, /data-catalog-card/);
+  assert.doesNotMatch(source, /h-16 w-16/);
+  assert.doesNotMatch(source, /Xem chi tiết/);
+});
+
+test("product catalog cards distinguish detail pages from Zalo quotes accessibly", () => {
+  const source = readFileSync(path.join(projectRoot, "app/components/catalog/ProductCatalogTabs.tsx"), "utf8");
+
+  assert.match(source, /alt=""/);
+  assert.match(source, /aria-label=\{`Xem \$\{name\}`\}/);
+  assert.match(source, /aria-label=\{`Nhắn Zalo nhận giá \$\{name\}`\}/);
+  assert.match(source, />\s*Nhận giá\s*</);
+});

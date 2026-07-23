@@ -78,8 +78,8 @@ export default function ProductCatalogTabs() {
                 </div>
               </div>
 
-              <div className="grid gap-3 p-4 sm:grid-cols-2 sm:p-6 lg:grid-cols-3 xl:grid-cols-4">
-                {group.items.map((item) => {
+              <div className="grid gap-x-4 gap-y-6 p-4 sm:grid-cols-2 sm:p-6 lg:grid-cols-5 lg:gap-x-5 lg:gap-y-8">
+                {group.items.slice(0, 15).map((item) => {
                   const { href } = item;
                   const managed = managedThumbnails[item.id];
                   const name = managed?.title || item.name;
@@ -87,7 +87,7 @@ export default function ProductCatalogTabs() {
                   const content = (
                     <>
                       <span
-                        className="relative h-16 w-16 shrink-0 overflow-hidden rounded-[14px] bg-white shadow-sm"
+                        className="relative block aspect-[4/3] w-full overflow-hidden rounded-[20px] bg-[#f3f0e9]"
                         data-catalog-thumbnail={name}
                       >
                         <Image
@@ -96,30 +96,37 @@ export default function ProductCatalogTabs() {
                           fill
                           loading="lazy"
                           unoptimized={image.startsWith("/media/")}
-                          sizes="64px"
-                          className="object-contain p-1.5 transition-transform duration-200 group-hover:scale-105"
+                          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 20vw"
+                          className="object-contain p-2 transition-transform duration-500 ease-out group-hover:scale-[1.045]"
                         />
+                        {!href ? (
+                          <span className="absolute left-3 top-3 rounded-full bg-orange-600 px-2.5 py-1 text-[10px] font-black uppercase tracking-wide text-white shadow-md">
+                            Nhận giá
+                          </span>
+                        ) : null}
+                        <span className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-white/90 text-gray-950 shadow-md backdrop-blur transition-transform duration-300 group-hover:scale-110">
+                          <ArrowUpRight className="h-4 w-4" />
+                        </span>
                       </span>
-                      <span className="min-w-0 flex-1">
-                        <strong className="block text-sm font-black leading-snug text-gray-950 sm:text-[15px]">{name}</strong>
-                        <small className="mt-1 flex items-center gap-1 text-[10px] font-black uppercase tracking-[0.08em] text-orange-700">
-                          {href ? "Xem chi tiết" : "Nhận giá"} <ArrowUpRight className="h-3.5 w-3.5" />
-                        </small>
+                      <span className="block px-1 pt-3">
+                        <strong className="line-clamp-2 block text-center text-base font-black leading-snug text-gray-950 sm:text-lg">{name}</strong>
                       </span>
                     </>
                   );
 
-                  const className = "group flex min-h-[92px] items-center gap-3 rounded-[20px] border border-gray-200 bg-gray-50 p-3 transition-[transform,border-color,background-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-orange-300 hover:bg-orange-50 hover:shadow-md active:scale-[0.98]";
+                  const className = "group block min-w-0 rounded-[24px] border border-gray-200 bg-white p-2 pb-4 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-orange-300 hover:shadow-[0_18px_45px_rgba(60,42,24,0.14)] active:scale-[0.98]";
                   return href ? (
-                    <Link key={item.id} href={href} className={className}>{content}</Link>
+                    <Link key={item.id} href={href} aria-label={`Xem ${name}`} className={className} data-catalog-card>{content}</Link>
                   ) : (
                     <a
                       key={item.id}
                       href={ZALO_URL}
                       target="_blank"
                       rel="noreferrer"
+                      aria-label={`Nhắn Zalo nhận giá ${name}`}
                       onClick={() => trackEvent("click_zalo", { position: `catalog_${group.key}` })}
                       className={className}
+                      data-catalog-card
                     >
                       {content}
                     </a>
