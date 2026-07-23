@@ -43,7 +43,7 @@ test("renders the new storefront homepage with key sections", async () => {
 
   assert.equal(response.status, 200);
   assert.match(html, /XƯỞNG IN SIÊU TỐC/i);
-  assert.match(html, /Combo khuyến mãi siêu hời/i);
+  assert.match(html, /Bảng giá combo tem giấy/i);
   assert.match(html, /Chốt in Zalo/i);
   assert.match(html, /Câu hỏi thường gặp/i);
   assert.doesNotMatch(html, /Tải Order Pack ZIP/i);
@@ -169,14 +169,24 @@ test("homepage keeps the Zalo QR without unverifiable review avatars", async () 
   assert.match(html, /alt="Mã QR Zalo VinPrint"/);
 });
 
-test("homepage replaces AI Design with the wholesale pricing path", async () => {
+test("homepage publishes the supplied paper label combo prices and wholesale path", async () => {
   const response = await render();
   const html = await response.text();
 
   assert.equal(response.status, 200);
   assert.match(html, /Combo ưu đãi/);
-  assert.match(html, /Giá tham khảo/);
-  assert.match(html, /Báo giá chính xác theo vật liệu, kích thước, số lượng/i);
+  assert.match(html, /Bảng giá combo tem giấy/i);
+  assert.match(html, /Khổ 3 cm/);
+  assert.match(html, /99\.000đ/);
+  assert.match(html, /Khổ 4 cm/);
+  assert.match(html, /141\.000đ/);
+  assert.match(html, /Khổ 5 cm/);
+  assert.match(html, /229\.000đ/);
+  assert.match(html, /Khổ 6 cm/);
+  assert.match(html, /320\.000đ/);
+  assert.match(html, /Nhận báo giá sỉ/i);
+  assert.match(html, /id="nhan-bao-gia"/);
+  assert.doesNotMatch(html, /299\.000đ|499\.000đ|699\.000đ|849\.000đ/);
   assert.doesNotMatch(html, /Giá demo/);
   assert.doesNotMatch(html, /Gợi ý combo để anh xem trước bố cục/i);
   assert.match(html, /Hỗ trợ thiết kế đơn từ 200\.000đ/);

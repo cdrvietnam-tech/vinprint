@@ -5,38 +5,38 @@ import { ArrowRight, CheckCircle2, Gift, Sparkles } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { trackEvent } from "../../lib/analytics";
 
-const combos = [
+const paperLabelCombos = [
   {
-    tag: "DỄ BẮT ĐẦU",
-    name: "Combo Khởi nghiệp",
-    price: "299.000đ",
+    tag: "GIÁ TẬN XƯỞNG",
+    name: "Khổ 3 cm",
+    price: "99.000đ",
     tone: "from-orange-50 to-amber-100",
     accent: "text-orange-700",
-    benefits: ["1.000 tem giấy", "Kiểm tra file in", "Hỗ trợ thiết kế tối đa 3 lần", "Giao tiêu chuẩn"],
+    benefits: ["1.000 tem giấy", "Kích thước 3 cm", "Duyệt mẫu trước khi in"],
   },
   {
     tag: "BÁN CHẠY",
-    name: "Combo Chống nước",
-    price: "499.000đ",
+    name: "Khổ 4 cm",
+    price: "141.000đ",
     tone: "from-cyan-50 to-blue-100",
     accent: "text-blue-700",
-    benefits: ["1.000 tem nhựa", "Cán bóng hoặc cán mờ", "Hỗ trợ thiết kế tối đa 3 lần", "Duyệt mẫu trước khi in"],
+    benefits: ["1.000 tem giấy", "Kích thước 4 cm", "Duyệt mẫu trước khi in"],
   },
   {
-    tag: "NÂNG TẦM THƯƠNG HIỆU",
-    name: "Combo Thương hiệu",
-    price: "699.000đ",
+    tag: "PHỔ BIẾN",
+    name: "Khổ 5 cm",
+    price: "229.000đ",
     tone: "from-violet-50 to-purple-100",
     accent: "text-violet-700",
-    benefits: ["700 tem nhựa", "100 tem UV DTF", "Kiểm tra & căn chỉnh file", "Hỗ trợ thiết kế tối đa 3 lần"],
+    benefits: ["1.000 tem giấy", "Kích thước 5 cm", "Duyệt mẫu trước khi in"],
   },
   {
-    tag: "THÀNH PHẨM CAO CẤP",
-    name: "Combo Ánh kim",
-    price: "849.000đ",
+    tag: "TEM KHỔ LỚN",
+    name: "Khổ 6 cm",
+    price: "320.000đ",
     tone: "from-yellow-50 to-amber-200",
     accent: "text-amber-800",
-    benefits: ["500 tem vàng hoặc bạc", "Gia công theo quy cách", "Duyệt mẫu trước khi in", "Tư vấn chất liệu miễn phí"],
+    benefits: ["1.000 tem giấy", "Kích thước 6 cm", "Duyệt mẫu trước khi in"],
   },
 ] as const;
 
@@ -45,7 +45,7 @@ const benefits = [
   "Duyệt mẫu trước khi in",
   "Hỗ trợ thiết kế đơn từ 200.000đ",
   "Tối đa 3 lần chỉnh sửa",
-  "Giao hàng toàn quốc",
+  "Freeship đơn từ 500.000đ",
 ];
 
 export default function Pricing() {
@@ -74,24 +74,24 @@ export default function Pricing() {
           <div className="relative z-10 mb-9 flex flex-col items-start justify-between gap-5 lg:flex-row lg:items-end">
             <div>
               <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-orange-300/30 bg-orange-400/15 px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.15em] text-orange-200">
-                <Gift className="h-4 w-4" /> Ưu đãi dành cho shop
+                <Gift className="h-4 w-4" /> Bảng giá siêu tiết kiệm
               </span>
-              <h2 className="max-w-3xl text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">Combo khuyến mãi siêu hời</h2>
+              <h2 className="max-w-3xl text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">Bảng giá combo tem giấy</h2>
               <p className="mt-3 max-w-2xl text-sm font-medium leading-relaxed text-purple-100 sm:text-base">
-                Giá tham khảo theo cấu hình ghi trên từng combo. Báo giá chính xác theo vật liệu, kích thước, số lượng và yêu cầu gia công.
+                Giá combo cho 1.000 tem giấy theo khổ 3–6 cm. Kích thước khác hoặc số lượng lớn, VinPrint báo giá sỉ theo đúng quy cách cần in.
               </p>
             </div>
-            <button
-              type="button"
-              onClick={() => trackEvent("view_pricing", { position: "pricing_expand" })}
+            <a
+              href="#nhan-bao-gia"
+              onClick={() => trackEvent("view_pricing", { position: "pricing_wholesale_quote" })}
               className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/30 bg-white/10 px-5 text-sm font-bold transition-colors hover:bg-white/20"
             >
-              Xem tất cả combo <ArrowRight className="h-4 w-4" />
-            </button>
+              Nhận báo giá sỉ <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
 
           <div className="relative z-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {combos.map((combo, index) => (
+            {paperLabelCombos.map((combo, index) => (
               <motion.article
                 key={combo.name}
                 initial={{ opacity: 0, y: 20 }}
@@ -105,7 +105,7 @@ export default function Pricing() {
                 <div className="mt-4 flex items-end gap-2">
                   <strong className="text-3xl font-black tracking-tight text-[#D83B00]">{combo.price}</strong>
                 </div>
-                <span className="mt-1 text-[11px] font-bold uppercase tracking-wide text-gray-600">Giá tham khảo</span>
+                <span className="mt-1 text-[11px] font-bold uppercase tracking-wide text-gray-600">Giá combo tem giấy</span>
 
                 <ul className="my-6 space-y-3 text-sm font-bold text-gray-800">
                   {combo.benefits.map((benefit) => (
