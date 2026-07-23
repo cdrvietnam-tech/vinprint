@@ -14,6 +14,7 @@ test("the complete categorized image library and admin are present", () => {
   const admin = readFileSync(path.join(projectRoot, "app/components/admin/HeroImageAdmin.tsx"), "utf8");
   const cropEditor = readFileSync(path.join(projectRoot, "app/components/admin/ImageCropEditor.tsx"), "utf8");
   const videoAdmin = readFileSync(path.join(projectRoot, "app/components/admin/VideoAdmin.tsx"), "utf8");
+  const mediaUpload = readFileSync(path.join(projectRoot, "app/lib/media-upload.ts"), "utf8");
   const worker = readFileSync(path.join(projectRoot, "worker/index.ts"), "utf8");
   const mediaCollections = readFileSync(path.join(projectRoot, "app/lib/media-collections.ts"), "utf8");
   const catalog = JSON.parse(readFileSync(path.join(projectRoot, "public/image-catalog.json"), "utf8")) as { items: Array<{ category: string }> };
@@ -27,6 +28,7 @@ test("the complete categorized image library and admin are present", () => {
   assert.match(admin, /openCurrentImageInCropper/);
   assert.match(admin, /\/api\/admin\/images\?path=/);
   assert.match(admin, /Cắt & căn/);
+  assert.match(admin, /optimizeImageWithProfile/);
   assert.match(admin, /<details/);
   assert.match(admin, /Ảnh hệ thống khác/);
   assert.match(admin, /nâng cao/);
@@ -47,6 +49,11 @@ test("the complete categorized image library and admin are present", () => {
   assert.match(videoAdmin, /Khôi phục/);
   assert.match(videoAdmin, /restore-item/);
   assert.match(videoAdmin, /restore-missing/);
+  assert.match(videoAdmin, /optimizeImageForUpload/);
+  assert.match(videoAdmin, /hiển thị trọn vẹn/);
+  assert.match(mediaUpload, /image\/webp/);
+  assert.match(mediaUpload, /createImageBitmap/);
+  assert.match(mediaUpload, /toBlob/);
   assert.ok(catalog.items.length >= 60);
   assert.ok(new Set(catalog.items.map((item) => item.category)).size >= 6);
   assert.match(worker, /HERO_IMAGES/);

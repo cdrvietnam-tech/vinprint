@@ -9,7 +9,7 @@ import { DEFAULT_MEDIA_COLLECTIONS, type ManagedMediaItem } from "../../lib/medi
 const defaultHotProducts = DEFAULT_MEDIA_COLLECTIONS["hot-products"];
 
 export default function HotProductsMarquee() {
-  const [hotProducts, setHotProducts] = useState<ManagedMediaItem[]>(defaultHotProducts);
+  const [hotProducts, setHotProducts] = useState<ManagedMediaItem[] | null>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const slotRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -23,16 +23,18 @@ export default function HotProductsMarquee() {
     fetch("/api/media/collections?collection=hot-products", { cache: "no-store" })
       .then(async (response) => response.ok ? response.json() as Promise<{ items: ManagedMediaItem[] }> : null)
       .then((result) => {
-        if (result?.items.length) setHotProducts(result.items);
+        if (Array.isArray(result?.items)) setHotProducts(result.items);
+        else setHotProducts(defaultHotProducts);
       })
-      .catch(() => undefined);
+      .catch(() => setHotProducts(defaultHotProducts));
   }, []);
 
   useEffect(() => {
     const viewport = viewportRef.current;
     const track = trackRef.current;
     const videos = videoRefs.current;
-    if (!viewport || !track) return;
+    const productCount = hotProducts?.length || 0;
+    if (!viewport || !track || productCount === 0) return;
 
     let frame = 0;
     let offset = 0;
@@ -94,7 +96,7 @@ export default function HotProductsMarquee() {
 
         if (distance < closestDistance) {
           closestDistance = distance;
-          closestIndex = index % hotProducts.length;
+          closestIndex = index % productCount;
         }
       });
 
@@ -114,7 +116,8 @@ export default function HotProductsMarquee() {
     };
   }, [hotProducts]);
 
-  const infiniteProducts = [...hotProducts, ...hotProducts];
+  const productCount = hotProducts?.length || 0;
+  const infiniteProducts = hotProducts ? [...hotProducts, ...hotProducts] : [];
   const setMarqueePaused = (paused: boolean) => {
     isPausedRef.current = paused;
     if (viewportRef.current) viewportRef.current.dataset.paused = String(paused);
@@ -130,9 +133,6 @@ export default function HotProductsMarquee() {
           <h2 className="text-3xl font-black uppercase leading-tight text-gray-950 sm:text-4xl lg:text-5xl">
             Các sản phẩm <span className="text-[#FF4D00]">đang hot</span>
           </h2>
-          <p className="mt-4 text-base font-medium leading-relaxed text-gray-700 sm:text-lg">
-            Mẫu sản phẩm tự chạy liên tục; mẫu vào giữa sẽ phóng lớn, nổi lên phía trước và phát sáng.
-          </p>
         </div>
       </div>
 
@@ -154,17 +154,28 @@ export default function HotProductsMarquee() {
       >
         <div className="pointer-events-none absolute inset-y-0 left-0 z-30 w-12 bg-gradient-to-r from-white via-white/80 to-transparent sm:w-32" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-30 w-12 bg-gradient-to-l from-white via-white/80 to-transparent sm:w-32" />
+        {hotProducts === null ? (
+          <div className="absolute inset-0 flex items-center justify-center" aria-label="Đang tải sản phẩm hot">
+            <span className="h-8 w-8 animate-spin rounded-full border-4 border-orange-100 border-t-orange-600" />
+          </div>
+        ) : productCount === 0 ? (
+          <div className="absolute inset-0 flex items-center justify-center px-4 text-center">
+            <p className="rounded-full border border-orange-100 bg-white px-5 py-3 text-sm font-bold text-gray-600 shadow-sm">Chưa có sản phẩm hot. Anh có thể đăng ảnh mới trong trang quản trị.</p>
+          </div>
+        ) : null}
         <div ref={trackRef} className="hot-products-track absolute left-0 top-6 flex w-max items-center gap-4 px-4 sm:top-8 sm:gap-7 sm:px-7">
           {infiniteProducts.map((product, index) => (
-            <div key={`${product.id}-${index}`} ref={(node) => { slotRefs.current[index] = node; }} className="w-[120px] shrink-0 sm:w-[155px] lg:w-[180px]" aria-hidden={index >= hotProducts.length}>
-              <Link href={product.href} tabIndex={index >= hotProducts.length ? -1 : undefined} className="block">
+            <div key={`${product.id}-${index}`} ref={(node) => { slotRefs.current[index] = node; }} className="w-[120px] shrink-0 sm:w-[155px] lg:w-[180px]" aria-hidden={index >= productCount}>
+              <Link href={product.href} tabIndex={index >= productCount ? -1 : undefined} className="block">
                 <article ref={(node) => { cardRefs.current[index] = node; }} data-centered="false" className="hot-product-card relative flex h-[200px] flex-col items-center justify-end sm:h-[250px] lg:h-[285px]">
-                  <div ref={(node) => { visualRefs.current[index] = node; }} className="hot-product-visual relative z-10 h-[145px] w-full sm:h-[190px] lg:h-[220px]">
-                    {product.kind === "video" ? (
-                      <video ref={(node) => { videoRefs.current[index] = node; }} src={product.src} muted loop playsInline preload="metadata" className="h-full w-full object-contain" aria-label={index < hotProducts.length ? product.title : ""} />
-                    ) : (
-                      <Image src={product.src} alt={index < hotProducts.length ? product.title : ""} fill loading="lazy" unoptimized={product.kind === "gif" || product.src.startsWith("/media/")} sizes="(max-width: 640px) 120px, (max-width: 1024px) 155px, 180px" className="object-contain" />
-                    )}
+                  <div ref={(node) => { visualRefs.current[index] = node; }} className="hot-product-visual relative z-10 h-[145px] w-full p-2 sm:h-[190px] sm:p-3 lg:h-[220px]" data-media-fit="contain">
+                    <div className="relative h-full w-full">
+                      {product.kind === "video" ? (
+                        <video ref={(node) => { videoRefs.current[index] = node; }} src={product.src} muted loop playsInline preload="metadata" className="h-full w-full object-contain" aria-label={index < productCount ? product.title : ""} />
+                      ) : (
+                        <Image src={product.src} alt={index < productCount ? product.title : ""} fill loading="lazy" unoptimized={product.kind === "gif" || product.src.startsWith("/media/")} sizes="(max-width: 640px) 104px, (max-width: 1024px) 131px, 156px" className="object-contain" />
+                      )}
+                    </div>
                   </div>
                   <div className="relative z-20 mt-3 min-h-9 text-center">
                     <span className="block text-[9px] font-black uppercase tracking-[0.12em] text-orange-700">{product.category}</span>

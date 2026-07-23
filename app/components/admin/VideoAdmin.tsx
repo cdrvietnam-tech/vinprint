@@ -4,6 +4,7 @@ import { CheckCircle2, Film, ImagePlus, Loader2, RotateCcw, Scissors, Trash2, Up
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { DEFAULT_MEDIA_COLLECTIONS, MEDIA_COLLECTIONS, type ManagedMediaItem, type MediaCollectionId } from "../../lib/media-collections";
+import { formatUploadSize, optimizeImageForUpload } from "../../lib/media-upload";
 import ImageCropEditor from "./ImageCropEditor";
 
 const allowedTypes = new Set(["image/png", "image/jpeg", "image/webp", "image/avif", "image/gif", "video/mp4", "video/webm"]);
@@ -70,20 +71,25 @@ export default function VideoAdmin() {
   const saveMedia = async (collection: MediaCollectionId, item: Omit<ManagedMediaItem, "kind" | "src">, file: File, successMessage: string) => {
     const definition = MEDIA_COLLECTIONS.find((entry) => entry.id === collection);
     if (!validateFile(collection, Boolean(definition?.allowVideo), file)) return;
-    const params = new URLSearchParams({ collection, id: item.id, title: item.title, category: item.category, href: item.href });
 
     setBusy(`${collection}:${item.id}`);
-    setMessages((current) => ({ ...current, [collection]: "Đang lưu nội dung…" }));
+    setMessages((current) => ({ ...current, [collection]: file.type.startsWith("image/") && file.type !== "image/gif" ? "Đang nén và chuẩn hóa ảnh cho web…" : "Đang lưu nội dung…" }));
     try {
+      const optimization = await optimizeImageForUpload(file, collection);
+      const uploadFile = optimization.file;
+      const params = new URLSearchParams({ collection, id: item.id, title: item.title, category: item.category, href: item.href });
       const response = await fetch(`/api/admin/media-collections?${params}`, {
         method: "PUT",
-        headers: { "content-type": file.type },
-        body: file,
+        headers: { "content-type": uploadFile.type },
+        body: uploadFile,
       });
       const result = await response.json() as { items?: ManagedMediaItem[]; error?: string };
       if (!response.ok || !result.items) throw new Error(result.error || "upload_failed");
       setCollections((current) => ({ ...current, [collection]: result.items || current[collection] }));
-      setMessages((current) => ({ ...current, [collection]: successMessage }));
+      const optimizationNote = optimization.optimized
+        ? ` Đã nén ${formatUploadSize(optimization.originalBytes)} → ${formatUploadSize(optimization.optimizedBytes)} WebP.`
+        : file.type.startsWith("image/") && file.type !== "image/gif" ? " Ảnh đã đạt dung lượng tối ưu." : "";
+      setMessages((current) => ({ ...current, [collection]: `${successMessage}${optimizationNote}` }));
     } catch (error) {
       const code = error instanceof Error ? error.message : "upload_failed";
       setMessages((current) => ({ ...current, [collection]: code === "storage_unavailable" ? "Kho nội dung chưa được kết nối." : "Không thể lưu. Vui lòng thử lại." }));
@@ -187,6 +193,9 @@ export default function VideoAdmin() {
                   <div>
                     <h3 className="text-lg font-black text-gray-950">{collection.title} <span className="text-violet-700">({items.length})</span></h3>
                     <p className="mt-1 text-xs font-medium text-gray-500">{collection.description}</p>
+                    <p className="mt-1 text-[11px] font-bold text-green-700">
+                      Ảnh tải lên được tự nén WebP và hiển thị trọn vẹn, căn giữa, không xén mép.
+                    </p>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {missingOriginals > 0 && (
@@ -207,11 +216,13 @@ export default function VideoAdmin() {
                     const changed = hasOriginal && !isOriginalItem(collection.id, item);
                     return (
                       <div key={item.id} className="w-56 shrink-0 rounded-2xl border border-gray-100 bg-gray-50 p-2.5">
-                        <div className="relative aspect-square overflow-hidden rounded-xl bg-white">
+                        <div className="relative aspect-square overflow-hidden rounded-xl bg-white p-2" data-media-fit="contain">
                           {item.kind === "video" ? (
                             <video src={item.src} controls muted playsInline preload="metadata" className="h-full w-full object-contain" aria-label={item.title} />
                           ) : (
-                            <Image src={item.src} alt={item.title} fill unoptimized={item.kind === "gif" || item.src.startsWith("/media/")} sizes="224px" className="object-contain" />
+                            <div className="relative h-full w-full">
+                              <Image src={item.src} alt={item.title} fill unoptimized={item.kind === "gif" || item.src.startsWith("/media/")} sizes="208px" className="object-contain" />
+                            </div>
                           )}
                           {item.kind !== "image" && <span className="absolute left-2 top-2 rounded-full bg-gray-950/80 px-2 py-1 text-[9px] font-black uppercase text-white">{item.kind === "video" ? <><Film className="mr-1 inline h-3 w-3" />Video</> : "GIF"}</span>}
                           {changed && <span className="absolute right-2 top-2 rounded-full bg-green-600 px-2 py-1 text-[9px] font-black uppercase text-white">Đã thay</span>}

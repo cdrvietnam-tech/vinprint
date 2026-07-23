@@ -4,6 +4,7 @@ import { ArrowLeft, CheckCircle2, ExternalLink, ImageUp, Loader2, RotateCcw, Sci
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { formatUploadSize, optimizeImageWithProfile } from "../../lib/media-upload";
 import ImageCropEditor from "./ImageCropEditor";
 import VideoAdmin from "./VideoAdmin";
 
@@ -98,8 +99,19 @@ export default function HeroImageAdmin() {
     }
 
     setUploading(item.path);
-    setMessages((current) => ({ ...current, [item.path]: "Đang tải ảnh lên…" }));
-    const previewUrl = URL.createObjectURL(file);
+    setMessages((current) => ({ ...current, [item.path]: "Đang nén và chuẩn hóa ảnh cho web…" }));
+    let optimization;
+    try {
+      optimization = await optimizeImageWithProfile(file, {
+        maxWidth: Math.min(2400, Math.max(1200, (item.width || 800) * 2)),
+        maxHeight: Math.min(2400, Math.max(1200, (item.height || 800) * 2)),
+        quality: 0.82,
+      });
+    } catch {
+      optimization = { file, originalBytes: file.size, optimizedBytes: file.size, optimized: false };
+    }
+    const uploadFile = optimization.file;
+    const previewUrl = URL.createObjectURL(uploadFile);
     setPreviewUrls((current) => {
       if (current[item.path]) URL.revokeObjectURL(current[item.path]);
       return { ...current, [item.path]: previewUrl };
@@ -107,16 +119,19 @@ export default function HeroImageAdmin() {
     try {
       const response = await fetch(`/api/admin/images?path=${encodeURIComponent(item.path)}`, {
         method: "PUT",
-        headers: { "content-type": file.type },
-        body: file,
+        headers: { "content-type": uploadFile.type },
+        body: uploadFile,
       });
       const result = await response.json() as { error?: string; version?: number };
       if (!response.ok) throw new Error(result.error || "upload_failed");
 
-      const changed: OverrideItem = { path: item.path, bytes: file.size, uploadedAt: new Date().toISOString(), uploadedBy: "" };
+      const changed: OverrideItem = { path: item.path, bytes: uploadFile.size, uploadedAt: new Date().toISOString(), uploadedBy: "" };
       setOverrides((current) => ({ ...current, [item.path]: changed }));
       setVersions((current) => ({ ...current, [item.path]: result.version || Date.now() }));
-      setMessages((current) => ({ ...current, [item.path]: "Đã thay ảnh thành công" }));
+      const optimizationNote = optimization.optimized
+        ? ` · Đã nén ${formatUploadSize(optimization.originalBytes)} → ${formatUploadSize(optimization.optimizedBytes)} WebP`
+        : " · Ảnh đã đạt dung lượng tối ưu";
+      setMessages((current) => ({ ...current, [item.path]: `Đã thay ảnh thành công${optimizationNote}` }));
     } catch (error) {
       const code = error instanceof Error ? error.message : "upload_failed";
       setMessages((current) => ({
