@@ -176,13 +176,13 @@ test("homepage publishes the supplied paper label combo prices and wholesale pat
   assert.equal(response.status, 200);
   assert.match(html, /Combo ưu đãi/);
   assert.match(html, /Bảng giá combo tem giấy/i);
-  assert.match(html, /Khổ 3 cm/);
+  assert.match(html, /Tròn 3 cm \(đường kính\)/);
   assert.match(html, /99\.000đ/);
-  assert.match(html, /Khổ 4 cm/);
+  assert.match(html, /Tròn 4 cm \(đường kính\)/);
   assert.match(html, /141\.000đ/);
-  assert.match(html, /Khổ 5 cm/);
+  assert.match(html, /Tròn 5 cm \(đường kính\)/);
   assert.match(html, /229\.000đ/);
-  assert.match(html, /Khổ 6 cm/);
+  assert.match(html, /Tròn 6 cm \(đường kính\)/);
   assert.match(html, /320\.000đ/);
   assert.match(html, /Nhận báo giá sỉ/i);
   assert.match(html, /id="nhan-bao-gia"/);

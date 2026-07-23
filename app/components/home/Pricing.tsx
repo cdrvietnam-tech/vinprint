@@ -8,35 +8,35 @@ import { trackEvent } from "../../lib/analytics";
 const paperLabelCombos = [
   {
     tag: "GIÁ TẬN XƯỞNG",
-    name: "Khổ 3 cm",
+    name: "Tròn 3 cm (đường kính)",
     price: "99.000đ",
     tone: "from-orange-50 to-amber-100",
     accent: "text-orange-700",
-    benefits: ["1.000 tem giấy", "Kích thước 3 cm", "Duyệt mẫu trước khi in"],
+    benefits: ["1.000 tem giấy", "Đường kính 3 cm", "Duyệt mẫu trước khi in"],
   },
   {
     tag: "BÁN CHẠY",
-    name: "Khổ 4 cm",
+    name: "Tròn 4 cm (đường kính)",
     price: "141.000đ",
     tone: "from-cyan-50 to-blue-100",
     accent: "text-blue-700",
-    benefits: ["1.000 tem giấy", "Kích thước 4 cm", "Duyệt mẫu trước khi in"],
+    benefits: ["1.000 tem giấy", "Đường kính 4 cm", "Duyệt mẫu trước khi in"],
   },
   {
     tag: "PHỔ BIẾN",
-    name: "Khổ 5 cm",
+    name: "Tròn 5 cm (đường kính)",
     price: "229.000đ",
     tone: "from-violet-50 to-purple-100",
     accent: "text-violet-700",
-    benefits: ["1.000 tem giấy", "Kích thước 5 cm", "Duyệt mẫu trước khi in"],
+    benefits: ["1.000 tem giấy", "Đường kính 5 cm", "Duyệt mẫu trước khi in"],
   },
   {
     tag: "TEM KHỔ LỚN",
-    name: "Khổ 6 cm",
+    name: "Tròn 6 cm (đường kính)",
     price: "320.000đ",
     tone: "from-yellow-50 to-amber-200",
     accent: "text-amber-800",
-    benefits: ["1.000 tem giấy", "Kích thước 6 cm", "Duyệt mẫu trước khi in"],
+    benefits: ["1.000 tem giấy", "Đường kính 6 cm", "Duyệt mẫu trước khi in"],
   },
 ] as const;
 
@@ -78,7 +78,7 @@ export default function Pricing() {
               </span>
               <h2 className="max-w-3xl text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">Bảng giá combo tem giấy</h2>
               <p className="mt-3 max-w-2xl text-sm font-medium leading-relaxed text-purple-100 sm:text-base">
-                Giá combo cho 1.000 tem giấy theo khổ 3–6 cm. Kích thước khác hoặc số lượng lớn, VinPrint báo giá sỉ theo đúng quy cách cần in.
+                Giá combo cho 1.000 tem giấy tròn, đường kính 3–6 cm. Kích thước khác hoặc số lượng lớn, VinPrint báo giá sỉ theo đúng quy cách cần in.
               </p>
             </div>
             <a
