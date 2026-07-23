@@ -17,6 +17,7 @@ const collectionImageProfiles: Record<MediaCollectionId, CollectionImageProfile>
   hero: { maxWidth: 1600, maxHeight: 1200, quality: 0.82 },
   "hot-products": { maxWidth: 1200, maxHeight: 1200, quality: 0.82 },
   gallery: { maxWidth: 1200, maxHeight: 1200, quality: 0.82 },
+  "product-thumbnails": { maxWidth: 800, maxHeight: 800, quality: 0.82 },
 };
 
 const optimizableStillImageTypes = new Set(["image/png", "image/jpeg", "image/webp", "image/avif"]);

@@ -59,7 +59,7 @@ test("hot products section keeps the all-products call to action", () => {
 
 test("product catalog contains the requested print categories", () => {
   const catalogPath = path.join(projectRoot, "app/components/catalog/ProductCatalogTabs.tsx");
-  const source = readFileSync(catalogPath, "utf8");
+  const source = `${readFileSync(catalogPath, "utf8")}\n${readFileSync(path.join(projectRoot, "app/lib/product-catalog.ts"), "utf8")}`;
 
   for (const category of ["Tem giấy", "Tem nhựa chống nước", "Tem giấy kraft", "Tem trong", "Sticker trang trí", "Tem vàng", "Tem bạc", "In catalog", "In card visit", "In voucher", "In bao thư", "In tờ rơi", "In folder", "In túi giấy", "In hóa đơn"]) {
     assert.match(source, new RegExp(category, "i"));

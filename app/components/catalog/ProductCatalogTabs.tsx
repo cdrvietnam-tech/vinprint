@@ -9,12 +9,12 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { trackEvent } from "../../lib/analytics";
+import { type ManagedMediaItem } from "../../lib/media-collections";
+import { PRODUCT_CATALOG_GROUPS, type ProductCatalogCategoryKey } from "../../lib/product-catalog";
 
-type CategoryKey = "all" | "labels" | "office" | "advertising" | "packaging";
-
-const tabs: Array<{ key: CategoryKey; label: string }> = [
+const tabs: Array<{ key: ProductCatalogCategoryKey; label: string }> = [
   { key: "all", label: "Tất cả" },
   { key: "labels", label: "Tem nhãn" },
   { key: "office", label: "Văn phòng" },
@@ -22,79 +22,29 @@ const tabs: Array<{ key: CategoryKey; label: string }> = [
   { key: "packaging", label: "Bao bì" },
 ];
 
-const groups = [
-  {
-    key: "labels" as const,
-    title: "Tem nhãn dán sản phẩm",
-    description: "Đủ chất liệu cho chai lọ, hộp, túi, mỹ phẩm, thực phẩm và đồ uống.",
-    icon: Tag,
-    tone: "from-orange-100 to-rose-50 text-orange-800",
-    items: [
-      { name: "Tem giấy", href: "/san-pham/tem-giay", image: "/images/products/tem-giay.webp" },
-      { name: "Tem nhựa chống nước", href: "/san-pham/tem-nhua-chong-nuoc", image: "/images/products/tem-nhua-chong-nuoc.webp" },
-      { name: "Tem giấy kraft", href: "/san-pham/tem-giay", image: "/images/mockups/kraft_box.webp" },
-      { name: "Tem trong", href: "/san-pham/tem-nhua-trong", image: "/images/products/tem-nhua-trong.webp" },
-      { name: "Sticker trang trí", href: "/san-pham/sticker-trang-tri", image: "/images/products/tem-nhua-chong-nuoc.webp" },
-      { name: "Tem vàng", href: "/san-pham/tem-vang", image: "/images/products/tem-ep-kim.webp" },
-      { name: "Tem bạc", href: "/san-pham/tem-bac", image: "/images/products/tem-bac.webp" },
-      { name: "Tem UV DTF", href: "/san-pham/tem-uv-dtf", image: "/images/products/tem-uv-dtf.webp" },
-      { name: "Tem hologram", href: "/san-pham/tem-7-mau", image: "/images/holographic_sticker.webp" },
-      { name: "Tem bảo hành", href: "/san-pham/tem-bao-hanh", image: "/images/products/tem-bac.webp" },
-      { name: "Tem phụ sản phẩm", href: "/san-pham/tem-phu-san-pham", image: "/images/products/tem-nhua-trong.webp" },
-    ],
-  },
-  {
-    key: "office" as const,
-    title: "Ấn phẩm văn phòng",
-    description: "Bộ ấn phẩm đồng bộ giúp thương hiệu xuất hiện chuyên nghiệp trong mọi giao dịch.",
-    icon: BriefcaseBusiness,
-    tone: "from-blue-100 to-cyan-50 text-blue-800",
-    items: [
-      { name: "In catalog", href: null, image: "/images/hero-admin/hero-1.png" },
-      { name: "In card visit", href: null, image: "/images/materials-flatlay.webp" },
-      { name: "In voucher", href: null, image: "/images/hero-admin/hero-2.png" },
-      { name: "In bao thư", href: null, image: "/images/mockups/paper_box.webp" },
-      { name: "In folder", href: null, image: "/images/hero-admin/hero-3.png" },
-      { name: "In hóa đơn", href: null, image: "/images/materials-flatlay.webp" },
-      { name: "In tiêu đề thư", href: null, image: "/images/hero-admin/hero-4.png" },
-    ],
-  },
-  {
-    key: "advertising" as const,
-    title: "Ấn phẩm quảng cáo",
-    description: "Truyền tải ưu đãi và thông tin bán hàng rõ ràng tại điểm bán hoặc sự kiện.",
-    icon: Megaphone,
-    tone: "from-violet-100 to-fuchsia-50 text-violet-800",
-    items: [
-      { name: "In tờ rơi", href: null, image: "/images/hero-admin/hero-2.png" },
-      { name: "In brochure", href: null, image: "/images/hero-admin/hero-1.png" },
-      { name: "In poster", href: null, image: "/images/hero-products.webp" },
-      { name: "In menu", href: null, image: "/images/materials-flatlay.webp" },
-      { name: "In standee", href: null, image: "/images/application-photo.webp" },
-      { name: "In phiếu bảo hành", href: null, image: "/images/products/tem-bac.webp" },
-    ],
-  },
-  {
-    key: "packaging" as const,
-    title: "Bao bì & phụ kiện",
-    description: "Hoàn thiện trải nghiệm mở hộp và tăng nhận diện thương hiệu ngay từ bao bì.",
-    icon: ShoppingBag,
-    tone: "from-emerald-100 to-lime-50 text-emerald-800",
-    items: [
-      { name: "In túi giấy", href: null, image: "/images/hero-admin/hero-3.png" },
-      { name: "In hộp giấy", href: null, image: "/images/mockups/paper_box.webp" },
-      { name: "In thẻ treo", href: null, image: "/images/products/tem-giay.webp" },
-      { name: "In tag sản phẩm", href: null, image: "/images/mockups/kraft_box.webp" },
-      { name: "In giấy gói", href: null, image: "/images/materials-flatlay.webp" },
-    ],
-  },
-] as const;
+const groupIcons = {
+  labels: Tag,
+  office: BriefcaseBusiness,
+  advertising: Megaphone,
+  packaging: ShoppingBag,
+};
 
 const ZALO_URL = "https://zalo.me/0844998499";
 
 export default function ProductCatalogTabs() {
-  const [activeTab, setActiveTab] = useState<CategoryKey>("all");
-  const visibleGroups = activeTab === "all" ? groups : groups.filter((group) => group.key === activeTab);
+  const [activeTab, setActiveTab] = useState<ProductCatalogCategoryKey>("all");
+  const [thumbnailSources, setThumbnailSources] = useState<Record<string, string>>({});
+  const visibleGroups = activeTab === "all" ? PRODUCT_CATALOG_GROUPS : PRODUCT_CATALOG_GROUPS.filter((group) => group.key === activeTab);
+
+  useEffect(() => {
+    fetch("/api/media/collections?collection=product-thumbnails", { cache: "no-store" })
+      .then(async (response) => response.ok ? response.json() as Promise<{ items: ManagedMediaItem[] }> : null)
+      .then((result) => {
+        if (!Array.isArray(result?.items)) return;
+        setThumbnailSources(Object.fromEntries(result.items.map((item) => [item.id, item.src])));
+      })
+      .catch(() => undefined);
+  }, []);
 
   return (
     <>
@@ -115,7 +65,7 @@ export default function ProductCatalogTabs() {
 
       <div className="space-y-7">
         {visibleGroups.map((group) => {
-          const Icon = group.icon;
+          const Icon = groupIcons[group.key];
           return (
             <section key={group.key} className="overflow-hidden rounded-[28px] border border-gray-200 bg-white shadow-sm">
               <div className={`flex flex-col gap-4 bg-gradient-to-r ${group.tone} p-6 sm:flex-row sm:items-center sm:p-8`}>
@@ -129,7 +79,9 @@ export default function ProductCatalogTabs() {
               </div>
 
               <div className="grid gap-3 p-4 sm:grid-cols-2 sm:p-6 lg:grid-cols-3 xl:grid-cols-4">
-                {group.items.map(({ name, href, image }) => {
+                {group.items.map((item) => {
+                  const { name, href } = item;
+                  const image = thumbnailSources[item.id] || item.image;
                   const content = (
                     <>
                       <span
@@ -141,6 +93,7 @@ export default function ProductCatalogTabs() {
                           alt=""
                           fill
                           loading="lazy"
+                          unoptimized={image.startsWith("/media/")}
                           sizes="64px"
                           className="object-contain p-1.5 transition-transform duration-200 group-hover:scale-105"
                         />
@@ -156,10 +109,10 @@ export default function ProductCatalogTabs() {
 
                   const className = "group flex min-h-[92px] items-center gap-3 rounded-[20px] border border-gray-200 bg-gray-50 p-3 transition-[transform,border-color,background-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-orange-300 hover:bg-orange-50 hover:shadow-md active:scale-[0.98]";
                   return href ? (
-                    <Link key={name} href={href} className={className}>{content}</Link>
+                    <Link key={item.id} href={href} className={className}>{content}</Link>
                   ) : (
                     <a
-                      key={name}
+                      key={item.id}
                       href={ZALO_URL}
                       target="_blank"
                       rel="noreferrer"

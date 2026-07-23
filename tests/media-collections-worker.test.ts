@@ -6,12 +6,15 @@ type StoredObject = {
   httpMetadata?: { contentType?: string; cacheControl?: string };
 };
 
-test("admin can delete bundled media items and the deletion survives a fresh collection read", async () => {
+async function loadWorker(scenario: string) {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-delete-bundled-media`);
-  const { default: worker } = await import(workerUrl.href);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${scenario}`);
+  return (await import(workerUrl.href)).default;
+}
+
+function createMemoryBucket() {
   const storedObjects = new Map<string, StoredObject>();
-  const bucket = {
+  return {
     async get(key: string) {
       const stored = storedObjects.get(key);
       if (!stored) return null;
@@ -32,6 +35,11 @@ test("admin can delete bundled media items and the deletion survives a fresh col
       storedObjects.delete(key);
     },
   };
+}
+
+test("admin can delete bundled media items and the deletion survives a fresh collection read", async () => {
+  const worker = await loadWorker("delete-bundled-media");
+  const bucket = createMemoryBucket();
   const env = { HERO_IMAGES: bucket };
   const context = { waitUntil() {}, passThroughOnException() {} };
   const endpoint = "http://localhost/api/admin/media-collections?collection=hot-products";
@@ -55,4 +63,34 @@ test("admin can delete bundled media items and the deletion survives a fresh col
     context,
   );
   assert.equal(unsafeDelete.status, 400);
+});
+
+test("replacing one product tag thumbnail does not change hero media", async () => {
+  const worker = await loadWorker("independent-product-thumbnail");
+  const bucket = createMemoryBucket();
+  const env = { HERO_IMAGES: bucket };
+  const context = { waitUntil() {}, passThroughOnException() {} };
+  const thumbnailEndpoint = "http://localhost/api/admin/media-collections?collection=product-thumbnails&id=catalog-in-catalog&title=In%20catalog&category=Ấn%20phẩm%20văn%20phòng&href=/san-pham";
+
+  const replaceResponse = await worker.fetch(
+    new Request(thumbnailEndpoint, {
+      method: "PUT",
+      headers: { "content-type": "image/webp" },
+      body: new Uint8Array([0x52, 0x49, 0x46, 0x46]),
+    }),
+    env,
+    context,
+  );
+  assert.equal(replaceResponse.status, 200);
+  const thumbnailItems = (await replaceResponse.json()).items;
+  const replaced = thumbnailItems.find((item: { id: string }) => item.id === "catalog-in-catalog");
+  assert.equal(replaced.src, "/media/collections/product-thumbnails/catalog-in-catalog");
+
+  const heroResponse = await worker.fetch(
+    new Request("http://localhost/api/admin/media-collections?collection=hero"),
+    env,
+    context,
+  );
+  const heroItems = (await heroResponse.json()).items;
+  assert.equal(heroItems[0].src, "/images/hero-admin/hero-1.png?managed=2");
 });

@@ -14,6 +14,7 @@ const cropSizes: Record<MediaCollectionId, { width: number; height: number }> = 
   hero: { width: 1200, height: 900 },
   "hot-products": { width: 1000, height: 1000 },
   gallery: { width: 1000, height: 1000 },
+  "product-thumbnails": { width: 800, height: 800 },
 };
 
 function defaultTitle(filename: string) {
@@ -30,11 +31,9 @@ function isOriginalItem(collection: MediaCollectionId, item: ManagedMediaItem) {
 }
 
 export default function VideoAdmin() {
-  const [collections, setCollections] = useState<Record<MediaCollectionId, ManagedMediaItem[]>>(() => ({
-    hero: [...DEFAULT_MEDIA_COLLECTIONS.hero],
-    "hot-products": [...DEFAULT_MEDIA_COLLECTIONS["hot-products"]],
-    gallery: [...DEFAULT_MEDIA_COLLECTIONS.gallery],
-  }));
+  const [collections, setCollections] = useState<Record<MediaCollectionId, ManagedMediaItem[]>>(() => Object.fromEntries(
+    MEDIA_COLLECTIONS.map(({ id }) => [id, [...DEFAULT_MEDIA_COLLECTIONS[id]]]),
+  ) as Record<MediaCollectionId, ManagedMediaItem[]>);
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState<string | null>(null);
   const [messages, setMessages] = useState<Record<string, string>>({});
@@ -110,7 +109,7 @@ export default function VideoAdmin() {
 
   const replaceMedia = async (collection: MediaCollectionId, item: ManagedMediaItem, file?: File) => {
     if (!file) return;
-    await saveMedia(collection, { id: item.id, title: item.title, category: item.category, href: item.href }, file, "Đã thay nội dung và cập nhật ngay trên trang chủ.");
+    await saveMedia(collection, { id: item.id, title: item.title, category: item.category, href: item.href }, file, collection === "product-thumbnails" ? "Đã thay ảnh riêng cho đúng tag sản phẩm." : "Đã thay nội dung và cập nhật đúng khu vực.");
   };
 
   const openCropper = async (collection: MediaCollectionId, item: ManagedMediaItem) => {
@@ -177,7 +176,7 @@ export default function VideoAdmin() {
       <div className="max-w-4xl">
         <p className="text-xs font-black uppercase tracking-[0.16em] text-violet-700">Bộ sưu tập động</p>
         <h2 className="mt-2 text-2xl font-black sm:text-3xl">Quản lý ngay trên từng ảnh hoặc video</h2>
-        <p className="mt-2 text-sm font-medium leading-relaxed text-gray-600">Mỗi thẻ có đủ thao tác đăng thêm, thay, cắt–căn, khôi phục và xóa. Nội dung mới sẽ xuất hiện đúng khu vực trên trang chủ.</p>
+        <p className="mt-2 text-sm font-medium leading-relaxed text-gray-600">Quản lý ảnh theo từng khu vực sử dụng. Ảnh thay mới được nén tự động và cập nhật đúng vị trí tương ứng.</p>
       </div>
 
       {loading ? (
@@ -187,6 +186,7 @@ export default function VideoAdmin() {
           {MEDIA_COLLECTIONS.map((collection) => {
             const items = collections[collection.id];
             const missingOriginals = DEFAULT_MEDIA_COLLECTIONS[collection.id].filter((original) => !items.some((item) => item.id === original.id)).length;
+            const isProductThumbnailCollection = collection.id === "product-thumbnails";
             return (
               <article key={collection.id} className="rounded-3xl border border-violet-100 bg-white p-4 shadow-sm">
                 <div className="flex flex-wrap items-center justify-between gap-3">
@@ -194,7 +194,9 @@ export default function VideoAdmin() {
                     <h3 className="text-lg font-black text-gray-950">{collection.title} <span className="text-violet-700">({items.length})</span></h3>
                     <p className="mt-1 text-xs font-medium text-gray-500">{collection.description}</p>
                     <p className="mt-1 text-[11px] font-bold text-green-700">
-                      Ảnh tải lên được tự nén WebP và hiển thị trọn vẹn, căn giữa, không xén mép.
+                      {isProductThumbnailCollection
+                        ? "Mỗi tag dùng một ảnh độc lập. Thay ảnh – Cắt/căn – Khôi phục; không ảnh hưởng Hero hoặc trang chủ."
+                        : "Ảnh tải lên được tự nén WebP và hiển thị trọn vẹn, căn giữa, không xén mép."}
                     </p>
                   </div>
                   <div className="flex flex-wrap gap-2">
@@ -203,19 +205,21 @@ export default function VideoAdmin() {
                         <RotateCcw className="h-4 w-4" /> Lấy lại {missingOriginals} mẫu gốc
                       </button>
                     )}
-                    <label className="inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-full bg-violet-700 px-5 text-xs font-black text-white hover:bg-violet-800">
-                      {busy?.startsWith(`${collection.id}:media-`) ? <Loader2 className="h-4 w-4 animate-spin" /> : <ImagePlus className="h-4 w-4" />} Đăng thêm
-                      <input type="file" accept={collection.allowVideo ? "image/png,image/jpeg,image/webp,image/avif,image/gif,video/mp4,video/webm" : "image/png,image/jpeg,image/webp,image/avif,image/gif"} className="sr-only" disabled={busy !== null} onChange={(event) => { void addMedia(collection.id, collection.allowVideo, event.target.files?.[0]); event.currentTarget.value = ""; }} />
-                    </label>
+                    {collection.allowAdd && (
+                      <label className="inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-full bg-violet-700 px-5 text-xs font-black text-white hover:bg-violet-800">
+                        {busy?.startsWith(`${collection.id}:media-`) ? <Loader2 className="h-4 w-4 animate-spin" /> : <ImagePlus className="h-4 w-4" />} Đăng thêm
+                        <input type="file" accept={collection.allowVideo ? "image/png,image/jpeg,image/webp,image/avif,image/gif,video/mp4,video/webm" : "image/png,image/jpeg,image/webp,image/avif,image/gif"} className="sr-only" disabled={busy !== null} onChange={(event) => { void addMedia(collection.id, collection.allowVideo, event.target.files?.[0]); event.currentTarget.value = ""; }} />
+                      </label>
+                    )}
                   </div>
                 </div>
 
-                <div className="mt-4 flex gap-3 overflow-x-auto pb-2">
+                <div className={isProductThumbnailCollection ? "mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" : "mt-4 flex gap-3 overflow-x-auto pb-2"}>
                   {items.map((item) => {
                     const hasOriginal = DEFAULT_MEDIA_COLLECTIONS[collection.id].some((entry) => entry.id === item.id);
                     const changed = hasOriginal && !isOriginalItem(collection.id, item);
                     return (
-                      <div key={item.id} className="w-56 shrink-0 rounded-2xl border border-gray-100 bg-gray-50 p-2.5">
+                      <div key={item.id} className={`${isProductThumbnailCollection ? "min-w-0" : "w-56 shrink-0"} rounded-2xl border border-gray-100 bg-gray-50 p-2.5`}>
                         <div className="relative aspect-square overflow-hidden rounded-xl bg-white p-2" data-media-fit="contain">
                           {item.kind === "video" ? (
                             <video src={item.src} controls muted playsInline preload="metadata" className="h-full w-full object-contain" aria-label={item.title} />
@@ -229,7 +233,7 @@ export default function VideoAdmin() {
                         </div>
                         <p className="mt-2 truncate text-xs font-black" title={item.title}>{item.title}</p>
                         <p className="mt-0.5 truncate text-[10px] font-bold text-gray-500">{item.category}</p>
-                        <div className="mt-2 grid grid-cols-2 gap-1.5">
+                        <div className={`mt-2 grid gap-1.5 ${collection.allowDelete ? "grid-cols-2" : "grid-cols-3"}`}>
                           <label className="flex min-h-9 cursor-pointer items-center justify-center gap-1 rounded-full bg-gray-950 px-2 text-[10px] font-black text-white">
                             <Upload className="h-3.5 w-3.5" /> Thay
                             <input type="file" accept={collection.allowVideo ? "image/png,image/jpeg,image/webp,image/avif,image/gif,video/mp4,video/webm" : "image/png,image/jpeg,image/webp,image/avif,image/gif"} className="sr-only" disabled={busy !== null} onChange={(event) => { void replaceMedia(collection.id, item, event.target.files?.[0]); event.currentTarget.value = ""; }} />
@@ -240,9 +244,11 @@ export default function VideoAdmin() {
                           <button type="button" disabled={busy !== null || !changed} onClick={() => void runRestore(collection.id, "restore-item", item)} className="flex min-h-9 items-center justify-center gap-1 rounded-full bg-gray-100 px-2 text-[10px] font-black text-gray-700 disabled:cursor-not-allowed disabled:opacity-35">
                             <RotateCcw className="h-3.5 w-3.5" /> Khôi phục
                           </button>
-                          <button type="button" disabled={busy !== null} onClick={() => void removeMedia(collection.id, item)} className="flex min-h-9 items-center justify-center gap-1 rounded-full bg-red-50 px-2 text-[10px] font-black text-red-700 disabled:opacity-40">
-                            <Trash2 className="h-3.5 w-3.5" /> Xóa
-                          </button>
+                          {collection.allowDelete && (
+                            <button type="button" disabled={busy !== null} onClick={() => void removeMedia(collection.id, item)} className="flex min-h-9 items-center justify-center gap-1 rounded-full bg-red-50 px-2 text-[10px] font-black text-red-700 disabled:opacity-40">
+                              <Trash2 className="h-3.5 w-3.5" /> Xóa
+                            </button>
+                          )}
                         </div>
                       </div>
                     );
