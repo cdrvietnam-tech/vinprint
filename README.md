@@ -49,6 +49,16 @@ npm run start
 
 The application uses Next.js-compatible App Router code through Vinext and produces a Cloudflare Worker-compatible artifact in `dist/`. The hosting provider should preserve the canonical domain, HTTPS and public anonymous access.
 
+## Cloudflare Access for admin routes
+
+Production admin routes fail closed unless all three environment variables are configured:
+
+- `ADMIN_EMAIL`: the single email allowed to administer the site.
+- `CF_ACCESS_TEAM_DOMAIN`: the Access team domain, for example `your-team.cloudflareaccess.com`.
+- `CF_ACCESS_AUD`: the application Audience (AUD) tag shown in the Cloudflare Access application settings.
+
+The Worker verifies the Access JWT signature, issuer, audience, expiry and email before serving `/admin/*` or `/api/admin/*`. The Cloudflare Access application must cover both path groups.
+
 ## Main files
 
 - `app/page.tsx` — storefront content and interactions

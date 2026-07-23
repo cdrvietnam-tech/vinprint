@@ -4,7 +4,7 @@ import HotProductsMarquee from "./components/home/HotProductsMarquee";
 import Pricing from "./components/home/Pricing";
 import Process from "./components/home/Process";
 import Gallery from "./components/home/Gallery";
-import Reviews from "./components/home/Reviews";
+import CaseStudies from "./components/home/CaseStudies";
 import FAQAndZaloCTA from "./components/home/FAQAndZaloCTA";
 import Footer from "./components/home/Footer";
 import StructuredData from "./components/home/StructuredData";
@@ -25,7 +25,7 @@ export default function Page() {
         <section className="py-12 bg-gray-50/50">
           <div className="max-w-[1440px] mx-auto px-4 grid grid-cols-1 xl:grid-cols-2 gap-8 items-stretch">
             <Gallery />
-            <Reviews />
+            <CaseStudies />
           </div>
         </section>
         <FAQAndZaloCTA />

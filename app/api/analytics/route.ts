@@ -5,6 +5,7 @@ const allowedEvents = new Set<VinPrintEventName>([
   "click_zalo",
   "load_google_map",
   "open_google_maps",
+  "submit_quote_request",
   "view_pricing",
 ]);
 

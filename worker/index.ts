@@ -4,12 +4,15 @@ import handler from "vinext/server/app-router-entry";
 import { resolveLegacyRedirect } from "../app/lib/legacy-redirects";
 import { DEFAULT_MEDIA_COLLECTIONS, isValidManagedMediaItemId, type ManagedMediaItem, type MediaCollectionId } from "../app/lib/media-collections";
 import { isManagedContentType, parseManagedContentOverride, type ManagedContentType } from "../app/lib/content-management";
+import { QUOTE_FILE_EXTENSIONS, QUOTE_FILE_MAX_BYTES, type QuoteRequestRecord } from "../app/lib/quote-requests";
 
 interface Env {
   ASSETS?: Fetcher;
   DB: D1Database;
   HERO_IMAGES?: R2Bucket;
   ADMIN_EMAIL?: string;
+  CF_ACCESS_AUD?: string;
+  CF_ACCESS_TEAM_DOMAIN?: string;
   IMAGES?: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {
@@ -19,14 +22,127 @@ interface Env {
   };
 }
 
-function isAdminRequest(request: Request, env: Env) {
+type AccessJwtHeader = {
+  alg?: string;
+  kid?: string;
+};
+
+type AccessJwtPayload = {
+  aud?: string | string[];
+  email?: string;
+  exp?: number;
+  iss?: string;
+  nbf?: number;
+};
+
+type AccessJwk = JsonWebKey & { kid?: string };
+
+let accessKeyCache: { expiresAt: number; issuer: string; keys: AccessJwk[] } | null = null;
+
+function decodeJwtPart<T>(value: string): T | null {
+  try {
+    const normalized = value.replace(/-/g, "+").replace(/_/g, "/");
+    const padded = normalized.padEnd(Math.ceil(normalized.length / 4) * 4, "=");
+    const binary = atob(padded);
+    const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+    return JSON.parse(new TextDecoder().decode(bytes)) as T;
+  } catch {
+    return null;
+  }
+}
+
+function decodeJwtSignature(value: string) {
+  try {
+    const normalized = value.replace(/-/g, "+").replace(/_/g, "/");
+    const padded = normalized.padEnd(Math.ceil(normalized.length / 4) * 4, "=");
+    const binary = atob(padded);
+    return Uint8Array.from(binary, (character) => character.charCodeAt(0));
+  } catch {
+    return null;
+  }
+}
+
+function getAccessIssuer(value: string | undefined) {
+  if (!value) return null;
+  try {
+    const url = new URL(value.startsWith("https://") ? value : `https://${value}`);
+    if (url.protocol !== "https:" || !url.hostname.endsWith(".cloudflareaccess.com")) return null;
+    return url.origin;
+  } catch {
+    return null;
+  }
+}
+
+async function getAccessKeys(issuer: string) {
+  if (accessKeyCache?.issuer === issuer && accessKeyCache.expiresAt > Date.now()) {
+    return accessKeyCache.keys;
+  }
+  const response = await fetch(`${issuer}/cdn-cgi/access/certs`, {
+    headers: { accept: "application/json" },
+  });
+  if (!response.ok) return [];
+  const result = await response.json<{ keys?: AccessJwk[] }>();
+  const keys = Array.isArray(result.keys) ? result.keys : [];
+  accessKeyCache = { issuer, keys, expiresAt: Date.now() + 5 * 60 * 1000 };
+  return keys;
+}
+
+async function verifyAccessAssertion(assertion: string, env: Env) {
+  const issuer = getAccessIssuer(env.CF_ACCESS_TEAM_DOMAIN);
+  const allowedAudiences = (env.CF_ACCESS_AUD || "").split(",").map((value) => value.trim()).filter(Boolean);
+  if (!issuer || !allowedAudiences.length) return null;
+
+  const parts = assertion.split(".");
+  if (parts.length !== 3) return null;
+  const header = decodeJwtPart<AccessJwtHeader>(parts[0]);
+  const payload = decodeJwtPart<AccessJwtPayload>(parts[1]);
+  const signature = decodeJwtSignature(parts[2]);
+  if (!header || !payload || !signature || header.alg !== "RS256" || !header.kid) return null;
+
+  const now = Math.floor(Date.now() / 1000);
+  const audiences = Array.isArray(payload.aud) ? payload.aud : payload.aud ? [payload.aud] : [];
+  if (
+    payload.iss !== issuer
+    || typeof payload.exp !== "number"
+    || payload.exp <= now
+    || (typeof payload.nbf === "number" && payload.nbf > now)
+    || !audiences.some((audience) => allowedAudiences.includes(audience))
+  ) {
+    return null;
+  }
+
+  try {
+    const keys = await getAccessKeys(issuer);
+    const key = keys.find((candidate) => candidate.kid === header.kid);
+    if (!key) return null;
+    const cryptoKey = await crypto.subtle.importKey(
+      "jwk",
+      key,
+      { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
+      false,
+      ["verify"],
+    );
+    const valid = await crypto.subtle.verify(
+      "RSASSA-PKCS1-v1_5",
+      cryptoKey,
+      signature,
+      new TextEncoder().encode(`${parts[0]}.${parts[1]}`),
+    );
+    return valid && typeof payload.email === "string" ? payload.email.trim().toLowerCase() : null;
+  } catch {
+    return null;
+  }
+}
+
+async function isAdminRequest(request: Request, env: Env) {
   const url = new URL(request.url);
   if (url.hostname === "127.0.0.1" || url.hostname === "localhost") return true;
 
-  const email = (request.headers.get("cf-access-authenticated-user-email") || "").trim().toLowerCase();
   const accessAssertion = request.headers.get("cf-access-jwt-assertion");
   const allowedEmail = env.ADMIN_EMAIL?.trim().toLowerCase();
-  return Boolean(accessAssertion && email && allowedEmail && email === allowedEmail);
+  if (!accessAssertion || !allowedEmail) return false;
+  const verifiedEmail = await verifyAccessAssertion(accessAssertion, env);
+  return Boolean(verifiedEmail && verifiedEmail === allowedEmail);
 }
 
 function normalizeManagedImagePath(value: string | null) {
@@ -42,8 +158,160 @@ const maxManagedVideoSize = 95 * 1024 * 1024;
 const managedCollectionMediaTypes = new Set(["image/png", "image/jpeg", "image/webp", "image/avif", "image/gif", "video/mp4", "video/webm"]);
 const managedCollectionIds = new Set(Object.keys(DEFAULT_MEDIA_COLLECTIONS));
 const maxManagedCollectionImageSize = 12 * 1024 * 1024;
+const allowedQuoteFileExtensions = new Set<string>(QUOTE_FILE_EXTENSIONS);
 let cachedOverridePaths: Set<string> | null = null;
 let overridePathsExpireAt = 0;
+
+function getQuoteRequestId(value: string | null) {
+  return value && /^[a-z0-9-]{8,64}$/i.test(value) ? value : null;
+}
+
+function getQuoteField(form: FormData, name: string, maxLength: number) {
+  const value = form.get(name);
+  return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
+}
+
+function getQuoteFileExtension(fileName: string) {
+  const dot = fileName.lastIndexOf(".");
+  return dot >= 0 ? fileName.slice(dot + 1).toLowerCase() : "";
+}
+
+function safeDownloadFileName(value: string) {
+  return value.replace(/[\r\n"]/g, "").slice(0, 180) || "vinprint-file";
+}
+
+function startsWithBytes(bytes: Uint8Array, expected: number[]) {
+  return expected.every((value, index) => bytes[index] === value);
+}
+
+async function validateQuoteFile(file: File) {
+  const extension = getQuoteFileExtension(file.name);
+  if (!allowedQuoteFileExtensions.has(extension)) return null;
+
+  const bytes = new Uint8Array(await file.slice(0, 1024).arrayBuffer());
+  const text = new TextDecoder("utf-8", { fatal: false }).decode(bytes).replace(/^\uFEFF/, "").trimStart();
+  const isPdf = text.startsWith("%PDF-");
+  const isPostScript = text.startsWith("%!PS");
+  const isZip = startsWithBytes(bytes, [0x50, 0x4b, 0x03, 0x04])
+    || startsWithBytes(bytes, [0x50, 0x4b, 0x05, 0x06])
+    || startsWithBytes(bytes, [0x50, 0x4b, 0x07, 0x08]);
+  const isRiff = startsWithBytes(bytes, [0x52, 0x49, 0x46, 0x46]);
+  const isValid = {
+    pdf: isPdf,
+    png: startsWithBytes(bytes, [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]),
+    jpg: startsWithBytes(bytes, [0xff, 0xd8, 0xff]),
+    jpeg: startsWithBytes(bytes, [0xff, 0xd8, 0xff]),
+    webp: isRiff && startsWithBytes(bytes.slice(8), [0x57, 0x45, 0x42, 0x50]),
+    zip: isZip,
+    svg: /^<\?xml[\s\S]{0,300}<svg\b/i.test(text) || /^<svg\b/i.test(text),
+    ai: isPdf || isPostScript,
+    eps: isPostScript,
+    cdr: isRiff || isZip,
+  }[extension];
+  if (!isValid) return null;
+
+  if (extension === "pdf") return "application/pdf";
+  if (extension === "png") return "image/png";
+  if (extension === "jpg" || extension === "jpeg") return "image/jpeg";
+  if (extension === "webp") return "image/webp";
+  if (extension === "zip") return "application/zip";
+  return "application/octet-stream";
+}
+
+async function parseBoundedMultipartForm(request: Request, maxBytes: number) {
+  const contentType = request.headers.get("content-type") || "";
+  if (!contentType.toLowerCase().startsWith("multipart/form-data") || !request.body) {
+    return { error: "invalid_form" as const };
+  }
+
+  const reader = request.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let totalBytes = 0;
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    totalBytes += value.byteLength;
+    if (totalBytes > maxBytes) {
+      await reader.cancel();
+      return { error: "file_too_large" as const };
+    }
+    chunks.push(value);
+  }
+
+  const body = new Uint8Array(totalBytes);
+  let offset = 0;
+  for (const chunk of chunks) {
+    body.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+
+  try {
+    const form = await new Response(body, { headers: { "content-type": contentType } }).formData();
+    return { form };
+  } catch {
+    return { error: "invalid_form" as const };
+  }
+}
+
+async function consumeQuoteRateLimit(bucket: R2Bucket, request: Request) {
+  const url = new URL(request.url);
+  if (url.hostname === "127.0.0.1" || url.hostname === "localhost") return true;
+
+  const clientIp = request.headers.get("cf-connecting-ip")?.trim() || "unknown";
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(clientIp));
+  const clientKey = [...new Uint8Array(digest)].slice(0, 12).map((value) => value.toString(16).padStart(2, "0")).join("");
+  const now = Date.now();
+  const windowMs = 10 * 60 * 1000;
+  const windowStart = Math.floor(now / windowMs) * windowMs;
+
+  // Keys begin with the fixed window timestamp, so stale windows are listed
+  // first and can be cleaned incrementally without retaining one object per IP.
+  const stale = await bucket.list({ prefix: "quote-requests/rate/", limit: 100 });
+  const staleKeys = stale.objects
+    .filter((object) => {
+      const timestamp = Number(object.key.split("/")[2]);
+      return Number.isFinite(timestamp) && timestamp < windowStart;
+    })
+    .map((object) => object.key);
+  if (staleKeys.length) await Promise.allSettled(staleKeys.map((key) => bucket.delete(key)));
+
+  for (let slot = 0; slot < 5; slot += 1) {
+    const claimed = await bucket.put(
+      `quote-requests/rate/${windowStart}/${clientKey}/${slot}`,
+      new Uint8Array(),
+      {
+        onlyIf: { etagDoesNotMatch: "*" },
+        httpMetadata: { contentType: "application/octet-stream", cacheControl: "no-store" },
+      },
+    );
+    if (claimed) return true;
+  }
+  return false;
+}
+
+async function getQuoteRequests(bucket: R2Bucket, cursor?: string) {
+  const listed = await bucket.list({
+    prefix: "quote-requests/records/",
+    limit: 48,
+    cursor: cursor || undefined,
+  });
+  const records = await Promise.all(listed.objects.map(async (entry) => {
+    const object = await bucket.get(entry.key);
+    if (!object) return null;
+    try {
+      return await object.json<QuoteRequestRecord>();
+    } catch {
+      return null;
+    }
+  }));
+  const items = records
+    .filter((record): record is QuoteRequestRecord => Boolean(record?.id && record?.createdAt))
+    .sort((left, right) => right.createdAt.localeCompare(left.createdAt));
+  return {
+    items,
+    cursor: listed.truncated && listed.cursor ? listed.cursor : null,
+  };
+}
 
 async function getOverridePaths(bucket: R2Bucket, force = false) {
   if (!force && cachedOverridePaths && Date.now() < overridePathsExpireAt) return cachedOverridePaths;
@@ -251,15 +519,170 @@ const worker = {
     const url = new URL(request.url);
     const legacyRedirect = resolveLegacyRedirect(url);
 
-    if (url.pathname.startsWith("/admin") && !isAdminRequest(request, env)) {
+    if (url.pathname.startsWith("/admin") && !await isAdminRequest(request, env)) {
       return new Response("Khu vực quản trị yêu cầu đăng nhập qua Cloudflare Access.", {
         status: 401,
         headers: { "cache-control": "no-store", "content-type": "text/plain; charset=utf-8" },
       });
     }
 
+    if (url.pathname === "/api/quote-requests") {
+      if (request.method !== "POST") {
+        return new Response(null, { status: 405, headers: { allow: "POST" } });
+      }
+      const requestOrigin = request.headers.get("origin");
+      if (requestOrigin && requestOrigin !== url.origin) {
+        return Response.json({ error: "cross_origin_request" }, { status: 403 });
+      }
+      const declaredSize = Number(request.headers.get("content-length") || 0);
+      if (declaredSize > QUOTE_FILE_MAX_BYTES + 1024 * 1024) {
+        return Response.json({ error: "file_too_large" }, { status: 413 });
+      }
+      if (!env.HERO_IMAGES) {
+        return Response.json({ error: "storage_unavailable" }, { status: 503 });
+      }
+      try {
+        if (!await consumeQuoteRateLimit(env.HERO_IMAGES, request)) {
+          return Response.json(
+            { error: "rate_limited" },
+            { status: 429, headers: { "retry-after": "600", "cache-control": "no-store" } },
+          );
+        }
+      } catch {
+        return Response.json({ error: "rate_limit_unavailable" }, { status: 503 });
+      }
+
+      const parsedForm = await parseBoundedMultipartForm(request, QUOTE_FILE_MAX_BYTES + 1024 * 1024);
+      if ("error" in parsedForm) {
+        return Response.json(
+          { error: parsedForm.error },
+          { status: parsedForm.error === "file_too_large" ? 413 : 400 },
+        );
+      }
+      const form = parsedForm.form;
+
+      if (getQuoteField(form, "companyWebsite", 200)) {
+        return Response.json({ ok: true, code: "VP-RECEIVED" }, { status: 201 });
+      }
+
+      const customerName = getQuoteField(form, "customerName", 80);
+      const phone = getQuoteField(form, "phone", 20);
+      const phoneDigits = phone.replace(/\D/g, "");
+      const quantity = Number(getQuoteField(form, "quantity", 12));
+      const productSlug = getQuoteField(form, "productSlug", 80);
+      const productTitle = getQuoteField(form, "productTitle", 120);
+      const artwork = form.get("artwork");
+
+      if (customerName.length < 2) {
+        return Response.json({ error: "invalid_customer_name" }, { status: 400 });
+      }
+      if (phoneDigits.length < 9 || phoneDigits.length > 15) {
+        return Response.json({ error: "invalid_phone" }, { status: 400 });
+      }
+      if (!Number.isInteger(quantity) || quantity < 1 || quantity > 10_000_000) {
+        return Response.json({ error: "invalid_quantity" }, { status: 400 });
+      }
+      if (!(artwork instanceof File) || !artwork.size) {
+        return Response.json({ error: "invalid_file" }, { status: 400 });
+      }
+      if (artwork.size > QUOTE_FILE_MAX_BYTES) {
+        return Response.json({ error: "file_too_large" }, { status: 413 });
+      }
+      const safeFileType = await validateQuoteFile(artwork);
+      if (!safeFileType) {
+        return Response.json({ error: "invalid_file" }, { status: 400 });
+      }
+
+      const id = crypto.randomUUID();
+      const now = new Date();
+      const code = `VP-${now.toISOString().slice(0, 10).replaceAll("-", "")}-${id.slice(0, 6).toUpperCase()}`;
+      const record: QuoteRequestRecord = {
+        id,
+        code,
+        customerName,
+        phone,
+        quantity,
+        productSlug,
+        productTitle,
+        fileName: safeDownloadFileName(artwork.name),
+        fileType: safeFileType,
+        fileSize: artwork.size,
+        createdAt: now.toISOString(),
+      };
+
+      const recordKey = `quote-requests/records/${id}.json`;
+      const fileKey = `quote-requests/files/${id}/artwork`;
+      try {
+        await env.HERO_IMAGES.put(fileKey, artwork.stream(), {
+          httpMetadata: { contentType: record.fileType, cacheControl: "private, no-store" },
+        });
+        await env.HERO_IMAGES.put(recordKey, JSON.stringify(record), {
+          httpMetadata: { contentType: "application/json", cacheControl: "no-store" },
+        });
+      } catch {
+        await Promise.allSettled([
+          env.HERO_IMAGES.delete(recordKey),
+          env.HERO_IMAGES.delete(fileKey),
+        ]);
+        return Response.json({ error: "storage_failed" }, { status: 503 });
+      }
+
+      return Response.json(
+        { ok: true, id, code },
+        { status: 201, headers: { "cache-control": "no-store" } },
+      );
+    }
+
+    if (url.pathname === "/api/admin/quote-requests") {
+      if (!await isAdminRequest(request, env)) {
+        return Response.json({ error: "unauthorized" }, { status: 401 });
+      }
+      if (!env.HERO_IMAGES) {
+        return Response.json({ error: "storage_unavailable" }, { status: 503 });
+      }
+
+      const id = getQuoteRequestId(url.searchParams.get("id"));
+      if (request.method === "GET" && url.searchParams.get("file") === "1") {
+        if (!id) return Response.json({ error: "invalid_request_id" }, { status: 400 });
+        const [recordObject, fileObject] = await Promise.all([
+          env.HERO_IMAGES.get(`quote-requests/records/${id}.json`),
+          env.HERO_IMAGES.get(`quote-requests/files/${id}/artwork`),
+        ]);
+        if (!recordObject || !fileObject) return new Response(null, { status: 404 });
+        const record = await recordObject.json<QuoteRequestRecord>();
+        return new Response(fileObject.body, {
+          headers: {
+            "cache-control": "private, no-store",
+            "content-type": record.fileType || "application/octet-stream",
+            "content-disposition": `attachment; filename*=UTF-8''${encodeURIComponent(record.fileName)}`,
+            "content-security-policy": "sandbox",
+            "x-content-type-options": "nosniff",
+          },
+        });
+      }
+
+      if (request.method === "GET") {
+        const cursor = url.searchParams.get("cursor")?.slice(0, 1024) || undefined;
+        const page = await getQuoteRequests(env.HERO_IMAGES, cursor);
+        return Response.json(page, { headers: { "cache-control": "no-store" } });
+      }
+
+      if (request.method === "DELETE") {
+        if (!id) return Response.json({ error: "invalid_request_id" }, { status: 400 });
+        try {
+          await env.HERO_IMAGES.delete(`quote-requests/files/${id}/artwork`);
+          await env.HERO_IMAGES.delete(`quote-requests/records/${id}.json`);
+        } catch {
+          return Response.json({ error: "delete_failed" }, { status: 503 });
+        }
+        return Response.json({ ok: true, id }, { headers: { "cache-control": "no-store" } });
+      }
+
+      return new Response(null, { status: 405, headers: { allow: "GET, DELETE" } });
+    }
+
     if (url.pathname === "/api/admin/images") {
-      if (!isAdminRequest(request, env)) {
+      if (!await isAdminRequest(request, env)) {
         return Response.json({ error: "unauthorized" }, { status: 401 });
       }
 
@@ -355,7 +778,7 @@ const worker = {
     }
 
     if (url.pathname === "/api/admin/content") {
-      if (!isAdminRequest(request, env)) return Response.json({ error: "unauthorized" }, { status: 401 });
+      if (!await isAdminRequest(request, env)) return Response.json({ error: "unauthorized" }, { status: 401 });
       if (!env.HERO_IMAGES) return Response.json({ error: "storage_unavailable" }, { status: 503 });
       const type = url.searchParams.get("type");
       if (!isManagedContentType(type)) return Response.json({ error: "invalid_content_type" }, { status: 400 });
@@ -390,7 +813,7 @@ const worker = {
     }
 
     if (url.pathname === "/api/admin/media-collections") {
-      if (!isAdminRequest(request, env)) return Response.json({ error: "unauthorized" }, { status: 401 });
+      if (!await isAdminRequest(request, env)) return Response.json({ error: "unauthorized" }, { status: 401 });
       if (!env.HERO_IMAGES) return Response.json({ error: "storage_unavailable" }, { status: 503 });
 
       const collection = normalizeMediaCollection(url.searchParams.get("collection"));
@@ -491,7 +914,7 @@ const worker = {
     }
 
     if (url.pathname === "/api/admin/videos") {
-      if (!isAdminRequest(request, env)) {
+      if (!await isAdminRequest(request, env)) {
         return Response.json({ error: "unauthorized" }, { status: 401 });
       }
       if (!env.HERO_IMAGES) {

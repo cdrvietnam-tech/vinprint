@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { products } from "./lib/products";
-import { companyPages, guidePages, industryPages } from "./lib/content-pages";
+import { areaPages, companyPages, guidePages, industryPages } from "./lib/content-pages";
 import { blogCategories, blogPosts } from "./lib/blog-posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const contentRoutes = [
     ...Object.keys(companyPages).map((slug) => `/${slug}`),
     ...Object.keys(industryPages).map((slug) => `/nganh/${slug}`),
+    ...Object.keys(areaPages).map((slug) => `/khu-vuc/${slug}`),
     ...Object.keys(guidePages).map((slug) => `/huong-dan/${slug}`),
   ];
 

@@ -116,7 +116,10 @@ export default function ContentAdmin({ products, articles }: { products: Editabl
       <div className="mx-auto max-w-[1400px]">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <Link href="/" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-4 text-sm font-black shadow-sm"><ArrowLeft className="h-4 w-4" /> Về trang chủ</Link>
-          <Link href="/admin/hinh-anh" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-violet-700 px-5 text-sm font-black text-white">Quản trị hình ảnh <ExternalLink className="h-4 w-4" /></Link>
+          <div className="flex flex-wrap gap-2">
+            <Link href="/admin/yeu-cau-bao-gia" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-orange-700 px-5 text-sm font-black text-white">Yêu cầu báo giá <ExternalLink className="h-4 w-4" /></Link>
+            <Link href="/admin/hinh-anh" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-violet-700 px-5 text-sm font-black text-white">Quản trị hình ảnh <ExternalLink className="h-4 w-4" /></Link>
+          </div>
         </div>
 
         <header className="mt-8 max-w-4xl">

@@ -26,13 +26,15 @@ async function render(pathname = "/", origin = "http://localhost") {
 
 test("does not expose development preview metadata", async () => {
   const response = await render();
+  const html = await response.text();
 
   assert.equal(response.status, 200);
   assert.match(
     response.headers.get("content-type") ?? "",
     /^text\/html\b/i,
   );
-  assert.doesNotMatch(await response.text(), developmentPreviewMeta);
+  assert.doesNotMatch(html, developmentPreviewMeta);
+  assert.doesNotMatch(html, /<meta[^>]+\bname=["']keywords["']/i);
 });
 
 test("renders the new storefront homepage with key sections", async () => {
@@ -73,6 +75,7 @@ test("homepage includes JSON-LD structured data", async () => {
   assert.match(html, /"@type":"LocalBusiness"/);
   assert.match(html, /"@type":"ItemList"/);
   assert.match(html, /"@type":"FAQPage"/);
+  assert.doesNotMatch(html, /"@type":"Offer"/);
   assert.match(html, /"hasMap":"https:\/\/maps\.app\.goo\.gl\/gqrqcsTp6CHHGi73A"/);
   assert.match(html, /"sameAs":\[[^\]]*https:\/\/maps\.app\.goo\.gl\/gqrqcsTp6CHHGi73A/);
   assert.match(html, /"areaServed"/);
@@ -110,7 +113,7 @@ test("homepage exposes an accessible mobile menu and a large automatic hero slid
 
   assert.match(html, /aria-controls="mobile-navigation"/);
   assert.match(html, /id="mau-thuc-te"/);
-  assert.match(html, /id="danh-gia"/);
+  assert.match(html, /id="case-study"/);
   assert.match(html, /data-hero-carousel="large-auto-drag"/);
   assert.match(html, /(?:\/|%2F)images(?:\/|%2F)hero-admin(?:\/|%2F)hero-1\.png/i);
   assert.match(html, /In nhanh - Chuẩn đẹp - Giá tốt/i);
@@ -118,11 +121,14 @@ test("homepage exposes an accessible mobile menu and a large automatic hero slid
   assert.doesNotMatch(html, /\/images\/hero-collage\.(?:png|webp)/);
   assert.doesNotMatch(html, /complete_ai_mockup/);
   assert.match(hero, /object-contain/);
-  assert.match(hero, /review-hong\.webp/);
-  assert.match(hero, /review-tuan\.webp/);
-  assert.match(hero, /review-yen\.webp/);
-  assert.match(hero, /hero-customer-4\.webp/);
-  assert.match(hero, /Hơn 32000 lượt đánh giá cho shop ở Shopee/);
+  assert.doesNotMatch(hero, /review-hong\.webp/);
+  assert.doesNotMatch(hero, /review-tuan\.webp/);
+  assert.doesNotMatch(hero, /review-yen\.webp/);
+  assert.doesNotMatch(hero, /hero-customer-4\.webp/);
+  assert.doesNotMatch(hero, /Hơn 32000 lượt đánh giá cho shop ở Shopee/);
+  assert.doesNotMatch(hero, /4\.9\/5/);
+  assert.doesNotMatch(hero, /90\.000|211\.000|100K/);
+  assert.match(hero, /Từ 200\.000đ[\s\S]*Hỗ trợ thiết kế/i);
   assert.doesNotMatch(hero, /Xem đánh giá trên Shopee/);
 
   const heroSource = await import("node:fs/promises").then(({ readFile }) => readFile(new URL("../app/components/home/Hero.tsx", import.meta.url), "utf8"));
@@ -149,14 +155,16 @@ test("image library is available locally and protected in production", async () 
   assert.equal(productionResponse.status, 401);
 });
 
-test("homepage renders local review avatars and the Zalo QR image", async () => {
+test("homepage keeps the Zalo QR without unverifiable review avatars", async () => {
   const response = await render();
   const html = await response.text();
 
   assert.equal(response.status, 200);
-  assert.match(html, /review-hong\.webp/);
-  assert.match(html, /review-tuan\.webp/);
-  assert.match(html, /review-yen\.webp/);
+  assert.doesNotMatch(html, /Avatar minh họa/i);
+  assert.doesNotMatch(html, /review-hong\.webp/);
+  assert.doesNotMatch(html, /review-tuan\.webp/);
+  assert.doesNotMatch(html, /review-yen\.webp/);
+  assert.doesNotMatch(html, /chaucay_senda/i);
   assert.match(html, /zalo-qr\.png/);
   assert.match(html, /alt="Mã QR Zalo VinPrint"/);
 });
@@ -167,7 +175,10 @@ test("homepage replaces AI Design with the wholesale pricing path", async () => 
 
   assert.equal(response.status, 200);
   assert.match(html, /Combo ưu đãi/);
-  assert.match(html, /Giá demo/);
+  assert.match(html, /Giá tham khảo/);
+  assert.match(html, /Báo giá chính xác sau khi xem file/i);
+  assert.doesNotMatch(html, /Giá demo/);
+  assert.doesNotMatch(html, /Gợi ý combo để anh xem trước bố cục/i);
   assert.match(html, /Hỗ trợ thiết kế đơn từ 200\.000đ/);
   assert.match(html, /tối đa 3 lần chỉnh sửa/);
   assert.doesNotMatch(html, /id="ai-thiet-ke"/);
@@ -180,18 +191,18 @@ test("homepage replaces AI Design with the wholesale pricing path", async () => 
   assert.match(html, /Xem tất cả sản phẩm của shop/i);
 });
 
-test("final quote CTA renders customer avatars instead of numeric placeholders", async () => {
+test("final quote CTA offers direct file submission without unverifiable customer counts", async () => {
   const response = await render();
   const html = await response.text();
   const ctaStart = html.indexOf("Bạn đã có file thiết kế?");
-  const finalCta = html.slice(ctaStart, ctaStart + 8000);
+  const finalCta = html.slice(ctaStart, ctaStart + 16000);
 
   assert.notEqual(ctaStart, -1);
-  assert.match(finalCta, /review-hong\.webp/);
-  assert.match(finalCta, /review-tuan\.webp/);
-  assert.match(finalCta, /review-yen\.webp/);
-  assert.match(finalCta, /hero-customer-4\.webp/);
-  assert.doesNotMatch(finalCta, />[2-5]<\/span>/);
+  assert.match(finalCta, /name="customerName"/);
+  assert.match(finalCta, /name="phone"/);
+  assert.match(finalCta, /name="quantity"/);
+  assert.match(finalCta, /name="artwork"/);
+  assert.doesNotMatch(finalCta, /90\.000/);
 });
 
 test("homepage keeps the workshop map collapsed and the footer customer-facing", async () => {
@@ -215,6 +226,7 @@ test("homepage keeps the workshop map collapsed and the footer customer-facing",
 test("renders product detail pages with source and order process", async () => {
   const response = await render("/san-pham/tem-uv-dtf");
   const html = await response.text();
+  const header = html.match(/<header[\s\S]*?<\/header>/i)?.[0] ?? "";
 
   assert.equal(response.status, 200);
   assert.match(html, /Tem UV DTF nổi/i);
@@ -224,6 +236,31 @@ test("renders product detail pages with source and order process", async () => {
   assert.match(html, /Phù hợp với/i);
   assert.match(html, /Gửi file là báo giá được/i);
   assert.match(html, /application\/ld\+json/i);
+  assert.match(header, /href="\/blog"/i);
+  assert.match(header, /href="\/gioi-thieu"/i);
+  assert.match(header, /href="\/lien-he"/i);
+  assert.match(html, /href="\/#bang-gia"/i);
+  assert.doesNotMatch(html, /href="(?:https:\/\/vinprint\.vn\/)?#(?:pricing|products)"/i);
+  assert.doesNotMatch(html, developmentPreviewMeta);
+  assert.match(html, /aria-label="Breadcrumb"/i);
+  assert.match(html, /Trang chủ[\s\S]*Sản phẩm[\s\S]*Tem UV DTF nổi/i);
+  assert.match(html, /Câu hỏi về [\s\S]{0,60}Tem UV DTF nổi/i);
+  assert.match(html, /"@type":"FAQPage"/i);
+  assert.doesNotMatch(html, /"@type":"Offer"/i);
+  assert.match(html, /name="customerName"/);
+  assert.match(html, /name="phone"/);
+  assert.match(html, /name="quantity"/);
+  assert.match(html, /name="artwork"/);
+});
+
+test("homepage promotes verifiable case-study scenarios instead of illustrative reviews", async () => {
+  const response = await render();
+  const html = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(html, /Tình huống ứng dụng/i);
+  assert.match(html, /href="\/case-study"/i);
+  assert.doesNotMatch(html, /Avatar minh họa/i);
 });
 
 test("renders representative images before every product catalog tag", async () => {
@@ -333,6 +370,9 @@ test("all public routes render successfully", async () => {
     "/nganh/do-uong",
     "/nganh/chai-lo",
     "/nganh/handmade",
+    "/khu-vuc/go-vap",
+    "/khu-vuc/quan-12",
+    "/khu-vuc/tan-binh",
     "/huong-dan/chon-chat-lieu-tem",
     "/huong-dan/chon-kich-thuoc-tem",
     "/huong-dan/ky-thuat-in-tem",
@@ -375,6 +415,9 @@ test("sitemap publishes the blog hub and every GEO article", async () => {
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/loi-thiet-ke-tem-nhan<\/loc>/i);
   assert.match(xml, /<image:image>[\s\S]*tem-uv-dtf-la-gi\.webp[\s\S]*<\/image:image>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/quy-trinh-bien-soan<\/loc>/i);
+  assert.match(xml, /https:\/\/vinprint\.vn\/khu-vuc\/go-vap<\/loc>/i);
+  assert.match(xml, /https:\/\/vinprint\.vn\/khu-vuc\/quan-12<\/loc>/i);
+  assert.match(xml, /https:\/\/vinprint\.vn\/khu-vuc\/tan-binh<\/loc>/i);
 });
 
 test("robots policy allows AI search but blocks model-training crawlers", async () => {

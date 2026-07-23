@@ -20,7 +20,9 @@ import Header from "../../components/home/Header";
 import Footer from "../../components/home/Footer";
 import MobileActionBar from "../../components/home/MobileActionBar";
 import ScrollToTop from "../../components/home/ScrollToTop";
+import QuoteRequestForm from "../../components/quote/QuoteRequestForm";
 import { products } from "../../lib/products";
+import { getProductFaqs } from "../../lib/product-faqs";
 import { getManagedProduct, getManagedProducts } from "../../lib/content-overrides.server";
 
 type ProductPageProps = {
@@ -55,27 +57,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
   if (!product) notFound();
 
   const related = (await getManagedProducts()).filter((item) => item.slug !== product.slug).slice(0, 3);
+  const productFaqs = getProductFaqs(product);
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
     description: product.description,
-    image: product.image,
+    image: product.image.startsWith("http") ? product.image : `https://vinprint.vn${product.image}`,
     brand: { "@type": "Brand", name: "VinPrint" },
     category: "Tem nhãn in theo yêu cầu",
     url: `https://vinprint.vn/san-pham/${product.slug}`,
-    ...(product.price
-      ? {
-          offers: {
-            "@type": "Offer",
-            priceCurrency: "VND",
-            price: product.price,
-            availability: "https://schema.org/InStock",
-            url: `https://vinprint.vn/san-pham/${product.slug}`,
-            seller: { "@type": "Organization", name: "VinPrint" },
-          },
-        }
-      : {}),
   };
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -101,11 +92,24 @@ export default async function ProductPage({ params }: ProductPageProps) {
       },
     ],
   };
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: productFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+      },
+    })),
+  };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Header />
       <main className="product-page pt-20" id="main-content" tabIndex={-1}>
         <section
@@ -113,10 +117,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
           data-product-showcase="premium"
         >
           <div className="shell">
-            <Link href="/san-pham" className="product-breadcrumb">
+            <nav className="product-breadcrumb" aria-label="Breadcrumb">
               <ArrowLeft aria-hidden="true" />
-              Tất cả sản phẩm
-            </Link>
+              <Link href="/">Trang chủ</Link>
+              <span aria-hidden="true">›</span>
+              <Link href="/san-pham">Sản phẩm</Link>
+              <span aria-hidden="true">›</span>
+              <span aria-current="page">{product.name}</span>
+            </nav>
 
             <div className="product-showcase__grid">
               <div className="product-showcase__visual">
@@ -135,9 +143,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     className="object-contain"
                   />
                 </div>
-                <a className="product-showcase__source" href={product.source} target="_blank" rel="noreferrer">
-                  Xem nguồn ảnh <ArrowUpRight aria-hidden="true" />
-                </a>
+                {product.source && (
+                  <a className="product-showcase__source" href={product.source} target="_blank" rel="noreferrer">
+                    Xem nguồn ảnh <ArrowUpRight aria-hidden="true" />
+                  </a>
+                )}
                 <div className="product-showcase__float product-showcase__float--top">
                   <BadgeCheck aria-hidden="true" />
                   Màu in sắc nét
@@ -239,6 +249,26 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <small>Số tem hoặc số tờ dự kiến cần in</small>
               </article>
             </div>
+          </div>
+        </section>
+
+        <section className="bg-[#fffaf4] py-14 sm:py-20">
+          <div className="shell grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-start">
+            <div>
+              <span className="text-xs font-black uppercase tracking-[0.16em] text-orange-700">Thông tin trước khi đặt in</span>
+              <h2 className="mt-2 text-3xl font-black text-gray-950 sm:text-4xl">Câu hỏi về {product.name}</h2>
+              <div className="mt-6 space-y-3">
+                {productFaqs.map((faq) => (
+                  <details key={faq.q} className="group rounded-[22px] border border-orange-100 bg-white p-5 shadow-sm">
+                    <summary className="cursor-pointer list-none pr-7 text-sm font-black text-gray-950 marker:hidden">
+                      {faq.q}
+                    </summary>
+                    <p className="mt-3 text-sm font-medium leading-7 text-gray-600">{faq.a}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+            <QuoteRequestForm productSlug={product.slug} productTitle={product.name} tone="light" />
           </div>
         </section>
 

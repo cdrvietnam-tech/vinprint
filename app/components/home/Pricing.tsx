@@ -10,7 +10,6 @@ const combos = [
     tag: "DỄ BẮT ĐẦU",
     name: "Combo Khởi nghiệp",
     price: "299.000đ",
-    oldPrice: "420.000đ",
     tone: "from-orange-50 to-amber-100",
     accent: "text-orange-700",
     benefits: ["1.000 tem giấy", "Kiểm tra file in", "Hỗ trợ thiết kế tối đa 3 lần", "Giao tiêu chuẩn"],
@@ -19,7 +18,6 @@ const combos = [
     tag: "BÁN CHẠY",
     name: "Combo Chống nước",
     price: "499.000đ",
-    oldPrice: "650.000đ",
     tone: "from-cyan-50 to-blue-100",
     accent: "text-blue-700",
     benefits: ["1.000 tem nhựa", "Cán bóng hoặc cán mờ", "Hỗ trợ thiết kế tối đa 3 lần", "Duyệt mẫu trước khi in"],
@@ -28,7 +26,6 @@ const combos = [
     tag: "NÂNG TẦM THƯƠNG HIỆU",
     name: "Combo Thương hiệu",
     price: "699.000đ",
-    oldPrice: "890.000đ",
     tone: "from-violet-50 to-purple-100",
     accent: "text-violet-700",
     benefits: ["700 tem nhựa", "100 tem UV DTF", "Kiểm tra & căn chỉnh file", "Hỗ trợ thiết kế tối đa 3 lần"],
@@ -37,7 +34,6 @@ const combos = [
     tag: "THÀNH PHẨM CAO CẤP",
     name: "Combo Ánh kim",
     price: "849.000đ",
-    oldPrice: "1.050.000đ",
     tone: "from-yellow-50 to-amber-200",
     accent: "text-amber-800",
     benefits: ["500 tem vàng hoặc bạc", "Gia công theo quy cách", "Duyệt mẫu trước khi in", "Tư vấn chất liệu miễn phí"],
@@ -82,7 +78,7 @@ export default function Pricing() {
               </span>
               <h2 className="max-w-3xl text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">Combo khuyến mãi siêu hời</h2>
               <p className="mt-3 max-w-2xl text-sm font-medium leading-relaxed text-purple-100 sm:text-base">
-                Gợi ý combo để anh xem trước bố cục. Số lượng và giá sẽ cập nhật theo bảng chính thức.
+                Giá tham khảo theo cấu hình ghi trên từng combo. Báo giá chính xác sau khi xem file, kích thước và yêu cầu gia công.
               </p>
             </div>
             <button
@@ -108,9 +104,8 @@ export default function Pricing() {
                 <h3 className="mt-2 text-xl font-black">{combo.name}</h3>
                 <div className="mt-4 flex items-end gap-2">
                   <strong className="text-3xl font-black tracking-tight text-[#D83B00]">{combo.price}</strong>
-                  <del className="pb-1 text-xs font-bold text-gray-500">{combo.oldPrice}</del>
                 </div>
-                <span className="mt-1 text-[11px] font-bold uppercase tracking-wide text-gray-600">Giá demo</span>
+                <span className="mt-1 text-[11px] font-bold uppercase tracking-wide text-gray-600">Giá tham khảo</span>
 
                 <ul className="my-6 space-y-3 text-sm font-bold text-gray-800">
                   {combo.benefits.map((benefit) => (

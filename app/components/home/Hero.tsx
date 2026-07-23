@@ -1,12 +1,11 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Star } from "lucide-react";
+import { ArrowRight, CheckCircle2, FileCheck2 } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { ZaloIcon } from "../icons";
 import { trackEvent } from "../../lib/analytics";
-import { CUSTOMER_AVATARS } from "./customer-avatars";
 import { DEFAULT_MEDIA_COLLECTIONS, type ManagedMediaItem } from "../../lib/media-collections";
 
 const defaultHeroSlides = DEFAULT_MEDIA_COLLECTIONS.hero;
@@ -111,22 +110,15 @@ export default function Hero() {
               </a>
             </div>
 
-            <div className="mt-8 flex items-center justify-center gap-4 lg:justify-start">
-              <div className="flex -space-x-2" aria-label="Avatar khách hàng minh họa">
-                {CUSTOMER_AVATARS.map((avatar) => (
-                  <span key={avatar} className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white bg-orange-50 shadow-sm">
-                    <Image src={avatar} alt="" fill loading="lazy" sizes="40px" className="object-cover" />
-                  </span>
-                ))}
-              </div>
-              <div className="min-w-0 text-left">
-                <div className="flex items-center gap-1 text-[#F5A623]">
-                  {[1, 2, 3, 4, 5].map((star) => <Star key={star} className="h-4 w-4 fill-current" />)}
-                  <span className="ml-1 text-[15px] font-extrabold text-gray-900">4.9/5</span>
-                </div>
-                <a href="https://shopee.vn/chaucay_senda" target="_blank" rel="noreferrer" className="mt-0.5 block max-w-[270px] text-[12px] font-bold leading-tight text-gray-700 underline decoration-gray-300 underline-offset-2">
-                  Hơn 32000 lượt đánh giá cho shop ở Shopee
-                </a>
+            <div className="mx-auto mt-8 flex max-w-[520px] items-start gap-3 rounded-2xl border border-orange-100 bg-white/80 px-4 py-3 text-left shadow-sm lg:mx-0">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-100 text-orange-700">
+                <FileCheck2 className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <div>
+                <strong className="block text-sm font-black text-gray-950">Gửi file trực tiếp hoặc qua Zalo</strong>
+                <span className="mt-0.5 block text-xs font-semibold leading-relaxed text-gray-600">
+                  Xưởng kiểm tra file và báo giá theo đúng kích thước, số lượng, chất liệu.
+                </span>
               </div>
             </div>
           </div>
@@ -183,7 +175,7 @@ export default function Hero() {
 
       <div className="relative z-20 w-full bg-[#1A1A2E] py-5 shadow-2xl">
         <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-5 px-4 text-center text-white md:grid-cols-4">
-          {[["90.000+", "Khách hàng"], ["211.000+", "Mẫu tem đã thực hiện"], ["100K+", "Đơn hàng đã in"], ["4.9/5", "Đánh giá trung bình"]].map(([value, label]) => (
+          {[["TP.HCM", "Địa chỉ xưởng"], ["Thứ 2–Thứ 7", "Giờ làm việc"], ["Từ 200.000đ", "Hỗ trợ thiết kế"], ["Tối đa 3 lần", "Chỉnh sửa thiết kế"]].map(([value, label]) => (
             <div key={label} className="flex flex-col items-center justify-center gap-1 border-white/10 md:border-r md:last:border-r-0">
               <strong className="text-2xl font-black text-[#F5A623] lg:text-3xl">{value}</strong>
               <span className="text-xs font-bold text-gray-200">{label}</span>

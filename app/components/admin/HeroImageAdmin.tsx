@@ -207,6 +207,7 @@ export default function HeroImageAdmin() {
             <ArrowLeft className="h-4 w-4" /> Về trang chủ
           </Link>
           <div className="flex flex-wrap items-center gap-2">
+            <Link href="/admin/yeu-cau-bao-gia" className="inline-flex min-h-11 items-center rounded-full bg-orange-700 px-5 text-sm font-black text-white">Yêu cầu báo giá</Link>
             <Link href="/admin/noi-dung" className="inline-flex min-h-11 items-center rounded-full bg-violet-700 px-5 text-sm font-black text-white">Quản trị bài viết & sản phẩm</Link>
             <span className="rounded-full bg-green-50 px-4 py-2 text-xs font-black text-green-700">{Object.keys(overrides).length} ảnh đã thay</span>
           </div>

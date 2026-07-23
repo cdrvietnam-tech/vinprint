@@ -47,7 +47,7 @@ export const companyPages: Record<string, ContentPageData> = {
     sections: [
       { heading: "Xác nhận đơn hàng", paragraphs: ["Đơn hàng chỉ được đưa vào sản xuất sau khi khách hàng xác nhận nội dung, kích thước, chất liệu, số lượng, giá và thời gian dự kiến."], bullets: ["Màu trên màn hình có thể khác nhẹ so với bản in", "Nội dung do khách duyệt là căn cứ sản xuất", "Thay đổi sau khi đã in có thể phát sinh chi phí"] },
       { heading: "Thanh toán và giao nhận", paragraphs: ["Mức đặt cọc và phương thức thanh toán được xác nhận theo từng đơn. Phí vận chuyển và thời gian giao phụ thuộc địa chỉ, đơn vị vận chuyển và tình trạng thực tế."], bullets: ["Kiểm tra thông tin nhận hàng trước khi gửi", "Quay video khi mở kiện nếu phát hiện hư hỏng", "Liên hệ ngay khi kiện hàng có dấu hiệu bất thường"] },
-      { heading: "Bảo mật file", paragraphs: ["VinPrint sử dụng file khách gửi để tư vấn, thiết kế và sản xuất đơn hàng. File không được công khai làm mẫu nếu chưa có sự đồng ý của khách hàng."] },
+      { heading: "Bảo mật thông tin và file", paragraphs: ["VinPrint sử dụng tên, số điện thoại và file khách gửi để tư vấn, báo giá, thiết kế và sản xuất đơn hàng. File không được công khai làm mẫu nếu chưa có sự đồng ý của khách hàng.", "Khách hàng có thể yêu cầu xóa file sau khi kết thúc tư vấn, trừ thông tin cần lưu để thực hiện giao dịch hoặc đáp ứng nghĩa vụ pháp luật. Khu vực quản trị file được giới hạn bằng lớp đăng nhập Cloudflare Access."] },
     ],
   },
   "bao-hanh": {
@@ -97,6 +97,64 @@ export const industryPages: Record<string, ContentPageData> = {
     { heading: "Lựa chọn linh hoạt", paragraphs: ["Decal giấy phù hợp bao bì khô và ngân sách thử nghiệm. Decal kraft tạo cảm giác thủ công; sticker cắt bế phù hợp quà tặng và nhận diện thương hiệu."], bullets: ["Gom nhiều mẫu trên một khổ in", "Giữ logo rõ ở kích thước nhỏ", "Dùng mã màu nhất quán"] },
     { heading: "Chuẩn bị để báo giá", paragraphs: ["Gửi số mẫu, kích thước từng mẫu, số lượng và hình dạng cắt. Nếu chưa có file, hãy gửi logo và phong cách mong muốn để được tư vấn."] },
   ]},
+};
+
+export const areaPages: Record<string, ContentPageData> = {
+  "go-vap": {
+    slug: "go-vap",
+    title: "In tem nhãn Gò Vấp — Xem mẫu và nhận hàng tại xưởng",
+    description: "In tem nhãn theo yêu cầu tại Gò Vấp, TP.HCM. Gửi file nhận báo giá hoặc đến xưởng VinPrint tại 254/5/40 Lê Văn Thọ.",
+    eyebrow: "Khu vực phục vụ · Gò Vấp",
+    intro: "VinPrint có xưởng tại 254/5/40 Lê Văn Thọ, Phường Thông Tây Hội, TP.HCM. Khách tại Gò Vấp có thể gửi file từ xa hoặc hẹn đến xem mẫu chất liệu trước khi chốt quy cách.",
+    sections: [
+      {
+        heading: "Dịch vụ tại xưởng Gò Vấp",
+        paragraphs: ["Xưởng nhận in tem giấy, tem nhựa, tem trong, tem ánh kim, UV DTF và các ấn phẩm theo yêu cầu. Báo giá được xác nhận theo file, kích thước, số lượng và gia công."],
+        bullets: ["Gửi file trực tiếp trên website hoặc Zalo", "Hẹn xem mẫu chất liệu tại xưởng", "Nhận hàng tại xưởng hoặc chọn phương thức giao phù hợp"],
+      },
+      {
+        heading: "Thông tin trước khi đến",
+        paragraphs: ["Giờ làm việc 09:00–17:30 từ Thứ 2 đến Thứ 7; nghỉ Chủ nhật và ngày lễ. Nên liên hệ trước để xưởng chuẩn bị đúng nhóm mẫu cần xem."],
+        bullets: ["Địa chỉ: 254/5/40 Lê Văn Thọ", "Hotline/Zalo: 0844 998 499", "Mang theo sản phẩm thật nếu cần thử kích thước hoặc độ bám"],
+      },
+    ],
+  },
+  "quan-12": {
+    slug: "quan-12",
+    title: "In tem nhãn giao Quận 12 — Báo giá theo file",
+    description: "Đặt in tem nhãn cho shop và doanh nghiệp tại Quận 12. Gửi file, kích thước và số lượng để VinPrint tư vấn quy cách và phương thức giao.",
+    eyebrow: "Khu vực phục vụ · Quận 12",
+    intro: "VinPrint phục vụ khách hàng tại Quận 12 từ xưởng ở Phường Thông Tây Hội, TP.HCM. Đây là khu vực giao hàng, không phải địa chỉ chi nhánh riêng tại Quận 12.",
+    sections: [
+      {
+        heading: "Cách nhận báo giá",
+        paragraphs: ["Gửi file thiết kế hoặc ảnh mẫu kèm kích thước và số lượng dự kiến. Với chai lọ hoặc bao bì đặc biệt, nên gửi thêm ảnh bề mặt dán để chọn chất liệu phù hợp."],
+        bullets: ["Tem giấy cho bao bì khô", "Tem nhựa cho môi trường ẩm", "Tem trong, ánh kim hoặc UV DTF cho nhu cầu tạo điểm nhấn"],
+      },
+      {
+        heading: "Giao nhận tại Quận 12",
+        paragraphs: ["Phí và thời gian giao được xác nhận theo địa chỉ, khối lượng đơn hàng và đơn vị vận chuyển tại thời điểm chốt đơn. Khách cũng có thể hẹn nhận tại xưởng VinPrint."],
+      },
+    ],
+  },
+  "tan-binh": {
+    slug: "tan-binh",
+    title: "In tem nhãn giao Tân Bình — Tem giấy, tem nhựa, UV DTF",
+    description: "Đặt in tem nhãn theo yêu cầu cho cửa hàng và doanh nghiệp tại Tân Bình. Gửi file để nhận tư vấn chất liệu, quy cách và báo giá.",
+    eyebrow: "Khu vực phục vụ · Tân Bình",
+    intro: "VinPrint nhận yêu cầu từ khách hàng tại Tân Bình và sản xuất tại xưởng ở Phường Thông Tây Hội, TP.HCM. VinPrint không công bố chi nhánh riêng tại Tân Bình.",
+    sections: [
+      {
+        heading: "Chọn tem theo môi trường sử dụng",
+        paragraphs: ["Bao bì khô thường phù hợp tem giấy; chai lạnh hoặc sản phẩm trong môi trường ẩm nên thử tem nhựa. Các hiệu ứng trong, ánh kim và UV DTF cần được kiểm tra trên mẫu sản phẩm thật khi có thể."],
+        bullets: ["Gửi ảnh sản phẩm và vùng dán", "Xác nhận kích thước thành phẩm", "Nêu rõ số lượng và yêu cầu gia công"],
+      },
+      {
+        heading: "Nhận hàng tại Tân Bình",
+        paragraphs: ["Xưởng trao đổi phương thức giao phù hợp sau khi chốt quy cách. Phí và thời gian vận chuyển không được cố định trước vì phụ thuộc địa chỉ, kích thước kiện và tình trạng thực tế."],
+      },
+    ],
+  },
 };
 
 export const guidePages: Record<string, ContentPageData> = {

@@ -12,7 +12,7 @@ const navigation = [
   ["Combo ưu đãi", "/#bang-gia"],
   ["Mẫu thực tế", "/#mau-thuc-te"],
   ["Quy trình", "/#quy-trinh"],
-  ["Đánh giá", "/#danh-gia"],
+  ["Case study", "/#case-study"],
   ["Cẩm nang in ấn", "/blog"],
   ["Giới thiệu", "/gioi-thieu"],
   ["Liên hệ", "/lien-he"],
