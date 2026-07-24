@@ -12,7 +12,7 @@ const sourceSchema = z.object({
   verifiedAt: z.string().regex(isoDate),
 });
 
-const sectionSchema = z.object({
+export const articleSectionSchema = z.object({
   heading: z.string().min(5),
   paragraphs: z.array(z.string().min(20)).min(1),
   bullets: z.array(z.string().min(2)).min(1).optional(),
@@ -44,7 +44,7 @@ export const articleSchema = z.object({
   promptVersion: z.string().min(3),
   revisionCount: z.number().int().min(0).max(3),
   directAnswer: z.string().min(120).max(1400),
-  sections: z.array(sectionSchema).min(2),
+  sections: z.array(articleSectionSchema).min(2),
   relatedProductSlugs: z.array(z.string().min(1)).min(1),
   sources: z.array(sourceSchema).min(2),
   quality: z.object({

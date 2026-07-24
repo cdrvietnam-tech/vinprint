@@ -18,6 +18,12 @@ const companyLinks = [
   ["Quy trình biên soạn", "/quy-trinh-bien-soan"],
 ] as const;
 
+const areaLinks = [
+  ["In tem Gò Vấp", "/khu-vuc/go-vap"],
+  ["Giao Quận 12", "/khu-vuc/quan-12"],
+  ["Giao Tân Bình", "/khu-vuc/tan-binh"],
+] as const;
+
 export default function Footer({ hasMobileActionBar = false }: { hasMobileActionBar?: boolean }) {
   return (
     <footer id="lien-he" className="bg-white">
@@ -40,6 +46,13 @@ export default function Footer({ hasMobileActionBar = false }: { hasMobileAction
             <li><ConversionLink href="tel:0844998499" eventName="click_phone" eventPosition="footer" className="inline-flex min-h-11 items-center font-bold underline">0844 998 499</ConversionLink></li>
             <li>254/5/40 Lê Văn Thọ, Phường Thông Tây Hội, TP.HCM</li>
             <li>09:00–17:30 · Thứ 2–Thứ 7<br />Nghỉ Chủ nhật và ngày lễ</li>
+            <li className="flex flex-wrap gap-x-4">
+              {areaLinks.map(([label, href]) => (
+                <Link key={href} href={href} className="inline-flex min-h-11 items-center font-bold underline underline-offset-2 hover:text-[#D83B00]">
+                  {label}
+                </Link>
+              ))}
+            </li>
           </ul>
         </div>
       </div>

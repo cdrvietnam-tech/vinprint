@@ -2,20 +2,19 @@
 
 import {
   ArrowUpRight,
-  BookOpen,
   BriefcaseBusiness,
   Megaphone,
-  Package,
   ShoppingBag,
   Tag,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { trackEvent } from "../../lib/analytics";
+import { type ManagedMediaItem } from "../../lib/media-collections";
+import { PRODUCT_CATALOG_GROUPS, type ProductCatalogCategoryKey } from "../../lib/product-catalog";
 
-type CategoryKey = "all" | "labels" | "office" | "advertising" | "packaging";
-
-const tabs: Array<{ key: CategoryKey; label: string }> = [
+const tabs: Array<{ key: ProductCatalogCategoryKey; label: string }> = [
   { key: "all", label: "Tất cả" },
   { key: "labels", label: "Tem nhãn" },
   { key: "office", label: "Văn phòng" },
@@ -23,79 +22,29 @@ const tabs: Array<{ key: CategoryKey; label: string }> = [
   { key: "packaging", label: "Bao bì" },
 ];
 
-const groups = [
-  {
-    key: "labels" as const,
-    title: "Tem nhãn dán sản phẩm",
-    description: "Đủ chất liệu cho chai lọ, hộp, túi, mỹ phẩm, thực phẩm và đồ uống.",
-    icon: Tag,
-    tone: "from-orange-100 to-rose-50 text-orange-800",
-    items: [
-      ["Tem giấy", "/san-pham/tem-giay"],
-      ["Tem nhựa chống nước", "/san-pham/tem-nhua-chong-nuoc"],
-      ["Tem giấy kraft", "/san-pham/tem-giay"],
-      ["Tem trong", "/san-pham/tem-nhua-trong"],
-      ["Sticker trang trí", "/san-pham/sticker-trang-tri"],
-      ["Tem vàng", "/san-pham/tem-vang"],
-      ["Tem bạc", "/san-pham/tem-bac"],
-      ["Tem UV DTF", "/san-pham/tem-uv-dtf"],
-      ["Tem hologram", "/san-pham/tem-7-mau"],
-      ["Tem bảo hành", "/san-pham/tem-bao-hanh"],
-      ["Tem phụ sản phẩm", "/san-pham/tem-phu-san-pham"],
-    ],
-  },
-  {
-    key: "office" as const,
-    title: "Ấn phẩm văn phòng",
-    description: "Bộ ấn phẩm đồng bộ giúp thương hiệu xuất hiện chuyên nghiệp trong mọi giao dịch.",
-    icon: BriefcaseBusiness,
-    tone: "from-blue-100 to-cyan-50 text-blue-800",
-    items: [
-      ["In catalog", null],
-      ["In card visit", null],
-      ["In voucher", null],
-      ["In bao thư", null],
-      ["In folder", null],
-      ["In hóa đơn", null],
-      ["In tiêu đề thư", null],
-    ],
-  },
-  {
-    key: "advertising" as const,
-    title: "Ấn phẩm quảng cáo",
-    description: "Truyền tải ưu đãi và thông tin bán hàng rõ ràng tại điểm bán hoặc sự kiện.",
-    icon: Megaphone,
-    tone: "from-violet-100 to-fuchsia-50 text-violet-800",
-    items: [
-      ["In tờ rơi", null],
-      ["In brochure", null],
-      ["In poster", null],
-      ["In menu", null],
-      ["In standee", null],
-      ["In phiếu bảo hành", null],
-    ],
-  },
-  {
-    key: "packaging" as const,
-    title: "Bao bì & phụ kiện",
-    description: "Hoàn thiện trải nghiệm mở hộp và tăng nhận diện thương hiệu ngay từ bao bì.",
-    icon: ShoppingBag,
-    tone: "from-emerald-100 to-lime-50 text-emerald-800",
-    items: [
-      ["In túi giấy", null],
-      ["In hộp giấy", null],
-      ["In thẻ treo", null],
-      ["In tag sản phẩm", null],
-      ["In giấy gói", null],
-    ],
-  },
-] as const;
+const groupIcons = {
+  labels: Tag,
+  office: BriefcaseBusiness,
+  advertising: Megaphone,
+  packaging: ShoppingBag,
+};
 
 const ZALO_URL = "https://zalo.me/0844998499";
 
 export default function ProductCatalogTabs() {
-  const [activeTab, setActiveTab] = useState<CategoryKey>("all");
-  const visibleGroups = activeTab === "all" ? groups : groups.filter((group) => group.key === activeTab);
+  const [activeTab, setActiveTab] = useState<ProductCatalogCategoryKey>("all");
+  const [managedThumbnails, setManagedThumbnails] = useState<Record<string, Pick<ManagedMediaItem, "src" | "title">>>({});
+  const visibleGroups = activeTab === "all" ? PRODUCT_CATALOG_GROUPS : PRODUCT_CATALOG_GROUPS.filter((group) => group.key === activeTab);
+
+  useEffect(() => {
+    fetch("/api/media/collections?collection=product-thumbnails", { cache: "no-store" })
+      .then(async (response) => response.ok ? response.json() as Promise<{ items: ManagedMediaItem[] }> : null)
+      .then((result) => {
+        if (!Array.isArray(result?.items)) return;
+        setManagedThumbnails(Object.fromEntries(result.items.map((item) => [item.id, { src: item.src, title: item.title }])));
+      })
+      .catch(() => undefined);
+  }, []);
 
   return (
     <>
@@ -116,7 +65,7 @@ export default function ProductCatalogTabs() {
 
       <div className="space-y-7">
         {visibleGroups.map((group) => {
-          const Icon = group.icon;
+          const Icon = groupIcons[group.key];
           return (
             <section key={group.key} className="overflow-hidden rounded-[28px] border border-gray-200 bg-white shadow-sm">
               <div className={`flex flex-col gap-4 bg-gradient-to-r ${group.tone} p-6 sm:flex-row sm:items-center sm:p-8`}>
@@ -129,31 +78,55 @@ export default function ProductCatalogTabs() {
                 </div>
               </div>
 
-              <div className="grid gap-3 p-4 sm:grid-cols-2 sm:p-6 lg:grid-cols-3 xl:grid-cols-4">
-                {group.items.map(([name, href]) => {
+              <div className="grid gap-x-4 gap-y-6 p-4 sm:grid-cols-2 sm:p-6 lg:grid-cols-5 lg:gap-x-5 lg:gap-y-8">
+                {group.items.slice(0, 15).map((item) => {
+                  const { href } = item;
+                  const managed = managedThumbnails[item.id];
+                  const name = managed?.title || item.name;
+                  const image = managed?.src || item.image;
                   const content = (
                     <>
-                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 text-gray-800">
-                        {group.key === "labels" ? <Tag className="h-5 w-5" /> : group.key === "office" ? <BookOpen className="h-5 w-5" /> : <Package className="h-5 w-5" />}
+                      <span
+                        className="relative block aspect-[4/3] w-full overflow-hidden rounded-[20px] bg-[#f3f0e9]"
+                        data-catalog-thumbnail={name}
+                      >
+                        <Image
+                          src={image}
+                          alt=""
+                          fill
+                          loading="lazy"
+                          unoptimized={image.startsWith("/media/")}
+                          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 20vw"
+                          className="object-contain p-2 transition-transform duration-500 ease-out group-hover:scale-[1.045]"
+                        />
+                        {!href ? (
+                          <span className="absolute left-3 top-3 rounded-full bg-orange-600 px-2.5 py-1 text-[10px] font-black uppercase tracking-wide text-white shadow-md">
+                            Nhận giá
+                          </span>
+                        ) : null}
+                        <span className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-white/90 text-gray-950 shadow-md backdrop-blur transition-transform duration-300 group-hover:scale-110">
+                          <ArrowUpRight className="h-4 w-4" />
+                        </span>
                       </span>
-                      <span className="flex-1 font-black text-gray-950">{name}</span>
-                      <span className="flex items-center gap-1 text-[10px] font-black uppercase tracking-wide text-orange-700">
-                        {href ? "Xem" : "Nhận giá"} <ArrowUpRight className="h-4 w-4" />
+                      <span className="block px-1 pt-3">
+                        <strong className="line-clamp-2 block text-center text-base font-black leading-snug text-gray-950 sm:text-lg">{name}</strong>
                       </span>
                     </>
                   );
 
-                  const className = "group flex min-h-[76px] items-center gap-3 rounded-2xl border border-gray-200 bg-gray-50 px-4 transition-all hover:-translate-y-0.5 hover:border-orange-300 hover:bg-orange-50 hover:shadow-md";
+                  const className = "group block min-w-0 rounded-[24px] border border-gray-200 bg-white p-2 pb-4 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-orange-300 hover:shadow-[0_18px_45px_rgba(60,42,24,0.14)] active:scale-[0.98]";
                   return href ? (
-                    <Link key={name} href={href} className={className}>{content}</Link>
+                    <Link key={item.id} href={href} aria-label={`Xem ${name}`} className={className} data-catalog-card>{content}</Link>
                   ) : (
                     <a
-                      key={name}
+                      key={item.id}
                       href={ZALO_URL}
                       target="_blank"
                       rel="noreferrer"
+                      aria-label={`Nhắn Zalo nhận giá ${name}`}
                       onClick={() => trackEvent("click_zalo", { position: `catalog_${group.key}` })}
                       className={className}
+                      data-catalog-card
                     >
                       {content}
                     </a>

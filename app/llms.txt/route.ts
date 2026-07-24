@@ -1,7 +1,7 @@
-import { products } from "../lib/products";
-import { blogPosts } from "../lib/blog-posts";
+import { getManagedBlogPosts, getManagedProducts } from "../lib/content-overrides.server";
 
-export function GET() {
+export async function GET() {
+  const [products, blogPosts] = await Promise.all([getManagedProducts(), getManagedBlogPosts()]);
   const productLinks = products
     .map((product) => `- [${product.name}](https://vinprint.vn/san-pham/${product.slug}): ${product.description}`)
     .join("\n");
@@ -46,7 +46,7 @@ Nội dung có thể được trích dẫn với liên kết nguồn. Không c�
   return new Response(content, {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "public, max-age=3600",
+      "Cache-Control": "no-store",
     },
   });
 }

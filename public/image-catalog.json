@@ -434,6 +434,10 @@
         {
           "href": "/",
           "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Sản phẩm"
         }
       ]
     },
@@ -449,6 +453,10 @@
         {
           "href": "/",
           "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Sản phẩm"
         }
       ]
     },
@@ -464,6 +472,10 @@
         {
           "href": "/",
           "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Sản phẩm"
         }
       ]
     },
@@ -479,6 +491,10 @@
         {
           "href": "/",
           "label": "Trang chủ"
+        },
+        {
+          "href": "/san-pham",
+          "label": "Sản phẩm"
         }
       ]
     },
@@ -813,6 +829,82 @@
       ]
     },
     {
+      "path": "/images/pricing/bang-gia-sticker-uv-dtf.webp",
+      "title": "Bang Gia Sticker Uv Dtf",
+      "category": "pricing",
+      "categoryLabel": "Bảng giá",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 313686,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/#bang-gia",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/pricing/bang-gia-tem-nhan-tham-khao.webp",
+      "title": "Bang Gia Tem Nhan Tham Khao",
+      "category": "pricing",
+      "categoryLabel": "Bảng giá",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 272682,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/#bang-gia",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/pricing/bang-gia-tem-nhan-tong-hop.webp",
+      "title": "Bang Gia Tem Nhan Tong Hop",
+      "category": "pricing",
+      "categoryLabel": "Bảng giá",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 282756,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/#bang-gia",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/pricing/bang-gia-tem-tron.webp",
+      "title": "Bang Gia Tem Tron",
+      "category": "pricing",
+      "categoryLabel": "Bảng giá",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 241000,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/#bang-gia",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/products/tem-bac.webp",
       "title": "Tem Bac",
       "category": "products",
@@ -821,6 +913,10 @@
       "height": 392,
       "bytes": 21006,
       "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
         {
           "href": "/san-pham",
           "label": "Trang liên quan"
@@ -875,6 +971,10 @@
       "bytes": 31296,
       "usages": [
         {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
           "href": "/san-pham",
           "label": "Trang liên quan"
         }
@@ -889,6 +989,10 @@
       "height": 1024,
       "bytes": 94172,
       "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
         {
           "href": "/san-pham",
           "label": "Trang liên quan"

@@ -5,33 +5,11 @@ import { ArrowRight, Plus } from "lucide-react";
 import Image from "next/image";
 import { ZaloIcon } from "../icons";
 import { trackEvent } from "../../lib/analytics";
-import { CUSTOMER_AVATARS } from "./customer-avatars";
+import { homeFaqs } from "../../lib/home-faqs";
+import QuoteRequestForm from "../quote/QuoteRequestForm";
 
 export default function FAQAndZaloCTA() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
-  const faqs = [
-    {
-      q: "Có in tem số lượng ít không?",
-      a: "Có. VinPrint hỗ trợ in từ số lượng ít (chỉ từ vài chục tem), giúp các shop nhỏ tiết kiệm chi phí ban đầu và dễ dàng thử mẫu trước khi sản xuất số lượng lớn.",
-    },
-    {
-      q: "Thời gian hoàn thành là bao lâu?",
-      a: "Chỉ từ 1–2 ngày làm việc sau khi chốt thiết kế. Có hỗ trợ in nhanh lấy ngay trong ngày nếu cần gấp — liên hệ Zalo để xác nhận.",
-    },
-    {
-      q: "Tem nhãn có chống nước không?",
-      a: "Tem nhựa PVC dẻo dai chống nước 100%, bền màu, phù hợp chai lọ, mỹ phẩm và đồ uống. Tem giấy rẻ hơn nhưng không chống nước, phù hợp bao bì khô.",
-    },
-    {
-      q: "Chưa có file thiết kế thì sao?",
-      a: "VinPrint hỗ trợ thiết kế cho đơn hàng từ 200.000đ, tối đa 3 lần chỉnh sửa. Bạn chỉ cần gửi logo, nội dung và ý tưởng qua Zalo để được tư vấn.",
-    },
-    {
-      q: "Có giao hàng toàn quốc không?",
-      a: "VinPrint hỗ trợ giao hàng nhanh toàn quốc qua các đơn vị vận chuyển uy tín. Tem được đóng gói chống nước cẩn thận, đảm bảo nguyên vẹn khi đến tay bạn.",
-    },
-  ];
 
   return (
     <>
@@ -48,10 +26,10 @@ export default function FAQAndZaloCTA() {
                   Câu hỏi thường gặp
                 </h2>
                 <div className="flex flex-col flex-1 min-w-0">
-                  {faqs.map((faq, i) => {
+                  {homeFaqs.map((faq, i) => {
                     const isOpen = activeIndex === i;
                     return (
-                      <div key={i} className={`${i !== faqs.length - 1 ? 'border-b border-gray-100' : ''} min-w-0`}>
+                      <div key={faq.q} className={`${i !== homeFaqs.length - 1 ? 'border-b border-gray-100' : ''} min-w-0`}>
                         <button
                           onClick={() => setActiveIndex(isOpen ? null : i)}
                           className="flex min-h-11 justify-between items-center py-2 sm:py-3 text-left group min-w-0 w-full"
@@ -95,43 +73,33 @@ export default function FAQAndZaloCTA() {
       </section>
 
       {/* Full width CTA Banner */}
-      <section className="bg-gradient-to-r from-[#FF4D00] to-[#FF0055] py-20 relative overflow-hidden">
+      <section id="nhan-bao-gia" className="bg-gradient-to-r from-[#FF4D00] to-[#FF0055] py-20 relative overflow-hidden">
         {/* Background decorative dots */}
         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #fff 2px, transparent 2px)', backgroundSize: '20px 20px' }}></div>
         
-        <div className="max-w-[1440px] mx-auto px-4 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="max-w-[1440px] mx-auto px-4 relative z-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           
           <div className="text-white text-center lg:text-left">
-            <h2 className="text-4xl lg:text-5xl font-black mb-3 drop-shadow-sm">Bạn đã có file thiết kế?</h2>
-            <p className="text-2xl lg:text-3xl font-extrabold mb-8 drop-shadow-sm opacity-95">Gửi ngay để nhận báo giá trong 5 phút!</p>
+            <h2 className="text-4xl lg:text-5xl font-black mb-3 drop-shadow-sm">Cần báo giá ngay?</h2>
+            <p className="text-2xl lg:text-3xl font-extrabold mb-8 drop-shadow-sm opacity-95">Không cần gửi file — chỉ cần điền đúng quy cách.</p>
             
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-[15px] font-bold text-orange-50">
-              <span className="flex items-center gap-2 bg-black/15 px-4 py-2 rounded-full"><span className="text-green-800 bg-white rounded-full w-5 h-5 flex items-center justify-center text-xs leading-none">✔</span> Báo giá nhanh</span>
-              <span className="flex items-center gap-2 bg-black/15 px-4 py-2 rounded-full"><span className="text-green-800 bg-white rounded-full w-5 h-5 flex items-center justify-center text-xs leading-none">✔</span> Duyệt mẫu trước khi in</span>
+              <span className="flex items-center gap-2 bg-black/15 px-4 py-2 rounded-full"><span className="text-green-800 bg-white rounded-full w-5 h-5 flex items-center justify-center text-xs leading-none">✔</span> Có giá lẻ và giá sỉ</span>
+              <span className="flex items-center gap-2 bg-black/15 px-4 py-2 rounded-full"><span className="text-green-800 bg-white rounded-full w-5 h-5 flex items-center justify-center text-xs leading-none">✔</span> Giá sỉ cho số lượng lớn</span>
               <span className="flex items-center gap-2 bg-black/15 px-4 py-2 rounded-full"><span className="text-red-800 bg-white rounded-full w-5 h-5 flex items-center justify-center text-xs leading-none">✖</span> Không ép đặt hàng</span>
             </div>
           </div>
 
-          <div className="flex flex-col items-center lg:items-end gap-6 w-full lg:w-auto">
-            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" onClick={() => trackEvent("click_zalo", { position: "final_cta" })} className="inline-flex items-center justify-center gap-3 px-8 py-5 rounded-full bg-white text-blue-800 text-lg font-black shadow-xl hover:bg-gray-50 hover:scale-105 transition-all shrink-0">
-                <ZaloIcon className="w-6 h-6" />
-                Nhắn Zalo chốt in <ArrowRight className="w-5 h-5" />
+          <div className="w-full">
+            <QuoteRequestForm />
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+              <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" onClick={() => trackEvent("click_zalo", { position: "final_cta" })} className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-full bg-white px-5 text-sm font-black text-blue-800 shadow-lg transition hover:bg-gray-50">
+                <ZaloIcon className="h-5 w-5" />
+                Hoặc nhắn Zalo <ArrowRight className="h-4 w-4" />
               </a>
-              <a href="#bang-gia" onClick={() => trackEvent("view_pricing", { position: "final_cta" })} className="inline-flex items-center justify-center gap-3 px-8 py-5 rounded-full border-2 border-white/70 text-white text-lg font-black hover:bg-white/10 hover:border-white transition-all shrink-0">
+              <a href="#bang-gia" onClick={() => trackEvent("view_pricing", { position: "final_cta" })} className="inline-flex min-h-12 flex-1 items-center justify-center rounded-full border-2 border-white/70 px-5 text-sm font-black text-white transition hover:bg-white/10">
                 Xem combo siêu hời
               </a>
-            </div>
-            
-            <div className="flex items-center gap-4 mt-2">
-              <div className="flex -space-x-3" aria-label="Avatar khách hàng minh họa">
-                {CUSTOMER_AVATARS.map((avatar) => (
-                  <span key={avatar} className="relative h-10 w-10 overflow-hidden rounded-full border-[3px] border-[#D80045] bg-white shadow-md">
-                    <Image src={avatar} alt="" fill loading="lazy" sizes="40px" className="object-cover" />
-                  </span>
-                ))}
-              </div>
-              <div className="text-[13px] font-black text-white/90">Hơn 90.000 khách hàng đã tin tưởng VinPrint</div>
             </div>
           </div>
 

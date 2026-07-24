@@ -1,3 +1,5 @@
+import { PRODUCT_CATALOG_GROUPS } from "./product-catalog";
+
 export type MediaKind = "image" | "gif" | "video";
 
 export type ManagedMediaItem = {
@@ -9,12 +11,24 @@ export type ManagedMediaItem = {
   href: string;
 };
 
-export type MediaCollectionId = "hero" | "hot-products" | "gallery";
+export type MediaCollectionId = "hero" | "hot-products" | "gallery" | "product-thumbnails";
 
-export const MEDIA_COLLECTIONS: Array<{ id: MediaCollectionId; title: string; description: string; allowVideo: boolean }> = [
-  { id: "hero", title: "Ảnh hero trang chủ", description: "Trình chiếu lớn ở đầu trang", allowVideo: false },
-  { id: "hot-products", title: "Sản phẩm đang hot", description: "Dải tự chạy, phóng lớn ảnh, GIF hoặc video ở giữa", allowVideo: true },
-  { id: "gallery", title: "Thành phẩm thực tế", description: "Lưới mẫu sản phẩm trên trang chủ", allowVideo: false },
+export function isValidManagedMediaItemId(value: string | null | undefined): value is string {
+  return Boolean(value && /^[a-z0-9][a-z0-9-]{2,80}$/i.test(value));
+}
+
+export const MEDIA_COLLECTIONS: Array<{ id: MediaCollectionId; title: string; description: string; allowVideo: boolean; allowAdd: boolean; allowDelete: boolean }> = [
+  { id: "hero", title: "Ảnh hero trang chủ", description: "Trình chiếu lớn ở đầu trang", allowVideo: false, allowAdd: true, allowDelete: true },
+  { id: "hot-products", title: "Sản phẩm đang hot", description: "Dải tự chạy, phóng lớn ảnh, GIF hoặc video ở giữa", allowVideo: true, allowAdd: true, allowDelete: true },
+  { id: "gallery", title: "Thành phẩm thực tế", description: "Lưới mẫu sản phẩm trên trang chủ", allowVideo: false, allowAdd: true, allowDelete: true },
+  {
+    id: "product-thumbnails",
+    title: "Ảnh đại diện danh mục sản phẩm",
+    description: "Mỗi tag trên trang Sản phẩm có một ảnh riêng, không thay đổi ảnh Hero hoặc trang chủ",
+    allowVideo: false,
+    allowAdd: false,
+    allowDelete: false,
+  },
 ];
 
 export const DEFAULT_MEDIA_COLLECTIONS: Record<MediaCollectionId, ManagedMediaItem[]> = {
@@ -44,4 +58,12 @@ export const DEFAULT_MEDIA_COLLECTIONS: Record<MediaCollectionId, ManagedMediaIt
     "/images/products/tem-giay.webp",
     "/images/products/tem-ep-kim.webp",
   ].map((src, index) => ({ id: `gallery-${index + 1}`, kind: "image" as const, src, title: `Mẫu tem VinPrint ${index + 1}`, category: "Thành phẩm", href: "/san-pham" })),
+  "product-thumbnails": PRODUCT_CATALOG_GROUPS.flatMap((group) => group.items.map((item) => ({
+    id: item.id,
+    kind: "image" as const,
+    src: item.image,
+    title: item.name,
+    category: group.title,
+    href: item.href || "/san-pham",
+  }))),
 };

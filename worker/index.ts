@@ -2,13 +2,17 @@
 import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } from "vinext/server/image-optimization";
 import handler from "vinext/server/app-router-entry";
 import { resolveLegacyRedirect } from "../app/lib/legacy-redirects";
-import { DEFAULT_MEDIA_COLLECTIONS, type ManagedMediaItem, type MediaCollectionId } from "../app/lib/media-collections";
+import { DEFAULT_MEDIA_COLLECTIONS, isValidManagedMediaItemId, type ManagedMediaItem, type MediaCollectionId } from "../app/lib/media-collections";
+import { isManagedContentType, parseManagedContentOverride, type ManagedContentType } from "../app/lib/content-management";
+import { QUOTE_REQUEST_MAX_BYTES, type QuotePriceTier, type QuoteRequestRecord } from "../app/lib/quote-requests";
 
 interface Env {
   ASSETS?: Fetcher;
   DB: D1Database;
   HERO_IMAGES?: R2Bucket;
   ADMIN_EMAIL?: string;
+  CF_ACCESS_AUD?: string;
+  CF_ACCESS_TEAM_DOMAIN?: string;
   IMAGES?: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {
@@ -18,13 +22,127 @@ interface Env {
   };
 }
 
-function isAdminRequest(request: Request, env: Env) {
+type AccessJwtHeader = {
+  alg?: string;
+  kid?: string;
+};
+
+type AccessJwtPayload = {
+  aud?: string | string[];
+  email?: string;
+  exp?: number;
+  iss?: string;
+  nbf?: number;
+};
+
+type AccessJwk = JsonWebKey & { kid?: string };
+
+let accessKeyCache: { expiresAt: number; issuer: string; keys: AccessJwk[] } | null = null;
+
+function decodeJwtPart<T>(value: string): T | null {
+  try {
+    const normalized = value.replace(/-/g, "+").replace(/_/g, "/");
+    const padded = normalized.padEnd(Math.ceil(normalized.length / 4) * 4, "=");
+    const binary = atob(padded);
+    const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+    return JSON.parse(new TextDecoder().decode(bytes)) as T;
+  } catch {
+    return null;
+  }
+}
+
+function decodeJwtSignature(value: string) {
+  try {
+    const normalized = value.replace(/-/g, "+").replace(/_/g, "/");
+    const padded = normalized.padEnd(Math.ceil(normalized.length / 4) * 4, "=");
+    const binary = atob(padded);
+    return Uint8Array.from(binary, (character) => character.charCodeAt(0));
+  } catch {
+    return null;
+  }
+}
+
+function getAccessIssuer(value: string | undefined) {
+  if (!value) return null;
+  try {
+    const url = new URL(value.startsWith("https://") ? value : `https://${value}`);
+    if (url.protocol !== "https:" || !url.hostname.endsWith(".cloudflareaccess.com")) return null;
+    return url.origin;
+  } catch {
+    return null;
+  }
+}
+
+async function getAccessKeys(issuer: string) {
+  if (accessKeyCache?.issuer === issuer && accessKeyCache.expiresAt > Date.now()) {
+    return accessKeyCache.keys;
+  }
+  const response = await fetch(`${issuer}/cdn-cgi/access/certs`, {
+    headers: { accept: "application/json" },
+  });
+  if (!response.ok) return [];
+  const result = await response.json<{ keys?: AccessJwk[] }>();
+  const keys = Array.isArray(result.keys) ? result.keys : [];
+  accessKeyCache = { issuer, keys, expiresAt: Date.now() + 5 * 60 * 1000 };
+  return keys;
+}
+
+async function verifyAccessAssertion(assertion: string, env: Env) {
+  const issuer = getAccessIssuer(env.CF_ACCESS_TEAM_DOMAIN);
+  const allowedAudiences = (env.CF_ACCESS_AUD || "").split(",").map((value) => value.trim()).filter(Boolean);
+  if (!issuer || !allowedAudiences.length) return null;
+
+  const parts = assertion.split(".");
+  if (parts.length !== 3) return null;
+  const header = decodeJwtPart<AccessJwtHeader>(parts[0]);
+  const payload = decodeJwtPart<AccessJwtPayload>(parts[1]);
+  const signature = decodeJwtSignature(parts[2]);
+  if (!header || !payload || !signature || header.alg !== "RS256" || !header.kid) return null;
+
+  const now = Math.floor(Date.now() / 1000);
+  const audiences = Array.isArray(payload.aud) ? payload.aud : payload.aud ? [payload.aud] : [];
+  if (
+    payload.iss !== issuer
+    || typeof payload.exp !== "number"
+    || payload.exp <= now
+    || (typeof payload.nbf === "number" && payload.nbf > now)
+    || !audiences.some((audience) => allowedAudiences.includes(audience))
+  ) {
+    return null;
+  }
+
+  try {
+    const keys = await getAccessKeys(issuer);
+    const key = keys.find((candidate) => candidate.kid === header.kid);
+    if (!key) return null;
+    const cryptoKey = await crypto.subtle.importKey(
+      "jwk",
+      key,
+      { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
+      false,
+      ["verify"],
+    );
+    const valid = await crypto.subtle.verify(
+      "RSASSA-PKCS1-v1_5",
+      cryptoKey,
+      signature,
+      new TextEncoder().encode(`${parts[0]}.${parts[1]}`),
+    );
+    return valid && typeof payload.email === "string" ? payload.email.trim().toLowerCase() : null;
+  } catch {
+    return null;
+  }
+}
+
+async function isAdminRequest(request: Request, env: Env) {
   const url = new URL(request.url);
   if (url.hostname === "127.0.0.1" || url.hostname === "localhost") return true;
 
-  const email = (request.headers.get("cf-access-authenticated-user-email") || request.headers.get("oai-authenticated-user-email") || "").trim().toLowerCase();
+  const accessAssertion = request.headers.get("cf-access-jwt-assertion");
   const allowedEmail = env.ADMIN_EMAIL?.trim().toLowerCase();
-  return Boolean(email && (!allowedEmail || email === allowedEmail));
+  if (!accessAssertion || !allowedEmail) return false;
+  const verifiedEmail = await verifyAccessAssertion(accessAssertion, env);
+  return Boolean(verifiedEmail && verifiedEmail === allowedEmail);
 }
 
 function normalizeManagedImagePath(value: string | null) {
@@ -42,6 +160,113 @@ const managedCollectionIds = new Set(Object.keys(DEFAULT_MEDIA_COLLECTIONS));
 const maxManagedCollectionImageSize = 12 * 1024 * 1024;
 let cachedOverridePaths: Set<string> | null = null;
 let overridePathsExpireAt = 0;
+
+function getQuoteRequestId(value: string | null) {
+  return value && /^[a-z0-9-]{8,64}$/i.test(value) ? value : null;
+}
+
+function getQuoteField(payload: Record<string, unknown>, name: string, maxLength: number) {
+  const value = payload[name];
+  return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
+}
+
+async function parseBoundedJson(request: Request, maxBytes: number) {
+  const contentType = request.headers.get("content-type") || "";
+  if (!contentType.toLowerCase().startsWith("application/json") || !request.body) {
+    return { error: "invalid_form" as const };
+  }
+
+  const reader = request.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let totalBytes = 0;
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    totalBytes += value.byteLength;
+    if (totalBytes > maxBytes) {
+      await reader.cancel();
+      return { error: "request_too_large" as const };
+    }
+    chunks.push(value);
+  }
+
+  const body = new Uint8Array(totalBytes);
+  let offset = 0;
+  for (const chunk of chunks) {
+    body.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+
+  try {
+    const payload = JSON.parse(new TextDecoder().decode(body)) as unknown;
+    if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+      return { error: "invalid_form" as const };
+    }
+    return { payload: payload as Record<string, unknown> };
+  } catch {
+    return { error: "invalid_form" as const };
+  }
+}
+
+async function consumeQuoteRateLimit(bucket: R2Bucket, request: Request) {
+  const url = new URL(request.url);
+  if (url.hostname === "127.0.0.1" || url.hostname === "localhost") return true;
+
+  const clientIp = request.headers.get("cf-connecting-ip")?.trim() || "unknown";
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(clientIp));
+  const clientKey = [...new Uint8Array(digest)].slice(0, 12).map((value) => value.toString(16).padStart(2, "0")).join("");
+  const now = Date.now();
+  const windowMs = 10 * 60 * 1000;
+  const windowStart = Math.floor(now / windowMs) * windowMs;
+
+  // Keys begin with the fixed window timestamp, so stale windows are listed
+  // first and can be cleaned incrementally without retaining one object per IP.
+  const stale = await bucket.list({ prefix: "quote-requests/rate/", limit: 100 });
+  const staleKeys = stale.objects
+    .filter((object) => {
+      const timestamp = Number(object.key.split("/")[2]);
+      return Number.isFinite(timestamp) && timestamp < windowStart;
+    })
+    .map((object) => object.key);
+  if (staleKeys.length) await Promise.allSettled(staleKeys.map((key) => bucket.delete(key)));
+
+  for (let slot = 0; slot < 5; slot += 1) {
+    const claimed = await bucket.put(
+      `quote-requests/rate/${windowStart}/${clientKey}/${slot}`,
+      new Uint8Array(),
+      {
+        onlyIf: { etagDoesNotMatch: "*" },
+        httpMetadata: { contentType: "application/octet-stream", cacheControl: "no-store" },
+      },
+    );
+    if (claimed) return true;
+  }
+  return false;
+}
+
+async function getQuoteRequests(bucket: R2Bucket, cursor?: string) {
+  const listed = await bucket.list({
+    prefix: "quote-requests/records/",
+    limit: 48,
+    cursor: cursor || undefined,
+  });
+  const records = await Promise.all(listed.objects.map(async (entry) => {
+    const object = await bucket.get(entry.key);
+    if (!object) return null;
+    try {
+      return await object.json<QuoteRequestRecord>();
+    } catch {
+      return null;
+    }
+  }));
+  const items = records
+    .filter((record): record is QuoteRequestRecord => Boolean(record?.id && record?.createdAt))
+    .sort((left, right) => right.createdAt.localeCompare(left.createdAt));
+  return {
+    items,
+    cursor: listed.truncated && listed.cursor ? listed.cursor : null,
+  };
+}
 
 async function getOverridePaths(bucket: R2Bucket, force = false) {
   if (!force && cachedOverridePaths && Date.now() < overridePathsExpireAt) return cachedOverridePaths;
@@ -130,7 +355,7 @@ function normalizeMediaCollection(value: string | null) {
 }
 
 function normalizeMediaItemId(value: string | null) {
-  return value && /^[a-z0-9][a-z0-9-]{5,80}$/i.test(value) ? value : null;
+  return isValidManagedMediaItemId(value) ? value : null;
 }
 
 async function getMediaCollection(collection: MediaCollectionId, bucket: R2Bucket) {
@@ -146,6 +371,49 @@ async function getMediaCollection(collection: MediaCollectionId, bucket: R2Bucke
 
 async function saveMediaCollection(collection: MediaCollectionId, items: ManagedMediaItem[], bucket: R2Bucket) {
   await bucket.put(`collections/manifests/${collection}.json`, JSON.stringify(items), {
+    httpMetadata: { contentType: "application/json", cacheControl: "no-store" },
+  });
+}
+
+async function getContentOverrides(type: ManagedContentType, bucket: R2Bucket) {
+  const prefix = `content/overrides/${type}/`;
+  const listed = await bucket.list({ prefix, limit: 200 });
+  const objects = await Promise.all(listed.objects.map((entry) => bucket.get(entry.key)));
+  const items = await Promise.all(objects.map(async (object) => {
+    if (!object) return null;
+    try {
+      return parseManagedContentOverride(type, await object.json<unknown>());
+    } catch {
+      return null;
+    }
+  }));
+  const validItems = items.filter((item) => item !== null);
+  if (validItems.length || listed.objects.length) return validItems;
+
+  // Read the original manifest format once so existing deployments migrate
+  // without losing edits. New writes are per slug to avoid lost updates.
+  const legacyObject = await bucket.get(`content/overrides/${type}.json`);
+  if (!legacyObject) return [];
+  try {
+    const values = await legacyObject.json<unknown[]>();
+    if (!Array.isArray(values)) return [];
+    const migratedItems = values.flatMap((value) => {
+      try {
+        return [parseManagedContentOverride(type, value)];
+      } catch {
+        return [];
+      }
+    });
+    await Promise.all(migratedItems.map((item) => saveContentOverride(type, item, bucket)));
+    await bucket.delete(`content/overrides/${type}.json`);
+    return migratedItems;
+  } catch {
+    return [];
+  }
+}
+
+async function saveContentOverride(type: ManagedContentType, item: { slug: string }, bucket: R2Bucket) {
+  await bucket.put(`content/overrides/${type}/${item.slug}.json`, JSON.stringify(item), {
     httpMetadata: { contentType: "application/json", cacheControl: "no-store" },
   });
 }
@@ -206,15 +474,170 @@ const worker = {
     const url = new URL(request.url);
     const legacyRedirect = resolveLegacyRedirect(url);
 
-    if (url.pathname.startsWith("/admin") && !isAdminRequest(request, env)) {
+    if (url.pathname.startsWith("/admin") && !await isAdminRequest(request, env)) {
       return new Response("Khu vực quản trị yêu cầu đăng nhập qua Cloudflare Access.", {
         status: 401,
         headers: { "cache-control": "no-store", "content-type": "text/plain; charset=utf-8" },
       });
     }
 
+    if (url.pathname === "/api/quote-requests") {
+      if (request.method !== "POST") {
+        return new Response(null, { status: 405, headers: { allow: "POST" } });
+      }
+      const requestOrigin = request.headers.get("origin");
+      if (requestOrigin && requestOrigin !== url.origin) {
+        return Response.json({ error: "cross_origin_request" }, { status: 403 });
+      }
+      const declaredSize = Number(request.headers.get("content-length") || 0);
+      if (declaredSize > QUOTE_REQUEST_MAX_BYTES) {
+        return Response.json({ error: "request_too_large" }, { status: 413 });
+      }
+      if (!env.HERO_IMAGES) {
+        return Response.json({ error: "storage_unavailable" }, { status: 503 });
+      }
+      try {
+        if (!await consumeQuoteRateLimit(env.HERO_IMAGES, request)) {
+          return Response.json(
+            { error: "rate_limited" },
+            { status: 429, headers: { "retry-after": "600", "cache-control": "no-store" } },
+          );
+        }
+      } catch {
+        return Response.json({ error: "rate_limit_unavailable" }, { status: 503 });
+      }
+
+      const parsedRequest = await parseBoundedJson(request, QUOTE_REQUEST_MAX_BYTES);
+      if ("error" in parsedRequest) {
+        return Response.json(
+          { error: parsedRequest.error },
+          { status: parsedRequest.error === "request_too_large" ? 413 : 400 },
+        );
+      }
+      const payload = parsedRequest.payload;
+
+      if (getQuoteField(payload, "companyWebsite", 200)) {
+        return Response.json({ ok: true, code: "VP-RECEIVED" }, { status: 201 });
+      }
+
+      const customerName = getQuoteField(payload, "customerName", 80);
+      const phone = getQuoteField(payload, "phone", 20);
+      const phoneDigits = phone.replace(/\D/g, "");
+      const material = getQuoteField(payload, "material", 100);
+      const widthMm = Number(getQuoteField(payload, "widthMm", 12));
+      const heightMm = Number(getQuoteField(payload, "heightMm", 12));
+      const quantity = Number(getQuoteField(payload, "quantity", 12));
+      const priceTier = getQuoteField(payload, "priceTier", 20) as QuotePriceTier;
+      const productSlug = getQuoteField(payload, "productSlug", 80);
+      const productTitle = getQuoteField(payload, "productTitle", 120);
+
+      if (customerName.length < 2) {
+        return Response.json({ error: "invalid_customer_name" }, { status: 400 });
+      }
+      if (phoneDigits.length < 9 || phoneDigits.length > 15) {
+        return Response.json({ error: "invalid_phone" }, { status: 400 });
+      }
+      if (material.length < 2) {
+        return Response.json({ error: "invalid_material" }, { status: 400 });
+      }
+      if (!Number.isFinite(widthMm) || widthMm < 1 || widthMm > 10_000) {
+        return Response.json({ error: "invalid_width" }, { status: 400 });
+      }
+      if (!Number.isFinite(heightMm) || heightMm < 1 || heightMm > 10_000) {
+        return Response.json({ error: "invalid_height" }, { status: 400 });
+      }
+      if (!Number.isInteger(quantity) || quantity < 1 || quantity > 10_000_000) {
+        return Response.json({ error: "invalid_quantity" }, { status: 400 });
+      }
+      if (priceTier !== "retail" && priceTier !== "wholesale") {
+        return Response.json({ error: "invalid_price_tier" }, { status: 400 });
+      }
+
+      const id = crypto.randomUUID();
+      const now = new Date();
+      const code = `VP-${now.toISOString().slice(0, 10).replaceAll("-", "")}-${id.slice(0, 6).toUpperCase()}`;
+      const record: QuoteRequestRecord = {
+        id,
+        code,
+        customerName,
+        phone,
+        material,
+        widthMm,
+        heightMm,
+        quantity,
+        priceTier,
+        productSlug,
+        productTitle,
+        createdAt: now.toISOString(),
+      };
+
+      const recordKey = `quote-requests/records/${id}.json`;
+      try {
+        await env.HERO_IMAGES.put(recordKey, JSON.stringify(record), {
+          httpMetadata: { contentType: "application/json", cacheControl: "no-store" },
+        });
+      } catch {
+        await Promise.allSettled([env.HERO_IMAGES.delete(recordKey)]);
+        return Response.json({ error: "storage_failed" }, { status: 503 });
+      }
+
+      return Response.json(
+        { ok: true, id, code },
+        { status: 201, headers: { "cache-control": "no-store" } },
+      );
+    }
+
+    if (url.pathname === "/api/admin/quote-requests") {
+      if (!await isAdminRequest(request, env)) {
+        return Response.json({ error: "unauthorized" }, { status: 401 });
+      }
+      if (!env.HERO_IMAGES) {
+        return Response.json({ error: "storage_unavailable" }, { status: 503 });
+      }
+
+      const id = getQuoteRequestId(url.searchParams.get("id"));
+      if (request.method === "GET" && url.searchParams.get("file") === "1") {
+        if (!id) return Response.json({ error: "invalid_request_id" }, { status: 400 });
+        const [recordObject, fileObject] = await Promise.all([
+          env.HERO_IMAGES.get(`quote-requests/records/${id}.json`),
+          env.HERO_IMAGES.get(`quote-requests/files/${id}/artwork`),
+        ]);
+        if (!recordObject || !fileObject) return new Response(null, { status: 404 });
+        const record = await recordObject.json<QuoteRequestRecord>();
+        if (!record.fileName) return new Response(null, { status: 404 });
+        return new Response(fileObject.body, {
+          headers: {
+            "cache-control": "private, no-store",
+            "content-type": record.fileType || "application/octet-stream",
+            "content-disposition": `attachment; filename*=UTF-8''${encodeURIComponent(record.fileName)}`,
+            "content-security-policy": "sandbox",
+            "x-content-type-options": "nosniff",
+          },
+        });
+      }
+
+      if (request.method === "GET") {
+        const cursor = url.searchParams.get("cursor")?.slice(0, 1024) || undefined;
+        const page = await getQuoteRequests(env.HERO_IMAGES, cursor);
+        return Response.json(page, { headers: { "cache-control": "no-store" } });
+      }
+
+      if (request.method === "DELETE") {
+        if (!id) return Response.json({ error: "invalid_request_id" }, { status: 400 });
+        try {
+          await env.HERO_IMAGES.delete(`quote-requests/files/${id}/artwork`);
+          await env.HERO_IMAGES.delete(`quote-requests/records/${id}.json`);
+        } catch {
+          return Response.json({ error: "delete_failed" }, { status: 503 });
+        }
+        return Response.json({ ok: true, id }, { headers: { "cache-control": "no-store" } });
+      }
+
+      return new Response(null, { status: 405, headers: { allow: "GET, DELETE" } });
+    }
+
     if (url.pathname === "/api/admin/images") {
-      if (!isAdminRequest(request, env)) {
+      if (!await isAdminRequest(request, env)) {
         return Response.json({ error: "unauthorized" }, { status: 401 });
       }
 
@@ -301,8 +724,51 @@ const worker = {
       return Response.json({ collection, items }, { headers: { "cache-control": "no-store" } });
     }
 
+    if (url.pathname === "/api/content/overrides" && request.method === "GET") {
+      if (!env.HERO_IMAGES) return Response.json({ items: [] }, { headers: { "cache-control": "no-store" } });
+      const type = url.searchParams.get("type");
+      if (!isManagedContentType(type)) return Response.json({ error: "invalid_content_type" }, { status: 400 });
+      const items = await getContentOverrides(type, env.HERO_IMAGES);
+      return Response.json({ type, items }, { headers: { "cache-control": "no-store" } });
+    }
+
+    if (url.pathname === "/api/admin/content") {
+      if (!await isAdminRequest(request, env)) return Response.json({ error: "unauthorized" }, { status: 401 });
+      if (!env.HERO_IMAGES) return Response.json({ error: "storage_unavailable" }, { status: 503 });
+      const type = url.searchParams.get("type");
+      if (!isManagedContentType(type)) return Response.json({ error: "invalid_content_type" }, { status: 400 });
+      const items = await getContentOverrides(type, env.HERO_IMAGES);
+
+      if (request.method === "GET") {
+        return Response.json({ type, items }, { headers: { "cache-control": "no-store" } });
+      }
+
+      if (request.method === "DELETE") {
+        const slug = url.searchParams.get("slug");
+        if (!slug) return Response.json({ error: "invalid_slug" }, { status: 400 });
+        await env.HERO_IMAGES.delete(`content/overrides/${type}/${slug}.json`);
+        const nextItems = items.filter((item) => item.slug !== slug);
+        return Response.json({ ok: true, type, items: nextItems }, { headers: { "cache-control": "no-store" } });
+      }
+
+      if (request.method === "PATCH") {
+        try {
+          const item = parseManagedContentOverride(type, await request.json());
+          const nextItems = items.some((entry) => entry.slug === item.slug)
+            ? items.map((entry) => entry.slug === item.slug ? item : entry)
+            : [...items, item];
+          await saveContentOverride(type, item, env.HERO_IMAGES);
+          return Response.json({ ok: true, type, item, items: nextItems }, { headers: { "cache-control": "no-store" } });
+        } catch {
+          return Response.json({ error: "invalid_content" }, { status: 400 });
+        }
+      }
+
+      return new Response(null, { status: 405, headers: { allow: "GET, PATCH, DELETE" } });
+    }
+
     if (url.pathname === "/api/admin/media-collections") {
-      if (!isAdminRequest(request, env)) return Response.json({ error: "unauthorized" }, { status: 401 });
+      if (!await isAdminRequest(request, env)) return Response.json({ error: "unauthorized" }, { status: 401 });
       if (!env.HERO_IMAGES) return Response.json({ error: "storage_unavailable" }, { status: 503 });
 
       const collection = normalizeMediaCollection(url.searchParams.get("collection"));
@@ -344,6 +810,16 @@ const worker = {
       const id = normalizeMediaItemId(url.searchParams.get("id"));
       if (!id) return Response.json({ error: "invalid_media_id" }, { status: 400 });
 
+      if (request.method === "PATCH") {
+        const title = (url.searchParams.get("title") || "").trim().slice(0, 120);
+        if (!title) return Response.json({ error: "invalid_title" }, { status: 400 });
+        const items = await getMediaCollection(collection, env.HERO_IMAGES);
+        if (!items.some((item) => item.id === id)) return Response.json({ error: "media_not_found" }, { status: 404 });
+        const nextItems = items.map((item) => item.id === id ? { ...item, title } : item);
+        await saveMediaCollection(collection, nextItems, env.HERO_IMAGES);
+        return Response.json({ ok: true, collection, items: nextItems }, { headers: { "cache-control": "no-store" } });
+      }
+
       if (request.method === "DELETE") {
         const items = await getMediaCollection(collection, env.HERO_IMAGES);
         const removed = items.find((item) => item.id === id);
@@ -355,7 +831,7 @@ const worker = {
         return Response.json({ ok: true, collection, id, items: nextItems }, { headers: { "cache-control": "no-store" } });
       }
 
-      if (request.method !== "PUT") return new Response(null, { status: 405, headers: { allow: "GET, PUT, POST, DELETE" } });
+      if (request.method !== "PUT") return new Response(null, { status: 405, headers: { allow: "GET, PUT, PATCH, POST, DELETE" } });
       const contentType = request.headers.get("content-type")?.split(";", 1)[0].trim().toLowerCase() || "";
       if (!managedCollectionMediaTypes.has(contentType)) return Response.json({ error: "invalid_media_type" }, { status: 415 });
       if (contentType.startsWith("video/") && collection !== "hot-products") return Response.json({ error: "video_not_allowed" }, { status: 415 });
@@ -393,7 +869,7 @@ const worker = {
     }
 
     if (url.pathname === "/api/admin/videos") {
-      if (!isAdminRequest(request, env)) {
+      if (!await isAdminRequest(request, env)) {
         return Response.json({ error: "unauthorized" }, { status: 401 });
       }
       if (!env.HERO_IMAGES) {

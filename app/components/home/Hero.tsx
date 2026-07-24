@@ -1,12 +1,11 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Star } from "lucide-react";
+import { ArrowRight, Calculator, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { ZaloIcon } from "../icons";
 import { trackEvent } from "../../lib/analytics";
-import { CUSTOMER_AVATARS } from "./customer-avatars";
 import { DEFAULT_MEDIA_COLLECTIONS, type ManagedMediaItem } from "../../lib/media-collections";
 
 const defaultHeroSlides = DEFAULT_MEDIA_COLLECTIONS.hero;
@@ -71,7 +70,7 @@ export default function Hero() {
 
       <div className="relative mx-auto max-w-[1440px] px-4 pb-14">
         <div className="flex flex-col items-center gap-10 lg:flex-row lg:gap-14">
-          <div className="z-10 w-full text-center lg:w-[43%] lg:text-left">
+          <div className="z-10 w-full text-center lg:w-[calc(50%-1.75rem)] lg:text-left">
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
@@ -82,8 +81,8 @@ export default function Hero() {
               In ấn các loại tem nhãn và ấn phẩm
             </motion.div>
 
-            <h1 className="mb-6 text-4xl font-black leading-[1.18] tracking-tight text-gray-950 sm:text-5xl lg:text-[58px] xl:text-[68px]">
-              XƯỞNG IN SIÊU TỐC<br />
+            <h1 className="mb-6 text-4xl font-black leading-[1.18] tracking-tight text-gray-950 sm:text-5xl lg:text-[44px] xl:text-[58px]">
+              <span className="lg:whitespace-nowrap">XƯỞNG IN SIÊU TỐC</span><br />
               <span className="text-[#FF4D00]">In nhanh - Chuẩn đẹp - Giá tốt</span>
             </h1>
 
@@ -111,22 +110,15 @@ export default function Hero() {
               </a>
             </div>
 
-            <div className="mt-8 flex items-center justify-center gap-4 lg:justify-start">
-              <div className="flex -space-x-2" aria-label="Avatar khách hàng minh họa">
-                {CUSTOMER_AVATARS.map((avatar) => (
-                  <span key={avatar} className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white bg-orange-50 shadow-sm">
-                    <Image src={avatar} alt="" fill loading="lazy" sizes="40px" className="object-cover" />
-                  </span>
-                ))}
-              </div>
-              <div className="min-w-0 text-left">
-                <div className="flex items-center gap-1 text-[#F5A623]">
-                  {[1, 2, 3, 4, 5].map((star) => <Star key={star} className="h-4 w-4 fill-current" />)}
-                  <span className="ml-1 text-[15px] font-extrabold text-gray-900">4.9/5</span>
-                </div>
-                <a href="https://shopee.vn/chaucay_senda" target="_blank" rel="noreferrer" className="mt-0.5 block max-w-[270px] text-[12px] font-bold leading-tight text-gray-700 underline decoration-gray-300 underline-offset-2">
-                  Hơn 32000 lượt đánh giá cho shop ở Shopee
-                </a>
+            <div className="mx-auto mt-8 flex max-w-[520px] items-start gap-3 rounded-2xl border border-orange-100 bg-white/80 px-4 py-3 text-left shadow-sm lg:mx-0">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-100 text-orange-700">
+                <Calculator className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <div>
+                <strong className="block text-sm font-black text-gray-950">Báo giá không cần gửi file</strong>
+                <span className="mt-0.5 block text-xs font-semibold leading-relaxed text-gray-600">
+                  Chỉ cần vật liệu, kích thước và số lượng; có giá lẻ và giá sỉ.
+                </span>
               </div>
             </div>
           </div>
@@ -136,7 +128,7 @@ export default function Hero() {
             data-hero-carousel="large-auto-drag"
             onMouseEnter={() => setIsHeroHovered(true)}
             onMouseLeave={() => setIsHeroHovered(false)}
-            className="relative h-[470px] w-full min-w-0 overflow-hidden sm:h-[580px] lg:h-[650px] lg:w-[57%]"
+            className="relative h-[470px] w-full min-w-0 overflow-hidden sm:h-[580px] lg:h-[650px] lg:w-[calc(50%-1.75rem)]"
           >
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-10">
               {sparklePositions.map(([left, top, delay, color], index) => (
@@ -183,7 +175,7 @@ export default function Hero() {
 
       <div className="relative z-20 w-full bg-[#1A1A2E] py-5 shadow-2xl">
         <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-5 px-4 text-center text-white md:grid-cols-4">
-          {[["90.000+", "Khách hàng"], ["211.000+", "Mẫu tem đã thực hiện"], ["100K+", "Đơn hàng đã in"], ["4.9/5", "Đánh giá trung bình"]].map(([value, label]) => (
+          {[["TP.HCM", "Địa chỉ xưởng"], ["Thứ 2–Thứ 7", "Giờ làm việc"], ["Từ 200.000đ", "Hỗ trợ thiết kế"], ["Tối đa 3 lần", "Chỉnh sửa thiết kế"]].map(([value, label]) => (
             <div key={label} className="flex flex-col items-center justify-center gap-1 border-white/10 md:border-r md:last:border-r-0">
               <strong className="text-2xl font-black text-[#F5A623] lg:text-3xl">{value}</strong>
               <span className="text-xs font-bold text-gray-200">{label}</span>

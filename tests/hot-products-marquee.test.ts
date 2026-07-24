@@ -40,7 +40,12 @@ test("hot products use transparent PNG assets and an automatic infinite track", 
   assert.match(source, /previousInfluence/);
   assert.match(source, /Math\.exp\(-elapsed \/ 90\)/);
   assert.match(source, /w-\[120px\]/);
-  assert.match(source, /lg:w-\[180px\]/);
+  assert.match(source, /lg:w-\[360px\]/);
+  assert.match(source, /lg:h-\[440px\]/);
+  assert.match(source, /Array\.isArray\(result\?\.items\)/);
+  assert.doesNotMatch(source, /result\?\.items\.length/);
+  assert.match(source, /data-media-fit="contain"/);
+  assert.match(source, /Chưa có sản phẩm hot/);
   assert.doesNotMatch(source, /three|WebGLRenderer|CylinderGeometry|rotateY/i);
 });
 
@@ -55,7 +60,7 @@ test("hot products section keeps the all-products call to action", () => {
 
 test("product catalog contains the requested print categories", () => {
   const catalogPath = path.join(projectRoot, "app/components/catalog/ProductCatalogTabs.tsx");
-  const source = readFileSync(catalogPath, "utf8");
+  const source = `${readFileSync(catalogPath, "utf8")}\n${readFileSync(path.join(projectRoot, "app/lib/product-catalog.ts"), "utf8")}`;
 
   for (const category of ["Tem giấy", "Tem nhựa chống nước", "Tem giấy kraft", "Tem trong", "Sticker trang trí", "Tem vàng", "Tem bạc", "In catalog", "In card visit", "In voucher", "In bao thư", "In tờ rơi", "In folder", "In túi giấy", "In hóa đơn"]) {
     assert.match(source, new RegExp(category, "i"));

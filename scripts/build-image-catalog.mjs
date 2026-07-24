@@ -22,6 +22,7 @@ async function walk(directory, pattern) {
 function categoryFor(publicPath) {
   if (publicPath.includes("/hero-admin/")) return { id: "hero", label: "Ảnh hero", route: "/" };
   if (publicPath.includes("/hot-products/")) return { id: "hot-products", label: "Sản phẩm hot", route: "/#san-pham-noi-bat" };
+  if (publicPath.includes("/pricing/")) return { id: "pricing", label: "Bảng giá", route: "/#bang-gia" };
   if (publicPath.includes("/products/") || publicPath.includes("/mockups/") || /\/(application-photo|materials-flatlay|holographic_sticker|hero-products)\./.test(publicPath)) return { id: "products", label: "Ảnh sản phẩm", route: "/san-pham" };
   if (publicPath.includes("/blog/")) return { id: "blog", label: "Ảnh bài viết", route: "/blog" };
   if (publicPath.includes("/reviews/") || publicPath.includes("/avatars/")) return { id: "reviews", label: "Đánh giá & khách hàng", route: "/#danh-gia" };

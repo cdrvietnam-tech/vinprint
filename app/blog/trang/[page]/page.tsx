@@ -5,6 +5,7 @@ import Footer from "../../../components/home/Footer";
 import Header from "../../../components/home/Header";
 import { paginateBlogPosts } from "../../../lib/blog-pagination";
 import { blogPosts } from "../../../lib/blog-posts";
+import { getManagedBlogPosts } from "../../../lib/content-overrides.server";
 
 export function generateStaticParams() {
   const { totalPages } = paginateBlogPosts(blogPosts, 1);
@@ -22,9 +23,10 @@ export async function generateMetadata({ params }: { params: Promise<{ page: str
 
 export default async function PaginatedBlogPage({ params }: { params: Promise<{ page: string }> }) {
   const page = Number((await params).page);
-  const pagination = paginateBlogPosts(blogPosts, page);
+  const managedBlogPosts = await getManagedBlogPosts();
+  const pagination = paginateBlogPosts(managedBlogPosts, page);
   if (!Number.isInteger(page) || page < 2 || page > pagination.totalPages) notFound();
-  const latestUpdatedAt = blogPosts.reduce((latest, post) => post.updatedAt > latest ? post.updatedAt : latest, blogPosts[0]?.updatedAt ?? "2026-07-20");
+  const latestUpdatedAt = managedBlogPosts.reduce((latest, post) => post.updatedAt > latest ? post.updatedAt : latest, managedBlogPosts[0]?.updatedAt ?? "2026-07-20");
 
   return <div className="min-h-screen bg-[#F7F4EE] text-gray-950"><Header /><main id="main-content" tabIndex={-1} className="pt-20"><BlogListing posts={pagination.items} totalItems={pagination.totalItems} latestUpdatedAt={latestUpdatedAt} currentPage={page} totalPages={pagination.totalPages} /></main><Footer /></div>;
 }

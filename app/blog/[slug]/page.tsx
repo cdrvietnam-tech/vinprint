@@ -7,8 +7,8 @@ import BlogCard from "../../components/blog/BlogCard";
 import ConversionLink from "../../components/ConversionLink";
 import Footer from "../../components/home/Footer";
 import Header from "../../components/home/Header";
-import { blogPosts, formatBlogDate, getBlogArticle, getBlogCategoryLabel } from "../../lib/blog-posts";
-import { productBySlug } from "../../lib/products";
+import { blogPosts, formatBlogDate, getBlogCategoryLabel } from "../../lib/blog-posts";
+import { getManagedBlogArticle, getManagedBlogPosts, getManagedProducts } from "../../lib/content-overrides.server";
 
 type BlogArticlePageProps = { params: Promise<{ slug: string }> };
 
@@ -21,7 +21,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: BlogArticlePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const article = getBlogArticle(slug);
+  const article = await getManagedBlogArticle(slug);
   if (!article) return {};
 
   return {
@@ -50,14 +50,16 @@ function SourceLink({ href, children }: { href: string; children: React.ReactNod
 
 export default async function BlogArticlePage({ params }: BlogArticlePageProps) {
   const { slug } = await params;
-  const article = getBlogArticle(slug);
+  const article = await getManagedBlogArticle(slug);
   if (!article) notFound();
 
-  const relatedProducts = article.relatedProductSlugs.map((productSlug) => productBySlug[productSlug]).filter(Boolean);
-  const relatedPosts = blogPosts.filter((post) => post.slug !== article.slug && post.category === article.category).slice(0, 2);
+  const [managedBlogPosts, managedProducts] = await Promise.all([getManagedBlogPosts(), getManagedProducts()]);
+  const managedProductBySlug = new Map(managedProducts.map((product) => [product.slug, product]));
+  const relatedProducts = article.relatedProductSlugs.map((productSlug) => managedProductBySlug.get(productSlug)).filter(Boolean);
+  const relatedPosts = managedBlogPosts.filter((post) => post.slug !== article.slug && post.category === article.category).slice(0, 2);
   const fallbackRelatedPosts = relatedPosts.length >= 2
     ? relatedPosts
-    : [...relatedPosts, ...blogPosts.filter((post) => post.slug !== article.slug && !relatedPosts.includes(post))].slice(0, 2);
+    : [...relatedPosts, ...managedBlogPosts.filter((post) => post.slug !== article.slug && !relatedPosts.includes(post))].slice(0, 2);
   const articleText = [article.directAnswer, ...article.sections.flatMap((section) => [section.heading, ...section.paragraphs, ...(section.bullets ?? [])])].join(" ");
   const wordCount = articleText.trim().split(/\s+/).length;
   const canonicalUrl = `https://vinprint.vn/blog/${article.slug}`;

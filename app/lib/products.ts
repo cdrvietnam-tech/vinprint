@@ -1,5 +1,3 @@
-export const SHOPEE_SHOP_URL = "https://shopee.vn/chaucay_senda";
-
 export const productSources = {
   label:
     "https://shopee.vn/H%E1%BB%8EA-T%E1%BB%90C-In-tem-nh%C3%A3n-gi%E1%BA%A5y-sticker-decal-trong-decal-nh%E1%BB%B1a-ch%E1%BB%91ng-n%C6%B0%E1%BB%9Bc-C%C3%93-NH%E1%BA%ACN-S%E1%BB%90-L%C6%AF%E1%BB%A2NG-%C3%8DT-h%E1%BB%97-tr%E1%BB%A3-thi%E1%BA%BFt-k%E1%BA%BF-theo-y%C3%AAu-c%E1%BA%A7u-i.234032873.11297404745",
@@ -19,9 +17,8 @@ export type Product = {
   benefit: string;
   uses: string[];
   priceLabel: string;
-  price?: number;
   image: string;
-  source: string;
+  source?: string;
   tone: string;
 };
 
@@ -35,7 +32,6 @@ export const products: Product[] = [
     benefit: "Độ nổi rõ, thành phẩm gọn và tạo cảm giác cao cấp.",
     uses: ["Bình giữ nhiệt", "Ly sứ", "Chai lọ", "Hộp giấy", "Kim loại"],
     priceLabel: "Từ 25.000đ / A5",
-    price: 25000,
     image: "/images/products/tem-uv-dtf.webp",
     source: productSources.uv,
     tone: "violet",
@@ -49,7 +45,6 @@ export const products: Product[] = [
     benefit: "Giá tốt, lên màu đẹp và linh hoạt khi cần số lượng ít.",
     uses: ["Hộp bánh", "Túi kraft", "Tem cảm ơn", "Bao bì khô"],
     priceLabel: "Từ 10.000đ / tờ",
-    price: 10000,
     image: "/images/products/tem-giay.webp",
     source: productSources.label,
     tone: "lime",
@@ -63,7 +58,6 @@ export const products: Product[] = [
     benefit: "Chống nước tốt hơn tem giấy và duy trì màu sắc lâu hơn.",
     uses: ["Mỹ phẩm", "Đồ uống", "Đông lạnh", "Dán xe", "Ngoài trời"],
     priceLabel: "Từ 15.000đ / A4",
-    price: 15000,
     image: "/images/products/tem-nhua-chong-nuoc.webp",
     source: productSources.label,
     tone: "coral",
@@ -76,7 +70,7 @@ export const products: Product[] = [
       "Giữ lại màu và chất liệu của chai lọ phía sau, phù hợp thiết kế tối giản hoặc sản phẩm trong suốt.",
     benefit: "Nhãn hòa vào bao bì, tạo cảm giác sạch và hiện đại.",
     uses: ["Chai serum", "Ly nhựa", "Hũ mỹ phẩm", "Bao bì trong"],
-    priceLabel: "Gửi file để xác nhận",
+    priceLabel: "Báo giá theo quy cách",
     image: "/images/products/tem-nhua-trong.webp",
     source: productSources.label,
     tone: "aqua",
@@ -89,9 +83,8 @@ export const products: Product[] = [
       "Bề mặt ánh bạc phản sáng, phù hợp nhãn thông số và thương hiệu cần cảm giác kỹ thuật, bền chắc.",
     benefit: "Tạo hiệu ứng kim loại nổi bật dưới ánh sáng.",
     uses: ["Máy móc", "Điện tử", "Thông số", "Logo cao cấp"],
-    priceLabel: "Gửi file để xác nhận",
+    priceLabel: "Báo giá theo quy cách",
     image: "/images/products/tem-bac.webp",
-    source: SHOPEE_SHOP_URL,
     tone: "silver",
   },
   {
@@ -102,7 +95,7 @@ export const products: Product[] = [
       "Hiệu ứng vàng giúp logo và chi tiết trang trí nổi bật trên bao bì quà tặng hoặc sản phẩm cao cấp.",
     benefit: "Tăng cảm giác sang trọng mà không cần thay toàn bộ bao bì.",
     uses: ["Quà tặng", "Mỹ phẩm", "Nến thơm", "Hộp cao cấp"],
-    priceLabel: "Gửi file để xác nhận",
+    priceLabel: "Báo giá theo quy cách",
     image: "/images/products/tem-ep-kim.webp",
     source: productSources.uv,
     tone: "gold",
@@ -115,9 +108,8 @@ export const products: Product[] = [
       "Bề mặt chuyển sắc theo góc nhìn, phù hợp tem niêm phong và thiết kế cần hiệu ứng thị giác mạnh.",
     benefit: "Thu hút ánh nhìn và tạo dấu hiệu nhận diện khác biệt.",
     uses: ["Niêm phong", "Mỹ phẩm", "Phụ kiện", "Sản phẩm giới hạn"],
-    priceLabel: "Gửi file để xác nhận",
+    priceLabel: "Báo giá theo quy cách",
     image: "/images/holographic_sticker.webp",
-    source: "https://vinprint.vn",
     tone: "holo",
   },
   {
@@ -130,7 +122,6 @@ export const products: Product[] = [
     uses: ["Điện tử", "Linh kiện", "Thiết bị", "Niêm phong hộp"],
     priceLabel: "Gửi quy cách để xác nhận",
     image: "/images/products/tem-nhua-chong-nuoc.webp",
-    source: SHOPEE_SHOP_URL,
     tone: "ink",
   },
   {
@@ -142,7 +133,6 @@ export const products: Product[] = [
     benefit: "Bố cục rõ ràng, ưu tiên khả năng đọc ở kích thước nhỏ.",
     uses: ["Hàng nhập", "Mỹ phẩm", "Thực phẩm", "Đồ gia dụng"],
     priceLabel: "Từ 180đ / tem",
-    price: 180,
     image: "/images/products/tem-nhua-trong.webp",
     source: productSources.supplement,
     tone: "blue",
@@ -157,7 +147,6 @@ export const products: Product[] = [
     uses: ["Laptop", "Vali", "Nón bảo hiểm", "Xe", "Bình nước"],
     priceLabel: "Theo kích thước & số lượng",
     image: "/images/products/tem-nhua-chong-nuoc.webp",
-    source: SHOPEE_SHOP_URL,
     tone: "pink",
   },
 ];

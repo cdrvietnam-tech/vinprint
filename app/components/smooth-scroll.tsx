@@ -27,7 +27,7 @@ export default function SmoothScroll() {
     }
     frame = requestAnimationFrame(raf);
 
-    // Cho phép các link neo (#pricing, #faq...) cuộn mượt tới đúng vị trí.
+    // Cho phép các link neo (#bang-gia, #faq...) cuộn mượt tới đúng vị trí.
     function onAnchorClick(event: MouseEvent) {
       const target = event.target as HTMLElement | null;
       const anchor = target?.closest?.('a[href^="#"]') as HTMLAnchorElement | null;

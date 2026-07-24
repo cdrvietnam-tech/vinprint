@@ -18,16 +18,7 @@ export const metadata: Metadata = {
     template: "%s | VinPrint",
   },
   description:
-    "In tem giấy, tem nhựa chống nước, tem ánh kim và UV DTF tại TP.HCM. Xem giá tham khảo, ảnh thật, đánh giá Shopee và gửi file chốt đơn qua Zalo.",
-  keywords: [
-    "in tem nhãn",
-    "in tem nhãn theo yêu cầu",
-    "in tem UV DTF",
-    "tem nhựa chống nước",
-    "tem giấy",
-    "in tem TP.HCM",
-    "in tem Gò Vấp",
-  ],
+    "In tem giấy, tem nhựa chống nước, tem ánh kim và UV DTF tại TP.HCM. Xem giá tham khảo, mẫu ứng dụng và gửi file để nhận báo giá theo quy cách.",
   alternates: {
     canonical: "/",
   },
