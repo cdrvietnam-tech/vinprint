@@ -167,7 +167,7 @@ export default function Pricing() {
             </a>
           </div>
 
-          <div className="relative z-10 grid items-stretch gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="relative z-10 grid auto-rows-fr items-stretch gap-6 md:grid-cols-2 lg:grid-cols-4">
             {pricingPosters.map((poster, index) => (
               <motion.article
                 key={poster.src}

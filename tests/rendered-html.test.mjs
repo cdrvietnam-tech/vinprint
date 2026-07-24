@@ -169,8 +169,8 @@ test("homepage publishes four detailed pricing posters with a wholesale path", a
   assert.match(html, /Combo ưu đãi/);
   assert.match(html, /Bảng giá in tem nhãn/i);
   assert.equal((html.match(/data-pricing-poster/g) ?? []).length, 4);
-  assert.match(html, /md:grid-cols-2 xl:grid-cols-4/);
-  assert.match(html, /grid items-stretch/);
+  assert.match(html, /md:grid-cols-2 lg:grid-cols-4/);
+  assert.match(html, /grid auto-rows-fr items-stretch/);
   assert.match(html, /aspect-\[4\/5\]/);
   assert.match(html, /flex h-full flex-col/);
   assert.match(html, /bang-gia-tem-nhan-tong-hop\.webp/);
