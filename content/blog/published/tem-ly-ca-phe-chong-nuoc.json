@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-ly-ca-phe-chong-nuoc",
+  "title": "Tem ly cà phê chống nước: kiểm tra từ lúc dán đến khi giao",
+  "description": "Quy trình chọn và thử tem ly cà phê đá theo bề mặt ly, nhiệt độ dán, hơi nước, ma sát và thời gian giao thay vì chỉ hỏi tem có chống nước hay không.",
+  "category": "ky-thuat-in",
+  "image": "/images/blog/tem-ly-ca-phe-chong-nuoc.webp",
+  "imageAlt": "Minh họa ly cà phê đá có hơi nước và các mẫu tem trống dùng để so sánh",
+  "publishedAt": "2026-07-24",
+  "updatedAt": "2026-07-24",
+  "publishAt": "2026-07-24T06:30:00+07:00",
+  "readingMinutes": 7,
+  "primaryKeyword": "tem ly cà phê chống nước",
+  "searchIntent": "Xây dựng phép thử tem ly cà phê chống nước trong điều kiện pha chế và giao hàng",
+  "buyerStage": "implementation",
+  "contentType": "authority",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-content-v1",
+  "revisionCount": 1,
+  "directAnswer": "Tem ly cà phê chống nước không nên được đánh giá chỉ bằng cách nhúng riêng miếng tem vào nước. Cần thử cả cấu trúc tem, mực, lớp gia công và keo trên đúng loại ly, ở đúng thời điểm dán. Bề mặt ly phải sạch và khô; nếu dán sau khi ly đã lạnh và có hơi nước, màng nước có thể ngăn keo tiếp xúc với nhựa. Sau khi dán, ép đều toàn bộ tem, đặc biệt ở mép, rồi cho ly vào chu kỳ sử dụng thực tế: thêm đá, chờ xuất hiện ngưng tụ, đặt trong túi hoặc khay giao, cầm nắm và theo dõi tem đến cuối thời gian dự kiến. Ghi riêng hiện tượng trượt, phồng, hở mép, mực lem và bề mặt tem thay đổi. So sánh các mẫu phải giữ cùng kích thước, vị trí và thao tác dán. Một mẫu vượt qua một loại ly chưa chứng minh phù hợp với ly khác, vì PP, PET, lớp phủ và độ nhám có thể khác. Kết quả nên được xem là phép thử ứng dụng cụ thể, không phải cam kết chung cho mọi quán.",
+  "sections": [
+    {
+      "heading": "“Chống nước” của mặt tem và độ bám keo là hai việc khác nhau",
+      "paragraphs": [
+        "Mặt tem nhựa có thể không rã khi gặp nước nhưng toàn bộ nhãn vẫn thất bại nếu keo không tiếp xúc đủ với ly. Nước ngưng tụ nằm giữa keo và bề mặt làm giảm vùng tiếp xúc; nhiệt độ thấp cũng có thể làm thay đổi độ bám ban đầu của một số hệ keo.",
+        "Vì vậy cần quan sát riêng mặt in, lớp cán và mép keo. Một tem còn nguyên màu nhưng trượt vị trí vẫn không đạt mục tiêu; ngược lại, mép bám tốt nhưng mực bị cọ xước cũng cần xem lại cấu trúc."
+      ],
+      "table": {
+        "headers": ["Hiện tượng", "Biến cần kiểm tra"],
+        "rows": [
+          ["Tem trượt", "Bề mặt ướt, lực ép, nhiệt độ lúc dán"],
+          ["Hở mép", "Độ cong ly, kích thước tem, mép bo"],
+          ["Mực lem hoặc trầy", "Mặt in, lớp gia công, ma sát khi giao"],
+          ["Bọt khí", "Cách miết, bụi bẩn và hình dạng ly"]
+        ]
+      }
+    },
+    {
+      "heading": "Quy trình thử tem ly cà phê có thể lặp lại",
+      "paragraphs": [
+        "Chuẩn bị nhiều ly cùng lô, tem cùng kích thước và một biểu mẫu ghi thời điểm. Dán nhóm mẫu khi ly khô ở nhiệt độ phòng; nếu quán buộc phải dán sau khi pha, tạo thêm nhóm riêng để hiểu rủi ro thay vì trộn kết quả.",
+        "Không thay đổi đồng thời cả vật liệu, kích thước và thao tác vì sẽ không biết yếu tố nào tạo ra khác biệt. Mỗi vòng chỉ nên đổi một biến, giữ các yếu tố còn lại giống nhau."
+      ],
+      "bullets": [
+        "Làm sạch và để vùng dán khô trước khi dán",
+        "Miết đều từ giữa ra mép bằng cùng một thao tác",
+        "Thêm đá và đồ uống như quy trình bán thật",
+        "Theo dõi sau pha, trong túi giao và cuối thời gian sử dụng",
+        "Ghi ảnh cùng góc chụp nhưng không dùng ảnh AI làm bằng chứng"
+      ]
+    },
+    {
+      "heading": "Dữ liệu nào cần gửi khi nhờ xưởng tư vấn?",
+      "paragraphs": [
+        "Tên gọi “ly nhựa” chưa đủ. Cần cho biết mã vật liệu nếu có, đường kính và độ cong vùng dán, ly nóng hay lạnh, dán trước hay sau khi pha, thời gian từ lúc dán đến lúc khách nhận và cách đóng gói.",
+        "Avery Dennison phân biệt nhiệt độ ứng dụng với nhiệt độ sử dụng và khuyến nghị thử cấu trúc nhãn cho ứng dụng cụ thể. Điều này phù hợp với cách tiếp cận thận trọng: không suy từ thông số chung thành bảo đảm cho một ly chưa được thử."
+      ],
+      "bullets": [
+        "Mẫu ly thật và ảnh vùng dán",
+        "Nhiệt độ ly tại thời điểm dán",
+        "Thời gian giao hoặc trưng bày dự kiến",
+        "Mức hơi nước, ma sát và thao tác cầm nắm",
+        "Tiêu chí đạt hoặc loại của quán"
+      ]
+    }
+  ],
+  "relatedProductSlugs": ["tem-nhua-chong-nuoc", "tem-nhua-trong", "sticker-trang-tri"],
+  "sources": [
+    {
+      "title": "Trang tem nhãn đồ uống VinPrint",
+      "href": "/nganh/do-uong",
+      "note": "Nêu các biến hơi nước, nhiệt độ thấp, ma sát và yêu cầu thử mẫu sau khi làm lạnh.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-24"
+    },
+    {
+      "title": "Avery Dennison Hotmelt Adhesives",
+      "href": "https://label.averydennison.com/ap/en_sa/home/promotional/hotmelt.html",
+      "note": "Nguồn hãng vật liệu mô tả hệ keo cho bề mặt ẩm, khó dán và ứng dụng nhiệt độ thấp, đồng thời yêu cầu chọn theo ứng dụng.",
+      "kind": "primary",
+      "verifiedAt": "2026-07-24"
+    },
+    {
+      "title": "3M Science of Adhesion: Changing Surface Properties",
+      "href": "https://www.3m.com/3M/en_US/bonding-and-assembly-us/resources/science-of-adhesion/changing-surface-properties/",
+      "note": "Nguồn kỹ thuật giải thích vai trò của làm sạch và chất bẩn bề mặt đối với khả năng tiếp xúc của keo.",
+      "kind": "primary",
+      "verifiedAt": "2026-07-24"
+    }
+  ],
+  "quality": {
+    "scores": {"searchIntent": 20, "originality": 20, "evidence": 20, "citability": 15, "authority": 10, "internalLinks": 10, "technical": 5},
+    "evidenceIds": ["/nganh/do-uong", "https://label.averydennison.com/ap/en_sa/home/promotional/hotmelt.html", "https://www.3m.com/3M/en_US/bonding-and-assembly-us/resources/science-of-adhesion/changing-surface-properties/"],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Ly cà phê lạnh cần được thử trong điều kiện có hơi nước, nhiệt độ thấp và ma sát của quá trình giao.",
+        "sourceIds": ["/nganh/do-uong", "https://label.averydennison.com/ap/en_sa/home/promotional/hotmelt.html"]
+      },
+      {
+        "claim": "Làm sạch bề mặt trước khi dán giúp loại bỏ chất bẩn có thể cản trở tiếp xúc của keo.",
+        "sourceIds": ["https://www.3m.com/3M/en_US/bonding-and-assembly-us/resources/science-of-adhesion/changing-surface-properties/"]
+      }
+    ],
+    "attempts": [
+      {"attempt": 1, "recordedAt": "2026-07-24T09:46:00+07:00", "score": 100, "outcome": "accepted"}
+    ]
+  }
+}

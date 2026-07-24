@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "status": "draft",
+  "slug": "tem-cho-chai-nuoc-ep",
+  "title": "Tem cho chai nước ép: chọn theo chai PET, thủy tinh và cách bảo quản",
+  "description": "Cách chọn tem cho chai nước ép theo loại chai, vùng dán, điều kiện lạnh, hơi nước và thời gian sử dụng trước khi gửi quy cách in.",
+  "category": "theo-nganh",
+  "image": "/images/blog/tem-cho-chai-nuoc-ep.webp",
+  "imageAlt": "Minh họa ba chai nước ép bằng PET, thủy tinh và nhựa trắng với tem trống",
+  "publishedAt": "2026-07-24",
+  "updatedAt": "2026-07-24",
+  "publishAt": "2026-07-24T07:00:00+07:00",
+  "readingMinutes": 6,
+  "primaryKeyword": "tem cho chai nước ép",
+  "searchIntent": "Chọn quy cách tem cho chai nước ép theo loại chai và chuỗi bảo quản",
+  "buyerStage": "consideration",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-content-v1",
+  "revisionCount": 1,
+  "directAnswer": "Tem cho chai nước ép nên được chọn từ chai thật và chuỗi sử dụng, không chỉ từ màu đồ uống. Trước hết xác định chai là PET, thủy tinh hay loại nhựa khác; đo phần thân phẳng và kiểm tra đường gân, vai chai cùng vùng cầm. Sau đó mô tả chai được dán khi khô ở nhiệt độ phòng hay sau khi làm lạnh, có đọng sương trong tủ mát và bị ma sát trong thùng giao hay không. Tem nhựa trắng thường giúp màu chữ ổn định trên nhiều màu nước ép; tem trong tạo cảm giác nhìn xuyên nhưng cần kiểm tra độ tương phản và khả năng đọc. Tem giấy chỉ nên được cân nhắc khi điều kiện đủ khô và vòng đời phù hợp. Cắt mẫu giấy theo kích thước thật, thử trên chai đầy, quan sát khi cầm và khi xếp trong khay. Nội dung thực phẩm và các tuyên bố dinh dưỡng phải do chủ sản phẩm xác nhận theo thị trường kinh doanh. Bản nháp đạt cổng nội dung nhưng được giữ lại vì giới hạn tối đa năm bài trong ngày.",
+  "sections": [
+    {
+      "heading": "Loại chai làm thay đổi quyết định về tem như thế nào?",
+      "paragraphs": [
+        "PET, thủy tinh và nhựa đục có độ cứng, độ cong, bề mặt và khả năng nhìn xuyên khác nhau. Một tem trong đẹp trên chai thủy tinh trong có thể khó đọc khi dán lên chai chứa nước ép đậm màu.",
+        "Đo vùng thân thẳng và tránh gân tăng cứng, vai chai hoặc vùng thường bị tay bóp. Nếu chai thay nhà cung cấp, nên thử lại vì hình dáng và bề mặt có thể thay đổi dù dung tích giống nhau."
+      ],
+      "table": {
+        "headers": ["Loại chai", "Điểm cần kiểm tra"],
+        "rows": [
+          ["PET trong", "Độ cong, gân chai và loại nhựa"],
+          ["Thủy tinh", "Bề mặt sạch, khô và va chạm khi giao"],
+          ["Nhựa trắng", "Độ bám trên polymer và khả năng bóp"],
+          ["Mọi loại", "Nhiệt độ lúc dán và hơi nước khi dùng"]
+        ]
+      }
+    },
+    {
+      "heading": "Tem trắng hay tem trong phù hợp mục tiêu nào?",
+      "paragraphs": [
+        "Tem nhựa trắng tạo nền in ổn định hơn khi nước ép có màu mạnh hoặc sản phẩm thay đổi màu theo lô. Tem trong giữ phần chai và màu nước ép trong thiết kế, nhưng chữ cần có độ tương phản đủ ở mọi góc nhìn.",
+        "Không nên chọn chỉ từ mockup. In mẫu ở kích thước thật và đặt lên chai đã chứa sản phẩm để xem màu, vùng bọt, cặn tự nhiên hoặc ánh sáng tủ có làm nội dung khó đọc hay không."
+      ],
+      "bullets": [
+        "Tem trắng: ưu tiên khả năng đọc ổn định",
+        "Tem trong: ưu tiên hiệu ứng nhìn xuyên và cần thử tương phản",
+        "Bo góc để giảm mép dễ bị cọ",
+        "Tách tem phụ nếu thông tin vượt quá vùng đọc"
+      ]
+    },
+    {
+      "heading": "Checklist gửi quy cách tem chai nước ép",
+      "paragraphs": [
+        "Gửi một chai thật hoặc ảnh rõ bốn mặt, kích thước vùng dán, loại vật liệu chai, số lượng từng mẫu và file nội dung đã duyệt. Mô tả thứ tự dán, chiết rót, làm lạnh, giao hàng để phép thử bám sát vận hành.",
+        "Nếu quy trình chưa ổn định, nên in thử và ghi kết quả trước khi chốt số lượng lớn. Thumbnail AI của bài chỉ minh họa các loại chai, không chứng minh hiệu năng của vật liệu."
+      ],
+      "bullets": [
+        "Chai thật, mã vật liệu và kích thước vùng phẳng",
+        "Dán trước hay sau khi chiết rót và làm lạnh",
+        "Thời gian bảo quản và cách vận chuyển",
+        "Màu nước ép để kiểm tra tương phản",
+        "Nội dung nhãn đã được chủ sản phẩm xác nhận"
+      ]
+    }
+  ],
+  "relatedProductSlugs": ["tem-nhua-chong-nuoc", "tem-nhua-trong", "tem-phu-san-pham"],
+  "sources": [
+    {
+      "title": "Trang tem nhãn đồ uống VinPrint",
+      "href": "/nganh/do-uong",
+      "note": "Mô tả ứng dụng cho chai nước, cà phê và đồ uống bảo quản lạnh cùng các biến hơi nước và ma sát.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-24"
+    },
+    {
+      "title": "Hướng dẫn tem dán chai lọ VinPrint",
+      "href": "/nganh/chai-lo",
+      "note": "Hướng dẫn đo vùng phẳng, tránh gân và thử kích thước trên đúng chai.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-24"
+    },
+    {
+      "title": "Trang tem nhựa trong VinPrint",
+      "href": "/san-pham/tem-nhua-trong",
+      "note": "Mô tả tem trong cho chai lọ và yêu cầu cân nhắc nền phía sau thiết kế.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-24"
+    }
+  ],
+  "quality": {
+    "scores": {"searchIntent": 20, "originality": 20, "evidence": 20, "citability": 15, "authority": 10, "internalLinks": 10, "technical": 5},
+    "evidenceIds": ["/nganh/do-uong", "/nganh/chai-lo", "/san-pham/tem-nhua-trong"],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Tem chai nước ép cần được chọn theo loại chai, vùng phẳng, nhiệt độ và hơi nước trong quá trình sử dụng.",
+        "sourceIds": ["/nganh/do-uong", "/nganh/chai-lo"]
+      },
+      {
+        "claim": "Tem trong giữ cảm giác nhìn xuyên chai nhưng cần kiểm tra nội dung trên nền sản phẩm thực tế.",
+        "sourceIds": ["/san-pham/tem-nhua-trong", "/nganh/do-uong"]
+      }
+    ],
+    "attempts": [
+      {"attempt": 1, "recordedAt": "2026-07-24T09:52:00+07:00", "score": 100, "outcome": "accepted"}
+    ]
+  }
+}

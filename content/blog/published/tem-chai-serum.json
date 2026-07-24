@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-chai-serum",
+  "title": "Tem chai serum: đo vùng dán và chọn vật liệu trước khi in",
+  "description": "Hướng dẫn đo vùng dán, chọn kích thước và vật liệu cho tem chai serum 10–30 ml, tránh ôm qua vai chai hoặc che phần cần quan sát.",
+  "category": "theo-nganh",
+  "image": "/images/blog/tem-chai-serum.webp",
+  "imageAlt": "Minh họa ba chai serum với các kích thước tem trống khác nhau để so sánh vùng dán",
+  "publishedAt": "2026-07-24",
+  "updatedAt": "2026-07-24",
+  "publishAt": "2026-07-24T06:00:00+07:00",
+  "readingMinutes": 6,
+  "primaryKeyword": "tem chai serum",
+  "searchIntent": "Chọn kích thước và vật liệu tem riêng cho chai serum nhỏ trước khi đặt in",
+  "buyerStage": "consideration",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-content-v1",
+  "revisionCount": 1,
+  "directAnswer": "Tem chai serum nên được chốt sau khi đo phần thân thực sự phẳng, không lấy toàn bộ chiều cao chai làm chiều cao tem. Với chai 10–30 ml, vai chai, đáy bo cong, đường ghép khuôn và vùng cầm nắm có thể làm diện tích dán nhỏ hơn nhiều so với hình nhìn trực diện. Cách kiểm tra ít rủi ro là cắt ba mẫu giấy ở các kích thước gần nhau, dán thử lên đúng chai, xoay một vòng và quan sát khe giữa hai mép. Nếu sản phẩm thường xuyên ở nơi ẩm hoặc có thể dính chất lỏng, nên cân nhắc tem nhựa và hệ keo phù hợp thay vì mặc định dùng tem giấy. Tem trong giữ được cảm giác nhìn xuyên chai nhưng cần kiểm tra độ tương phản của chữ trên màu dung dịch. Trước khi báo giá, hãy gửi ảnh chai thật, kích thước vùng dán tính bằng milimet, số lượng của từng mẫu và điều kiện sử dụng. Đây là hướng dẫn chọn quy cách, không phải cam kết rằng một vật liệu sẽ phù hợp với mọi chai serum.",
+  "sections": [
+    {
+      "heading": "Đo tem chai serum ở vị trí nào để hạn chế nhăn và hở mép?",
+      "paragraphs": [
+        "Đặt chai thẳng và xác định đoạn thân có độ cong gần như không đổi. Không kéo tem lên vai chai hoặc xuống phần đáy bo vì hai vùng này làm mép tem phải thay đổi bán kính, dễ tạo nếp hoặc bật mép.",
+        "Đo cả chiều ngang vùng nhìn chính và chu vi tại đúng cao độ dự kiến dán. Nếu dùng tem quấn, chừa một khe nhỏ giữa hai đầu để tránh chồng mép ngoài ý muốn; nếu dùng tem mặt trước, kiểm tra khi xoay chai để tem không lấn vào đường ghép khuôn."
+      ],
+      "bullets": [
+        "Cắt mẫu giấy theo kích thước thật trước khi làm file",
+        "Giữ tem cách vai và đáy bo một khoảng an toàn",
+        "Kiểm tra vị trí logo khi cầm chai và đặt trên kệ",
+        "Ghi kích thước theo thứ tự ngang × cao, đơn vị milimet"
+      ]
+    },
+    {
+      "heading": "Khi nào nên dùng tem nhựa, tem trong hoặc tem giấy?",
+      "paragraphs": [
+        "Tem nhựa thường là điểm bắt đầu hợp lý khi chai có nguy cơ gặp nước, dầu hoặc ma sát trong túi mỹ phẩm. Tem trong phù hợp thiết kế tối giản và chai đẹp, nhưng phần chữ cần đủ tương phản với dung dịch, ánh sáng và màu chai.",
+        "Tem giấy có thể phù hợp hộp ngoài hoặc chai chỉ dùng trong môi trường khô. Không nên suy từ vẻ ngoài của vật liệu sang độ bám: độ sạch bề mặt, loại nhựa hoặc thủy tinh, lớp phủ trên chai và hệ keo đều ảnh hưởng kết quả."
+      ],
+      "table": {
+        "headers": ["Lựa chọn", "Điểm cần kiểm tra trên chai serum"],
+        "rows": [
+          ["Tem nhựa trắng", "Độ bám trong môi trường ẩm và khả năng đọc chữ nhỏ"],
+          ["Tem nhựa trong", "Độ tương phản khi nhìn qua dung dịch và chai"],
+          ["Tem giấy", "Chỉ dùng khi điều kiện khô và bề mặt phù hợp"],
+          ["Tem nắp", "Đường kính vùng phẳng, không lấn qua mép nắp"]
+        ]
+      }
+    },
+    {
+      "heading": "Checklist gửi xưởng trước khi in tem chai serum",
+      "paragraphs": [
+        "Một ảnh mockup chưa đủ để xác nhận quy cách. Xưởng cần ảnh chai thật ở mặt trước và mặt bên, kích thước vùng dán, loại bề mặt, số mẫu, số lượng và file thiết kế ở đúng tỷ lệ.",
+        "Nếu chữ thành phần hoặc hướng dẫn quá nhỏ, nên ưu tiên khả năng đọc và tách thông tin sang hộp ngoài hoặc tem phụ phù hợp. Nội dung pháp lý của mỹ phẩm cần được chủ sản phẩm kiểm tra theo thị trường kinh doanh; xưởng in không nên tự suy diễn nội dung bắt buộc."
+      ],
+      "bullets": [
+        "Ảnh chai thật và mã vật liệu chai nếu có",
+        "Kích thước vùng phẳng và mẫu giấy đã thử",
+        "File logo, màu nền, nội dung đã duyệt",
+        "Môi trường sử dụng: khô, ẩm, dầu hoặc làm lạnh",
+        "Số lượng riêng cho từng mẫu serum"
+      ]
+    }
+  ],
+  "relatedProductSlugs": ["tem-nhua-chong-nuoc", "tem-nhua-trong", "tem-giay"],
+  "sources": [
+    {
+      "title": "Trang tem nhãn mỹ phẩm của VinPrint",
+      "href": "/nganh/my-pham",
+      "note": "Nêu yêu cầu thử độ bám trên đúng chai, giữ chữ dễ đọc và chọn vật liệu theo môi trường ẩm.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-24"
+    },
+    {
+      "title": "Hướng dẫn đo và chọn kích thước tem",
+      "href": "/huong-dan/chon-kich-thuoc-tem",
+      "note": "Hướng dẫn đo vùng phẳng và thử mẫu giấy trực tiếp trên bao bì trước khi chốt kích thước.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-24"
+    },
+    {
+      "title": "Trang tem nhựa trong VinPrint",
+      "href": "/san-pham/tem-nhua-trong",
+      "note": "Mô tả ứng dụng tem trong cho chai serum, hũ mỹ phẩm và bao bì trong.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-24"
+    }
+  ],
+  "quality": {
+    "scores": {"searchIntent": 20, "originality": 20, "evidence": 20, "citability": 15, "authority": 10, "internalLinks": 10, "technical": 5},
+    "evidenceIds": ["/nganh/my-pham", "/huong-dan/chon-kich-thuoc-tem", "/san-pham/tem-nhua-trong"],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Kích thước tem chai serum cần được thử trên vùng phẳng của chai thay vì lấy toàn bộ chiều cao bao bì.",
+        "sourceIds": ["/huong-dan/chon-kich-thuoc-tem", "/nganh/my-pham"]
+      },
+      {
+        "claim": "Tem trong phù hợp chai serum nhưng cần kiểm tra độ tương phản của nội dung trên màu chai và dung dịch.",
+        "sourceIds": ["/san-pham/tem-nhua-trong", "/nganh/my-pham"]
+      }
+    ],
+    "attempts": [
+      {"attempt": 1, "recordedAt": "2026-07-24T09:40:00+07:00", "score": 100, "outcome": "accepted"}
+    ]
+  }
+}

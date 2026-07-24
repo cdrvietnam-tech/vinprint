@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "status": "draft",
+  "slug": "chai-dong-suong-lam-bong-tem",
+  "title": "Vì sao chai đọng sương làm bong tem và cách tìm đúng nguyên nhân?",
+  "description": "Phân tích màng nước, nhiệt độ, thời điểm dán, độ cong và thao tác miết để tìm nguyên nhân chai đọng sương làm tem trượt hoặc hở mép.",
+  "category": "ky-thuat-in",
+  "image": "/images/blog/chai-dong-suong-lam-bong-tem.webp",
+  "imageAlt": "Minh họa chai có hơi nước với mép tem nhấc lên cạnh một chai khô có tem phẳng",
+  "publishedAt": "2026-07-24",
+  "updatedAt": "2026-07-24",
+  "publishAt": "2026-07-24T06:50:00+07:00",
+  "readingMinutes": 6,
+  "primaryKeyword": "chai đọng sương làm bong tem",
+  "searchIntent": "Chẩn đoán nguyên nhân chai đọng sương làm tem trượt hoặc hở mép sau khi dán",
+  "buyerStage": "implementation",
+  "contentType": "authority",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-content-v1",
+  "revisionCount": 1,
+  "directAnswer": "Chai đọng sương làm bong tem chủ yếu khi màng nước nằm giữa keo và bề mặt, khiến keo không tạo đủ vùng tiếp xúc ban đầu. Nhiệt độ thấp còn có thể làm giảm độ mềm và độ bám tức thời của một số hệ keo. Tuy nhiên không nên quy mọi lỗi cho hơi nước: tem quá lớn so với độ cong, mép vuông dễ bị cọ, chai có dầu hoặc bụi, lực miết không đều và dán ngay sau khi lấy chai lạnh ra đều có thể tạo hiện tượng giống nhau. Cách chẩn đoán là tách biến. So sánh một nhóm dán trên chai sạch, khô ở nhiệt độ phòng với một nhóm theo quy trình đang gây lỗi; giữ cùng chai, tem, kích thước và thao tác. Ghi vị trí hở, thời điểm xuất hiện và trạng thái bề mặt. Nếu tem trượt toàn tấm, ưu tiên kiểm tra màng nước và độ bám ban đầu; nếu chỉ bật ở hai mép, xem lại độ cong, kích thước và lực cọ. Bản nháp này được giữ lại do giới hạn xuất bản trong ngày, không phải vì hạ tiêu chuẩn nội dung.",
+  "sections": [
+    {
+      "heading": "Hơi nước tác động lên lớp keo như thế nào?",
+      "paragraphs": [
+        "Nhãn nhạy áp cần lực miết để keo lan và tiếp xúc với bề mặt. Khi có màng nước, phần keo chạm vào nước thay vì chạm trực tiếp vào chai; độ bám ban đầu có thể giảm và nhãn dễ trượt.",
+        "Tài liệu kỹ thuật của Avery Dennison về dán nhãn chai lạnh, ướt nêu hai thách thức riêng là nhiệt độ thấp và nước trên bề mặt. Điều này không có nghĩa mọi keo lạnh đều phù hợp; cấu trúc hoàn chỉnh vẫn phải thử trên chai thực tế."
+      ],
+      "table": {
+        "headers": ["Dấu hiệu", "Giả thuyết cần kiểm tra trước"],
+        "rows": [
+          ["Trượt cả tem", "Màng nước, nhiệt độ dán, lực miết"],
+          ["Bật hai mép", "Độ cong, chiều ngang và va chạm"],
+          ["Phồng cục bộ", "Bọt khí, bụi hoặc bề mặt không đều"],
+          ["Mực xước nhưng keo còn bám", "Mặt in và lớp gia công"]
+        ]
+      }
+    },
+    {
+      "heading": "Cách tách lỗi vật liệu khỏi lỗi quy trình dán",
+      "paragraphs": [
+        "Tạo nhóm đối chứng dán trên chai khô và nhóm dán theo quy trình hiện tại. Nếu nhóm khô ổn định còn nhóm có sương thất bại, trạng thái bề mặt hoặc nhiệt độ lúc dán là biến đáng ưu tiên.",
+        "Nếu cả hai nhóm cùng hở đúng một vị trí, hãy kiểm tra gân chai, đường khuôn, bán kính cong và cách miết. Không đổi nhiều biến cùng lúc vì kết quả sẽ khó giải thích."
+      ],
+      "bullets": [
+        "Giữ cùng lô chai và cùng kích thước tem",
+        "Đo nhiệt độ tại thời điểm dán",
+        "Chụp bề mặt trước khi dán",
+        "Ghi thời điểm lỗi đầu tiên xuất hiện",
+        "Thay một biến ở mỗi vòng thử"
+      ]
+    },
+    {
+      "heading": "Khi nào nên thay quy trình thay vì chỉ thay tem?",
+      "paragraphs": [
+        "Nếu vận hành cho phép, dán trên chai sạch và khô trước khi làm lạnh thường dễ kiểm soát hơn dán sau khi ngưng tụ đã xuất hiện. Thời gian chờ trước khi đưa vào lạnh cũng cần được giữ nhất quán trong thử nghiệm.",
+        "Nếu bắt buộc phải dán trên chai lạnh, cần báo rõ nhiệt độ và mức ẩm để xưởng cùng nhà cung cấp vật liệu chọn cấu trúc phù hợp. Không xem một tên keo là bảo đảm cho mọi chai."
+      ],
+      "bullets": [
+        "Chuẩn hóa thời điểm dán trong quy trình",
+        "Giữ vùng dán sạch và khô nếu có thể",
+        "Giảm kích thước hoặc bo góc khi mép bị cọ",
+        "Thử lại khi thay chai, tem hoặc nhiệt độ"
+      ]
+    }
+  ],
+  "relatedProductSlugs": ["tem-nhua-chong-nuoc", "tem-nhua-trong", "tem-giay"],
+  "sources": [
+    {
+      "title": "Avery Dennison Z3338 Cold/Wet Label Application",
+      "href": "https://label.averydennison.com/content/dam/averydennison/lpm-responsive/na/doc/technical-bulletins/technical%20marketing%20bulletins/z3338-technical-bulletin.pdf",
+      "note": "Nguồn hãng vật liệu phân tích riêng tác động của nhiệt độ thấp và nước ngưng tụ khi dán nhãn chai.",
+      "kind": "primary",
+      "verifiedAt": "2026-07-24"
+    },
+    {
+      "title": "Trang tem nhãn đồ uống VinPrint",
+      "href": "/nganh/do-uong",
+      "note": "Nêu hơi nước, nhiệt độ thấp và ma sát là các điều kiện cần đưa vào phép thử.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-24"
+    },
+    {
+      "title": "Hướng dẫn chọn chất liệu tem VinPrint",
+      "href": "/huong-dan/chon-chat-lieu-tem",
+      "note": "Phân biệt tem giấy và tem nhựa theo môi trường ẩm và điều kiện sử dụng.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-24"
+    }
+  ],
+  "quality": {
+    "scores": {"searchIntent": 20, "originality": 20, "evidence": 20, "citability": 15, "authority": 10, "internalLinks": 10, "technical": 5},
+    "evidenceIds": ["https://label.averydennison.com/content/dam/averydennison/lpm-responsive/na/doc/technical-bulletins/technical%20marketing%20bulletins/z3338-technical-bulletin.pdf", "/nganh/do-uong", "/huong-dan/chon-chat-lieu-tem"],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Nhiệt độ thấp và nước ngưng tụ là hai thách thức riêng khi dán nhãn nhạy áp lên chai lạnh.",
+        "sourceIds": ["https://label.averydennison.com/content/dam/averydennison/lpm-responsive/na/doc/technical-bulletins/technical%20marketing%20bulletins/z3338-technical-bulletin.pdf"]
+      },
+      {
+        "claim": "Phép thử chai đồ uống cần đưa hơi nước, nhiệt độ và ma sát vào điều kiện quan sát.",
+        "sourceIds": ["/nganh/do-uong", "/huong-dan/chon-chat-lieu-tem"]
+      }
+    ],
+    "attempts": [
+      {"attempt": 1, "recordedAt": "2026-07-24T09:50:00+07:00", "score": 100, "outcome": "accepted"}
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-07-24",
+  "candidates": [
+    {"slug": "tem-chai-serum", "contentType": "conversion", "outcome": "published", "score": 100, "revisionCount": 1, "failures": []},
+    {"slug": "tem-thuc-pham-cho-tui-kraft", "contentType": "conversion", "outcome": "published", "score": 100, "revisionCount": 1, "failures": []},
+    {"slug": "tem-ly-ca-phe-chong-nuoc", "contentType": "authority", "outcome": "published", "score": 100, "revisionCount": 1, "failures": []},
+    {"slug": "thu-tem-trong-moi-truong-lanh", "contentType": "authority", "outcome": "published", "score": 100, "revisionCount": 1, "failures": []},
+    {"slug": "chai-dong-suong-lam-bong-tem", "contentType": "authority", "outcome": "held", "score": 100, "revisionCount": 1, "failures": ["daily publication cap reached; retained as draft"]},
+    {"slug": "tem-cho-hu-kem", "contentType": "conversion", "outcome": "published", "score": 100, "revisionCount": 1, "failures": []},
+    {"slug": "tem-cho-chai-nuoc-ep", "contentType": "conversion", "outcome": "held", "score": 100, "revisionCount": 1, "failures": ["daily publication cap reached; retained as draft"]}
+  ],
+  "productionErrors": 0
+}

@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "thu-tem-trong-moi-truong-lanh",
+  "title": "Thử tem trong môi trường lạnh: tách nhiệt độ dán và nhiệt độ dùng",
+  "description": "Quy trình thử tem lạnh có đối chứng, phân biệt nhiệt độ lúc dán với nhiệt độ bảo quản và ghi nhận độ bám, mép tem, bọt khí theo từng mốc.",
+  "category": "ky-thuat-in",
+  "image": "/images/blog/thu-tem-trong-moi-truong-lanh.webp",
+  "imageAlt": "Minh họa ba chai mẫu và bảng theo dõi dùng trong phép thử tem ở môi trường lạnh",
+  "publishedAt": "2026-07-24",
+  "updatedAt": "2026-07-24",
+  "publishAt": "2026-07-24T06:40:00+07:00",
+  "readingMinutes": 7,
+  "primaryKeyword": "thử tem trong môi trường lạnh",
+  "searchIntent": "Thiết kế phép thử tem trong môi trường lạnh có đối chứng và mốc quan sát rõ",
+  "buyerStage": "implementation",
+  "contentType": "authority",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-content-v1",
+  "revisionCount": 1,
+  "directAnswer": "Thử tem trong môi trường lạnh cần tách hai câu hỏi: tem được dán ở nhiệt độ nào và sau đó phải hoạt động ở nhiệt độ nào. Một nhãn dán trên chai khô ở nhiệt độ phòng rồi mới đưa vào tủ lạnh không tương đương nhãn dán trực tiếp lên chai lạnh có hơi nước. Hãy chuẩn bị ít nhất hai nhóm mẫu giống nhau: nhóm đối chứng dán trên bề mặt sạch, khô ở nhiệt độ phòng và nhóm dán theo quy trình thực tế cần đánh giá. Giữ nguyên loại chai, kích thước tem, lực miết và thời gian chờ; chỉ thay một biến mỗi vòng. Ghi nhiệt độ, trạng thái bề mặt, thời điểm xuất hiện ngưng tụ và các dấu hiệu như trượt, hở mép, phồng, nứt hoặc thay đổi bề mặt in. Đánh giá ở các mốc phù hợp với vòng đời sản phẩm, không chỉ ngay sau khi dán. Tài liệu của Avery Dennison cũng phân biệt minimum application temperature với service temperature và khuyến nghị thử cấu trúc nhãn cụ thể. Vì vậy kết quả chỉ có giá trị trong điều kiện đã ghi, không nên biến thành tuyên bố “chịu lạnh” chung.",
+  "sections": [
+    {
+      "heading": "Nhiệt độ lúc dán khác gì nhiệt độ bảo quản?",
+      "paragraphs": [
+        "Nhiệt độ ứng dụng là nhiệt độ thấp nhất tại thời điểm keo phải tiếp xúc và tạo độ bám ban đầu trên bề mặt. Nhiệt độ sử dụng là khoảng nhiệt mà nhãn đã dán phải trải qua trong vòng đời sau đó. Hai thông số này không thể thay thế cho nhau.",
+        "Một hệ keo có thể chịu được môi trường lạnh sau khi đã bám ổn định nhưng không tạo đủ độ bám ban đầu nếu dán lên chai quá lạnh. Ngược lại, dán tốt ở nhiệt độ phòng chưa có nghĩa toàn bộ cấu trúc sẽ phù hợp với chu kỳ ẩm và lạnh của sản phẩm."
+      ],
+      "table": {
+        "headers": ["Biến thử", "Cách giữ có đối chứng"],
+        "rows": [
+          ["Nhiệt độ lúc dán", "So sánh phòng và lạnh, giữ cùng chai và tem"],
+          ["Bề mặt khô hoặc ướt", "Ghi rõ trạng thái, không trộn hai nhóm"],
+          ["Thời gian chờ trước làm lạnh", "Dùng cùng một mốc cho các mẫu"],
+          ["Chu kỳ lạnh", "Giữ cùng nhiệt độ và thời lượng quan sát"]
+        ]
+      }
+    },
+    {
+      "heading": "Chuẩn bị mẫu và ghi dữ liệu thế nào?",
+      "paragraphs": [
+        "Mã hóa mẫu bằng ký hiệu đơn giản và lưu bảng mô tả riêng. Trước khi dán, chụp bề mặt, ghi vật liệu chai, nhiệt độ và tình trạng khô sạch. Sau khi dán, dùng cùng một cách miết và cùng người thao tác nếu có thể.",
+        "Ở mỗi mốc, quan sát cùng vị trí mép, góc, vùng cong và vùng có ngưng tụ. Chụp cùng góc và ánh sáng giúp đối chiếu, nhưng ảnh chỉ có ý nghĩa khi đi kèm điều kiện và thời điểm."
+      ],
+      "bullets": [
+        "Ghi mã chai, mã tem và kích thước",
+        "Đo nhiệt độ lúc dán, không chỉ nhiệt độ cài đặt của tủ",
+        "Ghi trạng thái khô, ẩm hay có màng nước",
+        "Đánh giá mép, trượt, bọt khí và mặt in riêng",
+        "Lưu cả mẫu đạt và mẫu thất bại"
+      ]
+    },
+    {
+      "heading": "Khi nào cần thử lại thay vì dùng kết quả cũ?",
+      "paragraphs": [
+        "Thay đổi nhà cung cấp chai, màu nhựa, lớp phủ, chất liệu tem, keo, lớp cán, kích thước hoặc vị trí dán đều có thể làm kết quả trước không còn đại diện. Quy trình vận hành thay đổi từ dán trước khi làm lạnh sang dán sau khi lấy chai ra cũng cần một vòng thử mới.",
+        "Avery Dennison lưu ý dữ liệu kỹ thuật mang tính định hướng và khuyến nghị thử cả cấu trúc nhãn cho ứng dụng cụ thể. Đây là nguyên tắc phù hợp cho đơn hàng thực tế: ghi rõ phạm vi kết quả và không suy rộng ngoài mẫu đã thử."
+      ],
+      "bullets": [
+        "Thử lại khi đổi chai hoặc nhà cung cấp bao bì",
+        "Thử lại khi đổi keo, mặt tem hay lớp cán",
+        "Thử lại khi đổi nhiệt độ hoặc thời điểm dán",
+        "Không dùng thumbnail AI làm bằng chứng phép thử"
+      ]
+    }
+  ],
+  "relatedProductSlugs": ["tem-nhua-chong-nuoc", "tem-nhua-trong", "tem-giay"],
+  "sources": [
+    {
+      "title": "Avery Dennison Adhesives for Cold-temperature Labelling",
+      "href": "https://label.averydennison.com/content/dam/averydennison/lpm-responsive/europe/english/documents/product-overviews/product/adhesives/18719%20Factsheet%20Low%20Temp%20adhesives%20interactive.pdf",
+      "note": "Nguồn hãng vật liệu phân biệt hiệu năng keo theo nhiệt độ ứng dụng và khuyến nghị thử cấu trúc nhãn cho ứng dụng cụ thể.",
+      "kind": "primary",
+      "verifiedAt": "2026-07-24"
+    },
+    {
+      "title": "Avery Dennison Adhesive Technologies Guide",
+      "href": "https://label.averydennison.com/content/dam/averydennison/lpm-responsive/europe/english/documents/product-overviews/product/adhesives/lpm-eu-technical%20guide-adhesive%20technologies-2020-web.pdf",
+      "note": "Giải thích nhiệt độ ứng dụng và nhiệt độ sử dụng là hai thông số riêng khi chọn keo nhãn.",
+      "kind": "primary",
+      "verifiedAt": "2026-07-24"
+    },
+    {
+      "title": "Hướng dẫn tem nhãn đồ uống VinPrint",
+      "href": "/nganh/do-uong",
+      "note": "Nêu yêu cầu thử mẫu sau khi làm lạnh và xem xét hơi nước, nhiệt độ thấp cùng ma sát.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-24"
+    }
+  ],
+  "quality": {
+    "scores": {"searchIntent": 20, "originality": 20, "evidence": 20, "citability": 15, "authority": 10, "internalLinks": 10, "technical": 5},
+    "evidenceIds": ["https://label.averydennison.com/content/dam/averydennison/lpm-responsive/europe/english/documents/product-overviews/product/adhesives/18719%20Factsheet%20Low%20Temp%20adhesives%20interactive.pdf", "https://label.averydennison.com/content/dam/averydennison/lpm-responsive/europe/english/documents/product-overviews/product/adhesives/lpm-eu-technical%20guide-adhesive%20technologies-2020-web.pdf", "/nganh/do-uong"],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Nhiệt độ ứng dụng và nhiệt độ sử dụng là hai thông số khác nhau khi đánh giá keo nhãn trong môi trường lạnh.",
+        "sourceIds": ["https://label.averydennison.com/content/dam/averydennison/lpm-responsive/europe/english/documents/product-overviews/product/adhesives/lpm-eu-technical%20guide-adhesive%20technologies-2020-web.pdf"]
+      },
+      {
+        "claim": "Một phép thử tem lạnh cần dùng đúng cấu trúc nhãn và điều kiện ứng dụng cụ thể thay vì suy rộng từ thông số chung.",
+        "sourceIds": ["https://label.averydennison.com/content/dam/averydennison/lpm-responsive/europe/english/documents/product-overviews/product/adhesives/18719%20Factsheet%20Low%20Temp%20adhesives%20interactive.pdf", "/nganh/do-uong"]
+      }
+    ],
+    "attempts": [
+      {"attempt": 1, "recordedAt": "2026-07-24T09:48:00+07:00", "score": 100, "outcome": "accepted"}
+    ]
+  }
+}

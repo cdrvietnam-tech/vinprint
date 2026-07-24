@@ -6,10 +6,15 @@ import article3 from "./published/chuan-bi-file-in-tem-khong-bi-mo.json";
 import article4 from "./published/gia-in-tem-so-luong-it-phu-thuoc-gi.json";
 import article5 from "./published/loi-thiet-ke-tem-nhan.json";
 import article6 from "./published/tem-bac-hay-tem-vang-anh-kim.json";
-import article7 from "./published/tem-chong-nuoc-cho-my-pham-va-do-uong.json";
-import article8 from "./published/tem-giay-va-tem-nhua-nen-chon-loai-nao.json";
-import article9 from "./published/tem-nhua-trong-cho-chai.json";
-import article10 from "./published/tem-uv-dtf-la-gi.json";
+import article7 from "./published/tem-chai-serum.json";
+import article8 from "./published/tem-cho-hu-kem.json";
+import article9 from "./published/tem-chong-nuoc-cho-my-pham-va-do-uong.json";
+import article10 from "./published/tem-giay-va-tem-nhua-nen-chon-loai-nao.json";
+import article11 from "./published/tem-ly-ca-phe-chong-nuoc.json";
+import article12 from "./published/tem-nhua-trong-cho-chai.json";
+import article13 from "./published/tem-thuc-pham-cho-tui-kraft.json";
+import article14 from "./published/tem-uv-dtf-la-gi.json";
+import article15 from "./published/thu-tem-trong-moi-truong-lanh.json";
 
 export const rawBlogArticles = [
   article0,
@@ -23,4 +28,9 @@ export const rawBlogArticles = [
   article8,
   article9,
   article10,
+  article11,
+  article12,
+  article13,
+  article14,
+  article15,
 ] as const;

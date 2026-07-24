@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-thuc-pham-cho-tui-kraft",
+  "title": "Tem thực phẩm cho túi kraft: chọn vùng dán và bố cục dễ đọc",
+  "description": "Cách chọn tem cho túi kraft đựng thực phẩm khô, từ bề mặt, kích thước đến cách chia mặt chính và thông tin phụ trước khi in.",
+  "category": "theo-nganh",
+  "image": "/images/blog/tem-thuc-pham-cho-tui-kraft.webp",
+  "imageAlt": "Minh họa ba túi kraft thực phẩm khô với các dạng tem trống khác nhau",
+  "publishedAt": "2026-07-24",
+  "updatedAt": "2026-07-24",
+  "publishAt": "2026-07-24T06:10:00+07:00",
+  "readingMinutes": 6,
+  "primaryKeyword": "tem thực phẩm cho túi kraft",
+  "searchIntent": "Chọn vật liệu, kích thước và bố cục tem thực phẩm cho túi kraft khô",
+  "buyerStage": "consideration",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-content-v1",
+  "revisionCount": 1,
+  "directAnswer": "Tem thực phẩm cho túi kraft nên được chọn sau khi phân biệt rõ túi giấy kraft thật, túi ghép có lớp màng hay túi có cửa sổ nhựa, vì mỗi bề mặt cho khả năng bám và cảm giác màu khác nhau. Với sản phẩm khô, tem giấy có thể tạo tổng thể tự nhiên và hợp chi phí; nếu túi gặp ẩm, dầu hoặc bảo quản lạnh, cần xem lại vật liệu tem và thử trên đúng túi. Bố cục nên dành mặt chính cho tên sản phẩm, biến thể và lượng tịnh theo nội dung chủ thương hiệu đã kiểm tra; thông tin dài hơn có thể chuyển sang mặt sau hoặc tem phụ. Không đặt chữ nhỏ qua nếp gấp, đường hàn, khóa zip hoặc cửa sổ trong. Trước khi in, hãy nhồi túi đến mức sử dụng thực tế, cắt mẫu tem bằng giấy, dán thử rồi quan sát ở tư thế trưng bày. VinPrint có thể hỗ trợ quy cách in, nhưng chủ sản phẩm phải xác nhận nội dung nhãn phù hợp quy định của thị trường đang bán.",
+  "sections": [
+    {
+      "heading": "Bề mặt túi kraft nào đang được dùng?",
+      "paragraphs": [
+        "Tên gọi túi kraft có thể chỉ màu và phong cách, không nhất thiết toàn bộ bề mặt là giấy thấm hút. Nhiều túi là cấu trúc ghép có màng, lớp chống ẩm, cửa sổ nhựa hoặc lớp phủ, vì vậy cần xem túi thật thay vì chọn keo từ ảnh bán hàng.",
+        "Hãy lau sạch bụi giấy, vụn nguyên liệu và dầu ở vùng dán. Nếu túi có nếp gấp khi chưa chứa hàng, việc thử trên túi rỗng có thể cho kết quả sai; nên đánh giá khi túi đã đóng gói giống điều kiện bán."
+      ],
+      "table": {
+        "headers": ["Đặc điểm bao bì", "Điểm cần kiểm tra"],
+        "rows": [
+          ["Giấy kraft khô", "Độ nhám, bụi giấy và độ phẳng vùng dán"],
+          ["Kraft ghép màng", "Loại lớp ngoài và khả năng keo tiếp xúc"],
+          ["Túi có cửa sổ", "Không để tem lấn vào vùng cần nhìn sản phẩm"],
+          ["Túi có khóa zip", "Giữ tem cách đường zip và nếp mở túi"]
+        ]
+      }
+    },
+    {
+      "heading": "Chia nội dung tem thực phẩm thế nào để dễ đọc?",
+      "paragraphs": [
+        "Mặt chính nên trả lời nhanh sản phẩm là gì và biến thể nào. Nội dung bắt buộc, thành phần, hướng dẫn bảo quản, thông tin đơn vị chịu trách nhiệm và các tuyên bố thương mại phải được chủ sản phẩm kiểm tra trước khi gửi in.",
+        "Không thu nhỏ mọi dòng chỉ để vừa một tem. Nếu vùng dán hẹp, có thể dùng tem mặt trước cho nhận diện và tem sau cho thông tin chi tiết, miễn là bố cục cuối cùng được kiểm tra trên bao bì thật."
+      ],
+      "bullets": [
+        "Ưu tiên tên sản phẩm và biến thể ở mặt chính",
+        "Giữ khoảng trắng quanh chữ nhỏ và mã truy xuất",
+        "Không đặt nội dung quan trọng qua nếp hoặc đường hàn",
+        "In thử một bản ở kích thước thật để kiểm tra khả năng đọc"
+      ]
+    },
+    {
+      "heading": "Khi nào tem giấy không còn là lựa chọn mặc định?",
+      "paragraphs": [
+        "Tem giấy phù hợp nhiều bao bì khô, nhưng không phải lựa chọn tự động cho mọi túi màu kraft. Sản phẩm có dầu, bột mịn dễ bám, bảo quản lạnh hoặc thường xuyên cầm bằng tay ẩm có thể cần tem nhựa hay lớp gia công phù hợp.",
+        "Quyết định nên dựa trên phép thử cùng túi, cùng sản phẩm và cùng thời gian sử dụng dự kiến. Thumbnail của bài chỉ minh họa bố cục, không phải kết quả thử độ bám."
+      ],
+      "bullets": [
+        "Gửi mẫu túi và mô tả sản phẩm khô, dầu hay lạnh",
+        "Xác nhận túi có lớp phủ hoặc màng ghép",
+        "Thử sau khi đóng gói ở khối lượng thực tế",
+        "Chốt màu in bằng mẫu vì nền kraft làm cảm nhận màu thay đổi"
+      ]
+    }
+  ],
+  "relatedProductSlugs": ["tem-giay", "tem-nhua-chong-nuoc", "tem-phu-san-pham"],
+  "sources": [
+    {
+      "title": "Trang tem nhãn thực phẩm VinPrint",
+      "href": "/nganh/thuc-pham",
+      "note": "Phân biệt bao bì khô với môi trường lạnh hoặc ẩm và gợi ý nhóm vật liệu tương ứng.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-24"
+    },
+    {
+      "title": "Trang sản phẩm tem giấy VinPrint",
+      "href": "/san-pham/tem-giay",
+      "note": "Mô tả tem giấy cho túi kraft, hộp giấy, tem cảm ơn và bao bì khô.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-24"
+    },
+    {
+      "title": "Hướng dẫn chọn chất liệu tem",
+      "href": "/huong-dan/chon-chat-lieu-tem",
+      "note": "So sánh tem giấy và tem nhựa theo độ ẩm, bề mặt dán và điều kiện sử dụng.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-24"
+    }
+  ],
+  "quality": {
+    "scores": {"searchIntent": 20, "originality": 20, "evidence": 20, "citability": 15, "authority": 10, "internalLinks": 10, "technical": 5},
+    "evidenceIds": ["/nganh/thuc-pham", "/san-pham/tem-giay", "/huong-dan/chon-chat-lieu-tem"],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Tem giấy phù hợp bao bì thực phẩm khô, còn điều kiện lạnh hoặc dễ ẩm cần cân nhắc tem nhựa và thử thực tế.",
+        "sourceIds": ["/nganh/thuc-pham", "/huong-dan/chon-chat-lieu-tem"]
+      },
+      {
+        "claim": "Túi kraft là một ứng dụng được nêu cho nhóm sản phẩm tem giấy của VinPrint.",
+        "sourceIds": ["/san-pham/tem-giay"]
+      }
+    ],
+    "attempts": [
+      {"attempt": 1, "recordedAt": "2026-07-24T09:42:00+07:00", "score": 100, "outcome": "accepted"}
+    ]
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-cho-hu-kem",
+  "title": "Tem cho hũ kem: chọn tem thân, tem nắp và cỡ chữ phù hợp",
+  "description": "Hướng dẫn chia tem thân và tem nắp cho hũ kem mỹ phẩm, đo vùng phẳng, chọn vật liệu chịu ẩm và giữ thông tin nhỏ dễ đọc.",
+  "category": "theo-nganh",
+  "image": "/images/blog/tem-cho-hu-kem.webp",
+  "imageAlt": "Minh họa ba hũ kem với tem thân và tem nắp trống để so sánh vị trí dán",
+  "publishedAt": "2026-07-24",
+  "updatedAt": "2026-07-24",
+  "publishAt": "2026-07-24T06:20:00+07:00",
+  "readingMinutes": 5,
+  "primaryKeyword": "tem cho hũ kem",
+  "searchIntent": "Chọn cấu trúc tem thân và tem nắp riêng cho hũ kem mỹ phẩm",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-content-v1",
+  "revisionCount": 1,
+  "directAnswer": "Tem cho hũ kem thường cần ít nhất hai quyết định riêng: tem thân có đủ vùng phẳng để bám hay không và tem nắp có nằm hoàn toàn trong đường kính mặt nắp hay không. Hũ thấp, bo tròn mạnh hoặc có khe mở nắp sẽ không phù hợp với một tem quấn quá cao. Hãy đo phần thành thẳng, cắt mẫu giấy, đóng mở nắp nhiều lần và kiểm tra tem có bị cọ vào tay hoặc lấn qua đường ghép không. Trong môi trường phòng tắm hoặc khi người dùng cầm bằng tay ẩm, tem nhựa và lớp gia công phù hợp thường đáng cân nhắc hơn tem giấy; tuy nhiên hệ keo vẫn phải thử trên đúng hũ nhựa, thủy tinh mờ hoặc bề mặt đã phủ. Nội dung nhỏ nên được phân cấp: nhận diện ở mặt trước, hướng dẫn và thông tin dài ở tem sau, đáy hộp hoặc bao bì ngoài nếu cần. Không nên thu nhỏ chữ đến mức khó đọc chỉ để giữ một tem duy nhất. Mọi tuyên bố về mỹ phẩm phải do chủ sản phẩm xác nhận trước khi in.",
+  "sections": [
+    {
+      "heading": "Tem thân hũ kem cần nằm trong vùng nào?",
+      "paragraphs": [
+        "Đo chiều cao đoạn thành hũ thẳng và trừ khoảng an toàn ở cả mép trên lẫn mép dưới. Nếu hũ có chân loe, vai bo hoặc rãnh trang trí, tem nên dừng trước các vị trí đó để bề mặt keo tiếp xúc đều.",
+        "Với hũ tròn, thử cả tem mặt trước và tem quấn. Tem quấn có nhiều chỗ cho nội dung hơn nhưng cần kiểm tra khe giữa hai đầu; tem mặt trước dễ căn nhận diện hơn nhưng phần thông tin phụ có thể phải tách riêng."
+      ],
+      "table": {
+        "headers": ["Vị trí", "Cách kiểm tra"],
+        "rows": [
+          ["Tem thân trước", "Đặt giữa vùng phẳng và quan sát khi xoay hũ"],
+          ["Tem quấn", "Đo chu vi đúng cao độ và chừa khe hai đầu"],
+          ["Tem nắp", "Giữ toàn bộ tem trong mặt phẳng của nắp"],
+          ["Tem đáy", "Tránh che mã khuôn hoặc chi tiết cần sử dụng"]
+        ]
+      }
+    },
+    {
+      "heading": "Chọn vật liệu theo nơi sử dụng hũ kem",
+      "paragraphs": [
+        "Nếu hũ thường ở bàn trang điểm khô, nhiều vật liệu có thể đáp ứng về hình thức. Nếu dùng trong phòng tắm, túi xách hoặc gần dầu mỹ phẩm, cần đặt ưu tiên cao hơn cho khả năng chịu ẩm, ma sát và độ ổn định của mực.",
+        "Bề mặt kính mờ, nhựa PP, lớp sơn hoặc lớp phủ trang trí có thể cho kết quả bám khác nhau. Không xác nhận chỉ từ tên vật liệu; hãy gửi hũ thật và thử mẫu trước khi in số lượng lớn."
+      ],
+      "bullets": [
+        "Mô tả hũ là nhựa, thủy tinh hay bề mặt phủ",
+        "Cho biết sản phẩm dùng ở nơi khô hay thường xuyên ẩm",
+        "Thử tem sau thao tác đóng mở và cầm nắm",
+        "Không dùng ảnh AI làm bằng chứng về độ bám"
+      ]
+    },
+    {
+      "heading": "Sắp xếp chữ nhỏ mà không làm tem quá tải",
+      "paragraphs": [
+        "Tem thân hũ thấp có ít chiều cao cho nhiều dòng. Hãy ưu tiên tên sản phẩm, khối lượng và thông tin nhận diện đã được duyệt; các đoạn dài nên chuyển sang mặt sau, đáy hộp hoặc bao bì ngoài phù hợp.",
+        "In thử ở tỷ lệ 100%, đọc dưới ánh sáng sử dụng thật và giữ khoảng trắng quanh các dòng nhỏ. File xem trên màn hình lớn không phản ánh đúng khả năng đọc của tem thành phẩm."
+      ],
+      "bullets": [
+        "Kiểm tra chữ ở kích thước in thật",
+        "Dùng cấp độ tiêu đề, nội dung và cảnh báo rõ ràng",
+        "Không đặt chữ sát mép bế",
+        "Xác nhận nội dung mỹ phẩm trước khi gửi xưởng"
+      ]
+    }
+  ],
+  "relatedProductSlugs": ["tem-nhua-chong-nuoc", "tem-nhua-trong", "tem-bac"],
+  "sources": [
+    {
+      "title": "Trang tem nhãn mỹ phẩm VinPrint",
+      "href": "/nganh/my-pham",
+      "note": "Nêu yêu cầu cân bằng thẩm mỹ, độ bền, khả năng đọc và thử tem trên đúng chai hũ.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-24"
+    },
+    {
+      "title": "Hướng dẫn chọn kích thước tem VinPrint",
+      "href": "/huong-dan/chon-kich-thuoc-tem",
+      "note": "Hướng dẫn đo vùng phẳng, thử mẫu giấy và tránh phần bo cong của bao bì.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-24"
+    },
+    {
+      "title": "Trang tem nhựa chống nước VinPrint",
+      "href": "/san-pham/tem-nhua-chong-nuoc",
+      "note": "Mô tả nhóm ứng dụng cho chai lọ và mỹ phẩm trong môi trường dễ ẩm.",
+      "kind": "first-party",
+      "verifiedAt": "2026-07-24"
+    }
+  ],
+  "quality": {
+    "scores": {"searchIntent": 20, "originality": 20, "evidence": 20, "citability": 15, "authority": 10, "internalLinks": 10, "technical": 5},
+    "evidenceIds": ["/nganh/my-pham", "/huong-dan/chon-kich-thuoc-tem", "/san-pham/tem-nhua-chong-nuoc"],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Tem hũ kem cần được đo trong vùng thành thẳng và thử trực tiếp để tránh phần bo cong hoặc khe mở nắp.",
+        "sourceIds": ["/huong-dan/chon-kich-thuoc-tem", "/nganh/my-pham"]
+      },
+      {
+        "claim": "Hũ mỹ phẩm ở môi trường dễ ẩm là trường hợp nên cân nhắc nhóm tem nhựa chống nước.",
+        "sourceIds": ["/san-pham/tem-nhua-chong-nuoc", "/nganh/my-pham"]
+      }
+    ],
+    "attempts": [
+      {"attempt": 1, "recordedAt": "2026-07-24T09:44:00+07:00", "score": 100, "outcome": "accepted"}
+    ]
+  }
+}
