@@ -41,7 +41,7 @@ test("renders the new storefront homepage with key sections", async () => {
 
   assert.equal(response.status, 200);
   assert.match(html, /XƯỞNG IN SIÊU TỐC/i);
-  assert.match(html, /Combo khuyến mãi siêu hời/i);
+  assert.match(html, /Bảng giá in tem nhãn/i);
   assert.match(html, /Chốt in Zalo/i);
   assert.match(html, /Câu hỏi thường gặp/i);
   assert.doesNotMatch(html, /Tải Order Pack ZIP/i);
@@ -161,13 +161,37 @@ test("homepage renders local review avatars and the Zalo QR image", async () => 
   assert.match(html, /alt="Mã QR Zalo VinPrint"/);
 });
 
-test("homepage replaces AI Design with the wholesale pricing path", async () => {
+test("homepage publishes four detailed pricing posters with a wholesale path", async () => {
   const response = await render();
   const html = await response.text();
 
   assert.equal(response.status, 200);
   assert.match(html, /Combo ưu đãi/);
-  assert.match(html, /Giá demo/);
+  assert.match(html, /Bảng giá in tem nhãn/i);
+  assert.equal((html.match(/data-pricing-poster/g) ?? []).length, 4);
+  assert.match(html, /md:grid-cols-2 lg:grid-cols-4/);
+  assert.match(html, /grid auto-rows-fr items-stretch/);
+  assert.match(html, /aspect-\[4\/5\]/);
+  assert.match(html, /flex h-full flex-col/);
+  assert.match(html, /bang-gia-tem-nhan-tong-hop\.webp/);
+  assert.match(html, /bang-gia-tem-nhan-tham-khao\.webp/);
+  assert.match(html, /bang-gia-tem-tron\.webp/);
+  assert.match(html, /bang-gia-sticker-uv-dtf\.webp/);
+  assert.match(html, /alt="Bảng giá tem nhãn VinPrint với combo 1\.000 tem tròn từ 3 đến 6 cm"/);
+  assert.match(html, /alt="Bảng giá in sticker UV DTF VinPrint theo khổ A5, A4, A3 và mét"/);
+  assert.match(html, /aria-label="Phóng to Bảng giá tem nhãn tổng hợp"/);
+  assert.match(html, /1\.000 tem tròn 3 cm: 99\.000đ/);
+  assert.match(html, /1\.000 tem tròn 6 cm: 320\.000đ/);
+  assert.match(html, /Tờ A5: 25\.000đ/);
+  assert.match(html, /5 mét: 185\.000đ\/m/);
+  assert.match(html, /Đơn giá chưa bao gồm VAT và phí vận chuyển/);
+  assert.match(html, /Hỗ trợ thiết kế miễn phí cho đơn từ 1 mét trở lên/);
+  assert.match(html, /Giá và ưu đãi được xác nhận lại theo vật liệu, quy cách, số lượng và thời điểm đặt in/i);
+  assert.match(html, /Nhận báo giá sỉ/i);
+  assert.match(html, /id="nhan-bao-gia"/);
+  assert.doesNotMatch(html, /Tròn 3 cm \(đường kính\)|Tròn 4 cm \(đường kính\)|Tròn 5 cm \(đường kính\)|Tròn 6 cm \(đường kính\)/);
+  assert.doesNotMatch(html, /Giá demo/);
+  assert.doesNotMatch(html, /Gợi ý combo để anh xem trước bố cục/i);
   assert.match(html, /Hỗ trợ thiết kế đơn từ 200\.000đ/);
   assert.match(html, /tối đa 3 lần chỉnh sửa/);
   assert.doesNotMatch(html, /id="ai-thiet-ke"/);

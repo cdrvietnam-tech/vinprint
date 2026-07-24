@@ -95,7 +95,7 @@ export default function FAQAndZaloCTA() {
       </section>
 
       {/* Full width CTA Banner */}
-      <section className="bg-gradient-to-r from-[#FF4D00] to-[#FF0055] py-20 relative overflow-hidden">
+      <section id="nhan-bao-gia" className="scroll-mt-24 bg-gradient-to-r from-[#FF4D00] to-[#FF0055] py-20 relative overflow-hidden">
         {/* Background decorative dots */}
         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #fff 2px, transparent 2px)', backgroundSize: '20px 20px' }}></div>
         

@@ -273,6 +273,21 @@
       ]
     },
     {
+      "path": "/images/blog/chai-dong-suong-lam-bong-tem.webp",
+      "title": "Chai Dong Suong Lam Bong Tem",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1600,
+      "height": 900,
+      "bytes": 93488,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/chuan-bi-file-in-tem.webp",
       "title": "Chuan Bi File In Tem",
       "category": "blog",
@@ -348,6 +363,51 @@
       ]
     },
     {
+      "path": "/images/blog/tem-chai-serum.webp",
+      "title": "Tem Chai Serum",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1600,
+      "height": 900,
+      "bytes": 47998,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-cho-chai-nuoc-ep.webp",
+      "title": "Tem Cho Chai Nuoc Ep",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1600,
+      "height": 900,
+      "bytes": 64708,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-cho-hu-kem.webp",
+      "title": "Tem Cho Hu Kem",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1600,
+      "height": 900,
+      "bytes": 67440,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/tem-chong-nuoc.webp",
       "title": "Tem Chong Nuoc",
       "category": "blog",
@@ -393,6 +453,21 @@
       ]
     },
     {
+      "path": "/images/blog/tem-ly-ca-phe-chong-nuoc.webp",
+      "title": "Tem Ly Ca Phe Chong Nuoc",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1600,
+      "height": 900,
+      "bytes": 130846,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/tem-nhua-trong-cho-chai.webp",
       "title": "Tem Nhua Trong Cho Chai",
       "category": "blog",
@@ -408,6 +483,21 @@
       ]
     },
     {
+      "path": "/images/blog/tem-thuc-pham-cho-tui-kraft.webp",
+      "title": "Tem Thuc Pham Cho Tui Kraft",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1600,
+      "height": 900,
+      "bytes": 126986,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/tem-uv-dtf-la-gi.webp",
       "title": "Tem Uv Dtf La Gi",
       "category": "blog",
@@ -415,6 +505,21 @@
       "width": 768,
       "height": 768,
       "bytes": 54184,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/thu-tem-trong-moi-truong-lanh.webp",
+      "title": "Thu Tem Trong Moi Truong Lanh",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1600,
+      "height": 900,
+      "bytes": 76508,
       "usages": [
         {
           "href": "/blog",
@@ -808,6 +913,82 @@
         },
         {
           "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/pricing/bang-gia-sticker-uv-dtf.webp",
+      "title": "Bang Gia Sticker Uv Dtf",
+      "category": "pricing",
+      "categoryLabel": "Bảng giá",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 313686,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/#bang-gia",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/pricing/bang-gia-tem-nhan-tham-khao.webp",
+      "title": "Bang Gia Tem Nhan Tham Khao",
+      "category": "pricing",
+      "categoryLabel": "Bảng giá",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 272682,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/#bang-gia",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/pricing/bang-gia-tem-nhan-tong-hop.webp",
+      "title": "Bang Gia Tem Nhan Tong Hop",
+      "category": "pricing",
+      "categoryLabel": "Bảng giá",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 282756,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/#bang-gia",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/pricing/bang-gia-tem-tron.webp",
+      "title": "Bang Gia Tem Tron",
+      "category": "pricing",
+      "categoryLabel": "Bảng giá",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 241000,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        },
+        {
+          "href": "/#bang-gia",
           "label": "Trang liên quan"
         }
       ]
