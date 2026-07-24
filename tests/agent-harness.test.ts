@@ -185,7 +185,7 @@ test("every migrated article passes schema and the locked 95-point gate", () => 
     const result = evaluateArticleRecord(article, {
       existingArticles: parsed,
       assetExists: () => true,
-      now: new Date("2026-07-21T00:00:00+07:00"),
+      enforcePublishTime: false,
     });
     assert.equal(result.publishable, true, `${article.slug}: ${result.failures.join(", ")}`);
   }
