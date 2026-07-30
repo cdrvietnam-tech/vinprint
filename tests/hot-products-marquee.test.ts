@@ -6,7 +6,7 @@ import path from "node:path";
 const projectRoot = process.cwd();
 const componentPath = path.join(projectRoot, "app/components/home/HotProductsMarquee.tsx");
 
-test("hot products use transparent PNG assets and an automatic infinite track", () => {
+test("hot products use transparent PNG assets in a 2-row grid without cropping", () => {
   const source = readFileSync(componentPath, "utf8");
   const mediaSource = readFileSync(path.join(projectRoot, "app/lib/media-collections.ts"), "utf8");
   const images = [...mediaSource.matchAll(/src:\s*"([^"]+\.png)"/g)].map((match) => match[1]);
@@ -19,28 +19,27 @@ test("hot products use transparent PNG assets and an automatic infinite track", 
     assert.ok(png[25] === 4 || png[25] === 6, `${image} must preserve an alpha channel`);
   }
 
-  assert.match(source, /requestAnimationFrame/);
-  assert.match(source, /track\.scrollWidth \/ 2/);
-  assert.match(source, /translate3d/);
-  assert.match(source, /scale = 0\.68 \+ influence \* 0\.38/);
-  assert.doesNotMatch(source, /hot-product-glow/);
-  assert.match(source, /data-centered/);
+  // Lưới responsive, hiển thị đủ ảnh (không cắt) và có hiệu ứng hover.
+  assert.match(source, /grid-cols-2/);
+  assert.match(source, /sm:grid-cols-3/);
+  assert.match(source, /lg:grid-cols-5/);
+  assert.match(source, /object-contain/);
+  assert.doesNotMatch(source, /object-cover/);
+  assert.match(source, /group-hover:/);
+  // 2 hàng + nút xem thêm / thu gọn.
+  assert.match(source, /useColumns/);
+  assert.match(source, /const twoRows = columns \* 2/);
+  assert.match(source, /setExpanded/);
+  assert.match(source, /Xem thêm/);
+  assert.match(source, /Thu gọn/);
+  // Vẫn hỗ trợ ảnh/GIF/video và click mở sản phẩm.
   assert.match(source, /product\.category/);
   assert.match(source, /product\.title/);
-  assert.match(source, /dynamic-image-gif-video/);
   assert.match(source, /product\.kind === "video"/);
-  assert.match(source, /video\.play\(\)/);
-  assert.match(source, /video\.pause\(\)/);
   assert.match(source, /image\/gif|kind === "gif"/);
-  assert.match(source, /elapsed \* 0\.05/);
-  assert.match(source, /isPausedRef\.current/);
-  assert.match(source, /onMouseEnter/);
-  assert.match(source, /visualInfluenceRefs/);
-  assert.match(source, /visualRefs/);
-  assert.match(source, /previousInfluence/);
-  assert.match(source, /Math\.exp\(-elapsed \/ 90\)/);
-  assert.match(source, /w-\[120px\]/);
-  assert.match(source, /lg:w-\[180px\]/);
+  assert.match(source, /href=\{product\.href\}/);
+  // Xóa hết thì ẩn khối, không tự hiện lại mẫu mặc định.
+  assert.match(source, /loaded && hotProducts\.length === 0/);
   assert.doesNotMatch(source, /three|WebGLRenderer|CylinderGeometry|rotateY/i);
 });
 

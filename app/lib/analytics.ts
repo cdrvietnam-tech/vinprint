@@ -14,6 +14,7 @@ export type VinPrintEvent = {
 declare global {
   interface Window {
     dataLayer?: Array<Record<string, unknown>>;
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
@@ -41,7 +42,8 @@ export function trackEvent(
     // Tracking must never interrupt the customer journey.
   }
 
-  window.dataLayer?.push({ event: name, ...detail });
+  // Chỉ dùng MỘT đường đo: GA4 trực tiếp qua gtag (tránh ghi nhận 2 lần).
+  window.gtag?.("event", name, detail ?? {});
   const payload = JSON.stringify(event);
   if (navigator.sendBeacon) {
     navigator.sendBeacon("/api/analytics", new Blob([payload], { type: "application/json" }));

@@ -6,32 +6,12 @@ import Image from "next/image";
 import { ZaloIcon } from "../icons";
 import { trackEvent } from "../../lib/analytics";
 import { CUSTOMER_AVATARS } from "./customer-avatars";
+import { useSiteContent } from "../SiteContentProvider";
 
 export default function FAQAndZaloCTA() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
-  const faqs = [
-    {
-      q: "Có in tem số lượng ít không?",
-      a: "Có. VinPrint hỗ trợ in từ số lượng ít (chỉ từ vài chục tem), giúp các shop nhỏ tiết kiệm chi phí ban đầu và dễ dàng thử mẫu trước khi sản xuất số lượng lớn.",
-    },
-    {
-      q: "Thời gian hoàn thành là bao lâu?",
-      a: "Chỉ từ 1–2 ngày làm việc sau khi chốt thiết kế. Có hỗ trợ in nhanh lấy ngay trong ngày nếu cần gấp — liên hệ Zalo để xác nhận.",
-    },
-    {
-      q: "Tem nhãn có chống nước không?",
-      a: "Tem nhựa PVC dẻo dai chống nước 100%, bền màu, phù hợp chai lọ, mỹ phẩm và đồ uống. Tem giấy rẻ hơn nhưng không chống nước, phù hợp bao bì khô.",
-    },
-    {
-      q: "Chưa có file thiết kế thì sao?",
-      a: "VinPrint hỗ trợ thiết kế cho đơn hàng từ 200.000đ, tối đa 3 lần chỉnh sửa. Bạn chỉ cần gửi logo, nội dung và ý tưởng qua Zalo để được tư vấn.",
-    },
-    {
-      q: "Có giao hàng toàn quốc không?",
-      a: "VinPrint hỗ trợ giao hàng nhanh toàn quốc qua các đơn vị vận chuyển uy tín. Tem được đóng gói chống nước cẩn thận, đảm bảo nguyên vẹn khi đến tay bạn.",
-    },
-  ];
+  const { faq, finalCta, contact } = useSiteContent();
+  const faqs = faq.items;
 
   return (
     <>
@@ -45,7 +25,7 @@ export default function FAQAndZaloCTA() {
               {/* FAQ Card */}
               <div id="faq" className="bg-white rounded-[24px] sm:rounded-[32px] p-3 sm:p-6 lg:p-8 flex flex-col border border-gray-100 shadow-sm h-full min-w-0">
                 <h2 className="text-[12px] sm:text-lg lg:text-xl font-extrabold text-gray-900 uppercase mb-4 sm:mb-6">
-                  Câu hỏi thường gặp
+                  {faq.title}
                 </h2>
                 <div className="flex flex-col flex-1 min-w-0">
                   {faqs.map((faq, i) => {
@@ -74,18 +54,18 @@ export default function FAQAndZaloCTA() {
               {/* QR Code Card */}
               <div className="bg-purple-50/30 rounded-[24px] sm:rounded-[32px] p-3 sm:p-6 lg:p-8 flex flex-col border border-purple-100 shadow-sm h-full items-center text-center justify-center min-w-0 w-full">
                 <h2 className="text-[12px] sm:text-lg lg:text-xl font-extrabold text-[#5C45FD] uppercase mb-1 leading-tight">
-                  Quét Zalo nhận tư vấn
+                  {faq.qrTitle}
                 </h2>
                 <p className="text-xs font-medium text-gray-700 mb-4 sm:mb-6 leading-tight">
-                  Báo giá nhanh - Không chờ lâu!
+                  {faq.qrSubtitle}
                 </p>
                 
                 <div className="relative mb-4 aspect-square w-full max-w-28 shrink-0 overflow-hidden rounded-2xl border border-purple-100 bg-white p-2 shadow-sm sm:mb-6 sm:max-w-36">
                   <Image src="/images/zalo-qr.png" alt="Mã QR Zalo VinPrint" fill loading="lazy" sizes="(max-width: 640px) 112px, 144px" className="object-contain p-2" />
                 </div>
 
-                <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" onClick={() => trackEvent("click_zalo", { position: "faq_qr" })} className="inline-flex min-h-11 items-center gap-1.5 px-3 py-2.5 sm:px-6 sm:py-3 rounded-full bg-[#6545ED] text-white text-xs sm:text-sm font-bold shadow-sm hover:bg-[#5234D2] transition-colors w-full justify-center">
-                  Mở Zalo ngay <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <a href={contact.zaloUrl} target="_blank" rel="noreferrer" onClick={() => trackEvent("click_zalo", { position: "faq_qr" })} className="inline-flex min-h-11 items-center gap-1.5 px-3 py-2.5 sm:px-6 sm:py-3 rounded-full bg-[#6545ED] text-white text-xs sm:text-sm font-bold shadow-sm hover:bg-[#5234D2] transition-colors w-full justify-center">
+                  {faq.qrCtaLabel} <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </a>
               </div>
 
@@ -102,24 +82,26 @@ export default function FAQAndZaloCTA() {
         <div className="max-w-[1440px] mx-auto px-4 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
           
           <div className="text-white text-center lg:text-left">
-            <h2 className="text-4xl lg:text-5xl font-black mb-3 drop-shadow-sm">Bạn đã có file thiết kế?</h2>
-            <p className="text-2xl lg:text-3xl font-extrabold mb-8 drop-shadow-sm opacity-95">Gửi ngay để nhận báo giá trong 5 phút!</p>
-            
+            <h2 className="text-4xl lg:text-5xl font-black mb-3 drop-shadow-sm">{finalCta.title}</h2>
+            <p className="text-2xl lg:text-3xl font-extrabold mb-8 drop-shadow-sm opacity-95">{finalCta.subtitle}</p>
+
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-[15px] font-bold text-orange-50">
-              <span className="flex items-center gap-2 bg-black/15 px-4 py-2 rounded-full"><span className="text-green-800 bg-white rounded-full w-5 h-5 flex items-center justify-center text-xs leading-none">✔</span> Báo giá nhanh</span>
-              <span className="flex items-center gap-2 bg-black/15 px-4 py-2 rounded-full"><span className="text-green-800 bg-white rounded-full w-5 h-5 flex items-center justify-center text-xs leading-none">✔</span> Duyệt mẫu trước khi in</span>
-              <span className="flex items-center gap-2 bg-black/15 px-4 py-2 rounded-full"><span className="text-red-800 bg-white rounded-full w-5 h-5 flex items-center justify-center text-xs leading-none">✖</span> Không ép đặt hàng</span>
+              {finalCta.badges.map((badge) => (
+                <span key={badge.text} className="flex items-center gap-2 bg-black/15 px-4 py-2 rounded-full">
+                  <span className={`${badge.ok ? "text-green-800" : "text-red-800"} bg-white rounded-full w-5 h-5 flex items-center justify-center text-xs leading-none`}>{badge.ok ? "✔" : "✖"}</span> {badge.text}
+                </span>
+              ))}
             </div>
           </div>
 
           <div className="flex flex-col items-center lg:items-end gap-6 w-full lg:w-auto">
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" onClick={() => trackEvent("click_zalo", { position: "final_cta" })} className="inline-flex items-center justify-center gap-3 px-8 py-5 rounded-full bg-white text-blue-800 text-lg font-black shadow-xl hover:bg-gray-50 hover:scale-105 transition-all shrink-0">
+              <a href={contact.zaloUrl} target="_blank" rel="noreferrer" onClick={() => trackEvent("click_zalo", { position: "final_cta" })} className="inline-flex items-center justify-center gap-3 px-8 py-5 rounded-full bg-white text-blue-800 text-lg font-black shadow-xl hover:bg-gray-50 hover:scale-105 transition-all shrink-0">
                 <ZaloIcon className="w-6 h-6" />
-                Nhắn Zalo chốt in <ArrowRight className="w-5 h-5" />
+                {finalCta.zaloLabel} <ArrowRight className="w-5 h-5" />
               </a>
               <a href="#bang-gia" onClick={() => trackEvent("view_pricing", { position: "final_cta" })} className="inline-flex items-center justify-center gap-3 px-8 py-5 rounded-full border-2 border-white/70 text-white text-lg font-black hover:bg-white/10 hover:border-white transition-all shrink-0">
-                Xem combo siêu hời
+                {finalCta.comboLabel}
               </a>
             </div>
             
@@ -131,7 +113,7 @@ export default function FAQAndZaloCTA() {
                   </span>
                 ))}
               </div>
-              <div className="text-[13px] font-black text-white/90">Hơn 90.000 khách hàng đã tin tưởng VinPrint</div>
+              <div className="text-[13px] font-black text-white/90">{finalCta.trustText}</div>
             </div>
           </div>
 

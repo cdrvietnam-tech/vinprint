@@ -37,6 +37,7 @@ export default function VideoAdmin() {
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState<string | null>(null);
   const [messages, setMessages] = useState<Record<string, string>>({});
+  const [titleDrafts, setTitleDrafts] = useState<Record<string, string>>({});
   const [cropRequest, setCropRequest] = useState<{ collection: MediaCollectionId; item: ManagedMediaItem; file: File } | null>(null);
 
   useEffect(() => {
@@ -149,6 +150,31 @@ export default function VideoAdmin() {
     }
   };
 
+  const renameMedia = async (collection: MediaCollectionId, item: ManagedMediaItem) => {
+    const key = `${collection}:${item.id}`;
+    const title = (titleDrafts[key] ?? item.title).trim();
+    if (!title || title === item.title) return;
+    setBusy(key);
+    setMessages((current) => ({ ...current, [collection]: "Đang lưu tên…" }));
+    try {
+      const params = new URLSearchParams({ collection, action: "update-meta", id: item.id, title });
+      const response = await fetch(`/api/admin/media-collections?${params}`, { method: "POST" });
+      const result = await response.json() as { items?: ManagedMediaItem[] };
+      if (!response.ok || !result.items) throw new Error("rename_failed");
+      setCollections((current) => ({ ...current, [collection]: result.items || current[collection] }));
+      setTitleDrafts((current) => {
+        const next = { ...current };
+        delete next[key];
+        return next;
+      });
+      setMessages((current) => ({ ...current, [collection]: "Đã đổi tên hiển thị. Trang chủ cập nhật ngay." }));
+    } catch {
+      setMessages((current) => ({ ...current, [collection]: "Không thể đổi tên lúc này." }));
+    } finally {
+      setBusy(null);
+    }
+  };
+
   const removeMedia = async (collection: MediaCollectionId, item: ManagedMediaItem) => {
     if (!window.confirm(`Xóa “${item.title}” khỏi khu vực này?`)) return;
     setBusy(`${collection}:${item.id}`);
@@ -216,8 +242,26 @@ export default function VideoAdmin() {
                           {item.kind !== "image" && <span className="absolute left-2 top-2 rounded-full bg-gray-950/80 px-2 py-1 text-[9px] font-black uppercase text-white">{item.kind === "video" ? <><Film className="mr-1 inline h-3 w-3" />Video</> : "GIF"}</span>}
                           {changed && <span className="absolute right-2 top-2 rounded-full bg-green-600 px-2 py-1 text-[9px] font-black uppercase text-white">Đã thay</span>}
                         </div>
-                        <p className="mt-2 truncate text-xs font-black" title={item.title}>{item.title}</p>
-                        <p className="mt-0.5 truncate text-[10px] font-bold text-gray-500">{item.category}</p>
+                        <div className="mt-2">
+                          <label className="block text-[9px] font-black uppercase tracking-wide text-gray-400">Tiêu đề hiển thị</label>
+                          <input
+                            value={titleDrafts[`${collection.id}:${item.id}`] ?? item.title}
+                            onChange={(event) => setTitleDrafts((current) => ({ ...current, [`${collection.id}:${item.id}`]: event.target.value }))}
+                            className="mt-0.5 w-full rounded-lg border border-gray-200 px-2 py-1 text-xs font-black focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-200"
+                            aria-label={`Tiêu đề của ${item.title}`}
+                          />
+                          {(titleDrafts[`${collection.id}:${item.id}`] ?? item.title) !== item.title && (
+                            <button
+                              type="button"
+                              disabled={busy !== null}
+                              onClick={() => void renameMedia(collection.id, item)}
+                              className="mt-1 w-full rounded-full bg-orange-600 px-2 py-1 text-[10px] font-black text-white hover:bg-orange-700 disabled:opacity-40"
+                            >
+                              Lưu tên
+                            </button>
+                          )}
+                        </div>
+                        <p className="mt-1 truncate text-[10px] font-bold text-gray-500">{item.category}</p>
                         <div className="mt-2 grid grid-cols-2 gap-1.5">
                           <label className="flex min-h-9 cursor-pointer items-center justify-center gap-1 rounded-full bg-gray-950 px-2 text-[10px] font-black text-white">
                             <Upload className="h-3.5 w-3.5" /> Thay

@@ -51,9 +51,9 @@ export default function Gallery() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.05 }}
-            className="rounded-2xl overflow-hidden relative group aspect-square"
+            className="rounded-2xl overflow-hidden relative group aspect-square bg-gray-50"
           >
-            <Image src={item.src} alt={item.title || `Mẫu tem VinPrint ${i + 1}`} fill loading="lazy" unoptimized={item.kind === "gif" || item.src.startsWith("/media/")} sizes="(max-width: 640px) 33vw, 180px" className="object-cover group-hover:scale-110 transition-transform duration-500" />
+            <Image src={item.src} alt={item.title || `Mẫu tem VinPrint ${i + 1}`} fill loading="lazy" unoptimized={item.kind === "gif" || item.src.startsWith("/media/")} sizes="(max-width: 640px) 33vw, 180px" className="object-contain group-hover:scale-110 transition-transform duration-500" />
           </motion.div>
         ))}
       </div>

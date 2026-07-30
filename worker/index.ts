@@ -3,6 +3,7 @@ import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } fr
 import handler from "vinext/server/app-router-entry";
 import { resolveLegacyRedirect } from "../app/lib/legacy-redirects";
 import { DEFAULT_MEDIA_COLLECTIONS, type ManagedMediaItem, type MediaCollectionId } from "../app/lib/media-collections";
+import { SITE_CONTENT_KEY, isValidSiteContent } from "../app/lib/site-content";
 
 interface Env {
   ASSETS?: Fetcher;
@@ -130,7 +131,8 @@ function normalizeMediaCollection(value: string | null) {
 }
 
 function normalizeMediaItemId(value: string | null) {
-  return value && /^[a-z0-9][a-z0-9-]{5,80}$/i.test(value) ? value : null;
+  // Cho phép id ngắn như "hot-1" (mẫu mặc định) tới id dài "media-<uuid>".
+  return value && /^[a-z0-9][a-z0-9-]{2,80}$/i.test(value) ? value : null;
 }
 
 async function getMediaCollection(collection: MediaCollectionId, bucket: R2Bucket) {
@@ -201,6 +203,19 @@ function resolvePreviewImageUrl(value: string | null, requestUrl: string) {
 // dangerouslyAllowSVG: true in next.config.js and uncomment below:
 // const imageConfig: ImageConfig = { dangerouslyAllowSVG: true };
 
+// Đọc nội dung site từ R2 và CHỈ trả về nếu đúng cấu trúc. Dữ liệu cũ/hỏng
+// sẽ trả "{}" để phía client dùng mặc định (không làm vỡ giao diện).
+async function readValidatedSiteContent(bucket: R2Bucket): Promise<string> {
+  const object = await bucket.get(SITE_CONTENT_KEY);
+  if (!object) return "{}";
+  const stored = await object.text();
+  try {
+    return isValidSiteContent(JSON.parse(stored)) ? stored : "{}";
+  } catch {
+    return "{}";
+  }
+}
+
 const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
@@ -241,7 +256,7 @@ const worker = {
           });
         }
 
-        const listed = await env.HERO_IMAGES.list({ prefix: "overrides/images/", limit: 1000, include: ["customMetadata", "httpMetadata"] });
+        const listed = await env.HERO_IMAGES.list({ prefix: "overrides/images/", limit: 1000, include: ["customMetadata", "httpMetadata"] } as unknown as R2ListOptions);
         return Response.json({
           items: listed.objects.map((object) => ({
             path: `/${object.key.slice("overrides/".length)}`,
@@ -293,6 +308,63 @@ const worker = {
       return Response.json({ ok: true, path: managedPath, version: Date.now() }, { headers: { "cache-control": "no-store" } });
     }
 
+    if (url.pathname === "/api/site-content" && request.method === "GET") {
+      if (!env.HERO_IMAGES) {
+        return Response.json({}, { headers: { "cache-control": "public, max-age=30" } });
+      }
+      const body = await readValidatedSiteContent(env.HERO_IMAGES);
+      return new Response(body, {
+        headers: {
+          "content-type": "application/json; charset=utf-8",
+          "cache-control": "public, max-age=30",
+        },
+      });
+    }
+
+    if (url.pathname === "/api/admin/site-content") {
+      if (!isAdminRequest(request, env)) {
+        return Response.json({ error: "unauthorized" }, { status: 401 });
+      }
+      if (!env.HERO_IMAGES) {
+        return Response.json({ error: "storage_unavailable" }, { status: 503 });
+      }
+
+      if (request.method === "GET") {
+        const body = await readValidatedSiteContent(env.HERO_IMAGES);
+        return new Response(body, {
+          headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" },
+        });
+      }
+
+      if (request.method === "DELETE") {
+        await env.HERO_IMAGES.delete(SITE_CONTENT_KEY);
+        return Response.json({ ok: true }, { headers: { "cache-control": "no-store" } });
+      }
+
+      if (request.method !== "PUT") {
+        return new Response(null, { status: 405, headers: { allow: "GET, PUT, DELETE" } });
+      }
+
+      const raw = await request.text();
+      if (raw.length > 200_000) {
+        return Response.json({ error: "content_too_large" }, { status: 413 });
+      }
+      let parsedContent: unknown;
+      try {
+        parsedContent = JSON.parse(raw);
+      } catch {
+        return Response.json({ error: "invalid_json" }, { status: 400 });
+      }
+      // Chỉ lưu khi đúng cấu trúc — chặn dữ liệu sai làm hỏng trang công khai.
+      if (!isValidSiteContent(parsedContent)) {
+        return Response.json({ error: "invalid_content_shape" }, { status: 422 });
+      }
+      await env.HERO_IMAGES.put(SITE_CONTENT_KEY, raw, {
+        httpMetadata: { contentType: "application/json", cacheControl: "no-store" },
+      });
+      return Response.json({ ok: true, version: Date.now() }, { headers: { "cache-control": "no-store" } });
+    }
+
     if (url.pathname === "/api/media/collections" && request.method === "GET") {
       if (!env.HERO_IMAGES) return Response.json({ error: "storage_unavailable" }, { status: 503 });
       const collection = normalizeMediaCollection(url.searchParams.get("collection"));
@@ -336,6 +408,21 @@ const worker = {
             : [...items, { ...original }];
           await saveMediaCollection(collection, nextItems, env.HERO_IMAGES);
           return Response.json({ ok: true, collection, item: original, items: nextItems }, { headers: { "cache-control": "no-store" } });
+        }
+
+        // Đổi tiêu đề / nhóm (và link) của một mẫu mà KHÔNG cần tải lại ảnh.
+        if (action === "update-meta") {
+          const id = normalizeMediaItemId(url.searchParams.get("id"));
+          const index = id ? items.findIndex((item) => item.id === id) : -1;
+          if (index < 0) return Response.json({ error: "media_not_found" }, { status: 400 });
+          const current = items[index];
+          const title = (url.searchParams.get("title") ?? current.title).trim().slice(0, 120) || current.title;
+          const category = (url.searchParams.get("category") ?? current.category).trim().slice(0, 80) || current.category;
+          const hrefValue = url.searchParams.get("href");
+          const href = hrefValue && hrefValue.startsWith("/") && !hrefValue.startsWith("//") ? hrefValue.slice(0, 200) : current.href;
+          const nextItems = items.map((item, i) => (i === index ? { ...item, title, category, href } : item));
+          await saveMediaCollection(collection, nextItems, env.HERO_IMAGES);
+          return Response.json({ ok: true, collection, items: nextItems }, { headers: { "cache-control": "no-store" } });
         }
 
         return Response.json({ error: "invalid_action" }, { status: 400 });

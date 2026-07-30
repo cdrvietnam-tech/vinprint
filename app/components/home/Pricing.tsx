@@ -5,89 +5,67 @@ import Image from "next/image";
 import { ArrowRight, Gift, Minus, Plus, Sparkles, X, ZoomIn } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "../../lib/analytics";
+import { useSiteContent } from "../SiteContentProvider";
 
-const pricingPosters = [
+// Ảnh và kích thước của 4 poster (cố định). Phần chữ (title/note/details)
+// được nạp từ nội dung động và ghép theo thứ tự bên dưới.
+const posterAssets = [
   {
-    title: "Bảng giá tem nhãn tổng hợp",
-    note: "Combo tem giấy và các ứng dụng phổ biến",
     src: "/images/pricing/bang-gia-tem-nhan-tong-hop.webp",
     alt: "Bảng giá tem nhãn VinPrint với combo 1.000 tem tròn từ 3 đến 6 cm",
     width: 1122,
     height: 1402,
-    details: [
-      "1.000 tem tròn 3 cm: 99.000đ",
-      "1.000 tem tròn 4 cm: 141.000đ",
-      "1.000 tem tròn 5 cm: 229.000đ",
-      "1.000 tem tròn 6 cm: 320.000đ",
-      "Ưu đãi trong poster: miễn phí thiết kế mẫu và freeship đơn từ 500.000đ.",
-      "Poster quảng bá giá tận xưởng, rẻ hơn đến 30% so với thị trường.",
-    ],
   },
   {
-    title: "Bảng giá tem nhãn tham khảo",
-    note: "Tem giấy, tem nhựa và nhiều kiểu cắt bế",
     src: "/images/pricing/bang-gia-tem-nhan-tham-khao.webp",
     alt: "Bảng giá tham khảo in tem nhãn VinPrint kèm mẫu ứng dụng trên bao bì",
     width: 1122,
     height: 1402,
-    details: [
-      "1.000 tem tròn 3 cm: 99.000đ",
-      "1.000 tem tròn 4 cm: 141.000đ",
-      "1.000 tem tròn 5 cm: 229.000đ",
-      "1.000 tem tròn 6 cm: 320.000đ",
-      "Ưu đãi trong poster: miễn phí thiết kế mẫu và freeship đơn từ 500.000đ.",
-      "Giá có thể thay đổi tùy theo chất liệu và thiết kế.",
-    ],
   },
   {
-    title: "Bảng giá tem tròn",
-    note: "Combo 1.000 tem theo đường kính",
     src: "/images/pricing/bang-gia-tem-tron.webp",
     alt: "Bảng giá in tem tròn VinPrint theo đường kính 3, 4, 5 và 6 cm",
     width: 1122,
     height: 1402,
-    details: [
-      "1.000 tem tròn 3 cm: 99.000đ",
-      "1.000 tem tròn 4 cm: 141.000đ",
-      "1.000 tem tròn 5 cm: 229.000đ",
-      "1.000 tem tròn 6 cm: 320.000đ",
-      "Ưu đãi trong poster: miễn phí thiết kế mẫu và freeship đơn từ 500.000đ.",
-    ],
   },
   {
-    title: "Bảng giá sticker UV DTF",
-    note: "Khổ tờ và khổ mét cho nhu cầu lấy liền",
     src: "/images/pricing/bang-gia-sticker-uv-dtf.webp",
     alt: "Bảng giá in sticker UV DTF VinPrint theo khổ A5, A4, A3 và mét",
     width: 1024,
     height: 1536,
-    details: [
-      "Tờ A5: 25.000đ",
-      "Tờ A4: 45.000đ",
-      "Tờ A3: 80.000đ",
-      "1 mét: 250.000đ/m",
-      "3 mét: 200.000đ/m",
-      "5 mét: 185.000đ/m",
-      "Đơn giá chưa bao gồm VAT và phí vận chuyển.",
-      "Hỗ trợ thiết kế miễn phí cho đơn từ 1 mét trở lên.",
-    ],
   },
-] as const;
-
-const benefits = [
-  "Tư vấn miễn phí",
-  "Duyệt mẫu trước khi in",
-  "Hỗ trợ thiết kế đơn từ 200.000đ",
-  "Tối đa 3 lần chỉnh sửa",
-  "Freeship đơn từ 500.000đ",
 ];
 
+type PricingPoster = {
+  title: string;
+  note: string;
+  details: string[];
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
 export default function Pricing() {
+  const { pricing } = useSiteContent();
+  const posters: PricingPoster[] = posterAssets.map((asset, index) => {
+    const text = pricing.posters[index];
+    return {
+      src: asset.src,
+      alt: asset.alt,
+      width: asset.width,
+      height: asset.height,
+      title: text?.title ?? "",
+      note: text?.note ?? "",
+      details: text?.details ?? [],
+    };
+  });
+  const benefits = pricing.benefits;
   const sectionRef = useRef<HTMLElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const lastTriggerRef = useRef<HTMLButtonElement>(null);
-  const [selectedPoster, setSelectedPoster] = useState<(typeof pricingPosters)[number] | null>(null);
+  const [selectedPoster, setSelectedPoster] = useState<PricingPoster | null>(null);
   const [zoom, setZoom] = useState(1);
 
   useEffect(() => {
@@ -148,14 +126,14 @@ export default function Pricing() {
           <div className="relative z-10 mb-9 flex flex-col items-start justify-between gap-5 lg:flex-row lg:items-end">
             <div>
               <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-orange-300/30 bg-orange-400/15 px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.15em] text-orange-200">
-                <Gift className="h-4 w-4" /> Bảng giá tại xưởng
+                <Gift className="h-4 w-4" /> {pricing.badge}
               </span>
-              <h2 className="max-w-3xl text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">Bảng giá in tem nhãn</h2>
+              <h2 className="max-w-3xl text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">{pricing.title}</h2>
               <p className="mt-3 max-w-2xl text-sm font-medium leading-relaxed text-purple-100 sm:text-base">
-                Chọn bảng giá phù hợp và bấm vào ảnh để xem rõ từng chi tiết. Kích thước khác hoặc số lượng lớn, VinPrint báo giá theo đúng quy cách cần in.
+                {pricing.subtitle}
               </p>
               <p className="mt-2 max-w-2xl text-xs font-semibold leading-relaxed text-orange-100/90">
-                Giá và ưu đãi được xác nhận lại theo vật liệu, quy cách, số lượng và thời điểm đặt in.
+                {pricing.disclaimer}
               </p>
             </div>
             <a
@@ -163,12 +141,12 @@ export default function Pricing() {
               onClick={() => trackEvent("view_pricing", { position: "pricing_wholesale_quote" })}
               className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/30 bg-white/10 px-5 text-sm font-bold transition-colors hover:bg-white/20"
             >
-              Nhận báo giá sỉ <ArrowRight className="h-4 w-4" />
+              {pricing.quoteCtaLabel} <ArrowRight className="h-4 w-4" />
             </a>
           </div>
 
           <div className="relative z-10 grid auto-rows-fr items-stretch gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {pricingPosters.map((poster, index) => (
+            {posters.map((poster, index) => (
               <motion.article
                 key={poster.src}
                 data-pricing-poster

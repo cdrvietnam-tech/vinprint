@@ -2,15 +2,13 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, MessageSquare, Calculator, Palette, Printer, Truck } from "lucide-react";
+import { useSiteContent } from "../SiteContentProvider";
+
+const stepIcons = [MessageSquare, Calculator, Palette, Printer, Truck];
 
 export default function Process() {
-  const steps = [
-    { icon: MessageSquare, title: "Gửi yêu cầu", desc: "Gửi file hoặc ý tưởng trực tiếp qua Zalo" },
-    { icon: Calculator, title: "Báo giá nhanh", desc: "Nhận báo giá chỉ sau vài phút" },
-    { icon: Palette, title: "Thiết kế & Duyệt", desc: "Đơn từ 200.000đ, tối đa 3 lần chỉnh sửa" },
-    { icon: Printer, title: "In ấn chất lượng", desc: "In bằng máy hiện đại, kiểm tra kỹ lưỡng" },
-    { icon: Truck, title: "Giao hàng tận nơi", desc: "Giao hàng nhanh chóng, đúng hẹn, toàn quốc" },
-  ];
+  const { process } = useSiteContent();
+  const steps = process.steps.map((step, i) => ({ ...step, icon: stepIcons[i] ?? MessageSquare }));
 
   return (
     <section id="quy-trinh" className="py-12 bg-white">
@@ -19,10 +17,10 @@ export default function Process() {
           
           <div className="lg:w-[20%] shrink-0 text-center lg:text-left w-full">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 uppercase mb-3 leading-tight">
-              Quy trình đặt in đơn giản
+              {process.title}
             </h2>
             <p className="text-gray-500 font-medium text-sm">
-              Chỉ 5 bước - Nhanh chóng và chuyên nghiệp
+              {process.subtitle}
             </p>
           </div>
 

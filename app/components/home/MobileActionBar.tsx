@@ -3,11 +3,12 @@
 import { Phone, Tag } from "lucide-react";
 import { ZaloIcon } from "../icons";
 import { trackEvent } from "../../lib/analytics";
-
-const ZALO_URL = "https://zalo.me/0844998499";
-const PHONE = "tel:0844998499";
+import { useSiteContent } from "../SiteContentProvider";
 
 export default function MobileActionBar() {
+  const { contact } = useSiteContent();
+  const zaloUrl = contact.zaloUrl;
+  const phoneHref = `tel:${contact.phone}`;
   return (
     <nav
       aria-label="Liên hệ nhanh"
@@ -15,8 +16,8 @@ export default function MobileActionBar() {
     >
       <div className="grid grid-cols-3 gap-2 px-3 py-2">
         <a
-          href={PHONE}
-          aria-label="Gọi ngay 0844 998 499"
+          href={phoneHref}
+          aria-label={`Gọi ngay ${contact.phoneDisplay}`}
           onClick={() => trackEvent("click_phone", { position: "mobile_bar" })}
           className="flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-xl text-gray-800 font-bold text-xs hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
         >
@@ -33,7 +34,7 @@ export default function MobileActionBar() {
           Combo ưu đãi
         </a>
         <a
-          href={ZALO_URL}
+          href={zaloUrl}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chốt in qua Zalo với VinPrint"

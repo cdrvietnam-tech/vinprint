@@ -7,9 +7,11 @@ import {
   GOOGLE_BUSINESS_PROFILE_EMBED_URL,
   GOOGLE_BUSINESS_PROFILE_URL,
 } from "../../lib/business-info";
+import { useSiteContent } from "../SiteContentProvider";
 
 export default function MapSection() {
   const [showMap, setShowMap] = useState(false);
+  const { contact } = useSiteContent();
 
   return (
     <section id="google-map" className="border-t border-gray-200 bg-gray-50/50 py-12">
@@ -19,15 +21,15 @@ export default function MapSection() {
           <div className="grid gap-8 md:grid-cols-3">
               <div>
                 <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-gray-950"><MapPin className="h-5 w-5 text-[#D83B00]" /> Địa chỉ xưởng</h3>
-                <p className="pl-7 text-sm font-semibold leading-relaxed text-gray-800">254/5/40 Lê Văn Thọ, Phường Thông Tây Hội, TP.HCM</p>
+                <p className="pl-7 text-sm font-semibold leading-relaxed text-gray-800">{contact.address}</p>
               </div>
               <div>
                 <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-gray-950"><Clock className="h-5 w-5 text-[#D83B00]" /> Giờ làm việc</h3>
-                <p className="pl-7 text-sm font-semibold leading-relaxed text-gray-700">Thứ 2–Thứ 7: <span className="font-bold text-gray-950">09:00–17:30</span><br />Chủ nhật và ngày lễ: <span className="font-bold text-orange-900">Nghỉ</span></p>
+                <p className="pl-7 text-sm font-semibold leading-relaxed text-gray-700">{contact.hoursWeekday}<br />{contact.hoursWeekend}</p>
               </div>
               <div>
                 <h3 className="mb-2 flex items-center gap-2 text-lg font-bold text-gray-950"><Phone className="h-5 w-5 text-[#D83B00]" /> Điện thoại hỗ trợ</h3>
-                <a href="tel:0844998499" onClick={() => trackEvent("click_phone", { position: "map_section" })} className="ml-7 inline-flex min-h-11 items-center font-bold text-gray-900 hover:text-orange-800">0844 998 499</a>
+                <a href={`tel:${contact.phone}`} onClick={() => trackEvent("click_phone", { position: "map_section" })} className="ml-7 inline-flex min-h-11 items-center font-bold text-gray-900 hover:text-orange-800">{contact.phoneDisplay}</a>
               </div>
           </div>
 

@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { ArrowRight, Layers3 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight, Layers3 } from "lucide-react";
 import ProductCatalogTabs from "../components/catalog/ProductCatalogTabs";
 import Footer from "../components/home/Footer";
 import Header from "../components/home/Header";
 import MobileActionBar from "../components/home/MobileActionBar";
 import ScrollToTop from "../components/home/ScrollToTop";
+import { products } from "../lib/products";
 
 export const metadata: Metadata = {
   title: "Tất cả sản phẩm in ấn | Tem nhãn, catalog, card, túi giấy",
@@ -41,6 +44,44 @@ export default function ProductsPage() {
         </section>
 
         <section className="mx-auto max-w-[1440px] px-4 py-12 sm:py-16">
+          <div className="mb-8 text-center">
+            <h2 className="text-2xl font-black uppercase text-gray-950 sm:text-3xl">Sản phẩm nổi bật</h2>
+            <p className="mt-2 text-sm font-medium text-gray-600">Bấm vào ảnh để xem chi tiết và nhận báo giá qua Zalo.</p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            {products.map((product) => (
+              <Link
+                key={product.slug}
+                href={`/san-pham/${product.slug}`}
+                className="group flex flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-orange-300 hover:shadow-[0_20px_45px_-15px_rgba(216,59,0,0.35)]"
+              >
+                <div className="relative aspect-square w-full overflow-hidden bg-gray-50">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    loading="lazy"
+                    sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 22vw"
+                    className="object-contain p-3 transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-4">
+                  <span className="text-[10px] font-black uppercase tracking-[0.12em] text-orange-700">{product.eyebrow}</span>
+                  <h3 className="mt-1 text-base font-black leading-tight text-gray-950 group-hover:text-[#D83B00] sm:text-lg">{product.name}</h3>
+                  <span className="mt-3 inline-flex items-center gap-1 text-xs font-black text-gray-500 group-hover:text-[#D83B00]">
+                    Xem chi tiết <ArrowUpRight className="h-3.5 w-3.5" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-[1440px] px-4 pb-12 sm:pb-16">
+          <div className="mb-8 text-center">
+            <h2 className="text-2xl font-black uppercase text-gray-950 sm:text-3xl">Xem theo danh mục</h2>
+          </div>
           <ProductCatalogTabs />
         </section>
       </main>

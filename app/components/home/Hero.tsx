@@ -8,6 +8,7 @@ import { ZaloIcon } from "../icons";
 import { trackEvent } from "../../lib/analytics";
 import { CUSTOMER_AVATARS } from "./customer-avatars";
 import { DEFAULT_MEDIA_COLLECTIONS, type ManagedMediaItem } from "../../lib/media-collections";
+import { useSiteContent } from "../SiteContentProvider";
 
 const defaultHeroSlides = DEFAULT_MEDIA_COLLECTIONS.hero;
 
@@ -23,6 +24,7 @@ const sparklePositions = [
 ] as const;
 
 export default function Hero() {
+  const { hero, stats } = useSiteContent();
   const [heroSlides, setHeroSlides] = useState<ManagedMediaItem[]>(defaultHeroSlides);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isHeroHovered, setIsHeroHovered] = useState(false);
@@ -79,20 +81,20 @@ export default function Hero() {
               className="mb-7 inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-indigo-700"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-indigo-600" />
-              In ấn các loại tem nhãn và ấn phẩm
+              {hero.eyebrow}
             </motion.div>
 
             <h1 className="mb-6 text-4xl font-black leading-[1.18] tracking-tight text-gray-950 sm:text-5xl lg:text-[58px] xl:text-[68px]">
-              XƯỞNG IN SIÊU TỐC<br />
-              <span className="text-[#FF4D00]">In nhanh - Chuẩn đẹp - Giá tốt</span>
+              {hero.titleLine1}<br />
+              <span className="text-[#FF4D00]">{hero.titleLine2}</span>
             </h1>
 
             <p className="mx-auto mb-8 max-w-[540px] text-lg font-medium leading-relaxed text-gray-700 lg:mx-0 lg:text-[20px]">
-              VinPrint giúp sản phẩm của bạn nổi bật hơn, chuyên nghiệp hơn và bán chạy hơn.
+              {hero.subtitle}
             </p>
 
             <div className="mx-auto mb-9 grid max-w-xl grid-cols-2 gap-x-5 gap-y-4 text-left lg:mx-0">
-              {["Hỗ trợ thiết kế đơn từ 200.000đ", "Chất liệu cao cấp - Bền đẹp", "In sắc nét - Chuẩn màu", "Số lượng ít vẫn nhận"].map((item) => (
+              {hero.features.map((item) => (
                 <div key={item} className="flex items-center gap-2.5">
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#F5A623]">
                     <CheckCircle2 className="h-3.5 w-3.5 text-white" />
@@ -103,11 +105,11 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
-              <a href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" onClick={() => trackEvent("click_zalo", { position: "hero" })} className="flex h-[54px] w-full items-center justify-center gap-2 rounded-full bg-[#D83B00] px-8 text-[15px] font-black text-white shadow-[0_8px_30px_rgb(216,59,0,0.25)] transition-transform hover:scale-[1.03] sm:w-auto">
-                <ZaloIcon className="h-5 w-5" fill="white" /> Nhắn Zalo chốt in →
+              <a href={hero.primaryCta.href} target="_blank" rel="noreferrer" onClick={() => trackEvent("click_zalo", { position: "hero" })} className="flex h-[54px] w-full items-center justify-center gap-2 rounded-full bg-[#D83B00] px-8 text-[15px] font-black text-white shadow-[0_8px_30px_rgb(216,59,0,0.25)] transition-transform hover:scale-[1.03] sm:w-auto">
+                <ZaloIcon className="h-5 w-5" fill="white" /> {hero.primaryCta.label}
               </a>
-              <a href="#bang-gia" onClick={() => trackEvent("view_pricing", { position: "hero_combo" })} className="flex h-[54px] w-full items-center justify-center gap-2 rounded-full border-2 border-[#6545ED] px-8 text-[15px] font-black text-[#5635D8] transition-colors hover:bg-purple-50 sm:w-auto">
-                Xem combo siêu hời <ArrowRight className="h-4 w-4" />
+              <a href={hero.secondaryCta.href} onClick={() => trackEvent("view_pricing", { position: "hero_combo" })} className="flex h-[54px] w-full items-center justify-center gap-2 rounded-full border-2 border-[#6545ED] px-8 text-[15px] font-black text-[#5635D8] transition-colors hover:bg-purple-50 sm:w-auto">
+                {hero.secondaryCta.label} <ArrowRight className="h-4 w-4" />
               </a>
             </div>
 
@@ -122,10 +124,10 @@ export default function Hero() {
               <div className="min-w-0 text-left">
                 <div className="flex items-center gap-1 text-[#F5A623]">
                   {[1, 2, 3, 4, 5].map((star) => <Star key={star} className="h-4 w-4 fill-current" />)}
-                  <span className="ml-1 text-[15px] font-extrabold text-gray-900">4.9/5</span>
+                  <span className="ml-1 text-[15px] font-extrabold text-gray-900">{hero.ratingValue}</span>
                 </div>
-                <a href="https://shopee.vn/chaucay_senda" target="_blank" rel="noreferrer" className="mt-0.5 block max-w-[270px] text-[12px] font-bold leading-tight text-gray-700 underline decoration-gray-300 underline-offset-2">
-                  Hơn 32000 lượt đánh giá cho shop ở Shopee
+                <a href={hero.ratingHref} target="_blank" rel="noreferrer" className="mt-0.5 block max-w-[270px] text-[12px] font-bold leading-tight text-gray-700 underline decoration-gray-300 underline-offset-2">
+                  {hero.ratingText}
                 </a>
               </div>
             </div>
@@ -166,8 +168,8 @@ export default function Hero() {
                 }}
                 className="absolute inset-0 cursor-grab select-none active:cursor-grabbing"
               >
-                <div className="relative h-full w-full p-5 sm:p-8">
-                  <Image src={slide.src} alt={slide.title} fill priority={activeSlide === 0} unoptimized={slide.kind === "gif" || slide.src.startsWith("/media/")} sizes="(max-width: 1024px) 100vw, 57vw" className="pointer-events-none object-contain p-2 sm:p-4" />
+                <div className="relative h-full w-full p-2 sm:p-3">
+                  <Image src={slide.src} alt={slide.title} fill priority={activeSlide === 0} unoptimized={slide.kind === "gif" || slide.src.startsWith("/media/")} sizes="(max-width: 1024px) 100vw, 57vw" className="pointer-events-none object-contain" />
                 </div>
               </motion.figure>
             </AnimatePresence>
@@ -183,10 +185,10 @@ export default function Hero() {
 
       <div className="relative z-20 w-full bg-[#1A1A2E] py-5 shadow-2xl">
         <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-5 px-4 text-center text-white md:grid-cols-4">
-          {[["90.000+", "Khách hàng"], ["211.000+", "Mẫu tem đã thực hiện"], ["100K+", "Đơn hàng đã in"], ["4.9/5", "Đánh giá trung bình"]].map(([value, label]) => (
-            <div key={label} className="flex flex-col items-center justify-center gap-1 border-white/10 md:border-r md:last:border-r-0">
-              <strong className="text-2xl font-black text-[#F5A623] lg:text-3xl">{value}</strong>
-              <span className="text-xs font-bold text-gray-200">{label}</span>
+          {stats.map((stat) => (
+            <div key={stat.label} className="flex flex-col items-center justify-center gap-1 border-white/10 md:border-r md:last:border-r-0">
+              <strong className="text-2xl font-black text-[#F5A623] lg:text-3xl">{stat.value}</strong>
+              <span className="text-xs font-bold text-gray-200">{stat.label}</span>
             </div>
           ))}
         </div>

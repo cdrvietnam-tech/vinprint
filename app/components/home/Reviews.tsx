@@ -3,26 +3,34 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 import Image from "next/image";
+import { SHOPEE_SHOP_URL } from "../../lib/products";
+import { useSiteContent } from "../SiteContentProvider";
+
+const reviewAvatars = [
+  "/images/avatars/review-hong.webp",
+  "/images/avatars/review-tuan.webp",
+  "/images/avatars/review-yen.webp",
+];
 
 export default function Reviews() {
+  const { reviews: reviewsContent } = useSiteContent();
   const tabs = ["Tất cả", "Google", "Shopee", "Facebook"];
-  const reviews = [
-    { name: "Nguyễn Thị Hồng", platform: "Google", avatar: "/images/avatars/review-hong.webp", text: "Tem in rất đẹp, màu sắc chuẩn, giao hàng nhanh, tư vấn nhiệt tình. Sẽ ủng hộ lâu dài!", rating: 5 },
-    { name: "Trần Minh Tuấn", platform: "Shopee", avatar: "/images/avatars/review-tuan.webp", text: "In tem UV DTF nổi cực đẹp, chống nước tốt, đóng ngay gửi cẩn thận.", rating: 5 },
-    { name: "Lê Hoàng Yến", platform: "Facebook", avatar: "/images/avatars/review-yen.webp", text: "Thiết kế bằng AI rất ưng ý, chỉnh sửa nhanh chóng. Chất lượng in quá tốt!", rating: 5 },
-  ];
+  const reviews = reviewsContent.items.map((review, i) => ({
+    ...review,
+    avatar: reviewAvatars[i % reviewAvatars.length],
+  }));
 
   return (
     <div id="danh-gia" className="scroll-mt-24 bg-white rounded-[32px] p-6 lg:p-8 flex flex-col h-full shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100">
       <div className="flex flex-col xl:flex-row xl:justify-between xl:items-end mb-8 gap-4 shrink-0">
         <div>
           <h2 className="text-2xl font-extrabold text-gray-900 uppercase mb-2">
-            Khách hàng nói gì về VinPrint
+            {reviewsContent.title}
           </h2>
           <div className="flex items-center gap-3">
-            <span className="text-4xl font-extrabold text-orange-800">4.9/5</span>
+            <span className="text-4xl font-extrabold text-orange-800">{reviewsContent.ratingValue}</span>
             <div className="text-[13px] font-medium text-gray-500">
-              (32k+ đánh giá)
+              ({reviewsContent.ratingCount})
             </div>
           </div>
         </div>
@@ -83,7 +91,7 @@ export default function Reviews() {
                   <div className="flex items-center gap-1 text-[#FF5722] text-xs font-bold">
                     <span className="text-sm">🧡</span> Shopee
                   </div>
-                  <a href="https://shopee.vn" target="_blank" rel="noreferrer" className="text-xs font-bold text-blue-600 hover:underline">
+                  <a href={SHOPEE_SHOP_URL} target="_blank" rel="noreferrer" className="text-xs font-bold text-blue-600 hover:underline">
                     Xem tất cả đánh giá →
                   </a>
                 </div>
@@ -101,9 +109,9 @@ export default function Reviews() {
         </div>
 
       <div className="text-center mt-10">
-        <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-200 text-gray-700 text-sm font-bold hover:bg-gray-50 transition-colors">
-          Xem tất cả đánh giá <ArrowRight className="w-4 h-4" />
-        </button>
+        <a href={SHOPEE_SHOP_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-200 text-gray-700 text-sm font-bold hover:bg-gray-50 transition-colors">
+          Xem tất cả đánh giá trên Shopee <ArrowRight className="w-4 h-4" />
+        </a>
       </div>
     </div>
   );
