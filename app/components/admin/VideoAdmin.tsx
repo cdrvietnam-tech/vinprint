@@ -68,13 +68,10 @@ export default function VideoAdmin() {
     return true;
   };
 
-  const saveMedia = async (collection: MediaCollectionId, item: Omit<ManagedMediaItem, "kind" | "src">, file: File, successMessage: string) => {
-    const definition = MEDIA_COLLECTIONS.find((entry) => entry.id === collection);
-    if (!validateFile(collection, Boolean(definition?.allowVideo), file)) return;
+  // Upload lõi: trả về true/false, cập nhật danh sách khi thành công. Không tự
+  // đặt busy/message để hàm gọi tự quản (cho phép tải hàng loạt có tiến trình).
+  const uploadMedia = async (collection: MediaCollectionId, item: Omit<ManagedMediaItem, "kind" | "src">, file: File): Promise<boolean> => {
     const params = new URLSearchParams({ collection, id: item.id, title: item.title, category: item.category, href: item.href });
-
-    setBusy(`${collection}:${item.id}`);
-    setMessages((current) => ({ ...current, [collection]: "Đang lưu nội dung…" }));
     try {
       const response = await fetch(`/api/admin/media-collections?${params}`, {
         method: "PUT",
@@ -82,25 +79,51 @@ export default function VideoAdmin() {
         body: file,
       });
       const result = await response.json() as { items?: ManagedMediaItem[]; error?: string };
-      if (!response.ok || !result.items) throw new Error(result.error || "upload_failed");
+      if (!response.ok || !result.items) return false;
       setCollections((current) => ({ ...current, [collection]: result.items || current[collection] }));
-      setMessages((current) => ({ ...current, [collection]: successMessage }));
-    } catch (error) {
-      const code = error instanceof Error ? error.message : "upload_failed";
-      setMessages((current) => ({ ...current, [collection]: code === "storage_unavailable" ? "Kho nội dung chưa được kết nối." : "Không thể lưu. Vui lòng thử lại." }));
-    } finally {
-      setBusy(null);
+      return true;
+    } catch {
+      return false;
     }
   };
 
-  const addMedia = async (collection: MediaCollectionId, allowVideo: boolean, file?: File) => {
-    if (!file || !validateFile(collection, allowVideo, file)) return;
-    const title = window.prompt("Tên hiển thị dưới sản phẩm", defaultTitle(file.name))?.trim();
-    if (!title) return;
-    const category = collection === "hot-products"
-      ? window.prompt("Nhóm sản phẩm", "Sản phẩm VinPrint")?.trim() || "Sản phẩm VinPrint"
-      : collection === "hero" ? "Hero" : "Thành phẩm";
-    await saveMedia(collection, { id: createMediaId(), title, category, href: "/san-pham" }, file, "Đã đăng thêm thành công. Trang chủ sẽ tự nhận nội dung mới.");
+  const saveMedia = async (collection: MediaCollectionId, item: Omit<ManagedMediaItem, "kind" | "src">, file: File, successMessage: string) => {
+    const definition = MEDIA_COLLECTIONS.find((entry) => entry.id === collection);
+    if (!validateFile(collection, Boolean(definition?.allowVideo), file)) return;
+    setBusy(`${collection}:${item.id}`);
+    setMessages((current) => ({ ...current, [collection]: "Đang lưu nội dung…" }));
+    const ok = await uploadMedia(collection, item, file);
+    setMessages((current) => ({ ...current, [collection]: ok ? successMessage : "Không thể lưu. Vui lòng thử lại." }));
+    setBusy(null);
+  };
+
+  const defaultCategoryFor = (collection: MediaCollectionId) =>
+    collection === "hot-products" ? "Sản phẩm VinPrint" : collection === "hero" ? "Hero" : "Thành phẩm";
+
+  // Tải HÀNG LOẠT: chọn nhiều ảnh/video một lần, tự đặt tên theo tên file
+  // (sửa lại tiêu đề sau bằng ô "Tiêu đề hiển thị" ở từng thẻ).
+  const addMediaFiles = async (collection: MediaCollectionId, allowVideo: boolean, files?: FileList | null) => {
+    const list = files ? Array.from(files) : [];
+    if (list.length === 0) return;
+    const category = defaultCategoryFor(collection);
+    setBusy(`${collection}:bulk`);
+    let done = 0;
+    let failed = 0;
+    for (const file of list) {
+      if (!validateFile(collection, allowVideo, file)) {
+        failed += 1;
+        continue;
+      }
+      setMessages((current) => ({ ...current, [collection]: `Đang tải ${done + failed + 1}/${list.length}…` }));
+      const ok = await uploadMedia(collection, { id: createMediaId(), title: defaultTitle(file.name), category, href: "/san-pham" }, file);
+      if (ok) done += 1;
+      else failed += 1;
+    }
+    setBusy(null);
+    setMessages((current) => ({
+      ...current,
+      [collection]: `Đã đăng ${done} mục${failed ? `, ${failed} lỗi (kiểm tra định dạng/dung lượng)` : ""}. Có thể sửa tiêu đề từng mục bên dưới.`,
+    }));
   };
 
   const replaceMedia = async (collection: MediaCollectionId, item: ManagedMediaItem, file?: File) => {
@@ -221,8 +244,8 @@ export default function VideoAdmin() {
                       </button>
                     )}
                     <label className="inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-full bg-violet-700 px-5 text-xs font-black text-white hover:bg-violet-800">
-                      {busy?.startsWith(`${collection.id}:media-`) ? <Loader2 className="h-4 w-4 animate-spin" /> : <ImagePlus className="h-4 w-4" />} Đăng thêm
-                      <input type="file" accept={collection.allowVideo ? "image/png,image/jpeg,image/webp,image/avif,image/gif,video/mp4,video/webm" : "image/png,image/jpeg,image/webp,image/avif,image/gif"} className="sr-only" disabled={busy !== null} onChange={(event) => { void addMedia(collection.id, collection.allowVideo, event.target.files?.[0]); event.currentTarget.value = ""; }} />
+                      {busy === `${collection.id}:bulk` ? <Loader2 className="h-4 w-4 animate-spin" /> : <ImagePlus className="h-4 w-4" />} Đăng thêm (chọn nhiều)
+                      <input type="file" multiple accept={collection.allowVideo ? "image/png,image/jpeg,image/webp,image/avif,image/gif,video/mp4,video/webm" : "image/png,image/jpeg,image/webp,image/avif,image/gif"} className="sr-only" disabled={busy !== null} onChange={(event) => { void addMediaFiles(collection.id, collection.allowVideo, event.target.files); event.currentTarget.value = ""; }} />
                     </label>
                   </div>
                 </div>

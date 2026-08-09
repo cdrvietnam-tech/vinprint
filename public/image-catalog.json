@@ -994,6 +994,21 @@
       ]
     },
     {
+      "path": "/images/products/sticker-trang-tri.webp",
+      "title": "Sticker Trang Tri",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 31296,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/products/tem-bac.webp",
       "title": "Tem Bac",
       "category": "products",
@@ -1001,6 +1016,21 @@
       "width": 392,
       "height": 392,
       "bytes": 21006,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/products/tem-bao-hanh.webp",
+      "title": "Tem Bao Hanh",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 31296,
       "usages": [
         {
           "href": "/san-pham",
@@ -1064,6 +1094,21 @@
     {
       "path": "/images/products/tem-nhua-trong.webp",
       "title": "Tem Nhua Trong",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 94172,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/products/tem-phu-san-pham.webp",
+      "title": "Tem Phu San Pham",
       "category": "products",
       "categoryLabel": "Ảnh sản phẩm",
       "width": 1024,
