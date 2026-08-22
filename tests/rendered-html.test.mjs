@@ -48,7 +48,7 @@ test("renders the new storefront homepage with key sections", async () => {
   assert.match(html, /https:\/\/vinprint\.vn/);
   assert.doesNotMatch(html, /vinprint-ai\.cdrvietnam\.chatgpt\.site/i);
   assert.match(html, /Thứ 2–Thứ 7/);
-  assert.match(html, /Phường Thông Tây Hội/);
+  assert.match(html, /An Phú Đồng/);
   assert.doesNotMatch(html, /images\.unsplash\.com/i);
 });
 

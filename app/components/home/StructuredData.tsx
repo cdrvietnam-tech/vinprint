@@ -22,8 +22,8 @@ const localBusinessSchema = {
   ],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "254/5/40 Lê Văn Thọ",
-    addressLocality: "Phường Thông Tây Hội",
+    streetAddress: "Số 13, Đường Thạnh Lộc 42",
+    addressLocality: "An Phú Đồng",
     addressRegion: "TP.HCM",
     addressCountry: "VN",
   },

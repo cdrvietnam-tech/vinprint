@@ -87,7 +87,7 @@ export const DEFAULT_SITE_CONTENT: SiteContent = {
     phone: "0844998499",
     phoneDisplay: "0844 998 499",
     zaloUrl: "https://zalo.me/0844998499",
-    address: "254/5/40 Lê Văn Thọ, Phường Thông Tây Hội, TP.HCM",
+    address: "Số 13, Đường Thạnh Lộc 42, An Phú Đồng, TP.HCM",
     hoursWeekday: "Thứ 2–Thứ 7: 09:00–17:30",
     hoursWeekend: "Chủ nhật và ngày lễ: Nghỉ",
   },

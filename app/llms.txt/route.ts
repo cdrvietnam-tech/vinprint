@@ -17,7 +17,7 @@ export function GET() {
 
 - Website: https://vinprint.vn
 - Điện thoại/Zalo: 0844 998 499
-- Địa chỉ: 254/5/40 Lê Văn Thọ, Phường Thông Tây Hội, TP.HCM
+- Địa chỉ: Số 13, Đường Thạnh Lộc 42, An Phú Đồng, TP.HCM
 - Giờ làm việc: 09:00–17:30, Thứ 2–Thứ 7; nghỉ Chủ nhật và ngày lễ
 - Combo khuyến mãi: https://vinprint.vn/#bang-gia
 - Liên hệ: https://vinprint.vn/lien-he
