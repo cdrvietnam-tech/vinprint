@@ -1,0 +1,161 @@
+{
+  "at": "2026-09-12T02:57:29.681584+00:00",
+  "site": "https://vinprint.vn",
+  "mode": "read_only",
+  "findings": [
+    {
+      "id": "4f08c324ab2b",
+      "code": "http_not_redirected_to_https",
+      "url": "http://vinprint.vn/",
+      "evidence": {
+        "status": 200,
+        "redirects": []
+      },
+      "impact": 5,
+      "effort": 1,
+      "confidence": 1,
+      "priority_score": 5.0,
+      "status": "proposed",
+      "approval": "required_before_live_change"
+    },
+    {
+      "id": "49a6ab39e59f",
+      "code": "nap_owner_confirmation_needed",
+      "url": "https://vinprint.vn",
+      "evidence": "Canonical NAP source has not been approved by owner",
+      "impact": 4,
+      "effort": 1,
+      "confidence": 1,
+      "priority_score": 4.0,
+      "status": "proposed",
+      "approval": "required_before_live_change"
+    },
+    {
+      "id": "cb3797c6010e",
+      "code": "www_variant_unavailable",
+      "url": "https://www.vinprint.vn/",
+      "evidence": {
+        "error": "URLError",
+        "note": "Check DNS/TLS from another network before changing hosting."
+      },
+      "impact": 3,
+      "effort": 1,
+      "confidence": 0.8,
+      "priority_score": 2.4,
+      "status": "proposed",
+      "approval": "required_before_live_change"
+    },
+    {
+      "id": "6fb886166302",
+      "code": "missing_seed_or_sitemap_page",
+      "url": "https://vinprint.vn/shop/",
+      "evidence": {
+        "status": 404,
+        "linked_from": [],
+        "in_sitemap": false
+      },
+      "impact": 2,
+      "effort": 1,
+      "confidence": 1,
+      "priority_score": 2.0,
+      "status": "proposed",
+      "approval": "required_before_live_change"
+    },
+    {
+      "id": "b21f01b4b75e",
+      "code": "missing_seed_or_sitemap_page",
+      "url": "https://vinprint.vn/about-us-3/",
+      "evidence": {
+        "status": 404,
+        "linked_from": [],
+        "in_sitemap": false
+      },
+      "impact": 2,
+      "effort": 1,
+      "confidence": 1,
+      "priority_score": 2.0,
+      "status": "proposed",
+      "approval": "required_before_live_change"
+    }
+  ],
+  "coverage": {
+    "pages_checked": 51,
+    "sitemap_urls": 47,
+    "requests": 59,
+    "pages_limit": 90,
+    "request_limit": 160,
+    "remaining_queue": 0,
+    "robots_skipped": [],
+    "sitemap_queue_remaining": 0,
+    "external_links": "not_checked_by_default",
+    "javascript_rendering": "not_executed",
+    "index": "HTTP eligibility only; Google index unverified"
+  },
+  "host_variants": [
+    {
+      "url": "http://vinprint.vn/",
+      "status": 200,
+      "final_url": "http://vinprint.vn/",
+      "redirects": [],
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare"
+      },
+      "response_ms": 313,
+      "bytes": 140730
+    },
+    {
+      "url": "https://www.vinprint.vn/",
+      "status": null,
+      "final_url": "https://www.vinprint.vn/",
+      "redirects": [],
+      "error": "URLError"
+    }
+  ],
+  "missing_page_probe": {
+    "url": "https://vinprint.vn/vinprint-operator-404-check-20260912",
+    "status": 404,
+    "final_url": "https://vinprint.vn/vinprint-operator-404-check-20260912",
+    "redirects": [],
+    "headers": {
+      "content-type": "text/plain;charset=UTF-8",
+      "server": "cloudflare"
+    },
+    "response_ms": 235,
+    "bytes": 9
+  },
+  "google": {
+    "gsc": {
+      "status": "not_connected"
+    },
+    "ga4": {
+      "status": "not_connected"
+    },
+    "index": {
+      "status": "not_verified_without_url_inspection"
+    }
+  },
+  "cwv": {
+    "status": "unavailable",
+    "http_status": 429,
+    "note": "No CWV verdict; API denied or quota unavailable."
+  },
+  "checks": {
+    "sitemap_http_200": 47,
+    "sitemap_urls": 47,
+    "tests": {
+      "python_operator": 6,
+      "approval_gate": 4,
+      "repository_typescript": 34,
+      "rendered_html": 26,
+      "total": 70,
+      "result": "passed"
+    },
+    "build": "Vinext production build passed on Node 24.19.0/Windows; CI uses Node 22.13.0/Linux",
+    "content": "16 published articles passed existing rubric/schema/assets/source-link checks",
+    "lint": "passed",
+    "production_changes": 0,
+    "measurement_id_observed_in_live_html": "G-0XQZ3FCJN0",
+    "main_branch_protected_at_setup": false
+  }
+}

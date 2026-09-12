@@ -160,14 +160,16 @@ test("article schema requires revision count to match sequential attempt history
   assert.equal(articleSchema.safeParse(article).success, false);
 });
 
-test("content automation can edit content surfaces but cannot edit locked or code surfaces", () => {
+test("content automation writes local drafts and reports but cannot publish", () => {
   assert.doesNotThrow(() => assertAgentChangesAuthorized([
-    "content/blog/drafts/example.json",
-    "content/blog/published/example.json",
-    "content/blog/index.ts",
-    "public/images/blog/example.webp",
+    "agent/operator/drafts/example.md",
+    "agent/reports/example.json",
     "agent/memory/experiments.jsonl",
   ], "content-publish"));
+
+  for (const file of ["content/blog/published/example.json", "content/blog/index.ts", "public/images/blog/example.webp", "agent/operator/drafts/../../app/page.tsx", "agent/reports/execute.js"]) {
+    assert.throws(() => assertAgentChangesAuthorized([file], "content-publish"));
+  }
 
   assert.throws(() => assertAgentChangesAuthorized(["agent/rubric.json"], "content-publish"), /locked/i);
   assert.throws(() => assertAgentChangesAuthorized(["app/page.tsx"], "content-publish"), /locked|not authorized/i);

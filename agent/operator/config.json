@@ -1,0 +1,22 @@
+{
+  "site": "https://vinprint.vn",
+  "allowed_hosts": ["vinprint.vn", "www.vinprint.vn"],
+  "user_agent": "VinPrintWebOperator/1.0 (+https://vinprint.vn; owner-authorized audit)",
+  "max_pages": 90,
+  "max_requests": 160,
+  "max_sitemaps": 8,
+  "request_interval_seconds": 0.3,
+  "timeout_seconds": 15,
+  "max_response_bytes": 3000000,
+  "seed_paths": ["/", "/blog", "/blog/", "/shop/", "/about-us-3/", "/san-pham", "/lien-he"],
+  "expected_missing_path": "/vinprint-operator-404-check-20260912",
+  "gsc_property": null,
+  "ga4_property_id": null,
+  "minimum_query_impressions": 30,
+  "nap_verified": false,
+  "approved_nap": null,
+  "live_writes_enabled": false,
+  "timezone": "Asia/Bangkok",
+  "daily_local_time": "08:30",
+  "weekly_report_day": "Monday"
+}

@@ -73,8 +73,13 @@ test("homepage includes JSON-LD structured data", async () => {
   assert.match(html, /"@type":"LocalBusiness"/);
   assert.match(html, /"@type":"ItemList"/);
   assert.match(html, /"@type":"FAQPage"/);
-  assert.match(html, /"hasMap":"https:\/\/maps\.app\.goo\.gl\/gqrqcsTp6CHHGi73A"/);
-  assert.match(html, /"sameAs":\[[^\]]*https:\/\/maps\.app\.goo\.gl\/gqrqcsTp6CHHGi73A/);
+  const schemas = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
+  const business = schemas.find((schema) => schema["@type"] === "LocalBusiness");
+  const map = new URL(business.hasMap);
+  assert.equal(map.protocol, "https:");
+  assert.equal(map.hostname, "www.google.com");
+  assert.ok(map.searchParams.get("query").includes(business.address.streetAddress));
+  assert.ok(business.sameAs.includes(business.hasMap));
   assert.match(html, /"areaServed"/);
 });
 
