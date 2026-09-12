@@ -1,0 +1,18 @@
+{
+  "version": "2026-09-12",
+  "policy": "One primary intent owner; existing URLs first. No automatic publication or location doorway pages.",
+  "clusters": [
+    {"intent":"Đặt in tem nhãn tổng quát tại TP.HCM","owner":"/","support":["/san-pham","/lien-he"],"decision":"Mở rộng homepage/catalog; chưa tạo /in-tem-nhan-tphcm vì intent trùng"},
+    {"intent":"Đặt in tem giấy","owner":"/san-pham/tem-giay","support":["/blog/tem-giay-va-tem-nhua-nen-chon-loai-nao"],"decision":"Tối ưu trang sản phẩm hiện có"},
+    {"intent":"Đặt in tem nhựa chịu ẩm","owner":"/san-pham/tem-nhua-chong-nuoc","support":["/blog/tem-chong-nuoc-cho-my-pham-va-do-uong","/blog/thu-tem-trong-moi-truong-lanh"],"decision":"Không tạo thêm money page cùng intent chống nước"},
+    {"intent":"Đặt in UV DTF","owner":"/san-pham/tem-uv-dtf","support":["/blog/tem-uv-dtf-la-gi"],"decision":"Tách giao dịch khỏi bài giải thích"},
+    {"intent":"Tem mỹ phẩm","owner":"/nganh/my-pham","support":["/blog/tem-chai-serum","/blog/tem-cho-hu-kem"],"decision":"Cập nhật trang ngành; không thêm landing serum trước dữ liệu GSC"},
+    {"intent":"Tem thực phẩm bao bì khô","owner":"/nganh/thuc-pham","support":["/blog/tem-thuc-pham-cho-tui-kraft"],"decision":"Cập nhật theo điều kiện bao bì; claim pháp lý cần nguồn riêng"},
+    {"intent":"Tem đồ uống lạnh","owner":"/nganh/do-uong","support":["/blog/tem-ly-ca-phe-chong-nuoc","/blog/thu-tem-trong-moi-truong-lanh"],"decision":"Draft cập nhật trang hiện có"},
+    {"intent":"Tem chai lọ theo bề mặt","owner":"/nganh/chai-lo","support":["/blog/tem-nhua-trong-cho-chai"],"decision":"Không nhân bản nội dung trang ngành thành nhiều landing giống nhau"},
+    {"intent":"Đo kích thước tem","owner":"/huong-dan/chon-kich-thuoc-tem","support":["/blog/cach-chon-kich-thuoc-tem-nhan"],"decision":"Có khả năng chồng intent; xem GSC và phân vai guide tổng quan/blog ví dụ thực tế trước merge URL"},
+    {"intent":"Chuẩn bị file in","owner":"/blog/chuan-bi-file-in-tem-khong-bi-mo","support":["/blog/loi-thiet-ke-tem-nhan","/huong-dan/ky-thuat-in-tem"],"decision":"Ưu tiên bổ sung checklist trên bài có sẵn"},
+    {"intent":"Giá và đơn số lượng ít","owner":"/blog/gia-in-tem-so-luong-it-phu-thuoc-gi","support":["/#bang-gia"],"decision":"Không tạo trang lấy liền/hứa giá nếu chưa xác nhận năng lực"},
+    {"intent":"Chọn cách cắt tem kiss-cut/die-cut","owner":null,"support":["/san-pham/sticker-trang-tri"],"decision":"Draft mới có điều kiện sau kiểm tra query và quy cách xưởng; không tạo URL live trước duyệt"}
+  ]
+}
