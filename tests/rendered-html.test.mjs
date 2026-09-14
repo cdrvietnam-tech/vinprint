@@ -24,6 +24,20 @@ async function render(pathname = "/", origin = "http://localhost") {
   );
 }
 
+test("drink landing renders contextual links while retaining its canonical and contact event", async () => {
+  const response = await render("/nganh/do-uong");
+  const html = await response.text();
+  assert.equal(response.status, 200);
+  const article = html.match(/<article\b[\s\S]*?<\/article>/i)?.[0] ?? "";
+  for (const path of ["/san-pham/tem-nhua-chong-nuoc", "/san-pham/tem-giay", "/huong-dan/chon-kich-thuoc-tem", "/blog/chuan-bi-file-in-tem-khong-bi-mo", "/blog/tem-ly-ca-phe-chong-nuoc", "/blog/thu-tem-trong-moi-truong-lanh"]) {
+    assert.ok(article.includes(`href="${path}"`), `Missing contextual link: ${path}`);
+  }
+  assert.match(html, /<link[^>]*rel="canonical"[^>]*href="https:\/\/vinprint.vn\/nganh\/do-uong"/);
+  assert.match(article, /https:\/\/zalo.me\/0844998499/);
+  assert.match(html, /content_do-uong/);
+  assert.equal((html.match(/<h1\b/g) ?? []).length, 1);
+});
+
 test("does not expose development preview metadata", async () => {
   const response = await render();
 

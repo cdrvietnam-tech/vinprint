@@ -45,6 +45,15 @@ export default function ContentPage({ data, canonicalPath }: ContentPageProps) {
                   {section.bullets.map((item) => <li key={item} className="rounded-2xl bg-orange-50 px-5 py-4 font-semibold text-gray-900">✓ {item}</li>)}
                 </ul>
               )}
+              {section.links && section.links.length > 0 && (
+                <ul className="mt-6 space-y-2">
+                  {section.links.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="inline-flex min-h-11 items-center font-semibold text-[#6545ED] underline underline-offset-4 hover:text-[#3D28BC]">{link.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </section>
           ))}
 
