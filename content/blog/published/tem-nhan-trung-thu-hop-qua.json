@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-nhan-trung-thu-hop-qua",
+  "title": "Tem nhãn Trung thu: dấu ấn riêng trên từng hộp quà",
+  "description": "In tem logo, tem tên vị và tem lời chúc cho hộp bánh Trung thu, túi quà. Gửi mẫu bao bì, kích thước và số lượng để VinPrint tư vấn báo giá.",
+  "category": "theo-nganh",
+  "image": "/images/blog/tem-trung-thu.webp",
+  "imageAlt": "Hình minh họa AI tem nhãn Trung thu trên hộp bánh và quà tặng, không phải ảnh đơn hàng thực tế",
+  "publishedAt": "2026-09-15",
+  "updatedAt": "2026-09-15",
+  "publishAt": "2026-09-15T08:00:00+07:00",
+  "readingMinutes": 3,
+  "primaryKeyword": "tem nhãn Trung thu",
+  "searchIntent": "Đặt tem logo, tên vị bánh và lời chúc cho hộp quà Trung thu",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-facebook-sync-v1",
+  "revisionCount": 1,
+  "directAnswer": "Hộp bánh đã sẵn sàng, còn dấu ấn thương hiệu của bạn thì sao? Một chiếc tem mang logo, tên vị bánh hoặc lời chúc là chi tiết đáng chăm chút trước khi trao quà. Với bánh handmade, túi quà biếu hay set quà doanh nghiệp, hãy bắt đầu từ mẫu hộp đang dùng để chọn cách thể hiện phù hợp.",
+  "sections": [
+    {
+      "heading": "Ba ý tưởng tem cho mùa quà tặng",
+      "paragraphs": [
+        "Tem logo: đặt thương hiệu vào một vị trí dễ nhìn trên hộp hoặc túi. Nếu hộp đã có nhiều họa tiết, có thể thử một mẫu tem gọn, tập trung vào logo và tên thương hiệu.",
+        "Tem tên vị bánh: giúp người nhận phân biệt các vị ngay khi xem hộp. Bạn có thể giữ cùng một phong cách thiết kế và thay tên vị cho từng mẫu.",
+        "Tem lời chúc: dành một khoảng nhỏ cho thông điệp của người tặng. Lời chúc ngắn, rõ và phù hợp với người nhận sẽ dễ bố trí hơn trên diện tích tem có hạn.",
+        "Đây là những hướng thiết kế để bạn lựa chọn, không cần gom cả ba mục đích vào một chiếc tem nhỏ."
+      ]
+    },
+    {
+      "heading": "Làm tem theo hộp thật của bạn",
+      "paragraphs": [
+        "VinPrint nhận in tem nhãn theo yêu cầu. Với hộp giấy, túi kraft và bao bì khô, bạn có thể tham khảo tem nhãn giấy. Gửi ảnh bao bì thực tế để trao đổi vị trí dán và quy cách trước khi làm mẫu.",
+        "Nếu chưa chốt kích thước, hãy xem hướng dẫn đo vùng dán tem. Mục tiêu là để chiếc tem vừa với hộp đang có và nội dung vẫn rõ khi nhìn ở kích thước thật."
+      ]
+    },
+    {
+      "heading": "Gửi yêu cầu, nhận tư vấn cho bộ tem Trung thu",
+      "paragraphs": [
+        "Bạn chỉ cần chuẩn bị:",
+        "Nhắn Zalo VinPrint để tư vấn tem Trung thu hoặc gửi yêu cầu qua trang liên hệ. Giá và thời gian được xác nhận theo quy cách của từng đơn. Chuẩn bị mẫu sớm để có thời gian xem và duyệt trước khi in."
+      ],
+      "bullets": [
+        "Logo hoặc hình tham khảo phong cách mong muốn.",
+        "Ảnh hộp bánh, túi quà và vị trí muốn dán.",
+        "Kích thước tem, số mẫu và số lượng từng mẫu.",
+        "Ngày cần nhận để xưởng kiểm tra khả năng đáp ứng."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-giay"
+  ],
+  "sources": [
+    {
+      "title": "Tem giấy cho hộp bánh và bao bì khô",
+      "href": "/san-pham/tem-giay",
+      "note": "Dữ liệu sản phẩm công khai xác nhận ứng dụng hộp bánh, túi kraft và quy trình báo giá theo quy cách.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-15"
+    },
+    {
+      "title": "Chọn kích thước tem theo bao bì",
+      "href": "/huong-dan/chon-kich-thuoc-tem",
+      "note": "Hướng dẫn đo vùng dán và kiểm tra mẫu trước khi in.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-15"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 19,
+      "evidence": 19,
+      "citability": 14,
+      "authority": 9,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/san-pham/tem-giay",
+      "/huong-dan/chon-kich-thuoc-tem"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Tem giấy là lựa chọn tham khảo cho hộp bánh, túi kraft và bao bì khô; báo giá xác nhận theo quy cách.",
+        "sourceIds": [
+          "/san-pham/tem-giay"
+        ]
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "recordedAt": "2026-09-15T09:30:00+07:00",
+        "score": 96,
+        "outcome": "accepted"
+      }
+    ]
+  }
+}
+

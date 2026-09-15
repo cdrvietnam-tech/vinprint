@@ -2,6 +2,8 @@ export type ContentSection = {
   heading: string;
   paragraphs: string[];
   bullets?: string[];
+  links?: { href: string; label: string }[];
+  image?: { src: string; alt: string; caption: string };
 };
 
 export type ContentPageData = {
@@ -80,6 +82,10 @@ export const industryPages: Record<string, ContentPageData> = {
   "my-pham": { slug: "my-pham", title: "In tem nhãn mỹ phẩm theo yêu cầu", description: "Tư vấn in tem mỹ phẩm chống ẩm, sắc nét cho chai serum, hũ kem và bao bì chăm sóc cá nhân.", eyebrow: "Theo ngành · Mỹ phẩm", intro: "Tem mỹ phẩm cần cân bằng thẩm mỹ, độ bền và khả năng đọc trên kích thước nhỏ.", sections: [
     { heading: "Chất liệu nên cân nhắc", paragraphs: ["Decal nhựa phù hợp chai lọ có nguy cơ tiếp xúc nước. Decal trong tạo cảm giác tối giản; tem ánh kim phù hợp điểm nhấn cao cấp."], bullets: ["Thử độ bám trên đúng chai", "Ưu tiên mực và lớp cán chịu ẩm", "Giữ cỡ chữ thông tin đủ đọc"] },
     { heading: "Chuẩn bị file", paragraphs: ["Gửi kích thước vùng dán, ảnh chai thật, logo và nội dung bắt buộc. Với chai cong, cần chừa biên hợp lý để hạn chế nhăn hoặc bong mép."] },
+    {"heading": "Tem UV DTF cho chai lọ mỹ phẩm: điểm nhấn từ logo riêng", "paragraphs": ["Bạn đang chuẩn bị chai serum, chai lotion hoặc hũ kem mang thương hiệu riêng? Hãy thử hình dung logo của bạn trên chính mẫu bao bì ấy: ở thân chai, phía trước nhãn hay trên nắp hũ. Một vị trí được chọn kỹ sẽ giúp thiết kế có điểm nhấn rõ ràng hơn.", "Tem UV DTF tạo hiệu ứng nổi bóng trên bề mặt cứng phù hợp. VinPrint có dịch vụ in tem UV DTF theo yêu cầu; xưởng cần xem file và bề mặt cụ thể để tư vấn quy cách cho mẫu của bạn."], "image": {"src": "/images/blog/uv-dtf-chai-lo-my-pham.webp", "alt": "Hình minh họa AI logo UV DTF trên chai lọ mỹ phẩm", "caption": "Hình minh họa AI từ fanpage VinPrint; không phải ảnh đơn hàng thực tế."}, "links": [{"href": "/san-pham/tem-uv-dtf", "label": "In tem UV DTF theo yêu cầu"}]},
+    {"heading": "Logo của bạn hợp ở vị trí nào?", "paragraphs": ["Với chai cao, hãy đánh dấu vùng thân muốn đặt logo trên ảnh chính diện. Với hũ thấp, chụp thêm nắp và góc nghiêng để trao đổi vị trí. Đừng chỉ gửi hình logo riêng: độ cong và diện tích vùng dán cần được xem cùng với thiết kế.", "Bạn có thể chuẩn bị hai phương án vị trí để so sánh. Ví dụ, thử logo ở thân chai và ở nắp hũ trong cùng bộ sản phẩm. Đây là ý tưởng bố trí để trao đổi với xưởng, không phải khẳng định mọi bề mặt đều dùng được."]},
+    {"heading": "Chuẩn bị mẫu dễ hơn với bốn thông tin", "paragraphs": ["Chưa biết nên đặt logo lớn hay nhỏ? Gửi ảnh cùng kích thước bao bì để VinPrint trao đổi trước khi chốt file. Nếu muốn hiểu thêm về sản phẩm, xem tem UV DTF là gì."], "bullets": ["Ảnh bao bì: chính diện và góc nghiêng, khoanh vùng muốn dán.", "Logo: file hiện có và nội dung cần thể hiện.", "Kích thước: chiều ngang × cao của vùng dự kiến.", "Số lượng: ghi riêng từng mẫu chai hoặc hũ."], "links": [{"href": "/blog/tem-uv-dtf-la-gi", "label": "tem UV DTF là gì"}]},
+    {"heading": "Bắt đầu từ chai, hũ bạn đang có", "paragraphs": ["Thay vì chọn mẫu chỉ vì ảnh quảng cáo đẹp, hãy để ý tưởng đi cùng bao bì thực tế. Xem thêm tem nhãn mỹ phẩm để xác định phần thông tin cần có bên cạnh logo.", "Gửi ảnh chai/hũ và logo qua Zalo VinPrint để được tư vấn quy cách và báo giá. Thời gian thực hiện và mức giá sẽ được xác nhận cho từng đơn trước khi đặt in."], "links": []},
   ]},
   "thuc-pham": { slug: "thuc-pham", title: "In tem nhãn thực phẩm và bao bì", description: "In tem thực phẩm cho túi kraft, hộp giấy, hũ và bao bì khô với nội dung rõ, dễ đọc.", eyebrow: "Theo ngành · Thực phẩm", intro: "Tem thực phẩm cần truyền đạt nhanh tên sản phẩm, thành phần, khối lượng và thông tin liên hệ.", sections: [
     { heading: "Chọn theo môi trường", paragraphs: ["Bao bì khô có thể dùng decal giấy để tối ưu chi phí. Sản phẩm bảo quản lạnh hoặc dễ ẩm nên dùng decal nhựa và thử độ bám thực tế."], bullets: ["Bao bì khô: decal giấy", "Tủ lạnh: decal nhựa", "Hũ quà tặng: kraft hoặc ánh kim"] },
@@ -116,3 +122,4 @@ export const guidePages: Record<string, ContentPageData> = {
     { heading: "Ép kim, hologram và UV DTF", paragraphs: ["Các hiệu ứng này phù hợp điểm nhấn logo hoặc chi tiết ngắn. Nên xem mẫu vật liệu thật và thử trên bao bì trước khi sản xuất số lượng lớn."] },
   ]},
 };
+

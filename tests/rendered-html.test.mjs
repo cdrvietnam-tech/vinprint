@@ -24,6 +24,25 @@ async function render(pathname = "/", origin = "http://localhost") {
   );
 }
 
+test("approved Facebook content renders on its distinct intent owners", async () => {
+  const article = await render("/blog/tem-nhan-trung-thu-hop-qua");
+  assert.equal(article.status, 200);
+  const html = await article.text();
+  assert.match(html, /Tem nhãn Trung thu: dấu ấn riêng trên từng hộp quà/);
+  assert.match(html, /tem-trung-thu\.webp/);
+  assert.match(html, /Ba ý tưởng tem cho mùa quà tặng/);
+  assert.doesNotMatch(html, /Hồ sơ biên tập|Caption gốc/);
+  const cosmetics = await render("/nganh/my-pham");
+  assert.equal(cosmetics.status, 200);
+  const page = await cosmetics.text();
+  assert.match(page, /Chất liệu nên cân nhắc/);
+  assert.match(page, /Tem UV DTF cho chai lọ mỹ phẩm: điểm nhấn từ logo riêng/);
+  assert.match(page, /uv-dtf-chai-lo-my-pham\.webp/);
+  assert.match(page, /Hình minh họa AI từ fanpage VinPrint/);
+  assert.match(page, /href="\/san-pham\/tem-uv-dtf"/);
+  assert.equal((page.match(/<h1[ >]/g) ?? []).length, 1);
+});
+
 test("does not expose development preview metadata", async () => {
   const response = await render();
 
@@ -527,3 +546,4 @@ test("permanently redirects the verified WordPress sticker URL in one hop", asyn
     assert.equal(response.headers.get("location"), target, source);
   }
 });
+

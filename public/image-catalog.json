@@ -498,6 +498,21 @@
       ]
     },
     {
+      "path": "/images/blog/tem-trung-thu.webp",
+      "title": "Tem Trung Thu",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1200,
+      "height": 1200,
+      "bytes": 417482,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/tem-uv-dtf-la-gi.webp",
       "title": "Tem Uv Dtf La Gi",
       "category": "blog",
@@ -520,6 +535,21 @@
       "width": 1600,
       "height": 900,
       "bytes": 76508,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/uv-dtf-chai-lo-my-pham.webp",
+      "title": "Uv Dtf Chai Lo My Pham",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1200,
+      "height": 1200,
+      "bytes": 96978,
       "usages": [
         {
           "href": "/blog",
@@ -1251,3 +1281,4 @@
     }
   ]
 }
+
