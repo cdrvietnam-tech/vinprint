@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { ContentPageData } from "../../lib/content-pages";
 import Header from "../home/Header";
@@ -39,12 +40,14 @@ export default function ContentPage({ data, canonicalPath }: ContentPageProps) {
           {data.sections.map((section) => (
             <section key={section.heading} className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm sm:p-10">
               <h2 className="text-2xl font-black sm:text-3xl">{section.heading}</h2>
+              {section.image && <figure className="mt-6"><Image src={section.image.src} alt={section.image.alt} width={1200} height={1200} className="mx-auto h-auto w-full max-w-2xl rounded-2xl" /><figcaption className="mt-3 text-sm text-gray-600">{section.image.caption}</figcaption></figure>}
               {section.paragraphs.map((paragraph) => <p key={paragraph} className="mt-5 text-base leading-8 text-gray-700">{paragraph}</p>)}
               {section.bullets && (
                 <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                   {section.bullets.map((item) => <li key={item} className="rounded-2xl bg-orange-50 px-5 py-4 font-semibold text-gray-900">✓ {item}</li>)}
                 </ul>
               )}
+              {section.links && <div className="mt-5 flex flex-wrap gap-4">{section.links.map((link) => <Link key={link.href} href={link.href} className="font-bold text-[#4933D4] underline underline-offset-4">{link.label}</Link>)}</div>}
             </section>
           ))}
 
@@ -58,3 +61,4 @@ export default function ContentPage({ data, canonicalPath }: ContentPageProps) {
     </div>
   );
 }
+
