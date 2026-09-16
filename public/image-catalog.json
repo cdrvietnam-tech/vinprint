@@ -273,6 +273,21 @@
       ]
     },
     {
+      "path": "/images/blog/card-visit-va-tem-nhan-dong-bo.webp",
+      "title": "Card Visit Va Tem Nhan Dong Bo",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 96488,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/chai-dong-suong-lam-bong-tem.webp",
       "title": "Chai Dong Suong Lam Bong Tem",
       "category": "blog",
@@ -550,6 +565,21 @@
       "width": 1200,
       "height": 1200,
       "bytes": 96978,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/uv-dtf-mang-chuyen.webp",
+      "title": "Uv Dtf Mang Chuyen",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 61206,
       "usages": [
         {
           "href": "/blog",
@@ -1281,4 +1311,3 @@
     }
   ]
 }
-

@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "card-visit-va-tem-nhan-dong-bo",
+  "title": "Card visit và tem nhãn: đồng bộ dấu ấn cho shop của bạn",
+  "description": "Phối card visit và tem nhãn cùng logo, màu sắc và kiểu chữ. Gửi mẫu bao bì, kích thước và số lượng từng loại để VinPrint tư vấn quy cách.",
+  "category": "thiet-ke",
+  "image": "/images/blog/card-visit-va-tem-nhan-dong-bo.webp",
+  "imageAlt": "Hình minh họa AI bộ card visit và tem giấy cùng biểu tượng thương hiệu trên túi kraft",
+  "publishedAt": "2026-09-16",
+  "updatedAt": "2026-09-16",
+  "publishAt": "2026-09-16T08:30:00+07:00",
+  "readingMinutes": 3,
+  "primaryKeyword": "card visit và tem nhãn đồng bộ",
+  "searchIntent": "Đặt bộ card liên hệ và nhãn bao bì có chung nhận diện cho shop",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-facebook-sync-v1",
+  "revisionCount": 1,
+  "directAnswer": "Khách nhận một chiếc card, rồi mở gói hàng có dán tem của shop: hãy để tên và logo xuất hiện nhất quán trên cả hai. Card visit và tem nhãn có thể cùng một phong cách nhưng vẫn đảm nhiệm vai trò riêng. Card giúp khách tìm lại thông tin liên hệ; tem vừa với bao bì và thể hiện rõ tên sản phẩm. VinPrint nhận in card visit và tem nhãn theo yêu cầu, tư vấn quy cách dựa trên mẫu bạn đang dùng.",
+  "sections": [
+    {
+      "heading": "Một thương hiệu, hai điểm chạm gần gũi",
+      "paragraphs": [
+        "Bạn có thể bắt đầu với một bộ đơn giản: card đặt trong gói hàng và tem logo trên túi hoặc hộp. Không cần đưa mọi chi tiết của card lên chiếc tem nhỏ; điều nên giữ thống nhất là tên shop, phiên bản logo và cách dùng màu chủ đạo.",
+        "Nếu đã có một mẫu tem ưng ý, gửi kèm để trao đổi hướng làm card tương ứng. Nếu mới bắt đầu, hãy chọn một bộ nhận diện làm điểm xuất phát rồi điều chỉnh bố cục theo từng diện tích in."
+      ]
+    },
+    {
+      "heading": "Ba chi tiết nên thống nhất trước khi đặt in",
+      "paragraphs": [
+        "Đặt các mẫu cạnh nhau để xem chúng có cùng phong cách hay không. Đây là bước trao đổi thiết kế; màu thành phẩm vẫn cần được xem trên đúng chất liệu và mẫu in."
+      ],
+      "bullets": [
+        "Tên shop và logo: dùng cùng một bản đã chốt cho cả card và tem.",
+        "Màu sắc và kiểu chữ: thống nhất hướng thiết kế, giữ chữ dễ đọc ở kích thước thật.",
+        "Vai trò từng ấn phẩm: card rõ thông tin liên hệ; tem rõ tên sản phẩm và vừa vùng dán."
+      ]
+    },
+    {
+      "heading": "Chọn tem theo bao bì đang có",
+      "paragraphs": [
+        "Với hộp giấy, túi kraft và bao bì khô, tem giấy là nhóm sản phẩm có thể tham khảo. Nếu bao bì tiếp xúc ẩm hoặc có bề mặt đặc biệt, gửi ảnh và mô tả điều kiện sử dụng để xưởng kiểm tra vật liệu phù hợp.",
+        "Card và tem không nhất thiết cùng chất liệu. Hãy trao đổi mục đích sử dụng của từng loại trước khi chốt quy cách, thay vì chỉ chọn theo hình minh họa."
+      ]
+    },
+    {
+      "heading": "Gửi một bộ thông tin để VinPrint tư vấn",
+      "paragraphs": [
+        "Gửi logo, ảnh bao bì và mẫu card hoặc tem đang dùng qua Zalo VinPrint. Ghi kích thước, số lượng riêng cho từng loại để xưởng xem file và báo giá theo nhu cầu thực tế.",
+        "Bạn chưa có trọn bộ thiết kế? Gửi mẫu tham khảo phong cách cùng nội dung dự kiến để trao đổi phần cần hỗ trợ. Giá và thời gian thực hiện được xác nhận sau khi xem quy cách; không cần chốt chỉ từ một ảnh quảng cáo."
+      ],
+      "bullets": [
+        "Logo và tên thương hiệu đã chốt.",
+        "Ảnh bao bì cùng vị trí muốn dán tem.",
+        "Kích thước card và kích thước từng mẫu tem.",
+        "Số lượng mỗi loại và thời điểm dự kiến cần nhận."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-giay"
+  ],
+  "sources": [
+    {
+      "title": "Danh mục card visit và tem nhãn VinPrint",
+      "href": "https://vinprint.vn/san-pham",
+      "note": "Danh mục công khai có nhóm in card visit và tem nhãn theo yêu cầu.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-16"
+    },
+    {
+      "title": "Tem giấy cho bao bì khô",
+      "href": "/san-pham/tem-giay",
+      "note": "Nhóm tem dùng cho hộp giấy, túi kraft và bao bì khô; xưởng xác nhận quy cách trước báo giá.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-16"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 19,
+      "evidence": 19,
+      "citability": 14,
+      "authority": 9,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "https://vinprint.vn/san-pham",
+      "/san-pham/tem-giay"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "VinPrint có nhóm in card visit và tem nhãn trong danh mục sản phẩm công khai.",
+        "sourceIds": [
+          "https://vinprint.vn/san-pham"
+        ]
+      },
+      {
+        "claim": "Tem giấy là nhóm sản phẩm tham khảo cho hộp giấy, túi kraft và bao bì khô.",
+        "sourceIds": [
+          "/san-pham/tem-giay"
+        ]
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "recordedAt": "2026-09-16T08:34:00+07:00",
+        "score": 96,
+        "outcome": "accepted"
+      }
+    ]
+  }
+}

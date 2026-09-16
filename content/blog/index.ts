@@ -2,20 +2,21 @@
 import article0 from "./published/cach-chon-kich-thuoc-tem-nhan.json";
 import article1 from "./published/cach-thu-do-bam-tem-tren-nam-be-mat.json";
 import article2 from "./published/can-bong-va-can-mo-cho-tem.json";
-import article3 from "./published/chuan-bi-file-in-tem-khong-bi-mo.json";
-import article4 from "./published/gia-in-tem-so-luong-it-phu-thuoc-gi.json";
-import article5 from "./published/loi-thiet-ke-tem-nhan.json";
-import article6 from "./published/tem-bac-hay-tem-vang-anh-kim.json";
-import article7 from "./published/tem-chai-serum.json";
-import article8 from "./published/tem-cho-hu-kem.json";
-import article9 from "./published/tem-chong-nuoc-cho-my-pham-va-do-uong.json";
-import article10 from "./published/tem-giay-va-tem-nhua-nen-chon-loai-nao.json";
-import article11 from "./published/tem-ly-ca-phe-chong-nuoc.json";
-import article12 from "./published/tem-nhan-trung-thu-hop-qua.json";
-import article13 from "./published/tem-nhua-trong-cho-chai.json";
-import article14 from "./published/tem-thuc-pham-cho-tui-kraft.json";
-import article15 from "./published/tem-uv-dtf-la-gi.json";
-import article16 from "./published/thu-tem-trong-moi-truong-lanh.json";
+import article3 from "./published/card-visit-va-tem-nhan-dong-bo.json";
+import article4 from "./published/chuan-bi-file-in-tem-khong-bi-mo.json";
+import article5 from "./published/gia-in-tem-so-luong-it-phu-thuoc-gi.json";
+import article6 from "./published/loi-thiet-ke-tem-nhan.json";
+import article7 from "./published/tem-bac-hay-tem-vang-anh-kim.json";
+import article8 from "./published/tem-chai-serum.json";
+import article9 from "./published/tem-cho-hu-kem.json";
+import article10 from "./published/tem-chong-nuoc-cho-my-pham-va-do-uong.json";
+import article11 from "./published/tem-giay-va-tem-nhua-nen-chon-loai-nao.json";
+import article12 from "./published/tem-ly-ca-phe-chong-nuoc.json";
+import article13 from "./published/tem-nhan-trung-thu-hop-qua.json";
+import article14 from "./published/tem-nhua-trong-cho-chai.json";
+import article15 from "./published/tem-thuc-pham-cho-tui-kraft.json";
+import article16 from "./published/tem-uv-dtf-la-gi.json";
+import article17 from "./published/thu-tem-trong-moi-truong-lanh.json";
 
 export const rawBlogArticles = [
   article0,
@@ -35,5 +36,5 @@ export const rawBlogArticles = [
   article14,
   article15,
   article16,
+  article17,
 ] as const;
-
