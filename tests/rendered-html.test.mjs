@@ -284,7 +284,8 @@ test("renders a crawlable blog index with category navigation", async () => {
   assert.match(html, /data-blog-thumbnail="compact"/i);
   assert.match(html, /object-fit:contain/i);
   assert.match(html, /\/images\/blog\/tem-giay-va-tem-nhua\.webp/i);
-  assert.match(html, /\/images\/blog\/tem-uv-dtf-la-gi\.webp/i);
+  assert.match(html, /\/images\/blog\/card-visit-va-tem-nhan-dong-bo\.webp/i);
+  assert.match(html, /href="\/blog\/card-visit-va-tem-nhan-dong-bo"/i);
   assert.match(html, /\/images\/blog\/cach-chon-kich-thuoc-tem\.webp/i);
   assert.match(html, /\/images\/blog\/chuan-bi-file-in-tem\.webp/i);
   assert.match(html, /\/images\/blog\/tem-chong-nuoc\.webp/i);
@@ -408,7 +409,7 @@ test("sitemap publishes the blog hub and every GEO article", async () => {
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/chuyen-muc\/chat-lieu<\/loc>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/tem-uv-dtf-la-gi<\/loc>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/loi-thiet-ke-tem-nhan<\/loc>/i);
-  assert.match(xml, /<image:image>[\s\S]*tem-uv-dtf-la-gi\.webp[\s\S]*<\/image:image>/i);
+  assert.match(xml, /<image:image>[\s\S]*uv-dtf-mang-chuyen\.webp[\s\S]*<\/image:image>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/quy-trinh-bien-soan<\/loc>/i);
 });
 
@@ -546,4 +547,3 @@ test("permanently redirects the verified WordPress sticker URL in one hop", asyn
     assert.equal(response.headers.get("location"), target, source);
   }
 });
-

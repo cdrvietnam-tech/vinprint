@@ -5,11 +5,11 @@
   "title": "Tem UV DTF là gì? Phù hợp với sản phẩm nào?",
   "description": "Hiểu cấu tạo, ưu điểm, giới hạn và các bề mặt phù hợp trước khi chọn tem UV DTF cho logo thương hiệu.",
   "category": "ky-thuat-in",
-  "image": "/images/blog/tem-uv-dtf-la-gi.webp",
-  "imageAlt": "Bóc màng chuyển sau khi dán tem UV DTF nổi lên ly thủy tinh",
+  "image": "/images/blog/uv-dtf-mang-chuyen.webp",
+  "imageAlt": "Hình minh họa AI hai bước bóc màng chuyển UV DTF và logo ở lại trên bề mặt cứng",
   "publishedAt": "2026-07-20",
-  "updatedAt": "2026-07-20",
-  "readingMinutes": 6,
+  "updatedAt": "2026-09-16",
+  "readingMinutes": 7,
   "publishAt": "2026-07-20T06:30:00+07:00",
   "primaryKeyword": "tem UV DTF là gì",
   "searchIntent": "Tìm hiểu UV DTF và bề mặt phù hợp",
@@ -18,7 +18,7 @@
   "authorId": "editorial-team",
   "reviewedBy": "editorial-team",
   "promptVersion": "manual-baseline-v1",
-  "revisionCount": 0,
+  "revisionCount": 1,
   "directAnswer": "Tem UV DTF là lớp hình in nổi được chuyển từ màng trung gian sang bề mặt sản phẩm. Sau khi miết và bóc màng, phần logo hoặc chữ ở lại mà không cần một mảng nền lớn như decal thông thường. Loại tem này tạo bề mặt bóng, có độ nổi và phù hợp với nhiều vật liệu cứng, tương đối phẳng như thủy tinh, kim loại, nhựa cứng, gốm hoặc hộp phủ bề mặt. UV DTF không phải lựa chọn mặc định cho mọi sản phẩm: bề mặt quá nhám, nhiều dầu, quá cong, co giãn hoặc thường xuyên chịu ma sát mạnh có thể làm giảm độ bám. Trước khi đặt số lượng lớn, nên vệ sinh bề mặt, dán thử đúng kích thước và theo dõi mép tem trong điều kiện sử dụng thật. Thiết kế càng ít chi tiết cực nhỏ thì quá trình bóc và dán càng ổn định.",
   "sections": [
     {
@@ -75,6 +75,25 @@
       "paragraphs": [
         "Nếu tem cần chứa nhiều thông tin nhỏ, cần một mảng nền rõ ràng hoặc dán trên bề mặt mềm, decal giấy hay decal nhựa thường dễ đọc và dễ sản xuất hơn. UV DTF phù hợp nhất khi cần logo hoặc chi tiết trang trí nổi, gọn và không có nền thừa."
       ]
+    },
+    {
+      "heading": "Bóc màng xong, logo ở lại",
+      "paragraphs": [
+        "Bạn thích logo nổi bóng nhưng còn băn khoăn lớp màng trong có nằm lại trên sản phẩm? Màng chuyển giúp giữ các chi tiết đúng vị trí khi dán. Sau khi miết và bóc màng, phần hình bám lại; phần màng bao quanh được lấy đi.",
+        "Hình minh họa đầu bài đặt hai giai đoạn cạnh nhau: đang bóc màng và sau khi bóc. Đây là minh họa cách thể hiện logo, không phải ảnh một đơn hàng thực tế hay bằng chứng về độ bám trên mọi vật liệu."
+      ]
+    },
+    {
+      "heading": "Đưa logo của bạn lên đúng sản phẩm cần dùng",
+      "paragraphs": [
+        "VinPrint nhận xem file và bề mặt cụ thể để tư vấn quy cách UV DTF. Gửi logo cùng ảnh vùng muốn dán, chiều ngang × cao và số lượng; nếu có nhiều mẫu, ghi riêng từng mẫu để xưởng kiểm tra.",
+        "Trước khi chốt, hãy trao đổi việc thử mẫu trên chính sản phẩm của bạn. Giá và thời gian thực hiện được xác nhận theo quy cách, không suy ra từ hình minh họa."
+      ],
+      "bullets": [
+        "Bề mặt dự định dán có cứng, sạch và khô không?",
+        "Logo có chữ quá nhỏ hoặc đường nét quá mảnh không?",
+        "Đã thử mẫu trên đúng sản phẩm trước khi đặt số lượng lớn chưa?"
+      ]
     }
   ],
   "relatedProductSlugs": [
@@ -88,14 +107,14 @@
       "href": "/san-pham/tem-uv-dtf",
       "note": "Ứng dụng, ảnh sản phẩm và quy trình đặt in.",
       "kind": "first-party",
-      "verifiedAt": "2026-07-20"
+      "verifiedAt": "2026-09-16"
     },
     {
       "title": "Các kỹ thuật in và gia công tem",
       "href": "/huong-dan/ky-thuat-in-tem",
       "note": "So sánh UV DTF với cán màng, cắt bế và hiệu ứng khác.",
       "kind": "first-party",
-      "verifiedAt": "2026-07-20"
+      "verifiedAt": "2026-09-16"
     }
   ],
   "quality": {
@@ -115,10 +134,21 @@
     "claimsVerified": true,
     "duplicateIntentChecked": true,
     "commercialClaims": "none",
-    "claimChecks": [{
-      "claim": "Tem UV DTF cần được thử trên đúng bề mặt trước khi đặt số lượng lớn.",
-      "sourceIds": ["/san-pham/tem-uv-dtf"]
-    }],
-    "attempts": []
+    "claimChecks": [
+      {
+        "claim": "Tem UV DTF cần được thử trên đúng bề mặt trước khi đặt số lượng lớn.",
+        "sourceIds": [
+          "/san-pham/tem-uv-dtf"
+        ]
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "recordedAt": "2026-09-16T08:34:00+07:00",
+        "score": 98,
+        "outcome": "accepted"
+      }
+    ]
   }
 }
