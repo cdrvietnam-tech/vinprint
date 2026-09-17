@@ -5,11 +5,11 @@
   "title": "Tem UV DTF là gì? Phù hợp với sản phẩm nào?",
   "description": "Hiểu cấu tạo, ưu điểm, giới hạn và các bề mặt phù hợp trước khi chọn tem UV DTF cho logo thương hiệu.",
   "category": "ky-thuat-in",
-  "image": "/images/blog/uv-dtf-mang-chuyen.webp",
-  "imageAlt": "Hình minh họa AI hai bước bóc màng chuyển UV DTF và logo ở lại trên bề mặt cứng",
+  "image": "/images/blog/logo-thu-nho-uv-dtf.webp",
+  "imageAlt": "Hình minh họa AI kiểm tra chữ nhỏ, nét mảnh và khoảng cách trong logo UV DTF",
   "publishedAt": "2026-07-20",
-  "updatedAt": "2026-09-16",
-  "readingMinutes": 7,
+  "updatedAt": "2026-09-17",
+  "readingMinutes": 8,
   "publishAt": "2026-07-20T06:30:00+07:00",
   "primaryKeyword": "tem UV DTF là gì",
   "searchIntent": "Tìm hiểu UV DTF và bề mặt phù hợp",
@@ -18,7 +18,7 @@
   "authorId": "editorial-team",
   "reviewedBy": "editorial-team",
   "promptVersion": "manual-baseline-v1",
-  "revisionCount": 1,
+  "revisionCount": 2,
   "directAnswer": "Tem UV DTF là lớp hình in nổi được chuyển từ màng trung gian sang bề mặt sản phẩm. Sau khi miết và bóc màng, phần logo hoặc chữ ở lại mà không cần một mảng nền lớn như decal thông thường. Loại tem này tạo bề mặt bóng, có độ nổi và phù hợp với nhiều vật liệu cứng, tương đối phẳng như thủy tinh, kim loại, nhựa cứng, gốm hoặc hộp phủ bề mặt. UV DTF không phải lựa chọn mặc định cho mọi sản phẩm: bề mặt quá nhám, nhiều dầu, quá cong, co giãn hoặc thường xuyên chịu ma sát mạnh có thể làm giảm độ bám. Trước khi đặt số lượng lớn, nên vệ sinh bề mặt, dán thử đúng kích thước và theo dõi mép tem trong điều kiện sử dụng thật. Thiết kế càng ít chi tiết cực nhỏ thì quá trình bóc và dán càng ổn định.",
   "sections": [
     {
@@ -94,6 +94,19 @@
         "Logo có chữ quá nhỏ hoặc đường nét quá mảnh không?",
         "Đã thử mẫu trên đúng sản phẩm trước khi đặt số lượng lớn chưa?"
       ]
+    },
+    {
+      "heading": "Logo đẹp trên màn hình, thu nhỏ còn rõ không?",
+      "paragraphs": [
+        "Trước khi in tem UV DTF cho ly, bình hoặc chai lọ, hãy xem logo ở đúng kích thước dự định dán. Tên thương hiệu và dòng chữ phụ cần còn dễ đọc; các đường viền, nét chữ và khoảng cách giữa chi tiết không nên chỉ được đánh giá trên màn hình phóng lớn.",
+        "Đừng vội thu nhỏ toàn bộ mẫu cho vừa chỗ dán. Gửi file cùng chiều ngang × cao dự kiến để VinPrint xem bố cục và trao đổi phần cần chỉnh trước khi in. Hình minh họa không đặt ra một giới hạn kích thước sản xuất cố định."
+      ],
+      "bullets": [
+        "Chữ nhỏ có còn dễ đọc ở kích thước thật?",
+        "Nét mảnh có rõ so với tổng thể logo?",
+        "Khoảng cách giữa chữ và chi tiết có quá sát?",
+        "Bề mặt cần dán có cứng, sạch và phù hợp để thử mẫu?"
+      ]
     }
   ],
   "relatedProductSlugs": [
@@ -107,14 +120,14 @@
       "href": "/san-pham/tem-uv-dtf",
       "note": "Ứng dụng, ảnh sản phẩm và quy trình đặt in.",
       "kind": "first-party",
-      "verifiedAt": "2026-09-16"
+      "verifiedAt": "2026-09-17"
     },
     {
       "title": "Các kỹ thuật in và gia công tem",
       "href": "/huong-dan/ky-thuat-in-tem",
       "note": "So sánh UV DTF với cán màng, cắt bế và hiệu ứng khác.",
       "kind": "first-party",
-      "verifiedAt": "2026-09-16"
+      "verifiedAt": "2026-09-17"
     }
   ],
   "quality": {
@@ -146,6 +159,12 @@
       {
         "attempt": 1,
         "recordedAt": "2026-09-16T08:34:00+07:00",
+        "score": 98,
+        "outcome": "accepted"
+      },
+      {
+        "attempt": 2,
+        "recordedAt": "2026-09-17T08:34:00+07:00",
         "score": 98,
         "outcome": "accepted"
       }

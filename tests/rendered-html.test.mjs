@@ -409,7 +409,7 @@ test("sitemap publishes the blog hub and every GEO article", async () => {
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/chuyen-muc\/chat-lieu<\/loc>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/tem-uv-dtf-la-gi<\/loc>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/loi-thiet-ke-tem-nhan<\/loc>/i);
-  assert.match(xml, /<image:image>[\s\S]*uv-dtf-mang-chuyen\.webp[\s\S]*<\/image:image>/i);
+  assert.match(xml, /<image:image>[\s\S]*logo-thu-nho-uv-dtf\.webp[\s\S]*<\/image:image>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/quy-trinh-bien-soan<\/loc>/i);
 });
 
@@ -547,3 +547,4 @@ test("permanently redirects the verified WordPress sticker URL in one hop", asyn
     assert.equal(response.headers.get("location"), target, source);
   }
 });
+

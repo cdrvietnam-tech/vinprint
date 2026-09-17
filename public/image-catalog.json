@@ -348,6 +348,21 @@
       ]
     },
     {
+      "path": "/images/blog/logo-thu-nho-uv-dtf.webp",
+      "title": "Logo Thu Nho Uv Dtf",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 70014,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/loi-thiet-ke-tem.webp",
       "title": "Loi Thiet Ke Tem",
       "category": "blog",
@@ -505,6 +520,21 @@
       "width": 1600,
       "height": 900,
       "bytes": 126986,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-tron-chu-nhat-cho-hu.webp",
+      "title": "Tem Tron Chu Nhat Cho Hu",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 93272,
       "usages": [
         {
           "href": "/blog",
