@@ -483,6 +483,21 @@
       ]
     },
     {
+      "path": "/images/blog/tem-hologram-7-mau.webp",
+      "title": "Tem Hologram 7 Mau",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 768,
+      "height": 768,
+      "bytes": 57018,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/tem-ly-ca-phe-chong-nuoc.webp",
       "title": "Tem Ly Ca Phe Chong Nuoc",
       "category": "blog",
@@ -490,6 +505,21 @@
       "width": 1600,
       "height": 900,
       "bytes": 130846,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-nhieu-vi-san-pham.webp",
+      "title": "Tem Nhieu Vi San Pham",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 118476,
       "usages": [
         {
           "href": "/blog",

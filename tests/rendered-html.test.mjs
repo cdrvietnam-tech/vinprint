@@ -279,17 +279,14 @@ test("renders a crawlable blog index with category navigation", async () => {
   assert.match(html, /Cẩm nang tem nhãn/i);
   assert.match(html, /aria-label="Lọc bài viết theo chuyên mục"/i);
   assert.match(html, /href="\/blog\/chuyen-muc\/chat-lieu"/i);
-  assert.match(html, /href="\/blog\/tem-giay-va-tem-nhua-nen-chon-loai-nao"/i);
-  assert.match(html, /href="\/blog\/loi-thiet-ke-tem-nhan"/i);
+  assert.match(html, /href="\/blog\/tem-nhieu-vi-san-pham"/i);
+  assert.match(html, /href="\/blog\/tem-hologram-7-mau"/i);
   assert.match(html, /data-blog-thumbnail="compact"/i);
   assert.match(html, /object-fit:contain/i);
-  assert.match(html, /\/images\/blog\/tem-giay-va-tem-nhua\.webp/i);
+  assert.match(html, /\/images\/blog\/tem-nhieu-vi-san-pham\.webp/i);
+  assert.match(html, /\/images\/blog\/tem-hologram-7-mau\.webp/i);
   assert.match(html, /\/images\/blog\/card-visit-va-tem-nhan-dong-bo\.webp/i);
   assert.match(html, /href="\/blog\/card-visit-va-tem-nhan-dong-bo"/i);
-  assert.match(html, /\/images\/blog\/cach-chon-kich-thuoc-tem\.webp/i);
-  assert.match(html, /\/images\/blog\/chuan-bi-file-in-tem\.webp/i);
-  assert.match(html, /\/images\/blog\/tem-chong-nuoc\.webp/i);
-  assert.match(html, /\/images\/blog\/loi-thiet-ke-tem\.webp/i);
 });
 
 test("renders clean blog category pages", async () => {
