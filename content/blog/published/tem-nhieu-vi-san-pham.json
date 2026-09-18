@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "publishedAt": "2026-09-18",
+  "updatedAt": "2026-09-18",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-daily-marketing-v1",
+  "revisionCount": 1,
+  "slug": "tem-nhieu-vi-san-pham",
+  "title": "Tem nhiều vị sản phẩm: đồng bộ thương hiệu, phân biệt từng mẫu",
+  "description": "Cách làm bộ tem cho nhiều vị bánh hoặc sản phẩm: giữ nhận diện chung, làm rõ tên vị và ghi số lượng riêng từng mẫu khi đặt in.",
+  "category": "theo-nganh",
+  "image": "/images/blog/tem-nhieu-vi-san-pham.webp",
+  "imageAlt": "Hình minh họa AI ba túi bánh dùng bộ tem đồng bộ và màu riêng cho từng vị",
+  "publishAt": "2026-09-18T08:30:00+07:00",
+  "readingMinutes": 4,
+  "primaryKeyword": "tem nhiều vị sản phẩm",
+  "searchIntent": "Thiết kế và đặt in bộ tem cho nhiều vị bánh hoặc sản phẩm, phân biệt rõ từng mẫu và số lượng",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "directAnswer": "Khi một thương hiệu có nhiều vị bánh hoặc nhiều phiên bản sản phẩm, bộ tem nên giữ chung logo và bố cục để khách nhận ra shop, đồng thời làm tên vị đủ nổi bật để chọn nhanh. Mỗi mẫu cần có tên hoặc mã dễ phân biệt, màu hỗ trợ và số lượng đặt in riêng. Trước khi báo giá, VinPrint cần logo, ảnh bao bì, kích thước vùng dán và bảng số lượng của từng vị.",
+  "sections": [
+    {
+      "heading": "Giữ một nhận diện chung, tạo dấu hiệu riêng cho từng vị",
+      "paragraphs": [
+        "Một bộ tem nhiều vị không cần biến mỗi mẫu thành một thương hiệu khác nhau. Logo, vị trí tên shop và cách sắp xếp thông tin có thể giữ nhất quán; phần tên vị, dải màu hoặc biểu tượng nhỏ đảm nhiệm việc phân biệt.",
+        "Màu sắc nên hỗ trợ tên vị thay vì thay thế hoàn toàn cho chữ. Khi khách xem dưới ánh sáng khác hoặc ảnh sản phẩm có sai lệch màu, tên vị rõ ràng vẫn là tín hiệu chính để chọn đúng."
+      ],
+      "bullets": [
+        "Giữ cùng một phiên bản logo và vị trí nhận diện trên mọi mẫu.",
+        "Làm tên vị nổi bật hơn các dòng phụ trên tem.",
+        "Dùng màu hoặc biểu tượng nhất quán để khách so sánh nhanh."
+      ]
+    },
+    {
+      "heading": "Chọn kích thước theo đúng vùng dán trên bao bì",
+      "paragraphs": [
+        "Đặt tem lên túi hoặc hộp thật trước khi chốt kích thước. Tem cần đủ chỗ cho tên vị và thông tin chính nhưng không che phần bao bì mà shop muốn khách nhìn thấy.",
+        "Với túi kraft, hộp giấy và bao bì dùng trong điều kiện khô, tem giấy là nhóm có thể tham khảo. Nếu bao bì tiếp xúc ẩm, lạnh hoặc bề mặt khó dán, hãy gửi ảnh và điều kiện sử dụng để xưởng tư vấn vật liệu trước khi in."
+      ]
+    },
+    {
+      "heading": "Ghi số lượng riêng cho từng mẫu để tránh chia nhầm",
+      "paragraphs": [
+        "Tổng số tem không cho biết xưởng cần in bao nhiêu của từng vị. Một bảng ngắn theo tên file, tên vị và số lượng giúp hai bên đối chiếu trước sản xuất, nhất là khi một vị bán nhiều hơn các vị còn lại."
+      ],
+      "table": {
+        "headers": [
+          "Tên mẫu",
+          "Dấu hiệu phân biệt",
+          "Số lượng cần ghi"
+        ],
+        "rows": [
+          [
+            "Matcha",
+            "Tên vị + màu xanh",
+            "Số tem riêng của mẫu Matcha"
+          ],
+          [
+            "Cacao",
+            "Tên vị + màu nâu",
+            "Số tem riêng của mẫu Cacao"
+          ],
+          [
+            "Bơ",
+            "Tên vị + màu vàng",
+            "Số tem riêng của mẫu Bơ"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Gửi một gói thông tin để VinPrint kiểm tra",
+      "paragraphs": [
+        "Gửi logo hoặc file thiết kế, ảnh bao bì, kích thước dự kiến và số lượng từng vị qua Zalo. Nếu chưa chắc cỡ tem, chụp thẳng vùng muốn dán kèm số đo để xưởng có cơ sở tư vấn.",
+        "Giá và thời gian thực hiện được xác nhận sau khi xem số mẫu, kích thước, vật liệu và số lượng. Hình trong bài là minh họa cách tổ chức bộ tem, không phải mẫu nhãn hàng hóa hoàn chỉnh."
+      ],
+      "bullets": [
+        "Logo hoặc file của từng vị đã đặt tên rõ ràng.",
+        "Ảnh bao bì và số đo vùng dự kiến dán tem.",
+        "Bảng số lượng riêng cho từng mẫu.",
+        "Mô tả điều kiện khô, ẩm hoặc lạnh khi sử dụng."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-giay",
+    "tem-nhua-chong-nuoc"
+  ],
+  "sources": [
+    {
+      "title": "Tem giấy VinPrint",
+      "href": "/san-pham/tem-giay",
+      "note": "Trang sản phẩm xác nhận tem giấy phù hợp nhóm bao bì khô, hộp giấy và túi kraft; quy cách cần được xác nhận trước báo giá.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "title": "Tem cho ngành thực phẩm",
+      "href": "/nganh/thuc-pham",
+      "note": "Trang ngành là intent owner cho tem thực phẩm và liên kết đến các lựa chọn vật liệu liên quan.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-18"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 20,
+      "evidence": 20,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/san-pham/tem-giay",
+      "/nganh/thuc-pham"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Tem giấy là nhóm có thể tham khảo cho bao bì khô, hộp giấy và túi kraft.",
+        "sourceIds": [
+          "/san-pham/tem-giay"
+        ]
+      },
+      {
+        "claim": "Trang ngành thực phẩm là trang hiện có để liên kết chủ đề tem cho bánh và bao bì thực phẩm.",
+        "sourceIds": [
+          "/nganh/thuc-pham"
+        ]
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "recordedAt": "2026-09-18T08:34:00+07:00",
+        "score": 100,
+        "outcome": "accepted"
+      }
+    ]
+  }
+}
