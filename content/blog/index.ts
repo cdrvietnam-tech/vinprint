@@ -16,9 +16,10 @@ import article13 from "./published/tem-ly-ca-phe-chong-nuoc.json";
 import article14 from "./published/tem-nhan-trung-thu-hop-qua.json";
 import article15 from "./published/tem-nhieu-vi-san-pham.json";
 import article16 from "./published/tem-nhua-trong-cho-chai.json";
-import article17 from "./published/tem-thuc-pham-cho-tui-kraft.json";
-import article18 from "./published/tem-uv-dtf-la-gi.json";
-import article19 from "./published/thu-tem-trong-moi-truong-lanh.json";
+import article17 from "./published/tem-qr-cho-shop.json";
+import article18 from "./published/tem-thuc-pham-cho-tui-kraft.json";
+import article19 from "./published/tem-uv-dtf-la-gi.json";
+import article20 from "./published/thu-tem-trong-moi-truong-lanh.json";
 
 export const rawBlogArticles = [
   article0,
@@ -41,4 +42,5 @@ export const rawBlogArticles = [
   article17,
   article18,
   article19,
+  article20,
 ] as const;
