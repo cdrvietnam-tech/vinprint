@@ -5,11 +5,11 @@
   "title": "Tem UV DTF là gì? Phù hợp với sản phẩm nào?",
   "description": "Hiểu cấu tạo, ưu điểm, giới hạn và các bề mặt phù hợp trước khi chọn tem UV DTF cho logo thương hiệu.",
   "category": "ky-thuat-in",
-  "image": "/images/blog/logo-thu-nho-uv-dtf.webp",
-  "imageAlt": "Hình minh họa AI kiểm tra chữ nhỏ, nét mảnh và khoảng cách trong logo UV DTF",
+  "image": "/images/blog/tem-uv-dtf-bo-qua-tang.webp",
+  "imageAlt": "Hình minh họa AI logo UV DTF đồng bộ trên ly và bình trong bộ quà tặng",
   "publishedAt": "2026-07-20",
-  "updatedAt": "2026-09-17",
-  "readingMinutes": 8,
+  "updatedAt": "2026-09-19",
+  "readingMinutes": 9,
   "publishAt": "2026-07-20T06:30:00+07:00",
   "primaryKeyword": "tem UV DTF là gì",
   "searchIntent": "Tìm hiểu UV DTF và bề mặt phù hợp",
@@ -18,7 +18,7 @@
   "authorId": "editorial-team",
   "reviewedBy": "editorial-team",
   "promptVersion": "manual-baseline-v1",
-  "revisionCount": 2,
+  "revisionCount": 3,
   "directAnswer": "Tem UV DTF là lớp hình in nổi được chuyển từ màng trung gian sang bề mặt sản phẩm. Sau khi miết và bóc màng, phần logo hoặc chữ ở lại mà không cần một mảng nền lớn như decal thông thường. Loại tem này tạo bề mặt bóng, có độ nổi và phù hợp với nhiều vật liệu cứng, tương đối phẳng như thủy tinh, kim loại, nhựa cứng, gốm hoặc hộp phủ bề mặt. UV DTF không phải lựa chọn mặc định cho mọi sản phẩm: bề mặt quá nhám, nhiều dầu, quá cong, co giãn hoặc thường xuyên chịu ma sát mạnh có thể làm giảm độ bám. Trước khi đặt số lượng lớn, nên vệ sinh bề mặt, dán thử đúng kích thước và theo dõi mép tem trong điều kiện sử dụng thật. Thiết kế càng ít chi tiết cực nhỏ thì quá trình bóc và dán càng ổn định.",
   "sections": [
     {
@@ -107,6 +107,19 @@
         "Khoảng cách giữa chữ và chi tiết có quá sát?",
         "Bề mặt cần dán có cứng, sạch và phù hợp để thử mẫu?"
       ]
+    },
+    {
+      "heading": "Phối logo UV DTF cho bộ quà tặng",
+      "paragraphs": [
+        "Khi một bộ quà gồm ly, bình hoặc nhiều vật dụng khác hình dáng, logo có thể giữ cùng phiên bản và màu nhận diện nhưng cần được ướm riêng trên từng món. Dùng một kích thước tem cho tất cả có thể khiến logo quá nhỏ trên bình hoặc quá lớn trên ly.",
+        "Gửi ảnh từng bề mặt, kích thước vùng dán và số lượng theo từng loại để VinPrint xem quy cách. Ướm vị trí khi sản phẩm đã đặt trong hộp giúp kiểm tra logo có bị quay khuất hoặc che bởi vật liệu chèn. Hình đầu bài là minh họa ý tưởng phối logo, không phải ảnh một đơn hàng thực tế hay báo giá bộ quà."
+      ],
+      "bullets": [
+        "Giữ cùng phiên bản logo và màu nhận diện.",
+        "Chọn kích thước riêng cho ly, bình và từng vật dụng.",
+        "Kiểm tra vị trí nhìn thấy khi sản phẩm nằm trong hộp.",
+        "Dán thử trên đúng bề mặt và lớp phủ trước khi làm số lượng lớn."
+      ]
     }
   ],
   "relatedProductSlugs": [
@@ -128,6 +141,13 @@
       "note": "So sánh UV DTF với cán màng, cắt bế và hiệu ứng khác.",
       "kind": "first-party",
       "verifiedAt": "2026-09-17"
+    },
+    {
+      "title": "Bài VinPrint về tem UV DTF cho bộ quà tặng",
+      "href": "https://facebook.com/vinprints.sg/posts/pfbid05jjkBdCagMWn8S1AHrGB8JkA468ygdq2puhhipHNJUZdhE1GKDAyq4oK1X2g6oHxl",
+      "note": "Nguồn nội dung và hình minh họa đã được chủ duyệt, đăng công khai và xác minh ngày 18/09/2026.",
+      "kind": "primary",
+      "verifiedAt": "2026-09-19"
     }
   ],
   "quality": {
@@ -142,7 +162,8 @@
     },
     "evidenceIds": [
       "/san-pham/tem-uv-dtf",
-      "/huong-dan/ky-thuat-in-tem"
+      "/huong-dan/ky-thuat-in-tem",
+      "https://facebook.com/vinprints.sg/posts/pfbid05jjkBdCagMWn8S1AHrGB8JkA468ygdq2puhhipHNJUZdhE1GKDAyq4oK1X2g6oHxl"
     ],
     "claimsVerified": true,
     "duplicateIntentChecked": true,
@@ -152,6 +173,12 @@
         "claim": "Tem UV DTF cần được thử trên đúng bề mặt trước khi đặt số lượng lớn.",
         "sourceIds": [
           "/san-pham/tem-uv-dtf"
+        ]
+      },
+      {
+        "claim": "Mỗi vật dụng trong bộ quà cần được ướm vị trí và kích thước logo riêng trước khi chốt in.",
+        "sourceIds": [
+          "https://facebook.com/vinprints.sg/posts/pfbid05jjkBdCagMWn8S1AHrGB8JkA468ygdq2puhhipHNJUZdhE1GKDAyq4oK1X2g6oHxl"
         ]
       }
     ],
@@ -165,6 +192,12 @@
       {
         "attempt": 2,
         "recordedAt": "2026-09-17T08:34:00+07:00",
+        "score": 98,
+        "outcome": "accepted"
+      },
+      {
+        "attempt": 3,
+        "recordedAt": "2026-09-19T08:37:00+07:00",
         "score": 98,
         "outcome": "accepted"
       }

@@ -543,6 +543,21 @@
       ]
     },
     {
+      "path": "/images/blog/tem-qr-cho-shop.webp",
+      "title": "Tem Qr Cho Shop",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 165382,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/tem-thuc-pham-cho-tui-kraft.webp",
       "title": "Tem Thuc Pham Cho Tui Kraft",
       "category": "blog",
@@ -580,6 +595,21 @@
       "width": 1200,
       "height": 1200,
       "bytes": 417482,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-uv-dtf-bo-qua-tang.webp",
+      "title": "Tem Uv Dtf Bo Qua Tang",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 161978,
       "usages": [
         {
           "href": "/blog",

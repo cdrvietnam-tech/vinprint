@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-qr-cho-shop",
+  "title": "Tem QR cho shop: dẫn khách đến đúng menu hoặc trang đặt hàng",
+  "description": "Cách chuẩn bị tem QR cho shop: chốt đúng đường dẫn, chọn vị trí dán, thêm lời hướng dẫn và quét thử bản in trước khi làm cả lô.",
+  "category": "thiet-ke",
+  "image": "/images/blog/tem-qr-cho-shop.webp",
+  "imageAlt": "Hình minh họa AI tem QR trên túi giấy dẫn khách đến menu của shop",
+  "publishedAt": "2026-09-19",
+  "updatedAt": "2026-09-19",
+  "publishAt": "2026-09-19T08:30:00+07:00",
+  "readingMinutes": 5,
+  "primaryKeyword": "tem QR cho shop",
+  "searchIntent": "Chuẩn bị và đặt in tem QR dẫn khách đến menu, trang đặt hàng hoặc hướng dẫn sử dụng",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-daily-marketing-v1",
+  "revisionCount": 1,
+  "directAnswer": "Tem QR cho shop nên dẫn đến một trang cụ thể như menu, trang đặt hàng hoặc hướng dẫn sử dụng. Trước khi in, shop cần kiểm tra đường dẫn trên điện thoại, đặt một lời hướng dẫn ngắn cạnh mã, chọn vùng dán phẳng và quét thử bản in ở đúng kích thước dự kiến. Khi gửi yêu cầu cho VinPrint, hãy kèm đường dẫn, ảnh bao bì, kích thước vùng dán và số lượng để hai bên kiểm tra quy cách.",
+  "sections": [
+    {
+      "heading": "Chọn một mục tiêu rõ cho mỗi mã QR",
+      "paragraphs": [
+        "Mỗi tem nên đưa khách đến đúng nơi shop muốn họ tiếp tục: xem menu, đặt thêm sản phẩm hoặc đọc hướng dẫn. Một đường dẫn cụ thể giúp shop kiểm tra dễ hơn và giúp câu hướng dẫn cạnh mã ngắn, rõ.",
+        "Trước khi gửi file in, hãy mở đường dẫn trên điện thoại khi không đăng nhập tài khoản quản trị. Nếu trang yêu cầu quyền riêng hoặc đã đổi địa chỉ, khách có thể không xem được dù mã vẫn quét ra một chuỗi hợp lệ."
+      ],
+      "bullets": [
+        "Xem menu: dẫn thẳng đến menu đang dùng.",
+        "Đặt hàng: dẫn đến trang hoặc kênh nhận đơn đã được shop kiểm tra.",
+        "Hướng dẫn sử dụng: dẫn đến nội dung dành cho đúng sản phẩm."
+      ]
+    },
+    {
+      "heading": "Thêm lời dẫn để khách biết quét mã làm gì",
+      "paragraphs": [
+        "Một mã đứng riêng không cho khách biết họ sẽ nhận được gì. Dòng như “Quét để xem menu” hoặc “Quét để xem hướng dẫn” giúp người dùng quyết định nhanh hơn và cũng giúp shop đối chiếu đúng file trước khi in.",
+        "Giữ phần chữ chính đủ lớn ở kích thước tem thật. Nếu tem còn chứa logo và thông tin khác, hãy ưu tiên khoảng trống quanh mã thay vì nhồi thêm nhiều dòng chữ nhỏ."
+      ]
+    },
+    {
+      "heading": "Chọn vị trí dán và quét thử bản in",
+      "paragraphs": [
+        "Ưu tiên vùng tương đối phẳng, dễ nhìn và không nằm sát nếp gấp, mép dán hoặc phần thường bị che khi cầm sản phẩm. Với túi, hộp hoặc chai có bề mặt cong, nên chụp đúng vị trí dự kiến để xưởng xem bố cục.",
+        "Trước khi làm cả lô, quét thử bản in ở kích thước dự kiến bằng vài điện thoại và trong điều kiện ánh sáng gần với lúc sử dụng. Hình minh họa trong bài dùng mã mẫu, không phải mã để quét."
+      ],
+      "bullets": [
+        "Đường dẫn mở đúng và không yêu cầu quyền riêng.",
+        "Lời dẫn cạnh mã đúng với trang đích.",
+        "Mã không bị gấp, che hoặc đặt quá sát mép.",
+        "Bản in thử quét được ở kích thước sẽ sản xuất."
+      ]
+    },
+    {
+      "heading": "Gửi đủ thông tin để VinPrint kiểm tra quy cách",
+      "paragraphs": [
+        "Gửi đường dẫn cần mã hóa, logo hoặc file thiết kế, ảnh bao bì, kích thước vùng dán và số lượng dự kiến. Nếu có nhiều mã cho nhiều sản phẩm, đặt tên từng đường dẫn và từng file rõ ràng để tránh ghép nhầm.",
+        "Giá và thời gian được xác nhận sau khi xem kích thước, vật liệu, số mẫu và số lượng. VinPrint có thể tư vấn quy cách tem; shop vẫn cần duy trì trang đích hoạt động sau khi tem đã được phát hành."
+      ],
+      "table": {
+        "headers": [
+          "Thông tin",
+          "Cách gửi"
+        ],
+        "rows": [
+          [
+            "Đường dẫn",
+            "Gửi URL đầy đủ và mục tiêu của mã"
+          ],
+          [
+            "Vùng dán",
+            "Ảnh bao bì kèm chiều ngang × cao"
+          ],
+          [
+            "File",
+            "Logo hoặc thiết kế, đặt tên theo từng mẫu"
+          ],
+          [
+            "Số lượng",
+            "Ghi riêng số lượng cho mỗi mã"
+          ]
+        ]
+      }
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-giay",
+    "tem-nhua-chong-nuoc"
+  ],
+  "sources": [
+    {
+      "title": "Bài VinPrint về tem QR cho shop",
+      "href": "https://facebook.com/vinprints.sg/posts/pfbid02JqwxRB1bdVJnXExgPMh2n4qc9GxD5e3cd4KkqY17rKx1iefx3H16bEG2ELXzM7Jsl",
+      "note": "Nguồn nội dung và hình minh họa đã được chủ duyệt, đăng công khai và xác minh ngày 18/09/2026.",
+      "kind": "primary",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "title": "Hướng dẫn chọn kích thước tem",
+      "href": "/huong-dan/chon-kich-thuoc-tem",
+      "note": "Nguồn nội bộ để đối chiếu vùng dán, kích thước và cách ướm tem trên bao bì.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "title": "Tem giấy VinPrint",
+      "href": "/san-pham/tem-giay",
+      "note": "Trang sản phẩm để tham khảo nhóm vật liệu tem cho túi giấy, hộp giấy và bao bì khô.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-19"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 20,
+      "evidence": 20,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "https://facebook.com/vinprints.sg/posts/pfbid02JqwxRB1bdVJnXExgPMh2n4qc9GxD5e3cd4KkqY17rKx1iefx3H16bEG2ELXzM7Jsl",
+      "/huong-dan/chon-kich-thuoc-tem",
+      "/san-pham/tem-giay"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Bài fanpage công khai hướng dẫn dùng tem QR cho menu, đặt hàng hoặc hướng dẫn sử dụng và yêu cầu quét thử trước khi in cả lô.",
+        "sourceIds": [
+          "https://facebook.com/vinprints.sg/posts/pfbid02JqwxRB1bdVJnXExgPMh2n4qc9GxD5e3cd4KkqY17rKx1iefx3H16bEG2ELXzM7Jsl"
+        ]
+      },
+      {
+        "claim": "Vùng dán và kích thước thực tế cần được đối chiếu trước khi chốt quy cách tem.",
+        "sourceIds": [
+          "/huong-dan/chon-kich-thuoc-tem"
+        ]
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "recordedAt": "2026-09-19T08:35:00+07:00",
+        "score": 100,
+        "outcome": "accepted"
+      }
+    ]
+  }
+}
