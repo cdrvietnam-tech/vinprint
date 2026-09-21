@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-bao-hanh-chon-loai-va-vi-tri-dan",
+  "title": "Tem bảo hành: chọn loại, vị trí dán và thông tin cần in",
+  "description": "Cách chuẩn bị tem bảo hành theo mục đích sử dụng, bề mặt, vị trí dán và thông tin cần in để xưởng kiểm tra đúng quy cách trước khi sản xuất.",
+  "category": "ky-thuat-in",
+  "image": "/images/blog/tem-bao-hanh-chon-loai.webp",
+  "imageAlt": "Hình minh họa các mẫu tem bảo hành và tem niêm phong cho thiết bị",
+  "publishedAt": "2026-09-21",
+  "updatedAt": "2026-09-21",
+  "publishAt": "2026-09-21T08:30:00+07:00",
+  "readingMinutes": 5,
+  "primaryKeyword": "tem bảo hành",
+  "searchIntent": "Chọn loại, vị trí dán và nội dung cần in trên tem bảo hành hoặc tem niêm phong",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-daily-marketing-v1",
+  "revisionCount": 1,
+  "directAnswer": "Khi đặt tem bảo hành, shop nên chốt mục đích dùng để đánh dấu thời gian, quản lý bảo hành hay theo dõi tình trạng niêm phong; sau đó gửi ảnh bề mặt, kích thước vùng dán, nội dung cần in và số lượng. Tem vỡ, tem dai hoặc mẫu đánh dấu thời gian phục vụ các nhu cầu khác nhau, nên cần ướm đúng vị trí và thử mẫu trên sản phẩm thật trước khi làm cả lô.",
+  "sections": [
+    {
+      "heading": "Chọn loại tem theo việc shop cần kiểm tra",
+      "paragraphs": [
+        "Bắt đầu từ thao tác sau bán hàng thay vì chỉ chọn theo tên vật liệu. Shop có thể cần ghi mốc thời gian, quản lý thông tin bảo hành hoặc quan sát tình trạng niêm phong của hộp và thiết bị.",
+        "Tem vỡ, tem dai và tem đánh dấu thời gian có cách sử dụng khác nhau. Hãy mô tả tình huống thực tế để VinPrint kiểm tra quy cách phù hợp; tem nhãn chỉ hỗ trợ quy trình quản lý và không tự thay thế chính sách bảo hành của shop."
+      ],
+      "table": {
+        "headers": [
+          "Nhu cầu",
+          "Thông tin nên gửi"
+        ],
+        "rows": [
+          [
+            "Đánh dấu thời gian",
+            "Mốc tháng, năm và cách nhân viên đánh dấu"
+          ],
+          [
+            "Quản lý bảo hành",
+            "Mã sản phẩm hoặc trường thông tin cần theo dõi"
+          ],
+          [
+            "Niêm phong hộp",
+            "Ảnh mép hộp và thao tác mở"
+          ],
+          [
+            "Dán trên thiết bị",
+            "Ảnh bề mặt và kích thước vùng dán"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Ướm vị trí dán trước khi chốt kích thước",
+      "paragraphs": [
+        "Vị trí dán cần đủ phẳng, sạch và dễ kiểm tra nhưng không che cổng kết nối, thông số hoặc phần cần tháo lắp. Với tem bắc qua mép hộp, hãy chụp cả trạng thái đóng và mở để xưởng nhìn rõ đường gấp.",
+        "Đo chiều ngang và chiều cao khả dụng bằng milimét, rồi ướm một mẫu giấy đúng cỡ. Cách này giúp phát hiện tem quá lớn, chữ quá nhỏ hoặc mép tem nằm trên vùng cong trước khi sản xuất."
+      ],
+      "bullets": [
+        "Chụp cận cảnh bề mặt và một ảnh toàn sản phẩm.",
+        "Ghi kích thước vùng dán theo ngang × cao.",
+        "Tránh khe tản nhiệt, ốc cần tháo và mép cong mạnh.",
+        "Dùng mẫu giấy để kiểm tra khả năng đọc ở kích thước thật."
+      ]
+    },
+    {
+      "heading": "Chỉ in những thông tin phục vụ quy trình bảo hành",
+      "paragraphs": [
+        "Nội dung thường gồm tên hoặc logo shop, mốc thời gian, mã mẫu hoặc lời nhắc ngắn. Chỉ thêm số serial hay trường ghi tay khi đội ngũ thực sự dùng chúng trong quy trình tiếp nhận và đối chiếu.",
+        "Giữ chữ đủ lớn và tương phản với nền. Nếu một tem nhỏ phải chứa quá nhiều trường, nên tách phần nhận diện khỏi phiếu hoặc hệ thống lưu thông tin thay vì thu nhỏ toàn bộ chữ."
+      ]
+    },
+    {
+      "heading": "Gửi gói yêu cầu để VinPrint xác nhận quy cách",
+      "paragraphs": [
+        "Gửi loại sản phẩm, ảnh vị trí dán, kích thước, nội dung hoặc file logo, số mẫu và số lượng từng mẫu. Nếu chưa chắc chọn tem vỡ hay tem dai, nêu rõ shop muốn kiểm tra điều gì khi tiếp nhận bảo hành.",
+        "VinPrint xác nhận giá và tiến độ sau khi xem đủ quy cách. Hình đầu bài là hình minh họa nhóm sản phẩm, không phải cam kết về một mẫu tem cụ thể."
+      ],
+      "bullets": [
+        "Loại sản phẩm hoặc thiết bị cần dán.",
+        "Ảnh bề mặt và kích thước vùng dán.",
+        "Nội dung, logo và trường cần ghi tay nếu có.",
+        "Số mẫu thiết kế và số lượng từng mẫu."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-bao-hanh",
+    "tem-phu-san-pham"
+  ],
+  "sources": [
+    {
+      "title": "Tem bảo hành VinPrint",
+      "href": "/san-pham/tem-bao-hanh",
+      "note": "Trang sản phẩm mô tả các lựa chọn tem vỡ, tem dai, tem đánh dấu thời gian và nhóm ứng dụng.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-21"
+    },
+    {
+      "title": "Tem phụ sản phẩm VinPrint",
+      "href": "/san-pham/tem-phu-san-pham",
+      "note": "Nguồn nội bộ để đối chiếu nhóm tem hỗ trợ nhận diện và quản lý sản phẩm.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-21"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 20,
+      "evidence": 20,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/san-pham/tem-bao-hanh",
+      "/san-pham/tem-phu-san-pham"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "VinPrint cung cấp nhóm tem vỡ, tem dai hoặc tem đánh dấu thời gian cho nhu cầu quản lý bảo hành và niêm phong.",
+        "sourceIds": [
+          "/san-pham/tem-bao-hanh"
+        ]
+      },
+      {
+        "claim": "Giá được xác nhận sau khi khách gửi quy cách.",
+        "sourceIds": [
+          "/san-pham/tem-bao-hanh"
+        ]
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "recordedAt": "2026-09-21T14:12:00+07:00",
+        "score": 100,
+        "outcome": "accepted"
+      }
+    ]
+  }
+}

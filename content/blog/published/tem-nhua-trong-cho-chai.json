@@ -5,12 +5,12 @@
   "title": "Tem nhựa trong cho chai: chọn theo nền, keo và độ cong",
   "description": "Cách chọn tem nhựa trong cho chai theo màu sản phẩm, độ tương phản, vật liệu chai, độ cong và điều kiện dán để tránh chữ chìm hoặc tem bị đục.",
   "category": "chat-lieu",
-  "image": "/images/blog/tem-nhua-trong-cho-chai.webp",
-  "imageAlt": "Minh họa tem nhựa trong trên chai thủy tinh, chai PET và chai nhựa đục",
+  "image": "/images/blog/tem-nhua-trong-de-doc.webp",
+  "imageAlt": "Hình minh họa AI tem nhựa trong trên chai mỹ phẩm với phần chữ dễ đọc",
   "publishedAt": "2026-07-20",
-  "updatedAt": "2026-07-20",
+  "updatedAt": "2026-09-21",
   "publishAt": "2026-07-20T05:05:00+07:00",
-  "readingMinutes": 6,
+  "readingMinutes": 7,
   "primaryKeyword": "tem nhựa trong cho chai",
   "searchIntent": "Chọn tem nhựa trong cho chai theo nền bao bì và điều kiện sử dụng",
   "buyerStage": "consideration",
@@ -18,7 +18,7 @@
   "authorId": "editorial-team",
   "reviewedBy": "editorial-team",
   "promptVersion": "vinprint-content-v1",
-  "revisionCount": 2,
+  "revisionCount": 3,
   "directAnswer": "Tem nhựa trong cho chai phù hợp khi muốn giữ màu và bề mặt bao bì làm một phần của thiết kế. Trước khi chọn, cần kiểm tra bốn điểm: chai là thủy tinh, PET hay nhựa khác; vùng dán có phẳng và nhẵn không; sản phẩm phía sau nhãn có màu gì; và chai có gặp nước ngưng tụ, dầu hoặc bóp cong hay không. Phần trong suốt không tự tạo tương phản, nên chữ sáng trên nền sáng hoặc chữ tối trên sản phẩm tối có thể bị chìm. Khi đó, có thể cần mực trắng lót hoặc chuyển một phần thiết kế sang mảng đục. Chai phải sạch và khô lúc dán; nước bị giữ dưới nhãn trong có thể làm lớp keo trông đục. Với chai cong hoặc có đường gân, dùng mẫu đúng kích thước để kiểm tra bọt khí, nếp nhăn và mép hở. Chỉ chốt sau khi xem mẫu trên đúng chai và trong điều kiện sử dụng thực tế.",
   "sections": [
     {
@@ -28,13 +28,31 @@
         "Nếu sản phẩm có màu thay đổi theo lô hoặc mức đầy trong chai khác nhau, cần xem mẫu ở nhiều trạng thái. Một thiết kế chỉ đẹp trên chai rỗng có thể mất tương phản khi chứa sản phẩm thật."
       ],
       "table": {
-        "headers": ["Tình huống", "Điểm cần kiểm tra"],
+        "headers": [
+          "Tình huống",
+          "Điểm cần kiểm tra"
+        ],
         "rows": [
-          ["Chai và sản phẩm đều trong", "Tương phản chữ và bọt khí dưới tem"],
-          ["Sản phẩm có màu đậm", "Vùng chữ có cần mực trắng lót"],
-          ["Chai trắng đục", "Tem trong có tạo khác biệt đủ rõ hay không"],
-          ["Chai bóp mềm", "Film có đủ mềm theo biến dạng của chai"],
-          ["Chai để lạnh", "Bề mặt phải khô khi dán và cần thử ngưng tụ"]
+          [
+            "Chai và sản phẩm đều trong",
+            "Tương phản chữ và bọt khí dưới tem"
+          ],
+          [
+            "Sản phẩm có màu đậm",
+            "Vùng chữ có cần mực trắng lót"
+          ],
+          [
+            "Chai trắng đục",
+            "Tem trong có tạo khác biệt đủ rõ hay không"
+          ],
+          [
+            "Chai bóp mềm",
+            "Film có đủ mềm theo biến dạng của chai"
+          ],
+          [
+            "Chai để lạnh",
+            "Bề mặt phải khô khi dán và cần thử ngưng tụ"
+          ]
         ]
       }
     },
@@ -65,9 +83,26 @@
         "Thử nước ngưng tụ nếu sản phẩm để lạnh",
         "Chốt mực trắng lót theo mẫu in thật"
       ]
+    },
+    {
+      "heading": "Muốn khoe sản phẩm bên trong mà chữ vẫn dễ đọc",
+      "paragraphs": [
+        "Tem trong giúp màu sản phẩm và bề mặt chai trở thành một phần của thiết kế, nhưng logo và thông tin vẫn phải đọc được trên nền thật. Hãy xem mẫu khi chai đã chứa sản phẩm vì màu dung dịch có thể làm chữ chìm hơn so với lúc chai rỗng.",
+        "Khi gửi yêu cầu, shop nên kèm logo, ảnh chai có sản phẩm, kích thước vùng dán và số lượng. VinPrint sẽ dựa trên quy cách để trao đổi về bố cục và phần cần tạo tương phản; hình đầu bài là minh họa ý tưởng, không phải ảnh thử độ bám hay ảnh một đơn hàng thực tế."
+      ],
+      "bullets": [
+        "Đọc lại logo và chữ trên chai đã chứa sản phẩm.",
+        "Kiểm tra tem ở mặt trước, mặt nghiêng và dưới ánh sáng bán hàng.",
+        "Ướm đúng kích thước trên vùng cong của chai.",
+        "Gửi ảnh chai, logo, kích thước và số lượng để xác nhận quy cách."
+      ]
     }
   ],
-  "relatedProductSlugs": ["tem-nhua-trong", "tem-nhua-chong-nuoc", "tem-uv-dtf"],
+  "relatedProductSlugs": [
+    "tem-nhua-trong",
+    "tem-nhua-chong-nuoc",
+    "tem-uv-dtf"
+  ],
   "sources": [
     {
       "title": "Trang sản phẩm tem nhựa trong VinPrint",
@@ -96,27 +131,77 @@
       "note": "Hướng dẫn kỹ thuật ghi nhận chai PET cần khô và nước giữ dưới nhãn có thể làm keo nhìn trắng đục.",
       "kind": "primary",
       "verifiedAt": "2026-07-20"
+    },
+    {
+      "title": "Bài VinPrint về tem nhựa trong và độ dễ đọc",
+      "href": "https://facebook.com/vinprints.sg/posts/pfbid02tM1piGts2BVnQ6wGV51Ao7Tox9PG4d4eoQWV7ruzHxVPiwGQ6qgAX5VXD2Vy2Vtul",
+      "note": "Nguồn nội dung và hình minh họa đã được chủ duyệt, đăng công khai và xác minh ngày 19/09/2026.",
+      "kind": "primary",
+      "verifiedAt": "2026-09-21"
     }
   ],
   "quality": {
-    "scores": {"searchIntent": 20, "originality": 20, "evidence": 20, "citability": 15, "authority": 10, "internalLinks": 10, "technical": 5},
-    "evidenceIds": ["/san-pham/tem-nhua-trong", "/nganh/chai-lo", "https://label.averydennison.com/ap/en_sa/home/products/film.html", "https://label.averydennison.com/content/dam/averydennison/lpm-responsive/na/doc/technical-bulletins/product/sustainable-solutions/to-ad-cleanflake-pet.pdf"],
+    "scores": {
+      "searchIntent": 20,
+      "originality": 20,
+      "evidence": 20,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/san-pham/tem-nhua-trong",
+      "/nganh/chai-lo",
+      "https://label.averydennison.com/ap/en_sa/home/products/film.html",
+      "https://label.averydennison.com/content/dam/averydennison/lpm-responsive/na/doc/technical-bulletins/product/sustainable-solutions/to-ad-cleanflake-pet.pdf",
+      "https://facebook.com/vinprints.sg/posts/pfbid02tM1piGts2BVnQ6wGV51Ao7Tox9PG4d4eoQWV7ruzHxVPiwGQ6qgAX5VXD2Vy2Vtul"
+    ],
     "claimsVerified": true,
     "duplicateIntentChecked": true,
     "commercialClaims": "none",
     "claimChecks": [
       {
         "claim": "Film trong có thể tạo hiệu ứng nhìn xuyên nền nhưng lựa chọn còn phụ thuộc độ cong và điều kiện sử dụng của chai.",
-        "sourceIds": ["/san-pham/tem-nhua-trong", "/nganh/chai-lo", "https://label.averydennison.com/ap/en_sa/home/products/film.html"]
+        "sourceIds": [
+          "/san-pham/tem-nhua-trong",
+          "/nganh/chai-lo",
+          "https://label.averydennison.com/ap/en_sa/home/products/film.html"
+        ]
       },
       {
         "claim": "Nước hoặc ngưng tụ bị giữ dưới nhãn trong có thể làm lớp keo trên chai PET trông trắng đục.",
-        "sourceIds": ["https://label.averydennison.com/content/dam/averydennison/lpm-responsive/na/doc/technical-bulletins/product/sustainable-solutions/to-ad-cleanflake-pet.pdf"]
+        "sourceIds": [
+          "https://label.averydennison.com/content/dam/averydennison/lpm-responsive/na/doc/technical-bulletins/product/sustainable-solutions/to-ad-cleanflake-pet.pdf"
+        ]
+      },
+      {
+        "claim": "Khi dùng tem trong để giữ nét bao bì, cần kiểm tra độ dễ đọc của logo và thông tin trên màu sản phẩm thật.",
+        "sourceIds": [
+          "https://facebook.com/vinprints.sg/posts/pfbid02tM1piGts2BVnQ6wGV51Ao7Tox9PG4d4eoQWV7ruzHxVPiwGQ6qgAX5VXD2Vy2Vtul",
+          "/san-pham/tem-nhua-trong"
+        ]
       }
     ],
     "attempts": [
-      {"attempt": 1, "recordedAt": "2026-07-20T22:26:00+07:00", "score": 100, "outcome": "accepted"},
-      {"attempt": 2, "recordedAt": "2026-07-20T22:40:00+07:00", "score": 100, "outcome": "accepted"}
+      {
+        "attempt": 1,
+        "recordedAt": "2026-07-20T22:26:00+07:00",
+        "score": 100,
+        "outcome": "accepted"
+      },
+      {
+        "attempt": 2,
+        "recordedAt": "2026-07-20T22:40:00+07:00",
+        "score": 100,
+        "outcome": "accepted"
+      },
+      {
+        "attempt": 3,
+        "recordedAt": "2026-09-21T14:13:00+07:00",
+        "score": 98,
+        "outcome": "accepted"
+      }
     ]
   }
 }
