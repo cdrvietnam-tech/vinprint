@@ -11,6 +11,7 @@
 | GA4 | Repo và HTML live đều có measurement ID công khai G-0XQZ3FCJN0/gtag; chưa có property/credential đọc dữ liệu | Numeric property ID ứng với measurement ID này, quyền Viewer và OAuth analytics.readonly; kiểm tra thực nhận events |
 | PageSpeed/CrUX | API PSI mobile trả HTTP 429 | API key có quota hoặc report PSI/GSC CWV; chưa có điểm CWV |
 | NAP | Website ghi Số 13, Đường Thạnh Lộc 42, An Phú Đồng, TP.HCM; 0844998499; T2–T7 09:00–17:30 | Chủ xác nhận bộ địa chỉ/điện thoại/giờ làm chuẩn và nguồn được phép |
+| n8n Facebook | Workflow nhập tại `automation/n8n/vinprint-facebook-to-web.json`; Page ID khóa cứng 105514821740093; GitHub nhận qua `repository_dispatch` | Cần một máy chủ n8n, Page access token chỉ đọc, GitHub credential gửi dispatch và chạy thử trước khi bật Active |
 
 ## Nối Google sau khi có quyền
 

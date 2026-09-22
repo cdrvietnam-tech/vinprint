@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { products } from "./lib/products";
 import { companyPages, guidePages, industryPages } from "./lib/content-pages";
 import { blogCategories, blogPosts } from "./lib/blog-posts";
+import { facebookPosts } from "./lib/facebook-posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://vinprint.vn";
@@ -49,6 +50,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date("2026-07-20T00:00:00+07:00"),
       changeFrequency: "weekly",
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/mau-tem-moi`,
+      lastModified: new Date(facebookPosts[0]?.syncedAt ?? "2026-09-22T00:00:00+07:00"),
+      changeFrequency: "daily",
+      priority: 0.7,
+      images: facebookPosts.map((post) => `${baseUrl}${post.image}`),
     },
     ...blogCategories.filter((category) => category.slug !== "tat-ca").map((category) => ({
       url: `${baseUrl}/blog/chuyen-muc/${category.slug}`,
