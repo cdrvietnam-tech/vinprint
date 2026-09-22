@@ -36,6 +36,7 @@ export default function Footer({ hasMobileActionBar = false }: { hasMobileAction
         <nav aria-label="Liên kết pháp lý" className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
           <Link className="inline-flex min-h-11 items-center hover:text-[#D83B00]" href="/chinh-sach">Chính sách</Link>
           <Link className="inline-flex min-h-11 items-center hover:text-[#D83B00]" href="/bao-hanh">Bảo hành</Link>
+          <Link className="inline-flex min-h-11 items-center hover:text-[#D83B00]" href="/mau-tem-moi">Mẫu tem mới</Link>
         </nav>
       </div>
     </footer>
