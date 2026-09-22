@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-phu-san-pham-bo-cuc-de-doc",
+  "title": "Tem phụ sản phẩm: chuẩn bị nội dung và bố cục dễ đọc",
+  "description": "Cách chuẩn bị nội dung, kích thước và bố cục tem phụ sản phẩm để thông tin dễ đọc trên bao bì nhỏ trước khi gửi in.",
+  "category": "thiet-ke",
+  "image": "/images/blog/tem-phu-san-pham-de-doc.webp",
+  "imageAlt": "Hình minh họa tem phụ sản phẩm với bố cục thông tin rõ ràng",
+  "publishedAt": "2026-09-22",
+  "updatedAt": "2026-09-22",
+  "publishAt": "2026-09-22T08:30:00+07:00",
+  "readingMinutes": 5,
+  "primaryKeyword": "tem phụ sản phẩm",
+  "searchIntent": "Chuẩn bị nội dung, kích thước và bố cục tem phụ dễ đọc cho hàng hóa",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-daily-marketing-v1",
+  "revisionCount": 1,
+  "directAnswer": "Để đặt tem phụ sản phẩm, shop nên gửi nội dung đã được người chịu trách nhiệm kiểm tra, ảnh bao bì, kích thước vùng dán, số mẫu và số lượng từng mẫu. Trên diện tích nhỏ, nên chia thông tin thành các nhóm rõ, ưu tiên cỡ chữ có thể đọc ở kích thước in thật và tránh ép toàn bộ nội dung vào một tem quá nhỏ. VinPrint có thể hỗ trợ bố cục theo dữ liệu khách cung cấp; shop vẫn cần xác nhận nội dung trước khi in.",
+  "sections": [
+    {
+      "heading": "Chốt nội dung trước khi dàn trang",
+      "paragraphs": [
+        "Tem phụ thường phải chứa nhiều dòng trên diện tích nhỏ. Hãy gom nội dung theo nhóm như tên sản phẩm, thành phần hoặc hướng dẫn, thông tin đơn vị và cảnh báo nếu hồ sơ của sản phẩm có yêu cầu; không tự thêm dữ liệu chưa được người phụ trách xác nhận.",
+        "Gửi nội dung ở dạng văn bản có thể sao chép, thay vì chỉ chụp ảnh một nhãn cũ. Cách này giúp giảm lỗi gõ lại và giúp hai bên đánh dấu phiên bản đã duyệt."
+      ],
+      "bullets": [
+        "Một tệp nội dung cuối cùng, có ngày hoặc số phiên bản.",
+        "Logo và ký hiệu dưới dạng file rõ nét nếu có.",
+        "Ngôn ngữ và cách viết đã được shop kiểm tra.",
+        "Tên người chịu trách nhiệm duyệt nội dung."
+      ]
+    },
+    {
+      "heading": "Đo vùng dán để chọn kích thước tem",
+      "paragraphs": [
+        "Chụp toàn bộ bao bì và cận cảnh vùng dự kiến dán, rồi đo chiều ngang × chiều cao bằng milimét. Tránh đặt mép tem qua nếp gấp, đường hàn túi hoặc vùng cong mạnh nếu những vị trí đó làm chữ bị biến dạng.",
+        "Nếu nội dung dài hơn diện tích cho phép, nên tăng kích thước tem, đổi vị trí dán hoặc rà lại nội dung cùng người phụ trách thay vì giảm chữ đến mức khó đọc."
+      ]
+    },
+    {
+      "heading": "Chia bố cục để khách dễ tìm thông tin",
+      "paragraphs": [
+        "Dùng tiêu đề ngắn, khoảng cách đều và độ tương phản rõ giữa chữ với nền. Các nhóm thông tin liên quan nên đặt gần nhau; nội dung quan trọng không nên chen vào sát mép cắt.",
+        "Duyệt bản xem trước ở đúng kích thước thành phẩm, sau đó in thử một mẫu và đọc trong điều kiện sử dụng thực tế. Hình đầu bài chỉ là minh họa nhóm sản phẩm, không phải mẫu nội dung áp dụng cho mọi mặt hàng."
+      ],
+      "table": {
+        "headers": [
+          "Cần kiểm tra",
+          "Cách kiểm tra"
+        ],
+        "rows": [
+          [
+            "Cỡ chữ",
+            "Xem bản 100% hoặc mẫu in đúng kích thước"
+          ],
+          [
+            "Tương phản",
+            "Đặt mẫu lên màu bao bì thật"
+          ],
+          [
+            "Mép an toàn",
+            "Không để chữ sát đường cắt"
+          ],
+          [
+            "Phiên bản",
+            "Đối chiếu lại với tệp nội dung cuối"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Gửi đủ thông tin để VinPrint xác nhận quy cách",
+      "paragraphs": [
+        "Gửi nội dung cuối, ảnh bao bì, kích thước vùng dán, chất liệu mong muốn, số mẫu và số lượng mỗi mẫu. Nếu tem tiếp xúc với nước, dầu hoặc nhiệt độ thấp, nói rõ điều kiện sử dụng để xưởng trao đổi vật liệu.",
+        "Giá và tiến độ được xác nhận sau khi xem đủ kích thước, vật liệu và số lượng. VinPrint hỗ trợ trình bày theo dữ liệu khách cung cấp; bước duyệt nội dung cuối thuộc về shop."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-phu-san-pham",
+    "tem-giay",
+    "tem-nhua-chong-nuoc"
+  ],
+  "sources": [
+    {
+      "title": "Tem phụ sản phẩm VinPrint",
+      "href": "/san-pham/tem-phu-san-pham",
+      "note": "Trang sản phẩm mô tả nhu cầu bố cục rõ và khả năng đọc ở kích thước nhỏ.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-22"
+    },
+    {
+      "title": "Hướng dẫn chọn kích thước tem",
+      "href": "/huong-dan/chon-kich-thuoc-tem",
+      "note": "Nguồn nội bộ để đối chiếu vùng dán và cách ướm kích thước trên bao bì.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-22"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 20,
+      "evidence": 20,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/san-pham/tem-phu-san-pham",
+      "/huong-dan/chon-kich-thuoc-tem"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Tem phụ sản phẩm cần bố cục rõ và ưu tiên khả năng đọc ở kích thước nhỏ.",
+        "sourceIds": [
+          "/san-pham/tem-phu-san-pham"
+        ]
+      },
+      {
+        "claim": "Kích thước tem cần được đối chiếu với vùng dán thực tế trước khi chốt.",
+        "sourceIds": [
+          "/huong-dan/chon-kich-thuoc-tem"
+        ]
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "recordedAt": "2026-09-22T10:15:00+07:00",
+        "score": 100,
+        "outcome": "accepted"
+      }
+    ]
+  }
+}
