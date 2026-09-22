@@ -282,11 +282,13 @@ test("renders a crawlable blog index with category navigation", async () => {
   assert.match(html, /href="\/blog\/tem-nhieu-vi-san-pham"/i);
   assert.match(html, /href="\/blog\/tem-hologram-7-mau"/i);
   assert.match(html, /href="\/blog\/tem-qr-cho-shop"/i);
+  assert.match(html, /href="\/blog\/tem-bao-hanh-chon-loai-va-vi-tri-dan"/i);
   assert.match(html, /data-blog-thumbnail="compact"/i);
   assert.match(html, /object-fit:contain/i);
   assert.match(html, /\/images\/blog\/tem-nhieu-vi-san-pham\.webp/i);
   assert.match(html, /\/images\/blog\/tem-hologram-7-mau\.webp/i);
   assert.match(html, /\/images\/blog\/tem-qr-cho-shop\.webp/i);
+  assert.match(html, /\/images\/blog\/tem-bao-hanh-chon-loai\.webp/i);
   assert.match(html, /\/images\/blog\/card-visit-va-tem-nhan-dong-bo\.webp/i);
   assert.match(html, /href="\/blog\/card-visit-va-tem-nhan-dong-bo"/i);
 });
@@ -310,6 +312,7 @@ test("publishes an RSS feed for public blog articles", async () => {
   assert.match(xml, /<rss version="2.0">/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/tem-uv-dtf-la-gi/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/tem-qr-cho-shop/i);
+  assert.match(xml, /https:\/\/vinprint\.vn\/blog\/tem-bao-hanh-chon-loai-va-vi-tri-dan/i);
 });
 
 test("renders GEO-ready blog articles with citable answers and BlogPosting schema", async () => {
@@ -377,6 +380,7 @@ test("all public routes render successfully", async () => {
     "/blog/tem-giay-va-tem-nhua-nen-chon-loai-nao",
     "/blog/tem-uv-dtf-la-gi",
     "/blog/tem-qr-cho-shop",
+    "/blog/tem-bao-hanh-chon-loai-va-vi-tri-dan",
     "/blog/cach-chon-kich-thuoc-tem-nhan",
     "/blog/chuan-bi-file-in-tem-khong-bi-mo",
     "/blog/tem-chong-nuoc-cho-my-pham-va-do-uong",
@@ -410,6 +414,7 @@ test("sitemap publishes the blog hub and every GEO article", async () => {
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/chuyen-muc\/chat-lieu<\/loc>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/tem-uv-dtf-la-gi<\/loc>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/tem-qr-cho-shop<\/loc>/i);
+  assert.match(xml, /https:\/\/vinprint\.vn\/blog\/tem-bao-hanh-chon-loai-va-vi-tri-dan<\/loc>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/loi-thiet-ke-tem-nhan<\/loc>/i);
   assert.match(xml, /<image:image>[\s\S]*tem-uv-dtf-bo-qua-tang\.webp[\s\S]*<\/image:image>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/quy-trinh-bien-soan<\/loc>/i);

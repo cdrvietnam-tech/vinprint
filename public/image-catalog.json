@@ -393,6 +393,21 @@
       ]
     },
     {
+      "path": "/images/blog/tem-bao-hanh-chon-loai.webp",
+      "title": "Tem Bao Hanh Chon Loai",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 30230,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/tem-chai-serum.webp",
       "title": "Tem Chai Serum",
       "category": "blog",
@@ -535,6 +550,21 @@
       "width": 1600,
       "height": 900,
       "bytes": 49982,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-nhua-trong-de-doc.webp",
+      "title": "Tem Nhua Trong De Doc",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 168484,
       "usages": [
         {
           "href": "/blog",
