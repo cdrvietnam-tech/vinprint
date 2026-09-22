@@ -378,6 +378,21 @@
       ]
     },
     {
+      "path": "/images/blog/sticker-trang-tri-chon-kich-thuoc.webp",
+      "title": "Sticker Trang Tri Chon Kich Thuoc",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 30230,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/tem-bac-hay-tem-vang-anh-kim.webp",
       "title": "Tem Bac Hay Tem Vang Anh Kim",
       "category": "blog",
@@ -535,6 +550,21 @@
       "width": 1600,
       "height": 900,
       "bytes": 49982,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-phu-san-pham-de-doc.webp",
+      "title": "Tem Phu San Pham De Doc",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 93058,
       "usages": [
         {
           "href": "/blog",

@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "sticker-trang-tri-chon-kich-thuoc-va-be-mat-dan",
+  "title": "Sticker trang trí: chọn kích thước và bề mặt dán cho cả bộ",
+  "description": "Cách chuẩn bị bộ sticker trang trí theo bề mặt dán, kích thước từng mẫu, đường cắt và số lượng để gửi xưởng kiểm tra quy cách.",
+  "category": "thiet-ke",
+  "image": "/images/blog/sticker-trang-tri-chon-kich-thuoc.webp",
+  "imageAlt": "Hình minh họa bộ sticker trang trí nhiều kích thước và hình dáng",
+  "publishedAt": "2026-09-22",
+  "updatedAt": "2026-09-22",
+  "publishAt": "2026-09-22T08:35:00+07:00",
+  "readingMinutes": 5,
+  "primaryKeyword": "sticker trang trí",
+  "searchIntent": "Chọn kích thước, bề mặt dán và cách chuẩn bị file cho bộ sticker trang trí",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-daily-marketing-v1",
+  "revisionCount": 1,
+  "directAnswer": "Khi đặt sticker trang trí, hãy bắt đầu từ bề mặt sẽ dán như laptop, vali, nón bảo hiểm, xe hoặc bình nước; sau đó chốt kích thước từng mẫu, kiểu cắt, số lượng và điều kiện sử dụng. Một bộ có nhiều hình nên lập danh sách tên mẫu và số lượng riêng để tránh ghép nhầm. Trước khi làm cả lô, nên xem mẫu in đúng kích thước trên bề mặt thật và kiểm tra chữ hoặc chi tiết nhỏ còn rõ hay không.",
+  "sections": [
+    {
+      "heading": "Chọn sticker theo bề mặt sử dụng",
+      "paragraphs": [
+        "Bề mặt phẳng, cong nhẹ, thường xuyên cầm nắm hay tiếp xúc nước tạo ra các yêu cầu khác nhau. Hãy gửi ảnh vật dụng và mô tả cách dùng để VinPrint trao đổi quy cách phù hợp thay vì chọn vật liệu chỉ theo hình ảnh trên màn hình.",
+        "Với laptop, vali, nón bảo hiểm, xe hoặc bình nước, vị trí dán cũng quyết định kích thước và hướng của hình. Tránh đặt chi tiết chính vào khe, đường gân hoặc vùng cong mạnh."
+      ]
+    },
+    {
+      "heading": "Lập danh sách kích thước cho từng mẫu",
+      "paragraphs": [
+        "Một bộ sticker có thể gồm biểu tượng nhỏ, chữ dài và hình chính. Ghi chiều ngang hoặc chiều cao thành phẩm của từng mẫu bằng milimét, đồng thời đặt tên file trùng với danh sách số lượng.",
+        "In thử hình ở kích thước thật trên giấy thường giúp phát hiện chữ quá nhỏ và tỷ lệ chưa hợp với vật dụng. Không nên chỉ phóng to màn hình rồi ước lượng."
+      ],
+      "table": {
+        "headers": [
+          "Thông tin",
+          "Ví dụ cách ghi"
+        ],
+        "rows": [
+          [
+            "Tên mẫu",
+            "Mẫu A, Mẫu B hoặc tên hình rõ ràng"
+          ],
+          [
+            "Kích thước",
+            "Ngang × cao, đơn vị mm"
+          ],
+          [
+            "Số lượng",
+            "Ghi riêng cho từng mẫu"
+          ],
+          [
+            "Bề mặt dán",
+            "Laptop, bình nước hoặc vật dụng cụ thể"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Chuẩn bị đường cắt và khoảng cách an toàn",
+      "paragraphs": [
+        "Giữ chữ và chi tiết quan trọng cách đường cắt một khoảng rõ ràng. Nếu cần cắt theo hình, file nên có biên dạng sạch và không chứa các mảnh quá nhỏ khó thao tác.",
+        "Với nhiều mẫu trên một bộ, dùng cùng phong cách viền và khoảng trống giúp tổng thể đồng bộ. Bản duyệt cần thể hiện rõ kích thước thành phẩm chứ không chỉ là bố cục trang in."
+      ],
+      "bullets": [
+        "Đặt tên từng mẫu và không dùng nhiều file trùng tên.",
+        "Ghi kích thước thành phẩm cạnh mỗi mẫu.",
+        "Giữ chi tiết quan trọng cách đường cắt.",
+        "Kiểm tra chữ nhỏ ở tỷ lệ 100%."
+      ]
+    },
+    {
+      "heading": "Gửi gói yêu cầu để nhận xác nhận quy cách",
+      "paragraphs": [
+        "Gửi file thiết kế, danh sách kích thước và số lượng, ảnh bề mặt dán cùng điều kiện sử dụng. Nếu cần nhiều phiên bản màu hoặc nhiều bộ khác nhau, tách danh sách cho từng nhóm.",
+        "VinPrint xác nhận giá và tiến độ sau khi xem vật liệu, kích thước, đường cắt, số mẫu và số lượng. Hình đầu bài là minh họa nhóm sticker trang trí, không phải ảnh một đơn hàng cụ thể."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "sticker-trang-tri",
+    "tem-nhua-chong-nuoc",
+    "tem-7-mau"
+  ],
+  "sources": [
+    {
+      "title": "Sticker trang trí VinPrint",
+      "href": "/san-pham/sticker-trang-tri",
+      "note": "Trang sản phẩm liệt kê các bề mặt ứng dụng và mô tả khả năng tùy biến bộ sticker.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-22"
+    },
+    {
+      "title": "Hướng dẫn chọn kích thước tem",
+      "href": "/huong-dan/chon-kich-thuoc-tem",
+      "note": "Nguồn nội bộ về đo vùng dán và kiểm tra kích thước thành phẩm.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-22"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 20,
+      "evidence": 20,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/san-pham/sticker-trang-tri",
+      "/huong-dan/chon-kich-thuoc-tem"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Sticker trang trí VinPrint được giới thiệu cho các bề mặt như laptop, vali, nón bảo hiểm, xe và bình nước.",
+        "sourceIds": [
+          "/san-pham/sticker-trang-tri"
+        ]
+      },
+      {
+        "claim": "Kích thước từng mẫu cần được đối chiếu với bề mặt dán thực tế.",
+        "sourceIds": [
+          "/huong-dan/chon-kich-thuoc-tem"
+        ]
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "recordedAt": "2026-09-22T10:15:00+07:00",
+        "score": 100,
+        "outcome": "accepted"
+      }
+    ]
+  }
+}
