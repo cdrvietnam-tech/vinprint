@@ -11,7 +11,7 @@ GitHub kiểm tra lại nguồn, giới hạn số bài, post ID, caption, perma
 3. Tạo credential HTTP Header Auth tên `Facebook Page Access Token`, header là `Authorization`, value là `Bearer <PAGE_ACCESS_TOKEN>`. Token phải chỉ có quyền đọc dữ liệu cần thiết của fanpage do anh quản lý. Không ghi token vào workflow hoặc GitHub.
 4. Tạo fine-grained GitHub token cho riêng repository `cdrvietnam-tech/vinprint`, với `Contents: Read and write` và `Pull requests: Read and write`. Lưu token vào credential n8n tên `GitHub VinPrint` và đồng thời lưu trong GitHub Actions secret tên `VINPRINT_AUTOMATION_PAT`. Action dùng token này để PR mới kích hoạt đầy đủ quality/approval checks; token mặc định của GitHub Actions không bảo đảm tạo chuỗi workflow tiếp theo.
 5. Trong repository Settings > Actions > General, cho phép GitHub Actions tạo pull request nếu tổ chức đang tắt quyền này.
-6. Nếu phiên bản Graph API đang dùng khác mặc định, tạo n8n Variable `FACEBOOK_GRAPH_VERSION` với giá trị phiên bản Meta còn hỗ trợ, ví dụ `v25.0`.
+6. Workflow đang khóa Graph API `v25.0`. Khi Meta ngừng hỗ trợ phiên bản này, cập nhật URL của node `Lấy bài fanpage` sang phiên bản còn hiệu lực và chạy thử lại trước khi bật lịch.
 7. Mở từng node credential và chọn đúng credential vừa tạo. Chạy thử thủ công với một bài đã biết, kiểm tra GitHub Actions tạo PR đúng. Sau khi thử đạt, bật Active.
 
 Việc tạo credential hoặc token là bước cấp quyền truy cập lâu dài nên chủ tài khoản thực hiện trực tiếp trong Meta, GitHub và n8n. Không gửi token qua chat.

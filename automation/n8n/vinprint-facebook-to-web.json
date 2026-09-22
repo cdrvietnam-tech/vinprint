@@ -23,7 +23,7 @@
     },
     {
       "parameters": {
-        "url": "={{ 'https://graph.facebook.com/' + ($vars.FACEBOOK_GRAPH_VERSION || 'v25.0') + '/105514821740093/posts' }}",
+        "url": "https://graph.facebook.com/v25.0/105514821740093/posts",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendQuery": true,
