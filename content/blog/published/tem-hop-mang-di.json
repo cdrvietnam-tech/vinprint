@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-hop-mang-di",
+  "title": "Tem hộp mang đi: chọn vị trí dán trước khi đặt in",
+  "description": "Cách chọn vị trí, kích thước và vật liệu tem cho hộp mang đi để logo không vướng nếp gấp, mép nắp hoặc vùng đóng mở.",
+  "category": "theo-nganh",
+  "image": "/images/blog/tem-hop-mang-di.webp",
+  "imageAlt": "Hình minh họa AI hai hộp giấy mang đi có tem tròn đặt trên vùng nắp phẳng",
+  "publishedAt": "2026-09-23",
+  "updatedAt": "2026-09-23",
+  "publishAt": "2026-09-23T08:30:00+07:00",
+  "readingMinutes": 6,
+  "primaryKeyword": "tem hộp mang đi",
+  "searchIntent": "Chọn vị trí, kích thước và vật liệu tem cho hộp đồ ăn mang đi",
+  "buyerStage": "consideration",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-facebook-adaptation-v1",
+  "revisionCount": 1,
+  "directAnswer": "Tem hộp mang đi nên được chọn sau khi chiếc hộp đã gấp hoàn chỉnh và có hình dáng giống lúc giao cho khách. Vùng nắp phẳng phù hợp với tem nhận diện vì logo dễ nhìn và ít bị biến dạng; tem dán qua mép đóng hộp có thể hỗ trợ giữ nắp nhưng phải đủ diện tích tiếp xúc ở cả hai phía và không che phần khách cần mở. Trước khi chốt kích thước, hãy cắt một mẫu giấy theo đúng hình tem, đặt lên hộp thật và kiểm tra logo, chữ nhỏ, nếp gấp, đường hàn cùng mép nắp. Hộp kraft khô có thể dùng tem giấy nếu bề mặt sạch và phẳng; môi trường lạnh, ẩm hoặc có dầu cần được thử với vật liệu phù hợp hơn. Gửi VinPrint ảnh hộp, vị trí muốn dán, kích thước vùng dán và số lượng từng mẫu để xưởng kiểm tra quy cách trước khi báo giá.",
+  "sections": [
+    {
+      "heading": "Chọn tem nhận diện hay tem dán qua mép hộp?",
+      "paragraphs": [
+        "Tem nhận diện thường nằm gọn trên mặt nắp phẳng để tên thương hiệu và hình ảnh được nhìn rõ. Tem dán qua mép đóng hộp có thêm vai trò giữ nắp hoặc thể hiện dấu mở, nhưng cần được ướm trên hộp đã gấp để tránh phần quan trọng nằm đúng nếp.",
+        "Một mẫu tem không nhất thiết phù hợp cho mọi kiểu hộp. Hộp nắp liền, hộp có tai cài và hộp hai mảnh có vùng đóng mở khác nhau; ảnh minh họa đầu bài chỉ giúp hình dung cách bố trí, không phải mẫu kích thước dùng chung."
+      ],
+      "table": {
+        "headers": ["Mục đích", "Vị trí nên thử", "Điểm cần kiểm tra"],
+        "rows": [
+          ["Nhận diện", "Mặt nắp phẳng", "Logo không bị che khi xếp hoặc buộc túi"],
+          ["Dán qua mép", "Từ nắp xuống thân hộp", "Hai đầu tem có đủ vùng bám và khách dễ mở"],
+          ["Phân biệt món", "Góc nắp hoặc mặt bên phẳng", "Chữ vẫn đọc được khi hộp đặt trong túi"]
+        ]
+      }
+    },
+    {
+      "heading": "Đo vùng dán khi hộp đã gấp hoàn chỉnh",
+      "paragraphs": [
+        "Đo trên bản bế phẳng dễ bỏ sót độ cong, tai cài và phần chồng mép. Hãy gấp hộp, đặt thử lượng sản phẩm tương đương lúc bán rồi đo vùng tem thực sự tiếp xúc với bề mặt.",
+        "Cắt một miếng giấy theo kích thước dự kiến, đặt vào đúng vị trí và nhìn từ hướng khách nhận hộp. Cách thử đơn giản này giúp phát hiện logo quá lớn, chữ nằm qua nếp hoặc tem bị quai túi che."
+      ],
+      "bullets": [
+        "Chụp một ảnh chính diện và một ảnh nghiêng của hộp đã gấp",
+        "Ghi chiều ngang × cao của vùng phẳng bằng milimet",
+        "Đánh dấu nếp gấp, tai cài và mép khách sẽ mở",
+        "In thử mẫu ở kích thước thật trước khi chạy số lượng lớn"
+      ]
+    },
+    {
+      "heading": "Tem giấy hay tem nhựa cho hộp mang đi?",
+      "paragraphs": [
+        "Tem giấy phù hợp nhiều hộp giấy khô và tạo cảm giác đồng bộ với nền kraft. Nếu hộp gặp hơi nước, bảo quản lạnh, dầu hoặc ma sát trong quá trình giao, cần cân nhắc tem nhựa hay lớp gia công thích hợp và thử trên đúng hộp.",
+        "Khả năng bám phụ thuộc vào lớp phủ bề mặt chứ không chỉ màu kraft. Hộp có phủ chống dầu hoặc cán màng cần được kiểm tra riêng; VinPrint không mặc định một loại keo phù hợp cho mọi bao bì."
+      ],
+      "bullets": [
+        "Hộp khô, bề mặt giấy sạch: có thể thử tem giấy",
+        "Hộp lạnh hoặc dễ ẩm: thử tem nhựa trên hộp thật",
+        "Bề mặt phủ chống dầu: kiểm tra độ bám trước khi đặt nhiều",
+        "Nội dung dài: tách tem nhận diện và tem thông tin nếu cần"
+      ]
+    },
+    {
+      "heading": "Gửi gì để VinPrint kiểm tra quy cách?",
+      "paragraphs": [
+        "Gửi file logo, ảnh hộp đã gấp, vị trí muốn dán, kích thước dự kiến và số lượng của từng mẫu. Nếu cần tem qua mép, hãy chỉ rõ cạnh mở để xưởng xem hướng đặt thiết kế.",
+        "Giá và thời gian thực hiện được xác nhận theo kích thước, vật liệu, gia công, số mẫu và số lượng thực tế. Hình trong bài là minh họa, không phải ảnh đơn hàng hay cam kết về độ bám trên mọi loại hộp."
+      ]
+    }
+  ],
+  "relatedProductSlugs": ["tem-giay", "tem-nhua-chong-nuoc", "tem-phu-san-pham"],
+  "sources": [
+    {
+      "title": "Trang tem nhãn thực phẩm VinPrint",
+      "href": "/nganh/thuc-pham",
+      "note": "Ứng dụng tem cho bao bì thực phẩm và phân biệt điều kiện khô với lạnh hoặc ẩm.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-23"
+    },
+    {
+      "title": "Trang sản phẩm tem giấy VinPrint",
+      "href": "/san-pham/tem-giay",
+      "note": "Tem giấy cho hộp giấy, túi kraft và bao bì khô.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-23"
+    },
+    {
+      "title": "Hướng dẫn chọn kích thước tem",
+      "href": "/huong-dan/chon-kich-thuoc-tem",
+      "note": "Đo vùng dán và thử kích thước thật trên bao bì trước khi in.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-23"
+    },
+    {
+      "title": "Bài VinPrint về vị trí dán tem trên hộp mang đi",
+      "href": "https://www.facebook.com/100068300211280/posts/1396698982616762/",
+      "note": "Nguồn nội dung và hình minh họa đã được chủ duyệt, đăng công khai ngày 22/09/2026.",
+      "kind": "primary",
+      "verifiedAt": "2026-09-23"
+    }
+  ],
+  "quality": {
+    "scores": {"searchIntent": 20, "originality": 19, "evidence": 20, "citability": 15, "authority": 10, "internalLinks": 10, "technical": 5},
+    "evidenceIds": ["/nganh/thuc-pham", "/san-pham/tem-giay", "/huong-dan/chon-kich-thuoc-tem", "https://www.facebook.com/100068300211280/posts/1396698982616762/"],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Cần đo và ướm tem trên hộp đã gấp để tránh nếp, mép đóng mở và vùng bị che.",
+        "sourceIds": ["/huong-dan/chon-kich-thuoc-tem", "https://www.facebook.com/100068300211280/posts/1396698982616762/"]
+      },
+      {
+        "claim": "Tem giấy phù hợp nhiều bao bì khô; điều kiện lạnh hoặc ẩm cần xem lại vật liệu và thử thực tế.",
+        "sourceIds": ["/nganh/thuc-pham", "/san-pham/tem-giay"]
+      }
+    ],
+    "attempts": [
+      {"attempt": 1, "recordedAt": "2026-09-23T09:55:00+07:00", "score": 99, "outcome": "accepted"}
+    ]
+  }
+}

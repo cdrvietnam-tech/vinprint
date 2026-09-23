@@ -12,14 +12,15 @@ import article9 from "./published/tem-cho-hu-kem.json";
 import article10 from "./published/tem-chong-nuoc-cho-my-pham-va-do-uong.json";
 import article11 from "./published/tem-giay-va-tem-nhua-nen-chon-loai-nao.json";
 import article12 from "./published/tem-hologram-7-mau.json";
-import article13 from "./published/tem-ly-ca-phe-chong-nuoc.json";
-import article14 from "./published/tem-nhan-trung-thu-hop-qua.json";
-import article15 from "./published/tem-nhieu-vi-san-pham.json";
-import article16 from "./published/tem-nhua-trong-cho-chai.json";
-import article17 from "./published/tem-qr-cho-shop.json";
-import article18 from "./published/tem-thuc-pham-cho-tui-kraft.json";
-import article19 from "./published/tem-uv-dtf-la-gi.json";
-import article20 from "./published/thu-tem-trong-moi-truong-lanh.json";
+import article13 from "./published/tem-hop-mang-di.json";
+import article14 from "./published/tem-ly-ca-phe-chong-nuoc.json";
+import article15 from "./published/tem-nhan-trung-thu-hop-qua.json";
+import article16 from "./published/tem-nhieu-vi-san-pham.json";
+import article17 from "./published/tem-nhua-trong-cho-chai.json";
+import article18 from "./published/tem-qr-cho-shop.json";
+import article19 from "./published/tem-thuc-pham-cho-tui-kraft.json";
+import article20 from "./published/tem-uv-dtf-la-gi.json";
+import article21 from "./published/thu-tem-trong-moi-truong-lanh.json";
 
 export const rawBlogArticles = [
   article0,
@@ -43,4 +44,5 @@ export const rawBlogArticles = [
   article18,
   article19,
   article20,
+  article21,
 ] as const;
