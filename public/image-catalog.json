@@ -498,6 +498,21 @@
       ]
     },
     {
+      "path": "/images/blog/tem-hop-mang-di.webp",
+      "title": "Tem Hop Mang Di",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1050,
+      "height": 1050,
+      "bytes": 115128,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/tem-ly-ca-phe-chong-nuoc.webp",
       "title": "Tem Ly Ca Phe Chong Nuoc",
       "category": "blog",
@@ -625,6 +640,21 @@
       "width": 768,
       "height": 768,
       "bytes": 54184,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-uv-dtf-ly-goc-nghieng.webp",
+      "title": "Tem Uv Dtf Ly Goc Nghieng",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1050,
+      "height": 1050,
+      "bytes": 52770,
       "usages": [
         {
           "href": "/blog",

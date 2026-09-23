@@ -5,11 +5,11 @@
   "title": "Tem UV DTF là gì? Phù hợp với sản phẩm nào?",
   "description": "Hiểu cấu tạo, ưu điểm, giới hạn và các bề mặt phù hợp trước khi chọn tem UV DTF cho logo thương hiệu.",
   "category": "ky-thuat-in",
-  "image": "/images/blog/tem-uv-dtf-bo-qua-tang.webp",
-  "imageAlt": "Hình minh họa AI logo UV DTF đồng bộ trên ly và bình trong bộ quà tặng",
+  "image": "/images/blog/tem-uv-dtf-ly-goc-nghieng.webp",
+  "imageAlt": "Hình minh họa AI ly gốm được chụp chính diện và góc nghiêng để chọn vị trí dán UV DTF",
   "publishedAt": "2026-07-20",
-  "updatedAt": "2026-09-19",
-  "readingMinutes": 9,
+  "updatedAt": "2026-09-23",
+  "readingMinutes": 10,
   "publishAt": "2026-07-20T06:30:00+07:00",
   "primaryKeyword": "tem UV DTF là gì",
   "searchIntent": "Tìm hiểu UV DTF và bề mặt phù hợp",
@@ -120,6 +120,19 @@
         "Kiểm tra vị trí nhìn thấy khi sản phẩm nằm trong hộp.",
         "Dán thử trên đúng bề mặt và lớp phủ trước khi làm số lượng lớn."
       ]
+    },
+    {
+      "heading": "Gửi hai góc ảnh trước khi chốt vị trí UV DTF trên ly",
+      "paragraphs": [
+        "Ảnh chính diện cho thấy vị trí logo theo hướng nhìn quen thuộc; ảnh nghiêng giúp nhìn rõ độ cong của thân ly, khoảng trống quanh quai và phần bề mặt có thể miết tem. Hai góc ảnh giúp việc trao đổi vị trí cụ thể hơn trước khi chọn kích thước.",
+        "Hãy đánh dấu vùng muốn dán trên ảnh, ghi chiều ngang × cao dự kiến và cho biết chất liệu cùng lớp phủ bề mặt. Với ly có quai hoặc thân cong mạnh, cần ướm mẫu ở kích thước thật và thử trên đúng sản phẩm trước khi làm số lượng lớn. Hình đầu bài là minh họa cách chuẩn bị ảnh, không phải ảnh đơn hàng hay cam kết UV DTF phù hợp mọi loại ly."
+      ],
+      "bullets": [
+        "Chụp ly chính diện để xác định mặt logo hướng ra ngoài.",
+        "Chụp góc nghiêng để thấy quai, độ cong và vùng trống.",
+        "Đánh dấu vị trí muốn dán và ghi kích thước dự kiến.",
+        "Dán thử trên đúng chất liệu và lớp phủ trước khi đặt nhiều."
+      ]
     }
   ],
   "relatedProductSlugs": [
@@ -148,6 +161,13 @@
       "note": "Nguồn nội dung và hình minh họa đã được chủ duyệt, đăng công khai và xác minh ngày 18/09/2026.",
       "kind": "primary",
       "verifiedAt": "2026-09-19"
+    },
+    {
+      "title": "Bài VinPrint về chuẩn bị ảnh ly trước khi dán UV DTF",
+      "href": "https://www.facebook.com/100068300211280/posts/1396764275943566/",
+      "note": "Nguồn nội dung và hình minh họa đã được chủ duyệt, đăng công khai ngày 22/09/2026.",
+      "kind": "primary",
+      "verifiedAt": "2026-09-23"
     }
   ],
   "quality": {
@@ -163,7 +183,8 @@
     "evidenceIds": [
       "/san-pham/tem-uv-dtf",
       "/huong-dan/ky-thuat-in-tem",
-      "https://facebook.com/vinprints.sg/posts/pfbid05jjkBdCagMWn8S1AHrGB8JkA468ygdq2puhhipHNJUZdhE1GKDAyq4oK1X2g6oHxl"
+      "https://facebook.com/vinprints.sg/posts/pfbid05jjkBdCagMWn8S1AHrGB8JkA468ygdq2puhhipHNJUZdhE1GKDAyq4oK1X2g6oHxl",
+      "https://www.facebook.com/100068300211280/posts/1396764275943566/"
     ],
     "claimsVerified": true,
     "duplicateIntentChecked": true,
@@ -179,6 +200,13 @@
         "claim": "Mỗi vật dụng trong bộ quà cần được ướm vị trí và kích thước logo riêng trước khi chốt in.",
         "sourceIds": [
           "https://facebook.com/vinprints.sg/posts/pfbid05jjkBdCagMWn8S1AHrGB8JkA468ygdq2puhhipHNJUZdhE1GKDAyq4oK1X2g6oHxl"
+        ]
+      },
+      {
+        "claim": "Ảnh chính diện và góc nghiêng giúp trao đổi vị trí logo trên ly có quai trước khi chốt quy cách.",
+        "sourceIds": [
+          "https://www.facebook.com/100068300211280/posts/1396764275943566/",
+          "/san-pham/tem-uv-dtf"
         ]
       }
     ],
