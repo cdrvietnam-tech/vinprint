@@ -393,6 +393,36 @@
       ]
     },
     {
+      "path": "/images/blog/tem-bao-quan-lanh-hu-sua-chua.webp",
+      "title": "Tem Bao Quan Lanh Hu Sua Chua",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1200,
+      "height": 1200,
+      "bytes": 99716,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-cam-on-shop-online.webp",
+      "title": "Tem Cam On Shop Online",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1200,
+      "height": 1200,
+      "bytes": 141034,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/tem-chai-serum.webp",
       "title": "Tem Chai Serum",
       "category": "blog",
