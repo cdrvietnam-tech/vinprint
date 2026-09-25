@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   },
   other: {
     "geo.region": "VN-SG",
-    "geo.placename": "An Phú Đồng, TP.HCM",
+    "geo.placename": "An Phú Đông, TP.HCM",
   },
   icons: {
     icon: "/favicon.svg",

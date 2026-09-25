@@ -87,9 +87,9 @@ export const DEFAULT_SITE_CONTENT: SiteContent = {
     phone: "0844998499",
     phoneDisplay: "0844 998 499",
     zaloUrl: "https://zalo.me/0844998499",
-    address: "Số 13, Đường Thạnh Lộc 42, An Phú Đồng, TP.HCM",
-    hoursWeekday: "Thứ 2–Thứ 7: 09:00–17:30",
-    hoursWeekend: "Chủ nhật và ngày lễ: Nghỉ",
+    address: "Số 13, Đường Thạnh Lộc 42, An Phú Đông, TP.HCM",
+    hoursWeekday: "Thứ 2–Thứ 7: Mở cửa 24/24",
+    hoursWeekend: "Chủ nhật: Mở cửa 24/24",
   },
   header: {
     tagline: "In nhanh · Chuẩn đẹp · Giá tốt",

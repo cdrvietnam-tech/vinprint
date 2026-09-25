@@ -67,7 +67,7 @@ test("renders the new storefront homepage with key sections", async () => {
   assert.match(html, /https:\/\/vinprint\.vn/);
   assert.doesNotMatch(html, /vinprint-ai\.cdrvietnam\.chatgpt\.site/i);
   assert.match(html, /Thứ 2–Thứ 7/);
-  assert.match(html, /An Phú Đồng/);
+  assert.match(html, /An Phú Đông/);
   assert.doesNotMatch(html, /images\.unsplash\.com/i);
 });
 
@@ -253,7 +253,7 @@ test("homepage keeps the workshop map collapsed and the footer customer-facing",
   assert.match(html, /<button[^>]*aria-expanded="false"[^>]*aria-controls="vinprint-map-panel"/);
   assert.match(html, /id="vinprint-map-panel"[^>]*hidden=""[^>]*aria-hidden="true"/);
   assert.doesNotMatch(html, /<iframe[^>]*title="Địa chỉ xưởng VinPrint trên Google Maps"/i);
-  assert.match(html, /Chủ nhật và ngày lễ/i);
+  assert.match(html, /Chủ nhật: Mở cửa 24\/24/i);
   assert.doesNotMatch(footer, />Shopee</i);
   assert.doesNotMatch(footer, />Google Maps</i);
   assert.doesNotMatch(footer, />llms\.txt</i);

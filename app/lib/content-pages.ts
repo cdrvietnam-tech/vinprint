@@ -25,7 +25,7 @@ export const companyPages: Record<string, ContentPageData> = {
     sections: [
       { heading: "Chúng tôi giải quyết điều gì?", paragraphs: ["Một chiếc tem cần đúng màu, đúng kích thước và phù hợp bề mặt sử dụng. VinPrint tư vấn từ chất liệu đến cách gia công để khách hàng không phải chọn bằng cảm tính."], bullets: ["Nhận số lượng ít để thử mẫu", "Hỗ trợ thiết kế khi chưa có file hoàn chỉnh", "Báo giá theo kích thước, số lượng và kỹ thuật gia công", "Giao hàng toàn quốc"] },
       { heading: "Quy trình minh bạch", paragraphs: ["Mỗi đơn hàng được xác nhận lại nội dung, kích thước, chất liệu, số lượng và thời gian dự kiến. Khách hàng duyệt mẫu trước khi xưởng tiến hành in."], bullets: ["Gửi yêu cầu và file", "Nhận tư vấn, báo giá", "Duyệt nội dung và mẫu", "In, kiểm tra, đóng gói", "Nhận hàng và phản hồi"] },
-      { heading: "Thông tin xưởng", paragraphs: ["Địa chỉ: Số 13, Đường Thạnh Lộc 42, An Phú Đồng, TP.HCM. Giờ làm việc: 09:00–17:30 từ Thứ 2 đến Thứ 7; nghỉ Chủ nhật và ngày lễ. Hotline/Zalo: 0844 998 499."] },
+      { heading: "Thông tin xưởng", paragraphs: ["Địa chỉ: Số 13, Đường Thạnh Lộc 42, An Phú Đông, TP.HCM. Giờ làm việc: 24/24, tất cả các ngày trong tuần. Hotline/Zalo: 0844 998 499."] },
     ],
   },
   "lien-he": {
@@ -35,9 +35,9 @@ export const companyPages: Record<string, ContentPageData> = {
     eyebrow: "Liên hệ xưởng",
     intro: "Để báo giá chính xác, hãy gửi file hoặc hình tham khảo kèm kích thước, số lượng và bề mặt dự kiến dán tem.",
     sections: [
-      { heading: "Kênh liên hệ", paragraphs: ["Hotline/Zalo: 0844 998 499. Địa chỉ: Số 13, Đường Thạnh Lộc 42, An Phú Đồng, TP.HCM."], bullets: ["Zalo phù hợp để gửi file và hình ảnh", "Điện thoại phù hợp khi cần xác nhận gấp", "Xem đường đi trên Google Maps trước khi đến xưởng"] },
+      { heading: "Kênh liên hệ", paragraphs: ["Hotline/Zalo: 0844 998 499. Địa chỉ: Số 13, Đường Thạnh Lộc 42, An Phú Đông, TP.HCM."], bullets: ["Zalo phù hợp để gửi file và hình ảnh", "Điện thoại phù hợp khi cần xác nhận gấp", "Xem đường đi trên Google Maps trước khi đến xưởng"] },
       { heading: "Thông tin cần gửi", paragraphs: ["Báo giá phụ thuộc vào quy cách thực tế. Càng đủ thông tin, thời gian xác nhận càng nhanh."], bullets: ["Kích thước tem", "Số lượng", "Chất liệu mong muốn", "Hình dạng và kỹ thuật cắt", "Yêu cầu cán màng, ép kim hoặc hiệu ứng khác"] },
-      { heading: "Thời gian làm việc", paragraphs: ["VinPrint làm việc 09:00–17:30, Thứ 2–Thứ 7; nghỉ Chủ nhật và ngày lễ. Các tin nhắn ngoài giờ sẽ được phản hồi trong ca làm việc tiếp theo."] },
+      { heading: "Thời gian làm việc", paragraphs: ["VinPrint làm việc 24/24, tất cả các ngày trong tuần."] },
     ],
   },
   "chinh-sach": {

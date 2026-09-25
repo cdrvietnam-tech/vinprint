@@ -17,8 +17,8 @@ export function GET() {
 
 - Website: https://vinprint.vn
 - Điện thoại/Zalo: 0844 998 499
-- Địa chỉ: Số 13, Đường Thạnh Lộc 42, An Phú Đồng, TP.HCM
-- Giờ làm việc: 09:00–17:30, Thứ 2–Thứ 7; nghỉ Chủ nhật và ngày lễ
+- Địa chỉ: Số 13, Đường Thạnh Lộc 42, An Phú Đông, TP.HCM
+- Giờ làm việc: 24/24, tất cả các ngày trong tuần
 - Combo khuyến mãi: https://vinprint.vn/#bang-gia
 - Liên hệ: https://vinprint.vn/lien-he
 - Chính sách: https://vinprint.vn/chinh-sach
