@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-truoc-tem-sau-cho-chai-lo",
+  "title": "Tem trước, tem sau cho chai lọ: đặt đủ số lượng từng mẫu",
+  "description": "Cách chia nội dung giữa tem trước và tem sau cho chai lọ, tính số lượng từng mẫu và chuẩn bị ảnh bao bì để VinPrint trao đổi quy cách trước khi in.",
+  "category": "theo-nganh",
+  "image": "/images/blog/tem-truoc-tem-sau-cho-chai-lo.webp",
+  "imageAlt": "Hình minh họa AI chai màu hổ phách dùng tem trước nhận diện và tem sau mô phỏng bố cục thông tin",
+  "publishedAt": "2026-09-25",
+  "updatedAt": "2026-09-25",
+  "publishAt": "2026-09-25T09:20:00+07:00",
+  "readingMinutes": 4,
+  "primaryKeyword": "tem trước tem sau cho chai lọ",
+  "searchIntent": "Tách nhận diện mặt trước và thông tin mặt sau trên bộ nhãn chai lọ",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-facebook-sync-v1",
+  "revisionCount": 1,
+  "directAnswer": "Khi một chai hoặc lọ dùng hai nhãn riêng, hãy xem tem trước và tem sau là hai mẫu cần đặt số lượng độc lập. Ví dụ 100 chai dùng một tem trước và một tem sau sẽ cần 100 tem của mỗi mẫu, trước khi cộng phần dự phòng do shop tự quyết định. Mặt trước thường dành cho tên sản phẩm và nhận diện; mặt sau dành cho phần thông tin chi tiết đã được chủ sản phẩm chốt. Đo riêng từng vùng dán trên chai thật, kiểm tra chữ ở kích thước in và đặt tên file rõ ràng. Khi gửi VinPrint, hãy kèm ảnh chai, kích thước từng tem và bảng số lượng của từng mẫu để hai bên đối chiếu quy cách.",
+  "sections": [
+    {
+      "heading": "Phân vai rõ cho tem trước và tem sau",
+      "paragraphs": [
+        "Tem trước cần giúp khách nhận ra sản phẩm và thương hiệu ở góc nhìn chính. Tem sau có thể dành cho phần thông tin chi tiết mà chủ sản phẩm đã chuẩn bị. Việc tách hai mặt giúp bố cục có khoảng thở thay vì thu nhỏ mọi dòng chữ vào một nhãn.",
+        "Nội dung bắt buộc phụ thuộc loại sản phẩm và hồ sơ của đơn vị kinh doanh; VinPrint hỗ trợ kiểm tra file và quy cách in, không thay thế việc chủ nhãn hàng xác nhận nội dung pháp lý."
+      ],
+      "bullets": [
+        "Tem trước: ưu tiên tên sản phẩm, logo và dấu hiệu nhận diện.",
+        "Tem sau: bố trí phần thông tin chi tiết đã được chốt.",
+        "Giữ cùng màu, kiểu chữ và hệ thống nhận diện trên cả hai mẫu."
+      ]
+    },
+    {
+      "heading": "Tính số lượng theo từng mẫu, không chỉ theo số chai",
+      "paragraphs": [
+        "Mỗi chai cần một tem trước và một tem sau thì số lượng hai mẫu bằng số chai dự kiến dán. Nếu chai có nhiều dung tích hoặc nhiều phiên bản, hãy tách thành từng dòng để tránh gom nhầm tổng số tem.",
+        "Một bảng đơn giản gồm tên file, vị trí dán, kích thước và số lượng giúp xưởng đối chiếu trước khi sản xuất. Đặt tên file theo mẫu và mặt giúp hạn chế nhầm khi chỉnh sửa."
+      ],
+      "table": {
+        "headers": [
+          "Mẫu",
+          "Vị trí",
+          "Số lượng cần ghi"
+        ],
+        "rows": [
+          [
+            "Tem trước",
+            "Mặt nhận diện chính",
+            "Số chai của mẫu tương ứng"
+          ],
+          [
+            "Tem sau",
+            "Mặt thông tin",
+            "Số chai của mẫu tương ứng"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Đo riêng hai vùng dán trên chai thật",
+      "paragraphs": [
+        "Chai có độ cong, vai chai và khoảng trống khác nhau giữa hai mặt. Hãy đo trên đúng bao bì sẽ dùng, chụp thẳng từng vị trí và tránh để tem đi vào vùng gân hoặc cong mạnh ngoài dự kiến.",
+        "In thử hoặc xem bản ở kích thước thật để kiểm tra chữ, khoảng cách với đường cắt và khả năng đọc. Hình minh họa trong bài chỉ mô phỏng cách chia bố cục, không phải nhãn hàng hóa hoàn chỉnh."
+      ]
+    },
+    {
+      "heading": "Gửi một gói thông tin để VinPrint kiểm tra",
+      "paragraphs": [
+        "Gửi hai file đã đặt tên rõ, ảnh chai hoặc lọ, kích thước từng vùng dán và số lượng mỗi mẫu. Nếu chưa chốt chất liệu, mô tả bề mặt bao bì và điều kiện sử dụng để xưởng trao đổi nhóm tem phù hợp.",
+        "Giá và thời gian được xác nhận sau khi xem kích thước, vật liệu, số mẫu và số lượng thực tế."
+      ],
+      "bullets": [
+        "File tem trước và file tem sau.",
+        "Ảnh thẳng và ảnh nghiêng của chai hoặc lọ.",
+        "Kích thước thành phẩm riêng cho mỗi tem.",
+        "Số lượng từng mẫu, tách theo dung tích hoặc phiên bản."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-giay",
+    "tem-nhua-chong-nuoc",
+    "tem-nhua-trong"
+  ],
+  "sources": [
+    {
+      "title": "Bài VinPrint về tem trước và tem sau",
+      "href": "https://www.facebook.com/100068300211280/posts/1398389229114404/",
+      "note": "Nguồn nội dung và ảnh minh họa đã đăng công khai; hướng dẫn ghi số lượng riêng từng mặt và kiểm tra bản in ở kích thước thật.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-25"
+    },
+    {
+      "title": "Tem nhãn cho chai lọ",
+      "href": "/nganh/chai-lo",
+      "note": "Trang ngành VinPrint mô tả yêu cầu chọn tem theo bề mặt và hình dáng chai lọ.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-25"
+    },
+    {
+      "title": "Tem nhãn giấy VinPrint",
+      "href": "/san-pham/tem-giay",
+      "note": "Trang sản phẩm dùng làm nguồn cho nhóm tem giấy trên bao bì khô và quy trình xác nhận quy cách.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-25"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 20,
+      "evidence": 20,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "https://www.facebook.com/100068300211280/posts/1398389229114404/",
+      "/nganh/chai-lo",
+      "/san-pham/tem-giay"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Bài Facebook công khai của VinPrint hướng dẫn tính riêng số lượng tem trước và tem sau theo số chai.",
+        "sourceIds": [
+          "https://www.facebook.com/100068300211280/posts/1398389229114404/"
+        ]
+      },
+      {
+        "claim": "VinPrint có trang ngành riêng cho tem nhãn chai lọ và trang sản phẩm tem giấy.",
+        "sourceIds": [
+          "/nganh/chai-lo",
+          "/san-pham/tem-giay"
+        ]
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "recordedAt": "2026-09-25T09:25:00+07:00",
+        "score": 100,
+        "outcome": "accepted"
+      }
+    ]
+  }
+}

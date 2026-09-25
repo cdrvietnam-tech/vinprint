@@ -558,6 +558,21 @@
       ]
     },
     {
+      "path": "/images/blog/tem-nhan-nen-thom.webp",
+      "title": "Tem Nhan Nen Thom",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1200,
+      "height": 1200,
+      "bytes": 190586,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/tem-nhieu-vi-san-pham.webp",
       "title": "Tem Nhieu Vi San Pham",
       "category": "blog",
@@ -640,6 +655,21 @@
       "width": 1200,
       "height": 1200,
       "bytes": 417482,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-truoc-tem-sau-cho-chai-lo.webp",
+      "title": "Tem Truoc Tem Sau Cho Chai Lo",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1200,
+      "height": 1200,
+      "bytes": 164016,
       "usages": [
         {
           "href": "/blog",
