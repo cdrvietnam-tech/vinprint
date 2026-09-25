@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-nhan-nen-thom",
+  "title": "Tem nhãn nến thơm: phối tem thân hũ và tem nắp hộp",
+  "description": "Chọn tem thân hũ và tem nắp hộp cho nến thơm theo vùng dán, màu bao bì và số lượng từng mẫu; gửi ảnh thực tế để VinPrint tư vấn quy cách.",
+  "category": "theo-nganh",
+  "image": "/images/blog/tem-nhan-nen-thom.webp",
+  "imageAlt": "Hình minh họa AI hai hũ nến màu hổ phách, hộp quà và bộ tem nhãn họa tiết thực vật",
+  "publishedAt": "2026-09-25",
+  "updatedAt": "2026-09-25",
+  "publishAt": "2026-09-25T09:20:00+07:00",
+  "readingMinutes": 4,
+  "primaryKeyword": "tem nhãn nến thơm",
+  "searchIntent": "Phối tem thân hũ và tem nắp hộp cho bộ nến thơm",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-daily-promo-v1",
+  "revisionCount": 1,
+  "directAnswer": "Bộ tem nhãn nến thơm có thể gồm một tem chính trên thân hũ và một tem nhỏ trên nắp hoặc hộp quà. Hãy đo từng vùng dán trên hũ và hộp thật, chọn một hệ logo và màu thống nhất rồi ghi số lượng riêng cho từng mẫu. Tem giấy phù hợp để tham khảo cho hộp giấy và bao bì khô; tem vàng ánh kim có thể dùng làm điểm nhấn ấm cho logo hoặc chi tiết trang trí. Hiệu ứng và độ phù hợp vẫn cần xem trên đúng màu nền, bề mặt và kích thước thực tế. Gửi ảnh bao bì, file thiết kế, kích thước và số lượng để VinPrint trao đổi quy cách trước khi báo giá.",
+  "sections": [
+    {
+      "heading": "Chia vai trò giữa tem thân hũ và tem nắp hộp",
+      "paragraphs": [
+        "Tem thân hũ là điểm nhận diện chính khi sản phẩm đứng trên kệ hoặc xuất hiện trong ảnh. Tem nắp hộp có thể dùng như một dấu hoàn thiện cho bộ quà tặng, nhưng không cần lặp lại toàn bộ nội dung của tem thân.",
+        "Dùng cùng phiên bản logo, bảng màu và phong cách họa tiết giúp hai tem thuộc về một bộ. Kích thước, hình dạng và lượng thông tin vẫn nên được điều chỉnh theo diện tích riêng của từng vị trí."
+      ],
+      "bullets": [
+        "Tem thân hũ: ưu tiên logo, tên dòng sản phẩm và bố cục dễ nhìn.",
+        "Tem nắp hộp: dùng logo hoặc chi tiết nhận diện ngắn gọn.",
+        "Ghi số lượng riêng nếu mỗi mùi hương có một mẫu khác nhau."
+      ]
+    },
+    {
+      "heading": "Chọn bề mặt tem theo màu hũ và hộp",
+      "paragraphs": [
+        "Trên hũ màu hổ phách hoặc nền tối, cần xem thử độ tương phản của chữ và logo ở kích thước thật. Với hộp giấy và bao bì khô, tem giấy là nhóm có thể tham khảo. Nếu muốn một điểm nhấn ấm, tem vàng ánh kim là lựa chọn đang có trong danh mục VinPrint.",
+        "Tên vật liệu hoặc ảnh mô phỏng chưa đủ để chốt thành phẩm. Màu nền bao bì, lớp mực, độ phản sáng và ánh sáng sử dụng đều có thể làm cảm nhận thay đổi; hãy xem mẫu trên đúng bề mặt trước khi in nhiều."
+      ]
+    },
+    {
+      "heading": "Đo vùng dán và kiểm tra bản in thật",
+      "paragraphs": [
+        "Đo chiều rộng và chiều cao của vùng phẳng trên hũ, tránh để tem đi qua mép cong ngoài dự kiến. Với nắp hộp, kiểm tra tem có nằm trọn trong vùng nhìn thấy khi đóng hộp hay không.",
+        "Xem bản in ở kích thước thật để kiểm tra nét logo, chữ và khoảng cách với đường cắt. Hình trong bài chỉ là minh họa AI, không phải ảnh đơn hàng hoặc bảo đảm màu thành phẩm."
+      ],
+      "bullets": [
+        "Ảnh thẳng và ảnh nghiêng của hũ nến.",
+        "Số đo vùng dán trên thân hũ và nắp hộp.",
+        "File logo hoặc thiết kế đã chốt nội dung.",
+        "Số lượng riêng cho từng mùi hương hoặc từng mẫu."
+      ]
+    },
+    {
+      "heading": "Gửi thông tin để VinPrint trao đổi quy cách",
+      "paragraphs": [
+        "Gửi ảnh hũ, hộp, file thiết kế và bảng số lượng từng mẫu qua kênh liên hệ VinPrint. Nếu đang cân nhắc tem giấy hay tem hiệu ứng, ghi rõ màu bao bì và vị trí dán để xưởng có cơ sở trao đổi.",
+        "Giá và thời gian thực hiện được xác nhận sau khi xem vật liệu, kích thước, số mẫu và số lượng thực tế."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-giay",
+    "tem-vang"
+  ],
+  "sources": [
+    {
+      "title": "Tem vàng ánh kim VinPrint",
+      "href": "/san-pham/tem-vang",
+      "note": "Trang sản phẩm nêu ứng dụng trên nến thơm, mỹ phẩm, quà tặng và hiệu ứng điểm nhấn ấm.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-25"
+    },
+    {
+      "title": "Tem nhãn giấy VinPrint",
+      "href": "/san-pham/tem-giay",
+      "note": "Trang sản phẩm nêu nhóm ứng dụng cho hộp giấy, túi kraft và bao bì khô.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-25"
+    },
+    {
+      "title": "Tem và sticker cho sản phẩm handmade",
+      "href": "/nganh/handmade",
+      "note": "Trang ngành mô tả nhu cầu nhiều mẫu nhỏ, thay đổi theo mùa và nhận diện cho shop handmade.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-25"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 20,
+      "evidence": 20,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/san-pham/tem-vang",
+      "/san-pham/tem-giay",
+      "/nganh/handmade"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "VinPrint liệt kê nến thơm trong nhóm ứng dụng của tem vàng ánh kim.",
+        "sourceIds": [
+          "/san-pham/tem-vang"
+        ]
+      },
+      {
+        "claim": "Tem giấy VinPrint được mô tả cho hộp giấy và bao bì khô.",
+        "sourceIds": [
+          "/san-pham/tem-giay"
+        ]
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "recordedAt": "2026-09-25T09:25:00+07:00",
+        "score": 100,
+        "outcome": "accepted"
+      }
+    ]
+  }
+}
