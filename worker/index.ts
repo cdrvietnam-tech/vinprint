@@ -221,6 +221,13 @@ const worker = {
     const url = new URL(request.url);
     const legacyRedirect = resolveLegacyRedirect(url);
 
+    // Canonicalize only the production host; keep local and preview origins usable.
+    if (url.hostname === "vinprint.vn" && url.protocol === "http:") {
+      const secureUrl = legacyRedirect ?? new URL(url);
+      secureUrl.protocol = "https:";
+      return Response.redirect(secureUrl.href, 308);
+    }
+
     if (url.pathname.startsWith("/admin") && !isAdminRequest(request, env)) {
       return new Response("Khu vực quản trị yêu cầu đăng nhập qua Cloudflare Access.", {
         status: 401,

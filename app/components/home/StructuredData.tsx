@@ -45,24 +45,8 @@ const itemListSchema = {
   itemListElement: products.map((product, index) => ({
     "@type": "ListItem",
     position: index + 1,
-    item: {
-      "@type": "Product",
-      name: product.name,
-      description: product.description,
-      image: product.image.startsWith("http") ? product.image : `https://vinprint.vn${product.image}`,
-      url: `https://vinprint.vn/san-pham/${product.slug}`,
-      ...(product.price
-        ? {
-            offers: {
-              "@type": "Offer",
-              priceCurrency: "VND",
-              price: product.price,
-              availability: "https://schema.org/InStock",
-              url: `https://vinprint.vn/san-pham/${product.slug}`,
-            },
-          }
-        : {}),
-    },
+    name: product.name,
+    url: `https://vinprint.vn/san-pham/${product.slug}`,
   })),
 };
 
