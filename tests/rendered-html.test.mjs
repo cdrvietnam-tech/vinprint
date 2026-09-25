@@ -24,6 +24,50 @@ async function render(pathname = "/", origin = "http://localhost") {
   );
 }
 
+function structuredData(html) {
+  return Array.from(html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g),
+    (match) => JSON.parse(match[1]));
+}
+
+test("homepage lists services without emitting incomplete product rich results", async () => {
+  const data = structuredData(await (await render()).text());
+  const list = data.find((item) => item["@type"] === "ItemList");
+  assert.equal(list.itemListElement.length, 10);
+  assert.ok(list.itemListElement.every((item) => item.name && item.url.startsWith("https://vinprint.vn/san-pham/")));
+  assert.doesNotMatch(JSON.stringify(data), /"@type":"Product"/);
+});
+
+test("product detail schema reflects priced products and quote-only printing services", async () => {
+  for (const [slug, type, price] of [["tem-giay", "Product", 10000], ["tem-nhua-trong", "Service", null]]) {
+    const data = structuredData(await (await render(`/san-pham/${slug}`)).text());
+    const entity = data.find((item) => item["@type"] === type);
+    assert.ok(entity);
+    assert.equal(entity.url, `https://vinprint.vn/san-pham/${slug}`);
+    assert.match(entity.image, /^https:\/\/vinprint\.vn\//);
+    if (price) assert.equal(entity.offers.price, price);
+    else {
+      assert.equal(entity.offers, undefined);
+      assert.equal(entity.review, undefined);
+      assert.equal(entity.aggregateRating, undefined);
+      assert.equal(entity.provider.name, "VinPrint");
+      assert.ok(!data.some((item) => item["@type"] === "Product"));
+    }
+  }
+});
+
+test("production HTTP redirects directly to HTTPS and preserves path and query", async () => {
+  for (const path of ["/", "/san-pham/tem-giay?utm_source=test", "/robots.txt"]) {
+    const response = await render(path, "http://vinprint.vn");
+    assert.equal(response.status, 308);
+    assert.equal(response.headers.get("location"), `https://vinprint.vn${path}`);
+  }
+  const oldPath = "/product/sticker-trang-tri-pvc-chong-nuoc-sieu-ben-boc-khong-de-lai-keo-1000-mau-hot-trend-doc-la";
+  const legacy = await render(`${oldPath}/?utm_source=test`, "http://vinprint.vn");
+  assert.equal(legacy.status, 308);
+  assert.equal(legacy.headers.get("location"), "https://vinprint.vn/san-pham/sticker-trang-tri?utm_source=test");
+  assert.equal((await render("/", "https://vinprint.vn")).status, 200);
+});
+
 test("approved Facebook content renders on its distinct intent owners", async () => {
   const article = await render("/blog/tem-nhan-trung-thu-hop-qua");
   assert.equal(article.status, 200);
@@ -549,4 +593,3 @@ test("permanently redirects the verified WordPress sticker URL in one hop", asyn
     assert.equal(response.headers.get("location"), target, source);
   }
 });
-

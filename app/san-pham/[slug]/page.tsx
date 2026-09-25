@@ -42,10 +42,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const related = products.filter((item) => item.slug !== product.slug).slice(0, 3);
   const productSchema = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": product.price ? "Product" : "Service",
     name: product.name,
     description: product.description,
-    image: product.image,
+    image: new URL(product.image, "https://vinprint.vn").href,
     brand: { "@type": "Brand", name: "VinPrint" },
     category: "Tem nhãn in theo yêu cầu",
     url: `https://vinprint.vn/san-pham/${product.slug}`,
@@ -60,7 +60,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             seller: { "@type": "Organization", name: "VinPrint" },
           },
         }
-      : {}),
+      : { provider: { "@type": "Organization", name: "VinPrint", url: "https://vinprint.vn" } }),
   };
   const breadcrumbSchema = {
     "@context": "https://schema.org",
