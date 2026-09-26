@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-hop-banh-ghi-ngay-theo-me",
+  "title": "Tem hộp bánh: chừa vùng ghi ngày làm và hạn dùng theo mẻ",
+  "description": "Chuẩn bị tem hộp bánh có phần in cố định và vùng trống để ghi ngày theo từng mẻ; gửi cách ghi, kích thước và ảnh hộp để VinPrint xem quy cách.",
+  "category": "theo-nganh",
+  "image": "/images/blog/tem-hop-banh-ghi-ngay-theo-me.webp",
+  "imageAlt": "Hình minh họa AI hộp bánh và tem giấy có hai vùng trống ghi ngày làm, hạn dùng",
+  "publishedAt": "2026-09-26",
+  "updatedAt": "2026-09-26",
+  "publishAt": "2026-09-26T09:05:00+07:00",
+  "readingMinutes": 4,
+  "primaryKeyword": "tem hộp bánh ghi ngày theo mẻ",
+  "searchIntent": "Chuẩn bị tem hộp bánh có vùng trống để điền ngày riêng cho từng mẻ",
+  "buyerStage": "implementation",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-facebook-sync-v1",
+  "revisionCount": 1,
+  "directAnswer": "Tem hộp bánh dùng chung cho nhiều mẻ nên tách rõ phần in cố định và vùng cần điền sau. Logo, tên sản phẩm và bố cục chung có thể in sẵn; ngày làm, hạn dùng hoặc thông tin thay đổi theo mẻ cần được chủ sản phẩm xác định và chừa diện tích phù hợp. Hãy cho VinPrint biết bạn dự kiến ghi tay, đóng dấu hay dùng cách khác để hai bên trao đổi bề mặt tem và kích thước vùng trống. Luôn thử chính dụng cụ ghi trên mẫu vật liệu trước khi đặt số lượng lớn. Gửi file, ảnh hộp bánh, kích thước tem, số lượng và đánh dấu các ô cần để trống. Hình minh họa chỉ thể hiện bố cục, không phải nhãn thực phẩm hoàn chỉnh.",
+  "sections": [
+    {
+      "heading": "Tách phần in cố định và phần thay đổi theo mẻ",
+      "paragraphs": [
+        "Trên cùng một mẫu tem, logo, tên sản phẩm và phần nhận diện có thể giữ cố định. Các thông tin thay đổi theo từng mẻ cần được đánh dấu rõ trong file để xưởng không in nhầm vào vùng dự kiến chừa trống.",
+        "Chủ sản phẩm chịu trách nhiệm chốt nội dung và cách thể hiện phù hợp với mặt hàng của mình. VinPrint xem file và quy cách in, không tự xác định ngày hoặc nội dung pháp lý thay cho đơn vị kinh doanh."
+      ],
+      "bullets": [
+        "Đánh dấu rõ vùng in cố định trong file.",
+        "Khoanh riêng các ô cần để trống để điền sau.",
+        "Giữ chữ hướng dẫn cạnh ô đủ rõ ở kích thước thật."
+      ]
+    },
+    {
+      "heading": "Chọn cách ghi trước khi chốt diện tích trống",
+      "paragraphs": [
+        "Ghi tay và đóng dấu cần khoảng trống, nét chữ và thao tác khác nhau. Hãy mang đúng loại bút hoặc dấu dự kiến dùng để thử trên mẫu tem thực tế, vì ảnh hoặc tên vật liệu chưa chứng minh dụng cụ đó sẽ phù hợp.",
+        "Nếu vùng trống quá nhỏ, thông tin có thể khó điền và khó đọc. Nếu quá lớn, bố cục tem mất cân đối. Cách an toàn là in một bản đúng kích thước, đặt lên hộp và thử thao tác trước."
+      ],
+      "bullets": [
+        "Ghi rõ dự kiến dùng bút hay dấu đóng.",
+        "Thử trên đúng mẫu vật liệu, không chỉ trên giấy thường.",
+        "Kiểm tra khi tem đã dán trên hộp và hộp đã đóng."
+      ]
+    },
+    {
+      "heading": "Đo tem trên đúng hộp bánh",
+      "paragraphs": [
+        "Hộp nhựa, hộp giấy và nắp có gân tạo vùng dán khác nhau. Chụp ảnh thẳng, đo phần phẳng và tránh để ô ghi nằm qua mép cong hoặc đường gấp ngoài dự kiến.",
+        "Với hộp giấy và bao bì khô, tem giấy là nhóm có thể tham khảo. Nếu bề mặt hoặc điều kiện sử dụng khác, hãy mô tả để xưởng trao đổi vật liệu và thử mẫu."
+      ]
+    },
+    {
+      "heading": "Gửi gì để VinPrint trao đổi quy cách?",
+      "paragraphs": [
+        "Gửi file thiết kế, ảnh hộp, kích thước tem, số lượng và cách dự kiến điền thông tin. Đánh dấu trực tiếp trên bản xem trước các vùng cần để trống để hai bên cùng kiểm tra.",
+        "Giá và thời gian được xác nhận sau khi xem vật liệu, kích thước, số mẫu và số lượng thực tế."
+      ],
+      "bullets": [
+        "File tem với vùng cố định và vùng trống đã chú thích.",
+        "Ảnh hộp bánh tại vị trí dán.",
+        "Kích thước thành phẩm và số lượng.",
+        "Cách ghi dự kiến cùng dụng cụ dùng để thử mẫu."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-giay",
+    "tem-nhua-chong-nuoc"
+  ],
+  "sources": [
+    {
+      "title": "Bài VinPrint về tem ghi thông tin theo mẻ",
+      "href": "https://www.facebook.com/100068300211280/posts/1399366022350058/",
+      "note": "Nguồn nội dung và ảnh minh họa đã đăng công khai; hướng dẫn phân biệt phần in cố định với vùng chừa để điền sau.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-26"
+    },
+    {
+      "title": "Tem nhãn cho ngành thực phẩm",
+      "href": "/nganh/thuc-pham",
+      "note": "Trang ngành VinPrint nêu yêu cầu chọn tem theo bao bì và điều kiện sử dụng thực tế.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-26"
+    },
+    {
+      "title": "Tem nhãn giấy VinPrint",
+      "href": "/san-pham/tem-giay",
+      "note": "Trang sản phẩm dùng làm nguồn cho nhóm tem giấy trên hộp giấy và bao bì khô.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-26"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 20,
+      "evidence": 20,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "https://www.facebook.com/100068300211280/posts/1399366022350058/",
+      "/nganh/thuc-pham",
+      "/san-pham/tem-giay"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Bài Facebook công khai của VinPrint hướng dẫn chừa vùng trống để điền thông tin thay đổi theo từng mẻ.",
+        "sourceIds": [
+          "https://www.facebook.com/100068300211280/posts/1399366022350058/"
+        ]
+      },
+      {
+        "claim": "VinPrint có trang ngành thực phẩm và sản phẩm tem giấy để liên kết nội bộ.",
+        "sourceIds": [
+          "/nganh/thuc-pham",
+          "/san-pham/tem-giay"
+        ]
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "recordedAt": "2026-09-26T09:08:00+07:00",
+        "score": 100,
+        "outcome": "accepted"
+      }
+    ]
+  }
+}
