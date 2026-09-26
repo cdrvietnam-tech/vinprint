@@ -393,6 +393,21 @@
       ]
     },
     {
+      "path": "/images/blog/tem-bac-nhan-thong-so.webp",
+      "title": "Tem Bac Nhan Thong So",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1200,
+      "height": 1200,
+      "bytes": 175300,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/tem-bao-quan-lanh-hu-sua-chua.webp",
       "title": "Tem Bao Quan Lanh Hu Sua Chua",
       "category": "blog",
@@ -520,6 +535,21 @@
       "width": 768,
       "height": 768,
       "bytes": 57018,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-hop-banh-ghi-ngay-theo-me.webp",
+      "title": "Tem Hop Banh Ghi Ngay Theo Me",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1200,
+      "height": 1200,
+      "bytes": 206788,
       "usages": [
         {
           "href": "/blog",

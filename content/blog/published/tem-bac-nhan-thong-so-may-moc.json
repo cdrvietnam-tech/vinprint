@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-bac-nhan-thong-so-may-moc",
+  "title": "Tem bạc nhãn thông số máy móc: chuẩn bị file dễ đọc",
+  "description": "Chuẩn bị tem bạc cho nhãn thông số máy móc theo vùng dán, kích thước thật và độ tương phản; gửi file và ảnh bề mặt để VinPrint xem quy cách.",
+  "category": "chat-lieu",
+  "image": "/images/blog/tem-bac-nhan-thong-so.webp",
+  "imageAlt": "Hình minh họa AI tem bạc ánh kim dạng nhãn thông số trên hộp điều khiển và hộp dụng cụ",
+  "publishedAt": "2026-09-26",
+  "updatedAt": "2026-09-26",
+  "publishAt": "2026-09-26T09:05:00+07:00",
+  "readingMinutes": 4,
+  "primaryKeyword": "tem bạc nhãn thông số máy móc",
+  "searchIntent": "Chuẩn bị tem bạc dạng nhãn thông số dễ đọc cho thiết bị và hộp máy",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-daily-promo-v1",
+  "revisionCount": 1,
+  "directAnswer": "Tem bạc ánh kim có thể dùng cho nhãn thông số, máy móc, điện tử hoặc logo cần cảm giác kỹ thuật theo danh mục VinPrint. Khi chuẩn bị file, hãy bắt đầu từ vùng dán thật và lượng thông tin đã được chủ thiết bị xác nhận. Giữ chữ và biểu tượng đủ lớn, tạo tương phản rõ với nền bạc và xem bản ở kích thước in thay vì phóng to trên màn hình. Chụp bề mặt, đo kích thước, ghi số lượng từng mẫu và cho biết tem dùng làm nhãn thông tin hay logo. VinPrint sẽ xem file và trao đổi quy cách trước khi báo giá; ảnh minh họa không phải đơn hàng hay bằng chứng độ bền.",
+  "sections": [
+    {
+      "heading": "Xác định vai trò của tem trước khi dàn file",
+      "paragraphs": [
+        "Nhãn thông số và tem logo có mục tiêu khác nhau. Nhãn thông số cần bố cục có thứ tự để người dùng tìm đúng dòng; tem logo có thể tập trung vào nhận diện. Hãy chốt nội dung cần in trước khi thu nhỏ file.",
+        "VinPrint không tự tạo hoặc xác nhận thông số kỹ thuật của thiết bị. Chủ sản phẩm cần cung cấp nội dung đã duyệt; xưởng kiểm tra khả năng bố trí và quy cách in trong phạm vi file nhận được."
+      ],
+      "bullets": [
+        "Phân biệt nhãn thông tin với tem logo.",
+        "Chốt nội dung, ký hiệu và phiên bản file trước khi in.",
+        "Đặt tên từng mẫu nếu có nhiều thiết bị hoặc phiên bản."
+      ]
+    },
+    {
+      "heading": "Giữ chữ dễ đọc trên nền bạc phản sáng",
+      "paragraphs": [
+        "Bề mặt bạc phản sáng có thể làm cảm nhận màu và tương phản thay đổi theo góc nhìn. Chữ nhỏ, nét mảnh và vùng màu gần sắc nền cần được xem trên mẫu thật thay vì chỉ dựa vào màn hình.",
+        "Bài so sánh tem bạc và tem vàng của VinPrint cũng khuyến nghị kiểm tra thiết kế trên đúng nền bao bì và điều kiện ánh sáng. Với nhãn thông số, ưu tiên cấu trúc gọn và khoảng cách rõ giữa các dòng."
+      ],
+      "bullets": [
+        "Xem file ở đúng kích thước thành phẩm.",
+        "Giữ khoảng trống quanh chữ và biểu tượng.",
+        "Thử mẫu trên đúng màu bề mặt và ánh sáng sử dụng."
+      ]
+    },
+    {
+      "heading": "Đo vùng dán và chụp bề mặt thực tế",
+      "paragraphs": [
+        "Đo chiều rộng, chiều cao của vùng phẳng trên thiết bị hoặc hộp máy. Tránh để tem đi qua vít, khe, cạnh gấp hoặc bề mặt cong ngoài dự kiến.",
+        "Gửi một ảnh toàn bộ thiết bị và một ảnh cận vị trí dán. Nếu bề mặt có vân, lớp phủ hoặc kết cấu đặc biệt, ghi rõ để xưởng đề xuất bước thử mẫu; không nên suy từ tên vật liệu thành bảo đảm độ bám."
+      ]
+    },
+    {
+      "heading": "Bộ thông tin cần gửi khi đặt tem bạc",
+      "paragraphs": [
+        "Gửi file đã chốt, ảnh bề mặt, kích thước và số lượng từng mẫu. Nếu có nhiều phiên bản nhãn, lập bảng ngắn theo tên file và số lượng để đối chiếu.",
+        "Giá và thời gian thực hiện được xác nhận sau khi xem kích thước, vật liệu, số mẫu và số lượng thực tế."
+      ],
+      "bullets": [
+        "File logo hoặc nhãn thông số đã duyệt nội dung.",
+        "Kích thước thành phẩm và vị trí dán.",
+        "Ảnh tổng thể cùng ảnh cận bề mặt.",
+        "Số lượng riêng cho từng phiên bản."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-bac"
+  ],
+  "sources": [
+    {
+      "title": "Tem bạc ánh kim VinPrint",
+      "href": "/san-pham/tem-bac",
+      "note": "Trang sản phẩm mô tả tem bạc cho máy móc, điện tử, nhãn thông số và logo cần hiệu ứng kim loại.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-26"
+    },
+    {
+      "title": "Tem bạc hay tem vàng ánh kim",
+      "href": "/blog/tem-bac-hay-tem-vang-anh-kim",
+      "note": "Bài VinPrint về tương phản, nền bao bì và kiểm tra mẫu vật liệu thật trước khi chốt.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-26"
+    },
+    {
+      "title": "Danh mục sản phẩm VinPrint",
+      "href": "https://vinprint.vn/san-pham",
+      "note": "Danh mục công khai liên kết nhóm tem bạc với các sản phẩm tem nhãn hiện có.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-26"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 20,
+      "evidence": 20,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/san-pham/tem-bac",
+      "/blog/tem-bac-hay-tem-vang-anh-kim",
+      "https://vinprint.vn/san-pham"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "VinPrint mô tả tem bạc cho máy móc, điện tử, nhãn thông số và logo.",
+        "sourceIds": [
+          "/san-pham/tem-bac"
+        ]
+      },
+      {
+        "claim": "Bài VinPrint về tem ánh kim khuyến nghị xem mẫu trên đúng nền và điều kiện ánh sáng.",
+        "sourceIds": [
+          "/blog/tem-bac-hay-tem-vang-anh-kim"
+        ]
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "recordedAt": "2026-09-26T09:08:00+07:00",
+        "score": 100,
+        "outcome": "accepted"
+      }
+    ]
+  }
+}
