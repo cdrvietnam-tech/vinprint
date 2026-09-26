@@ -98,6 +98,17 @@ test("does not expose development preview metadata", async () => {
   assert.doesNotMatch(await response.text(), developmentPreviewMeta);
 });
 
+test("AI247 renders a crawlable video hub with canonical metadata", async () => {
+  const response = await render("/ai247", "https://vinprint.vn");
+  const html = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(html, /<h1[^>]*>Video AI marketing, cập nhật tại một nơi<\/h1>/i);
+  assert.match(html, /rel="canonical" href="https:\/\/vinprint\.vn\/ai247"/i);
+  assert.match(html, /"@type":"CollectionPage"/);
+  assert.match(html, /Video đầu tiên đang được chuẩn bị|Đang tải video/);
+});
+
 test("renders the new storefront homepage with key sections", async () => {
   const response = await render();
   const html = await response.text();
