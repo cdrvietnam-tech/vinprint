@@ -333,6 +333,21 @@
       ]
     },
     {
+      "path": "/images/blog/in-the-cam-on-cho-shop.webp",
+      "title": "In The Cam On Cho Shop",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 141784,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/keo-tem-cho-chai-nhua.webp",
       "title": "Keo Tem Cho Chai Nhua",
       "category": "blog",
@@ -535,6 +550,21 @@
       "width": 1050,
       "height": 1050,
       "bytes": 115128,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-logo-cho-tui-giay.webp",
+      "title": "Tem Logo Cho Tui Giay",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 131356,
       "usages": [
         {
           "href": "/blog",

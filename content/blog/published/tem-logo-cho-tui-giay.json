@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-logo-cho-tui-giay",
+  "title": "Tem logo cho túi giấy: chọn một cỡ hay nhiều cỡ?",
+  "description": "Chọn kích thước tem logo cho túi giấy nhỏ và lớn theo vùng dán, nếp gấp và bố cục thực tế; gửi ảnh túi để VinPrint trao đổi quy cách.",
+  "category": "theo-nganh",
+  "image": "/images/blog/tem-logo-cho-tui-giay.webp",
+  "imageAlt": "Hình minh họa AI hai túi giấy màu kem có tem logo tròn màu tím ở mặt trước",
+  "publishedAt": "2026-09-27",
+  "updatedAt": "2026-09-27",
+  "publishAt": "2026-09-27T08:30:00+07:00",
+  "readingMinutes": 4,
+  "primaryKeyword": "tem logo cho túi giấy",
+  "searchIntent": "Chọn kích thước và vị trí tem logo khi shop dùng nhiều cỡ túi giấy",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-daily-promo-v1",
+  "revisionCount": 1,
+  "directAnswer": "Shop có thể dùng chung một kích thước tem logo cho nhiều cỡ túi giấy nếu tem vẫn cân đối, nằm trọn trên vùng phẳng và dễ nhìn khi túi đã đựng hàng. Hãy đặt các cỡ túi cạnh nhau, cắt mẫu tem bằng giấy rồi ướm trên từng túi trước khi chốt. Nếu tem quá nhỏ trên túi lớn hoặc chạm nếp gấp trên túi nhỏ, nên tách thành hai kích thước. Tem giấy là nhóm có thể tham khảo cho túi giấy và bao bì khô; vật liệu cuối cùng cần được xem theo bề mặt và điều kiện sử dụng. Gửi ảnh các cỡ túi, logo, kích thước dự kiến và số lượng từng mẫu để VinPrint trao đổi quy cách trước khi báo giá.",
+  "sections": [
+    {
+      "heading": "Ướm cùng một mẫu trên từng cỡ túi",
+      "paragraphs": [
+        "Một chiếc tem trông vừa trên túi nhỏ có thể bị lọt thỏm khi đặt lên túi lớn. Ngược lại, tem được thiết kế cho túi lớn có thể đi qua nếp gấp hoặc chiếm quá nhiều mặt trước của túi nhỏ.",
+        "Đừng đánh giá chỉ trên file thiết kế. Hãy in hoặc cắt một mẫu giấy đúng kích thước, cho sản phẩm vào túi rồi nhìn ở tư thế khách sẽ cầm và trưng bày."
+      ],
+      "bullets": [
+        "Đặt các cỡ túi cạnh nhau để so sánh tỷ lệ.",
+        "Ướm tem khi túi đã có sản phẩm và giấy lót.",
+        "Quan sát cả mặt trước, mép bên và phần đáy gấp.",
+        "Kiểm tra logo ở khoảng cách nhìn thông thường."
+      ]
+    },
+    {
+      "heading": "Khi nào nên tách thành hai kích thước tem?",
+      "paragraphs": [
+        "Dùng một cỡ tem giúp bộ bao bì nhất quán và dễ tổng hợp số lượng. Tuy nhiên, nên tách kích thước khi chênh lệch diện tích mặt túi lớn, hoặc khi vùng dán của một cỡ bị giới hạn bởi quai, nếp gấp và mép túi.",
+        "Nếu tách hai kích thước, giữ cùng logo, màu và tỷ lệ khoảng trống để khách vẫn nhận ra đây là một hệ nhận diện. Ghi tên file và số lượng riêng cho từng cỡ khi gửi xưởng."
+      ]
+    },
+    {
+      "heading": "Chọn vị trí dán dễ nhìn và dễ thao tác",
+      "paragraphs": [
+        "Vị trí giữa mặt trước thường dễ cân bố cục, nhưng không phải túi nào cũng có vùng phẳng giống nhau. Tem nên nằm cách nếp gấp bên và đáy đủ để không bị bẻ cong ngoài dự kiến.",
+        "Nếu túi dùng cho nhiều nhóm sản phẩm, thử cả trường hợp nhẹ và đầy. Hình trong bài là minh họa AI cho cách bố trí, không phải ảnh đơn hàng hoặc cam kết về thành phẩm."
+      ],
+      "bullets": [
+        "Tránh đặt chữ nhỏ sát đường cắt của tem.",
+        "Không để phần quan trọng của logo đi qua nếp gấp.",
+        "Thử độ tương phản trên đúng màu túi.",
+        "Xem mẫu ở kích thước thật trước khi in nhiều."
+      ]
+    },
+    {
+      "heading": "Gửi gì để VinPrint trao đổi quy cách?",
+      "paragraphs": [
+        "Gửi ảnh chụp thẳng từng cỡ túi, số đo vùng dán, file logo và kích thước tem đang cân nhắc. Nếu muốn dùng chung một cỡ, đặt các túi cạnh nhau trong cùng một ảnh để dễ so sánh.",
+        "Ghi số lượng từng mẫu và điều kiện sử dụng dự kiến. Giá và thời gian thực hiện được xác nhận sau khi xem vật liệu, kích thước, file và số lượng thực tế."
+      ]
+    }
+  ],
+  "relatedProductSlugs": ["tem-giay"],
+  "sources": [
+    {
+      "title": "Tem nhãn giấy VinPrint",
+      "href": "/san-pham/tem-giay",
+      "note": "Trang sản phẩm mô tả tem giấy cho túi kraft, hộp giấy và bao bì khô.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-27"
+    },
+    {
+      "title": "Cách chọn kích thước tem nhãn",
+      "href": "/blog/cach-chon-kich-thuoc-tem-nhan",
+      "note": "Hướng dẫn đo vùng dán và thử kích thước tem trên bao bì thực tế.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-27"
+    },
+    {
+      "title": "Tem thực phẩm cho túi kraft",
+      "href": "/blog/tem-thuc-pham-cho-tui-kraft",
+      "note": "Bài liên quan về vùng dán, nếp gấp và bề mặt túi giấy kraft.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-27"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 19,
+      "evidence": 20,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": ["/san-pham/tem-giay", "/blog/cach-chon-kich-thuoc-tem-nhan", "/blog/tem-thuc-pham-cho-tui-kraft"],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "VinPrint mô tả tem giấy cho túi kraft, hộp giấy và bao bì khô.",
+        "sourceIds": ["/san-pham/tem-giay"]
+      },
+      {
+        "claim": "Nên đo vùng dán và thử kích thước trên bao bì thực tế trước khi chốt.",
+        "sourceIds": ["/blog/cach-chon-kich-thuoc-tem-nhan"]
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "recordedAt": "2026-09-27T08:30:00+07:00",
+        "score": 99,
+        "outcome": "accepted"
+      }
+    ]
+  }
+}

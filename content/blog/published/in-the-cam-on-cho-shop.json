@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "in-the-cam-on-cho-shop",
+  "title": "In thẻ cảm ơn cho shop: chuẩn bị nội dung trước khi đặt",
+  "description": "Chuẩn bị nội dung, kích thước và khoảng trống cho thẻ cảm ơn đặt trong hộp hàng; gửi file và số lượng để VinPrint trao đổi quy cách.",
+  "category": "thiet-ke",
+  "image": "/images/blog/in-the-cam-on-cho-shop.webp",
+  "imageAlt": "Hình minh họa AI thẻ cảm ơn màu kem đặt trong hộp quà và chồng thẻ in cùng mẫu",
+  "publishedAt": "2026-09-27",
+  "updatedAt": "2026-09-27",
+  "publishAt": "2026-09-27T08:35:00+07:00",
+  "readingMinutes": 4,
+  "primaryKeyword": "in thẻ cảm ơn cho shop",
+  "searchIntent": "Chuẩn bị nội dung và quy cách thẻ cảm ơn đặt trong hộp hàng",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-daily-promo-v1",
+  "revisionCount": 1,
+  "directAnswer": "Thẻ cảm ơn cho shop là một ấn phẩm rời đặt trong hộp hoặc túi hàng, khác với tem cảm ơn dùng để dán lên bao bì. Mặt trước có thể dành cho lời chào ngắn và nhận diện; mặt sau dành cho hướng dẫn sử dụng, bảo quản hoặc kênh liên hệ nếu thật sự cần. Trước khi đặt in, hãy chốt nội dung, thử kích thước thẻ trong đúng hộp và đánh dấu vùng cần chừa trống nếu muốn viết tay. Gửi file thiết kế, kích thước, số lượng và ảnh bao bì để VinPrint xem quy cách; giá và thời gian được xác nhận sau khi kiểm tra yêu cầu thực tế.",
+  "sections": [
+    {
+      "heading": "Phân biệt thẻ cảm ơn và tem cảm ơn",
+      "paragraphs": [
+        "Thẻ cảm ơn là tấm in rời, thường được đặt bên trong hộp hoặc túi. Tem cảm ơn là nhãn có lớp keo, thường dùng để khép giấy gói, miệng túi hoặc tạo điểm nhận diện bên ngoài.",
+        "Hai loại có thể dùng cùng nhau, nhưng không cần lặp toàn bộ nội dung. Nếu đã có tem bên ngoài, thẻ bên trong có thể tập trung vào lời chào, hướng dẫn cần thiết hoặc khoảng trống để viết lời nhắn."
+      ],
+      "bullets": [
+        "Thẻ rời: phù hợp cho nội dung dài hơn hoặc lời nhắn cá nhân.",
+        "Tem dán: phù hợp cho điểm chạm ngắn trên bao bì.",
+        "Dùng cùng logo và màu chủ đạo để giữ nhận diện thống nhất."
+      ]
+    },
+    {
+      "heading": "Chọn nội dung thật sự cần thiết",
+      "paragraphs": [
+        "Một tấm thẻ nhỏ sẽ dễ đọc hơn khi mỗi mặt có một nhiệm vụ rõ ràng. Mặt trước có thể là lời cảm ơn và logo; mặt sau có thể là hướng dẫn sử dụng, bảo quản hoặc kênh liên hệ do shop đã xác nhận.",
+        "Không nên đưa quá nhiều dòng chữ nhỏ chỉ để lấp đầy diện tích. Hãy in thử ở kích thước thật và kiểm tra độ dễ đọc trước khi chốt file."
+      ],
+      "bullets": [
+        "Tên shop và phiên bản logo đã chốt.",
+        "Lời cảm ơn ngắn, đúng giọng thương hiệu.",
+        "Nội dung hướng dẫn đã được chủ sản phẩm kiểm tra.",
+        "Khoảng trống đủ rộng nếu dự kiến viết tay."
+      ]
+    },
+    {
+      "heading": "Ướm thẻ trong đúng hộp hàng",
+      "paragraphs": [
+        "Đặt một mẫu giấy vào hộp để kiểm tra thẻ có che sản phẩm, bị cong hoặc trông quá nhỏ hay không. Với nhiều cỡ hộp, cần thử từng cỡ trước khi quyết định dùng chung một kích thước.",
+        "Nếu thẻ đi kèm tem sản phẩm, card liên hệ hoặc phiếu hướng dẫn, hãy đặt cả bộ cạnh nhau. Việc này giúp loại bớt nội dung lặp và giữ thứ tự đọc rõ ràng khi khách mở hộp."
+      ]
+    },
+    {
+      "heading": "Chuẩn bị file và số lượng để đặt in",
+      "paragraphs": [
+        "Gửi file thiết kế hai mặt nếu có, kích thước thành phẩm, số lượng từng mẫu và ảnh bao bì. Nếu cần chừa vùng viết tay, đánh dấu rõ trong file hoặc bản mô tả.",
+        "Hình trong bài là minh họa AI, không phải ảnh đơn hàng hoặc bằng chứng màu thành phẩm. VinPrint xem file và quy cách thực tế trước khi xác nhận phương án, giá và thời gian."
+      ],
+      "bullets": [
+        "File thiết kế và nội dung đã duyệt.",
+        "Kích thước thẻ dự kiến.",
+        "Số lượng riêng cho từng mẫu.",
+        "Ảnh hộp hoặc túi nơi đặt thẻ.",
+        "Mốc thời gian dự kiến cần nhận."
+      ]
+    }
+  ],
+  "relatedProductSlugs": ["tem-giay"],
+  "sources": [
+    {
+      "title": "Danh mục in ấn VinPrint",
+      "href": "https://vinprint.vn/san-pham",
+      "note": "Danh mục công khai của VinPrint có nhóm card visit và tem nhãn theo yêu cầu.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-27"
+    },
+    {
+      "title": "Card visit và tem nhãn đồng bộ",
+      "href": "/blog/card-visit-va-tem-nhan-dong-bo",
+      "note": "Bài liên quan về vai trò riêng của ấn phẩm rời và tem dán trong một bộ nhận diện.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-27"
+    },
+    {
+      "title": "Tem cảm ơn cho shop online",
+      "href": "/blog/tem-cam-on-cho-shop-online",
+      "note": "Trang sở hữu intent tem dán cảm ơn; bài mới tách rõ intent thẻ in rời đặt trong hộp.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-27"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 19,
+      "evidence": 19,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": ["https://vinprint.vn/san-pham", "/blog/card-visit-va-tem-nhan-dong-bo", "/blog/tem-cam-on-cho-shop-online"],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "VinPrint có nhóm card visit và tem nhãn trong danh mục sản phẩm công khai.",
+        "sourceIds": ["https://vinprint.vn/san-pham"]
+      },
+      {
+        "claim": "Card hoặc thẻ rời và tem dán có vai trò khác nhau trong bộ bao bì.",
+        "sourceIds": ["/blog/card-visit-va-tem-nhan-dong-bo", "/blog/tem-cam-on-cho-shop-online"]
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "recordedAt": "2026-09-27T08:35:00+07:00",
+        "score": 98,
+        "outcome": "accepted"
+      }
+    ]
+  }
+}
