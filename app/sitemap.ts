@@ -58,6 +58,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
       images: facebookPosts.map((post) => `${baseUrl}${post.image}`),
     },
+    {
+      url: `${baseUrl}/ai247`,
+      lastModified: new Date("2026-09-26T00:00:00+07:00"),
+      changeFrequency: "daily",
+      priority: 0.75,
+    },
     ...blogCategories.filter((category) => category.slug !== "tat-ca").map((category) => ({
       url: `${baseUrl}/blog/chuyen-muc/${category.slug}`,
       lastModified: new Date("2026-07-20T00:00:00+07:00"),
