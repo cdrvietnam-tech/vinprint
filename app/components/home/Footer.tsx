@@ -37,6 +37,7 @@ export default function Footer({ hasMobileActionBar = false }: { hasMobileAction
           <Link className="inline-flex min-h-11 items-center hover:text-[#D83B00]" href="/chinh-sach">Chính sách</Link>
           <Link className="inline-flex min-h-11 items-center hover:text-[#D83B00]" href="/bao-hanh">Bảo hành</Link>
           <Link className="inline-flex min-h-11 items-center hover:text-[#D83B00]" href="/mau-tem-moi">Mẫu tem mới</Link>
+          <Link className="inline-flex min-h-11 items-center hover:text-[#D83B00]" href="/ai247">Video AI247</Link>
         </nav>
       </div>
     </footer>

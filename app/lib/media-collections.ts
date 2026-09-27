@@ -9,12 +9,13 @@ export type ManagedMediaItem = {
   href: string;
 };
 
-export type MediaCollectionId = "hero" | "hot-products" | "gallery";
+export type MediaCollectionId = "hero" | "hot-products" | "gallery" | "ai247";
 
 export const MEDIA_COLLECTIONS: Array<{ id: MediaCollectionId; title: string; description: string; allowVideo: boolean }> = [
   { id: "hero", title: "Ảnh hero trang chủ", description: "Trình chiếu lớn ở đầu trang", allowVideo: false },
   { id: "hot-products", title: "Sản phẩm đang hot", description: "Dải tự chạy, phóng lớn ảnh, GIF hoặc video ở giữa", allowVideo: true },
   { id: "gallery", title: "Thành phẩm thực tế", description: "Lưới mẫu sản phẩm trên trang chủ", allowVideo: false },
+  { id: "ai247", title: "Video AI247", description: "Thư viện video marketing tại vinprint.vn/ai247", allowVideo: true },
 ];
 
 export const DEFAULT_MEDIA_COLLECTIONS: Record<MediaCollectionId, ManagedMediaItem[]> = {
@@ -44,4 +45,5 @@ export const DEFAULT_MEDIA_COLLECTIONS: Record<MediaCollectionId, ManagedMediaIt
     "/images/products/tem-giay.webp",
     "/images/products/tem-ep-kim.webp",
   ].map((src, index) => ({ id: `gallery-${index + 1}`, kind: "image" as const, src, title: `Mẫu tem VinPrint ${index + 1}`, category: "Thành phẩm", href: "/san-pham" })),
+  ai247: [],
 };

@@ -13,6 +13,7 @@ const cropSizes: Record<MediaCollectionId, { width: number; height: number }> = 
   hero: { width: 1200, height: 900 },
   "hot-products": { width: 1000, height: 1000 },
   gallery: { width: 1000, height: 1000 },
+  ai247: { width: 1080, height: 1350 },
 };
 
 function defaultTitle(filename: string) {
@@ -33,6 +34,7 @@ export default function VideoAdmin() {
     hero: [...DEFAULT_MEDIA_COLLECTIONS.hero],
     "hot-products": [...DEFAULT_MEDIA_COLLECTIONS["hot-products"]],
     gallery: [...DEFAULT_MEDIA_COLLECTIONS.gallery],
+    ai247: [...DEFAULT_MEDIA_COLLECTIONS.ai247],
   }));
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState<string | null>(null);
@@ -98,7 +100,7 @@ export default function VideoAdmin() {
   };
 
   const defaultCategoryFor = (collection: MediaCollectionId) =>
-    collection === "hot-products" ? "Sản phẩm VinPrint" : collection === "hero" ? "Hero" : "Thành phẩm";
+    collection === "ai247" ? "Video marketing" : collection === "hot-products" ? "Sản phẩm VinPrint" : collection === "hero" ? "Hero" : "Thành phẩm";
 
   // Tải HÀNG LOẠT: chọn nhiều ảnh/video một lần, tự đặt tên theo tên file
   // (sửa lại tiêu đề sau bằng ô "Tiêu đề hiển thị" ở từng thẻ).
@@ -115,7 +117,7 @@ export default function VideoAdmin() {
         continue;
       }
       setMessages((current) => ({ ...current, [collection]: `Đang tải ${done + failed + 1}/${list.length}…` }));
-      const ok = await uploadMedia(collection, { id: createMediaId(), title: defaultTitle(file.name), category, href: "/san-pham" }, file);
+      const ok = await uploadMedia(collection, { id: createMediaId(), title: defaultTitle(file.name), category, href: collection === "ai247" ? "/ai247" : "/san-pham" }, file);
       if (ok) done += 1;
       else failed += 1;
     }
