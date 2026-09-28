@@ -25,7 +25,8 @@ import article22 from "./published/tem-qr-cho-shop.json";
 import article23 from "./published/tem-thuc-pham-cho-tui-kraft.json";
 import article24 from "./published/tem-truoc-tem-sau-cho-chai-lo.json";
 import article25 from "./published/tem-uv-dtf-la-gi.json";
-import article26 from "./published/thu-tem-trong-moi-truong-lanh.json";
+import article26 from "./published/tem-uv-dtf-ten-ca-nhan-hoa.json";
+import article27 from "./published/thu-tem-trong-moi-truong-lanh.json";
 
 export const rawBlogArticles = [
   article0,
@@ -55,4 +56,5 @@ export const rawBlogArticles = [
   article24,
   article25,
   article26,
+  article27,
 ] as const;

@@ -588,6 +588,21 @@
       ]
     },
     {
+      "path": "/images/blog/tem-nhan-nen-thom-phan-biet-huong.webp",
+      "title": "Tem Nhan Nen Thom Phan Biet Huong",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 188612,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/tem-nhan-nen-thom.webp",
       "title": "Tem Nhan Nen Thom",
       "category": "blog",
@@ -745,6 +760,21 @@
       "width": 1050,
       "height": 1050,
       "bytes": 52770,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-uv-dtf-ten-hop-but.webp",
+      "title": "Tem Uv Dtf Ten Hop But",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 91360,
       "usages": [
         {
           "href": "/blog",
