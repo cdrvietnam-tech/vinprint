@@ -3,14 +3,14 @@
   "status": "published",
   "slug": "tem-nhan-nen-thom",
   "title": "Tem nhãn nến thơm: phối tem thân hũ và tem nắp hộp",
-  "description": "Chọn tem thân hũ và tem nắp hộp cho nến thơm theo vùng dán, màu bao bì và số lượng từng mẫu; gửi ảnh thực tế để VinPrint tư vấn quy cách.",
+  "description": "Phối tem thân hũ, tem nắp hộp và hệ nhãn phân biệt từng hương nến; gửi ảnh, kích thước và số lượng từng mẫu để VinPrint trao đổi quy cách.",
   "category": "theo-nganh",
-  "image": "/images/blog/tem-nhan-nen-thom.webp",
-  "imageAlt": "Hình minh họa AI hai hũ nến màu hổ phách, hộp quà và bộ tem nhãn họa tiết thực vật",
+  "image": "/images/blog/tem-nhan-nen-thom-phan-biet-huong.webp",
+  "imageAlt": "Hình minh họa AI ba hũ nến hổ phách với ba mẫu tem thực vật phân biệt từng hương",
   "publishedAt": "2026-09-25",
-  "updatedAt": "2026-09-25",
+  "updatedAt": "2026-09-28",
   "publishAt": "2026-09-25T09:20:00+07:00",
-  "readingMinutes": 4,
+  "readingMinutes": 5,
   "primaryKeyword": "tem nhãn nến thơm",
   "searchIntent": "Phối tem thân hũ và tem nắp hộp cho bộ nến thơm",
   "buyerStage": "decision",
@@ -18,8 +18,8 @@
   "authorId": "editorial-team",
   "reviewedBy": "editorial-team",
   "promptVersion": "vinprint-daily-promo-v1",
-  "revisionCount": 1,
-  "directAnswer": "Bộ tem nhãn nến thơm có thể gồm một tem chính trên thân hũ và một tem nhỏ trên nắp hoặc hộp quà. Hãy đo từng vùng dán trên hũ và hộp thật, chọn một hệ logo và màu thống nhất rồi ghi số lượng riêng cho từng mẫu. Tem giấy phù hợp để tham khảo cho hộp giấy và bao bì khô; tem vàng ánh kim có thể dùng làm điểm nhấn ấm cho logo hoặc chi tiết trang trí. Hiệu ứng và độ phù hợp vẫn cần xem trên đúng màu nền, bề mặt và kích thước thực tế. Gửi ảnh bao bì, file thiết kế, kích thước và số lượng để VinPrint trao đổi quy cách trước khi báo giá.",
+  "revisionCount": 2,
+  "directAnswer": "Bộ tem nhãn nến thơm có thể dùng chung bố cục và thay tên hương cùng một chi tiết minh họa để khách phân biệt lavender, hoa cam, gỗ hoặc các biến thể khác. Mỗi mẫu nên có mã hoặc tên file riêng và số lượng riêng khi gửi đặt in. Nếu dùng nhiều cỡ hũ, cần đo từng vùng dán thay vì tự động thu nhỏ toàn bộ thiết kế. Tem thân hũ là điểm nhận diện chính; tem nắp hoặc hộp quà có thể lặp lại logo hay biểu tượng ngắn gọn. Tem giấy và tem vàng ánh kim là hai nhóm có thể tham khảo cho bao bì khô và điểm nhấn; lựa chọn cuối cùng cần xem trên đúng bề mặt, màu nền và kích thước thực tế.",
   "sections": [
     {
       "heading": "Chia vai trò giữa tem thân hũ và tem nắp hộp",
@@ -31,6 +31,19 @@
         "Tem thân hũ: ưu tiên logo, tên dòng sản phẩm và bố cục dễ nhìn.",
         "Tem nắp hộp: dùng logo hoặc chi tiết nhận diện ngắn gọn.",
         "Ghi số lượng riêng nếu mỗi mùi hương có một mẫu khác nhau."
+      ]
+    },
+    {
+      "heading": "Giữ chung bố cục, đổi chi tiết để phân biệt từng hương",
+      "paragraphs": [
+        "Một dòng nến có nhiều hương không nhất thiết phải làm lại toàn bộ nhận diện cho từng mẫu. Shop có thể giữ vị trí logo, kiểu chữ và khung bố cục, sau đó thay tên hương cùng một biểu tượng nhỏ hoặc màu nhấn đã được chọn.",
+        "Khi gửi file, đặt tên từng mẫu rõ ràng và lập bảng số lượng riêng. Cách này giúp đối chiếu lavender, hoa cam, gỗ hoặc các biến thể khác mà không dựa vào màu sắc một cách mơ hồ."
+      ],
+      "bullets": [
+        "Giữ cùng phiên bản logo và hệ bố cục.",
+        "Đổi tên hương và một chi tiết minh họa dễ nhận.",
+        "Đặt mã file riêng cho từng mẫu.",
+        "Ghi số lượng từng hương, không chỉ ghi tổng đơn."
       ]
     },
     {
@@ -86,6 +99,13 @@
       "note": "Trang ngành mô tả nhu cầu nhiều mẫu nhỏ, thay đổi theo mùa và nhận diện cho shop handmade.",
       "kind": "first-party",
       "verifiedAt": "2026-09-25"
+    },
+    {
+      "title": "Bài VinPrint về phân biệt từng hương nến bằng nhãn",
+      "href": "https://www.facebook.com/100068300211280/posts/1401072678846059/",
+      "note": "Nguồn nội dung và hình minh họa được chủ duyệt, đăng công khai và xác minh ngày 27/09/2026.",
+      "kind": "primary",
+      "verifiedAt": "2026-09-28"
     }
   ],
   "quality": {
@@ -101,7 +121,8 @@
     "evidenceIds": [
       "/san-pham/tem-vang",
       "/san-pham/tem-giay",
-      "/nganh/handmade"
+      "/nganh/handmade",
+      "https://www.facebook.com/100068300211280/posts/1401072678846059/"
     ],
     "claimsVerified": true,
     "duplicateIntentChecked": true,
@@ -118,12 +139,24 @@
         "sourceIds": [
           "/san-pham/tem-giay"
         ]
+      },
+      {
+        "claim": "VinPrint đã đăng công khai gợi ý giữ chung bố cục và tách số lượng theo từng hương nến.",
+        "sourceIds": [
+          "https://www.facebook.com/100068300211280/posts/1401072678846059/"
+        ]
       }
     ],
     "attempts": [
       {
         "attempt": 1,
         "recordedAt": "2026-09-25T09:25:00+07:00",
+        "score": 100,
+        "outcome": "accepted"
+      },
+      {
+        "attempt": 2,
+        "recordedAt": "2026-09-28T08:30:00+07:00",
         "score": 100,
         "outcome": "accepted"
       }
