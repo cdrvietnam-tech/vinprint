@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-bao-hanh-niem-phong-hop-san-pham",
+  "title": "Tem bảo hành niêm phong hộp: chốt vị trí dán và nội dung",
+  "description": "Lên mẫu tem bảo hành cho hộp sản phẩm: chọn vùng niêm phong, ưu tiên nội dung cần thấy và gửi đủ thông tin để VinPrint kiểm tra quy cách.",
+  "category": "theo-nganh",
+  "image": "/images/blog/tem-bao-hanh-niem-phong-hop-san-pham.webp",
+  "imageAlt": "Hình minh họa vector vị trí tem trên mép nắp hộp; không phải ảnh đơn hàng thực tế",
+  "publishedAt": "2026-09-29",
+  "updatedAt": "2026-09-29",
+  "readingMinutes": 4,
+  "publishAt": "2026-09-29T08:30:00+07:00",
+  "primaryKeyword": "in tem bảo hành niêm phong hộp",
+  "searchIntent": "Tìm hiểu cách bố trí tem bảo hành niêm phong trên hộp và chuẩn bị yêu cầu đặt in",
+  "buyerStage": "consideration",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "daily-content-manual-v1",
+  "revisionCount": 1,
+  "directAnswer": "Khi đặt tem bảo hành cho hộp sản phẩm, hãy gửi ảnh hộp đã đóng, chỉ rõ đường mở và vùng muốn dán. Bố cục nên ưu tiên dấu hiệu nhận diện cùng phần thông tin thực sự cần đọc; tránh đặt nội dung qua nếp gấp hoặc vị trí thường bị tay, dây hay phụ kiện che. VinPrint có các lựa chọn tem vỡ, tem dai hoặc tem đánh dấu thời gian; loại phù hợp cần được xác nhận theo bề mặt, mục đích và quy cách thực tế.",
+  "sections": [
+    {
+      "heading": "Tem bảo hành cần làm rõ điều gì?",
+      "paragraphs": [
+        "Một mẫu tem có thể kết hợp nhận diện thương hiệu với thông tin bảo hành mà shop đã xác nhận. Trước khi thiết kế, hãy chọn một mục tiêu chính: nhận biết hộp đã được dán, thể hiện tên shop hay để lại phần thông tin cần đọc.",
+        "Không đưa thời hạn, điều kiện đổi trả hoặc cam kết bảo hành vào file cho tới khi chủ shop xác nhận đúng nội dung áp dụng. Tem chỉ là một phần của bao bì; chính sách phải được trình bày nhất quán trên các kênh bán hàng của shop."
+      ],
+      "bullets": [
+        "Logo hoặc tên shop đã chốt phiên bản",
+        "Thông tin bảo hành được chủ shop xác nhận",
+        "Mã hoặc ký hiệu chỉ thêm khi có mục đích sử dụng rõ"
+      ]
+    },
+    {
+      "heading": "Chọn vùng dán theo cách mở hộp",
+      "paragraphs": [
+        "Đóng hộp như lúc giao cho khách rồi xác định mép nào sẽ được mở đầu tiên. Chụp ảnh mặt trên và cạnh hộp; đánh dấu vùng tem dự kiến để người thiết kế thấy nếp gấp, khe mở và bề mặt tiếp xúc.",
+        "Nếu mục tiêu là nhận biết tình trạng niêm phong, trao đổi vị trí tem nối qua mép mở với xưởng trước khi chốt. Cấu tạo hộp, lớp phủ và loại tem ảnh hưởng lựa chọn cuối cùng; không nên suy ra hiệu quả chống mở chỉ từ hình minh họa."
+      ],
+      "bullets": [
+        "Gấp và đóng hộp đúng trạng thái giao hàng",
+        "Khoanh vùng mép mở và khoảng dán dự kiến",
+        "Gửi ảnh chính diện cùng ảnh cạnh hộp"
+      ]
+    },
+    {
+      "heading": "Giữ mẫu rõ khi thu về kích thước thật",
+      "paragraphs": [
+        "Logo, tên shop và dòng thông tin nhỏ cần được xem ở đúng cỡ tem dự kiến. Nếu có nhiều sản phẩm hoặc hộp khác kích thước, ghi số lượng và quy cách riêng cho từng mẫu để tránh dùng nhầm một kích thước chung.",
+        "Một bản phác trên giấy cắt theo kích thước thật giúp shop kiểm tra tem có vướng mép gấp hay bị phụ kiện che không. Đây là bước duyệt bố cục; vật liệu và khả năng bám cần được trao đổi riêng theo bề mặt hộp."
+      ],
+      "table": {
+        "headers": [
+          "Thông tin cần gửi",
+          "Ví dụ cần chuẩn bị"
+        ],
+        "rows": [
+          [
+            "Hộp",
+            "Ảnh hộp đã gấp và đóng"
+          ],
+          [
+            "Vị trí",
+            "Đánh dấu mép mở và vùng dán"
+          ],
+          [
+            "Nội dung",
+            "Logo cùng phần chữ đã xác nhận"
+          ],
+          [
+            "Số lượng",
+            "Tách số lượng theo từng mẫu hộp"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "Chọn quy cách tem cùng VinPrint",
+      "paragraphs": [
+        "Trang sản phẩm VinPrint giới thiệu tem bảo hành gồm các lựa chọn như tem vỡ, tem dai hoặc tem đánh dấu thời gian. Gửi ảnh bề mặt, mục đích sử dụng và file thiết kế để trao đổi loại phù hợp; các lựa chọn này không mặc định dùng thay cho nhau.",
+        "Gửi thông tin qua trang liên hệ hoặc kênh tư vấn của VinPrint: ảnh hộp, kích thước vùng dán, nội dung đã duyệt và số lượng từng mẫu. Giá cùng thời gian thực hiện chỉ xác nhận sau khi chốt quy cách."
+      ],
+      "bullets": [
+        "Ảnh hộp đóng và vị trí muốn dán",
+        "Kích thước vùng dán dự kiến",
+        "File logo và nội dung đã xác nhận",
+        "Số lượng theo từng mẫu"
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-bao-hanh"
+  ],
+  "sources": [
+    {
+      "title": "Tem bảo hành VinPrint",
+      "href": "/san-pham/tem-bao-hanh",
+      "note": "Trang sản phẩm ghi các lựa chọn tem vỡ, tem dai và tem đánh dấu thời gian cùng nhóm ứng dụng.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-29"
+    },
+    {
+      "title": "Trang chủ VinPrint",
+      "href": "/",
+      "note": "Trang chủ công khai hiển thị danh mục dịch vụ và đường dẫn tới sản phẩm liên quan.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-29"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 19,
+      "evidence": 20,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/san-pham/tem-bao-hanh",
+      "/"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "VinPrint giới thiệu tem vỡ, tem dai và tem đánh dấu thời gian trong nhóm tem bảo hành.",
+        "sourceIds": [
+          "/san-pham/tem-bao-hanh",
+          "/"
+        ]
+      },
+      {
+        "claim": "Bố cục tem cần được xem theo hộp, vị trí mép mở và quy cách thực tế trước khi chốt.",
+        "sourceIds": [
+          "/san-pham/tem-bao-hanh",
+          "/",
+          "/"
+        ]
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "recordedAt": "2026-09-29T08:55:00+07:00",
+        "score": 99,
+        "outcome": "accepted"
+      }
+    ]
+  }
+}

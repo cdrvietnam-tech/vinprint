@@ -342,8 +342,11 @@ test("renders a crawlable blog index with category navigation", async () => {
   assert.match(html, /\/images\/blog\/tem-nhieu-vi-san-pham\.webp/i);
   assert.match(html, /\/images\/blog\/tem-hologram-7-mau\.webp/i);
   assert.match(html, /\/images\/blog\/tem-qr-cho-shop\.webp/i);
-  assert.match(html, /\/images\/blog\/card-visit-va-tem-nhan-dong-bo\.webp/i);
-  assert.match(html, /href="\/blog\/card-visit-va-tem-nhan-dong-bo"/i);
+  const archiveResponse = await render("/blog/trang/2");
+  const archiveHtml = await archiveResponse.text();
+  assert.equal(archiveResponse.status, 200);
+  assert.match(archiveHtml, /\/images\/blog\/card-visit-va-tem-nhan-dong-bo\.webp/i);
+  assert.match(archiveHtml, /href="\/blog\/card-visit-va-tem-nhan-dong-bo"/i);
 });
 
 test("renders clean blog category pages", async () => {
