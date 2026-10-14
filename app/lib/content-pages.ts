@@ -64,6 +64,73 @@ export const companyPages: Record<string, ContentPageData> = {
       { heading: "Ngoại lệ", paragraphs: ["Sai nội dung đã được khách duyệt, sử dụng tem trên bề mặt không phù hợp hoặc bảo quản sai hướng dẫn không được xem là lỗi sản xuất. Xưởng vẫn hỗ trợ tư vấn phương án khắc phục nếu có thể."] },
     ],
   },
+  "chinh-sach-doi-tra": {
+    slug: "chinh-sach-doi-tra",
+    title: "Chính sách đổi trả và hoàn tiền — VinPrint",
+    description: "Quy định đổi trả hàng, in bù, hoàn tiền và xử lý lỗi in ấn tại VinPrint. Hỗ trợ đổi trả trong 7 ngày, miễn phí 100% khi có lỗi từ xưởng.",
+    eyebrow: "Đổi trả & hoàn tiền",
+    intro: "VinPrint cam kết bảo vệ quyền lợi khách hàng. Nếu đơn hàng có lỗi sản xuất hoặc sai khác so với mẫu đã duyệt, chúng tôi hỗ trợ in lại, in bù hoặc hoàn tiền nhanh chóng.",
+    sections: [
+      {
+        heading: "Điều kiện và thời hạn tiếp nhận đổi trả",
+        paragraphs: [
+          "Khách hàng được quyền yêu cầu đổi trả, in lại hoặc hoàn tiền trong vòng 7 ngày kể từ ngày nhận hàng khi đơn hàng thuộc một trong các trường hợp sau:",
+        ],
+        bullets: [
+          "Tem in sai nội dung, sai font chữ hoặc sai kích thước so với mẫu đã chốt duyệt",
+          "Tem bị nhòe mực, lem màu, lệch màu vượt mức quy chuẩn kỹ thuật hoặc sai chất liệu đã đặt",
+          "Lỗi gia công cắt bế làm rách tem, lệch viền hoặc bong tróc lớp màng bảo vệ",
+          "Hàng bị ướt, móp méo, hư hỏng trong quá trình vận chuyển",
+          "Giao thiếu số lượng tem so với đơn hàng đã thanh toán",
+        ],
+      },
+      {
+        heading: "Quy trình đổi trả và hoàn tiền",
+        paragraphs: [
+          "Để được hỗ trợ xử lý nhanh chóng trong vòng 24 giờ làm việc, quý khách vui lòng thực hiện các bước sau:",
+        ],
+        bullets: [
+          "Bước 1: Chụp ảnh hoặc quay video ngắn thể hiện rõ chi tiết lỗi của tem nhãn và bao bì",
+          "Bước 2: Gửi thông tin kèm số điện thoại hoặc mã đơn qua Zalo: 0844 998 499",
+          "Bước 3: VinPrint tiếp nhận, xác minh nguyên nhân và thống nhất phương án xử lý (in bù/in lại hoặc hoàn tiền)",
+          "Bước 4: Gửi trả lại sản phẩm lỗi về xưởng VinPrint (nếu có yêu cầu thu hồi mẫu kiểm tra)",
+        ],
+      },
+      {
+        heading: "Chi phí đổi trả và phí hoàn kho",
+        paragraphs: [
+          "Chính sách chi phí minh bạch giúp khách hàng yên tâm khi đặt in tại VinPrint:",
+        ],
+        bullets: [
+          "Lỗi do VinPrint hoặc đơn vị vận chuyển: Miễn phí 100% phí thu hồi và gửi bù hàng mới",
+          "Phí hoàn kho (Restocking fee): 0 VNĐ (Hoàn toàn không thu phí)",
+          "Thời gian in bù / in lại: 1–2 ngày làm việc sau khi xác nhận phương án",
+          "Thời gian hoàn tiền: 1–3 ngày làm việc qua chuyển khoản ngân hàng",
+        ],
+      },
+      {
+        heading: "Địa chỉ và phương thức nhận hàng trả lại",
+        paragraphs: [
+          "Quý khách có thể mang trả trực tiếp tại xưởng hoặc gửi chuyển phát qua đường bưu điện:",
+          "Địa chỉ tiếp nhận: Số 13, Đường Thạnh Lộc 42, Phường An Phú Đồng, TP.HCM.",
+          "Hotline/Zalo: 0844 998 499. Giờ làm việc: 09:00–17:30 (Thứ 2–Thứ 7).",
+        ],
+      },
+      {
+        heading: "Trường hợp không áp dụng đổi trả",
+        paragraphs: [
+          "Do tem nhãn là sản phẩm in theo yêu cầu riêng biệt của từng khách hàng, xưởng không áp dụng đổi trả cho các trường hợp:",
+        ],
+        bullets: [
+          "Sản phẩm đã in đúng mẫu mã, màu sắc và nội dung theo market khách hàng đã tự duyệt",
+          "Lỗi chính tả hoặc sai lệch thông tin từ file gốc do khách hàng cung cấp",
+          "Khách hàng thay đổi ý định, đổi thiết kế sau khi xưởng đã tiến hành sản xuất",
+          "Hư hại do dán lên bề mặt không phù hợp hoặc bảo quản sai hướng dẫn",
+          "Yêu cầu gửi sau thời hạn 7 ngày kể từ ngày nhận hàng",
+        ],
+      },
+    ],
+  },
   "case-study": {
     slug: "case-study",
     title: "Case study ứng dụng tem nhãn theo ngành hàng",

@@ -257,6 +257,7 @@ export const DEFAULT_SITE_CONTENT: SiteContent = {
       { label: "Liên hệ", href: "/lien-he" },
       { label: "Chính sách", href: "/chinh-sach" },
       { label: "Bảo hành", href: "/bao-hanh" },
+      { label: "Chính sách đổi trả", href: "/chinh-sach-doi-tra" },
       { label: "Case study", href: "/case-study" },
       { label: "Cẩm nang tem nhãn", href: "/blog" },
       { label: "Quy trình biên soạn", href: "/quy-trinh-bien-soan" },

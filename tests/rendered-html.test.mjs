@@ -418,6 +418,7 @@ test("all public routes render successfully", async () => {
     "/lien-he",
     "/chinh-sach",
     "/bao-hanh",
+    "/chinh-sach-doi-tra",
     "/case-study",
     "/nganh/my-pham",
     "/nganh/thuc-pham",
