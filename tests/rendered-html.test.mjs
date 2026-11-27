@@ -447,6 +447,26 @@ test("all public routes render successfully", async () => {
   }
 });
 
+test("product pages render the buying guide, FAQ schema and related articles", async () => {
+  const response = await render("/san-pham/tem-nhua-chong-nuoc");
+  const html = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(html, /khi nào nên chọn\?/);
+  assert.match(html, /Câu hỏi thường gặp về tem nhựa chống nước/);
+  assert.match(html, /"@type":"FAQPage"/);
+  assert.match(html, /href="\/blog\/tem-ly-ca-phe-chong-nuoc"/);
+});
+
+test("unknown URLs return a helpful 404 page", async () => {
+  const response = await render("/trang-khong-ton-tai-xyz");
+  const html = await response.text();
+
+  assert.equal(response.status, 404);
+  assert.match(html, /Trang này không còn hoặc đã đổi địa chỉ/);
+  assert.match(html, /href="\/san-pham"/);
+});
+
 test("AI discovery file is published", async () => {
   const response = await render("/llms.txt");
   const text = await response.text();
