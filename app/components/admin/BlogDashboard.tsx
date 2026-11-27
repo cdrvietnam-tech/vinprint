@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import AdminNav from "./AdminNav";
 
 export type BlogRow = {
   slug: string;
@@ -72,7 +71,6 @@ export default function BlogDashboard({ rows }: { rows: BlogRow[] }) {
   return (
     <main className="min-h-screen bg-[#fffaf4] px-4 py-8 sm:px-8 sm:py-10 text-gray-950">
       <div className="mx-auto max-w-6xl">
-        <AdminNav active="bai-viet" />
 
         <header className="mb-6">
           <p className="text-xs font-black uppercase tracking-[0.16em] text-orange-700">Cẩm nang in ấn</p>

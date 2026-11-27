@@ -23,7 +23,7 @@ const localBusinessSchema = {
   address: {
     "@type": "PostalAddress",
     streetAddress: "Số 13, Đường Thạnh Lộc 42",
-    addressLocality: "An Phú Đồng",
+    addressLocality: "An Phú Đông",
     addressRegion: "TP.HCM",
     addressCountry: "VN",
   },

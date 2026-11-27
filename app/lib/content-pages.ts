@@ -1,3 +1,5 @@
+import { seasonalPages } from "./seasonal-pages";
+
 export type ContentSection = {
   heading: string;
   paragraphs: string[];
@@ -11,6 +13,10 @@ export type ContentPageData = {
   eyebrow: string;
   intro: string;
   sections: ContentSection[];
+  /** Ngày cập nhật nội dung (YYYY-MM-DD) dùng cho sitemap và schema. */
+  updatedAt?: string;
+  faqs?: { q: string; a: string }[];
+  related?: { label: string; href: string }[];
 };
 
 export const companyPages: Record<string, ContentPageData> = {
@@ -23,7 +29,7 @@ export const companyPages: Record<string, ContentPageData> = {
     sections: [
       { heading: "Chúng tôi giải quyết điều gì?", paragraphs: ["Một chiếc tem cần đúng màu, đúng kích thước và phù hợp bề mặt sử dụng. VinPrint tư vấn từ chất liệu đến cách gia công để khách hàng không phải chọn bằng cảm tính."], bullets: ["Nhận số lượng ít để thử mẫu", "Hỗ trợ thiết kế khi chưa có file hoàn chỉnh", "Báo giá theo kích thước, số lượng và kỹ thuật gia công", "Giao hàng toàn quốc"] },
       { heading: "Quy trình minh bạch", paragraphs: ["Mỗi đơn hàng được xác nhận lại nội dung, kích thước, chất liệu, số lượng và thời gian dự kiến. Khách hàng duyệt mẫu trước khi xưởng tiến hành in."], bullets: ["Gửi yêu cầu và file", "Nhận tư vấn, báo giá", "Duyệt nội dung và mẫu", "In, kiểm tra, đóng gói", "Nhận hàng và phản hồi"] },
-      { heading: "Thông tin xưởng", paragraphs: ["Địa chỉ: Số 13, Đường Thạnh Lộc 42, An Phú Đồng, TP.HCM. Giờ làm việc: 09:00–17:30 từ Thứ 2 đến Thứ 7; nghỉ Chủ nhật và ngày lễ. Hotline/Zalo: 0844 998 499."] },
+      { heading: "Thông tin xưởng", paragraphs: ["Địa chỉ: Số 13, Đường Thạnh Lộc 42, An Phú Đông, TP.HCM. Giờ làm việc: 09:00–17:30 từ Thứ 2 đến Thứ 7; nghỉ Chủ nhật và ngày lễ. Hotline/Zalo: 0844 998 499."] },
     ],
   },
   "lien-he": {
@@ -33,7 +39,7 @@ export const companyPages: Record<string, ContentPageData> = {
     eyebrow: "Liên hệ xưởng",
     intro: "Để báo giá chính xác, hãy gửi file hoặc hình tham khảo kèm kích thước, số lượng và bề mặt dự kiến dán tem.",
     sections: [
-      { heading: "Kênh liên hệ", paragraphs: ["Hotline/Zalo: 0844 998 499. Địa chỉ: Số 13, Đường Thạnh Lộc 42, An Phú Đồng, TP.HCM."], bullets: ["Zalo phù hợp để gửi file và hình ảnh", "Điện thoại phù hợp khi cần xác nhận gấp", "Xem đường đi trên Google Maps trước khi đến xưởng"] },
+      { heading: "Kênh liên hệ", paragraphs: ["Hotline/Zalo: 0844 998 499. Địa chỉ: Số 13, Đường Thạnh Lộc 42, An Phú Đông, TP.HCM."], bullets: ["Zalo phù hợp để gửi file và hình ảnh", "Điện thoại phù hợp khi cần xác nhận gấp", "Xem đường đi trên Google Maps trước khi đến xưởng"] },
       { heading: "Thông tin cần gửi", paragraphs: ["Báo giá phụ thuộc vào quy cách thực tế. Càng đủ thông tin, thời gian xác nhận càng nhanh."], bullets: ["Kích thước tem", "Số lượng", "Chất liệu mong muốn", "Hình dạng và kỹ thuật cắt", "Yêu cầu cán màng, ép kim hoặc hiệu ứng khác"] },
       { heading: "Thời gian làm việc", paragraphs: ["VinPrint làm việc 09:00–17:30, Thứ 2–Thứ 7; nghỉ Chủ nhật và ngày lễ. Các tin nhắn ngoài giờ sẽ được phản hồi trong ca làm việc tiếp theo."] },
     ],
@@ -77,11 +83,12 @@ export const companyPages: Record<string, ContentPageData> = {
 };
 
 export const industryPages: Record<string, ContentPageData> = {
+  ...seasonalPages,
   "my-pham": { slug: "my-pham", title: "In tem nhãn mỹ phẩm theo yêu cầu", description: "Tư vấn in tem mỹ phẩm chống ẩm, sắc nét cho chai serum, hũ kem và bao bì chăm sóc cá nhân.", eyebrow: "Theo ngành · Mỹ phẩm", intro: "Tem mỹ phẩm cần cân bằng thẩm mỹ, độ bền và khả năng đọc trên kích thước nhỏ.", sections: [
     { heading: "Chất liệu nên cân nhắc", paragraphs: ["Decal nhựa phù hợp chai lọ có nguy cơ tiếp xúc nước. Decal trong tạo cảm giác tối giản; tem ánh kim phù hợp điểm nhấn cao cấp."], bullets: ["Thử độ bám trên đúng chai", "Ưu tiên mực và lớp cán chịu ẩm", "Giữ cỡ chữ thông tin đủ đọc"] },
     { heading: "Chuẩn bị file", paragraphs: ["Gửi kích thước vùng dán, ảnh chai thật, logo và nội dung bắt buộc. Với chai cong, cần chừa biên hợp lý để hạn chế nhăn hoặc bong mép."] },
   ]},
-  "thuc-pham": { slug: "thuc-pham", title: "In tem nhãn thực phẩm và bao bì", description: "In tem thực phẩm cho túi kraft, hộp giấy, hũ và bao bì khô với nội dung rõ, dễ đọc.", eyebrow: "Theo ngành · Thực phẩm", intro: "Tem thực phẩm cần truyền đạt nhanh tên sản phẩm, thành phần, khối lượng và thông tin liên hệ.", sections: [
+  "thuc-pham": { slug: "thuc-pham", related: [{ label: "Tem bánh mứt, hạt và đặc sản Tết", href: "/nganh/tem-banh-mut-tet" }, { label: "Tem nhãn giấy", href: "/san-pham/tem-giay" }, { label: "Tem nhựa chống nước", href: "/san-pham/tem-nhua-chong-nuoc" }], title: "In tem nhãn thực phẩm và bao bì", description: "In tem thực phẩm cho túi kraft, hộp giấy, hũ và bao bì khô với nội dung rõ, dễ đọc.", eyebrow: "Theo ngành · Thực phẩm", intro: "Tem thực phẩm cần truyền đạt nhanh tên sản phẩm, thành phần, khối lượng và thông tin liên hệ.", sections: [
     { heading: "Chọn theo môi trường", paragraphs: ["Bao bì khô có thể dùng decal giấy để tối ưu chi phí. Sản phẩm bảo quản lạnh hoặc dễ ẩm nên dùng decal nhựa và thử độ bám thực tế."], bullets: ["Bao bì khô: decal giấy", "Tủ lạnh: decal nhựa", "Hũ quà tặng: kraft hoặc ánh kim"] },
     { heading: "Bố cục nội dung", paragraphs: ["Tên sản phẩm và khối lượng nên dễ thấy. Thành phần, hướng dẫn bảo quản và thông tin đơn vị chịu trách nhiệm cần được bố trí đủ khoảng trắng để đọc ở kích thước thật."] },
   ]},
@@ -93,7 +100,7 @@ export const industryPages: Record<string, ContentPageData> = {
     { heading: "Đo vùng dán", paragraphs: ["Đo chiều rộng và chiều cao của vùng phẳng, không tính phần vai chai hoặc đường gân. Dùng mẫu giấy thử trước khi chốt kích thước."], bullets: ["Chừa khoảng cách giữa hai mép tem", "Kiểm tra khi chai đầy và lạnh", "Bo góc với tem nhỏ"] },
     { heading: "Chọn vật liệu", paragraphs: ["Decal trong giữ cảm giác nhìn xuyên chai. Decal nhựa trắng cho màu in ổn định hơn. UV DTF phù hợp logo nổi trên bề mặt cứng và phẳng tương đối."] },
   ]},
-  "handmade": { slug: "handmade", title: "In sticker và tem handmade số lượng ít", description: "In sticker logo, tem cảm ơn và tem bao bì handmade với số lượng linh hoạt, hỗ trợ thiết kế.", eyebrow: "Theo ngành · Handmade", intro: "Shop handmade thường cần nhiều mẫu nhỏ, thay đổi theo mùa và thử số lượng trước khi đặt lớn.", sections: [
+  "handmade": { slug: "handmade", related: [{ label: "In tem Tết lấy liền tại TP.HCM", href: "/nganh/tem-nhan-tet" }, { label: "Sticker logo dán hộp quà Tết", href: "/nganh/sticker-hop-qua-tet" }, { label: "Sticker trang trí", href: "/san-pham/sticker-trang-tri" }], title: "In sticker và tem handmade số lượng ít", description: "In sticker logo, tem cảm ơn và tem bao bì handmade với số lượng linh hoạt, hỗ trợ thiết kế.", eyebrow: "Theo ngành · Handmade", intro: "Shop handmade thường cần nhiều mẫu nhỏ, thay đổi theo mùa và thử số lượng trước khi đặt lớn.", sections: [
     { heading: "Lựa chọn linh hoạt", paragraphs: ["Decal giấy phù hợp bao bì khô và ngân sách thử nghiệm. Decal kraft tạo cảm giác thủ công; sticker cắt bế phù hợp quà tặng và nhận diện thương hiệu."], bullets: ["Gom nhiều mẫu trên một khổ in", "Giữ logo rõ ở kích thước nhỏ", "Dùng mã màu nhất quán"] },
     { heading: "Chuẩn bị để báo giá", paragraphs: ["Gửi số mẫu, kích thước từng mẫu, số lượng và hình dạng cắt. Nếu chưa có file, hãy gửi logo và phong cách mong muốn để được tư vấn."] },
   ]},

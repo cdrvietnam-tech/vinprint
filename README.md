@@ -17,7 +17,7 @@ The current release intentionally has no public AI design studio and no website 
 
 ## Business information
 
-- Address: Số 13, Đường Thạnh Lộc 42, An Phú Đồng, TP.HCM
+- Address: Số 13, Đường Thạnh Lộc 42, An Phú Đông, TP.HCM
 - Working hours: 09:00–17:30, Monday–Saturday; closed Sunday and public holidays
 - Canonical domain: `https://vinprint.vn`
 

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import AdminNav from "./AdminNav";
 import {
   DEFAULT_SITE_CONTENT,
   mergeSiteContent,
@@ -155,7 +154,6 @@ export default function ContentAdmin() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
-      <AdminNav active="noi-dung" />
       <header className="mb-6">
         <h1 className="text-2xl font-black text-gray-900">Quản trị nội dung trang chủ</h1>
         <p className="mt-1 text-sm text-gray-600">Sửa chữ và số trên trang chủ. Ảnh/video quản lý ở trang riêng. Nhấn <b>Lưu</b> để áp dụng.</p>
