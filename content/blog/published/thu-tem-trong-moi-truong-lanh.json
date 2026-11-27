@@ -3,12 +3,12 @@
   "status": "published",
   "slug": "thu-tem-trong-moi-truong-lanh",
   "title": "Thử tem trong môi trường lạnh: tách nhiệt độ dán và nhiệt độ dùng",
-  "description": "Quy trình thử tem lạnh có đối chứng, phân biệt nhiệt độ lúc dán với nhiệt độ bảo quản và ghi nhận độ bám, mép tem, bọt khí theo từng mốc.",
+  "description": "Chọn tem cho hũ bảo quản lạnh theo bề mặt, thời điểm dán và tình trạng đọng nước; gửi mẫu bao bì để VinPrint trao đổi phương án thử trước khi in.",
   "category": "ky-thuat-in",
-  "image": "/images/blog/thu-tem-trong-moi-truong-lanh.webp",
-  "imageAlt": "Minh họa ba chai mẫu và bảng theo dõi dùng trong phép thử tem ở môi trường lạnh",
+  "image": "/images/blog/tem-bao-quan-lanh-hu-sua-chua.webp",
+  "imageAlt": "Hình minh họa ba hũ sữa chua có tem nhãn trên bề mặt thủy tinh trong môi trường bảo quản lạnh",
   "publishedAt": "2026-07-24",
-  "updatedAt": "2026-07-24",
+  "updatedAt": "2026-09-24",
   "publishAt": "2026-07-24T06:40:00+07:00",
   "readingMinutes": 7,
   "primaryKeyword": "thử tem trong môi trường lạnh",
@@ -18,8 +18,8 @@
   "authorId": "editorial-team",
   "reviewedBy": "editorial-team",
   "promptVersion": "vinprint-content-v1",
-  "revisionCount": 1,
-  "directAnswer": "Thử tem trong môi trường lạnh cần tách hai câu hỏi: tem được dán ở nhiệt độ nào và sau đó phải hoạt động ở nhiệt độ nào. Một nhãn dán trên chai khô ở nhiệt độ phòng rồi mới đưa vào tủ lạnh không tương đương nhãn dán trực tiếp lên chai lạnh có hơi nước. Hãy chuẩn bị ít nhất hai nhóm mẫu giống nhau: nhóm đối chứng dán trên bề mặt sạch, khô ở nhiệt độ phòng và nhóm dán theo quy trình thực tế cần đánh giá. Giữ nguyên loại chai, kích thước tem, lực miết và thời gian chờ; chỉ thay một biến mỗi vòng. Ghi nhiệt độ, trạng thái bề mặt, thời điểm xuất hiện ngưng tụ và các dấu hiệu như trượt, hở mép, phồng, nứt hoặc thay đổi bề mặt in. Đánh giá ở các mốc phù hợp với vòng đời sản phẩm, không chỉ ngay sau khi dán. Tài liệu của Avery Dennison cũng phân biệt minimum application temperature với service temperature và khuyến nghị thử cấu trúc nhãn cụ thể. Vì vậy kết quả chỉ có giá trị trong điều kiện đã ghi, không nên biến thành tuyên bố “chịu lạnh” chung.",
+  "revisionCount": 2,
+  "directAnswer": "Khi đặt tem cho hũ bảo quản lạnh, hãy cho VinPrint biết vật liệu hũ, thời điểm dán và tình trạng đọng nước thay vì chỉ gửi kích thước. Tem dán lên hũ khô ở nhiệt độ phòng rồi mới đưa vào ngăn mát có điều kiện khác với tem dán trực tiếp khi hũ đã lạnh. Hũ thủy tinh, hũ nhựa và bề mặt cong cũng cần được xem riêng. VinPrint có nhóm tem giấy và tem nhựa để trao đổi theo điều kiện sử dụng thực tế; lựa chọn cuối cùng nên được kiểm tra trên đúng bao bì. Gửi ảnh bề mặt, kích thước vùng dán, số lượng từng mẫu và mô tả quy trình đóng gói để nhận tư vấn. Nếu chưa chắc, hãy thử mẫu trước khi in nhiều. Hình trong bài là minh họa, không phải ảnh đơn hàng hay bằng chứng độ bền.",
   "sections": [
     {
       "heading": "Nhiệt độ lúc dán khác gì nhiệt độ bảo quản?",
@@ -28,12 +28,27 @@
         "Một hệ keo có thể chịu được môi trường lạnh sau khi đã bám ổn định nhưng không tạo đủ độ bám ban đầu nếu dán lên chai quá lạnh. Ngược lại, dán tốt ở nhiệt độ phòng chưa có nghĩa toàn bộ cấu trúc sẽ phù hợp với chu kỳ ẩm và lạnh của sản phẩm."
       ],
       "table": {
-        "headers": ["Biến thử", "Cách giữ có đối chứng"],
+        "headers": [
+          "Biến thử",
+          "Cách giữ có đối chứng"
+        ],
         "rows": [
-          ["Nhiệt độ lúc dán", "So sánh phòng và lạnh, giữ cùng chai và tem"],
-          ["Bề mặt khô hoặc ướt", "Ghi rõ trạng thái, không trộn hai nhóm"],
-          ["Thời gian chờ trước làm lạnh", "Dùng cùng một mốc cho các mẫu"],
-          ["Chu kỳ lạnh", "Giữ cùng nhiệt độ và thời lượng quan sát"]
+          [
+            "Nhiệt độ lúc dán",
+            "So sánh phòng và lạnh, giữ cùng chai và tem"
+          ],
+          [
+            "Bề mặt khô hoặc ướt",
+            "Ghi rõ trạng thái, không trộn hai nhóm"
+          ],
+          [
+            "Thời gian chờ trước làm lạnh",
+            "Dùng cùng một mốc cho các mẫu"
+          ],
+          [
+            "Chu kỳ lạnh",
+            "Giữ cùng nhiệt độ và thời lượng quan sát"
+          ]
         ]
       }
     },
@@ -63,9 +78,27 @@
         "Thử lại khi đổi nhiệt độ hoặc thời điểm dán",
         "Không dùng thumbnail AI làm bằng chứng phép thử"
       ]
+    },
+    {
+      "heading": "Gửi gì để trao đổi tem cho hũ lạnh nhanh hơn?",
+      "paragraphs": [
+        "Một ảnh chụp toàn bộ hũ và một ảnh cận vùng dự kiến dán giúp xưởng thấy chất liệu, độ cong và khoảng trống thực tế. Ghi rõ hũ được dán khi khô ở nhiệt độ phòng hay sau khi đã làm lạnh, vì hai quy trình tạo điều kiện bề mặt khác nhau.",
+        "Nếu hũ thường có hơi nước, tiếp xúc nước hoặc cọ xát khi giao hàng, hãy mô tả ngay từ đầu. VinPrint sẽ dựa trên thông tin đó để trao đổi nhóm tem giấy hoặc tem nhựa và cách thử mẫu; không nên chốt độ phù hợp chỉ từ ảnh minh họa."
+      ],
+      "bullets": [
+        "Ảnh hũ hoặc chai và vật liệu bề mặt: thủy tinh hay nhựa.",
+        "Kích thước vùng dán và hình dáng tem mong muốn.",
+        "Thời điểm dán: trước khi làm lạnh hay khi bao bì đã lạnh.",
+        "Tình trạng thường gặp: khô, ẩm, đọng nước hoặc tiếp xúc nước.",
+        "Số lượng của từng mẫu để xưởng xem quy cách."
+      ]
     }
   ],
-  "relatedProductSlugs": ["tem-nhua-chong-nuoc", "tem-nhua-trong", "tem-giay"],
+  "relatedProductSlugs": [
+    "tem-nhua-chong-nuoc",
+    "tem-nhua-trong",
+    "tem-giay"
+  ],
   "sources": [
     {
       "title": "Avery Dennison Adhesives for Cold-temperature Labelling",
@@ -87,26 +120,68 @@
       "note": "Nêu yêu cầu thử mẫu sau khi làm lạnh và xem xét hơi nước, nhiệt độ thấp cùng ma sát.",
       "kind": "first-party",
       "verifiedAt": "2026-07-24"
+    },
+    {
+      "title": "Bài công khai VinPrint về tem cho hũ bảo quản lạnh",
+      "href": "https://www.facebook.com/100068300211280/posts/1397571445862849/",
+      "note": "Nguồn nội dung và hình minh họa đã đăng công khai; yêu cầu cung cấp vật liệu hũ, thời điểm dán và tình trạng đọng nước trước khi chọn tem.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-24"
     }
   ],
   "quality": {
-    "scores": {"searchIntent": 20, "originality": 20, "evidence": 20, "citability": 15, "authority": 10, "internalLinks": 10, "technical": 5},
-    "evidenceIds": ["https://label.averydennison.com/content/dam/averydennison/lpm-responsive/europe/english/documents/product-overviews/product/adhesives/18719%20Factsheet%20Low%20Temp%20adhesives%20interactive.pdf", "https://label.averydennison.com/content/dam/averydennison/lpm-responsive/europe/english/documents/product-overviews/product/adhesives/lpm-eu-technical%20guide-adhesive%20technologies-2020-web.pdf", "/nganh/do-uong"],
+    "scores": {
+      "searchIntent": 20,
+      "originality": 20,
+      "evidence": 20,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "https://label.averydennison.com/content/dam/averydennison/lpm-responsive/europe/english/documents/product-overviews/product/adhesives/18719%20Factsheet%20Low%20Temp%20adhesives%20interactive.pdf",
+      "https://label.averydennison.com/content/dam/averydennison/lpm-responsive/europe/english/documents/product-overviews/product/adhesives/lpm-eu-technical%20guide-adhesive%20technologies-2020-web.pdf",
+      "/nganh/do-uong",
+      "https://www.facebook.com/100068300211280/posts/1397571445862849/"
+    ],
     "claimsVerified": true,
     "duplicateIntentChecked": true,
     "commercialClaims": "none",
     "claimChecks": [
       {
         "claim": "Nhiệt độ ứng dụng và nhiệt độ sử dụng là hai thông số khác nhau khi đánh giá keo nhãn trong môi trường lạnh.",
-        "sourceIds": ["https://label.averydennison.com/content/dam/averydennison/lpm-responsive/europe/english/documents/product-overviews/product/adhesives/lpm-eu-technical%20guide-adhesive%20technologies-2020-web.pdf"]
+        "sourceIds": [
+          "https://label.averydennison.com/content/dam/averydennison/lpm-responsive/europe/english/documents/product-overviews/product/adhesives/lpm-eu-technical%20guide-adhesive%20technologies-2020-web.pdf"
+        ]
       },
       {
         "claim": "Một phép thử tem lạnh cần dùng đúng cấu trúc nhãn và điều kiện ứng dụng cụ thể thay vì suy rộng từ thông số chung.",
-        "sourceIds": ["https://label.averydennison.com/content/dam/averydennison/lpm-responsive/europe/english/documents/product-overviews/product/adhesives/18719%20Factsheet%20Low%20Temp%20adhesives%20interactive.pdf", "/nganh/do-uong"]
+        "sourceIds": [
+          "https://label.averydennison.com/content/dam/averydennison/lpm-responsive/europe/english/documents/product-overviews/product/adhesives/18719%20Factsheet%20Low%20Temp%20adhesives%20interactive.pdf",
+          "/nganh/do-uong"
+        ]
+      },
+      {
+        "claim": "VinPrint yêu cầu khách cung cấp vật liệu hũ, thời điểm dán và tình trạng đọng nước để trao đổi phương án tem trước khi in.",
+        "sourceIds": [
+          "https://www.facebook.com/100068300211280/posts/1397571445862849/"
+        ]
       }
     ],
     "attempts": [
-      {"attempt": 1, "recordedAt": "2026-07-24T09:48:00+07:00", "score": 100, "outcome": "accepted"}
+      {
+        "attempt": 1,
+        "recordedAt": "2026-07-24T09:48:00+07:00",
+        "score": 100,
+        "outcome": "accepted"
+      },
+      {
+        "attempt": 2,
+        "recordedAt": "2026-09-24T13:45:00+07:00",
+        "score": 100,
+        "outcome": "accepted"
+      }
     ]
   }
 }

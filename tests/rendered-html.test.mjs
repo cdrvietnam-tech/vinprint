@@ -24,6 +24,69 @@ async function render(pathname = "/", origin = "http://localhost") {
   );
 }
 
+function structuredData(html) {
+  return Array.from(html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g),
+    (match) => JSON.parse(match[1]));
+}
+
+test("homepage lists services without emitting incomplete product rich results", async () => {
+  const data = structuredData(await (await render()).text());
+  const list = data.find((item) => item["@type"] === "ItemList");
+  assert.equal(list.itemListElement.length, 10);
+  assert.ok(list.itemListElement.every((item) => item.name && item.url.startsWith("https://vinprint.vn/san-pham/")));
+  assert.doesNotMatch(JSON.stringify(data), /"@type":"Product"/);
+});
+
+test("product detail schema reflects priced products and quote-only printing services", async () => {
+  for (const [slug, type, price] of [["tem-giay", "Product", 10000], ["tem-nhua-trong", "Service", null]]) {
+    const data = structuredData(await (await render(`/san-pham/${slug}`)).text());
+    const entity = data.find((item) => item["@type"] === type);
+    assert.ok(entity);
+    assert.equal(entity.url, `https://vinprint.vn/san-pham/${slug}`);
+    assert.match(entity.image, /^https:\/\/vinprint\.vn\//);
+    if (price) assert.equal(entity.offers.price, price);
+    else {
+      assert.equal(entity.offers, undefined);
+      assert.equal(entity.review, undefined);
+      assert.equal(entity.aggregateRating, undefined);
+      assert.equal(entity.provider.name, "VinPrint");
+      assert.ok(!data.some((item) => item["@type"] === "Product"));
+    }
+  }
+});
+
+test("production HTTP redirects directly to HTTPS and preserves path and query", async () => {
+  for (const path of ["/", "/san-pham/tem-giay?utm_source=test", "/robots.txt"]) {
+    const response = await render(path, "http://vinprint.vn");
+    assert.equal(response.status, 308);
+    assert.equal(response.headers.get("location"), `https://vinprint.vn${path}`);
+  }
+  const oldPath = "/product/sticker-trang-tri-pvc-chong-nuoc-sieu-ben-boc-khong-de-lai-keo-1000-mau-hot-trend-doc-la";
+  const legacy = await render(`${oldPath}/?utm_source=test`, "http://vinprint.vn");
+  assert.equal(legacy.status, 308);
+  assert.equal(legacy.headers.get("location"), "https://vinprint.vn/san-pham/sticker-trang-tri?utm_source=test");
+  assert.equal((await render("/", "https://vinprint.vn")).status, 200);
+});
+
+test("approved Facebook content renders on its distinct intent owners", async () => {
+  const article = await render("/blog/tem-nhan-trung-thu-hop-qua");
+  assert.equal(article.status, 200);
+  const html = await article.text();
+  assert.match(html, /Tem nhãn Trung thu: dấu ấn riêng trên từng hộp quà/);
+  assert.match(html, /tem-trung-thu\.webp/);
+  assert.match(html, /Ba ý tưởng tem cho mùa quà tặng/);
+  assert.doesNotMatch(html, /Hồ sơ biên tập|Caption gốc/);
+  const cosmetics = await render("/nganh/my-pham");
+  assert.equal(cosmetics.status, 200);
+  const page = await cosmetics.text();
+  assert.match(page, /Chất liệu nên cân nhắc/);
+  assert.match(page, /Tem UV DTF cho chai lọ mỹ phẩm: điểm nhấn từ logo riêng/);
+  assert.match(page, /uv-dtf-chai-lo-my-pham\.webp/);
+  assert.match(page, /Hình minh họa AI từ fanpage VinPrint/);
+  assert.match(page, /href="\/san-pham\/tem-uv-dtf"/);
+  assert.equal((page.match(/<h1[ >]/g) ?? []).length, 1);
+});
+
 test("does not expose development preview metadata", async () => {
   const response = await render();
 
@@ -33,6 +96,17 @@ test("does not expose development preview metadata", async () => {
     /^text\/html\b/i,
   );
   assert.doesNotMatch(await response.text(), developmentPreviewMeta);
+});
+
+test("AI247 renders a crawlable video hub with canonical metadata", async () => {
+  const response = await render("/ai247", "https://vinprint.vn");
+  const html = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(html, /<h1[^>]*>Video AI marketing, cập nhật tại một nơi<\/h1>/i);
+  assert.match(html, /rel="canonical" href="https:\/\/vinprint\.vn\/ai247"/i);
+  assert.match(html, /"@type":"CollectionPage"/);
+  assert.match(html, /Video đầu tiên đang được chuẩn bị|Đang tải video/);
 });
 
 test("renders the new storefront homepage with key sections", async () => {
@@ -73,8 +147,13 @@ test("homepage includes JSON-LD structured data", async () => {
   assert.match(html, /"@type":"LocalBusiness"/);
   assert.match(html, /"@type":"ItemList"/);
   assert.match(html, /"@type":"FAQPage"/);
-  assert.match(html, /"hasMap":"https:\/\/maps\.app\.goo\.gl\/gqrqcsTp6CHHGi73A"/);
-  assert.match(html, /"sameAs":\[[^\]]*https:\/\/maps\.app\.goo\.gl\/gqrqcsTp6CHHGi73A/);
+  const schemas = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
+  const business = schemas.find((schema) => schema["@type"] === "LocalBusiness");
+  const map = new URL(business.hasMap);
+  assert.equal(map.protocol, "https:");
+  assert.equal(map.hostname, "www.google.com");
+  assert.ok(map.searchParams.get("query").includes(business.address.streetAddress));
+  assert.ok(business.sameAs.includes(business.hasMap));
   assert.match(html, /"areaServed"/);
 });
 
@@ -255,16 +334,16 @@ test("renders a crawlable blog index with category navigation", async () => {
   assert.match(html, /Cẩm nang tem nhãn/i);
   assert.match(html, /aria-label="Lọc bài viết theo chuyên mục"/i);
   assert.match(html, /href="\/blog\/chuyen-muc\/chat-lieu"/i);
-  assert.match(html, /href="\/blog\/tem-giay-va-tem-nhua-nen-chon-loai-nao"/i);
-  assert.match(html, /href="\/blog\/loi-thiet-ke-tem-nhan"/i);
+  assert.match(html, /href="\/blog\/tem-nhieu-vi-san-pham"/i);
+  assert.match(html, /href="\/blog\/tem-hologram-7-mau"/i);
+  assert.match(html, /href="\/blog\/tem-qr-cho-shop"/i);
   assert.match(html, /data-blog-thumbnail="compact"/i);
   assert.match(html, /object-fit:contain/i);
-  assert.match(html, /\/images\/blog\/tem-giay-va-tem-nhua\.webp/i);
-  assert.match(html, /\/images\/blog\/tem-uv-dtf-la-gi\.webp/i);
-  assert.match(html, /\/images\/blog\/cach-chon-kich-thuoc-tem\.webp/i);
-  assert.match(html, /\/images\/blog\/chuan-bi-file-in-tem\.webp/i);
-  assert.match(html, /\/images\/blog\/tem-chong-nuoc\.webp/i);
-  assert.match(html, /\/images\/blog\/loi-thiet-ke-tem\.webp/i);
+  assert.match(html, /\/images\/blog\/tem-nhieu-vi-san-pham\.webp/i);
+  assert.match(html, /\/images\/blog\/tem-hologram-7-mau\.webp/i);
+  assert.match(html, /\/images\/blog\/tem-qr-cho-shop\.webp/i);
+  assert.match(html, /\/images\/blog\/card-visit-va-tem-nhan-dong-bo\.webp/i);
+  assert.match(html, /href="\/blog\/card-visit-va-tem-nhan-dong-bo"/i);
 });
 
 test("renders clean blog category pages", async () => {
@@ -285,6 +364,7 @@ test("publishes an RSS feed for public blog articles", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^application\/rss\+xml/i);
   assert.match(xml, /<rss version="2.0">/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/tem-uv-dtf-la-gi/i);
+  assert.match(xml, /https:\/\/vinprint\.vn\/blog\/tem-qr-cho-shop/i);
 });
 
 test("renders GEO-ready blog articles with citable answers and BlogPosting schema", async () => {
@@ -354,6 +434,7 @@ test("all public routes render successfully", async () => {
     "/blog/chuyen-muc/chat-lieu",
     "/blog/tem-giay-va-tem-nhua-nen-chon-loai-nao",
     "/blog/tem-uv-dtf-la-gi",
+    "/blog/tem-qr-cho-shop",
     "/blog/cach-chon-kich-thuoc-tem-nhan",
     "/blog/chuan-bi-file-in-tem-khong-bi-mo",
     "/blog/tem-chong-nuoc-cho-my-pham-va-do-uong",
@@ -386,8 +467,9 @@ test("sitemap publishes the blog hub and every GEO article", async () => {
   assert.match(xml, /https:\/\/vinprint\.vn\/blog<\/loc>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/chuyen-muc\/chat-lieu<\/loc>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/tem-uv-dtf-la-gi<\/loc>/i);
+  assert.match(xml, /https:\/\/vinprint\.vn\/blog\/tem-qr-cho-shop<\/loc>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/blog\/loi-thiet-ke-tem-nhan<\/loc>/i);
-  assert.match(xml, /<image:image>[\s\S]*tem-uv-dtf-la-gi\.webp[\s\S]*<\/image:image>/i);
+  assert.match(xml, /<image:image>[\s\S]*tem-uv-dtf-ly-goc-nghieng\.webp[\s\S]*<\/image:image>/i);
   assert.match(xml, /https:\/\/vinprint\.vn\/quy-trinh-bien-soan<\/loc>/i);
 });
 

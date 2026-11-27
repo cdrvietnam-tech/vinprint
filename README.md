@@ -12,6 +12,7 @@ Conversion-first website for VinPrint's custom sticker and label products in TP.
 - Ten indexable product detail routes under `/san-pham/:slug`.
 - LocalBusiness, Product, ItemList and Breadcrumb structured data.
 - Responsive navigation, keyboard skip link, visible focus states and reduced-motion support.
+- Public AI marketing video library at `/ai247`, backed by the managed R2 media collection.
 
 The current release intentionally has no public AI design studio and no website file-upload route. Customers send the file, quantity and selected material directly through Zalo.
 
@@ -56,8 +57,17 @@ The application uses Next.js-compatible App Router code through Vinext and produ
 - `app/globals.css` — shared tokens, product pages and responsive rules
 - `app/lib/products.ts` — product catalog and source URLs
 - `app/san-pham/[slug]/page.tsx` — product detail template
+- `app/ai247/page.tsx` — public AI247 video hub
+- `app/lib/media-collections.ts` — managed hero, product, gallery and AI247 media collections
 - `public/images/reviews/` — customer-provided Shopee review screenshots in WebP
 - `design-system/vinprint-storefront/MASTER.md` — visual and accessibility rules
+
+## AI247 video publishing
+
+Authorized administrators upload MP4 or WebM videos in `/admin/hinh-anh`, under
+**Video AI247**. Each file may be up to 95 MB. The Worker stores the binary and
+collection manifest in the `HERO_IMAGES` R2 binding; `/ai247` reads the public
+collection endpoint and updates without a code change.
 
 ## Conversion analytics
 

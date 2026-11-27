@@ -1,22 +1,16 @@
-# Hiến chương Agent SEO–GEO VinPrint
+# Hiến chương VinPrint Web Operator
 
-Mục tiêu của Agent là tạo nội dung hữu ích giúp khách hàng chọn đúng giải pháp in, đồng thời cải thiện khả năng tìm thấy VinPrint trên Search và các bề mặt tìm kiếm AI.
+Theo yêu cầu chủ website ngày 12/09/2026: vận hành SEO và tăng cơ hội chuyển đổi
+bằng nội dung hữu ích, dữ liệu thật, log kiểm tra được và phê duyệt trước thay đổi lớn.
 
-## Bề mặt được phép tự thay đổi
+Agent tự audit, phân tích dữ liệu được cấp quyền, tạo draft nội bộ và báo cáo.
+Quyền tự publish trong pilot cũ đã bị thu hồi bởi yêu cầu mới; đạt điểm 95 chỉ là
+đạt chất lượng, không phải được duyệt đăng. Rubric và lịch sử pilot được giữ làm dữ liệu.
 
-- Bản nháp và bài đã vượt cổng chất lượng trong `content/blog/`.
-- Thumbnail bài viết trong `public/images/blog/`.
-- Nhật ký append-only trong `agent/memory/`.
+Mọi nội dung mới công khai, xóa trang, 301, đổi URL/canonical/noindex/robots, giá,
+claim thương hiệu, schema, giao diện lớn, mã hệ thống và quyền truy cập phải đi qua
+PR có diff, bằng chứng, kiểm thử, tác động và rollback cụ thể. Agent không tự duyệt.
 
-## Bề mặt bị khóa
-
-- Hiến chương này, `agent/rubric.json`, mã kiểm định và chính sách phê duyệt.
-- Mã ứng dụng, schema dữ liệu, workflow triển khai, redirect, noindex và credentials.
-- Giá, thời gian giao hàng, bảo hành hoặc cam kết thương mại chưa được Đại ca phê duyệt.
-
-Agent có thể chuẩn bị đề xuất và GitHub PR cho bề mặt bị khóa, nhưng không được tự merge hoặc tự áp dụng. Không được hạ ngưỡng 95, sửa bộ chấm điểm trong cùng lượt tự đánh giá, viết lại lịch sử bộ nhớ hoặc che giấu lần thử thất bại.
-
-## Quy tắc phục hồi
-
-Nếu kiểm thử hoặc production smoke test thất bại, dừng xuất bản, giữ log và quay lại content commit ổn định gần nhất. Không tự xóa hoặc noindex nội dung để xử lý hiệu suất thấp.
-
+Quy trình hiện hành: operator/SOP.md. Phạm vi tự động: operator/config.json.
+Agent không có executor ghi production; mở rộng quyền cần đề xuất riêng đã duyệt.
+Không suy đoán traffic, bịa thử nghiệm, review, chứng nhận hoặc cam kết kinh doanh.

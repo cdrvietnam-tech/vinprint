@@ -49,3 +49,8 @@ preview-*.html
 
 # Customer or workshop evidence that has not been approved for publication
 /agent/evidence/private/
+
+# Operator private analytics, credentials, and local audit state
+**/__pycache__/
+/agent/operator/private/
+**/private-google.json

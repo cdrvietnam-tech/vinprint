@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-uv-dtf-ten-ca-nhan-hoa",
+  "title": "Tem UV DTF tên cá nhân hóa cho hộp bút và quà tặng",
+  "description": "Chuẩn bị danh sách tên, kích thước và ảnh bề mặt khi đặt tem UV DTF cá nhân hóa cho hộp bút hoặc quà tặng.",
+  "category": "theo-nganh",
+  "image": "/images/blog/tem-uv-dtf-ten-hop-but.webp",
+  "imageAlt": "Hình minh họa AI tem UV DTF tên AN và LINH trên hai hộp bút bề mặt cứng",
+  "publishedAt": "2026-09-28",
+  "updatedAt": "2026-09-28",
+  "publishAt": "2026-09-28T08:35:00+07:00",
+  "readingMinutes": 4,
+  "primaryKeyword": "in tên lên hộp bút",
+  "searchIntent": "Cá nhân hóa hộp bút và quà tặng bằng tên riêng",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-daily-promo-v1",
+  "revisionCount": 1,
+  "directAnswer": "Khi đặt tem UV DTF tên cá nhân hóa, hãy gửi danh sách tên ở dạng văn bản, giữ đúng dấu tiếng Việt và ghi số lượng bên cạnh từng tên. Mỗi tên là một mẫu cần được kiểm tra chính tả và xem ở kích thước thật. Gửi thêm ảnh thẳng vùng cần dán, kích thước ngang × cao và mô tả chất liệu hoặc lớp phủ của hộp bút, hộp quà hay vật dụng. UV DTF thường được cân nhắc cho bề mặt cứng, sạch và tương đối phẳng; bề mặt nhám, có gân, cong mạnh hoặc phủ chống bám cần thử trên đúng sản phẩm trước khi làm nhiều. Hình minh họa chỉ gợi ý cách cá nhân hóa, không phải ảnh đơn hàng hay cam kết độ bám.",
+  "sections": [
+    {
+      "heading": "Mỗi tên là một mẫu cần kiểm tra riêng",
+      "paragraphs": [
+        "Một danh sách nhiều tên dễ phát sinh lỗi nếu gửi qua ảnh chụp hoặc tin nhắn rời rạc. Hãy gom tên thành một bảng, mỗi dòng là một mẫu và có số lượng đi kèm.",
+        "Giữ nguyên dấu tiếng Việt, chữ hoa thường và cách viết mà người nhận mong muốn. Trước khi in, đối chiếu file duyệt với danh sách gốc thay vì chỉ nhìn tổng số mẫu."
+      ],
+      "bullets": [
+        "Một dòng cho mỗi tên.",
+        "Ghi số lượng bên cạnh từng mẫu.",
+        "Đánh dấu rõ tên có dấu hoặc ký tự đặc biệt.",
+        "Duyệt lại chính tả trước khi xác nhận file."
+      ]
+    },
+    {
+      "heading": "Chọn kích thước theo vùng dán thật",
+      "paragraphs": [
+        "Tên ngắn và tên dài không chiếm cùng chiều ngang. Có thể giữ một cỡ chữ chung hoặc điều chỉnh bố cục theo nhóm, nhưng cần xem thử từng mẫu ở kích thước thành phẩm.",
+        "Chụp thẳng vùng muốn dán và đo ngang × cao. Nếu hộp có khóa, đường bo hoặc phần nắp cong, đánh dấu vị trí dự kiến để tránh đặt chữ vào vùng khó miết."
+      ],
+      "bullets": [
+        "Ảnh chính diện của từng loại hộp.",
+        "Kích thước vùng dán bằng milimet.",
+        "Vị trí khóa, mép bo hoặc đường gân gần tem.",
+        "Một mẫu tên dài nhất để kiểm tra bố cục."
+      ]
+    },
+    {
+      "heading": "Kiểm tra bề mặt trước khi đặt số lượng lớn",
+      "paragraphs": [
+        "UV DTF phù hợp để thử trên nhiều bề mặt cứng, sạch và tương đối phẳng. Tuy vậy, lớp sơn, lớp phủ chống bám, độ nhám và độ cong của từng sản phẩm có thể làm kết quả khác nhau.",
+        "Lau sạch và để khô bề mặt, sau đó thử một mẫu đúng kích thước. Theo dõi phần mép và vị trí thường xuyên cầm nắm trước khi xác nhận số lượng lớn."
+      ]
+    },
+    {
+      "heading": "Gửi bộ thông tin để VinPrint trao đổi quy cách",
+      "paragraphs": [
+        "Gửi danh sách tên, số lượng từng tên, file hoặc mẫu phong cách, ảnh bề mặt và kích thước vùng dán qua kênh liên hệ VinPrint. Nếu có nhiều loại hộp, nhóm riêng theo chất liệu và kích thước.",
+        "Giá và thời gian thực hiện được xác nhận sau khi xem số mẫu, kích thước, file và bề mặt thực tế. Hình trong bài là minh họa AI, không thay cho bước thử mẫu."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-uv-dtf"
+  ],
+  "sources": [
+    {
+      "title": "Trang sản phẩm tem UV DTF VinPrint",
+      "href": "/san-pham/tem-uv-dtf",
+      "note": "Nguồn xác minh nhóm bề mặt tham khảo, yêu cầu gửi file và thử trên đúng sản phẩm.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "title": "Tem UV DTF là gì?",
+      "href": "/blog/tem-uv-dtf-la-gi",
+      "note": "Trang sở hữu intent giải thích kỹ thuật, giới hạn bề mặt và cách chuẩn bị file UV DTF.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-28"
+    },
+    {
+      "title": "Cách chọn kích thước tem nhãn",
+      "href": "/blog/cach-chon-kich-thuoc-tem-nhan",
+      "note": "Hướng dẫn đo vùng dán và xem thử thiết kế ở kích thước thật.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-28"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 19,
+      "evidence": 19,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/san-pham/tem-uv-dtf",
+      "/blog/tem-uv-dtf-la-gi",
+      "/blog/cach-chon-kich-thuoc-tem-nhan"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "UV DTF cần được thử trên đúng bề mặt trước khi đặt số lượng lớn.",
+        "sourceIds": [
+          "/san-pham/tem-uv-dtf",
+          "/blog/tem-uv-dtf-la-gi"
+        ]
+      },
+      {
+        "claim": "Kích thước tem cần được kiểm tra trên vùng dán thực tế.",
+        "sourceIds": [
+          "/blog/cach-chon-kich-thuoc-tem-nhan"
+        ]
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "recordedAt": "2026-09-28T08:35:00+07:00",
+        "score": 98,
+        "outcome": "accepted"
+      }
+    ]
+  }
+}

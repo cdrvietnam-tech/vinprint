@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-cam-on-cho-shop-online",
+  "title": "Tem cảm ơn gói hàng: dán gọn trên hộp, túi và giấy gói",
+  "description": "Đặt in tem cảm ơn cho shop online theo kích thước hộp, túi và số mẫu. Gửi logo, ảnh bao bì và số lượng để VinPrint tư vấn quy cách phù hợp.",
+  "category": "theo-nganh",
+  "image": "/images/blog/tem-cam-on-shop-online.webp",
+  "imageAlt": "Hình minh họa AI tem cảm ơn dán trên hộp, túi giấy và giấy gói của shop online",
+  "publishedAt": "2026-09-24",
+  "updatedAt": "2026-09-24",
+  "publishAt": "2026-09-24T13:45:00+07:00",
+  "readingMinutes": 3,
+  "primaryKeyword": "tem cảm ơn gói hàng",
+  "searchIntent": "Dùng tem cảm ơn để khép giấy gói và hoàn thiện bao bì giao hàng",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-daily-promo-v1",
+  "revisionCount": 1,
+  "directAnswer": "Tem cảm ơn cho shop online là một nhãn nhỏ đặt trên hộp, túi hoặc giấy gói để hoàn thiện trải nghiệm mở hàng và nhắc lại tên thương hiệu. Với bao bì khô, tem giấy là nhóm sản phẩm có thể tham khảo. Trước khi đặt in, hãy chốt vị trí dán, đo vùng trống trên đúng bao bì và kiểm tra logo ở kích thước thật. Nếu shop có nhiều mẫu theo mùa hoặc nhiều dòng sản phẩm, hãy liệt kê kích thước và số lượng riêng cho từng mẫu để VinPrint trao đổi cách sắp xếp đơn. Gửi logo, nội dung ngắn, ảnh bao bì và số lượng dự kiến; giá và thời gian thực hiện được xác nhận sau khi xem quy cách.",
+  "sections": [
+    {
+      "heading": "Chọn đúng vị trí cho tem cảm ơn",
+      "paragraphs": [
+        "Tem cảm ơn có thể dùng để giữ nếp giấy gói, khép miệng túi hoặc làm điểm nhận diện trên nắp hộp. Mỗi vị trí có diện tích và độ cong khác nhau, vì vậy nên đo trực tiếp vùng dán thay vì chọn kích thước theo ảnh tham khảo.",
+        "Nếu gói hàng đã có tem sản phẩm hoặc phiếu liên hệ, hãy giữ tem cảm ơn ngắn gọn. Tên shop, logo và một lời cảm ơn dễ đọc thường rõ hơn một nhãn chứa quá nhiều thông tin."
+      ],
+      "bullets": [
+        "Nắp hộp: đặt tem trong vùng phẳng, tránh đường gấp.",
+        "Túi giấy hoặc túi kraft: thử vị trí khi túi đã có sản phẩm.",
+        "Giấy gói: tính cả phần tem cần giữ mép giấy.",
+        "Nhiều cỡ hộp: đo từng cỡ trước khi gom đơn in."
+      ]
+    },
+    {
+      "heading": "Chuẩn bị file và số lượng từng mẫu",
+      "paragraphs": [
+        "Gửi logo ở phiên bản rõ nhất đang có và ghi đúng nội dung cần in. Nếu dùng nhiều màu hoặc nhiều câu cảm ơn, đặt tên từng mẫu để tránh nhầm khi duyệt. Xem thử logo và chữ ở kích thước tem thật trước khi chốt.",
+        "Shop có thể trao đổi nhiều mẫu trong cùng đơn, nhưng cần ghi số lượng riêng cho từng mẫu và kích thước. VinPrint sẽ xem file cùng quy cách thực tế rồi mới xác nhận phương án, báo giá và thời gian."
+      ],
+      "bullets": [
+        "Logo hoặc file thiết kế đã chốt.",
+        "Kích thước thành phẩm của từng mẫu.",
+        "Ảnh hộp, túi hoặc giấy gói tại vị trí dán.",
+        "Số lượng riêng cho mỗi nội dung hoặc màu.",
+        "Mốc thời gian dự kiến cần nhận để xưởng kiểm tra lịch."
+      ]
+    },
+    {
+      "heading": "Giữ nhận diện đồng bộ với gói hàng",
+      "paragraphs": [
+        "Nếu shop đã có card visit, tem sản phẩm hoặc màu chủ đạo, hãy gửi kèm để tem cảm ơn đi cùng một phong cách. Các ấn phẩm không cần giống hệt nhau, nhưng nên dùng cùng tên shop và phiên bản logo đã chốt.",
+        "Với bao bì khô như hộp giấy và túi kraft, trang sản phẩm tem giấy là điểm tham khảo phù hợp. Trường hợp bao bì ẩm, lạnh hoặc có bề mặt khó dán cần được mô tả riêng để trao đổi vật liệu khác và thử mẫu trước khi in nhiều."
+      ]
+    }
+  ],
+  "relatedProductSlugs": [
+    "tem-giay"
+  ],
+  "sources": [
+    {
+      "title": "Tem nhãn giấy VinPrint",
+      "href": "/san-pham/tem-giay",
+      "note": "Trang sản phẩm mô tả tem giấy cho hộp giấy, túi kraft, tem cảm ơn và bao bì khô.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-24"
+    },
+    {
+      "title": "In sticker và tem handmade số lượng ít",
+      "href": "/nganh/handmade",
+      "note": "Trang ngành nêu nhu cầu tem cảm ơn, tem bao bì handmade và nhiều mẫu nhỏ theo mùa.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-24"
+    },
+    {
+      "title": "Card visit và tem nhãn đồng bộ",
+      "href": "/blog/card-visit-va-tem-nhan-dong-bo",
+      "note": "Bài liên quan về cách giữ tên shop, logo và màu sắc nhất quán trên các điểm chạm đóng gói.",
+      "kind": "first-party",
+      "verifiedAt": "2026-09-24"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 19,
+      "evidence": 20,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/san-pham/tem-giay",
+      "/nganh/handmade",
+      "/blog/card-visit-va-tem-nhan-dong-bo"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "VinPrint liệt kê tem cảm ơn trong nhóm ứng dụng của tem giấy cho bao bì khô.",
+        "sourceIds": [
+          "/san-pham/tem-giay"
+        ]
+      },
+      {
+        "claim": "Trang ngành handmade của VinPrint đề cập tem cảm ơn và nhu cầu nhiều mẫu nhỏ theo mùa.",
+        "sourceIds": [
+          "/nganh/handmade"
+        ]
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "recordedAt": "2026-09-24T13:45:00+07:00",
+        "score": 99,
+        "outcome": "accepted"
+      }
+    ]
+  }
+}

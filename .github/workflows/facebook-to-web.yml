@@ -1,0 +1,87 @@
+name: Facebook to website intake
+
+on:
+  repository_dispatch:
+    types: [vinprint_facebook_post]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: facebook-to-web
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Require automation credential
+        env:
+          AUTOMATION_PAT: ${{ secrets.VINPRINT_AUTOMATION_PAT }}
+        run: test -n "$AUTOMATION_PAT"
+
+      - name: Check out trusted main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.VINPRINT_AUTOMATION_PAT }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.13.0
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Validate and import at most two posts
+        id: import
+        run: node scripts/facebook-sync/import-post.mjs --event "$GITHUB_EVENT_PATH"
+
+      - name: Rebuild generated indexes
+        if: steps.import.outputs.created_count != '0'
+        run: |
+          npm run facebook:index
+          npm run images:catalog
+
+      - name: Verify generated website
+        if: steps.import.outputs.created_count != '0'
+        run: |
+          npm run content:audit
+          npm run lint
+          npm test
+
+      - name: Create review branch and pull request
+        if: steps.import.outputs.created_count != '0'
+        env:
+          GH_TOKEN: ${{ secrets.VINPRINT_AUTOMATION_PAT }}
+          POST_IDS: ${{ steps.import.outputs.post_ids }}
+          SLUGS: ${{ steps.import.outputs.slugs }}
+        run: |
+          branch="agent-evolution/facebook-sync-${GITHUB_RUN_ID}"
+          git config user.name "vinprint-facebook-sync"
+          git config user.email "actions@users.noreply.github.com"
+          git switch -c "$branch"
+          git add content/facebook public/images/facebook public/image-catalog.json
+          git commit -m "content: sync Facebook posts ${POST_IDS}"
+          git push origin "$branch"
+          body_file="${RUNNER_TEMP}/facebook-pr.md"
+          cat > "$body_file" <<EOF
+          Đồng bộ tự động từ fanpage VinPrint, không dùng ChatGPT hoặc mô hình AI.
+
+          - Page ID: 105514821740093
+          - Post ID: ${POST_IDS}
+          - Trang đích: /mau-tem-moi
+          - Bản ghi: ${SLUGS}
+          - Kiểm tra: giới hạn 2 bài/lượt, chống trùng ID/hash, chỉ nhận permalink Facebook và ảnh Facebook CDN, lint/build/test hoàn tất trước khi tạo PR.
+
+          Cổng duyệt hiện tại vẫn áp dụng. Chủ website duyệt đúng head SHA trước khi merge.
+          EOF
+          gh pr create --base main --head "$branch" --title "[Agent Evolution] Đồng bộ bài Facebook ${POST_IDS}" --body-file "$body_file"
+
+      - name: Record no-op
+        if: steps.import.outputs.created_count == '0'
+        run: echo "All supplied Facebook posts were already synchronized."

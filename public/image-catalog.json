@@ -273,6 +273,21 @@
       ]
     },
     {
+      "path": "/images/blog/card-visit-va-tem-nhan-dong-bo.webp",
+      "title": "Card Visit Va Tem Nhan Dong Bo",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 96488,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/chai-dong-suong-lam-bong-tem.webp",
       "title": "Chai Dong Suong Lam Bong Tem",
       "category": "blog",
@@ -318,6 +333,21 @@
       ]
     },
     {
+      "path": "/images/blog/in-the-cam-on-cho-shop.webp",
+      "title": "In The Cam On Cho Shop",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 141784,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/keo-tem-cho-chai-nhua.webp",
       "title": "Keo Tem Cho Chai Nhua",
       "category": "blog",
@@ -325,6 +355,21 @@
       "width": 1600,
       "height": 900,
       "bytes": 51672,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/logo-thu-nho-uv-dtf.webp",
+      "title": "Logo Thu Nho Uv Dtf",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 70014,
       "usages": [
         {
           "href": "/blog",
@@ -355,6 +400,36 @@
       "width": 1600,
       "height": 900,
       "bytes": 79242,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-bao-quan-lanh-hu-sua-chua.webp",
+      "title": "Tem Bao Quan Lanh Hu Sua Chua",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1200,
+      "height": 1200,
+      "bytes": 99716,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-cam-on-shop-online.webp",
+      "title": "Tem Cam On Shop Online",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1200,
+      "height": 1200,
+      "bytes": 141034,
       "usages": [
         {
           "href": "/blog",
@@ -453,6 +528,51 @@
       ]
     },
     {
+      "path": "/images/blog/tem-hologram-7-mau.webp",
+      "title": "Tem Hologram 7 Mau",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 768,
+      "height": 768,
+      "bytes": 57018,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-hop-mang-di.webp",
+      "title": "Tem Hop Mang Di",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1050,
+      "height": 1050,
+      "bytes": 115128,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-logo-cho-tui-giay.webp",
+      "title": "Tem Logo Cho Tui Giay",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 131356,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/tem-ly-ca-phe-chong-nuoc.webp",
       "title": "Tem Ly Ca Phe Chong Nuoc",
       "category": "blog",
@@ -460,6 +580,51 @@
       "width": 1600,
       "height": 900,
       "bytes": 130846,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-nhan-nen-thom-phan-biet-huong.webp",
+      "title": "Tem Nhan Nen Thom Phan Biet Huong",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 188612,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-nhan-nen-thom.webp",
+      "title": "Tem Nhan Nen Thom",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1200,
+      "height": 1200,
+      "bytes": 190586,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-nhieu-vi-san-pham.webp",
+      "title": "Tem Nhieu Vi San Pham",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 118476,
       "usages": [
         {
           "href": "/blog",
@@ -483,6 +648,21 @@
       ]
     },
     {
+      "path": "/images/blog/tem-qr-cho-shop.webp",
+      "title": "Tem Qr Cho Shop",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 165382,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/tem-thuc-pham-cho-tui-kraft.webp",
       "title": "Tem Thuc Pham Cho Tui Kraft",
       "category": "blog",
@@ -490,6 +670,66 @@
       "width": 1600,
       "height": 900,
       "bytes": 126986,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-tron-chu-nhat-cho-hu.webp",
+      "title": "Tem Tron Chu Nhat Cho Hu",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 93272,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-trung-thu.webp",
+      "title": "Tem Trung Thu",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1200,
+      "height": 1200,
+      "bytes": 417482,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-truoc-tem-sau-cho-chai-lo.webp",
+      "title": "Tem Truoc Tem Sau Cho Chai Lo",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1200,
+      "height": 1200,
+      "bytes": 164016,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-uv-dtf-bo-qua-tang.webp",
+      "title": "Tem Uv Dtf Bo Qua Tang",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 161978,
       "usages": [
         {
           "href": "/blog",
@@ -513,6 +753,36 @@
       ]
     },
     {
+      "path": "/images/blog/tem-uv-dtf-ly-goc-nghieng.webp",
+      "title": "Tem Uv Dtf Ly Goc Nghieng",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1050,
+      "height": 1050,
+      "bytes": 52770,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/tem-uv-dtf-ten-hop-but.webp",
+      "title": "Tem Uv Dtf Ten Hop But",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 91360,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
       "path": "/images/blog/thu-tem-trong-moi-truong-lanh.webp",
       "title": "Thu Tem Trong Moi Truong Lanh",
       "category": "blog",
@@ -520,6 +790,36 @@
       "width": 1600,
       "height": 900,
       "bytes": 76508,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/uv-dtf-chai-lo-my-pham.webp",
+      "title": "Uv Dtf Chai Lo My Pham",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1200,
+      "height": 1200,
+      "bytes": 96978,
+      "usages": [
+        {
+          "href": "/blog",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/blog/uv-dtf-mang-chuyen.webp",
+      "title": "Uv Dtf Mang Chuyen",
+      "category": "blog",
+      "categoryLabel": "Ảnh bài viết",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 61206,
       "usages": [
         {
           "href": "/blog",

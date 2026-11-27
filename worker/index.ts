@@ -221,6 +221,13 @@ const worker = {
     const url = new URL(request.url);
     const legacyRedirect = resolveLegacyRedirect(url);
 
+    // Canonicalize only the production host; keep local and preview origins usable.
+    if (url.hostname === "vinprint.vn" && url.protocol === "http:") {
+      const secureUrl = legacyRedirect ?? new URL(url);
+      secureUrl.protocol = "https:";
+      return Response.redirect(secureUrl.href, 308);
+    }
+
     if (url.pathname.startsWith("/admin") && !isAdminRequest(request, env)) {
       return new Response("Khu vực quản trị yêu cầu đăng nhập qua Cloudflare Access.", {
         status: 401,
@@ -445,7 +452,7 @@ const worker = {
       if (request.method !== "PUT") return new Response(null, { status: 405, headers: { allow: "GET, PUT, POST, DELETE" } });
       const contentType = request.headers.get("content-type")?.split(";", 1)[0].trim().toLowerCase() || "";
       if (!managedCollectionMediaTypes.has(contentType)) return Response.json({ error: "invalid_media_type" }, { status: 415 });
-      if (contentType.startsWith("video/") && collection !== "hot-products") return Response.json({ error: "video_not_allowed" }, { status: 415 });
+      if (contentType.startsWith("video/") && collection !== "hot-products" && collection !== "ai247") return Response.json({ error: "video_not_allowed" }, { status: 415 });
       const declaredSize = Number(request.headers.get("content-length") || 0);
       const sizeLimit = contentType.startsWith("video/") ? maxManagedVideoSize : maxManagedCollectionImageSize;
       if (!request.body || declaredSize > sizeLimit) return Response.json({ error: "media_too_large" }, { status: 413 });

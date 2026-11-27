@@ -1,0 +1,146 @@
+{
+  "id": "VpFb2Web260922A1",
+  "name": "VinPrint - Facebook sang website (không AI)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "daysInterval": 1,
+              "triggerAtHour": 8,
+              "triggerAtMinute": 30
+            }
+          ]
+        }
+      },
+      "id": "schedule-daily",
+      "name": "Mỗi ngày 08:30",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [-780, 0]
+    },
+    {
+      "parameters": {
+        "url": "https://graph.facebook.com/v25.0/105514821740093/posts",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "fields",
+              "value": "id,message,created_time,permalink_url,full_picture"
+            },
+            {
+              "name": "limit",
+              "value": "20"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 20000
+        }
+      },
+      "id": "fetch-facebook",
+      "name": "Lấy bài fanpage",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-540, 0],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "SELECT_AFTER_IMPORT",
+          "name": "Facebook Page Access Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const PAGE_ID = '105514821740093';\nconst state = $getWorkflowStaticData('global');\nconst seen = new Set(state.seenPostIds || []);\nconst rows = Array.isArray($json.data) ? $json.data : [];\nconst posts = rows\n  .filter((post) => post && post.id && post.message && post.full_picture && post.permalink_url && !seen.has(String(post.id)))\n  .sort((a, b) => new Date(a.created_time) - new Date(b.created_time))\n  .slice(0, 2)\n  .map((post) => ({\n    id: String(post.id),\n    message: String(post.message),\n    created_time: post.created_time,\n    permalink_url: post.permalink_url,\n    full_picture: post.full_picture,\n  }));\nif (!posts.length) return [];\nreturn [{ json: { event_type: 'vinprint_facebook_post', client_payload: { source: 'n8n-vinprint-v1', page_id: PAGE_ID, posts } } }];"
+      },
+      "id": "prepare-batch",
+      "name": "Chọn tối đa 2 bài mới",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-300, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.github.com/repos/cdrvietnam-tech/vinprint/dispatches",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "githubApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/vnd.github+json"
+            },
+            {
+              "name": "X-GitHub-Api-Version",
+              "value": "2022-11-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "={{ JSON.stringify($json) }}",
+        "options": {
+          "timeout": 20000
+        }
+      },
+      "id": "dispatch-github",
+      "name": "Gửi gói sang GitHub",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-40, 0],
+      "credentials": {
+        "githubApi": {
+          "id": "SELECT_AFTER_IMPORT",
+          "name": "GitHub VinPrint"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const state = $getWorkflowStaticData('global');\nconst batch = $('Chọn tối đa 2 bài mới').first().json.client_payload.posts;\nconst all = [...(state.seenPostIds || []), ...batch.map((post) => String(post.id))];\nstate.seenPostIds = [...new Set(all)].slice(-500);\nstate.lastSuccessfulDispatch = new Date().toISOString();\nreturn [{ json: { dispatched: batch.length, postIds: batch.map((post) => post.id) } }];"
+      },
+      "id": "mark-seen",
+      "name": "Ghi nhận đã chuyển",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [220, 0]
+    }
+  ],
+  "connections": {
+    "Mỗi ngày 08:30": {
+      "main": [[{"node": "Lấy bài fanpage", "type": "main", "index": 0}]]
+    },
+    "Lấy bài fanpage": {
+      "main": [[{"node": "Chọn tối đa 2 bài mới", "type": "main", "index": 0}]]
+    },
+    "Chọn tối đa 2 bài mới": {
+      "main": [[{"node": "Gửi gói sang GitHub", "type": "main", "index": 0}]]
+    },
+    "Gửi gói sang GitHub": {
+      "main": [[{"node": "Ghi nhận đã chuyển", "type": "main", "index": 0}]]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Bangkok",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "none",
+    "saveManualExecutions": true
+  },
+  "active": false,
+  "versionId": "8d641155-2dc9-4baf-a3d0-b096c569e4ad",
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": []
+}
