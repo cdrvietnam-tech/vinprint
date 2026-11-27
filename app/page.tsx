@@ -1,5 +1,6 @@
 import Header from "./components/home/Header";
 import Hero from "./components/home/Hero";
+import SeasonalBanner from "./components/home/SeasonalBanner";
 import HotProductsMarquee from "./components/home/HotProductsMarquee";
 import Pricing from "./components/home/Pricing";
 import Process from "./components/home/Process";
@@ -19,6 +20,7 @@ export default function Page() {
       <Header />
       <main id="main-content" tabIndex={-1}>
         <Hero />
+        <SeasonalBanner />
         <HotProductsMarquee />
         <Pricing />
         <Process />

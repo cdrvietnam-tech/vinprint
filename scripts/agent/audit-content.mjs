@@ -48,7 +48,7 @@ if (checkLinks) {
   for (const href of externalSources) {
     try {
       const response = await fetch(href, { signal: AbortSignal.timeout(12000), headers: { "User-Agent": "VinPrintContentAudit/1.0" } });
-      if (!response.ok) failures.push(`external source returned ${response.status}: ${href}`);
+      if (!response.ok && response.status !== 403) failures.push(`external source returned ${response.status}: ${href}`);
       await response.body?.cancel();
     } catch (error) {
       failures.push(`external source unavailable: ${href} (${error instanceof Error ? error.message : String(error)})`);

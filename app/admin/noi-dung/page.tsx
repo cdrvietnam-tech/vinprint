@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AdminShell from "../../components/admin/AdminShell";
 import ContentAdmin from "../../components/admin/ContentAdmin";
 
 export const metadata: Metadata = {
@@ -9,5 +10,5 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default function ContentAdminPage() {
-  return <ContentAdmin />;
+  return <AdminShell active="noi-dung"><ContentAdmin /></AdminShell>;
 }

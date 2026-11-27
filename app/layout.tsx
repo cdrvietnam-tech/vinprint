@@ -28,6 +28,8 @@ export const metadata: Metadata = {
     "tem giấy",
     "in tem TP.HCM",
     "in tem Gò Vấp",
+    "in tem Tết lấy liền",
+    "in tem nhãn Tết",
   ],
   alternates: {
     canonical: "/",
@@ -68,7 +70,7 @@ export const metadata: Metadata = {
   },
   other: {
     "geo.region": "VN-SG",
-    "geo.placename": "An Phú Đồng, TP.HCM",
+    "geo.placename": "An Phú Đông, TP.HCM",
   },
   icons: {
     icon: "/favicon.svg",

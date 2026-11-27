@@ -7,6 +7,8 @@ import ConversionLink from "../../components/ConversionLink";
 import Header from "../../components/home/Header";
 import Footer from "../../components/home/Footer";
 import { productBySlug, products } from "../../lib/products";
+import { productGuides } from "../../lib/product-guides";
+import { blogPostBySlug } from "../../lib/blog-posts";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
@@ -40,6 +42,17 @@ export default async function ProductPage({ params }: ProductPageProps) {
   if (!product) notFound();
 
   const related = products.filter((item) => item.slug !== product.slug).slice(0, 3);
+  const guide = productGuides[product.slug];
+  const guidePosts = (guide?.posts ?? []).map((postSlug) => blogPostBySlug[postSlug]).filter(Boolean);
+  const faqSchema = guide ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: guide.faqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  } : null;
   const productSchema = {
     "@context": "https://schema.org",
     "@type": product.price ? "Product" : "Service",
@@ -91,6 +104,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
       <Header />
       <main className="product-page pt-20" id="main-content" tabIndex={-1}>
 
@@ -127,6 +141,32 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </div>
       </section>
 
+      {guide && (
+        <section className="bg-white px-4 py-14 sm:py-20" aria-labelledby="product-guide-heading">
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.1fr_1fr]">
+            <div>
+              <h2 id="product-guide-heading" className="text-3xl font-black leading-tight text-gray-950 sm:text-4xl">{`${product.name}: khi nào nên chọn?`}</h2>
+              {guide.paragraphs.map((paragraph) => <p key={paragraph} className="mt-5 text-base leading-8 text-gray-700">{paragraph}</p>)}
+              <ul className="mt-6 flex flex-wrap gap-3">
+                {guide.links.map((item) => (
+                  <li key={item.href}><Link href={item.href} className="inline-flex min-h-11 items-center rounded-full border border-gray-300 px-4 text-sm font-bold text-gray-900 hover:border-[#D83B00] hover:text-[#D83B00]">{item.label} →</Link></li>
+                ))}
+              </ul>
+            </div>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
+              <div className="rounded-3xl bg-orange-50 p-6">
+                <h3 className="text-sm font-black uppercase tracking-wider text-orange-800">Nên chọn khi</h3>
+                <ul className="mt-4 space-y-3">{guide.chooseWhen.map((item) => <li key={item} className="font-semibold text-gray-900">✓ {item}</li>)}</ul>
+              </div>
+              <div className="rounded-3xl bg-gray-100 p-6">
+                <h3 className="text-sm font-black uppercase tracking-wider text-gray-700">Cần lưu ý</h3>
+                <ul className="mt-4 space-y-3">{guide.watchOut.map((item) => <li key={item} className="font-semibold text-gray-900">• {item}</li>)}</ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="product-order">
         <div className="shell product-order__grid">
           <div><span>QUY TRÌNH ĐẶT IN</span><h2>Gửi đủ một lần.<br />Xử lý nhanh hơn.</h2></div>
@@ -138,6 +178,32 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </ol>
         </div>
       </section>
+
+      {guide && (
+        <section className="bg-[#F7F4EE] px-4 py-14 sm:py-20" aria-labelledby="product-faq-heading">
+          <div className="mx-auto max-w-6xl">
+            <h2 id="product-faq-heading" className="text-3xl font-black text-gray-950 sm:text-4xl">{`Câu hỏi thường gặp về ${product.name.toLowerCase()}`}</h2>
+            <dl className="mt-8 grid gap-5 lg:grid-cols-3">
+              {guide.faqs.map((item) => (
+                <div key={item.q} className="rounded-3xl border border-gray-200 bg-white p-6">
+                  <dt className="text-lg font-black text-gray-950">{item.q}</dt>
+                  <dd className="mt-3 text-base leading-7 text-gray-700">{item.a}</dd>
+                </div>
+              ))}
+            </dl>
+            {guidePosts.length > 0 && (
+              <nav aria-label="Bài viết liên quan" className="mt-10">
+                <h3 className="text-sm font-black uppercase tracking-wider text-gray-600">Đọc thêm trong cẩm nang</h3>
+                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {guidePosts.map((post) => (
+                    <li key={post.slug}><Link href={`/blog/${post.slug}`} className="flex min-h-12 items-center rounded-2xl border border-gray-200 bg-white px-5 py-3 font-bold text-gray-900 hover:border-[#D83B00] hover:text-[#D83B00]">{post.title} →</Link></li>
+                  ))}
+                </ul>
+              </nav>
+            )}
+          </div>
+        </section>
+      )}
 
       <section className="related-products section-pad">
         <div className="shell">

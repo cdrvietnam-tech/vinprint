@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AdminShell from "../../components/admin/AdminShell";
 import HeroImageAdmin from "../../components/admin/HeroImageAdmin";
 
 export const metadata: Metadata = {
@@ -9,5 +10,5 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default function HeroImageAdminPage() {
-  return <HeroImageAdmin />;
+  return <AdminShell active="hinh-anh"><HeroImageAdmin /></AdminShell>;
 }

@@ -8,10 +8,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://vinprint.vn";
   const lastModified = new Date("2026-07-16T00:00:00+07:00");
 
+  const pageDate = (page: { updatedAt?: string }) =>
+    page.updatedAt ? new Date(`${page.updatedAt}T00:00:00+07:00`) : lastModified;
+
   const contentRoutes = [
-    ...Object.keys(companyPages).map((slug) => `/${slug}`),
-    ...Object.keys(industryPages).map((slug) => `/nganh/${slug}`),
-    ...Object.keys(guidePages).map((slug) => `/huong-dan/${slug}`),
+    ...Object.entries(companyPages).map(([slug, page]) => ({ route: `/${slug}`, modified: pageDate(page) })),
+    ...Object.entries(industryPages).map(([slug, page]) => ({ route: `/nganh/${slug}`, modified: pageDate(page) })),
+    ...Object.entries(guidePages).map(([slug, page]) => ({ route: `/huong-dan/${slug}`, modified: pageDate(page) })),
   ];
 
   return [
@@ -33,9 +36,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
-    ...contentRoutes.map((route) => ({
+    ...contentRoutes.map(({ route, modified }) => ({
       url: `${baseUrl}${route}`,
-      lastModified,
+      lastModified: modified,
       changeFrequency: "monthly" as const,
       priority: route.startsWith("/huong-dan/") ? 0.7 : 0.75,
     })),

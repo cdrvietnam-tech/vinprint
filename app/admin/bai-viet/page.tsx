@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AdminShell from "../../components/admin/AdminShell";
 import BlogDashboard, { type BlogRow } from "../../components/admin/BlogDashboard";
 import { allBlogArticles, selectPublicArticles, getBlogCategoryLabel } from "../../lib/blog-posts";
 
@@ -27,5 +28,5 @@ export default function BlogAdminPage() {
     }))
     .sort((a, b) => new Date(b.publishAt).getTime() - new Date(a.publishAt).getTime());
 
-  return <BlogDashboard rows={rows} />;
+  return <AdminShell active="bai-viet"><BlogDashboard rows={rows} /></AdminShell>;
 }

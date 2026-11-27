@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import ImageCropEditor from "./ImageCropEditor";
 import VideoAdmin from "./VideoAdmin";
-import AdminNav from "./AdminNav";
 
 type CatalogItem = {
   path: string;
@@ -188,7 +187,6 @@ export default function HeroImageAdmin() {
   return (
     <main className="min-h-screen bg-[#fffaf4] px-4 py-8 text-gray-950 sm:px-8 sm:py-10">
       <div className="mx-auto max-w-[1500px]">
-        <AdminNav active="hinh-anh" />
         <div className="flex justify-end">
           <span className="rounded-full bg-green-50 px-4 py-2 text-xs font-black text-green-700">{Object.keys(overrides).length} ảnh đã thay</span>
         </div>

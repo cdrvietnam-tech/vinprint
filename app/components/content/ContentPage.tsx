@@ -20,13 +20,24 @@ export default function ContentPage({ data, canonicalPath }: ContentPageProps) {
     author: { "@type": "Organization", name: "VinPrint", url: "https://vinprint.vn" },
     publisher: { "@type": "Organization", name: "VinPrint", url: "https://vinprint.vn" },
     inLanguage: "vi-VN",
+    ...(data.updatedAt ? { dateModified: data.updatedAt } : {}),
   };
+  const faqSchema = data.faqs?.length ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: data.faqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  } : null;
 
   return (
     <div className="min-h-screen bg-[#F7F4EE] text-gray-950">
       <Header />
       <main id="main-content" tabIndex={-1} className="pt-20">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+        {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
         <section className="border-b border-black/10 bg-[#171310] px-4 py-12 text-white">
           <div className="mx-auto max-w-5xl">
             <Link href="/" className="inline-flex min-h-11 items-center text-sm font-bold text-orange-300 hover:text-white">← Trang chủ</Link>
@@ -50,6 +61,24 @@ export default function ContentPage({ data, canonicalPath }: ContentPageProps) {
               {section.links && <div className="mt-5 flex flex-wrap gap-4">{section.links.map((link) => <Link key={link.href} href={link.href} className="font-bold text-[#4933D4] underline underline-offset-4">{link.label}</Link>)}</div>}
             </section>
           ))}
+
+          {data.faqs?.length ? (
+            <section className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm sm:p-10">
+              <h2 className="text-2xl font-black sm:text-3xl">Câu hỏi thường gặp</h2>
+              <dl className="mt-6 space-y-5">
+                {data.faqs.map((item) => (<div key={item.q}><dt className="text-lg font-black text-gray-950">{item.q}</dt><dd className="mt-2 text-base leading-8 text-gray-700">{item.a}</dd></div>))}
+              </dl>
+            </section>
+          ) : null}
+
+          {data.related?.length ? (
+            <nav aria-label="Nội dung liên quan" className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm sm:p-10">
+              <h2 className="text-2xl font-black sm:text-3xl">Xem thêm</h2>
+              <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                {data.related.map((item) => (<li key={item.href}><Link href={item.href} className="flex min-h-12 items-center rounded-2xl border border-gray-200 px-5 py-3 font-bold text-gray-900 hover:border-[#D83B00] hover:text-[#D83B00]">{item.label} →</Link></li>))}
+              </ul>
+            </nav>
+          ) : null}
 
           <aside className="rounded-3xl bg-[#6545ED] p-7 text-white sm:flex sm:items-center sm:justify-between sm:p-10">
             <div><h2 className="text-2xl font-black">Cần tư vấn theo sản phẩm thật?</h2><p className="mt-2 text-white/80">Gửi hình bao bì, kích thước và số lượng để xưởng kiểm tra.</p></div>
