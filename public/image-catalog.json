@@ -830,60 +830,60 @@
     {
       "path": "/images/hero-admin/hero-1.png",
       "title": "Hero 1",
-      "category": "hero",
-      "categoryLabel": "Ảnh hero",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 608,
       "height": 438,
       "bytes": 457912,
       "usages": [
         {
-          "href": "/",
-          "label": "Trang chủ"
+          "href": "/san-pham",
+          "label": "Trang liên quan"
         }
       ]
     },
     {
       "path": "/images/hero-admin/hero-2.png",
       "title": "Hero 2",
-      "category": "hero",
-      "categoryLabel": "Ảnh hero",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 667,
       "height": 458,
       "bytes": 592012,
       "usages": [
         {
-          "href": "/",
-          "label": "Trang chủ"
+          "href": "/san-pham",
+          "label": "Trang liên quan"
         }
       ]
     },
     {
       "path": "/images/hero-admin/hero-3.png",
       "title": "Hero 3",
-      "category": "hero",
-      "categoryLabel": "Ảnh hero",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 704,
       "height": 515,
       "bytes": 701310,
       "usages": [
         {
-          "href": "/",
-          "label": "Trang chủ"
+          "href": "/san-pham",
+          "label": "Trang liên quan"
         }
       ]
     },
     {
       "path": "/images/hero-admin/hero-4.png",
       "title": "Hero 4",
-      "category": "hero",
-      "categoryLabel": "Ảnh hero",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 572,
       "height": 1000,
       "bytes": 898423,
       "usages": [
         {
-          "href": "/",
-          "label": "Trang chủ"
+          "href": "/san-pham",
+          "label": "Trang liên quan"
         }
       ]
     },
@@ -913,8 +913,8 @@
     {
       "path": "/images/holographic_sticker.webp",
       "title": "Holographic Sticker",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 768,
       "height": 768,
       "bytes": 57572,
@@ -932,14 +932,14 @@
     {
       "path": "/images/hot-products/hu-my-pham-thy-kieu.png",
       "title": "Hu My Pham Thy Kieu",
-      "category": "hot-products",
-      "categoryLabel": "Sản phẩm hot",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 763,
       "height": 1000,
       "bytes": 1053213,
       "usages": [
         {
-          "href": "/#san-pham-noi-bat",
+          "href": "/san-pham",
           "label": "Trang liên quan"
         }
       ]
@@ -947,14 +947,14 @@
     {
       "path": "/images/hot-products/mat-ong-mina.png",
       "title": "Mat Ong Mina",
-      "category": "hot-products",
-      "categoryLabel": "Sản phẩm hot",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 572,
       "height": 1000,
       "bytes": 898423,
       "usages": [
         {
-          "href": "/#san-pham-noi-bat",
+          "href": "/san-pham",
           "label": "Trang liên quan"
         }
       ]
@@ -962,14 +962,14 @@
     {
       "path": "/images/hot-products/tra-sua-kim-hieu.png",
       "title": "Tra Sua Kim Hieu",
-      "category": "hot-products",
-      "categoryLabel": "Sản phẩm hot",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 483,
       "height": 1000,
       "bytes": 606164,
       "usages": [
         {
-          "href": "/#san-pham-noi-bat",
+          "href": "/san-pham",
           "label": "Trang liên quan"
         }
       ]
@@ -992,8 +992,8 @@
     {
       "path": "/images/mockups/cosmetic_bottle-before.webp",
       "title": "Cosmetic Bottle Before",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 768,
       "height": 768,
       "bytes": 7234,
@@ -1011,8 +1011,8 @@
     {
       "path": "/images/mockups/cosmetic_bottle.webp",
       "title": "Cosmetic Bottle",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 768,
       "height": 768,
       "bytes": 11316,
@@ -1030,8 +1030,8 @@
     {
       "path": "/images/mockups/glass_jar-before.webp",
       "title": "Glass Jar Before",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 768,
       "height": 768,
       "bytes": 11354,
@@ -1049,8 +1049,8 @@
     {
       "path": "/images/mockups/glass_jar.webp",
       "title": "Glass Jar",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 768,
       "height": 768,
       "bytes": 15274,
@@ -1068,8 +1068,8 @@
     {
       "path": "/images/mockups/kraft_box-before.webp",
       "title": "Kraft Box Before",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 768,
       "height": 768,
       "bytes": 15150,
@@ -1087,8 +1087,8 @@
     {
       "path": "/images/mockups/kraft_box.webp",
       "title": "Kraft Box",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 768,
       "height": 768,
       "bytes": 22842,
@@ -1106,8 +1106,8 @@
     {
       "path": "/images/mockups/paper_box-before.webp",
       "title": "Paper Box Before",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 768,
       "height": 768,
       "bytes": 4902,
@@ -1125,8 +1125,8 @@
     {
       "path": "/images/mockups/paper_box.webp",
       "title": "Paper Box",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 768,
       "height": 768,
       "bytes": 8960,
@@ -1144,8 +1144,8 @@
     {
       "path": "/images/mockups/plastic_cup-before.webp",
       "title": "Plastic Cup Before",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 768,
       "height": 768,
       "bytes": 10610,
@@ -1163,8 +1163,8 @@
     {
       "path": "/images/mockups/plastic_cup.webp",
       "title": "Plastic Cup",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 768,
       "height": 768,
       "bytes": 12138,
@@ -1182,8 +1182,8 @@
     {
       "path": "/images/mockups/zip_pouch-before.webp",
       "title": "Zip Pouch Before",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 768,
       "height": 768,
       "bytes": 9754,
@@ -1201,8 +1201,8 @@
     {
       "path": "/images/mockups/zip_pouch.webp",
       "title": "Zip Pouch",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 768,
       "height": 768,
       "bytes": 15802,
@@ -1296,8 +1296,8 @@
     {
       "path": "/images/products/sticker-trang-tri.webp",
       "title": "Sticker Trang Tri",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 1024,
       "height": 1024,
       "bytes": 31296,
@@ -1311,8 +1311,8 @@
     {
       "path": "/images/products/tem-bac.webp",
       "title": "Tem Bac",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 392,
       "height": 392,
       "bytes": 21006,
@@ -1326,8 +1326,8 @@
     {
       "path": "/images/products/tem-bao-hanh.webp",
       "title": "Tem Bao Hanh",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 1024,
       "height": 1024,
       "bytes": 31296,
@@ -1341,8 +1341,8 @@
     {
       "path": "/images/products/tem-ep-kim.webp",
       "title": "Tem Ep Kim",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 640,
       "height": 640,
       "bytes": 52586,
@@ -1360,8 +1360,8 @@
     {
       "path": "/images/products/tem-giay.webp",
       "title": "Tem Giay",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 640,
       "height": 640,
       "bytes": 51044,
@@ -1379,8 +1379,8 @@
     {
       "path": "/images/products/tem-nhua-chong-nuoc.webp",
       "title": "Tem Nhua Chong Nuoc",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 1024,
       "height": 1024,
       "bytes": 31296,
@@ -1394,8 +1394,8 @@
     {
       "path": "/images/products/tem-nhua-trong.webp",
       "title": "Tem Nhua Trong",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 1024,
       "height": 1024,
       "bytes": 94172,
@@ -1409,8 +1409,8 @@
     {
       "path": "/images/products/tem-phu-san-pham.webp",
       "title": "Tem Phu San Pham",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 1024,
       "height": 1024,
       "bytes": 94172,
@@ -1424,8 +1424,8 @@
     {
       "path": "/images/products/tem-uv-dtf.webp",
       "title": "Tem Uv Dtf",
-      "category": "products",
-      "categoryLabel": "Ảnh sản phẩm",
+      "category": "archive",
+      "categoryLabel": "Ảnh cũ lưu trữ",
       "width": 640,
       "height": 640,
       "bytes": 42842,
@@ -1542,6 +1542,186 @@
         {
           "href": "/",
           "label": "Trang chủ"
+        }
+      ]
+    },
+    {
+      "path": "/images/tet-2027/products/sticker-trang-tri.webp",
+      "title": "Sticker Trang Tri",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm Tết",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 216238,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/tet-2027/products/tem-7-mau.webp",
+      "title": "Tem 7 Mau",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm Tết",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 215418,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/tet-2027/products/tem-bac.webp",
+      "title": "Tem Bac",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm Tết",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 199606,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/tet-2027/products/tem-bao-hanh.webp",
+      "title": "Tem Bao Hanh",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm Tết",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 266260,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/tet-2027/products/tem-giay.webp",
+      "title": "Tem Giay",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm Tết",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 201230,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/tet-2027/products/tem-kraft.webp",
+      "title": "Tem Kraft",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm Tết",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 230772,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/tet-2027/products/tem-nhua-chong-nuoc.webp",
+      "title": "Tem Nhua Chong Nuoc",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm Tết",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 264864,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/tet-2027/products/tem-nhua-trong.webp",
+      "title": "Tem Nhua Trong",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm Tết",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 166706,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/tet-2027/products/tem-phu-san-pham.webp",
+      "title": "Tem Phu San Pham",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm Tết",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 184092,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/tet-2027/products/tem-uv-dtf.webp",
+      "title": "Tem Uv Dtf",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm Tết",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 190240,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/tet-2027/products/tem-vang.webp",
+      "title": "Tem Vang",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm Tết",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 214874,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
+        }
+      ]
+    },
+    {
+      "path": "/images/tet-2027/products/to-roi.webp",
+      "title": "To Roi",
+      "category": "products",
+      "categoryLabel": "Ảnh sản phẩm Tết",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 291190,
+      "usages": [
+        {
+          "href": "/san-pham",
+          "label": "Trang liên quan"
         }
       ]
     },

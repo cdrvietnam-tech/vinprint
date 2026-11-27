@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import ImageCropEditor from "./ImageCropEditor";
 import VideoAdmin from "./VideoAdmin";
+import ProductThemePanel from "./ProductThemePanel";
 
 type CatalogItem = {
   path: string;
@@ -36,6 +37,7 @@ async function getImageDimensions(file: File) {
 }
 
 export default function HeroImageAdmin() {
+  const [mediaVersion,setMediaVersion]=useState(0);
   const [catalog, setCatalog] = useState<CatalogItem[]>([]);
   const [overrides, setOverrides] = useState<Record<string, OverrideItem>>({});
   const [versions, setVersions] = useState<Record<string, number>>({});
@@ -71,7 +73,7 @@ export default function HeroImageAdmin() {
   const visibleItems = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     const filtered = catalog.filter((item) => {
-      const matchesCategory = category === "all" || item.category === category;
+      const matchesCategory = (category === "all" && item.category !== "archive") || item.category === category;
       const matchesQuery = !normalizedQuery || `${item.title} ${item.path} ${item.categoryLabel}`.toLowerCase().includes(normalizedQuery);
       return matchesCategory && matchesQuery;
     });
@@ -199,7 +201,8 @@ export default function HeroImageAdmin() {
           </p>
         </div>
 
-        <VideoAdmin />
+        <ProductThemePanel onChanged={()=>setMediaVersion(v=>v+1)} />
+        <VideoAdmin key={mediaVersion} />
 
         <details className="group mt-8 overflow-visible rounded-3xl border border-orange-100 bg-white shadow-sm">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-3xl px-5 py-5 text-base font-black text-gray-900 marker:content-none sm:px-6">
@@ -235,7 +238,7 @@ export default function HeroImageAdmin() {
               return (
                 <article key={item.path} onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); void upload(item, event.dataTransfer.files?.[0]); }} className="overflow-hidden rounded-3xl border border-orange-100 bg-white p-4 shadow-[0_12px_36px_rgba(65,34,10,0.08)]">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[linear-gradient(45deg,#f4f4f4_25%,transparent_25%),linear-gradient(-45deg,#f4f4f4_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#f4f4f4_75%),linear-gradient(-45deg,transparent_75%,#f4f4f4_75%)] bg-[length:20px_20px]">
-                    <Image key={previewUrls[item.path] || versions[item.path] || 0} src={previewUrls[item.path] || `${item.path}?adminv=${versions[item.path] || 0}`} alt={item.title} fill unoptimized={Boolean(previewUrls[item.path])} className="object-contain" />
+                    <Image key={previewUrls[item.path] || versions[item.path] || 0} src={previewUrls[item.path] || `${item.path}?adminv=${versions[item.path] || 0}`} alt={item.title} fill unoptimized className="object-contain" />
                     {changed && <span className="absolute left-3 top-3 rounded-full bg-green-600 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white">Đã thay</span>}
                   </div>
 

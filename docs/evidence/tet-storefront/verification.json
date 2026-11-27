@@ -39,11 +39,11 @@
       "status": 200
     },
     {
-      "route": "/blog",
+      "route": "/nganh/tem-nhan-tet",
       "status": 200
     },
     {
-      "route": "/nganh/tem-nhan-tet",
+      "route": "/blog",
       "status": 200
     },
     {
@@ -51,11 +51,11 @@
       "status": 200
     },
     {
-      "route": "/san-pham/sticker-trang-tri",
+      "route": "/san-pham/tem-nhua-chong-nuoc",
       "status": 200
     },
     {
-      "route": "/san-pham/tem-nhua-chong-nuoc",
+      "route": "/san-pham/sticker-trang-tri",
       "status": 200
     },
     {
@@ -71,11 +71,11 @@
       "status": 200
     },
     {
-      "route": "/san-pham/tem-nhua-trong",
+      "route": "/san-pham/tem-giay",
       "status": 200
     },
     {
-      "route": "/san-pham/tem-giay",
+      "route": "/san-pham/tem-nhua-trong",
       "status": 200
     },
     {
@@ -83,19 +83,15 @@
       "status": 200
     },
     {
-      "route": "/san-pham/tem-bao-hanh",
-      "status": 200
-    },
-    {
       "route": "/san-pham/tem-7-mau",
       "status": 200
     },
     {
-      "route": "/san-pham/tem-phu-san-pham",
+      "route": "/san-pham/tem-bao-hanh",
       "status": 200
     },
     {
-      "route": "/huong-dan/chon-kich-thuoc-tem",
+      "route": "/san-pham/tem-phu-san-pham",
       "status": 200
     },
     {
@@ -104,6 +100,10 @@
     },
     {
       "route": "/huong-dan/chon-chat-lieu-tem",
+      "status": 200
+    },
+    {
+      "route": "/huong-dan/chon-kich-thuoc-tem",
       "status": 200
     },
     {
@@ -123,11 +123,11 @@
       "status": 200
     },
     {
-      "route": "/case-study",
+      "route": "/bao-hanh",
       "status": 200
     },
     {
-      "route": "/bao-hanh",
+      "route": "/case-study",
       "status": 200
     },
     {

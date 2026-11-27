@@ -218,7 +218,7 @@ export default function VideoAdmin() {
   };
 
   return (
-    <section className="mt-8 rounded-[32px] border border-violet-100 bg-gradient-to-br from-violet-50 via-white to-orange-50 p-4 shadow-[0_18px_50px_rgba(76,29,149,0.08)] sm:p-6">
+    <section className="mt-8 rounded-2xl border border-gray-200 bg-white p-4 sm:p-6">
       <div className="max-w-4xl">
         <p className="text-xs font-black uppercase tracking-[0.16em] text-violet-700">Bộ sưu tập động</p>
         <h2 className="mt-2 text-2xl font-black sm:text-3xl">Quản lý ngay trên từng ảnh hoặc video</h2>
@@ -260,7 +260,7 @@ export default function VideoAdmin() {
                       <div key={item.id} className="w-56 shrink-0 rounded-2xl border border-gray-100 bg-gray-50 p-2.5">
                         <div className="relative aspect-square overflow-hidden rounded-xl bg-white">
                           {item.kind === "video" ? (
-                            <video src={item.src} controls muted playsInline preload="metadata" className="h-full w-full object-contain" aria-label={item.title} />
+                            <video poster={item.poster} src={item.src} controls muted playsInline preload="metadata" className="h-full w-full object-contain" aria-label={item.title} />
                           ) : (
                             <Image src={item.src} alt={item.title} fill unoptimized={item.kind === "gif" || item.src.startsWith("/media/")} sizes="224px" className="object-contain" />
                           )}

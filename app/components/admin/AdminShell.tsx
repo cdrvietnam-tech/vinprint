@@ -2,15 +2,24 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, Menu, Search, X } from "lucide-react";
+import {useRouter} from "next/navigation";
+import "./admin-shell.css";
+import { ChevronLeft, ChevronRight, Menu, Search, X, Moon, Sun, RefreshCw, ArrowUpRight } from "lucide-react";
 import {
   ADMIN_NAV_GROUPS, filterAdminNav, getAdminPageTitle,
   type AdminKey, type AdminNavItem,
 } from "./admin-nav";
 
+async function serviceStatus(){
+  try{
+    const results=await Promise.all([fetch("/api/site-content",{cache:"no-store"}),fetch("/api/media/collections?collection=hot-products",{cache:"no-store"})]);
+    return results.every(r=>r.ok)?"Dữ liệu sẵn sàng":"Cần kiểm tra kết nối";
+  }catch{return "Chưa kết nối dữ liệu";}
+}
+
 function NavLink({ item, active, collapsed, onNavigate }: { item: AdminNavItem; active: boolean; collapsed: boolean; onNavigate?: () => void }) {
   const className = `flex min-h-11 items-center gap-3 rounded-xl px-3 text-sm font-bold transition-colors ${
-    active ? "bg-orange-600 text-white shadow-sm" : "text-gray-700 hover:bg-orange-50 hover:text-orange-700"
+    active ? "bg-slate-900 text-white shadow-sm" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
   } ${collapsed ? "justify-center" : ""}`;
   const content = (
     <>
@@ -30,15 +39,18 @@ function NavLink({ item, active, collapsed, onNavigate }: { item: AdminNavItem; 
 }
 
 function Sidebar({ active, collapsed, onNavigate }: { active: AdminKey; collapsed: boolean; onNavigate?: () => void }) {
+  const [query,setQuery]=useState("");
+  const matching=new Set(filterAdminNav(query).map(item=>item.id));
   return (
     <nav aria-label="Điều hướng quản trị" className="flex-1 space-y-5 overflow-y-auto px-3 py-4">
-      {ADMIN_NAV_GROUPS.map((group) => (
+      {!collapsed&&<label className="admin-menu-filter"><Search size={15}/><input aria-label="Lọc menu quản trị" placeholder="Lọc menu…" value={query} onChange={e=>setQuery(e.target.value)}/></label>}
+      {ADMIN_NAV_GROUPS.filter(group=>group.items.some(item=>matching.has(item.id))).map((group) => (
         <div key={group.group}>
           {collapsed
             ? <div className="mx-2 mb-2 border-t border-gray-200" />
             : <p className="mb-2 px-3 text-[11px] font-black uppercase tracking-[0.16em] text-gray-400">{group.group}</p>}
           <ul className="space-y-1">
-            {group.items.map((item) => (
+            {group.items.filter(item=>matching.has(item.id)).map((item) => (
               <li key={item.id}><NavLink item={item} active={item.id === active} collapsed={collapsed} onNavigate={onNavigate} /></li>
             ))}
           </ul>
@@ -51,11 +63,11 @@ function Sidebar({ active, collapsed, onNavigate }: { active: AdminKey; collapse
 function Brand({ collapsed }: { collapsed: boolean }) {
   return (
     <Link href="/admin" className="flex min-h-11 items-center gap-3">
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#171310] text-sm font-black text-[#D5FF43]">V</span>
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 text-sm font-black text-white">V</span>
       {!collapsed && (
         <span className="min-w-0">
           <span className="block truncate text-sm font-black text-gray-950">VinPrint</span>
-          <span className="block truncate text-[11px] font-bold text-gray-500">Bảng quản trị</span>
+          <span className="block truncate text-[11px] font-bold text-gray-500">Admin workspace</span>
         </span>
       )}
     </Link>
@@ -107,7 +119,7 @@ function CommandDialog({ onClose }: { onClose: () => void }) {
                 type="button"
                 onClick={() => go(item)}
                 onMouseEnter={() => setCursor(index)}
-                className={`flex min-h-11 w-full items-center gap-3 rounded-xl px-3 text-left text-sm font-bold ${index === selected ? "bg-orange-50 text-orange-700" : "text-gray-800"}`}
+                className={`flex min-h-11 w-full items-center gap-3 rounded-xl px-3 text-left text-sm font-bold ${index === selected ? "bg-blue-50 text-blue-700" : "text-gray-800"}`}
               >
                 <item.icon className="h-5 w-5 shrink-0" aria-hidden="true" />
                 <span className="flex-1 truncate">{item.pageTitle}</span>
@@ -122,6 +134,12 @@ function CommandDialog({ onClose }: { onClose: () => void }) {
 }
 
 export default function AdminShell({ active, children }: { active: AdminKey; children: React.ReactNode }) {
+  const router=useRouter();
+  const [dark,setDark]=useState(false);
+  const [service,setService]=useState("Đang kiểm tra…");
+  const [refreshing,setRefreshing]=useState(true);
+  function checkService(){return serviceStatus().then(setService).finally(()=>setRefreshing(false));}
+  useEffect(()=>{let mounted=true;serviceStatus().then(value=>{if(mounted){setService(value);setRefreshing(false);}});return ()=>{mounted=false;};},[]);
   const [collapsed, setCollapsed] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [commandOpen, setCommandOpen] = useState(false);
@@ -138,11 +156,11 @@ export default function AdminShell({ active, children }: { active: AdminKey; chi
   }, []);
 
   return (
-    <div className="flex min-h-screen bg-[#fffaf4] text-gray-950">
+    <div data-theme={dark?"dark":"light"} className="vinprint-admin flex min-h-screen bg-slate-50 text-slate-900">
       {commandOpen && <CommandDialog onClose={() => setCommandOpen(false)} />}
 
       {/* Sidebar máy tính */}
-      <aside className={`sticky top-0 hidden h-screen shrink-0 flex-col border-r border-gray-200 bg-white transition-[width] duration-200 lg:flex ${collapsed ? "w-[76px]" : "w-64"}`}>
+      <aside className={`sticky top-0 hidden h-screen shrink-0 flex-col border-r border-gray-200 bg-white transition-[width] duration-200 lg:flex ${collapsed ? "w-20" : "w-64"}`}>
         <div className={`flex h-16 items-center border-b border-gray-200 px-4 ${collapsed ? "justify-center" : "justify-between"}`}>
           <Brand collapsed={collapsed} />
           {!collapsed && (
@@ -182,15 +200,18 @@ export default function AdminShell({ active, children }: { active: AdminKey; chi
           <button type="button" onClick={() => setDrawerOpen(true)} aria-label="Mở menu" className="flex h-11 w-11 items-center justify-center rounded-lg border border-gray-200 text-gray-700 lg:hidden">
             <Menu className="h-5 w-5" />
           </button>
-          <p className="min-w-0 flex-1 truncate text-base font-black text-gray-950 sm:text-lg">{getAdminPageTitle(active)}</p>
-          <button type="button" onClick={() => setCommandOpen(true)} className="flex min-h-11 items-center gap-2 rounded-full border border-gray-200 bg-white px-4 text-sm font-bold text-gray-600 hover:border-orange-300 hover:text-orange-700">
+          <div className="min-w-0 flex-1 truncate text-sm"><span className="hidden text-slate-400 xl:inline">Quản trị <span className="mx-2">/</span></span><span className="font-semibold">{getAdminPageTitle(active)}</span></div>
+          <button type="button" onClick={() => setCommandOpen(true)} className="flex min-h-11 items-center gap-2 rounded-lg border border-gray-200 bg-slate-50 px-3 text-sm font-bold text-gray-600 hover:border-blue-300 hover:text-blue-700">
             <Search className="h-4 w-4" aria-hidden="true" />
             <span className="hidden sm:inline">Tìm nhanh</span>
             <kbd className="hidden rounded-md border border-gray-200 px-1.5 py-0.5 text-[11px] font-bold text-gray-500 sm:inline">Ctrl K</kbd>
           </button>
-          <Link href="/" target="_blank" className="hidden min-h-11 items-center rounded-full bg-[#171310] px-4 text-sm font-bold text-white hover:bg-black sm:inline-flex">Xem web ↗</Link>
+          <span className="admin-service hidden items-center gap-2 text-xs text-slate-500 xl:flex"><span className={service==="Dữ liệu sẵn sàng"?"bg-emerald-500":"bg-amber-500"}/>{service}</span>
+          <button type="button" aria-label="Làm mới dữ liệu" disabled={refreshing} onClick={()=>{setRefreshing(true);void checkService();router.refresh();}} className="admin-icon-button"><RefreshCw size={17} className={refreshing?"animate-spin":""}/></button>
+          <button type="button" aria-label={dark?"Chuyển giao diện sáng":"Chuyển giao diện tối"} onClick={()=>setDark(value=>!value)} className="admin-icon-button">{dark?<Sun size={18}/>:<Moon size={18}/>}</button>
+          <Link href="/" target="_blank" className="hidden min-h-10 items-center gap-2 rounded-lg border border-gray-200 px-3 text-sm font-medium sm:inline-flex">Xem web <ArrowUpRight size={15}/></Link>
         </header>
-        <div className="min-w-0 flex-1">{children}</div>
+        <div className="admin-workspace min-w-0 flex-1">{children}</div>
       </div>
     </div>
   );

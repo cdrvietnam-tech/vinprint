@@ -1,0 +1,90 @@
+{
+  "theme": "Tết 2027 — nền kem, lụa đỏ, hoa mai vàng",
+  "usage": "Ảnh minh họa thiết kế; giữ tỷ lệ 4:3, object-fit:contain",
+  "images": [
+    {
+      "slug": "tem-giay",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 201230,
+      "source": "exec-d4292bf7-f6b3-457c-982f-62cd664f2ea1.png"
+    },
+    {
+      "slug": "tem-uv-dtf",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 190240,
+      "source": "exec-7b44ec64-f8cf-4c14-8645-eccc999a3659.png"
+    },
+    {
+      "slug": "tem-nhua-trong",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 166706,
+      "source": "exec-21b1ce46-7a4d-4da5-add9-242124e87cbc.png"
+    },
+    {
+      "slug": "tem-nhua-chong-nuoc",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 264864,
+      "source": "exec-894fd5bc-a929-4641-bb83-cc74f3711541.png"
+    },
+    {
+      "slug": "to-roi",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 291190,
+      "source": "exec-a2a8c656-3a58-4667-97ca-5b4d2c87e477.png"
+    },
+    {
+      "slug": "tem-kraft",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 230772,
+      "source": "exec-20154b11-6b45-4092-9b8f-418a305b36cf.png"
+    },
+    {
+      "slug": "tem-bac",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 199606,
+      "source": "exec-d09b90f6-dc25-4783-9876-834e199a575b.png"
+    },
+    {
+      "slug": "tem-vang",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 214874,
+      "source": "exec-d627b03c-9ea0-469a-b249-48354d87839f.png"
+    },
+    {
+      "slug": "tem-7-mau",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 215418,
+      "source": "exec-eca3cb92-7ee0-43b2-8c05-bebd0ade09d3.png"
+    },
+    {
+      "slug": "tem-bao-hanh",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 266260,
+      "source": "exec-401d7162-eab3-44c1-9776-fdba4af905bf.png"
+    },
+    {
+      "slug": "tem-phu-san-pham",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 184092,
+      "source": "exec-6aa58de4-38d8-4b39-b256-ea58b910fb27.png"
+    },
+    {
+      "slug": "sticker-trang-tri",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 216238,
+      "source": "exec-d2ebbb43-93c6-457e-a7f1-aae7ed120e64.png"
+    }
+  ]
+}

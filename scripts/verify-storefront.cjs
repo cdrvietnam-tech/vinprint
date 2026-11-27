@@ -9,7 +9,7 @@ const result={};let originalContent;
 try{
 const context=await browser.newContext({viewport:{width:1781,height:960},permissions:['clipboard-read','clipboard-write']});
 const page=await context.newPage();const pageErrors=[];page.on('pageerror',e=>pageErrors.push(e.message));
-const response=await page.goto(origin+'/',{waitUntil:'networkidle',timeout:60000});
+const response=await page.goto(origin+'/',{waitUntil:'load',timeout:60000});
 if(response.status()!==200)throw Error('Homepage HTTP '+response.status());
 await page.locator('.hero h1').waitFor();if(await page.locator('.vinprint-storefront .nav').count())throw Error('Unscoped legacy nav class returned');
 originalContent=await (await context.request.get(origin+'/api/site-content')).json();
@@ -64,17 +64,17 @@ await page.screenshot({path:out+'/width-'+width+'.png',fullPage:false});
 await page.locator('#menu').click();await page.getByRole('link',{name:'Tem dán hộp & túi giấy',exact:true}).click();
 if(await page.locator('.product').count()!==2||await page.locator('#menu').getAttribute('aria-expanded')!=='false')throw Error('Mobile menu/filter');
 await page.setViewportSize({width:1366,height:1000});
-await page.goto(origin+'/admin/noi-dung',{waitUntil:'networkidle',timeout:60000});
+await page.goto(origin+'/admin/noi-dung',{waitUntil:'load',timeout:60000});
 await page.getByLabel('Tiêu đề Tết dòng 1',{exact:true}).fill('In ấn chuẩn Tết — kiểm thử local');
 const savePromise=page.waitForResponse(r=>r.url().endsWith('/api/admin/site-content')&&r.request().method()==='PUT');
 await page.getByRole('button',{name:'Lưu thay đổi',exact:true}).click();
 const save=await savePromise;if(save.status()!==200)throw Error('Local admin save failed');
-await page.goto(origin+'/',{waitUntil:'networkidle'});
+await page.goto(origin+'/',{waitUntil:'load'});
 await page.getByRole('heading',{level:1}).filter({hasText:'kiểm thử local'}).waitFor();
 const changed=await (await context.request.get(origin+'/api/site-content')).json();
 if(JSON.stringify(changed.pricing)!==JSON.stringify(originalContent.pricing))throw Error('Admin overwrote old pricing');
 await context.request.put(origin+'/api/admin/site-content',{data:originalContent});
-await page.goto(origin+'/',{waitUntil:'networkidle'});
+await page.goto(origin+'/',{waitUntil:'load'});
 if((await page.locator('.hero h1').innerText()).includes('kiểm thử'))throw Error('Local state not restored');
 Object.assign(result,{http:response.status(),approvedHeroGeometry:geometry,catalogProducts:10,featured:6,pricingPosters:originalContent.pricing.posters.length,processSteps:originalContent.process.steps.length,quoteClipboard:true,zaloHandoff:quoteHref,fileHandoff:'Zalo, no fake upload',posterLightbox:true,faq:true,reviews:true,mapLoadsOnRequest:true,quantityValidation:true,mobileMenu:true,imageRatios:ratios,routes:statuses,adminSave:'real local API; existing pricing preserved; original restored',adminWriteScope:root+'/.preview/site-content.json',pageErrors});
 if(pageErrors.length)throw Error('Page errors '+pageErrors.join(';'));
@@ -85,9 +85,3 @@ if(originalContent){await fetch(origin+'/api/admin/site-content',{method:'PUT',h
 await browser.close();
 }
 })().catch(e=>{console.error(e);process.exitCode=1});
-
-
-
-
-
-

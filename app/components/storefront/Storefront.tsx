@@ -12,6 +12,7 @@ import { GOOGLE_BUSINESS_PROFILE_EMBED_URL, GOOGLE_BUSINESS_PROFILE_URL } from "
 import { trackEvent } from "../../lib/analytics";
 import { buildQuoteMessage, catalogProducts, featuredItems, featuredProduct, filterFeatured, pricingPosterAssets, safePublicHref, storefrontFilters, type QuoteValues, type StorefrontFilter } from "../../lib/storefront";
 import "./storefront.css";
+import { productThemeImage } from "../../lib/product-theme";
 
 const iconMap: Record<string,LucideIcon> = {home:Home,tag:Tag,sticker:Sticker,roll:CircleDot,badge:BadgeCheck,file:FileText,gift:Gift,image:ImageIcon,upload:Upload,help:HelpCircle,bag:ShoppingBag,phone:Phone,box:Package,headset:Headphones,grid:Grid2X2,flower:Flower2,menu:Menu,book:BookOpen,map:MapPin};
 function Icon({name}:{name:string}) { const Component=iconMap[name]||Tag;return <i aria-hidden="true"><Component /></i>; }
@@ -154,7 +155,7 @@ export default function Storefront(){
           <div className="product-grid" id="grid">{visible.map(item=>{
             const product=featuredProduct(item);
             return <article className="product" key={item.id}>
-              <Link prefetch={false} className="art vp-art-link" href={item.href}><Artwork box={item.crop.join(" ")} reference label={item.name+" — ảnh minh họa thiết kế Tết"}/><span className="ribbon">{item.badge}</span></Link>
+              <Link prefetch={false} className="art vp-art-link" href={item.href}><Image unoptimized src={item.id==="tui-qua"?productThemeImage("tem-kraft"):product.image} alt={item.name+" — ảnh minh họa thiết kế Tết"} width={400} height={300} className="vp-themed-thumbnail"/><span className="ribbon">{item.badge}</span></Link>
               <h3><Link prefetch={false} href={item.href}>{item.name}</Link></h3><p>{item.description}</p>
               <button onClick={()=>openQuote(item.name)} aria-label={"Xem và báo giá "+item.name}>Xem & báo giá →</button>
               <span className="vp-product-source">Chất liệu: {product.name}</span>
@@ -166,7 +167,7 @@ export default function Storefront(){
 
         <section className="vp-info-section" id="san-pham-noi-bat" aria-labelledby="hot-title">
 <div className="vp-section-top"><h2 id="hot-title">Các sản phẩm <span>đang hot</span></h2><Link prefetch={false} href="/san-pham">Xem tất cả sản phẩm của shop →</Link></div>
-<div className="vp-hot-grid">{hotProducts.map(item=><article key={item.id}>{item.kind==="video"?<video src={safePublicHref(item.src)} controls playsInline preload="none" aria-label={item.title}/>:<Image unoptimized src={safePublicHref(item.src)} alt={item.title} width={400} height={300} loading="lazy"/>}<small>{item.category}</small><h3><Link prefetch={false} href={safePublicHref(item.href,"/san-pham")}>{item.title}</Link></h3></article>)}</div>
+<div className="vp-hot-grid">{hotProducts.map(item=><article key={item.id}>{item.kind==="video"?<video poster={item.poster? safePublicHref(item.poster):undefined} src={safePublicHref(item.src)} controls playsInline preload="none" aria-label={item.title}/>:<Image unoptimized src={safePublicHref(item.src)} alt={item.title} width={400} height={300} loading="lazy"/>}<small>{item.category}</small><h3><Link prefetch={false} href={safePublicHref(item.href,"/san-pham")}>{item.title}</Link></h3></article>)}</div>
 </section>
 <section className="vp-info-section" id="danh-muc-san-pham" aria-labelledby="catalog-title">
           <div className="vp-section-top"><div><h2 id="catalog-title">Các loại tem nhãn VinPrint</h2><p>Chọn theo chất liệu và bề mặt sử dụng. Giá tham khảo lấy từ danh mục sản phẩm.</p></div><Link prefetch={false} href="/san-pham">Xem danh mục đầy đủ →</Link></div>

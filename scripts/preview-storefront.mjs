@@ -4,7 +4,9 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { DEFAULT_SITE_CONTENT, isValidSiteContent, mergeSiteContent } from "../app/lib/site-content.ts";
+import {createPreviewMedia} from "./preview-media.mjs";
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
+const mediaHandler=await createPreviewMedia(root);
 const stateFile=path.join(root,".preview","site-content.json");
 await fs.mkdir(path.dirname(stateFile),{recursive:true});
 try{await fs.access(stateFile);}catch{
@@ -16,6 +18,7 @@ async function localContent(){try{return mergeSiteContent(JSON.parse(await fs.re
 function json(res,status,value){res.writeHead(status,{"content-type":"application/json; charset=utf-8","cache-control":"no-store"});res.end(JSON.stringify(value));}
 const server=http.createServer(async(req,res)=>{
   const url=new URL(req.url,"http://127.0.0.1:4181");
+  try{if(await mediaHandler(req,res,url,json))return;}catch{json(res,413,{error:"local_media_request_failed"});return;}
   if(url.pathname==="/api/site-content"&&req.method==="GET"){return json(res,200,await localContent());}
   if(url.pathname==="/api/admin/site-content"){
     const origin=req.headers.origin;
