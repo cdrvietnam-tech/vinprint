@@ -16,3 +16,9 @@ Chín ô có cảnh SVG/CSS riêng, không chỉ lắc/phóng icon. Không dùng
 - Không tái sử dụng class vp-catalog-item cho tabpanel: quy tắc anchor ảnh cũ có aspect-ratio4/3 làm link cuối thành khoảng trắng lớn. Dùng class riêng và kiểm chiều cao khối trong browser. Không xóa CSS theo vị trí media query đầu tiên vì có thể cắt mất phần giá/FAQ phía sau; giữ stylesheet chung, đặt CSS mới theo component.
 - Kiểm thử: cuộn đúng img lazy vào viewport rồi chờ naturalWidth với timeout; decode() trước lúc lazy request bắt đầu có thể chờ vô hạn. Khi chụp mobile phải chờ sidebar kết thúc transition.
 - scripts/verify-material-explorer.cjs kiểm10tab/1panel, chọn đủ10loại, keyboard Home/End/Arrow, báo giá, tỷ lệ ảnh và4viewport. Nghiệm thu thẩm mỹ vẫn cần chủ xem bản local.
+
+
+## Mẫu ảnh được chốt — Issue150
+- Khi chủ yêu cầu xem ảnh trước, không áp dụng thêm phương án local trước khi chủ chọn rõ. Chủ đã chọn MẪU 1, không phải ảnh cuối trong nhóm.
+- Dựng đúng một thẻ lớn + sáu ảnh nhỏ + ba liên kết. Xóa khối hot khỏi homepage, giữ dữ liệu admin.
+- CSS header toàn trang áp position fixed lên header của component ở mobile. Đổi wrapper thành div có class riêng; verify-approved-catalog.cjs chặn bằng assert đáy tiêu đề nằm trước đầu ảnh trên cả ba viewport phụ. Ảnh chụp390px xác minh thực tế.

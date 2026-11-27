@@ -256,8 +256,10 @@ test("homepage publishes four detailed pricing posters with a wholesale path", a
   assert.doesNotMatch(html, /Một chiếc tem nhỏ/i);
   assert.doesNotMatch(html, /Trước khi dán tem/i);
   assert.doesNotMatch(html, /Các loại tem nhãn phổ biến/i);
-  assert.match(html, /Các sản phẩm[^<]*<span[^>]*>đang hot/i);
-  assert.match(html, /Xem tất cả sản phẩm của shop/i);
+  assert.doesNotMatch(html, /id="(?:hot-title|san-pham-noi-bat)"/);
+  assert.equal((html.match(/data-catalog-product=/g) || []).length, 10);
+  assert.equal((html.match(/class="vp-catalog-photo"/g) || []).length, 7);
+  assert.match(html, /Xem tất cả sản phẩm/i);
 });
 
 test("final quote CTA renders customer avatars instead of numeric placeholders", async () => {

@@ -14,7 +14,7 @@ import { advertisingItems, featuredImage, selectHomepageMedia, buildQuoteMessage
 import "./storefront.css";
 import {freeTools} from "../../lib/free-tools";
 import ToolPreview from "./ToolPreview";
-import MaterialExplorer from "./MaterialExplorer";
+import MaterialCatalog from "./MaterialCatalog";
 import { productThemeImage } from "../../lib/product-theme";
 
 const iconMap: Record<string,LucideIcon> = {archive:Archive,smartphone:Smartphone,cut:Scissors,sparkles:Sparkles,eraser:Eraser,images:Images,video:Video,home:Home,tag:Tag,sticker:Sticker,roll:CircleDot,badge:BadgeCheck,file:FileText,gift:Gift,image:ImageIcon,upload:Upload,help:HelpCircle,bag:ShoppingBag,phone:Phone,box:Package,headset:Headphones,grid:Grid2X2,flower:Flower2,menu:Menu,book:BookOpen,map:MapPin};
@@ -37,12 +37,11 @@ export default function Storefront(){
   const [copied,setCopied]=useState(false);
   const [copyError,setCopyError]=useState("");
   const [showMap,setShowMap]=useState(false);
-  const [hotProducts,setHotProducts]=useState<ManagedMediaItem[]>(DEFAULT_MEDIA_COLLECTIONS["hot-products"]);
   const [gallery,setGallery]=useState<ManagedMediaItem[]>(DEFAULT_MEDIA_COLLECTIONS.gallery);
   const dialogRef=useRef<HTMLDialogElement>(null);
   const requestRef=useRef<HTMLTextAreaElement>(null);
   const visible=filterFeatured(filter);
-  const homepageMedia=selectHomepageMedia(hotProducts,gallery);
+  const homepageMedia=selectHomepageMedia([],gallery);
   const zaloUrl=safePublicHref(contact.zaloUrl);
   const callUrl="tel:"+contact.phone.replace(/[^+\d]/g,"");
   const primaryHref=safePublicHref(tetHome.primaryCta.href,"#nhan-bao-gia");
@@ -57,10 +56,6 @@ export default function Storefront(){
     fetch("/api/media/collections?collection=gallery",{cache:"no-store",signal:controller.signal})
       .then(r=>r.ok?r.json() as Promise<{items: ManagedMediaItem[]}>:null)
       .then(data=>{if(Array.isArray(data?.items))setGallery(data.items.filter((item:ManagedMediaItem)=>item&&item.kind!=="video"&&typeof item.src==="string"));})
-      .catch(()=>undefined);
-    fetch("/api/media/collections?collection=hot-products",{cache:"no-store",signal:controller.signal})
-      .then(r=>r.ok?r.json() as Promise<{items: ManagedMediaItem[]}>:null)
-      .then(data=>{if(Array.isArray(data?.items))setHotProducts(data.items.filter(item=>item&&typeof item.src==="string"));})
       .catch(()=>undefined);
     return ()=>controller.abort();
   },[]);
@@ -173,11 +168,7 @@ export default function Storefront(){
 
         <section className="vp-info-section vp-home-tools" id="cong-cu-mien-phi" aria-labelledby="free-tools-title"><div className="vp-section-top"><div><span className="vp-section-label">Tiện ích cho khách VinPrint</span><h2 id="free-tools-title">Xử lý ảnh & chuẩn bị file in</h2><p>Chọn công cụ để bắt đầu. Miễn phí, không cần tài khoản.</p></div><span className="vp-free-badge">9 công cụ miễn phí</span></div><div className="vp-home-tool-grid">{freeTools.map(tool=><Link prefetch={false} key={tool.id} className="vp-home-tool" href={"/cong-cu-mien-phi?tool="+tool.id}><ToolPreview tool={tool.id}/><div><h3>{tool.name}</h3><p>{tool.description}</p></div><span className="vp-tool-arrow" aria-hidden="true">↗</span></Link>)}</div></section>
 
-        {homepageMedia.hot.length>0&&<section className="vp-info-section" id="san-pham-noi-bat" aria-labelledby="hot-title">
-<div className="vp-section-top"><h2 id="hot-title">Các sản phẩm <span>đang hot</span></h2><Link prefetch={false} href="/san-pham">Xem tất cả sản phẩm của shop →</Link></div>
-<div className="vp-hot-grid">{homepageMedia.hot.map(item=><article key={item.id}>{item.kind==="video"?<video poster={item.poster? safePublicHref(item.poster):undefined} src={safePublicHref(item.src)} controls playsInline preload="none" aria-label={item.title}/>:<Image unoptimized src={safePublicHref(item.src)} alt={item.title} width={400} height={300} loading="lazy"/>}<small>{item.category}</small><h3><Link prefetch={false} href={safePublicHref(item.href,"/san-pham")}>{item.title}</Link></h3></article>)}</div>
-</section>}
-<MaterialExplorer onQuote={openQuote}/>
+        <MaterialCatalog onQuote={openQuote}/>
 
         <section className="vp-info-section" id="bang-gia" aria-labelledby="pricing-title">
           <div className="vp-section-top"><div><h2 id="pricing-title">{pricing.title}</h2><p>{pricing.subtitle}</p></div><button onClick={()=>openQuote("In tem nhãn theo quy cách")}>{pricing.quoteCtaLabel} →</button></div>

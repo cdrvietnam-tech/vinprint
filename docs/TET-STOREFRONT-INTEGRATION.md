@@ -59,6 +59,9 @@ Hoàn tác code bằng revert commit tích hợp, không xóa nội dung R2 ho�
 ## Công cụ miễn phí Muse
 Tích hợp 9 tiện ích chạy trực tiếp trong /cong-cu-mien-phi, không iframe/chuyển tab. Xem docs/MUSE-FREE-TOOLS.md về phạm vi miễn phí, xử lý trình duyệt/server, CSP, bằng chứng và rollback. Trang chủ có menu và khối mở công cụ; banner đã duyệt giữ nguyên.
 
-Homepage hiện hiển thị đủ9 ô ngay sau sản phẩm Tết; mỗi ô deep link đúng ?tool. Menu cuộn tới khối công cụ. Danh mục10tem dùng MaterialExplorer: một ảnh bộ chất liệu lớn riêng và10lựa chọn tương tác; chỉ chi tiết loại đang chọn hiển thị, có benefit/ứng dụng/giá từ products, link chi tiết và báo giá riêng. Dùng được bằng bàn phím. Ảnh minh họa mới1448×1086 giữ tỷ lệ4:3, WebP278194bytes, nguồn tạo mới exec-2cfeae11-13f2-417e-94be-4b7e271f36c6.png; không lấy ảnh đã xuất hiện ở các khối khác. Kiểm chứng bằng scripts/verify-material-explorer.cjs ở4kích thước; xem ảnh material-explorer trong evidence. Bản thẻ đồ họa nhỏ trước đó bị chủ từ chối, không coi là thiết kế đã duyệt.
 
 Mỗi ô công cụ có cảnh SVG/CSS động104×76px (mobile88×66), mô tả thao tác riêng: nén, đổi định dạng, tách trang, xóa nền, nền trắng, làm nét, xóa vùng, gom album, tải video. Không tải GIF/video hoặc ảnh ngoài. IntersectionObserver và visibilitychange tạm dừng ngoài viewport/tab ẩn; prefers-reduced-motion hiển thị trạng thái tĩnh. scripts/verify-tool-motion.cjs đo transform theo thời gian, số animation chạy, dừng ngoài màn hình, reduced motion và bấm đúng công cụ ở390px. Các con số trong minh họa nén là ví dụ, không phải cam kết mức giảm dung lượng.
+
+
+## Mẫu 1 đã chọn — Issue 150
+Chủ xác nhận MẪU 1 sau khi xem ảnh demo. MaterialCatalog thay MaterialExplorer: một thẻ giấy lớn, sáu thẻ ảnh chất liệu và ba liên kết phụ; tổng 10 loại tem giữ giá/URL từ products. Ảnh catalog-approved-1.webp giữ kích thước nguồn1536×1024, bảy vùng ảnh SVG giữ tỷ lệ, chữ/nút là HTML. Bỏ hoàn toàn khối Các sản phẩm đang hot và request hot-products trên homepage; bộ sưu tập quản trị giữ nguyên. verify-approved-catalog.cjs kiểm 4 viewport, tiêu đề không đè ảnh, 10 URL HTTP200, báo giá giấy, bảy crop riêng và dữ liệu quản trị không đổi.
