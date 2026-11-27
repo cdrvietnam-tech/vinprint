@@ -30,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    {url:`${baseUrl}/cong-cu-mien-phi`,lastModified:new Date("2026-11-27T00:00:00+07:00"),changeFrequency:"monthly",priority:0.7},
     ...products.map((product) => ({
       url: `${baseUrl}/san-pham/${product.slug}`,
       lastModified,

@@ -39,7 +39,7 @@
       "status": 200
     },
     {
-      "route": "/nganh/tem-nhan-tet",
+      "route": "/cong-cu-mien-phi",
       "status": 200
     },
     {
@@ -47,15 +47,15 @@
       "status": 200
     },
     {
-      "route": "/san-pham/tem-vang",
-      "status": 200
-    },
-    {
       "route": "/san-pham/sticker-trang-tri",
       "status": 200
     },
     {
-      "route": "/san-pham/tem-nhua-chong-nuoc",
+      "route": "/san-pham/tem-vang",
+      "status": 200
+    },
+    {
+      "route": "/nganh/tem-nhan-tet",
       "status": 200
     },
     {
@@ -67,15 +67,19 @@
       "status": 200
     },
     {
+      "route": "/san-pham/tem-nhua-chong-nuoc",
+      "status": 200
+    },
+    {
+      "route": "/san-pham/tem-giay",
+      "status": 200
+    },
+    {
       "route": "/san-pham/tem-uv-dtf",
       "status": 200
     },
     {
       "route": "/san-pham/tem-nhua-trong",
-      "status": 200
-    },
-    {
-      "route": "/san-pham/tem-giay",
       "status": 200
     },
     {
@@ -99,15 +103,15 @@
       "status": 200
     },
     {
-      "route": "/huong-dan/ky-thuat-in-tem",
-      "status": 200
-    },
-    {
       "route": "/huong-dan/chon-chat-lieu-tem",
       "status": 200
     },
     {
       "route": "/mau-tem-moi",
+      "status": 200
+    },
+    {
+      "route": "/huong-dan/ky-thuat-in-tem",
       "status": 200
     },
     {
@@ -119,11 +123,11 @@
       "status": 200
     },
     {
-      "route": "/chinh-sach",
+      "route": "/bao-hanh",
       "status": 200
     },
     {
-      "route": "/bao-hanh",
+      "route": "/chinh-sach",
       "status": 200
     },
     {

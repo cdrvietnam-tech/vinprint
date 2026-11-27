@@ -93,6 +93,7 @@ export default function Storefront(){
         {navFilter("Tem dán hộp & túi giấy","gift","pack")}
         {navLink("Kho mẫu tham khảo","image","#mau-thuc-te")}
         <p>Công cụ & tiện ích</p>
+        {navLink("Công cụ miễn phí","sticker","/cong-cu-mien-phi")}
         <button className="vp-nav" onClick={()=>openQuote("In tem nhãn")}><Icon name="file"/>Báo giá in online</button>
         <button className="vp-nav" onClick={()=>setModal({kind:"upload"})}><Icon name="upload"/>Gửi file thiết kế</button>
         {navLink("Hướng dẫn đặt in","help","#quy-trinh")}
@@ -210,6 +211,8 @@ export default function Storefront(){
           <div><h2>{finalCta.title}</h2><p>{finalCta.subtitle}</p><p>Chuẩn bị kích thước, số lượng, chất liệu và ngày cần nhận để xưởng xác nhận giá, lịch in và vận chuyển trước khi đặt hàng.</p><div className="vp-customer-proof"><div>{CUSTOMER_AVATARS.map(src=><Image unoptimized key={src} src={src} alt="" width={36} height={36} loading="lazy"/>)}</div><small>{finalCta.trustText} · Avatar minh họa</small></div></div>
           <button className="red" onClick={()=>openQuote("In tem nhãn")}>Chuẩn bị yêu cầu báo giá →</button><Link prefetch={false} className="vp-action" href={zaloUrl} target="_blank" rel="noreferrer" onClick={()=>trackEvent("click_zalo",{position:"tet_final_cta"})}>{finalCta.zaloLabel} →</Link>
         </section>
+
+        <section className="vp-info-section vp-free-tools-promo" aria-labelledby="free-tools-title"><div><Icon name="sticker"/><h2 id="free-tools-title">Chuẩn bị ảnh & file in miễn phí</h2><p>Nén ảnh, đổi HEIC, xuất PDF sang PNG, tách nền và làm nét ảnh ngay trong VinPrint.</p></div><Link prefetch={false} className="vp-action" href="/cong-cu-mien-phi">Mở 9 công cụ miễn phí →</Link></section>
 
         <section className="vp-info-section vp-faq-contact" aria-label="Hỏi đáp và liên hệ">
           <div id="faq"><h2>{faq.title}</h2>{faq.items.map((item,index)=><details key={index}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>

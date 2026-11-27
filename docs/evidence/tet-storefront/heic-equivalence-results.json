@@ -1,0 +1,10 @@
+{
+  "sample.heic": {
+    "identical": true,
+    "sha256": "1ba0dd2ba9485fcdbe103edae4446ae93dba9748797e61684b8ca0555c3ff1fe"
+  },
+  "sample-6.heic": {
+    "identical": true,
+    "sha256": "7081e158849b06eded819ad52fb93db310746c5bc6a92752fa77ca9b08360854"
+  }
+}

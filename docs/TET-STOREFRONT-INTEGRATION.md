@@ -27,8 +27,8 @@ File .preview, .env, model và node_modules không nằm trong commit.
 ## Kiểm chứng
 - Vinext build và scripts/validate-artifact.sh.
 - TypeScript và ESLint.
-- 37 kiểm thử HTML/Facebook, 55 unit/API tests.
-- Playwright: 25 route HTTP200; lọc, clipboard, validate số lượng, Zalo/file handoff, lightbox bảng giá, FAQ, đánh giá, bản đồ tải khi yêu cầu, mobile menu.
+- 37 kiểm thử HTML/Facebook, 62 unit/API tests.
+- Playwright: 26 route HTTP200; lọc, clipboard, validate số lượng, Zalo/file handoff, lightbox bảng giá, FAQ, đánh giá, bản đồ tải khi yêu cầu, mobile menu.
 - Lưu quản trị qua API local thật, kiểm trang chủ cập nhật, giá cũ giữ nguyên rồi khôi phục dữ liệu ban đầu.
 - Không dùng kết quả mock R2 để khẳng định đã ghi website thật.
 - Khung desktop: hero x244,y90,w1516,h335; kiểm tỷ lệ ảnh ở 1781/1366/768/390.
@@ -55,3 +55,6 @@ Hoàn tác code bằng revert commit tích hợp, không xóa nội dung R2 ho�
 - Danh mục đầy đủ giữ 10 loại tem dạng danh sách gọn thay vì lặp lại ảnh. Khi không còn ảnh khác cho khối kho mẫu, dùng liên kết mẫu theo ngành và thư viện riêng, vẫn giữ đích #mau-thuc-te.
 - Browser local hiện đo 9 ảnh sản phẩm / 9 nguồn duy nhất. Thư viện quản trị vẫn giữ 33 media. Bộ ấn phẩm dùng ảnh riêng khi chọn tab print.
 - Chạy scripts/verify-home-navigation.cjs để kiểm điều hướng desktop/mobile, ảnh trùng và đảm bảo media trước/sau không bị sửa.
+
+## Công cụ miễn phí Muse
+Tích hợp 9 tiện ích chạy trực tiếp trong /cong-cu-mien-phi, không iframe/chuyển tab. Xem docs/MUSE-FREE-TOOLS.md về phạm vi miễn phí, xử lý trình duyệt/server, CSP, bằng chứng và rollback. Trang chủ có menu và khối mở công cụ; banner đã duyệt giữ nguyên.
