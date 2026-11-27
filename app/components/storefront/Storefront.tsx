@@ -10,7 +10,7 @@ import { CUSTOMER_AVATARS } from "../home/customer-avatars";
 import { SHOPEE_SHOP_URL } from "../../lib/products";
 import { GOOGLE_BUSINESS_PROFILE_EMBED_URL, GOOGLE_BUSINESS_PROFILE_URL } from "../../lib/business-info";
 import { trackEvent } from "../../lib/analytics";
-import { buildQuoteMessage, catalogProducts, featuredItems, featuredProduct, filterFeatured, pricingPosterAssets, safePublicHref, storefrontFilters, type QuoteValues, type StorefrontFilter } from "../../lib/storefront";
+import { advertisingItems, featuredImage, selectHomepageMedia, buildQuoteMessage, catalogProducts, featuredItems, featuredProduct, filterFeatured, pricingPosterAssets, safePublicHref, storefrontFilters, type QuoteValues, type StorefrontFilter } from "../../lib/storefront";
 import "./storefront.css";
 import { productThemeImage } from "../../lib/product-theme";
 
@@ -39,6 +39,7 @@ export default function Storefront(){
   const dialogRef=useRef<HTMLDialogElement>(null);
   const requestRef=useRef<HTMLTextAreaElement>(null);
   const visible=filterFeatured(filter);
+  const homepageMedia=selectHomepageMedia(hotProducts,gallery);
   const zaloUrl=safePublicHref(contact.zaloUrl);
   const callUrl="tel:"+contact.phone.replace(/[^+\d]/g,"");
   const primaryHref=safePublicHref(tetHome.primaryCta.href,"#nhan-bao-gia");
@@ -88,7 +89,7 @@ export default function Storefront(){
         {navFilter("In decal sticker","sticker","sticker")}
         {navFilter("Tem nhãn chống nước","roll","water")}
         {navFilter("Tem bạc, tem ánh kim","badge","metal")}
-        <button className="vp-nav" onClick={()=>openQuote("Ấn phẩm quảng cáo")}><Icon name="file"/>Ấn phẩm quảng cáo</button>
+        {navFilter("Ấn phẩm quảng cáo","file","print")}
         {navFilter("Tem dán hộp & túi giấy","gift","pack")}
         {navLink("Kho mẫu tham khảo","image","#mau-thuc-te")}
         <p>Công cụ & tiện ích</p>
@@ -141,7 +142,7 @@ export default function Storefront(){
         </section>
 
         <section className="filters" aria-label="Lọc sản phẩm">
-          {storefrontFilters.map(item=><button key={item.id} className={(filter===item.id?"selected ":"")+(item.id==="tet"?"tet":"")} onClick={()=>chooseFilter(item.id)} aria-pressed={filter===item.id}><Icon name={item.icon}/>{item.label}<em>({filterFeatured(item.id).length})</em></button>)}
+          {storefrontFilters.map(item=><button key={item.id} className={(filter===item.id?"selected ":"")+(item.id==="tet"?"tet":"")} onClick={()=>chooseFilter(item.id)} aria-pressed={filter===item.id}><Icon name={item.icon}/>{item.label}<em>({(item.id==="print"?advertisingItems.length:filterFeatured(item.id).length)})</em></button>)}
         </section>
 
         <section className="collection" aria-labelledby="collection-title">
@@ -151,28 +152,29 @@ export default function Storefront(){
         </section>
 
         <section id="san-pham-tet" aria-labelledby="product-title">
-          <div className="section-heading"><h2 id="product-title"><Flame/><span>{filter==="all"||filter==="tet"?"Sản phẩm nổi bật mùa Tết":(filter==="metal"?"Tem bạc và ánh kim":storefrontFilters.find(f=>f.id===filter)?.label)}</span></h2><span id="count" aria-live="polite">{visible.length} sản phẩm</span>{filter!=="all"&&<button id="reset" onClick={()=>chooseFilter("all")}>Xem tất cả →</button>}</div>
+          <div className="section-heading"><h2 id="product-title">{filter==="print"?<Icon name="file"/>:<Flame/>}<span>{filter==="all"||filter==="tet"?"Sản phẩm nổi bật mùa Tết":(filter==="metal"?"Tem bạc và ánh kim":storefrontFilters.find(f=>f.id===filter)?.label)}</span></h2><span id="count" aria-live="polite">{filter==="print"?advertisingItems.length:visible.length} sản phẩm</span>{filter!=="all"&&<button id="reset" onClick={()=>chooseFilter("all")}>Xem tất cả →</button>}</div>
+          {filter==="print"&&<div className="vp-advertising" aria-label="Danh mục ấn phẩm quảng cáo"><div className="vp-advertising-intro"><Image unoptimized src={productThemeImage("to-roi")} alt="Mẫu thiết kế tờ rơi và ấn phẩm quảng cáo Tết" width={400} height={300}/><div><h3>Ấn phẩm cho cửa hàng & sự kiện</h3><p>Chọn loại ấn phẩm để chuẩn bị yêu cầu in. Xưởng xác nhận chất liệu, kích thước, số lượng và thời gian trước khi báo giá.</p></div></div><div className="vp-advertising-grid">{advertisingItems.map(item=><article key={item.name}><Icon name={item.icon}/><h3>{item.name}</h3><p>{item.description}</p><button onClick={()=>openQuote(item.name)} aria-label={"Yêu cầu báo giá "+item.name}>Yêu cầu báo giá →</button></article>)}</div></div>}
           <div className="product-grid" id="grid">{visible.map(item=>{
             const product=featuredProduct(item);
             return <article className="product" key={item.id}>
-              <Link prefetch={false} className="art vp-art-link" href={item.href}><Image unoptimized src={item.id==="tui-qua"?productThemeImage("tem-kraft"):product.image} alt={item.name+" — ảnh minh họa thiết kế Tết"} width={400} height={300} className="vp-themed-thumbnail"/><span className="ribbon">{item.badge}</span></Link>
+              <Link prefetch={false} className="art vp-art-link" href={item.href}><Image unoptimized src={featuredImage(item)} alt={item.name+" — ảnh minh họa thiết kế Tết"} width={400} height={300} className="vp-themed-thumbnail"/><span className="ribbon">{item.badge}</span></Link>
               <h3><Link prefetch={false} href={item.href}>{item.name}</Link></h3><p>{item.description}</p>
               <button onClick={()=>openQuote(item.name)} aria-label={"Xem và báo giá "+item.name}>Xem & báo giá →</button>
               <span className="vp-product-source">Chất liệu: {product.name}</span>
             </article>;
           })}</div>
-          <p className="vp-art-caption">Hình Tết minh họa thiết kế. Xem quy cách, giá tham khảo hoặc gửi yêu cầu để xưởng xác nhận.</p>
-          <Link prefetch={false} className="vp-inline-link" href="/nganh/tem-nhan-tet">Tư vấn in tem Tết, thời gian nhận hàng và cách chuẩn bị file →</Link>
+          {filter!=="print"&&<p className="vp-art-caption">Hình Tết minh họa thiết kế. Xem quy cách, giá tham khảo hoặc gửi yêu cầu để xưởng xác nhận.</p>}
+          {filter!=="print"&&<Link prefetch={false} className="vp-inline-link" href="/nganh/tem-nhan-tet">Tư vấn in tem Tết, thời gian nhận hàng và cách chuẩn bị file →</Link>}
         </section>
 
-        <section className="vp-info-section" id="san-pham-noi-bat" aria-labelledby="hot-title">
+        {homepageMedia.hot.length>0&&<section className="vp-info-section" id="san-pham-noi-bat" aria-labelledby="hot-title">
 <div className="vp-section-top"><h2 id="hot-title">Các sản phẩm <span>đang hot</span></h2><Link prefetch={false} href="/san-pham">Xem tất cả sản phẩm của shop →</Link></div>
-<div className="vp-hot-grid">{hotProducts.map(item=><article key={item.id}>{item.kind==="video"?<video poster={item.poster? safePublicHref(item.poster):undefined} src={safePublicHref(item.src)} controls playsInline preload="none" aria-label={item.title}/>:<Image unoptimized src={safePublicHref(item.src)} alt={item.title} width={400} height={300} loading="lazy"/>}<small>{item.category}</small><h3><Link prefetch={false} href={safePublicHref(item.href,"/san-pham")}>{item.title}</Link></h3></article>)}</div>
-</section>
+<div className="vp-hot-grid">{homepageMedia.hot.map(item=><article key={item.id}>{item.kind==="video"?<video poster={item.poster? safePublicHref(item.poster):undefined} src={safePublicHref(item.src)} controls playsInline preload="none" aria-label={item.title}/>:<Image unoptimized src={safePublicHref(item.src)} alt={item.title} width={400} height={300} loading="lazy"/>}<small>{item.category}</small><h3><Link prefetch={false} href={safePublicHref(item.href,"/san-pham")}>{item.title}</Link></h3></article>)}</div>
+</section>}
 <section className="vp-info-section" id="danh-muc-san-pham" aria-labelledby="catalog-title">
           <div className="vp-section-top"><div><h2 id="catalog-title">Các loại tem nhãn VinPrint</h2><p>Chọn theo chất liệu và bề mặt sử dụng. Giá tham khảo lấy từ danh mục sản phẩm.</p></div><Link prefetch={false} href="/san-pham">Xem danh mục đầy đủ →</Link></div>
-          <div className="vp-catalog-grid">{catalogProducts.map(product=><article className="vp-catalog-item" key={product.slug}>
-            <Link prefetch={false} href={"/san-pham/"+product.slug}><Image unoptimized src={product.image} alt={product.name} width="400" height="300" loading="lazy"/></Link>
+          <div className="vp-catalog-grid vp-catalog-compact">{catalogProducts.map(product=><article className="vp-catalog-item" key={product.slug}>
+            <Icon name={product.slug==="tem-uv-dtf"?"sticker":"tag"}/>
             <h3><Link prefetch={false} href={"/san-pham/"+product.slug}>{product.name}</Link></h3><p>{product.description}</p><strong>{product.priceLabel}</strong>
             <div><Link prefetch={false} href={"/san-pham/"+product.slug}>Xem chi tiết</Link><button onClick={()=>openQuote(product.name)}>Nhận báo giá</button></div>
           </article>)}</div>
@@ -196,8 +198,8 @@ export default function Storefront(){
 
         <section className="vp-info-section" id="mau-thuc-te" aria-labelledby="gallery-title">
           <div className="vp-section-top"><div><h2 id="gallery-title">Kho mẫu tem tham khảo</h2><p>Tham khảo hình thức, cách bố trí logo và ứng dụng trên bao bì.</p></div><Link prefetch={false} href="/mau-tem-moi">Mẫu tem mới →</Link></div>
-          <div className="vp-gallery-grid">{gallery.slice(0,12).map(item=><Link prefetch={false} key={item.id} href={safePublicHref(item.href,"/san-pham")}><Image unoptimized src={safePublicHref(item.src,"/images/hero-products.webp")} alt={item.title} width="320" height="240" loading="lazy"/><span>{item.title}</span></Link>)}</div>
-          {gallery.length===0&&<p>Mẫu đang được cập nhật. Bạn có thể gửi ý tưởng qua Zalo để được tư vấn.</p>}
+          <div className="vp-gallery-grid">{homepageMedia.gallery.map(item=><Link prefetch={false} key={item.id} href={safePublicHref(item.href,"/san-pham")}><Image unoptimized src={safePublicHref(item.src,"/images/hero-products.webp")} alt={item.title} width="320" height="240" loading="lazy"/><span>{item.title}</span></Link>)}</div>
+          {homepageMedia.gallery.length===0&&<div className="vp-sample-directory"><Link prefetch={false} href="/nganh/my-pham"><Icon name="tag"/>Mẫu tem mỹ phẩm →</Link><Link prefetch={false} href="/nganh/thuc-pham"><Icon name="box"/>Mẫu tem thực phẩm →</Link><Link prefetch={false} href="/nganh/do-uong"><Icon name="sticker"/>Mẫu tem đồ uống →</Link></div>}
         </section>
 
         <section className="vp-info-section" id="danh-gia" aria-labelledby="reviews-title">
@@ -231,7 +233,7 @@ export default function Storefront(){
       <button id="close" aria-label="Đóng hộp thoại" onClick={closeDialog}><X size={21}/></button>
       {modal?.kind==="quote"&&<div id="dialog-content"><h2>Nhận báo giá in</h2>{!requestText?<><p>Điền quy cách để chuẩn bị yêu cầu gửi VinPrint qua Zalo. Chưa phát sinh đơn hàng hoặc thanh toán.</p>
         <form id="quote-form" onSubmit={prepareQuote}>
-          <label htmlFor="quote-product">Sản phẩm cần in</label><select id="quote-product" name="product" defaultValue={selectedProduct}>{Array.from(new Set([selectedProduct,...featuredItems.map(i=>i.name),...catalogProducts.map(p=>p.name)])).map(name=><option key={name}>{name}</option>)}</select>
+          <label htmlFor="quote-product">Sản phẩm cần in</label><select id="quote-product" name="product" defaultValue={selectedProduct}>{Array.from(new Set([selectedProduct,...featuredItems.map(i=>i.name),...advertisingItems.map(i=>i.name),...catalogProducts.map(p=>p.name)])).map(name=><option key={name}>{name}</option>)}</select>
           <div className="vp-form-row"><div><label htmlFor="material">Chất liệu</label><select id="material" name="material"><option>Nhờ xưởng tư vấn</option><option>Decal giấy</option><option>Decal nhựa chống nước</option><option>Decal trong</option><option>Decal ánh kim</option><option>UV DTF</option></select></div><div><label htmlFor="quantity">Số lượng</label><input id="quantity" name="quantity" type="number" min="1" max="1000000" step="1" defaultValue="500" required/></div></div>
           <label htmlFor="size">Kích thước thành phẩm</label><input id="size" name="size" placeholder="Ví dụ: tem tròn 5 cm hoặc 4 × 6 cm" maxLength={80} required/>
           <div className="vp-form-row"><div><label htmlFor="quote-name">Tên liên hệ (không bắt buộc)</label><input id="quote-name" name="name" autoComplete="name" maxLength={80}/></div><div><label htmlFor="quote-phone">Điện thoại (không bắt buộc)</label><input id="quote-phone" name="phone" type="tel" autoComplete="tel" maxLength={20}/></div></div>

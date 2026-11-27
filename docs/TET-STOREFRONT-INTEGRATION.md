@@ -27,7 +27,7 @@ File .preview, .env, model và node_modules không nằm trong commit.
 ## Kiểm chứng
 - Vinext build và scripts/validate-artifact.sh.
 - TypeScript và ESLint.
-- 37 kiểm thử HTML/Facebook, 53 unit/API tests.
+- 37 kiểm thử HTML/Facebook, 55 unit/API tests.
 - Playwright: 25 route HTTP200; lọc, clipboard, validate số lượng, Zalo/file handoff, lightbox bảng giá, FAQ, đánh giá, bản đồ tải khi yêu cầu, mobile menu.
 - Lưu quản trị qua API local thật, kiểm trang chủ cập nhật, giá cũ giữ nguyên rồi khôi phục dữ liệu ban đầu.
 - Không dùng kết quả mock R2 để khẳng định đã ghi website thật.
@@ -48,3 +48,10 @@ Hoàn tác code bằng revert commit tích hợp, không xóa nội dung R2 ho�
 - Ảnh cũ được giữ trong nhóm **Ảnh cũ lưu trữ**, ẩn khỏi danh sách mặc định. Không đổi ảnh bài viết, bảng giá, avatar khách hàng.
 - Nghiệm thu: scripts/verify-theme-admin.cjs kiểm ảnh, upload/delete local, override ảnh tĩnh, menu, sáng/tối, mobile và nút áp dụng thật. Chạy với VINPRINT_PLAYWRIGHT_MODULE và VINPRINT_EVIDENCE_DIR nếu Playwright nằm ngoài repo.
 - Sau khi được duyệt xuất bản, cần áp dụng bộ ảnh trong quản trị trên production để thay các manifest R2 hiện hữu. Bản demo hiện tại chỉ thao tác dữ liệu local.
+
+## Điều hướng quảng cáo và chọn ảnh trang chủ
+- Tab Ấn phẩm quảng cáo hiển thị tờ rơi, brochure, poster, menu, standee và phiếu bảo hành. Không mở báo giá ở cấp danh mục; chỉ mở khi khách bấm CTA của một loại ấn phẩm.
+- Sáu thẻ Tết dùng sáu ảnh riêng. Sản phẩm hot và mẫu tham khảo dùng tập nguồn ảnh chung để bỏ trùng giữa các khối; tối đa 3 hot, 4 mẫu chưa xuất hiện. Loại query/hash khi đối chiếu nguồn. Không thay đổi mảng media gốc.
+- Danh mục đầy đủ giữ 10 loại tem dạng danh sách gọn thay vì lặp lại ảnh. Khi không còn ảnh khác cho khối kho mẫu, dùng liên kết mẫu theo ngành và thư viện riêng, vẫn giữ đích #mau-thuc-te.
+- Browser local hiện đo 9 ảnh sản phẩm / 9 nguồn duy nhất. Thư viện quản trị vẫn giữ 33 media. Bộ ấn phẩm dùng ảnh riêng khi chọn tab print.
+- Chạy scripts/verify-home-navigation.cjs để kiểm điều hướng desktop/mobile, ảnh trùng và đảm bảo media trước/sau không bị sửa.
