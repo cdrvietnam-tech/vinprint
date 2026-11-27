@@ -1,3 +1,4 @@
+import { DEFAULT_TET_HOME, type TetHomeContent } from "./tet-home";
 // Mô hình nội dung trang chủ VinPrint có thể chỉnh sửa qua trang quản trị.
 // Nội dung thật lưu dạng JSON trên R2 (settings/home-content.json) và được
 // hợp nhất (merge) với DEFAULT_SITE_CONTENT bên dưới. Nếu thiếu field nào,
@@ -12,6 +13,7 @@ export type FaqItem = { q: string; a: string };
 export type CtaBadge = { text: string; ok: boolean };
 
 export type SiteContent = {
+  tetHome: TetHomeContent;
   contact: {
     phone: string;        // dạng bấm gọi, ví dụ 0844998499
     phoneDisplay: string; // dạng hiển thị, ví dụ 0844 998 499
@@ -83,6 +85,7 @@ export type SiteContent = {
 };
 
 export const DEFAULT_SITE_CONTENT: SiteContent = {
+  tetHome: DEFAULT_TET_HOME,
   contact: {
     phone: "0844998499",
     phoneDisplay: "0844 998 499",
@@ -313,5 +316,8 @@ function conformsToTemplate(value: unknown, template: unknown): boolean {
 }
 
 export function isValidSiteContent(data: unknown): boolean {
-  return conformsToTemplate(data, DEFAULT_SITE_CONTENT);
+  if (!data || typeof data !== "object" || Array.isArray(data)) return false;
+  const source = data as Record<string, unknown>;
+  // Legacy saved content has no seasonal block. Keep all existing overrides valid.
+  return conformsToTemplate({ ...source, tetHome: source.tetHome ?? DEFAULT_TET_HOME }, DEFAULT_SITE_CONTENT);
 }

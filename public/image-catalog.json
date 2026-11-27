@@ -1531,6 +1531,36 @@
       ]
     },
     {
+      "path": "/images/tet-2027/artwork.png",
+      "title": "Nền giao diện Tết đã duyệt — giữ kích thước 1781 × 883",
+      "category": "hero",
+      "categoryLabel": "Ảnh giao diện Tết",
+      "width": 1781,
+      "height": 883,
+      "bytes": 2055713,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        }
+      ]
+    },
+    {
+      "path": "/images/tet-2027/reference-products.png",
+      "title": "Bố cục minh họa sản phẩm Tết",
+      "category": "hero",
+      "categoryLabel": "Ảnh giao diện Tết",
+      "width": 1781,
+      "height": 883,
+      "bytes": 2110561,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        }
+      ]
+    },
+    {
       "path": "/images/zalo-qr.png",
       "title": "Zalo Qr",
       "category": "brand",

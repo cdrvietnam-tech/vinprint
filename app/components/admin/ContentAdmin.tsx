@@ -196,7 +196,18 @@ export default function ContentAdmin() {
             </div>
           </Section>
 
-          <Section title="Hero (đầu trang)">
+          <Section title="Giao diện Tết đã duyệt" hint="banner và bộ sưu tập trang chủ">
+<Field label="Nhãn trên banner" value={c.tetHome.eyebrow} onChange={(v) => update(["tetHome","eyebrow"],v)} />
+<Row><Field label="Tiêu đề Tết dòng 1" value={c.tetHome.titleLine1} onChange={(v) => update(["tetHome","titleLine1"],v)} /><Field label="Tiêu đề Tết dòng 2" value={c.tetHome.titleLine2} onChange={(v) => update(["tetHome","titleLine2"],v)} /></Row>
+<Field label="Mô tả banner Tết" area value={c.tetHome.subtitle} onChange={(v) => update(["tetHome","subtitle"],v)} />
+{c.tetHome.features.map((value,i)=><Field key={i} label={"Điểm mạnh Tết "+(i+1)} value={value} onChange={v=>update(["tetHome","features",i],v)} />)}
+<Row><Field label="Nút báo giá Tết" value={c.tetHome.primaryCta.label} onChange={v=>update(["tetHome","primaryCta","label"],v)} /><Field label="Link báo giá Tết" value={c.tetHome.primaryCta.href} onChange={v=>update(["tetHome","primaryCta","href"],v)} /></Row>
+<Row><Field label="Nút xem mẫu Tết" value={c.tetHome.secondaryCta.label} onChange={v=>update(["tetHome","secondaryCta","label"],v)} /><Field label="Link xem mẫu Tết" value={c.tetHome.secondaryCta.href} onChange={v=>update(["tetHome","secondaryCta","href"],v)} /></Row>
+<Field label="Tiêu đề bộ sưu tập" value={c.tetHome.collectionTitle} onChange={v=>update(["tetHome","collectionTitle"],v)} />
+<Field label="Mô tả bộ sưu tập" value={c.tetHome.collectionDescription} onChange={v=>update(["tetHome","collectionDescription"],v)} />
+<Row><Field label="Nút bộ sưu tập" value={c.tetHome.collectionCta.label} onChange={v=>update(["tetHome","collectionCta","label"],v)} /><Field label="Link bộ sưu tập" value={c.tetHome.collectionCta.href} onChange={v=>update(["tetHome","collectionCta","href"],v)} /></Row>
+</Section>
+<Section title="Hero trước đây" hint="giữ nội dung cũ, không ghi đè banner Tết">
             <Field label="Nhãn nhỏ phía trên" value={c.hero.eyebrow} onChange={(v) => update(["hero", "eyebrow"], v)} />
             <Row>
               <Field label="Tiêu đề dòng 1" value={c.hero.titleLine1} onChange={(v) => update(["hero", "titleLine1"], v)} />

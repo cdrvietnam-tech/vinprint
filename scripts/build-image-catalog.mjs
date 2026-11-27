@@ -20,6 +20,7 @@ async function walk(directory, pattern) {
 }
 
 function categoryFor(publicPath) {
+  if (publicPath.includes("/tet-2027/")) return { id:"hero", label:"Ảnh giao diện Tết", route:"/" };
   if (publicPath.includes("/hero-admin/")) return { id: "hero", label: "Ảnh hero", route: "/" };
   if (publicPath.includes("/hot-products/")) return { id: "hot-products", label: "Sản phẩm hot", route: "/#san-pham-noi-bat" };
   if (publicPath.includes("/pricing/")) return { id: "pricing", label: "Bảng giá", route: "/#bang-gia" };
@@ -40,6 +41,8 @@ function routeForSource(relativeSource, fallbackRoute) {
 }
 
 function titleFor(publicPath) {
+  if (publicPath.endsWith("/tet-2027/artwork.png")) return "Nền giao diện Tết đã duyệt — giữ kích thước 1781 × 883";
+  if (publicPath.endsWith("/tet-2027/reference-products.png")) return "Bố cục minh họa sản phẩm Tết";
   const filename = path.basename(publicPath, path.extname(publicPath));
   return filename.replaceAll(/[-_]+/g, " ").replaceAll(/\b\w/g, (letter) => letter.toUpperCase());
 }

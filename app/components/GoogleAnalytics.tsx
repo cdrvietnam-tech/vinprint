@@ -7,6 +7,7 @@ const GA_ID_PATTERN = /^G-[A-Z0-9]+$/;
 const DEFAULT_GA_ID = "G-0XQZ3FCJN0";
 
 export default function GoogleAnalytics() {
+  if (process.env.NODE_ENV === "development") return null;
   const gaId = (process.env.NEXT_PUBLIC_GA_ID?.trim() || DEFAULT_GA_ID).trim();
   if (!GA_ID_PATTERN.test(gaId)) return null;
 

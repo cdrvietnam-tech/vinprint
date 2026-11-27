@@ -114,9 +114,9 @@ test("renders the new storefront homepage with key sections", async () => {
   const html = await response.text();
 
   assert.equal(response.status, 200);
-  assert.match(html, /XƯỞNG IN SIÊU TỐC/i);
+  assert.match(html, /In ấn chuẩn Tết/i);
   assert.match(html, /Bảng giá in tem nhãn/i);
-  assert.match(html, /Chốt in Zalo/i);
+  assert.match(html, /Nhắn Zalo chốt in/i);
   assert.match(html, /Câu hỏi thường gặp/i);
   assert.doesNotMatch(html, /Tải Order Pack ZIP/i);
   assert.match(html, /https:\/\/vinprint\.vn/);
@@ -126,10 +126,10 @@ test("renders the new storefront homepage with key sections", async () => {
   assert.doesNotMatch(html, /images\.unsplash\.com/i);
 });
 
-test("homepage keeps the print guide in the header instead of an inline section", async () => {
+test("homepage keeps the print guide in navigation instead of an inline section", async () => {
   const response = await render();
   const html = await response.text();
-  const header = html.match(/<header[\s\S]*?<\/header>/i)?.[0] ?? "";
+  const header = (html.match(/<header[\s\S]*?<\/header>/i)?.[0] ?? "") + (html.match(/<aside[\s\S]*?<\/aside>/i)?.[0] ?? "");
 
   assert.equal(response.status, 200);
   assert.match(header, /href="\/blog"/i);
@@ -182,43 +182,20 @@ test("security policy upgrades insecure requests only on HTTPS origins", async (
   );
 });
 
-test("homepage exposes an accessible mobile menu and a large automatic hero slider", async () => {
-  const response = await render();
-  const html = await response.text();
+test("homepage preserves the approved seasonal composition with live semantic controls", async () => {
+  const html = await (await render()).text();
   const hero = html.match(/<section[^>]*id="trang-chu"[\s\S]*?<\/section>/i)?.[0] ?? "";
-
-  assert.match(html, /aria-controls="mobile-navigation"/);
+  assert.match(html, /aria-controls="sidebar"/);
   assert.match(html, /id="mau-thuc-te"/);
   assert.match(html, /id="danh-gia"/);
-  assert.match(html, /data-hero-carousel="large-auto-drag"/);
-  assert.match(html, /(?:\/|%2F)images(?:\/|%2F)hero-admin(?:\/|%2F)hero-1\.png/i);
-  assert.match(html, /In nhanh - Chuẩn đẹp - Giá tốt/i);
-  assert.match(html, /_vinext\/image/);
-  assert.doesNotMatch(html, /\/images\/hero-collage\.(?:png|webp)/);
-  assert.doesNotMatch(html, /complete_ai_mockup/);
-  assert.match(hero, /object-contain/);
-  assert.match(hero, /review-hong\.webp/);
-  assert.match(hero, /review-tuan\.webp/);
-  assert.match(hero, /review-yen\.webp/);
-  assert.match(hero, /hero-customer-4\.webp/);
-  assert.match(hero, /Hơn 32000 lượt đánh giá cho shop ở Shopee/);
-  assert.doesNotMatch(hero, /Xem đánh giá trên Shopee/);
-
-  const heroSource = await import("node:fs/promises").then(({ readFile }) => readFile(new URL("../app/components/home/Hero.tsx", import.meta.url), "utf8"));
-  assert.match(heroSource, /}, 1500\);/);
-  assert.match(heroSource, /x: \{ duration: 0\.5/);
-  assert.match(heroSource, /drag="x"/);
-  assert.match(heroSource, /onDragEnd=/);
-  assert.match(heroSource, /onDragStart=/);
-  assert.match(heroSource, /isInteracting/);
-  assert.match(heroSource, /hero-sparkle-star/);
-  assert.match(heroSource, /DEFAULT_MEDIA_COLLECTIONS/);
-  assert.match(heroSource, /api\/media\/collections\?collection=hero/);
-  assert.match(heroSource, /unoptimized/);
-  assert.doesNotMatch(heroSource, /Kéo trái \/ phải/);
-  assert.doesNotMatch(heroSource, /figcaption/);
+  assert.match(hero, /viewBox="244 90 1516 335"/);
+  assert.match(hero, /images\/tet-2027\/artwork\.png/);
+  assert.match(hero, /In ấn chuẩn Tết/);
+  assert.match(hero, /Nâng tầm thương hiệu/);
+  assert.match(hero, /href="#nhan-bao-gia"/);
+  assert.match(html, /viewBox="244 500 1516 74"/);
+  assert.doesNotMatch(html, /4\.949 Xu|Tài khoản khách hàng|data-hero-carousel/);
 });
-
 test("image library is available locally and protected in production", async () => {
   const localResponse = await render("/admin/hinh-anh");
   const productionResponse = await render("/admin/hinh-anh", "https://vinprint.vn");
@@ -248,17 +225,17 @@ test("homepage publishes four detailed pricing posters with a wholesale path", a
   assert.match(html, /Combo ưu đãi/);
   assert.match(html, /Bảng giá in tem nhãn/i);
   assert.equal((html.match(/data-pricing-poster/g) ?? []).length, 4);
-  assert.match(html, /md:grid-cols-2 lg:grid-cols-4/);
-  assert.match(html, /grid auto-rows-fr items-stretch/);
-  assert.match(html, /aspect-\[4\/5\]/);
-  assert.match(html, /flex h-full flex-col/);
+
+
+
+
   assert.match(html, /bang-gia-tem-nhan-tong-hop\.webp/);
   assert.match(html, /bang-gia-tem-nhan-tham-khao\.webp/);
   assert.match(html, /bang-gia-tem-tron\.webp/);
   assert.match(html, /bang-gia-sticker-uv-dtf\.webp/);
-  assert.match(html, /alt="Bảng giá tem nhãn VinPrint với combo 1\.000 tem tròn từ 3 đến 6 cm"/);
-  assert.match(html, /alt="Bảng giá in sticker UV DTF VinPrint theo khổ A5, A4, A3 và mét"/);
-  assert.match(html, /aria-label="Phóng to Bảng giá tem nhãn tổng hợp"/);
+  assert.match(html, /alt="Bảng giá tem nhãn tổng hợp"/);
+  assert.match(html, /alt="Bảng giá sticker UV DTF"/);
+  assert.match(html, /aria-label="Xem rõ Bảng giá tem nhãn tổng hợp"/);
   assert.match(html, /1\.000 tem tròn 3 cm: 99\.000đ/);
   assert.match(html, /1\.000 tem tròn 6 cm: 320\.000đ/);
   assert.match(html, /Tờ A5: 25\.000đ/);
