@@ -58,3 +58,5 @@ Hoàn tác code bằng revert commit tích hợp, không xóa nội dung R2 ho�
 
 ## Công cụ miễn phí Muse
 Tích hợp 9 tiện ích chạy trực tiếp trong /cong-cu-mien-phi, không iframe/chuyển tab. Xem docs/MUSE-FREE-TOOLS.md về phạm vi miễn phí, xử lý trình duyệt/server, CSP, bằng chứng và rollback. Trang chủ có menu và khối mở công cụ; banner đã duyệt giữ nguyên.
+
+Homepage hiện hiển thị đủ9 ô ngay sau sản phẩm Tết; mỗi ô deep link đúng ?tool. Menu cuộn tới khối công cụ. Danh mục10 tem dùng thẻ có mẫu đồ họa chất liệu, benefit/ứng dụng/giá từ products, link chi tiết và báo giá riêng. Mẫu là minh họa hiệu ứng, không thay ảnh thực tế hoặc thay quy cách/giá. Kiểm chứng bằng scripts/verify-home-tools-layout.cjs (4 kích thước) và ảnh home-tools/material-cards trong evidence.

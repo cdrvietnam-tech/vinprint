@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState, type FormEvent, type MouseEvent } from "react";
-import { Home, Tag, Sticker, CircleDot, BadgeCheck, FileText, Gift, Image as ImageIcon, Upload, HelpCircle, ShoppingBag, Phone, Package, Headphones, Grid2X2, Flower2, Menu, BookOpen, X, MapPin, type LucideIcon } from "lucide-react";
+import { Home, Tag, Sticker, CircleDot, BadgeCheck, FileText, Gift, Image as ImageIcon, Upload, HelpCircle, ShoppingBag, Phone, Package, Headphones, Grid2X2, Flower2, Archive, Smartphone, Scissors, Sparkles, Eraser, Images, Video, Menu, BookOpen, X, MapPin, type LucideIcon } from "lucide-react";
 import { useSiteContent } from "../SiteContentProvider";
 import { DEFAULT_MEDIA_COLLECTIONS, type ManagedMediaItem } from "../../lib/media-collections";
 import { CUSTOMER_AVATARS } from "../home/customer-avatars";
@@ -12,9 +12,10 @@ import { GOOGLE_BUSINESS_PROFILE_EMBED_URL, GOOGLE_BUSINESS_PROFILE_URL } from "
 import { trackEvent } from "../../lib/analytics";
 import { advertisingItems, featuredImage, selectHomepageMedia, buildQuoteMessage, catalogProducts, featuredItems, featuredProduct, filterFeatured, pricingPosterAssets, safePublicHref, storefrontFilters, type QuoteValues, type StorefrontFilter } from "../../lib/storefront";
 import "./storefront.css";
+import {freeTools} from "../../lib/free-tools";
 import { productThemeImage } from "../../lib/product-theme";
 
-const iconMap: Record<string,LucideIcon> = {home:Home,tag:Tag,sticker:Sticker,roll:CircleDot,badge:BadgeCheck,file:FileText,gift:Gift,image:ImageIcon,upload:Upload,help:HelpCircle,bag:ShoppingBag,phone:Phone,box:Package,headset:Headphones,grid:Grid2X2,flower:Flower2,menu:Menu,book:BookOpen,map:MapPin};
+const iconMap: Record<string,LucideIcon> = {archive:Archive,smartphone:Smartphone,cut:Scissors,sparkles:Sparkles,eraser:Eraser,images:Images,video:Video,home:Home,tag:Tag,sticker:Sticker,roll:CircleDot,badge:BadgeCheck,file:FileText,gift:Gift,image:ImageIcon,upload:Upload,help:HelpCircle,bag:ShoppingBag,phone:Phone,box:Package,headset:Headphones,grid:Grid2X2,flower:Flower2,menu:Menu,book:BookOpen,map:MapPin};
 function Icon({name}:{name:string}) { const Component=iconMap[name]||Tag;return <i aria-hidden="true"><Component /></i>; }
 function Artwork({box,reference=false,label}:{box:string;reference?:boolean;label?:string}) {
   return <svg viewBox={box} preserveAspectRatio="xMidYMid slice" role={label?"img":undefined} aria-label={label} aria-hidden={label?undefined:true}><image href={reference?"/images/tet-2027/reference-products.png":"/images/tet-2027/artwork.png"} width="1781" height="883" /></svg>;
@@ -93,7 +94,7 @@ export default function Storefront(){
         {navFilter("Tem dán hộp & túi giấy","gift","pack")}
         {navLink("Kho mẫu tham khảo","image","#mau-thuc-te")}
         <p>Công cụ & tiện ích</p>
-        {navLink("Công cụ miễn phí","sticker","/cong-cu-mien-phi")}
+        {navLink("Công cụ miễn phí","sticker","#cong-cu-mien-phi")}
         <button className="vp-nav" onClick={()=>openQuote("In tem nhãn")}><Icon name="file"/>Báo giá in online</button>
         <button className="vp-nav" onClick={()=>setModal({kind:"upload"})}><Icon name="upload"/>Gửi file thiết kế</button>
         {navLink("Hướng dẫn đặt in","help","#quy-trinh")}
@@ -168,17 +169,18 @@ export default function Storefront(){
           {filter!=="print"&&<Link prefetch={false} className="vp-inline-link" href="/nganh/tem-nhan-tet">Tư vấn in tem Tết, thời gian nhận hàng và cách chuẩn bị file →</Link>}
         </section>
 
+        <section className="vp-info-section vp-home-tools" id="cong-cu-mien-phi" aria-labelledby="free-tools-title"><div className="vp-section-top"><div><span className="vp-section-label">Tiện ích cho khách VinPrint</span><h2 id="free-tools-title">Xử lý ảnh & chuẩn bị file in</h2><p>Chọn công cụ để bắt đầu. Miễn phí, không cần tài khoản.</p></div><span className="vp-free-badge">9 công cụ miễn phí</span></div><div className="vp-home-tool-grid">{freeTools.map(tool=><Link prefetch={false} key={tool.id} className="vp-home-tool" href={"/cong-cu-mien-phi?tool="+tool.id}><span className="vp-tool-icon"><Icon name={tool.icon==="phone"?"smartphone":tool.icon}/></span><div><h3>{tool.name}</h3><p>{tool.description}</p></div><span className="vp-tool-arrow" aria-hidden="true">↗</span></Link>)}</div></section>
+
         {homepageMedia.hot.length>0&&<section className="vp-info-section" id="san-pham-noi-bat" aria-labelledby="hot-title">
 <div className="vp-section-top"><h2 id="hot-title">Các sản phẩm <span>đang hot</span></h2><Link prefetch={false} href="/san-pham">Xem tất cả sản phẩm của shop →</Link></div>
 <div className="vp-hot-grid">{homepageMedia.hot.map(item=><article key={item.id}>{item.kind==="video"?<video poster={item.poster? safePublicHref(item.poster):undefined} src={safePublicHref(item.src)} controls playsInline preload="none" aria-label={item.title}/>:<Image unoptimized src={safePublicHref(item.src)} alt={item.title} width={400} height={300} loading="lazy"/>}<small>{item.category}</small><h3><Link prefetch={false} href={safePublicHref(item.href,"/san-pham")}>{item.title}</Link></h3></article>)}</div>
 </section>}
-<section className="vp-info-section" id="danh-muc-san-pham" aria-labelledby="catalog-title">
-          <div className="vp-section-top"><div><h2 id="catalog-title">Các loại tem nhãn VinPrint</h2><p>Chọn theo chất liệu và bề mặt sử dụng. Giá tham khảo lấy từ danh mục sản phẩm.</p></div><Link prefetch={false} href="/san-pham">Xem danh mục đầy đủ →</Link></div>
-          <div className="vp-catalog-grid vp-catalog-compact">{catalogProducts.map(product=><article className="vp-catalog-item" key={product.slug}>
-            <Icon name={product.slug==="tem-uv-dtf"?"sticker":"tag"}/>
-            <h3><Link prefetch={false} href={"/san-pham/"+product.slug}>{product.name}</Link></h3><p>{product.description}</p><strong>{product.priceLabel}</strong>
-            <div><Link prefetch={false} href={"/san-pham/"+product.slug}>Xem chi tiết</Link><button onClick={()=>openQuote(product.name)}>Nhận báo giá</button></div>
-          </article>)}</div>
+<section className="vp-info-section vp-materials-section" id="danh-muc-san-pham" aria-labelledby="catalog-title">
+          <div className="vp-section-top"><div><span className="vp-section-label">Chọn chất liệu phù hợp</span><h2 id="catalog-title">Các loại tem nhãn VinPrint</h2><p>Từ nhãn giấy tiết kiệm đến hiệu ứng ánh kim. Chọn theo bề mặt và cách anh sử dụng.</p></div><Link prefetch={false} href="/san-pham">Xem danh mục đầy đủ →</Link></div>
+          <div className="vp-catalog-grid vp-material-grid">{catalogProducts.map(product=><article className={"vp-catalog-item vp-material-card material-"+product.slug} key={product.slug}>
+            <Link prefetch={false} className="vp-material-preview" href={"/san-pham/"+product.slug} aria-label={"Xem chất liệu "+product.name}><span className="vp-material-sheet" aria-hidden="true"><span className="vp-material-sticker"><Icon name={product.slug==="tem-uv-dtf"?"sticker":"flower"}/><b>VinPrint</b><small>{product.eyebrow.split(" · ")[0]}</small></span></span><span className="vp-material-finish">{product.eyebrow}</span></Link>
+            <div className="vp-material-body"><h3><Link prefetch={false} href={"/san-pham/"+product.slug}>{product.name}</Link></h3><p>{product.benefit}</p><div className="vp-material-uses">{product.uses.slice(0,2).map(use=><span key={use}>{use}</span>)}</div><strong>{product.priceLabel}</strong><div className="vp-material-actions"><Link prefetch={false} href={"/san-pham/"+product.slug}>Chi tiết →</Link><button onClick={()=>openQuote(product.name)} aria-label={"Báo giá "+product.name}>Báo giá</button></div></div>
+          </article>)}</div><p className="vp-material-caption">Mẫu đồ họa minh họa hiệu ứng chất liệu. Giá in được xác nhận theo kích thước, số lượng và file thiết kế.</p>
         </section>
 
         <section className="vp-info-section" id="bang-gia" aria-labelledby="pricing-title">
@@ -212,7 +214,7 @@ export default function Storefront(){
           <button className="red" onClick={()=>openQuote("In tem nhãn")}>Chuẩn bị yêu cầu báo giá →</button><Link prefetch={false} className="vp-action" href={zaloUrl} target="_blank" rel="noreferrer" onClick={()=>trackEvent("click_zalo",{position:"tet_final_cta"})}>{finalCta.zaloLabel} →</Link>
         </section>
 
-        <section className="vp-info-section vp-free-tools-promo" aria-labelledby="free-tools-title"><div><Icon name="sticker"/><h2 id="free-tools-title">Chuẩn bị ảnh & file in miễn phí</h2><p>Nén ảnh, đổi HEIC, xuất PDF sang PNG, tách nền và làm nét ảnh ngay trong VinPrint.</p></div><Link prefetch={false} className="vp-action" href="/cong-cu-mien-phi">Mở 9 công cụ miễn phí →</Link></section>
+
 
         <section className="vp-info-section vp-faq-contact" aria-label="Hỏi đáp và liên hệ">
           <div id="faq"><h2>{faq.title}</h2>{faq.items.map((item,index)=><details key={index}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
