@@ -21,7 +21,7 @@ const origin=process.env.VINPRINT_PREVIEW_ORIGIN||'http://127.0.0.1:4181',out=pr
  const previous=(await (await api.get(origin+'/api/admin/images')).json()).items.find(i=>i.path==='/images/tet-2027/products/tem-giay.webp');assert.ok(!previous,'verification expects no previous override on test asset');
  try{assert.equal((await api.put(staticUrl,{data:bytes,headers:{'content-type':'image/webp'}})).status(),200);assert.ok((await (await api.get(origin+'/api/admin/images')).json()).items.some(i=>i.path==='/images/tet-2027/products/tem-giay.webp'));}finally{assert.equal((await api.delete(staticUrl)).status(),200);}result.staticUploadRestore=true;
  await page.goto(origin+'/',{waitUntil:'domcontentloaded',timeout:60000});
- for(const img of await page.locator('.product img,.vp-catalog-item img,.vp-hot-grid img,.vp-gallery-grid img').all()){
+ for(const img of await page.locator('.product img,.vp-material-detail img,.vp-hot-grid img,.vp-gallery-grid img').all()){
   await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode());assert.match(await img.getAttribute('src'),/tet-2027\/products/);assert.equal(await img.evaluate(el=>getComputedStyle(el).objectFit),'contain');
  }
  await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.screenshot({path:out+'/new-products-desktop.png'});result.homeImages=true;

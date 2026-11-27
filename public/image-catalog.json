@@ -1546,6 +1546,21 @@
       ]
     },
     {
+      "path": "/images/tet-2027/materials-overview-v1.webp",
+      "title": "Materials Overview V1",
+      "category": "hero",
+      "categoryLabel": "Ảnh giao diện Tết",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 278194,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        }
+      ]
+    },
+    {
       "path": "/images/tet-2027/products/sticker-trang-tri.webp",
       "title": "Sticker Trang Tri",
       "category": "products",

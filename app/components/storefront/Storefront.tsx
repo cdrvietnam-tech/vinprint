@@ -14,6 +14,7 @@ import { advertisingItems, featuredImage, selectHomepageMedia, buildQuoteMessage
 import "./storefront.css";
 import {freeTools} from "../../lib/free-tools";
 import ToolPreview from "./ToolPreview";
+import MaterialExplorer from "./MaterialExplorer";
 import { productThemeImage } from "../../lib/product-theme";
 
 const iconMap: Record<string,LucideIcon> = {archive:Archive,smartphone:Smartphone,cut:Scissors,sparkles:Sparkles,eraser:Eraser,images:Images,video:Video,home:Home,tag:Tag,sticker:Sticker,roll:CircleDot,badge:BadgeCheck,file:FileText,gift:Gift,image:ImageIcon,upload:Upload,help:HelpCircle,bag:ShoppingBag,phone:Phone,box:Package,headset:Headphones,grid:Grid2X2,flower:Flower2,menu:Menu,book:BookOpen,map:MapPin};
@@ -176,13 +177,7 @@ export default function Storefront(){
 <div className="vp-section-top"><h2 id="hot-title">Các sản phẩm <span>đang hot</span></h2><Link prefetch={false} href="/san-pham">Xem tất cả sản phẩm của shop →</Link></div>
 <div className="vp-hot-grid">{homepageMedia.hot.map(item=><article key={item.id}>{item.kind==="video"?<video poster={item.poster? safePublicHref(item.poster):undefined} src={safePublicHref(item.src)} controls playsInline preload="none" aria-label={item.title}/>:<Image unoptimized src={safePublicHref(item.src)} alt={item.title} width={400} height={300} loading="lazy"/>}<small>{item.category}</small><h3><Link prefetch={false} href={safePublicHref(item.href,"/san-pham")}>{item.title}</Link></h3></article>)}</div>
 </section>}
-<section className="vp-info-section vp-materials-section" id="danh-muc-san-pham" aria-labelledby="catalog-title">
-          <div className="vp-section-top"><div><span className="vp-section-label">Chọn chất liệu phù hợp</span><h2 id="catalog-title">Các loại tem nhãn VinPrint</h2><p>Từ nhãn giấy tiết kiệm đến hiệu ứng ánh kim. Chọn theo bề mặt và cách anh sử dụng.</p></div><Link prefetch={false} href="/san-pham">Xem danh mục đầy đủ →</Link></div>
-          <div className="vp-catalog-grid vp-material-grid">{catalogProducts.map(product=><article className={"vp-catalog-item vp-material-card material-"+product.slug} key={product.slug}>
-            <Link prefetch={false} className="vp-material-preview" href={"/san-pham/"+product.slug} aria-label={"Xem chất liệu "+product.name}><span className="vp-material-sheet" aria-hidden="true"><span className="vp-material-sticker"><Icon name={product.slug==="tem-uv-dtf"?"sticker":"flower"}/><b>VinPrint</b><small>{product.eyebrow.split(" · ")[0]}</small></span></span><span className="vp-material-finish">{product.eyebrow}</span></Link>
-            <div className="vp-material-body"><h3><Link prefetch={false} href={"/san-pham/"+product.slug}>{product.name}</Link></h3><p>{product.benefit}</p><div className="vp-material-uses">{product.uses.slice(0,2).map(use=><span key={use}>{use}</span>)}</div><strong>{product.priceLabel}</strong><div className="vp-material-actions"><Link prefetch={false} href={"/san-pham/"+product.slug}>Chi tiết →</Link><button onClick={()=>openQuote(product.name)} aria-label={"Báo giá "+product.name}>Báo giá</button></div></div>
-          </article>)}</div><p className="vp-material-caption">Mẫu đồ họa minh họa hiệu ứng chất liệu. Giá in được xác nhận theo kích thước, số lượng và file thiết kế.</p>
-        </section>
+<MaterialExplorer onQuote={openQuote}/>
 
         <section className="vp-info-section" id="bang-gia" aria-labelledby="pricing-title">
           <div className="vp-section-top"><div><h2 id="pricing-title">{pricing.title}</h2><p>{pricing.subtitle}</p></div><button onClick={()=>openQuote("In tem nhãn theo quy cách")}>{pricing.quoteCtaLabel} →</button></div>

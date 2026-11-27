@@ -9,3 +9,10 @@
 
 ## Minh họa động chức năng — Issue148
 Chín ô có cảnh SVG/CSS riêng, không chỉ lắc/phóng icon. Không dùng ảnh chụp tĩnh để kết luận có chuyển động: verify-tool-motion.cjs đo transform ở hai thời điểm, kiểm nhiều animation chạy, pause ngoài viewport và chế độ reduced motion, rồi bấm đúng ứng dụng trên390px. Ghi video yêu cầu binary ffmpeg của Playwright; khi môi trường không có, dùng đo trạng thái thực và hai khung hình, không cài phần mềm chỉ để làm bằng chứng. Minh họa không gọi API xử lý và không tạo tác vụ nền trên Muse.
+
+## Chủ từ chối khối thẻ chất liệu — Issue149
+- Kết quả chức năng đạt không chứng minh thiết kế đã được chủ duyệt. Các hình tem CSS quá nhỏ và lặp cấu trúc, cả khối10thẻ vẫn dài và khó phân biệt chất liệu.
+- Bản thay: MaterialExplorer dùng một ảnh bộ mẫu riêng, 10tab và chỉ một chi tiết hiện; giá/ứng dụng lấy từ cùng products. Ảnh là minh họa, không coi là mẫu in thật đã sản xuất.
+- Không tái sử dụng class vp-catalog-item cho tabpanel: quy tắc anchor ảnh cũ có aspect-ratio4/3 làm link cuối thành khoảng trắng lớn. Dùng class riêng và kiểm chiều cao khối trong browser. Không xóa CSS theo vị trí media query đầu tiên vì có thể cắt mất phần giá/FAQ phía sau; giữ stylesheet chung, đặt CSS mới theo component.
+- Kiểm thử: cuộn đúng img lazy vào viewport rồi chờ naturalWidth với timeout; decode() trước lúc lazy request bắt đầu có thể chờ vô hạn. Khi chụp mobile phải chờ sidebar kết thúc transition.
+- scripts/verify-material-explorer.cjs kiểm10tab/1panel, chọn đủ10loại, keyboard Home/End/Arrow, báo giá, tỷ lệ ảnh và4viewport. Nghiệm thu thẩm mỹ vẫn cần chủ xem bản local.

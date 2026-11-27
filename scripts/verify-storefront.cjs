@@ -15,7 +15,7 @@ await page.locator('.hero h1').waitFor();if(await page.locator('.vinprint-storef
 originalContent=await (await context.request.get(origin+'/api/site-content')).json();
 const geometry=await page.locator('.hero').boundingBox();
 if(Math.abs(geometry.x-244)>2||Math.abs(geometry.y-90)>2||Math.abs(geometry.height-335)>2)throw Error('Approved layout drift '+JSON.stringify(geometry));
-if(await page.locator('.vp-catalog-item').count()!==10)throw Error('Catalog incomplete');
+if(await page.locator('.vp-material-detail').count()!==10)throw Error('Catalog incomplete');
 if(await page.locator('.vp-price-item').count()!==originalContent.pricing.posters.length)throw Error('Pricing incomplete');
 if(await page.locator('.vp-process-grid li').count()!==originalContent.process.steps.length)throw Error('Process incomplete');
 if(!(await page.locator('#lien-he-xuong').innerText()).includes(originalContent.contact.phoneDisplay))throw Error('Contact not connected');

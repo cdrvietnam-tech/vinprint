@@ -1,0 +1,15 @@
+{
+  "choices": 10,
+  "oneVisibleDetail": true,
+  "allMaterialsSelectable": true,
+  "keyboardNavigation": true,
+  "quoteProduct": true,
+  "widths": [
+    1781,
+    1366,
+    768,
+    390
+  ],
+  "imageNotDistorted": true,
+  "pageErrors": []
+}
