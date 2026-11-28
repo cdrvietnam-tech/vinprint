@@ -65,3 +65,5 @@ Mỗi ô công cụ có cảnh SVG/CSS động104×76px (mobile88×66), mô tả
 
 ## Mẫu 1 đã chọn — Issue 150
 Chủ xác nhận MẪU 1 sau khi xem ảnh demo. MaterialCatalog thay MaterialExplorer: một thẻ giấy lớn, sáu thẻ ảnh chất liệu và ba liên kết phụ; tổng 10 loại tem giữ giá/URL từ products. Ảnh catalog-approved-1.webp giữ kích thước nguồn1536×1024, bảy vùng ảnh SVG giữ tỷ lệ, chữ/nút là HTML. Bỏ hoàn toàn khối Các sản phẩm đang hot và request hot-products trên homepage; bộ sưu tập quản trị giữ nguyên. verify-approved-catalog.cjs kiểm 4 viewport, tiêu đề không đè ảnh, 10 URL HTTP200, báo giá giấy, bảy crop riêng và dữ liệu quản trị không đổi.
+
+Issue151: Đồng bộ mẫu1 với theme trang: tiêu đề đỏ24px/20px, token --red/--ink/--line, nền hồng kem nhẹ, thẻ trắng và nút bo tròn. Không thay ảnh, thứ tự hay giá.

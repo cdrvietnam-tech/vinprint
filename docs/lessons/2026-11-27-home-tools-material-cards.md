@@ -22,3 +22,9 @@ Chín ô có cảnh SVG/CSS riêng, không chỉ lắc/phóng icon. Không dùng
 - Khi chủ yêu cầu xem ảnh trước, không áp dụng thêm phương án local trước khi chủ chọn rõ. Chủ đã chọn MẪU 1, không phải ảnh cuối trong nhóm.
 - Dựng đúng một thẻ lớn + sáu ảnh nhỏ + ba liên kết. Xóa khối hot khỏi homepage, giữ dữ liệu admin.
 - CSS header toàn trang áp position fixed lên header của component ở mobile. Đổi wrapper thành div có class riêng; verify-approved-catalog.cjs chặn bằng assert đáy tiêu đề nằm trước đầu ảnh trên cả ba viewport phụ. Ảnh chụp390px xác minh thực tế.
+
+
+## Đồng bộ theme — Issue151
+- Chủ phản hồi đúng bố cục nhưng khối tem vẫn khác theme: tiêu đề đen42px, vạch vàng và viền nâu được sao chép độc lập từ ảnh demo. Mẫu duyệt xác định bố cục/ảnh; phần chữ, nút và viền cần dùng hệ màu và thang chữ trang hiện có.
+- Sửa sang token --red/--ink/--line, tiêu đề24px (mobile20px), nền hồng kem, thẻ trắng và nút đỏ bo tròn; giữ ảnh và bố cục mẫu1.
+- verify-approved-catalog.cjs kiểm màu tiêu đề bằng đỏ theme, cỡ tối đa24px, bỏ vạch trái, cùng kiểm4viewport/10URL/báo giá. Ảnh desktop/mobile được xem trực tiếp trước khi báo cáo.
