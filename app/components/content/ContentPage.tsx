@@ -48,11 +48,13 @@ export default function ContentPage({ data, canonicalPath }: ContentPageProps) {
         </section>
 
         <article className="mx-auto max-w-5xl space-y-8 px-4 py-12">
+          {data.updatedAt && <p className="text-sm text-gray-600">Nội dung: VinPrint · Cập nhật <time dateTime={data.updatedAt}>{data.updatedAt.split("-").reverse().join("/")}</time></p>}
           {data.sections.map((section) => (
             <section key={section.heading} className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm sm:p-10">
               <h2 className="text-2xl font-black sm:text-3xl">{section.heading}</h2>
               {section.image && <figure className="mt-6"><Image src={section.image.src} alt={section.image.alt} width={1200} height={1200} className="mx-auto h-auto w-full max-w-2xl rounded-2xl" /><figcaption className="mt-3 text-sm text-gray-600">{section.image.caption}</figcaption></figure>}
               {section.paragraphs.map((paragraph) => <p key={paragraph} className="mt-5 text-base leading-8 text-gray-700">{paragraph}</p>)}
+              {section.table && <div className="mt-6 overflow-x-auto rounded-2xl border border-red-100" role="region" aria-label={section.table.caption} tabIndex={0}><table className="w-full min-w-[580px] border-collapse text-left text-sm leading-7"><caption className="bg-red-50 px-5 py-3 text-left font-bold text-red-900">{section.table.caption}</caption><thead><tr>{section.table.columns.map(column=><th scope="col" key={column} className="border-b border-red-100 bg-[#fffaf7] px-5 py-3 font-bold">{column}</th>)}</tr></thead><tbody>{section.table.rows.map(row=><tr key={row[0]}>{row.map((cell,index)=>index===0?<th scope="row" key={index} className="border-b border-red-50 px-5 py-4 align-top font-bold text-gray-950">{cell}</th>:<td key={index} className="border-b border-red-50 px-5 py-4 align-top text-gray-700">{cell}</td>)}</tr>)}</tbody></table></div>}
               {section.bullets && (
                 <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                   {section.bullets.map((item) => <li key={item} className="rounded-2xl bg-orange-50 px-5 py-4 font-semibold text-gray-900">✓ {item}</li>)}

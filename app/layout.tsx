@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | VinPrint",
   },
   description:
-    "In tem giấy, tem nhựa chống nước, tem ánh kim và UV DTF tại TP.HCM. Xem giá tham khảo, ảnh thật, đánh giá Shopee và gửi file chốt đơn qua Zalo.",
+    "In tem giấy, tem nhựa chống nước, tem ánh kim và UV DTF tại TP.HCM. Xem giá tham khảo, mẫu minh họa, thông tin đặt in và gửi file chốt đơn qua Zalo.",
   keywords: [
     "in tem nhãn",
     "in tem nhãn theo yêu cầu",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     siteName: "VinPrint",
     title: "VinPrint — Tem đẹp đúng chất, gửi file là chốt",
     description:
-      "Xem các loại tem, giá tham khảo, ảnh thật và gửi file đặt in tại TP.HCM.",
+      "Xem các loại tem, giá tham khảo, mẫu minh họa và gửi file đặt in tại TP.HCM.",
     images: [
       {
         url: "/images/hero-products.webp",

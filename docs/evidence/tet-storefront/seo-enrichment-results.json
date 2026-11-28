@@ -1,0 +1,16 @@
+{
+  "routes200": 5,
+  "uniqueH1": true,
+  "canonical": true,
+  "jsonLdParses": true,
+  "comparisonRows": 5,
+  "widths": [
+    1440,
+    390
+  ],
+  "mobileTableScroll": true,
+  "internalLinks200": true,
+  "homepageFaqClaimsRemoved": true,
+  "updatedSitemap": true,
+  "pageErrors": []
+}

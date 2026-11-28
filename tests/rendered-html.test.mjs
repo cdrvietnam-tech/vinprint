@@ -29,6 +29,39 @@ function structuredData(html) {
     (match) => JSON.parse(match[1]));
 }
 
+test("material guide exposes an original comparison table and crawlable product choices", async () => {
+  const response = await render("/huong-dan/chon-chat-lieu-tem");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<table/);
+  assert.match(html, /<caption[^>]*>Chọn tem theo bao bì/);
+  assert.equal((html.match(/scope="row"/g) || []).length, 5);
+  assert.match(html, /không suy ra khả năng chịu đông sâu/);
+  assert.match(html, /dateTime="2026-11-28"/i);
+  assert.match(html, /href="\/san-pham\/tem-nhua-chong-nuoc"/);
+  assert.match(html, /rel="canonical" href="https:\/\/vinprint.vn\/huong-dan\/chon-chat-lieu-tem"/);
+  const article = structuredData(html).find(item => item["@type"] === "Article");
+  assert.equal(article.dateModified, "2026-11-28");
+});
+
+test("homepage omits hardcoded FAQ claims and links to intent owners", async () => {
+  const html = await (await render()).text();
+  assert.ok(!structuredData(html).some(item => item["@type"] === "FAQPage"));
+  for (const path of ["/huong-dan/chon-chat-lieu-tem", "/blog/chuan-bi-file-in-tem-khong-bi-mo", "/blog/gia-in-tem-so-luong-it-phu-thuoc-gi"])
+    assert.ok(html.includes(`href="${path}"`));
+  assert.doesNotMatch(html, /content="[^"]*ảnh thật/);
+  assert.match(html, /Câu hỏi thường gặp/);
+});
+
+test("technical guide distinguishes cut formats and product pages label illustrative images", async () => {
+  const guide = await (await render("/huong-dan/ky-thuat-in-tem")).text();
+  assert.match(guide, /Bế demi và cắt rời khác nhau ở đâu/);
+  assert.match(guide, /giữ lớp đế/);
+  const product = await (await render("/san-pham/tem-uv-dtf")).text();
+  assert.match(product, /ẢNH MẪU MINH HỌA/);
+  assert.doesNotMatch(product, /ẢNH SẢN PHẨM CÔNG KHAI/);
+});
+
 test("homepage lists services without emitting incomplete product rich results", async () => {
   const data = structuredData(await (await render()).text());
   const list = data.find((item) => item["@type"] === "ItemList");
@@ -146,7 +179,7 @@ test("homepage includes JSON-LD structured data", async () => {
   assert.match(html, /application\/ld\+json/i);
   assert.match(html, /"@type":"LocalBusiness"/);
   assert.match(html, /"@type":"ItemList"/);
-  assert.match(html, /"@type":"FAQPage"/);
+  assert.doesNotMatch(html, /"@type":"FAQPage"/);
   const schemas = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
   const business = schemas.find((schema) => schema["@type"] === "LocalBusiness");
   const map = new URL(business.hasMap);
@@ -301,7 +334,7 @@ test("renders product detail pages with source and order process", async () => {
   assert.equal(response.status, 200);
   assert.match(html, /Tem UV DTF nổi/i);
   assert.match(html, /QUY TRÌNH ĐẶT IN/i);
-  assert.match(html, /Xem nguồn/i);
+  assert.match(html, /Xem sản phẩm tại shop/i);
   assert.match(html, /application\/ld\+json/i);
 });
 

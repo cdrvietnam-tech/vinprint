@@ -122,9 +122,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <small>Giá tham khảo: <b>{product.priceLabel}</b>. Xưởng xác nhận sau khi xem file, số lượng và quy cách.</small>
           </div>
           <div className="product-hero__image">
-            <Image src={product.image} alt={`Ảnh ${product.name} từ gian hàng VinPrint`} fill sizes="(max-width: 1040px) 100vw, 48vw" className="object-contain" />
-            <span>ẢNH SẢN PHẨM CÔNG KHAI</span>
-            <a href={product.source} target="_blank" rel="noreferrer">Xem nguồn <ArrowUpRightIcon /></a>
+            <Image src={product.image} alt={`Mẫu minh họa thiết kế ${product.name}`} fill sizes="(max-width: 1040px) 100vw, 48vw" className="object-contain" />
+            <span>ẢNH MẪU MINH HỌA</span>
+            <a href={product.source} target="_blank" rel="noreferrer">Xem sản phẩm tại shop <ArrowUpRightIcon /></a>
           </div>
         </div>
       </section>

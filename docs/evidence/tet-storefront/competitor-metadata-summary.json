@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-11-28",
+  "scope": "4 selected public pages; robots respected; no full article or asset storage",
+  "pages": [
+    {
+      "url": "https://fasto.vn/vi/dich-vu-in-tem-nhan-decal",
+      "robotsStatus": 200,
+      "status": 200,
+      "title": "Xưởng in Tem Nhãn, Decal giá rẻ theo yêu cầu tại TPHCM | Print Fast"
+    },
+    {
+      "url": "https://inanhono.com/in-tem-nhan/",
+      "robotsStatus": 200,
+      "status": 200,
+      "title": "In tem nhãn lấy ngay TP HCM | chuẩn màu tại In Ấn HONO"
+    },
+    {
+      "url": "https://thegioiinan.com/sanpham/in-nhan-decal-uv-dtf-nhan-decal-uv-noi-tem-nhan-uv-dtf.html",
+      "robotsStatus": 200,
+      "status": 200,
+      "title": "in nhãn Decal UV DTF, nhãn decal UV nổi, tem nhãn UV DTF"
+    },
+    {
+      "url": "https://indaiviet.com/san-pham/in-decal/",
+      "robotsStatus": 200,
+      "status": 200,
+      "title": "In Decal, Sticker Theo Yêu Cầu, Chất Lượng Giá Tốt TPHCM - Công Ty TNHH Thiết Kế In Ấn Đại Việt - In Menu, Name Card, Tờ Rơi, Ấn Phẩm Truyền Thông"
+    }
+  ]
+}

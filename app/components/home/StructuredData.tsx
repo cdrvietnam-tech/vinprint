@@ -50,38 +50,6 @@ const itemListSchema = {
   })),
 };
 
-// Câu hỏi PHẢI khớp với danh sách đang hiển thị trong FAQAndZaloCTA.tsx
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      q: "Có in tem số lượng ít không?",
-      a: "Có. VinPrint hỗ trợ in từ số lượng ít (chỉ từ vài chục tem), giúp các shop nhỏ tiết kiệm chi phí ban đầu và dễ dàng thử mẫu trước khi sản xuất số lượng lớn.",
-    },
-    {
-      q: "Thời gian hoàn thành là bao lâu?",
-      a: "Chỉ từ 1–2 ngày làm việc sau khi chốt thiết kế. Có hỗ trợ in nhanh lấy ngay trong ngày nếu cần gấp — liên hệ Zalo để xác nhận.",
-    },
-    {
-      q: "Tem nhãn có chống nước không?",
-      a: "Tem nhựa PVC dẻo dai chống nước 100%, bền màu, phù hợp chai lọ, mỹ phẩm và đồ uống. Tem giấy rẻ hơn nhưng không chống nước, phù hợp bao bì khô.",
-    },
-    {
-      q: "Chưa có file thiết kế thì sao?",
-      a: "VinPrint hỗ trợ thiết kế cho đơn hàng từ 200.000đ, tối đa 3 lần chỉnh sửa. Bạn chỉ cần gửi logo, nội dung và ý tưởng qua Zalo để được tư vấn.",
-    },
-    {
-      q: "Có giao hàng toàn quốc không?",
-      a: "VinPrint hỗ trợ giao hàng nhanh toàn quốc qua các đơn vị vận chuyển uy tín. Tem được đóng gói chống nước cẩn thận, đảm bảo nguyên vẹn khi đến tay bạn.",
-    },
-  ].map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: { "@type": "Answer", text: item.a },
-  })),
-};
-
 export default function StructuredData() {
   return (
     <>
@@ -92,10 +60,6 @@ export default function StructuredData() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </>
   );
