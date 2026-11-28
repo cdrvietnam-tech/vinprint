@@ -1,3 +1,4 @@
+import {checkExternalSource} from "./check-external-source.mjs";
 import { existsSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { rawBlogArticles } from "../../content/blog/index.ts";
@@ -46,13 +47,9 @@ for (const article of articles) {
 if (checkLinks) {
   const externalSources = [...new Set(articles.flatMap((article) => article.sources.map((source) => source.href)).filter((href) => href.startsWith("https://")))];
   for (const href of externalSources) {
-    try {
-      const response = await fetch(href, { signal: AbortSignal.timeout(12000), headers: { "User-Agent": "VinPrintContentAudit/1.0" } });
-      if (!response.ok && response.status !== 403) failures.push(`external source returned ${response.status}: ${href}`);
-      await response.body?.cancel();
-    } catch (error) {
-      failures.push(`external source unavailable: ${href} (${error instanceof Error ? error.message : String(error)})`);
-    }
+    const result=await checkExternalSource(href);
+    if(!result.ok)failures.push(result.error);
+    else if(result.attempts>1)console.log(`External source recovered on attempt ${result.attempts}: ${href}`);
   }
 }
 

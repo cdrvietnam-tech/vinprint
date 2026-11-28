@@ -8,6 +8,8 @@ export const freeTools = [
   {id:"erase",name:"Xóa vật thể, xóa chữ",description:"Tô vùng chi tiết thừa để xóa khỏi ảnh.",group:"Chỉnh ảnh",icon:"eraser",local:false},
   {id:"album",name:"Tải album sản phẩm",description:"Lấy ảnh từ liên kết sản phẩm trên sàn thương mại.",group:"Bán hàng",icon:"images",local:false},
   {id:"video",name:"Tải video",description:"Lưu video công khai từ liên kết được hỗ trợ.",group:"Bán hàng",icon:"video",local:false},
+  {id:"pts",name:"PTS online",description:"Mở PSD, chỉnh ảnh theo lớp và tải PNG hoặc PSD.",group:"Thiết kế & bản vẽ",icon:"image",local:true},
+  {id:"cdr",name:"Đọc file CDR",description:"Xem bản vẽ Corel, chọn trang và đối chiếu ảnh gốc.",group:"Thiết kế & bản vẽ",icon:"file",local:false},
 ] as const;
 export type FreeToolId=typeof freeTools[number]["id"];
 export type FreeTool=typeof freeTools[number];

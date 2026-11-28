@@ -3,7 +3,7 @@ import {test} from "node:test";
 import {handleFreeToolRequest,allowedPublicSource,museAssetPath} from "../app/lib/free-tools-api";
 import {freeTools,downloadFileName} from "../app/lib/free-tools";
 const origin="http://localhost";
-test("nine free tools have unique ids and preserve the standard sharpening mode",()=>{assert.equal(freeTools.length,9);assert.equal(new Set(freeTools.map(t=>t.id)).size,9);assert.ok(freeTools.find(t=>t.id==="enhance")?.name.includes("thường"));});
+test("eleven free tools have unique ids and preserve the standard sharpening mode",()=>{assert.equal(freeTools.length,11);assert.equal(new Set(freeTools.map(t=>t.id)).size,11);assert.ok(freeTools.find(t=>t.id==="enhance")?.name.includes("thường"));});
 test("download extension follows actual file content rather than an opaque album URL",()=>{assert.equal(downloadFileName("vinprint-album-1.png","image/jpeg"),"vinprint-album-1.jpg");assert.equal(downloadFileName("vinprint-video-1.mp4","video/mp4"),"vinprint-video-1.mp4");});
 test("image proxy rebuilds a free request, never forwards paid options or user credentials",async()=>{
  const form=new FormData();form.set("file",new File([new Uint8Array([1,2])],"x.png",{type:"image/png"}));form.set("mode","restore");form.set("quality","ai");form.set("token","never-forward");

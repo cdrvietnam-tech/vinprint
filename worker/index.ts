@@ -668,7 +668,7 @@ const worker = {
     headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=(), usb=()");
     headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
     const contentSecurityPolicy =
-      "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; worker-src 'self' blob:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.google.com https://www.google.com.vn https://www.googletagmanager.com; manifest-src 'self' https://vinprint.vn";
+      "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; worker-src 'self' blob:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.photopea.com https://www.google.com https://www.google.com.vn https://www.googletagmanager.com; manifest-src 'self' https://vinprint.vn";
     headers.set(
       "Content-Security-Policy",
       url.protocol === "https:"

@@ -1,0 +1,20 @@
+{
+  "homepageTiles": 7,
+  "hubTools": 11,
+  "photopeaRealHandshake": true,
+  "noClipboardPermission": true,
+  "pngDownload": true,
+  "psdDownload": true,
+  "psdOpenedAndPixelsPreserved": true,
+  "cdrRealConverted": true,
+  "cdrDimensions": {
+    "width": 635,
+    "height": 898
+  },
+  "svgDownload": true,
+  "zoom": true,
+  "mobile390": true,
+  "invalidFileKeepsPrevious": true,
+  "svgSecurityAndLocalGradients": true,
+  "pageErrors": []
+}
