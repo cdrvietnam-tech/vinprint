@@ -34,6 +34,7 @@ export async function handleFreeToolRequest(request:Request,{origin=DEFAULT_ORIG
    return new Response(r.body,{status:r.status,headers:outputHeaders});
   }catch{return fail();}
  }
+ if(action==="cdr")return handleCdrRequest(request,{origin,fetchImpl});
  if(!["enhance","remove-bg","white-bg","erase","album","video"].includes(action))return fail(404);
  if(request.method!=="POST")return fail(405);
  if(Number(request.headers.get("content-length")||0)>35*1024*1024)return fail(413);
@@ -74,4 +75,13 @@ export async function handleFreeToolRequest(request:Request,{origin=DEFAULT_ORIG
   if(!assets.length)return fail();
   return json(200,{success:true,assets,brandMarked:data.brandMarked===true,creditsDeducted:0});
  }catch{return fail();}
+}
+
+async function handleCdrRequest(request:Request,{origin=DEFAULT_ORIGIN,fetchImpl=fetch}:Options){
+ if(request.method!=="POST")return fail(405);
+ if(Number(request.headers.get("content-length")||0)>31*1024*1024)return fail(413);
+ try{const input=await request.formData(),file=input.get("file");if(!file||typeof file==="string"||!file.name.toLowerCase().endsWith(".cdr")||!file.size||file.size>30*1024*1024)return json(400,{success:false,message:"Chọn file CDR từ 1 byte đến 30 MB."});
+ const head=new Uint8Array(await file.slice(0,12).arrayBuffer());const four=(p:number)=>String.fromCharCode(...head.slice(p,p+4));if(!(four(0)==="RIFF"&&four(8).startsWith("CDR"))&&!(head[0]===80&&head[1]===75&&head[2]===3&&head[3]===4))return json(400,{success:false,message:"File không có cấu trúc CDR được hỗ trợ."});
+ const form=new FormData();form.set("file",file,"vinprint-document.cdr");const r=await fetchImpl(new URL(origin).origin+"/api/cdr/import-vector",{method:"POST",body:form,signal:AbortSignal.timeout(95000),redirect:"error"});if(!r.ok)return json(502,{success:false,message:"Chưa đọc được bản vector. Anh có thể xem ảnh nhúng hoặc xuất SVG từ CorelDRAW rồi thử lại."});const text=await r.text();if(text.length>28*1024*1024)return fail(413);const data=JSON.parse(text);if(typeof data.svg!=="string"||!data.svg.includes("<svg")||data.svg.length>25*1024*1024)return fail();return json(200,{success:true,svg:data.svg,warning:"Kiểm tra font, hiệu ứng và bố cục với ảnh xem trước gốc trước khi dùng để in."});
+ }catch{return json(502,{success:false,message:"Chưa kết nối được bộ đọc bản vẽ. Anh thử lại hoặc xem ảnh nhúng có sẵn trong file."});}
 }
