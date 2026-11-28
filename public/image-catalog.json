@@ -1591,6 +1591,21 @@
       ]
     },
     {
+      "path": "/images/tet-2027/home-layout-approved.webp",
+      "title": "Home Layout Approved",
+      "category": "hero",
+      "categoryLabel": "Ảnh giao diện Tết",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 331460,
+      "usages": [
+        {
+          "href": "/",
+          "label": "Trang chủ"
+        }
+      ]
+    },
+    {
       "path": "/images/tet-2027/materials-overview-v1.webp",
       "title": "Materials Overview V1",
       "category": "hero",

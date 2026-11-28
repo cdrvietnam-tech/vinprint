@@ -1,4 +1,5 @@
 # Bài học VinPrint
+- 2026-11-28 Khóa header/bìa khi đổi bố cục → 2026-11-28-home-layout-invariants.md
 - 2026-11-28 Chặn lưu mặc định khi API quản trị lỗi → 2026-11-28-admin-load-failure.md
 - 2026-11-28 Kiểm byte NUL trước bàn giao → 2026-11-28-text-integrity.md
 - 2026-11-28 Skip-link và quyền build local → 2026-11-28-keyboard-and-local-build.md

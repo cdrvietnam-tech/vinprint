@@ -1,0 +1,10 @@
+{
+  "previews": 5,
+  "differentScenes": 5,
+  "realAnimation": true,
+  "pauseOffscreen": true,
+  "reducedMotion": true,
+  "mobile390": true,
+  "toolLink": true,
+  "pageErrors": []
+}

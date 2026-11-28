@@ -39,3 +39,6 @@ Chưa merge/deploy. Cần chủ duyệt đúng head PR #33 trước merge vì ma
 Sau duyệt, áp dụng bộ ảnh Tết qua quản trị production theo hướng dẫn TET-STOREFRONT-INTEGRATION.md; có backup manifest trước đổi, không tự xóa ảnh cũ.
 Hoàn tác code bằng revert commit đã xuất bản. Dữ liệuR2 thay đổi riêng phải dùng backup/quản trị, không dùng revert code để khẳng định đã phục hồi dữ liệu.
 GitHub API đã khôi phục qua credential Git đang có; token gh mặc định vẫn cũ. Board #2 thiếu read:project nên chưa đổi cột; quyền tiếp tục local của chủ vẫn áp dụng.
+
+## Cập nhật bố cục chủ duyệt sau d72e46f
+Xem HOME-LAYOUT-APPROVED.md và evidence/home-layout-v2. Giữ header/bìa,4thẻ chất liệu,5ô công cụ nổi bật kèm đủ9tool ởhub, sidebar7mục. Dữ liệu/giá giữ nguyên. Bản này chưa xuất bản và không kế thừa phê duyệt head cũ.

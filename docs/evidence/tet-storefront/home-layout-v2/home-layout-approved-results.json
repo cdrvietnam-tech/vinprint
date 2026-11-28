@@ -1,0 +1,25 @@
+{
+  "headerUnchanged": true,
+  "heroUnchanged": true,
+  "heroGeometry": {
+    "x": 244,
+    "y": 90,
+    "width": 1516,
+    "height": 335
+  },
+  "sidebarItems": 7,
+  "materialCards": 4,
+  "toolPreviews": 5,
+  "totalToolsInHub": 9,
+  "advertisingItems": 6,
+  "tetItems": 6,
+  "quote": true,
+  "widths": [
+    1781,
+    1536,
+    768,
+    390
+  ],
+  "mobileMenu": true,
+  "pageErrors": []
+}

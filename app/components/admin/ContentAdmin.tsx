@@ -208,9 +208,9 @@ export default function ContentAdmin() {
 {c.tetHome.features.map((value,i)=><Field key={i} label={"Điểm mạnh Tết "+(i+1)} value={value} onChange={v=>update(["tetHome","features",i],v)} />)}
 <Row><Field label="Nút báo giá Tết" value={c.tetHome.primaryCta.label} onChange={v=>update(["tetHome","primaryCta","label"],v)} /><Field label="Link báo giá Tết" value={c.tetHome.primaryCta.href} onChange={v=>update(["tetHome","primaryCta","href"],v)} /></Row>
 <Row><Field label="Nút xem mẫu Tết" value={c.tetHome.secondaryCta.label} onChange={v=>update(["tetHome","secondaryCta","label"],v)} /><Field label="Link xem mẫu Tết" value={c.tetHome.secondaryCta.href} onChange={v=>update(["tetHome","secondaryCta","href"],v)} /></Row>
-<Field label="Tiêu đề bộ sưu tập" value={c.tetHome.collectionTitle} onChange={v=>update(["tetHome","collectionTitle"],v)} />
+<details className="rounded-xl border p-4"><summary className="cursor-pointer font-bold">Banner bộ sưu tập cũ (lưu trữ)</summary><p className="my-3 text-sm text-gray-600">Bố cục mới không hiển thị banner trung gian. Nội dung này được giữ lại để khôi phục khi cần.</p><Field label="Tiêu đề bộ sưu tập" value={c.tetHome.collectionTitle} onChange={v=>update(["tetHome","collectionTitle"],v)} />
 <Field label="Mô tả bộ sưu tập" value={c.tetHome.collectionDescription} onChange={v=>update(["tetHome","collectionDescription"],v)} />
-<Row><Field label="Nút bộ sưu tập" value={c.tetHome.collectionCta.label} onChange={v=>update(["tetHome","collectionCta","label"],v)} /><Field label="Link bộ sưu tập" value={c.tetHome.collectionCta.href} onChange={v=>update(["tetHome","collectionCta","href"],v)} /></Row>
+<Row><Field label="Nút bộ sưu tập" value={c.tetHome.collectionCta.label} onChange={v=>update(["tetHome","collectionCta","label"],v)} /><Field label="Link bộ sưu tập" value={c.tetHome.collectionCta.href} onChange={v=>update(["tetHome","collectionCta","href"],v)} /></Row></details>
 </Section>
 <Section title="Hero trước đây" hint="giữ nội dung cũ, không ghi đè banner Tết">
             <Field label="Nhãn nhỏ phía trên" value={c.hero.eyebrow} onChange={(v) => update(["hero", "eyebrow"], v)} />

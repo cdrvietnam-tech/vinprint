@@ -17,6 +17,8 @@ import "./storefront-polish.css";
 import {freeTools} from "../../lib/free-tools";
 import ToolPreview from "./ToolPreview";
 import MaterialCatalog from "./MaterialCatalog";
+import HomeMaterialOverview from "./HomeMaterialOverview";
+import "./home-layout-approved.css";
 import { productThemeImage } from "../../lib/product-theme";
 
 const iconMap: Record<string,LucideIcon> = {archive:Archive,smartphone:Smartphone,cut:Scissors,sparkles:Sparkles,eraser:Eraser,images:Images,video:Video,home:Home,tag:Tag,sticker:Sticker,roll:CircleDot,badge:BadgeCheck,file:FileText,gift:Gift,image:ImageIcon,upload:Upload,help:HelpCircle,bag:ShoppingBag,phone:Phone,box:Package,headset:Headphones,grid:Grid2X2,flower:Flower2,menu:Menu,book:BookOpen,map:MapPin};
@@ -24,7 +26,7 @@ function Icon({name}:{name:string}) { const Component=iconMap[name]||Tag;return 
 function Artwork({box,reference=false,label}:{box:string;reference?:boolean;label?:string}) {
   return <svg viewBox={box} preserveAspectRatio="xMidYMid slice" role={label?"img":undefined} aria-label={label} aria-hidden={label?undefined:true}><image href={reference?"/images/tet-2027/reference-products.webp":"/images/tet-2027/artwork.webp"} width="1781" height="883" /></svg>;
 }
-function Flame(){return <svg className="flame" viewBox="0 0 28 30" aria-hidden="true"><path fill="#ff3213" d="M17 0C20 10 29 11 27 21c-1 6-6 9-12 9C6 30 0 24 2 17c1-5 5-8 6-13 3 2 4 4 4 7C16 7 17 4 17 0Z"/><path fill="#ffae18" d="M15 10c1 6 9 7 7 14-1 4-4 6-8 6-5 0-9-3-8-8 1-3 4-5 4-8 3 2 3 5 3 6 2-3 2-6 2-10Z"/><path fill="#ffe78b" d="M15 20c-1 4-5 4-5 7 0 2 2 3 4 3 5 0 6-5 1-10Z"/></svg>;}
+
 
 type Modal = {kind:"quote"|"upload"|"order"} | {kind:"poster";index:number} | null;
 
@@ -80,32 +82,18 @@ export default function Storefront(){
   const navFilter=(name:string,icon:string,value:StorefrontFilter)=><Link prefetch={false} className={"vp-nav vp-action "+(filter===value?"active":"")} href="#san-pham-tet" onClick={()=>chooseFilter(value)}><Icon name={icon}/>{name}</Link>;
   const navLink=(name:string,icon:string,href:string)=><Link prefetch={false} className="vp-nav vp-action" href={safePublicHref(href)} onClick={()=>setMenuOpen(false)}><Icon name={icon}/>{name}</Link>;
 
-  return <div className="vinprint-storefront">
+  return <div className="vinprint-storefront vp-home-rearranged">
     <aside id="sidebar" className={menuOpen?"open":""}>
       <Link prefetch={false} className="logo" href="/" aria-label="VinPrint — Trang chủ"><Artwork box="18 0 178 77" reference /></Link>
       <nav aria-label="Danh mục dịch vụ">
-        <p>Danh mục dịch vụ</p>
-        {navFilter("Trang chủ","home","all")}
-        {navFilter("In tem nhãn","tag","label")}
-        {navFilter("In decal sticker","sticker","sticker")}
-        {navFilter("Tem nhãn chống nước","roll","water")}
-        {navFilter("Tem bạc, tem ánh kim","badge","metal")}
+        <Link className={"vp-nav vp-action "+(filter==="all"||filter==="tet"?"active":"")} href="#trang-chu" onClick={()=>chooseFilter("all")}><Icon name="home"/>Trang chủ</Link>
+        <Link className="vp-nav vp-action" href="#san-pham-tet" onClick={()=>chooseFilter("all")}><Icon name="tag"/>Các loại tem nhãn</Link>
         {navFilter("Ấn phẩm quảng cáo","file","print")}
-        {navFilter("Tem dán hộp & túi giấy","gift","pack")}
-        {navLink("Kho mẫu tham khảo","image","#mau-thuc-te")}
-        <p>Công cụ & tiện ích</p>
+        {navLink("Kho mẫu","image","#mau-thuc-te")}
         {navLink("Công cụ miễn phí","sticker","#cong-cu-mien-phi")}
-        <button className="vp-nav" onClick={()=>openQuote("In tem nhãn")}><Icon name="file"/>Báo giá in online</button>
-        <button className="vp-nav" onClick={()=>setModal({kind:"upload"})}><Icon name="upload"/>Gửi file thiết kế</button>
-        {navLink("Hướng dẫn đặt in","help","#quy-trinh")}
-        {navLink("Cẩm nang in ấn","book","/blog")}
-        <p>Hỗ trợ khách hàng</p>
-        <button className="vp-nav" onClick={()=>setModal({kind:"order"})}><Icon name="bag"/>Hỗ trợ đơn hàng</button>
-        {navLink("Bảng giá tham khảo","file","#bang-gia")}
-        {navLink("Liên hệ hỗ trợ","phone","#lien-he-xuong")}
-        {navLink("Tất cả sản phẩm","grid","#danh-muc-san-pham")}
+        {navLink("Hướng dẫn đặt in","book","#quy-trinh")}
+        {navLink("Liên hệ","phone","#lien-he-xuong")}
       </nav>
-      <div className="sidebar-art"><Artwork box="0 746 222 137" reference /></div>
     </aside>
 
     <div className="workspace">
@@ -143,20 +131,13 @@ export default function Storefront(){
           <div className="benefits">{tetHome.features.slice(0,4).map((feature,index)=><span key={index}>{feature}</span>)}</div>
         </section>
 
-        <section className="filters" aria-label="Lọc sản phẩm">
-          {storefrontFilters.map(item=><button key={item.id} className={(filter===item.id?"selected ":"")+(item.id==="tet"?"tet":"")} onClick={()=>chooseFilter(item.id)} aria-pressed={filter===item.id}><Icon name={item.icon}/>{item.label}<em>({(item.id==="print"?advertisingItems.length:filterFeatured(item.id).length)})</em></button>)}
-        </section>
-
-        <section className="collection" aria-labelledby="collection-title">
-          <div className="collection-scenery"><Artwork box="244 500 1516 74"/></div>
-          <div className="collection-copy"><h2 id="collection-title">{tetHome.collectionTitle}</h2><p>{tetHome.collectionDescription}</p></div>
-          <Link prefetch={false} className="collection-cta vp-action" href={safePublicHref(tetHome.collectionCta.href,"#san-pham-tet")} onClick={()=>chooseFilter("tet")}>{tetHome.collectionCta.label}<span aria-hidden="true">→</span></Link>
-        </section>
+        <div className="vp-home-service-strip" aria-label="Dịch vụ VinPrint">{[{icon:"headset",title:"Tư vấn chất liệu",detail:"Gợi ý đúng nhu cầu sử dụng"},{icon:"image",title:"Duyệt mẫu trước in",detail:"Xác nhận nội dung và quy cách"},{icon:"grid",title:"Linh hoạt số lượng",detail:"Trao đổi theo từng mẫu in"},{icon:"box",title:"Giao hàng toàn quốc",detail:"Xác nhận lịch và vận chuyển"}].map(item=><div key={item.title}><Icon name={item.icon}/><div><strong>{item.title}</strong><span>{item.detail}</span></div></div>)}</div>
 
         <section id="san-pham-tet" aria-labelledby="product-title">
-          <div className="section-heading"><h2 id="product-title">{filter==="print"?<Icon name="file"/>:<Flame/>}<span>{filter==="all"||filter==="tet"?"Sản phẩm nổi bật mùa Tết":(filter==="metal"?"Tem bạc và ánh kim":storefrontFilters.find(f=>f.id===filter)?.label)}</span></h2><span id="count" aria-live="polite">{filter==="print"?advertisingItems.length:visible.length} sản phẩm</span>{filter!=="all"&&<button id="reset" onClick={()=>chooseFilter("all")}>Xem tất cả →</button>}</div>
+          <div className="vp-home-products-heading"><h2 id="product-title">{filter==="all"?"Chọn tem phù hợp với sản phẩm":filter==="print"?"Ấn phẩm quảng cáo":filter==="tet"?"Mẫu tem Tết":storefrontFilters.find(f=>f.id===filter)?.label||"Tem nhãn VinPrint"}</h2><nav aria-label="Lọc sản phẩm">{([{id:"all",label:"Tem nhãn"},{id:"print",label:"Quảng cáo"},{id:"tet",label:"Mẫu Tết"}] as const).map(item=><button key={item.id} aria-pressed={filter===item.id} onClick={()=>chooseFilter(item.id)}>{item.label}</button>)}</nav><Link href="/san-pham">Xem tất cả →</Link></div>
+          {filter==="all"&&<HomeMaterialOverview/>}
           {filter==="print"&&<div className="vp-advertising" aria-label="Danh mục ấn phẩm quảng cáo"><div className="vp-advertising-intro"><Image unoptimized src={productThemeImage("to-roi")} alt="Mẫu thiết kế tờ rơi và ấn phẩm quảng cáo Tết" width={400} height={300}/><div><h3>Ấn phẩm cho cửa hàng & sự kiện</h3><p>Chọn loại ấn phẩm để chuẩn bị yêu cầu in. Xưởng xác nhận chất liệu, kích thước, số lượng và thời gian trước khi báo giá.</p></div></div><div className="vp-advertising-grid">{advertisingItems.map(item=><article key={item.name}><Icon name={item.icon}/><h3>{item.name}</h3><p>{item.description}</p><button onClick={()=>openQuote(item.name)} aria-label={"Yêu cầu báo giá "+item.name}>Yêu cầu báo giá →</button></article>)}</div></div>}
-          <div className="product-grid" id="grid">{visible.map(item=>{
+          {filter!=="all"&&<div className="product-grid" id="grid">{visible.map(item=>{
             const product=featuredProduct(item);
             return <article className="product" key={item.id}>
               <Link prefetch={false} className="art vp-art-link" href={item.href}><Image unoptimized src={featuredImage(item)} alt={item.name+" — ảnh minh họa thiết kế Tết"} width={400} height={300} className="vp-themed-thumbnail"/><span className="ribbon">{item.badge}</span></Link>
@@ -164,14 +145,12 @@ export default function Storefront(){
               <button onClick={()=>openQuote(item.name)} aria-label={"Xem và báo giá "+item.name}>Xem & báo giá →</button>
               <span className="vp-product-source">Chất liệu: {product.name}</span>
             </article>;
-          })}</div>
-          {filter!=="print"&&<p className="vp-art-caption">Hình Tết minh họa thiết kế. Xem quy cách, giá tham khảo hoặc gửi yêu cầu để xưởng xác nhận.</p>}
-          {filter!=="print"&&<Link prefetch={false} className="vp-inline-link" href="/nganh/tem-nhan-tet">Tư vấn in tem Tết, thời gian nhận hàng và cách chuẩn bị file →</Link>}
+          })}</div>}
+          {filter!=="print"&&filter!=="all"&&<p className="vp-art-caption">Hình Tết minh họa thiết kế. Xem quy cách, giá tham khảo hoặc gửi yêu cầu để xưởng xác nhận.</p>}
+          {filter!=="print"&&filter!=="all"&&<Link prefetch={false} className="vp-inline-link" href="/nganh/tem-nhan-tet">Tư vấn in tem Tết, thời gian nhận hàng và cách chuẩn bị file →</Link>}
         </section>
 
-        <nav className="vp-quick-sections" aria-label="Đi nhanh đến nội dung" onClick={event=>{const anchor=(event.target as HTMLElement).closest("a");const target=anchor&&document.querySelector(anchor.getAttribute("href")||" ");if(!target)return;event.preventDefault();event.stopPropagation();window.scrollTo({top:target.getBoundingClientRect().top+window.scrollY-82,behavior:"instant"});}}><span>Anh chị đang cần?</span><a href="#danh-muc-san-pham">Chọn chất liệu tem</a><a href="#bang-gia">Xem bảng giá</a><a href="#cong-cu-mien-phi">Chuẩn bị file in</a><a href="#quy-trinh">Cách đặt in</a></nav>
-
-        <section className="vp-info-section vp-home-tools" id="cong-cu-mien-phi" aria-labelledby="free-tools-title"><div className="vp-section-top"><div><h2 id="free-tools-title">Xử lý ảnh & chuẩn bị file in</h2><p>Chọn công cụ để bắt đầu. Miễn phí, không cần tài khoản.</p></div><span className="vp-free-badge"><span aria-hidden="true">✓</span> 9 công cụ miễn phí</span></div><div className="vp-home-tool-grid">{freeTools.map(tool=><Link prefetch={false} key={tool.id} className="vp-home-tool" href={"/cong-cu-mien-phi?tool="+tool.id}><ToolPreview tool={tool.id}/><div className="vp-tool-copy"><h3>{tool.name}</h3><p>{tool.description}</p></div><div className="vp-tool-bottom"><span>{tool.group}</span><span className="vp-tool-open">Mở công cụ <span aria-hidden="true">→</span></span></div></Link>)}</div><Link prefetch={false} className="vp-inline-link" href="/blog/chuan-bi-file-in-tem-khong-bi-mo">Kiểm tra kích thước, ảnh, font và đường cắt trước khi gửi in →</Link></section>
+        <section className="vp-info-section vp-home-tools" id="cong-cu-mien-phi" aria-labelledby="free-tools-title"><div className="vp-section-top"><div><h2 id="free-tools-title">Công cụ miễn phí cho file in</h2><p>Chọn công cụ để bắt đầu. Miễn phí, không cần tài khoản.</p></div><Link className="vp-all-tools" href="/cong-cu-mien-phi">Xem 9 công cụ →</Link></div><div className="vp-home-tool-grid">{["compress","remove-bg","pdf","heic","enhance"].map(id=>freeTools.find(tool=>tool.id===id)!).map(tool=><Link prefetch={false} key={tool.id} className="vp-home-tool" href={"/cong-cu-mien-phi?tool="+tool.id}><ToolPreview tool={tool.id} layoutPreview/><div className="vp-tool-copy"><h3>{tool.name}</h3><p>{tool.description}</p></div><div className="vp-tool-bottom"><span>{tool.group}</span><span className="vp-tool-open">Mở công cụ <span aria-hidden="true">→</span></span></div></Link>)}</div><Link prefetch={false} className="vp-inline-link" href="/blog/chuan-bi-file-in-tem-khong-bi-mo">Kiểm tra kích thước, ảnh, font và đường cắt trước khi gửi in →</Link></section>
 
         <MaterialCatalog onQuote={openQuote}/>
 

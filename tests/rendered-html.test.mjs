@@ -235,14 +235,15 @@ test("renders the new storefront homepage with key sections", async () => {
   assert.doesNotMatch(html, /images\.unsplash\.com/i);
 });
 
-test("homepage keeps the print guide in navigation instead of an inline section", async () => {
+test("homepage keeps guides and the handbook reachable with compact navigation", async () => {
   const response = await render();
   const html = await response.text();
   const header = (html.match(/<header[\s\S]*?<\/header>/i)?.[0] ?? "") + (html.match(/<aside[\s\S]*?<\/aside>/i)?.[0] ?? "");
 
   assert.equal(response.status, 200);
-  assert.match(header, /href="\/blog"/i);
-  assert.match(header, /Cẩm nang in ấn/i);
+  assert.match(header, /Hướng dẫn đặt in/i);
+  assert.match(html, /href="\/blog"/i);
+  assert.match(html, /Cẩm nang in ấn/i);
   assert.doesNotMatch(html, /id="cam-nang-tem-nhan"/i);
   assert.doesNotMatch(html, /Xem toàn bộ cẩm nang/i);
 });
@@ -302,7 +303,9 @@ test("homepage preserves the approved seasonal composition with live semantic co
   assert.match(hero, /In ấn chuẩn Tết/);
   assert.match(hero, /Nâng tầm thương hiệu/);
   assert.match(hero, /href="#nhan-bao-gia"/);
-  assert.match(html, /viewBox="244 500 1516 74"/);
+  assert.doesNotMatch(html, /class="collection"/);
+  assert.equal((html.match(/data-home-material=/g)||[]).length,4);
+  assert.match(html,/vp-home-service-strip/);
   assert.doesNotMatch(html, /4\.949 Xu|Tài khoản khách hàng|data-hero-carousel/);
 });
 test("image library is available locally and protected in production", async () => {
