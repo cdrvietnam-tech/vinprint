@@ -148,6 +148,24 @@ test("material comparison includes selectable photos and an honest illustration 
   assert.equal((html.match(/scope="row"/g)||[]).length,5);
 });
 
+test("size and cutting guides render explanatory diagrams without replacing their text", async () => {
+  for (const [slug,kind] of [["chon-kich-thuoc-tem","size"],["ky-thuat-in-tem","cut"]]) {
+    const html=await (await render(`/huong-dan/${slug}`)).text();
+    assert.ok(html.includes(`data-technical-visual="${kind}"`));
+    assert.match(html,/Sơ đồ minh họa cách hiểu quy cách/);
+    assert.match(html,/không phải file khuôn bế/);
+    if(kind==="size"){
+      assert.match(html,/40 mm/);assert.match(html,/60 mm/);
+      assert.match(html,/Tránh vai chai/);
+      assert.match(html,/Ví dụ 40 × 60 mm chỉ để minh họa/);
+    }else{
+      assert.match(html,/Các tem giữ chung lớp đế/);
+      assert.match(html,/Mỗi miếng có đế riêng/);
+      assert.match(html,/Mặt cắt phóng đại, không theo tỷ lệ/);
+    }
+  }
+});
+
 test("production HTTP redirects directly to HTTPS and preserves path and query", async () => {
   for (const path of ["/", "/san-pham/tem-giay?utm_source=test", "/robots.txt"]) {
     const response = await render(path, "http://vinprint.vn");

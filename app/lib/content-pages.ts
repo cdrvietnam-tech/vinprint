@@ -6,6 +6,7 @@ export type ContentSection = {
   paragraphs: string[];
   bullets?: string[];
   visualComparison?: boolean;
+  technicalVisual?: "size" | "cut";
   table?: { caption: string; columns: string[]; rows: string[][] };
   links?: { href: string; label: string }[];
   image?: { src: string; alt: string; caption: string };
@@ -121,8 +122,8 @@ export const guidePages: Record<string, ContentPageData> = {
     { heading: "Tem nhựa và tem trong", paragraphs: ["Bền ẩm hơn tem giấy. Tem nhựa trắng giúp màu ổn định; tem trong giữ lại màu của bao bì phía sau."], bullets: ["Phù hợp: mỹ phẩm, đồ uống, đông lạnh", "Cần thử độ bám trên bề mặt thật"] },
     { heading: "Tem hiệu ứng", paragraphs: ["Tem ánh kim, hologram và UV DTF tạo điểm nhấn mạnh nhưng cần thiết kế tiết chế để giữ khả năng đọc."] },
   ]},
-  "chon-kich-thuoc-tem": { slug: "chon-kich-thuoc-tem", title: "Cách đo và chọn kích thước tem nhãn", description: "Hướng dẫn đo vùng dán, thử mẫu giấy và chọn kích thước tem cho chai, hũ, hộp và túi.", eyebrow: "Hướng dẫn · Kích thước", intro: "Kích thước tem nên được kiểm tra trực tiếp trên bao bì thay vì chỉ dựa vào kích thước file thiết kế.", sections: [
-    { heading: "Ba bước đo", paragraphs: ["Đo vùng phẳng có thể dán, trừ phần cong hoặc gân. Cắt một mẫu giấy đúng kích thước rồi dán thử. Cuối cùng chụp ảnh gửi xưởng để đối chiếu."], bullets: ["Đo bằng milimet", "Chừa biên an toàn", "Kiểm tra khả năng đọc ở khoảng cách sử dụng"] },
+  "chon-kich-thuoc-tem": { slug: "chon-kich-thuoc-tem", updatedAt: "2026-11-28", title: "Cách đo và chọn kích thước tem nhãn", description: "Hướng dẫn đo vùng dán, thử mẫu giấy và chọn kích thước tem cho chai, hũ, hộp và túi.", eyebrow: "Hướng dẫn · Kích thước", intro: "Kích thước tem nên được kiểm tra trực tiếp trên bao bì thay vì chỉ dựa vào kích thước file thiết kế.", sections: [
+    { heading: "Ba bước đo", technicalVisual: "size", paragraphs: ["Đo vùng phẳng có thể dán, trừ phần cong hoặc gân. Cắt một mẫu giấy đúng kích thước rồi dán thử. Cuối cùng chụp ảnh gửi xưởng để đối chiếu."], bullets: ["Đo bằng milimet", "Chừa biên an toàn", "Kiểm tra khả năng đọc ở khoảng cách sử dụng"] },
     { heading: "Chai tròn và hũ", paragraphs: ["Không nên để hai mép tem chạm nhau nếu không thiết kế dạng quấn vòng. Tem nhỏ nên bo góc để giảm nguy cơ bong mép."] },
     { heading: "Kích thước file", paragraphs: ["File nên đúng tỷ lệ thành phẩm, có vùng xén và hình ảnh đủ độ phân giải. Chữ quan trọng cần nằm cách đường cắt một khoảng an toàn."] },
   ]},

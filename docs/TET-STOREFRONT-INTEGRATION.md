@@ -87,3 +87,7 @@ ContentPage chỉ chuyển theme khi canonicalPath bắt đầu /huong-dan/; cá
 
 ## So sánh bằng ảnh — Issue159
 Mục đầu hướng dẫn chất liệu có MaterialVisualComparison: hai panel chọn độc lập7chất liệu, ảnh riêng độ phân giải1448px lấy từproducts, phóng to bằngdialognative. Trình bày điểm nhìn trênảnh, nhu cầu và lưu ý; giữnguyên bảngHTML5hàng bên dưới. Mobile haiảnh cạnhnhau, select/phóngto dùngđược bằng bànphím. Ghi rõ ảnhminhhọa không phải thửvậtliệu. Không thêm ảnhđối thủ, đổi giá/URL/schema. Script verify-material-visuals.cjs và evidence material-visual-*; chỉlocal.
+
+
+## Sơ đồ đo và cắt tem — Issue160
+Hướng dẫn kích thước có sơ đồ tem ví dụ40×60mm và vùng dán trên chai. Hướng dẫn kỹ thuật có so sánh bế demi/cắt rời: nhìn từ trên và mặt cắt tem/keo/đế. Dùng SVG có tên ảnh truy cập, chú thích HTML và nhãn ví dụ, không phát sinh quy cách bắt buộc hoặc file khuôn bế. Màn hình<=1000px chuyển từng hình một hàng để chữ dễ đọc khi có sidebar. Giữ nội dung/URL/schema; cập nhật ngày sửa thực của hướng dẫn kích thước. Bằng chứng technical-* và technical-visual-results.json, script verify-technical-visuals.cjs. Chỉlocal.

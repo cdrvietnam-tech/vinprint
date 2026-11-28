@@ -46,3 +46,9 @@
 - Thêm hai khung ảnh đổi độc lập giữa7loại tem, xem lớn bằng dialog native và chú thích nhìn trên mẫu/nhu cầu/lưu ý. Mobile vẫn đặt hai bên cạnh nhau và có phóng to; giữ bảng chữ5hàng. Ảnh chỉ minh họa, không dùng làm bằng chứng chống nước/độ bám.
 - Không phóng crop300px từ atlas lênkhung500px: bản đầu nhìn mềm. Dùng7ảnh sản phẩm riêng1448px từnguồnproducts, caption khớp nội dung hình. Browser kiểm naturalWidth>=1000 và xem ảnh desktop/mobile thực.
 - Chặn: verify-material-visuals.cjs kiểm7nguồn ảnh/7đích200/2select/zoom/Escape/1440-768-390/so sánh song song và bảng còn nguyên; HTMLtest kiểm defaultảnh+nhãn minh họa+table.
+
+
+## Sơ đồ kỹ thuật — Issue160
+- Minh họa đo tem và cắt bế bằng SVG để giữ nét ở các màn hình. Số40×60mm chỉ là ví dụ; không gán bleed/vùng an toàn cố định chưa được xưởng xác nhận. Mặt cắt ghi rõ phóng đại, không theo tỷ lệ.
+- Với sidebar, tablet768px không đủ để giữ hai hình và chữ nhỏ cạnh nhau; chuyển1cột từ1000px. Browser kiểm SVG rộng>250px và xem ảnh1440/390.
+- Mũi tên đo ngang và dọc phải dùng hai path riêng: gộp nhiều subpath trong một path khiến marker-start/end chỉ xuất hiện ở đầu/cuối toànpath, làm thiếu mũi tên ở hai đầu còn lại. Xem hình trước khi kết luận.
