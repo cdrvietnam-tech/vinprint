@@ -1,4 +1,5 @@
 # Bài học VinPrint
+- 2026-11-28 Kiểm luồng in và kết quả ảnh sạch → 2026-11-28-postrelease-print-workflow.md
 - 2026-11-28 Kiểm fetch bằng workerd → 2026-11-28-workerd-redirect.md
 - 2026-11-28 Kiểm nguồn chậm có giới hạn → 2026-11-28-external-source-timeout.md
 - 2026-11-28 Kiểm runtime CDR và frame PTS thật → 2026-11-28-design-tools-runtime.md

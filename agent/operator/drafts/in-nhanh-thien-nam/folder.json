@@ -1,0 +1,43 @@
+{
+  "status": "draft-not-published",
+  "proposedPath": "/san-pham/folder",
+  "service": "folder",
+  "title": "In folder",
+  "intro": "Gửi quy cách và file để trao đổi phương án in phù hợp. Khả năng nhận đơn, giá và thời gian cần được VinPrint xác nhận trước khi công bố.",
+  "specificationChecklist": [
+    "Kích thước thành phẩm",
+    "Chất liệu và định lượng",
+    "In một hay hai mặt",
+    "Số lượng",
+    "Gia công và đóng gói",
+    "File và thời hạn cần nhận"
+  ],
+  "reference": {
+    "service": "folder",
+    "source": "https://inthiennam.com/in-nhanh/folder",
+    "spec": "C300; 22×31 cm; yếm 7 cm; in một mặt, cán mờ một mặt; gồm bế dán",
+    "sourceEffectiveDate": "2026-10-01",
+    "prices": [
+      {
+        "quantity": "5 cái",
+        "totalVnd": 170000
+      },
+      {
+        "quantity": "10 cái",
+        "totalVnd": 200000
+      },
+      {
+        "quantity": "20 cái",
+        "totalVnd": 350000
+      }
+    ]
+  },
+  "vinprintPrice": null,
+  "requiresOwnerReview": [
+    "Xưởng có nhận loại này không",
+    "Quy cách xưởng nhận",
+    "Giá bán VinPrint, VAT và vận chuyển",
+    "Tiến độ thực tế",
+    "Ảnh được phép sử dụng"
+  ]
+}

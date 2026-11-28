@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-hop-mut-tet-2027",
+  "title": "Tem hộp mứt Tết 2027: đồng bộ nhãn cho cả bộ quà",
+  "description": "Chuẩn bị tem hộp mứt Tết 2027 theo từng cỡ hũ, màu nắp và hộp quà. Đo vùng dán, ướm mẫu thật và gửi số lượng từng vị để VinPrint tư vấn.",
+  "category": "theo-nganh",
+  "image": "/images/blog/tem-hop-mut-tet-2027.webp",
+  "imageAlt": "Ảnh minh họa AI: Tem hộp mứt Tết 2027: đồng bộ nhãn cho cả bộ quà",
+  "publishedAt": "2026-11-28",
+  "updatedAt": "2026-11-28",
+  "publishAt": "2026-11-28T17:07:29+07:00",
+  "readingMinutes": 4,
+  "primaryKeyword": "tem hộp mứt Tết 2027",
+  "searchIntent": "Chuẩn bị bộ nhãn Tết cho nhiều cỡ hũ mứt trong cùng hộp quà",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-tet-review-v1",
+  "revisionCount": 0,
+  "directAnswer": "Bộ tem hộp mứt Tết 2027 nên dùng chung nhận diện thương hiệu nhưng chia kích thước theo từng hũ và từng vị. Trước khi gửi in, đặt đủ các cỡ hũ vào hộp quà, đo vùng phẳng ở thân hoặc nắp rồi ướm mẫu giấy đúng tỷ lệ. Tem giấy có thể cân nhắc cho bao bì khô; nhãn ánh kim tạo điểm nhấn bắt sáng nhưng cần kiểm tra độ rõ của chữ trên mẫu. Không nên chốt số lượng bằng tổng số hộp quà: hãy tách số tem theo vị, cỡ hũ và vị trí dán để tránh thiếu một mẫu khi đóng bộ. Gửi ảnh bộ quà thật, file logo và danh sách quy cách để xưởng xác nhận vật liệu, giá và tiến độ.",
+  "relatedProductSlugs": [
+    "tem-giay",
+    "tem-vang"
+  ],
+  "sections": [
+    {
+      "heading": "Bắt đầu từ bộ quà đã xếp đủ sản phẩm",
+      "paragraphs": [
+        "Một hộp quà có thể chứa nhiều cỡ hũ. Vùng dán ở thân và nắp không giống nhau nên một đường kính tem duy nhất có thể không vừa tất cả. Hãy chụp từng hũ và cả bộ quà ở trạng thái hoàn chỉnh.",
+        "Đo vùng phẳng có thể dán, giữ chữ quan trọng tránh mép cong, gờ nắp và nếp gấp. Cắt mẫu giấy để kiểm tra trước khi điều chỉnh file thiết kế."
+      ],
+      "bullets": [
+        "Đo ngang × cao hoặc đường kính vùng dán.",
+        "Ướm mẫu khi hũ đã nằm trong hộp quà.",
+        "Kiểm tra tên vị dễ phân biệt khi nhìn từ trên xuống."
+      ]
+    },
+    {
+      "heading": "Giữ một nhận diện, tách tên từng vị",
+      "paragraphs": [
+        "Logo, kiểu chữ và vị trí thông tin nên nhất quán để các hũ nhìn thành một bộ. Màu nhấn hoặc tên vị có thể khác nhau nhưng không nên thay đổi mọi thành phần cùng lúc.",
+        "Nếu có nhãn mặt trước và nhãn nắp, đặt tên file theo vị và vị trí dán. Ví dụ, hai file khác nhau cần có số lượng riêng; không gộp vào một tổng rồi để xưởng suy đoán."
+      ],
+      "bullets": [
+        "Một dòng cho mỗi mẫu và kích thước.",
+        "Gửi bản xem trước cùng file in.",
+        "Đối chiếu tên vị trên file với danh sách đóng bộ."
+      ]
+    },
+    {
+      "heading": "Chọn vật liệu theo bao bì và cách bảo quản",
+      "paragraphs": [
+        "Tem giấy là lựa chọn cần xem xét cho hộp giấy và bao bì khô. Nếu hũ tiếp xúc với ẩm, hãy trao đổi điều kiện thực tế và thử trên đúng bề mặt trước khi đặt nhiều.",
+        "Tem ánh kim có thể dùng làm điểm nhấn cho bộ quà. Tuy vậy, hiệu ứng bắt sáng không thay thế việc kiểm tra tương phản chữ, vùng dán và màu nhìn thực tế. Hình trong bài là minh họa AI, không phải ảnh đơn hàng."
+      ],
+      "bullets": [
+        "Thử trên đúng vật liệu hũ hoặc nắp.",
+        "Xem chữ ở kích thước thật.",
+        "Trao đổi nếu bao bì có lớp phủ hoặc bề mặt nhám."
+      ]
+    },
+    {
+      "heading": "Chốt danh sách trước khi gửi báo giá",
+      "paragraphs": [
+        "Lập bảng gồm tên mẫu, kích thước, số lượng, vị trí dán và ngày cần nhận. Nếu đóng bộ, ghi thêm số hũ từng vị trong mỗi bộ để tự đối chiếu tổng tem.",
+        "VinPrint cần xem file và quy cách để xác nhận giá, vật liệu và tiến độ; bài viết không đưa thời gian giao mặc định cho mùa cao điểm. Gửi ảnh cùng danh sách qua Zalo để xưởng trao đổi."
+      ],
+      "bullets": [
+        "Không tự tăng số lượng mọi mẫu theo một tỷ lệ chung.",
+        "Đánh dấu file cuối cùng đã kiểm tra nội dung.",
+        "Lưu bản xác nhận quy cách trước khi in."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Quy cách tem giay",
+      "href": "/san-pham/tem-giay",
+      "note": "Đối chiếu trang nội bộ về vật liệu, đo vùng dán và quy cách; không dùng làm cam kết độ bền hay tiến độ.",
+      "kind": "first-party",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "title": "Quy cách tem vang",
+      "href": "/san-pham/tem-vang",
+      "note": "Đối chiếu trang nội bộ về vật liệu, đo vùng dán và quy cách; không dùng làm cam kết độ bền hay tiến độ.",
+      "kind": "first-party",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "title": "Quy cách chon kich thuoc tem",
+      "href": "/huong-dan/chon-kich-thuoc-tem",
+      "note": "Đối chiếu trang nội bộ về vật liệu, đo vùng dán và quy cách; không dùng làm cam kết độ bền hay tiến độ.",
+      "kind": "first-party",
+      "verifiedAt": "2026-11-28"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 20,
+      "evidence": 20,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/san-pham/tem-giay",
+      "/san-pham/tem-vang",
+      "/huong-dan/chon-kich-thuoc-tem"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Vật liệu và hướng dẫn đo được đối chiếu với trang sản phẩm và hướng dẫn hiện có.",
+        "sourceIds": [
+          "/san-pham/tem-giay",
+          "/san-pham/tem-vang",
+          "/huong-dan/chon-kich-thuoc-tem"
+        ]
+      }
+    ],
+    "attempts": []
+  }
+}

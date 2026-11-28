@@ -25,7 +25,7 @@ async function render(pathname = "/", origin = "http://localhost") {
 }
 
 function structuredData(html) {
-  return Array.from(html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g),
+  return Array.from(html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g),
     (match) => JSON.parse(match[1]));
 }
 
@@ -44,9 +44,9 @@ test("material guide exposes an original comparison table and crawlable product 
   assert.equal(article.dateModified, "2026-11-28");
 });
 
-test("homepage omits hardcoded FAQ claims and links to intent owners", async () => {
+test("homepage publishes FAQ matching its visible questions and links to intent owners", async () => {
   const html = await (await render()).text();
-  assert.ok(!structuredData(html).some(item => item["@type"] === "FAQPage"));
+  assert.ok(structuredData(html).some(item => item["@type"] === "FAQPage"));
   for (const path of ["/huong-dan/chon-chat-lieu-tem", "/blog/chuan-bi-file-in-tem-khong-bi-mo", "/blog/gia-in-tem-so-luong-it-phu-thuoc-gi"])
     assert.ok(html.includes(`href="${path}"`));
   assert.doesNotMatch(html, /content="[^"]*ảnh thật/);
@@ -107,7 +107,7 @@ test("all ten product pages publish distinct order checks and relevant alternati
   assert.equal(sections.size, 10);
 });
 
-test("catalog renders all ten products and preserves other printing groups without JavaScript", async () => {
+test("catalog renders all ten verified products without unsupported service claims", async () => {
   const response = await render("/san-pham");
   assert.equal(response.status, 200);
   const html = await response.text();
@@ -115,8 +115,7 @@ test("catalog renders all ten products and preserves other printing groups witho
   assert.equal((html.match(/<h1[ >]/g) || []).length, 1);
   assert.match(html, /Từ 25.000đ \/ A5/);
   assert.match(html, /Từ 10.000đ \/ tờ/);
-  for (const group of ["office", "advertising", "packaging"])
-    assert.ok(html.includes(`data-category="${group}"`));
+  assert.doesNotMatch(html, /<title>[^<]*(?:catalog|card|voucher|folder|túi giấy)/i);
   assert.match(html, /rel="canonical" href="https:\/\/vinprint.vn\/san-pham"/);
   assert.match(html, /href="\/huong-dan\/chon-chat-lieu-tem"/);
   assert.ok(html.includes('class="vinprint-storefront vp-product-storefront"'));
@@ -256,7 +255,7 @@ test("homepage includes JSON-LD structured data", async () => {
   assert.match(html, /application\/ld\+json/i);
   assert.match(html, /"@type":"LocalBusiness"/);
   assert.match(html, /"@type":"ItemList"/);
-  assert.doesNotMatch(html, /"@type":"FAQPage"/);
+  assert.match(html, /"@type":"FAQPage"/);
   const schemas = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
   const business = schemas.find((schema) => schema["@type"] === "LocalBusiness");
   const map = new URL(business.hasMap);
@@ -299,7 +298,7 @@ test("homepage preserves the approved seasonal composition with live semantic co
   assert.match(html, /id="mau-thuc-te"/);
   assert.match(html, /id="danh-gia"/);
   assert.match(hero, /viewBox="244 90 1516 335"/);
-  assert.match(hero, /images\/tet-2027\/artwork\.webp/);
+  assert.match(hero, /images\/tet-2027\/crops\/hero\.webp/);
   assert.match(hero, /In ấn chuẩn Tết/);
   assert.match(hero, /Nâng tầm thương hiệu/);
   assert.match(hero, /href="#nhan-bao-gia"/);
@@ -425,16 +424,16 @@ test("renders a crawlable blog index with category navigation", async () => {
   assert.match(html, /Cẩm nang tem nhãn/i);
   assert.match(html, /aria-label="Lọc bài viết theo chuyên mục"/i);
   assert.match(html, /href="\/blog\/chuyen-muc\/chat-lieu"/i);
-  assert.match(html, /href="\/blog\/tem-nhieu-vi-san-pham"/i);
+  assert.match(html, /href="\/blog\/(?:tem-nhieu-vi-san-pham|chia-file-tem-tet-nhieu-mau)"/i);
   assert.match(html, /href="\/blog\/tem-hologram-7-mau"/i);
   assert.match(html, /href="\/blog\/tem-qr-cho-shop"/i);
   assert.match(html, /data-blog-thumbnail="compact"/i);
   assert.match(html, /object-fit:contain/i);
-  assert.match(html, /\/images\/blog\/tem-nhieu-vi-san-pham\.webp/i);
+  assert.match(html, /\/images\/blog\/(?:tem-nhieu-vi-san-pham|chia-file-tem-tet-nhieu-mau)\.webp/i);
   assert.match(html, /\/images\/blog\/tem-hologram-7-mau\.webp/i);
   assert.match(html, /\/images\/blog\/tem-qr-cho-shop\.webp/i);
-  assert.match(html, /\/images\/blog\/card-visit-va-tem-nhan-dong-bo\.webp/i);
-  assert.match(html, /href="\/blog\/card-visit-va-tem-nhan-dong-bo"/i);
+  assert.match(html+await(await render("/blog/trang/2")).text(), /\/images\/blog\/card-visit-va-tem-nhan-dong-bo\.webp/i);
+  assert.match(html+await(await render("/blog/trang/2")).text(), /href="\/blog\/card-visit-va-tem-nhan-dong-bo"/i);
 });
 
 test("renders clean blog category pages", async () => {

@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "tem-tet-chai-do-uong-lanh",
+  "title": "Tem Tết cho chai đồ uống lạnh: thử nhãn trước khi đóng bộ",
+  "description": "Chuẩn bị tem Tết cho chai đồ uống lạnh: kiểm tra vùng dán, nước đọng và độ rõ của nhãn trong bộ quà; trao đổi vật liệu thực tế với VinPrint.",
+  "category": "theo-nganh",
+  "image": "/images/blog/tem-tet-chai-do-uong-lanh.webp",
+  "imageAlt": "Ảnh minh họa AI: Tem Tết cho chai đồ uống lạnh: thử nhãn trước khi đóng bộ",
+  "publishedAt": "2026-11-28",
+  "updatedAt": "2026-11-28",
+  "publishAt": "2026-11-28T17:07:29+07:00",
+  "readingMinutes": 4,
+  "primaryKeyword": "tem Tết cho chai đồ uống lạnh",
+  "searchIntent": "Kiểm tra nhãn chai đồ uống lạnh khi chuẩn bị bộ quà Tết để tránh chọn theo màu mẫu đơn thuần",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-tet-review-v1",
+  "revisionCount": 0,
+  "directAnswer": "Tem Tết cho chai đồ uống lạnh cần được chọn theo chai thật và điều kiện sử dụng, rồi mới đến màu trang trí mùa lễ. Tem nhựa chống nước là nhóm có thể tham khảo, nhưng tên vật liệu không tự bảo đảm độ bám trên mọi bề mặt hay khi dán lúc chai còn nước đọng. Hãy đo vùng dán, làm thử trên chai sạch và khô, sau đó kiểm tra trong điều kiện bảo quản và vận chuyển dự kiến. Nếu chọn tem trong, thử độ rõ của chữ khi chai có đồ uống và khi đặt vào hộp quà. Gửi ảnh chai, kích thước, số mẫu, số lượng và cách bảo quản để VinPrint trao đổi vật liệu; giá và tiến độ cần được xác nhận theo yêu cầu thực tế.",
+  "relatedProductSlugs": [
+    "tem-nhua-chong-nuoc",
+    "tem-nhua-trong"
+  ],
+  "sections": [
+    {
+      "heading": "Thử trên đúng chai sẽ dùng cho bộ quà",
+      "paragraphs": [
+        "Chai thủy tinh, chai nhựa và chai có gân tạo vùng dán khác nhau. Một mẫu vừa trên ảnh thiết kế có thể đi qua chỗ cong hoặc gờ khi dán thật.",
+        "Đo vùng phẳng trên thân chai và ướm mẫu giấy. Nếu chai thuôn, kiểm tra cả mép trên và mép dưới để phát hiện phần tem bị nhăn hoặc chồng mép."
+      ],
+      "bullets": [
+        "Chụp thẳng vùng dán.",
+        "Đo ngang × cao vùng phù hợp.",
+        "Thử khi chai đã có nắp và sản phẩm bên trong."
+      ]
+    },
+    {
+      "heading": "Tách độ bền vật liệu khỏi độ bám trên chai",
+      "paragraphs": [
+        "Chất liệu nhựa chịu ẩm không đồng nghĩa mọi loại keo đều bám như nhau trên mọi chai. Bề mặt, lớp phủ và tình trạng nước đọng là những điều cần trao đổi trước.",
+        "Dùng mẫu thử trong điều kiện thực tế dự kiến thay vì chỉ nhìn hình tem. Nếu chưa có quy cách được kiểm tra, không chốt một cam kết chống nước hay thời gian bảo quản cố định."
+      ],
+      "bullets": [
+        "Dán trên bề mặt sạch, khô theo hướng dẫn vật liệu.",
+        "Kiểm tra mép tem sau khi bảo quản thử.",
+        "Ghi nhận điều kiện làm tem nhăn hoặc bong để trao đổi."
+      ]
+    },
+    {
+      "heading": "Xem độ rõ của nhãn trong cả bộ quà",
+      "paragraphs": [
+        "Tem trong làm lộ màu chai và đồ uống phía sau, vì thế tương phản của chữ cần được xem trên sản phẩm thật. Một bố cục rõ trên nền trắng có thể khó đọc khi chuyển sang đồ uống sẫm màu.",
+        "Đặt chai vào hộp quà hoàn chỉnh để xem tên vị và thương hiệu có bị phụ kiện che khuất không. Hình trong bài là minh họa AI cho ý tưởng nhãn, không phải kết quả thử độ bền."
+      ],
+      "bullets": [
+        "Kiểm tra trên đúng màu đồ uống.",
+        "Đọc tên vị ở khoảng cách thông thường.",
+        "Tránh đặt chữ quan trọng sát đường cắt."
+      ]
+    },
+    {
+      "heading": "Gửi thông tin sử dụng để được tư vấn quy cách",
+      "paragraphs": [
+        "Kèm ảnh chai, kích thước vùng dán, điều kiện bảo quản, file thiết kế và số lượng từng vị. Nếu có nhiều cỡ chai, ghi từng cỡ thành một dòng riêng.",
+        "Ngày cần nhận giúp xưởng trao đổi kế hoạch thực hiện; không có lịch giao chung áp dụng cho mọi đơn Tết. Giá cuối cùng phụ thuộc quy cách và phải được xác nhận trước khi in."
+      ],
+      "bullets": [
+        "Vật liệu chai và vùng dán.",
+        "Môi trường sử dụng dự kiến.",
+        "Số mẫu, số lượng và ngày cần nhận."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Quy cách tem nhua chong nuoc",
+      "href": "/san-pham/tem-nhua-chong-nuoc",
+      "note": "Đối chiếu trang nội bộ về vật liệu, đo vùng dán và quy cách; không dùng làm cam kết độ bền hay tiến độ.",
+      "kind": "first-party",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "title": "Quy cách tem nhua trong",
+      "href": "/san-pham/tem-nhua-trong",
+      "note": "Đối chiếu trang nội bộ về vật liệu, đo vùng dán và quy cách; không dùng làm cam kết độ bền hay tiến độ.",
+      "kind": "first-party",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "title": "Quy cách chon kich thuoc tem",
+      "href": "/huong-dan/chon-kich-thuoc-tem",
+      "note": "Đối chiếu trang nội bộ về vật liệu, đo vùng dán và quy cách; không dùng làm cam kết độ bền hay tiến độ.",
+      "kind": "first-party",
+      "verifiedAt": "2026-11-28"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 20,
+      "evidence": 20,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/san-pham/tem-nhua-chong-nuoc",
+      "/san-pham/tem-nhua-trong",
+      "/huong-dan/chon-kich-thuoc-tem"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Vật liệu và hướng dẫn đo được đối chiếu với trang sản phẩm và hướng dẫn hiện có.",
+        "sourceIds": [
+          "/san-pham/tem-nhua-chong-nuoc",
+          "/san-pham/tem-nhua-trong",
+          "/huong-dan/chon-kich-thuoc-tem"
+        ]
+      }
+    ],
+    "attempts": []
+  }
+}

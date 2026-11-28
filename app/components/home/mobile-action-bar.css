@@ -1,0 +1,10 @@
+.vp-mobile-contact{display:none}
+@media(max-width:767px){
+ .vp-mobile-contact{position:fixed;bottom:0;left:0;right:0;z-index:50;display:block;background:#fffaf6;border-top:1px solid #edc6bd;box-shadow:0 -4px 16px #4d142310;padding-bottom:env(safe-area-inset-bottom)}
+ .vp-mobile-contact>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:8px 12px}
+ .vp-mobile-contact a{display:flex;min-height:48px;align-items:center;justify-content:center;flex-direction:column;gap:3px;border-radius:12px;font-size:12px;font-weight:700;color:#9f0920;text-decoration:none}
+ .vp-mobile-contact a:last-child{background:#b90020;color:white}
+ .vp-mobile-contact svg{width:21px;height:21px}
+ body:has(.vp-mobile-contact){padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+ .vp-mobile-contact a:focus-visible{outline:3px solid #b90020;outline-offset:2px}
+}

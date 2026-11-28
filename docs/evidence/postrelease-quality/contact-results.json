@@ -1,0 +1,23 @@
+[
+  {
+    "route": "/",
+    "fixed": true,
+    "phone": true,
+    "zalo": true,
+    "noOverflow": true
+  },
+  {
+    "route": "/cong-cu-mien-phi",
+    "fixed": true,
+    "phone": true,
+    "zalo": true,
+    "noOverflow": true
+  },
+  {
+    "route": "/san-pham/tem-giay",
+    "fixed": true,
+    "phone": true,
+    "zalo": true,
+    "noOverflow": true
+  }
+]

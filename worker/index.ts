@@ -4,11 +4,12 @@ import handler from "vinext/server/app-router-entry";
 import { resolveLegacyRedirect } from "../app/lib/legacy-redirects";
 import { DEFAULT_MEDIA_COLLECTIONS, type ManagedMediaItem, type MediaCollectionId } from "../app/lib/media-collections";
 import { applyTetProductImages } from "../app/lib/product-theme";
-import {handleFreeToolRequest} from "../app/lib/free-tools-api";
+import {handleLimitedFreeToolRequest} from "../app/lib/free-tools-api";
 import { SITE_CONTENT_KEY, isValidSiteContent } from "../app/lib/site-content";
 
 interface Env {
   MUSE_FREE_TOOLS_ORIGIN?: string;
+  MUSE_VINPRINT_KEY?: string;
   ASSETS?: Fetcher;
   DB: D1Database;
   HERO_IMAGES?: R2Bucket;
@@ -231,7 +232,7 @@ const worker = {
       return Response.redirect(secureUrl.href, 308);
     }
 
-    if (url.pathname.startsWith("/api/free-tools/")) return handleFreeToolRequest(request,{origin:env.MUSE_FREE_TOOLS_ORIGIN});
+    if (url.pathname.startsWith("/api/free-tools/")) return handleLimitedFreeToolRequest(request,{origin:env.MUSE_FREE_TOOLS_ORIGIN,partnerKey:env.MUSE_VINPRINT_KEY},env.HERO_IMAGES);
 
     if (url.pathname.startsWith("/admin") && !isAdminRequest(request, env)) {
       return new Response("Khu vực quản trị yêu cầu đăng nhập qua Cloudflare Access.", {

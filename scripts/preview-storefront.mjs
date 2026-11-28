@@ -37,7 +37,7 @@ const server=http.createServer(async(req,res)=>{
     try{const r=await fetch("https://vinprint.vn"+url.pathname+url.search,{signal:AbortSignal.timeout(10000)});res.writeHead(r.status,{"content-type":r.headers.get("content-type")||"application/octet-stream","cache-control":"no-store"});res.end(Buffer.from(await r.arrayBuffer()));return;}catch{return json(res,503,{error:"media_unavailable"});}
   }
   const port=builtPort||4180;
-  const upstream=http.request({hostname:"127.0.0.1",port,path:req.url,method:req.method,headers:{...req.headers,host:"127.0.0.1:"+port}},r=>{res.writeHead(r.statusCode||502,r.headers);r.pipe(res);});
+  const upstream=http.request({hostname:"127.0.0.1",port,path:req.url,method:req.method,headers:{...req.headers,host:"127.0.0.1:"+port}},r=>{const headers={...r.headers};if(headers.location){const target=new URL(headers.location,"http://127.0.0.1:"+port);if(target.hostname==="127.0.0.1"&&target.port===String(port))headers.location=target.pathname+target.search+target.hash;}res.writeHead(r.statusCode||502,headers);r.pipe(res);});
   upstream.on("error",()=>{if(!res.headersSent)res.writeHead(502);res.end("Preview application unavailable");});
   req.pipe(upstream);
 });

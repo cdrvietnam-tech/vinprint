@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "slug": "chia-file-tem-tet-nhieu-mau",
+  "title": "Đặt tem Tết nhiều mẫu: chia file và số lượng để tránh nhầm",
+  "description": "Cách chia file tem Tết nhiều mẫu theo tên vị, cỡ hũ và số lượng; dùng một bảng đối chiếu để kiểm tra đủ nhãn trước khi gửi VinPrint báo giá.",
+  "category": "theo-nganh",
+  "image": "/images/blog/chia-file-tem-tet-nhieu-mau.webp",
+  "imageAlt": "Ảnh minh họa AI: Đặt tem Tết nhiều mẫu: chia file và số lượng để tránh nhầm",
+  "publishedAt": "2026-11-28",
+  "updatedAt": "2026-11-28",
+  "publishAt": "2026-11-28T17:07:29+07:00",
+  "readingMinutes": 4,
+  "primaryKeyword": "tem Tết nhiều mẫu",
+  "searchIntent": "Tổ chức file và bảng số lượng cho đơn tem Tết gồm nhiều SKU và cỡ bao bì",
+  "buyerStage": "decision",
+  "contentType": "conversion",
+  "authorId": "editorial-team",
+  "reviewedBy": "editorial-team",
+  "promptVersion": "vinprint-tet-review-v1",
+  "revisionCount": 0,
+  "directAnswer": "Khi đặt tem Tết nhiều mẫu, hãy tạo một dòng quy cách cho mỗi thiết kế và kích thước, rồi dùng cùng mã đó cho tên file. Tổng số tem không đủ để xưởng biết mỗi vị cần bao nhiêu: một mẫu 4 cm và một mẫu 5 cm cần được ghi riêng dù dùng chung logo. Gửi file in cùng ảnh xem trước, bảng số lượng và mô tả cách cắt mong muốn. Trước khi chốt, đối chiếu tên mẫu, nội dung và số lượng trên một bản danh sách duy nhất. Bế demi giữ các tem trên lớp đế chung, còn cắt rời chia thành từng miếng có đế riêng; lựa chọn này cần được ghi rõ trong yêu cầu, không suy ra từ hình tròn hay hình vuông của tem.",
+  "relatedProductSlugs": [
+    "tem-giay",
+    "sticker-trang-tri"
+  ],
+  "sections": [
+    {
+      "heading": "Mỗi thiết kế và kích thước có một mã riêng",
+      "paragraphs": [
+        "Những file tên như final, final-moi hoặc final-lan-cuoi rất dễ bị gửi nhầm trong mùa nhiều đơn. Đặt mã theo tên mẫu và cỡ tem sẽ dễ đối chiếu hơn, ví dụ vi-dua-40mm và vi-dua-50mm.",
+        "Một thay đổi về kích thước hoặc nội dung tạo thành dòng quy cách khác. Giữ tên thương hiệu nhất quán nhưng ghi rõ từng biến thể cần in."
+      ],
+      "bullets": [
+        "Tên mẫu hoặc vị sản phẩm.",
+        "Kích thước ngang × cao hoặc đường kính.",
+        "Số lượng riêng cho dòng đó."
+      ]
+    },
+    {
+      "heading": "Tách số lượng tem khỏi số lượng bộ quà",
+      "paragraphs": [
+        "Nếu một bộ quà có ba hũ khác vị, số bộ không đồng nghĩa với số tem của tất cả các mẫu. Ghi số hũ từng loại trong bộ và tự tính tổng theo từng mã trước khi gửi.",
+        "Dùng một bảng đơn giản để kiểm tra, không để thông tin rải rác ở nhiều tin nhắn. Nếu đổi số lượng, gửi lại bảng đầy đủ và đánh dấu bản cập nhật."
+      ],
+      "bullets": [
+        "Một hàng cho một mã file.",
+        "Tách nhãn thân và nhãn nắp nếu có.",
+        "Đối chiếu tổng tem với kế hoạch đóng gói."
+      ]
+    },
+    {
+      "heading": "Ghi cách cắt và kiểm tra file ở kích thước thật",
+      "paragraphs": [
+        "Bế demi phù hợp khi muốn bóc từng tem từ tờ đế chung. Cắt rời tạo từng miếng có đế riêng để chia bộ hoặc phát kèm; đây là yêu cầu gia công cần nói rõ.",
+        "Hình dạng đường cắt không thể hiện đầy đủ cách giao thành phẩm. Hãy xem hướng dẫn đo và cắt của VinPrint, rồi ghi lựa chọn trong bảng yêu cầu để xưởng xác nhận."
+      ],
+      "bullets": [
+        "Đường cắt mong muốn.",
+        "Bế demi hoặc cắt rời.",
+        "Kiểm tra chữ và logo không chạm mép tem."
+      ]
+    },
+    {
+      "heading": "Gửi một bộ hồ sơ có thể đối chiếu",
+      "paragraphs": [
+        "Bộ gửi xưởng nên có file in, bản xem trước và danh sách quy cách. Mở lại từng file theo mã để kiểm tra tên vị, nội dung và kích thước trước khi gửi.",
+        "Không coi bản xem trước trên màn hình là xác nhận màu in cuối cùng. Nếu màu hoặc hiệu ứng quan trọng, trao đổi với xưởng về cách kiểm tra phù hợp trước khi chốt."
+      ],
+      "bullets": [
+        "File đúng phiên bản đã kiểm tra.",
+        "Bảng số lượng thống nhất.",
+        "Ảnh bao bì và ngày cần nhận để xác nhận tiến độ."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Quy cách tem giay",
+      "href": "/san-pham/tem-giay",
+      "note": "Đối chiếu trang nội bộ về vật liệu, đo vùng dán và quy cách; không dùng làm cam kết độ bền hay tiến độ.",
+      "kind": "first-party",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "title": "Quy cách sticker trang tri",
+      "href": "/san-pham/sticker-trang-tri",
+      "note": "Đối chiếu trang nội bộ về vật liệu, đo vùng dán và quy cách; không dùng làm cam kết độ bền hay tiến độ.",
+      "kind": "first-party",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "title": "Quy cách chon kich thuoc tem",
+      "href": "/huong-dan/chon-kich-thuoc-tem",
+      "note": "Đối chiếu trang nội bộ về vật liệu, đo vùng dán và quy cách; không dùng làm cam kết độ bền hay tiến độ.",
+      "kind": "first-party",
+      "verifiedAt": "2026-11-28"
+    }
+  ],
+  "quality": {
+    "scores": {
+      "searchIntent": 20,
+      "originality": 20,
+      "evidence": 20,
+      "citability": 15,
+      "authority": 10,
+      "internalLinks": 10,
+      "technical": 5
+    },
+    "evidenceIds": [
+      "/san-pham/tem-giay",
+      "/san-pham/sticker-trang-tri",
+      "/huong-dan/chon-kich-thuoc-tem"
+    ],
+    "claimsVerified": true,
+    "duplicateIntentChecked": true,
+    "commercialClaims": "none",
+    "claimChecks": [
+      {
+        "claim": "Vật liệu và hướng dẫn đo được đối chiếu với trang sản phẩm và hướng dẫn hiện có.",
+        "sourceIds": [
+          "/san-pham/tem-giay",
+          "/san-pham/sticker-trang-tri",
+          "/huong-dan/chon-kich-thuoc-tem"
+        ]
+      }
+    ],
+    "attempts": []
+  }
+}

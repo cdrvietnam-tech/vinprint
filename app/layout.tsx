@@ -10,6 +10,7 @@ import "@fontsource/inter/700.css";
 import "./globals.css";
 import SmoothScroll from "./components/smooth-scroll";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import MobileActionBar from "./components/home/MobileActionBar";
 import SiteContentProvider from "./components/SiteContentProvider";
 
 export const metadata: Metadata = {
@@ -95,7 +96,7 @@ export default function RootLayout({
         <a className="skip-link" href="#main-content">Bỏ qua điều hướng</a>
         <SmoothScroll />
         <GoogleAnalytics />
-        <SiteContentProvider>{children}</SiteContentProvider>
+        <SiteContentProvider>{children}<MobileActionBar /></SiteContentProvider>
       </body>
     </html>
   );

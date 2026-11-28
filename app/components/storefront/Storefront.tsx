@@ -1,5 +1,6 @@
 "use client";
 
+import {faqStructuredData,safeSchemaJson} from "../../lib/faq-schema";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState, type FormEvent, type MouseEvent } from "react";
@@ -21,15 +22,16 @@ import HomeMaterialOverview from "./HomeMaterialOverview";
 import "./home-layout-approved.css";
 import { productThemeImage } from "../../lib/product-theme";
 
-import {seasonalArtwork} from "../../lib/seasonal-themes";
+import {seasonalArtwork,croppedSeasonalArtwork} from "../../lib/seasonal-themes";
 
 const iconMap: Record<string,LucideIcon> = {archive:Archive,smartphone:Smartphone,cut:Scissors,sparkles:Sparkles,eraser:Eraser,images:Images,video:Video,home:Home,tag:Tag,sticker:Sticker,roll:CircleDot,badge:BadgeCheck,file:FileText,gift:Gift,image:ImageIcon,upload:Upload,help:HelpCircle,bag:ShoppingBag,phone:Phone,box:Package,headset:Headphones,grid:Grid2X2,flower:Flower2,menu:Menu,book:BookOpen,map:MapPin};
 function Icon({name}:{name:string}) { const Component=iconMap[name]||Tag;return <i aria-hidden="true"><Component /></i>; }
 function Artwork({box,reference=false,label}:{box:string;reference?:boolean;label?:string}) {
   const {seasonalThemes}=useSiteContent();
+  const crop=croppedSeasonalArtwork(seasonalThemes.activeId,box);
   const banner=seasonalThemes.presets[seasonalThemes.activeId]?.banner;
   if(banner && box==="244 90 1516 335")return <svg viewBox="0 0 1516 335" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><image href={banner} width="1516" height="335" preserveAspectRatio="xMidYMid slice"/></svg>;
-  return <svg viewBox={box} preserveAspectRatio="xMidYMid slice" role={label?"img":undefined} aria-label={label} aria-hidden={label?undefined:true}><image href={seasonalArtwork(seasonalThemes.activeId,box,reference)} width="1781" height="883" /></svg>;
+  return <svg viewBox={box} preserveAspectRatio="xMidYMid slice" role={label?"img":undefined} aria-label={label} aria-hidden={label?undefined:true}><image href={crop?.src||seasonalArtwork(seasonalThemes.activeId,box,reference)} x={crop?.x||0} y={crop?.y||0} width={crop?.width||1781} height={crop?.height||883} /></svg>;
 }
 
 
@@ -177,8 +179,8 @@ export default function Storefront(){
           <p className="vp-notice">{pricing.disclaimer}</p>
           <Link prefetch={false} className="vp-inline-link" href="/blog/gia-in-tem-so-luong-it-phu-thuoc-gi">Giá thay đổi theo kích thước, số mẫu và gia công như thế nào? →</Link>
           <div className="vp-price-grid">{pricing.posters.map((poster,index)=><article className="vp-price-item" key={index}>
-            {pricingPosterAssets[index]&&<button data-pricing-poster className="vp-poster" onClick={()=>setModal({kind:"poster",index})} aria-label={"Xem rõ "+poster.title}><Image unoptimized src={pricingPosterAssets[index].src} alt={poster.title} width={pricingPosterAssets[index].width} height={pricingPosterAssets[index].height} loading="lazy"/><span>Xem rõ bảng giá</span></button>}
-            <h3>{poster.title}</h3><p>{poster.note}</p><details><summary>Xem giá và điều kiện dạng chữ</summary><ul>{poster.details.map((line,i)=><li key={i}>{line}</li>)}</ul></details>
+            {pricingPosterAssets[index]&&<button data-pricing-poster className="vp-poster" onClick={()=>setModal({kind:"poster",index})} aria-label={"Xem rõ "+poster.title}><Image unoptimized src={pricingPosterAssets[index].src.replace("/pricing/","/pricing/thumbs/")} alt={poster.title} width={pricingPosterAssets[index].width} height={pricingPosterAssets[index].height} loading="lazy"/><span>Xem rõ bảng giá</span></button>}
+            <h3>{poster.title}</h3><p>{poster.note}</p><div className="vp-price-text"><h4>Giá và điều kiện</h4><ul>{poster.details.map((line,i)=><li key={i}>{line}</li>)}</ul></div>
           </article>)}</div>
           <ul className="vp-benefit-list">{pricing.benefits.map((text,i)=><li key={i}>✓ {text}</li>)}</ul>
         </section>
@@ -207,7 +209,7 @@ export default function Storefront(){
 
 
         <section className="vp-info-section vp-faq-contact" aria-label="Hỏi đáp và liên hệ">
-          <div id="faq"><h2>{faq.title}</h2>{faq.items.map((item,index)=><details key={index}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
+          <script id="vinprint-home-faq" type="application/ld+json" dangerouslySetInnerHTML={{__html:safeSchemaJson(faqStructuredData(faq.items))}}/><div id="faq"><h2>{faq.title}</h2>{faq.items.map((item,index)=><details key={index}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div>
           <div className="vp-contact-card" id="lien-he-xuong">
             <h2>Thông tin xưởng VinPrint</h2><p><Icon name="map"/>{contact.address}</p><p><Icon name="phone"/><Link prefetch={false} href={callUrl} onClick={()=>trackEvent("click_phone",{position:"tet_contact"})}>{contact.phoneDisplay}</Link></p>
             <p>{contact.hoursWeekday}<br/>{contact.hoursWeekend}</p>

@@ -1,0 +1,178 @@
+{
+  "faqMatches": true,
+  "priceTextVisible": true,
+  "lazyMaterialImages": 4,
+  "oldLargeSheetsRequested": false,
+  "cutout": {
+    "elapsedMs": 2766,
+    "width": 384,
+    "height": 288,
+    "alpha": true,
+    "brandMarked": false,
+    "download": true
+  },
+  "zalo": true,
+  "pageErrors": [],
+  "images": [
+    {
+      "path": "/images/tet-2027/crops/logo.webp",
+      "bytes": 3614,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/gift.webp",
+      "bytes": 4856,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/peach.webp",
+      "bytes": 4184,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/tool-compress.webp",
+      "bytes": 3602,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/tool-remove-bg.webp",
+      "bytes": 3204,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/hero.webp",
+      "bytes": 91534,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/tool-pdf.webp",
+      "bytes": 1934,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/tool-heic.webp",
+      "bytes": 1522,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/tool-enhance.webp",
+      "bytes": 3136,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/home-tem-giay.webp",
+      "bytes": 10744,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/home-tem-nhua-chong-nuoc.webp",
+      "bytes": 8794,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/home-tem-nhua-trong.webp",
+      "bytes": 5802,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/home-tem-vang.webp",
+      "bytes": 12560,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/catalog-574-147-301-262.webp",
+      "bytes": 12588,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/catalog-24-147-534-577.webp",
+      "bytes": 71346,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/catalog-1207-147-305-262.webp",
+      "bytes": 14364,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/catalog-890-147-303-262.webp",
+      "bytes": 9774,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/catalog-574-530-301-254.webp",
+      "bytes": 18434,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/catalog-890-530-303-254.webp",
+      "bytes": 12990,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/crops/catalog-1207-530-305-254.webp",
+      "bytes": 11836,
+      "status": 200
+    },
+    {
+      "path": "/images/pricing/thumbs/bang-gia-tem-nhan-tong-hop.webp",
+      "bytes": 74176,
+      "status": 200
+    },
+    {
+      "path": "/images/pricing/thumbs/bang-gia-tem-nhan-tham-khao.webp",
+      "bytes": 71228,
+      "status": 200
+    },
+    {
+      "path": "/images/pricing/thumbs/bang-gia-sticker-uv-dtf.webp",
+      "bytes": 89502,
+      "status": 200
+    },
+    {
+      "path": "/images/pricing/thumbs/bang-gia-tem-tron.webp",
+      "bytes": 64164,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/products/tem-nhua-trong.webp",
+      "bytes": 166706,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/products/tem-uv-dtf.webp",
+      "bytes": 190240,
+      "status": 200
+    },
+    {
+      "path": "/images/tet-2027/products/tem-phu-san-pham.webp",
+      "bytes": 184092,
+      "status": 200
+    },
+    {
+      "path": "/images/avatars/review-tuan.webp",
+      "bytes": 8166,
+      "status": 200
+    },
+    {
+      "path": "/images/avatars/review-hong.webp",
+      "bytes": 9144,
+      "status": 200
+    },
+    {
+      "path": "/images/avatars/review-yen.webp",
+      "bytes": 10772,
+      "status": 200
+    },
+    {
+      "path": "/images/avatars/hero-customer-4.webp",
+      "bytes": 10322,
+      "status": 200
+    },
+    {
+      "path": "/images/zalo-qr.png",
+      "bytes": 1845,
+      "status": 200
+    }
+  ]
+}

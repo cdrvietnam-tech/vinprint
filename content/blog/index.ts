@@ -3,30 +3,33 @@ import article0 from "./published/cach-chon-kich-thuoc-tem-nhan.json";
 import article1 from "./published/cach-thu-do-bam-tem-tren-nam-be-mat.json";
 import article2 from "./published/can-bong-va-can-mo-cho-tem.json";
 import article3 from "./published/card-visit-va-tem-nhan-dong-bo.json";
-import article4 from "./published/chuan-bi-file-in-tem-khong-bi-mo.json";
-import article5 from "./published/gia-in-tem-so-luong-it-phu-thuoc-gi.json";
-import article6 from "./published/in-the-cam-on-cho-shop.json";
-import article7 from "./published/loi-thiet-ke-tem-nhan.json";
-import article8 from "./published/tem-bac-hay-tem-vang-anh-kim.json";
-import article9 from "./published/tem-cam-on-cho-shop-online.json";
-import article10 from "./published/tem-chai-serum.json";
-import article11 from "./published/tem-cho-hu-kem.json";
-import article12 from "./published/tem-chong-nuoc-cho-my-pham-va-do-uong.json";
-import article13 from "./published/tem-giay-va-tem-nhua-nen-chon-loai-nao.json";
-import article14 from "./published/tem-hologram-7-mau.json";
-import article15 from "./published/tem-hop-mang-di.json";
-import article16 from "./published/tem-logo-cho-tui-giay.json";
-import article17 from "./published/tem-ly-ca-phe-chong-nuoc.json";
-import article18 from "./published/tem-nhan-nen-thom.json";
-import article19 from "./published/tem-nhan-trung-thu-hop-qua.json";
-import article20 from "./published/tem-nhieu-vi-san-pham.json";
-import article21 from "./published/tem-nhua-trong-cho-chai.json";
-import article22 from "./published/tem-qr-cho-shop.json";
-import article23 from "./published/tem-thuc-pham-cho-tui-kraft.json";
-import article24 from "./published/tem-truoc-tem-sau-cho-chai-lo.json";
-import article25 from "./published/tem-uv-dtf-la-gi.json";
-import article26 from "./published/tem-uv-dtf-ten-ca-nhan-hoa.json";
-import article27 from "./published/thu-tem-trong-moi-truong-lanh.json";
+import article4 from "./published/chia-file-tem-tet-nhieu-mau.json";
+import article5 from "./published/chuan-bi-file-in-tem-khong-bi-mo.json";
+import article6 from "./published/gia-in-tem-so-luong-it-phu-thuoc-gi.json";
+import article7 from "./published/in-the-cam-on-cho-shop.json";
+import article8 from "./published/loi-thiet-ke-tem-nhan.json";
+import article9 from "./published/tem-bac-hay-tem-vang-anh-kim.json";
+import article10 from "./published/tem-cam-on-cho-shop-online.json";
+import article11 from "./published/tem-chai-serum.json";
+import article12 from "./published/tem-cho-hu-kem.json";
+import article13 from "./published/tem-chong-nuoc-cho-my-pham-va-do-uong.json";
+import article14 from "./published/tem-giay-va-tem-nhua-nen-chon-loai-nao.json";
+import article15 from "./published/tem-hologram-7-mau.json";
+import article16 from "./published/tem-hop-mang-di.json";
+import article17 from "./published/tem-hop-mut-tet-2027.json";
+import article18 from "./published/tem-logo-cho-tui-giay.json";
+import article19 from "./published/tem-ly-ca-phe-chong-nuoc.json";
+import article20 from "./published/tem-nhan-nen-thom.json";
+import article21 from "./published/tem-nhan-trung-thu-hop-qua.json";
+import article22 from "./published/tem-nhieu-vi-san-pham.json";
+import article23 from "./published/tem-nhua-trong-cho-chai.json";
+import article24 from "./published/tem-qr-cho-shop.json";
+import article25 from "./published/tem-tet-chai-do-uong-lanh.json";
+import article26 from "./published/tem-thuc-pham-cho-tui-kraft.json";
+import article27 from "./published/tem-truoc-tem-sau-cho-chai-lo.json";
+import article28 from "./published/tem-uv-dtf-la-gi.json";
+import article29 from "./published/tem-uv-dtf-ten-ca-nhan-hoa.json";
+import article30 from "./published/thu-tem-trong-moi-truong-lanh.json";
 
 export const rawBlogArticles = [
   article0,
@@ -57,4 +60,7 @@ export const rawBlogArticles = [
   article25,
   article26,
   article27,
+  article28,
+  article29,
+  article30,
 ] as const;
