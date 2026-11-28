@@ -103,6 +103,7 @@ function AddButton({ onClick, label }: { onClick: () => void; label: string }) {
 }
 
 export default function ContentAdmin() {
+  const [loaded,setLoaded]=useState(false);
   const [content, setContent] = useState<SiteContent>(DEFAULT_SITE_CONTENT);
   const [status, setStatus] = useState<Status>({ kind: "loading" });
 
@@ -117,12 +118,14 @@ export default function ContentAdmin() {
       })
       .then((data) => {
         setContent(mergeSiteContent(data));
+        setLoaded(true);
         setStatus({ kind: "idle" });
       })
       .catch(() => setStatus({ kind: "error", message: "Không tải được nội dung. Kiểm tra đăng nhập quản trị (Cloudflare Access)." }));
   }, []);
 
   const save = async () => {
+    if(!loaded)return;
     setStatus({ kind: "saving" });
     try {
       const response = await fetch("/api/admin/site-content", {
@@ -138,6 +141,7 @@ export default function ContentAdmin() {
   };
 
   const resetAll = async () => {
+    if(!loaded)return;
     if (!window.confirm("Khôi phục toàn bộ về nội dung mặc định? Thao tác này xoá nội dung đã lưu.")) return;
     setStatus({ kind: "saving" });
     try {
@@ -150,6 +154,7 @@ export default function ContentAdmin() {
     }
   };
 
+  if(status.kind==="error"&&!loaded)return <div className="mx-auto max-w-3xl px-4 py-8"><h1 className="text-2xl font-black">Quản trị nội dung trang chủ</h1><div role="alert" className="mt-6 rounded-xl border border-red-200 bg-red-50 p-5"><p>Chưa tải được nội dung đã lưu. Anh thử tải lại trước khi chỉnh sửa.</p><button className="mt-4 min-h-11 rounded-full border px-5 font-bold" onClick={()=>window.location.reload()}>Thử tải lại nội dung</button></div></div>;
   const c = content;
 
   return (
