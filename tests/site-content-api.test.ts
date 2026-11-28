@@ -95,3 +95,14 @@ test("public GET returns stored content when it is valid", async () => {
   const parsed = JSON.parse(await response.text());
   assert.equal(parsed.hero.titleLine1, DEFAULT_SITE_CONTENT.hero.titleLine1);
 });
+test("public GET preserves saved pre-Tet content instead of dropping admin overrides", async () => {
+  const worker = await loadWorker();
+  const legacy = JSON.parse(JSON.stringify(DEFAULT_SITE_CONTENT));
+  delete legacy.tetHome;
+  legacy.contact.phone = "0901234567";
+  legacy.pricing.posters[0].details = ["Giá riêng đã được quản trị lưu"];
+  const bucket = createMockBucket(JSON.stringify(legacy));
+  const response = await worker.fetch(new Request(publicUrl), { HERO_IMAGES: bucket }, ctx);
+  assert.equal(response.status, 200);
+  assert.deepEqual(await response.json(), legacy);
+});

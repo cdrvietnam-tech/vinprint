@@ -1,0 +1,14 @@
+{
+  "compressAlphaDownload": true,
+  "heic": true,
+  "pdfAndZip": true,
+  "standardEnhance": true,
+  "Tách nền sản phẩm": true,
+  "Đổi nền trắng": true,
+  "erase": true,
+  "album": true,
+  "video": true,
+  "mobile": true,
+  "deepLink": true,
+  "pageErrors": []
+}

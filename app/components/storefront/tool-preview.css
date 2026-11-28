@@ -1,0 +1,32 @@
+.vinprint-storefront .vp-tool-preview{display:block;width:104px;height:76px;flex:0 0 104px;border:1px solid #f0dfd0;border-radius:11px;background:#faf3e8;overflow:hidden;contain:paint}
+.vinprint-storefront .vp-tool-preview>svg{width:100%;height:100%;display:block}
+.vinprint-storefront .vp-tool-preview text{font-family:Arial,sans-serif;font-weight:700;font-size:8px;fill:#765740}
+.vinprint-storefront .preview-remove-bg,.vinprint-storefront .preview-white-bg{background-color:#fff;background-image:linear-gradient(45deg,#e4ddd4 25%,transparent 25%),linear-gradient(-45deg,#e4ddd4 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#e4ddd4 75%),linear-gradient(-45deg,transparent 75%,#e4ddd4 75%);background-size:12px 12px;background-position:0 0,0 6px,6px -6px,-6px 0}
+.vinprint-storefront .tp-compress-photo{transform-origin:52px 32px;animation:tp-compress 5s ease-in-out infinite}
+.vinprint-storefront .tp-before{animation:tp-before 5s ease-in-out infinite}.vinprint-storefront .tp-after{opacity:0;animation:tp-after 5s ease-in-out infinite}
+.vinprint-storefront .tp-file-before{animation:tp-file-before 5s ease-in-out infinite}.vinprint-storefront .tp-file-after{animation:tp-file-after 5s ease-in-out infinite}
+.vinprint-storefront .tp-transfer{animation:tp-transfer 5s ease-in-out infinite}.vinprint-storefront .tp-pages{animation:tp-pages 5s ease-in-out infinite}
+.vinprint-storefront .tp-scene{animation:tp-wipe 5s ease-in-out infinite}.vinprint-storefront .tp-scan{animation:tp-scan 5s ease-in-out infinite}
+.vinprint-storefront .tp-success{animation:tp-success 5s ease-in-out infinite;transform-origin:80px 53px}
+.vinprint-storefront .tp-blurred{filter:blur(2px)}.vinprint-storefront .tp-sharp{animation:tp-sharpen 5s ease-in-out infinite}
+.vinprint-storefront .tp-unwanted{animation:tp-before 5s ease-in-out infinite}.vinprint-storefront .tp-eraser{animation:tp-erase 5s ease-in-out infinite}
+.vinprint-storefront .tp-album-photos{animation:tp-album 5s ease-in-out infinite}.vinprint-storefront .tp-download{animation:tp-download 5s ease-in-out infinite}
+.vinprint-storefront .tp-progress{stroke-dasharray:68;animation:tp-progress 5s ease-in-out infinite}.vinprint-storefront .tp-play{animation:tp-before 5s ease-in-out infinite}
+.vinprint-storefront .vp-tool-preview *{animation-play-state:paused!important}.vinprint-storefront .vp-tool-preview[data-playing=true] *{animation-play-state:running!important}
+@keyframes tp-compress{0%,15%,100%{transform:scale(1)}55%,85%{transform:scale(.7)}}
+@keyframes tp-before{0%,22%,100%{opacity:1}50%,88%{opacity:0}}
+@keyframes tp-after{0%,22%,100%{opacity:0}50%,88%{opacity:1}}
+@keyframes tp-file-before{0%,15%,100%{transform:translateX(0);opacity:1}50%,85%{transform:translateX(8px);opacity:.45}}
+@keyframes tp-file-after{0%,15%,100%{transform:translateX(-10px);opacity:.3}50%,85%{transform:translateX(0);opacity:1}}
+@keyframes tp-transfer{0%,15%,100%{opacity:.3;transform:translateX(-3px)}45%,80%{opacity:1;transform:translateX(2px)}}
+@keyframes tp-pages{0%,15%,100%{transform:translateY(-3px);opacity:.25}50%,85%{transform:translateY(0);opacity:1}}
+@keyframes tp-wipe{0%,15%,100%{clip-path:inset(0 0 0 0)}65%,88%{clip-path:inset(0 0 0 100%)}}
+@keyframes tp-scan{0%,15%{transform:translateX(0);opacity:0}20%{opacity:1}65%{transform:translateX(80px);opacity:1}75%,100%{transform:translateX(80px);opacity:0}}
+@keyframes tp-success{0%,52%,100%{opacity:0;transform:scale(.7)}65%,87%{opacity:1;transform:scale(1)}}
+@keyframes tp-sharpen{0%,15%,100%{clip-path:inset(0 100% 0 0)}65%,88%{clip-path:inset(0 0 0 0)}}
+@keyframes tp-erase{0%,15%,100%{transform:translate(-15px,6px);opacity:0}25%{opacity:1}50%{transform:translate(7px,13px);opacity:1}65%,90%{transform:translate(17px,20px);opacity:0}}
+@keyframes tp-album{0%,15%,100%{transform:translateY(0);opacity:1}60%,85%{transform:translateY(24px);opacity:.15}}
+@keyframes tp-download{0%,20%,100%{transform:translateY(-6px);opacity:.3}60%,85%{transform:translateY(3px);opacity:1}}
+@keyframes tp-progress{0%,15%,100%{stroke-dashoffset:68}65%,88%{stroke-dashoffset:0}}
+@media(prefers-reduced-motion:reduce){.vinprint-storefront .vp-tool-preview *{animation:none!important}.vinprint-storefront .tp-before,.vinprint-storefront .tp-scene,.vinprint-storefront .tp-scan,.vinprint-storefront .tp-unwanted,.vinprint-storefront .tp-eraser,.vinprint-storefront .tp-blurred{opacity:0}.vinprint-storefront .tp-after,.vinprint-storefront .tp-success{opacity:1}.vinprint-storefront .tp-sharp{clip-path:none}.vinprint-storefront .tp-compress-photo{transform:scale(.7)}}
+@media(max-width:600px){.vinprint-storefront .vp-tool-preview{width:88px;height:66px;flex-basis:88px}}

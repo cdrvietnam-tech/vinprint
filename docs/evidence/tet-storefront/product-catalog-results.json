@@ -1,0 +1,17 @@
+{
+  "products": 10,
+  "productRoutes200": 10,
+  "filters": true,
+  "searchWithoutAccents": true,
+  "emptyRecovery": true,
+  "otherGroups": 3,
+  "quote": true,
+  "widths": [
+    1536,
+    1366,
+    768,
+    390
+  ],
+  "mobileMenu": true,
+  "pageErrors": []
+}

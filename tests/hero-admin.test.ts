@@ -22,7 +22,7 @@ test("the complete categorized image library and admin are present", () => {
 
   assert.match(hero, /object-contain/);
   assert.match(hero, /DEFAULT_MEDIA_COLLECTIONS/);
-  assert.match(mediaCollections, /\/images\/hero-admin\/hero-4\.png/);
+  assert.match(mediaCollections, /\/images\/tet-2027\/products\/tem-vang\.webp/);
   assert.match(admin, /Quản trị toàn bộ hình ảnh/);
   assert.match(admin, /Khôi phục/);
   assert.match(admin, /previewUrls/);

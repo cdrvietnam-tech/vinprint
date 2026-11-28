@@ -1,0 +1,17 @@
+"use client";
+import {useState,type KeyboardEvent} from "react";
+import Link from "next/link";
+import Image from "next/image";
+import {catalogProducts} from "../../lib/storefront";
+import "./material-explorer.css";
+export default function MaterialExplorer({onQuote}:{onQuote:(name:string)=>void}){
+ const [selected,setSelected]=useState("tem-giay");
+ function keySelect(event:KeyboardEvent<HTMLButtonElement>,index:number){
+  let next=index;
+  if(event.key==="ArrowRight"||event.key==="ArrowDown")next=(index+1)%catalogProducts.length;
+  else if(event.key==="ArrowLeft"||event.key==="ArrowUp")next=(index-1+catalogProducts.length)%catalogProducts.length;
+  else if(event.key==="Home")next=0;else if(event.key==="End")next=catalogProducts.length-1;else return;
+  event.preventDefault();const slug=catalogProducts[next].slug;setSelected(slug);document.getElementById("material-tab-"+slug)?.focus();
+ }
+ return <section className="vp-info-section vp-material-explorer" id="danh-muc-san-pham" aria-labelledby="catalog-title"><div className="vp-section-top"><div><h2 id="catalog-title">Các loại tem nhãn VinPrint</h2><p>Mỗi bề mặt, một chất liệu phù hợp. Chọn loại tem để xem ứng dụng và giá tham khảo.</p></div><Link prefetch={false} href="/san-pham">Xem toàn bộ sản phẩm →</Link></div><div className="vp-material-board"><figure className="vp-material-collection"><Image unoptimized className="vp-materials-photo" src="/images/tet-2027/materials-overview-v1.webp" alt="Minh họa bộ mẫu tem giấy, nhựa trong, bạc, vàng và hologram trên bàn chọn chất liệu" width={1448} height={1086} loading="lazy"/><figcaption><span>Chạm vào chất liệu.<br/>Tạo dấu ấn riêng.</span><p>Ảnh minh họa bộ chất liệu. Màu và hiệu ứng in được duyệt theo mẫu trước khi sản xuất.</p></figcaption></figure><div className="vp-material-picker"><p className="vp-picker-label">Anh cần loại tem nào?</p><div className="vp-material-tabs" role="tablist" aria-label="Chọn chất liệu tem nhãn">{catalogProducts.map((product,index)=><button type="button" key={product.slug} id={"material-tab-"+product.slug} className={"vp-material-tab swatch-"+product.slug} role="tab" aria-selected={selected===product.slug} aria-controls={"material-panel-"+product.slug} tabIndex={selected===product.slug?0:-1} onClick={()=>setSelected(product.slug)} onKeyDown={event=>keySelect(event,index)}><span className="vp-material-chip" aria-hidden="true"/><span>{product.name}</span><span className="vp-material-check" aria-hidden="true">✓</span></button>)}</div><div className="vp-material-details">{catalogProducts.map(product=><article className="vp-material-detail" id={"material-panel-"+product.slug} key={product.slug} role="tabpanel" aria-labelledby={"material-tab-"+product.slug} tabIndex={0} hidden={selected!==product.slug}><span className="vp-detail-eyebrow">{product.eyebrow}</span><h3>{product.name}</h3><p>{product.benefit}</p><ul aria-label="Ứng dụng phù hợp">{product.uses.slice(0,3).map(use=><li key={use}>{use}</li>)}</ul><div className="vp-material-pricing"><div><small>Giá tham khảo</small><strong>{product.priceLabel}</strong></div><button className="vp-picker-quote" onClick={()=>onQuote(product.name)} aria-label={"Nhận báo giá "+product.name}>Nhận báo giá →</button></div><Link prefetch={false} className="vp-picker-detail-link" href={"/san-pham/"+product.slug}>Xem quy cách và thông tin chi tiết ↗</Link></article>)}</div></div></div></section>;
+}

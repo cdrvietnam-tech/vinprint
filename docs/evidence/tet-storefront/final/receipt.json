@@ -1,0 +1,28 @@
+{
+  "workerSha256": "4cf7872bad7cf4d20b6e3ebfea50df79e11799c6591c4fc2266cb3377f6e1c9d",
+  "baseMain": "b866cad58aeedc3969533476aa1c3cd6aa23bef2",
+  "preview": "http://127.0.0.1:4181",
+  "scope": "local review only; not deployed",
+  "imageBytesBefore": 4166274,
+  "imageBytesAfter": 746990,
+  "htmlFacebookTests": 45,
+  "unitTests": 63,
+  "operatorTests": 6,
+  "evidenceFiles": [
+    "admin-error-results.json",
+    "admin-load-regression.json",
+    "admin-mobile.png",
+    "approved-guide-1536.png",
+    "blog-theme-results.json",
+    "built-preview-measurements.json",
+    "content-theme-results.json",
+    "desktop.png",
+    "free-tools-production-results.json",
+    "free-tools-results.json",
+    "gallery-390.png",
+    "keyboard-label-results.json",
+    "public-audit-results.json",
+    "theme-admin-results.json",
+    "verification.json"
+  ]
+}

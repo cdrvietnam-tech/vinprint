@@ -93,19 +93,19 @@ const groups = [
 
 const ZALO_URL = "https://zalo.me/0844998499";
 
-export default function ProductCatalogTabs() {
+export default function ProductCatalogTabs({hideLabels=false,zaloUrl=ZALO_URL}:{hideLabels?:boolean;zaloUrl?:string}) {
   const [activeTab, setActiveTab] = useState<CategoryKey>("all");
-  const visibleGroups = activeTab === "all" ? groups : groups.filter((group) => group.key === activeTab);
+  const eligibleGroups=hideLabels?groups.filter(group=>group.key!=="labels"):groups;
+  const visibleGroups = activeTab === "all" ? eligibleGroups : eligibleGroups.filter((group) => group.key === activeTab);
 
   return (
     <>
-      <div role="tablist" aria-label="Danh mục sản phẩm" className="mb-10 flex gap-2 overflow-x-auto pb-2">
-        {tabs.map((tab) => (
+      <div role="group" aria-label="Danh mục sản phẩm" className="mb-10 flex gap-2 overflow-x-auto pb-2">
+        {tabs.filter(tab=>!hideLabels||tab.key!=="labels").map((tab) => (
           <button
             key={tab.key}
             type="button"
-            role="tab"
-            aria-selected={activeTab === tab.key}
+            aria-pressed={activeTab === tab.key}
             onClick={() => setActiveTab(tab.key)}
             className={`min-h-11 shrink-0 rounded-full px-5 text-sm font-black transition-colors ${activeTab === tab.key ? "bg-gray-950 text-white" : "border border-gray-300 bg-white text-gray-800 hover:border-orange-400 hover:text-orange-700"}`}
           >
@@ -118,8 +118,8 @@ export default function ProductCatalogTabs() {
         {visibleGroups.map((group) => {
           const Icon = group.icon;
           return (
-            <section key={group.key} className="overflow-hidden rounded-[28px] border border-gray-200 bg-white shadow-sm">
-              <div className={`flex flex-col gap-4 bg-gradient-to-r ${group.tone} p-6 sm:flex-row sm:items-center sm:p-8`}>
+            <section data-category={group.key} key={group.key} className="overflow-hidden rounded-[28px] border border-gray-200 bg-white shadow-sm">
+              <div className={`vp-category-top flex flex-col gap-4 bg-gradient-to-r ${group.tone} p-6 sm:flex-row sm:items-center sm:p-8`}>
                 <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/80 shadow-sm">
                   <Icon className="h-7 w-7" />
                 </span>
@@ -149,7 +149,7 @@ export default function ProductCatalogTabs() {
                   ) : (
                     <a
                       key={name}
-                      href={ZALO_URL}
+                      href={zaloUrl}
                       target="_blank"
                       rel="noreferrer"
                       onClick={() => trackEvent("click_zalo", { position: `catalog_${group.key}` })}

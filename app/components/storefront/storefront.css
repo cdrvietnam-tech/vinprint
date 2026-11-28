@@ -1,0 +1,409 @@
+.vinprint-storefront{--red:#bd0011;--ink:#131c30;--cream:#fffaf3;--line:#f3dfd5}
+.vinprint-storefront *{box-sizing:border-box}
+.vinprint-storefront{margin:0;color:var(--ink);font:14px "Be Vietnam Pro",Arial,sans-serif;background:#fffcfa}
+.vinprint-storefront :where(button,a.vp-action),.vinprint-storefront a,.vinprint-storefront input,.vinprint-storefront select{font:inherit}
+.vinprint-storefront :where(button,a.vp-action),.vinprint-storefront a{-webkit-tap-highlight-color:transparent}
+.vinprint-storefront :where(button,a.vp-action){cursor:pointer}
+.vinprint-storefront :where(button,a.vp-action){display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--line);background:#fffaf7;color:var(--red);font-weight:700;min-height:40px;border-radius:24px;padding:8px 19px}
+.vinprint-storefront :where(button,a.vp-action):hover{filter:brightness(.96)}
+.vinprint-storefront :where(button,a.vp-action):focus-visible,.vinprint-storefront a:focus-visible,.vinprint-storefront input:focus-visible,.vinprint-storefront select:focus-visible{outline:3px solid #1286c9;outline-offset:3px}
+.vinprint-storefront svg{display:block;width:100%;height:100%}
+.vinprint-storefront i{display:inline-flex;width:21px;height:21px;flex-shrink:0}
+.vinprint-storefront i svg{stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.vinprint-storefront .red{background:linear-gradient(#ed4a57,#c90012 65%,#ac000b);color:white;border-color:#e64a54;box-shadow:0 3px 4px #c0001320}
+.vinprint-storefront aside{position:fixed;inset:0 auto 0 0;width:223px;border-right:1px solid #eee1d4;background:linear-gradient(#fffdf9,#fffaf1);z-index:20;overflow:auto}
+.vinprint-storefront .logo{display:block;height:83px;border-bottom:1px solid #eee4d8;padding:0 23px}
+.vinprint-storefront .logo svg{max-width:178px}
+.vinprint-storefront aside nav{padding:3px 7px 135px}
+.vinprint-storefront aside nav p{font-size:12px;color:#736c70;text-transform:uppercase;font-weight:700;margin:17px 11px 10px}
+.vinprint-storefront .vp-nav{justify-content:flex-start;border:0;background:none;border-radius:23px;width:100%;min-height:38px;padding:8px 17px;color:var(--ink);font-weight:400;text-align:left;gap:15px;white-space:nowrap}
+.vinprint-storefront .vp-nav i{color:#706c72}
+.vinprint-storefront .vp-nav.active{background:linear-gradient(110deg,#c90017,#e24351);color:#fff;font-weight:700}
+.vinprint-storefront .vp-nav.active i{color:white}
+.vinprint-storefront .vp-nav small{background:#c90015;color:white;border-radius:3px;font-size:9px;padding:1px 3px;margin-left:-9px}
+.vinprint-storefront .sidebar-art{position:absolute;bottom:0;width:100%;height:137px;pointer-events:none}
+.vinprint-storefront .workspace{margin-left:223px}
+.vinprint-storefront header{height:71px;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:0 23px;background:linear-gradient(120deg,#fff8ed,#fffaf7);border-bottom:1px solid #f4e2d4;box-shadow:0 2px 6px #8755240d}
+.vinprint-storefront .peach{font-size:43px;color:#ef7d9c;line-height:1;white-space:nowrap;text-shadow:2px 3px #e9b054;transform:rotate(-8deg);width:255px}
+.vinprint-storefront .peach span{font-size:60px}
+.vinprint-storefront .toplinks,.vinprint-storefront .account{display:flex;align-items:center;gap:17px;white-space:nowrap}
+.vinprint-storefront .toplinks :where(button,a.vp-action){border-color:#ffa5a3;background:linear-gradient(white,#fff0e9);box-shadow:0 2px 2px #bf170815;font-size:14px;padding:8px 17px;min-height:38px}
+.vinprint-storefront .account{gap:15px}
+.vinprint-storefront .account .coins{font-size:13px;padding:7px 12px;min-height:35px}
+.vinprint-storefront .account .red{min-width:148px}
+.vinprint-storefront .bell{border:0;background:#fff0e8;border-radius:50%;padding:9px;width:40px}
+.vinprint-storefront .avatar{border:0;background:none;padding:0;width:42px;height:42px;position:relative}
+.vinprint-storefront .avatar svg{border-radius:50%}
+.vinprint-storefront .avatar b{position:absolute;right:0;bottom:1px;width:10px;height:10px;background:#15bd65;border:2px solid white;border-radius:50%}
+.vinprint-storefront main{padding:20px 21px 0}
+.vinprint-storefront .filters{display:flex;gap:15px;margin:15px 0 19px;overflow-x:auto;scrollbar-width:thin}
+.vinprint-storefront .filters :where(button,a.vp-action){white-space:nowrap;color:var(--ink);font-size:13px;font-weight:400;min-height:40px;box-shadow:0 2px 4px #8c50300b;padding:7px 22px;gap:12px}
+.vinprint-storefront .filters i{color:var(--red)}
+.vinprint-storefront .filters em{font-style:normal;color:#796b70;margin-left:-5px;font-size:12px}
+.vinprint-storefront .filters .selected{background:#fff;border-color:#df5563;color:var(--red);font-weight:700}
+.vinprint-storefront .filters .tet{background:linear-gradient(#fff8db,#ffe9b6);color:var(--red);font-weight:700;font-size:16px}
+.vinprint-storefront .section-heading{display:flex;align-items:center;gap:12px;margin:15px 0 13px}
+.vinprint-storefront .section-heading h2{font-size:24px;color:var(--red);margin:0;letter-spacing:-.6px}
+.vinprint-storefront .section-heading>span{font-size:12px;background:#ffdad3;padding:3px 10px;border-radius:16px;color:var(--red)}
+.vinprint-storefront #reset{margin-left:auto;min-height:30px;font-size:12px}
+.vinprint-storefront .product-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:15px}
+.vinprint-storefront .product{border:1px solid #f0e5de;border-radius:20px;padding:5px 5px 7px;background:white;box-shadow:0 2px 3px #69452715;min-width:0}
+.vinprint-storefront .art{position:relative;aspect-ratio:234/148;border-radius:14px 14px 8px 8px;overflow:hidden;background:#fff0df}
+.vinprint-storefront .ribbon{position:absolute;top:5px;left:5px;max-width:95%;background:#ef140a;color:white;border-radius:9px;padding:3px 10px;font-size:10px;font-weight:700;box-shadow:0 2px 4px #0002}
+.vinprint-storefront .product:nth-child(2) .ribbon{background:#4b62f5}
+.vinprint-storefront .product:nth-child(3) .ribbon{background:#681ede}
+.vinprint-storefront .product:nth-child(5) .ribbon{background:#943bc6}
+.vinprint-storefront .product:nth-child(6) .ribbon{background:#ef4395}
+.vinprint-storefront .product h3{font-size:14px;margin:8px 9px 4px;line-height:1.4}
+.vinprint-storefront .product p{font-size:11px;color:#6b6570;margin:0 9px 8px;line-height:1.5;min-height:17px}
+.vinprint-storefront .product>:where(button,a.vp-action){width:calc(100% - 12px);margin:0 6px;min-height:32px;padding:4px 5px;border-color:#f6cfc4;background:linear-gradient(white,#fff0e9);font-size:13px}
+.vinprint-storefront .demo-note{text-align:center;font-size:11px;color:#807572;margin:20px 0}
+.vinprint-storefront #menu{display:none}
+.vinprint-storefront dialog{width:min(510px,calc(100% - 32px));border:1px solid #efc5bb;border-radius:23px;padding:30px;color:var(--ink);box-shadow:0 20px 100px #33000930}
+.vinprint-storefront dialog::backdrop{background:#2b00165c;backdrop-filter:blur(4px)}
+.vinprint-storefront #close{position:absolute;right:12px;top:12px;border:0;width:34px;min-height:34px;font-size:25px;padding:0}
+.vinprint-storefront dialog h2{color:var(--red);margin:0 20px 12px 0;font-size:24px}
+.vinprint-storefront dialog p{color:#68616a;line-height:1.7}
+.vinprint-storefront dialog label{display:block;margin:14px 0 6px;font-weight:700;font-size:13px}
+.vinprint-storefront dialog input,.vinprint-storefront dialog select{width:100%;padding:12px;border:1px solid #e6cfc7;border-radius:10px;background:white;color:var(--ink)}
+.vinprint-storefront dialog .red{width:100%;margin-top:22px}
+.vinprint-storefront dialog .fine{font-size:11px}
+.vinprint-storefront #toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#2c2030;color:white;padding:14px 22px;border-radius:12px;z-index:100;display:none;max-width:90%}
+.vinprint-storefront [hidden]{display:none!important}
+@media(min-width:1800px){.vinprint-storefront main{max-width:1800px;margin:auto}
+}
+@media(max-width:1600px){.vinprint-storefront .peach{width:160px}
+.vinprint-storefront .toplinks,.vinprint-storefront .account{gap:9px}
+.vinprint-storefront .toplinks :where(button,a.vp-action){padding:8px 12px}
+.vinprint-storefront .filters{gap:10px}
+.vinprint-storefront .filters :where(button,a.vp-action){padding:7px 17px}
+.vinprint-storefront .product-grid{gap:10px}
+.vinprint-storefront .product h3{font-size:13px}
+}
+@media(max-width:1350px){.vinprint-storefront .peach{display:none}
+.vinprint-storefront .toplinks{gap:8px}
+.vinprint-storefront .toplinks :where(button,a.vp-action){font-size:12px}
+.vinprint-storefront .account .coins{display:none}
+.vinprint-storefront header{gap:8px;padding:0 18px}
+.vinprint-storefront .product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.vinprint-storefront .section-heading h2{font-size:22px}
+}
+@media(max-width:1000px){.vinprint-storefront aside{width:205px}
+.vinprint-storefront .workspace{margin-left:205px}
+.vinprint-storefront .toplinks :where(button,a.vp-action):nth-child(n+3){display:none}
+.vinprint-storefront .account .red{min-width:auto;padding:8px 12px}
+}
+@media(max-width:700px){.vinprint-storefront aside{transform:translateX(-100%);transition:transform .2s;width:240px;box-shadow:10px 0 50px #0002;top:64px}
+.vinprint-storefront aside.open{transform:translateX(0)}
+.vinprint-storefront .logo{display:none}
+.vinprint-storefront .workspace{margin-left:0}
+.vinprint-storefront header{height:64px;padding:0 14px;position:sticky;top:0;z-index:25;background:#fffaf4}
+.vinprint-storefront #menu{display:flex;min-width:40px;padding:8px;border-color:#f4c8bd}
+.vinprint-storefront .toplinks{margin-right:auto}
+.vinprint-storefront .toplinks :where(button,a.vp-action){font-size:12px;padding:7px 10px}
+.vinprint-storefront .toplinks :where(button,a.vp-action):nth-child(n+2){display:none}
+.vinprint-storefront .account{gap:8px}
+.vinprint-storefront .account .red{font-size:11px;gap:5px;min-height:37px}
+.vinprint-storefront .account .bell{display:none}
+.vinprint-storefront .avatar{width:32px;height:32px}
+.vinprint-storefront main{padding:14px 12px 0}
+.vinprint-storefront .desktop{display:none}
+.vinprint-storefront .filters{margin:13px 0;gap:8px;padding-bottom:5px}
+.vinprint-storefront .filters :where(button,a.vp-action){min-height:38px;font-size:11px;padding:7px 14px;gap:7px}
+.vinprint-storefront .filters .tet{font-size:12px}
+.vinprint-storefront .filters i{width:18px;height:18px}
+.vinprint-storefront .section-heading{flex-wrap:wrap;gap:6px;margin:18px 0 12px}
+.vinprint-storefront .section-heading h2{font-size:18px}
+.vinprint-storefront .section-heading>span{font-size:10px;padding:2px 7px}
+.vinprint-storefront .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.vinprint-storefront .product{border-radius:15px}
+.vinprint-storefront .product h3{font-size:12px;margin:8px 5px 4px}
+.vinprint-storefront .product p{font-size:10px;margin:0 5px 8px;min-height:30px}
+.vinprint-storefront .product>:where(button,a.vp-action){font-size:11px;width:100%;margin:0;min-height:34px}
+.vinprint-storefront .ribbon{font-size:8px;padding:3px 6px}
+.vinprint-storefront .demo-note{font-size:9px;line-height:1.8}
+.vinprint-storefront .sidebar-art{display:none}
+}
+@media(prefers-reduced-motion:reduce){.vinprint-storefront *{scroll-behavior:auto!important;transition:none!important}
+}
+.vinprint-storefront .peach{height:70px;transform:none;text-shadow:none;flex-shrink:1;min-width:80px}
+.vinprint-storefront .product{transition:box-shadow .18s,border-color .18s}
+.vinprint-storefront .product:hover{border-color:#efb0a1;box-shadow:0 6px 16px #942b1812}
+@media(min-width:1001px) and (max-width:1500px){.vinprint-storefront .peach{display:none}
+.vinprint-storefront .toplinks{gap:8px}
+.vinprint-storefront .toplinks :where(button,a.vp-action){font-size:12px;padding:8px 12px}
+.vinprint-storefront .account{gap:10px}
+.vinprint-storefront .account .coins{display:none}
+}
+
+/* Banner: compact frame, uniformly scaled artwork, aligned to the top. */
+.vinprint-storefront .hero{height:335px;position:relative;isolation:isolate;overflow:hidden;border-radius:22px;background:radial-gradient(ellipse at 45% 28%,#cd1023,#b90015 65%);color:#fff}
+.vinprint-storefront .hero-photo{position:absolute;top:0;bottom:auto;right:0;width:64%;height:335px;z-index:0;mask-image:linear-gradient(90deg,transparent,#000 14%,#000)}
+.vinprint-storefront .hero-photo svg{width:100%;height:100%}
+.vinprint-storefront .hero-copy{position:relative;z-index:2;width:65%;padding:23px 0 0 48px}
+.vinprint-storefront .eyebrow{display:inline-block;border:1px solid #f4c28ca6;border-radius:9px;background:#a700111f;padding:5px 12px;font-size:13px;font-weight:700}
+.vinprint-storefront .hero h1{font-size:40px;line-height:1.14;letter-spacing:-1px;font-style:italic;color:#ffe890;margin:12px 0 10px}
+.vinprint-storefront .hero-copy p{font-size:15px;line-height:1.6;margin:0 0 16px}
+.vinprint-storefront .hero-actions{display:flex;gap:13px}
+.vinprint-storefront .hero-actions span{font-size:24px;line-height:1}
+.vinprint-storefront .gold{background:linear-gradient(#fffbc3,#ffe17a);color:#b30005;border:0;font-size:16px;padding:10px 30px;min-height:44px}
+.vinprint-storefront .outline{background:#ad001526;color:#fff;border:1.5px solid #ffe8dc;padding:9px 25px;font-size:15px;min-height:44px}
+.vinprint-storefront .benefits{position:absolute;bottom:21px;left:48px;display:flex;gap:22px;font-size:11px;font-weight:700;z-index:2}
+.vinprint-storefront .benefits span{display:flex;align-items:center;gap:7px}
+.vinprint-storefront .benefits span:before{content:"✓";display:grid;place-items:center;border-radius:50%;width:18px;height:18px;background:#ffe48a;color:#c62527;font-size:14px}
+.vinprint-storefront .collection{position:relative;display:flex;align-items:center;gap:19px;min-height:88px;padding:14px 22px;border:1px solid #f3bfb9;border-radius:18px;overflow:hidden;background:linear-gradient(100deg,#fff0ec,#fff8f6 50%,#ffe7e6)}
+.vinprint-storefront .collection-copy{position:relative;z-index:2;flex:1;min-width:0}
+.vinprint-storefront .collection h2{margin:0 0 5px;font-size:20px;line-height:1.4;color:#b90019;letter-spacing:-.4px}
+.vinprint-storefront .collection p{margin:0;font-size:13px;line-height:1.5;color:#706269}
+.vinprint-storefront .collection-icon{display:none}
+.vinprint-storefront .collection-art{position:absolute;right:245px;bottom:0;width:285px;height:86px;pointer-events:none}
+.vinprint-storefront .collection-art svg{width:100%;height:100%}
+.vinprint-storefront .collection-cta{position:relative;z-index:2;flex-shrink:0;gap:14px;min-height:42px;padding:10px 23px;border:1px solid #d32233;border-radius:24px;background:linear-gradient(#ee4d59,#ca001a 75%);color:#fff;font-size:13px;box-shadow:0 3px 5px #ba00151c}
+.vinprint-storefront .collection-cta span{font-size:20px;line-height:1}
+@media(min-width:1800px){.vinprint-storefront .hero{height:355px}.vinprint-storefront .hero-photo{height:355px}.vinprint-storefront .hero-copy{padding-top:28px}.vinprint-storefront .hero h1{font-size:43px}}
+@media(max-width:1500px){.vinprint-storefront .hero h1{font-size:35px}.vinprint-storefront .hero-copy{padding-left:32px}.vinprint-storefront .hero-copy p{font-size:13px}.vinprint-storefront .benefits{left:32px;gap:16px;font-size:10px}.vinprint-storefront .hero-photo{width:60%}.vinprint-storefront .collection-art{right:220px;width:235px}.vinprint-storefront .collection h2{font-size:18px}.vinprint-storefront .collection p{font-size:12px}}
+@media(max-width:1200px){.vinprint-storefront .hero h1{font-size:30px}.vinprint-storefront .hero-copy{padding-left:27px}.vinprint-storefront .hero .eyebrow{font-size:11px}.vinprint-storefront .hero-copy p{font-size:12px}.vinprint-storefront .hero-actions{gap:9px}.vinprint-storefront .hero-actions :where(button,a.vp-action){font-size:13px;padding-inline:18px}.vinprint-storefront .benefits{left:27px;font-size:9px;gap:12px}.vinprint-storefront .collection-art{opacity:.7;right:195px;width:180px}.vinprint-storefront .collection h2{font-size:16px}.vinprint-storefront .collection p{font-size:11px}.vinprint-storefront .collection-cta{font-size:12px;padding-inline:17px}}
+@media(max-width:1000px){.vinprint-storefront .hero{height:auto;padding-bottom:216px}.vinprint-storefront .hero-photo{top:auto;bottom:32px;width:100%;height:205px;mask-image:linear-gradient(180deg,transparent,#000 12%,#000 90%,transparent)}.vinprint-storefront .hero-photo svg{width:100%;height:100%}.vinprint-storefront .hero-copy{width:100%;padding:24px 24px 0}.vinprint-storefront .hero h1{font-size:33px}.vinprint-storefront .hero-copy p{max-width:440px;font-size:13px}.vinprint-storefront .benefits{left:24px;right:12px;bottom:12px;gap:9px 14px;flex-wrap:wrap;font-size:9px}.vinprint-storefront .collection{gap:12px;padding:17px;min-height:94px}.vinprint-storefront .collection-art{display:none}.vinprint-storefront .collection h2{font-size:16px}.vinprint-storefront .collection-cta{max-width:165px;text-align:center}}
+@media(max-width:700px){.vinprint-storefront .hero{border-radius:17px;padding-bottom:223px}.vinprint-storefront .hero-copy{padding:23px 18px 0}.vinprint-storefront .hero h1{font-size:29px;line-height:1.2;letter-spacing:-.8px}.vinprint-storefront .hero .eyebrow{font-size:10px;padding:5px 7px}.vinprint-storefront .hero-copy p{font-size:12px;line-height:1.7}.vinprint-storefront .hero-actions{gap:8px;margin-top:15px}.vinprint-storefront .hero-actions :where(button,a.vp-action){font-size:12px;padding:9px 14px;min-height:40px}.vinprint-storefront .hero-photo{height:195px;bottom:43px}.vinprint-storefront .benefits{display:grid;grid-template-columns:1fr 1.25fr;left:18px;bottom:14px;gap:7px;font-size:9px}.vinprint-storefront .benefits span:before{width:15px;height:15px;font-size:11px}.vinprint-storefront .collection{display:block;min-height:0;padding:18px 16px;border-radius:16px}.vinprint-storefront .collection h2{font-size:15px;line-height:1.5}.vinprint-storefront .collection p{font-size:11px;line-height:1.7;max-width:260px}.vinprint-storefront .collection-art{display:block;right:2px;bottom:44px;width:125px;height:75px;opacity:.75}.vinprint-storefront .collection-cta{width:100%;max-width:none;justify-content:space-between;border-radius:12px;margin-top:15px;min-height:40px;padding:9px 16px;font-size:12px}.vinprint-storefront .collection-copy{max-width:100%}}
+.vinprint-storefront .collection-art img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+@media(max-width:700px){.vinprint-storefront .collection-art{display:none}}
+.vinprint-storefront .hero-photo{inset:0;width:100%;height:100%;mask-image:none}
+.vinprint-storefront .hero-photo img{position:absolute;right:0;top:-45px;display:block;width:82%;height:auto;max-width:none;mask-image:linear-gradient(90deg,transparent,#000 22%,#000)}
+@media(max-width:1500px){.vinprint-storefront .hero-photo{width:100%}.vinprint-storefront .hero-photo img{width:86%;top:-20px}}
+@media(max-width:1200px){.vinprint-storefront .hero-photo img{width:88%;top:0}}
+@media(max-width:1000px){.vinprint-storefront .hero-photo{inset:auto 0 32px;width:100%;height:205px;mask-image:linear-gradient(180deg,transparent,#000 12%,#000 90%,transparent)}.vinprint-storefront .hero-photo img{top:auto;bottom:0;width:150%;height:auto;mask-image:none}}
+@media(max-width:700px){.vinprint-storefront .hero-photo{bottom:43px;height:195px}.vinprint-storefront .hero-photo img{width:150%}}
+
+/* V5: reproduce the reference composition, with live HTML over unchanged artwork. */
+.vinprint-storefront .hero{container-type:inline-size;aspect-ratio:1516/335;height:auto;padding-bottom:0;border-radius:22px;background:#bd0013}
+.vinprint-storefront .hero-photo{position:absolute;inset:0;width:100%;height:100%;mask-image:none;opacity:1}
+.vinprint-storefront .hero-photo svg{width:100%;height:100%;overflow:hidden}
+.vinprint-storefront .hero-copy{padding:1.45cqw 0 0 5.21cqw;width:65%}
+.vinprint-storefront .hero .eyebrow{font-size:1.055cqw;padding:.33cqw .79cqw;border:1px solid #f5c985;border-radius:.66cqw;background:transparent;line-height:1.4}
+.vinprint-storefront .hero h1{font-size:3.1cqw;line-height:1;letter-spacing:-.065cqw;margin:.66cqw 0 .52cqw;color:#ffea9b}
+.vinprint-storefront .hero-copy p{font-size:1.12cqw;line-height:1.45;margin:0 0 .92cqw}
+.vinprint-storefront .hero-actions{gap:.99cqw;margin:0}
+.vinprint-storefront .hero-actions :where(button,a.vp-action){min-height:3.1cqw;padding:.5cqw 1.85cqw;font-size:1.18cqw;border-radius:2cqw}
+.vinprint-storefront .hero-actions .gold{min-width:13.5cqw}
+.vinprint-storefront .hero-actions .outline{min-width:13.35cqw;border:1.5px solid white;background:transparent}
+.vinprint-storefront .hero-actions span{font-size:1.7cqw}
+.vinprint-storefront .hero .benefits{left:5.21cqw;bottom:1.5cqw;gap:1.58cqw;flex-wrap:nowrap;font-size:.79cqw}
+.vinprint-storefront .hero .benefits span{gap:.52cqw}
+.vinprint-storefront .hero .benefits span:before{width:1.25cqw;height:1.25cqw;font-size:.99cqw}
+@media(max-width:1000px){.vinprint-storefront .hero{aspect-ratio:auto;height:auto;padding-bottom:230px}.vinprint-storefront .hero-photo{inset:auto 0 38px;height:210px;width:100%;mask-image:linear-gradient(180deg,transparent,#000 12%,#000 90%,transparent)}.vinprint-storefront .hero-photo svg{width:170%;max-width:none;position:absolute;right:0;bottom:0}.vinprint-storefront .hero-copy{width:100%;padding:25px 24px 0}.vinprint-storefront .hero .eyebrow{font-size:11px;padding:5px 9px;border-radius:8px}.vinprint-storefront .hero h1{font-size:34px;line-height:1.15;letter-spacing:-.8px;margin:14px 0 12px}.vinprint-storefront .hero-copy p{font-size:13px;line-height:1.6;margin:0 0 16px}.vinprint-storefront .hero-actions{gap:10px}.vinprint-storefront .hero-actions :where(button,a.vp-action){min-height:42px;padding:9px 19px;font-size:14px;border-radius:25px}.vinprint-storefront .hero-actions span{font-size:23px}.vinprint-storefront .hero .benefits{left:24px;right:14px;bottom:13px;gap:10px;font-size:9px;flex-wrap:wrap}.vinprint-storefront .hero .benefits span{gap:6px}.vinprint-storefront .hero .benefits span:before{width:16px;height:16px;font-size:12px}}
+@media(max-width:700px){.vinprint-storefront .hero{padding-bottom:220px;border-radius:17px}.vinprint-storefront .hero-copy{padding:23px 18px 0}.vinprint-storefront .hero h1{font-size:29px;line-height:1.2}.vinprint-storefront .hero .eyebrow{font-size:10px;padding:5px 7px}.vinprint-storefront .hero-copy p{font-size:12px;line-height:1.7}.vinprint-storefront .hero-actions{gap:8px}.vinprint-storefront .hero-actions :where(button,a.vp-action){font-size:12px;padding:9px 14px;min-height:40px}.vinprint-storefront .hero-photo{height:190px;bottom:43px}.vinprint-storefront .hero-photo svg{width:190%;height:100%}.vinprint-storefront .hero .benefits{display:grid;grid-template-columns:1fr 1.25fr;left:18px;bottom:14px;font-size:9px;gap:7px}.vinprint-storefront .hero .benefits span:before{width:15px;height:15px;font-size:11px}}
+@media(min-width:701px){.vinprint-storefront header{height:70px}}
+.vinprint-storefront .filters{margin-bottom:20px}
+.vinprint-storefront .collection{container-type:inline-size;aspect-ratio:1516/74;min-height:0;height:auto;display:flex;align-items:center;gap:0;padding:0 1.19cqw 0 7.39cqw;background:none;border:0;border-radius:20px;box-shadow:none}
+.vinprint-storefront .collection-scenery{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.vinprint-storefront .collection-scenery svg{width:100%;height:100%;overflow:hidden}
+.vinprint-storefront .collection-copy{position:relative;z-index:1;flex:1;width:auto;min-width:0}
+.vinprint-storefront .collection h2{font-size:1.32cqw;line-height:1.4;margin:0 0 .2cqw;letter-spacing:-.035cqw;color:#bc0014}
+.vinprint-storefront .collection p{font-size:.924cqw;line-height:1.5;margin:0;color:#625b63}
+.vinprint-storefront .collection-cta{font-size:.99cqw;min-height:2.64cqw;width:12.4cqw;padding:.5cqw 1.1cqw;gap:.5cqw;border-radius:2cqw;margin:0;max-width:none;border:1px solid #e15058;background:linear-gradient(#ef5060,#c80013 70%,#ae000b);box-shadow:0 3px 5px #b900181f;white-space:nowrap}
+.vinprint-storefront .collection-cta span{font-size:1.3cqw}
+@media(max-width:1000px){.vinprint-storefront .collection{aspect-ratio:auto;min-height:80px;padding:14px 15px 14px 70px;gap:10px;background:linear-gradient(90deg,#fff0e9,#ffecef);border:1px solid #ffc6c0}.vinprint-storefront .collection-scenery{width:100%;height:80px;opacity:.55}.vinprint-storefront .collection-scenery svg{width:100%;height:100%}.vinprint-storefront .collection h2{font-size:15px;line-height:1.5;margin:0 0 4px;letter-spacing:-.2px}.vinprint-storefront .collection p{font-size:11px;line-height:1.6}.vinprint-storefront .collection-cta{font-size:11px;width:auto;min-height:37px;padding:8px 14px;border-radius:22px;gap:8px}.vinprint-storefront .collection-cta span{font-size:18px}}
+@media(max-width:700px){.vinprint-storefront .collection{display:block;min-height:0;aspect-ratio:auto;padding:16px;border-radius:16px;overflow:hidden}.vinprint-storefront .collection-scenery{display:none}.vinprint-storefront .collection h2{font-size:15px}.vinprint-storefront .collection p{font-size:11px;line-height:1.7;max-width:none}.vinprint-storefront .collection-cta{width:100%;min-height:40px;margin-top:14px;justify-content:space-between;padding:9px 16px;font-size:12px;border-radius:22px}.vinprint-storefront .collection-cta span{font-size:20px}}
+@media(min-width:1001px){.vinprint-storefront .collection{padding:0}.vinprint-storefront .collection-copy{margin-left:7.39cqw}.vinprint-storefront .collection-cta{margin-right:1.19cqw}}
+@media(max-width:1000px){.vinprint-storefront .collection-copy{margin-left:0}}
+.vinprint-storefront{font-family:Arial,Helvetica,sans-serif}
+.vinprint-storefront .hero-actions .gold{width:13.5cqw;min-width:0;padding-inline:0}
+.vinprint-storefront .hero-actions .outline{width:13.35cqw;min-width:0;padding-inline:0;font-size:1.12cqw}
+@media(max-width:1000px){.vinprint-storefront .hero-actions .gold,.vinprint-storefront .hero-actions .outline{width:auto;padding-inline:19px;font-size:14px}}
+@media(max-width:700px){.vinprint-storefront .hero-actions .gold,.vinprint-storefront .hero-actions .outline{padding-inline:14px;font-size:12px}}
+.vinprint-storefront{font-family:"Be Vietnam Pro",Arial,sans-serif}
+.vinprint-storefront .hero,.vinprint-storefront .collection{font-family:Arial,Helvetica,sans-serif}
+.vinprint-storefront .hero h1{font-size:3.15cqw}
+.vinprint-storefront .section-heading h2{display:flex;align-items:center;gap:10px;line-height:28px}
+.vinprint-storefront .section-heading .flame{width:28px;height:28px;flex:0 0 28px}
+@media(max-width:1000px){.vinprint-storefront .hero h1{font-size:34px}}
+@media(max-width:700px){.vinprint-storefront .hero h1{font-size:29px}.vinprint-storefront .section-heading h2{gap:6px;line-height:24px}.vinprint-storefront .section-heading .flame{width:23px;height:24px;flex-basis:23px}}
+
+.vinprint-storefront{min-height:100vh;line-height:normal;isolation:isolate}
+.vinprint-storefront h1,.vinprint-storefront h2,.vinprint-storefront h3{font-weight:700}
+.vinprint-storefront a.vp-action{text-decoration:none}
+.vinprint-storefront .vp-nav{display:flex;text-decoration:none}
+.vinprint-storefront .vp-nav:not(.active){color:var(--ink)}
+.vinprint-storefront .toplinks{flex-shrink:0}
+.vinprint-storefront .peach{flex:1;max-width:255px;min-width:60px}
+.vinprint-storefront .account{flex-shrink:0}
+.vinprint-storefront .account .coins{font-size:12px;gap:5px;white-space:nowrap}
+.vinprint-storefront .account .coins i{width:16px;height:16px}
+.vinprint-storefront .vp-contact-avatar{background:#fff1e8;color:#ba001b;font-size:14px;font-weight:700;border:1px solid #efb8ae}
+.vinprint-storefront .vp-mobile-logo{display:none}
+.vinprint-storefront .vp-hero-subtitle{white-space:pre-line}
+.vinprint-storefront .vp-art-link{display:block}
+.vinprint-storefront .product h3 a{color:inherit;text-decoration:none}
+.vinprint-storefront .vp-product-source{display:none}
+.vinprint-storefront .vp-art-caption{margin:12px 0 5px;font-size:11px;line-height:1.6;color:#776b68;text-align:center}
+.vinprint-storefront .vp-inline-link{display:inline-block;color:var(--red);font-size:12px;line-height:1.6;margin:7px 0 0;text-underline-offset:3px}
+.vinprint-storefront section[id],.vinprint-storefront div[id]{scroll-margin-top:82px}
+.vinprint-storefront .vp-info-section{margin:32px 0 0;padding:26px;background:#fff;border:1px solid #f0e1d9;border-radius:20px}
+.vinprint-storefront .vp-info-section h2{font-size:24px;line-height:1.4;color:#b90019;margin:0 0 8px}
+.vinprint-storefront .vp-info-section p{font-size:13px;line-height:1.8;color:#6c6163;margin:0 0 12px;max-width:85ch}
+.vinprint-storefront .vp-section-top{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:20px}
+.vinprint-storefront .vp-section-top>div{max-width:850px}
+.vinprint-storefront .vp-section-top>a{flex-shrink:0;color:#b90019;font-size:13px}
+.vinprint-storefront .vp-catalog-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:15px}
+.vinprint-storefront .vp-catalog-item{display:flex;flex-direction:column;min-width:0;padding:12px;border:1px solid #f0e2db;border-radius:15px;background:#fffdfb}
+.vinprint-storefront .vp-catalog-item>a{display:block;aspect-ratio:4/3;overflow:hidden;border-radius:10px;background:white}
+.vinprint-storefront .vp-catalog-item img{width:100%;height:100%;object-fit:contain}
+.vinprint-storefront .vp-catalog-item h3{font-size:14px;line-height:1.5;margin:12px 0 7px}
+.vinprint-storefront .vp-catalog-item h3 a{color:#231b25;text-decoration:none}
+.vinprint-storefront .vp-catalog-item p{font-size:11px;line-height:1.7;margin-bottom:12px}
+.vinprint-storefront .vp-catalog-item strong{font-size:12px;color:#ab1220;margin-top:auto}
+.vinprint-storefront .vp-catalog-item>div{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px;margin-top:12px}
+.vinprint-storefront .vp-catalog-item>div>a{font-size:11px;color:#9c1523}
+.vinprint-storefront .vp-catalog-item button{font-size:11px;min-height:32px;padding:6px 10px}
+.vinprint-storefront .vp-notice{padding:12px 16px;background:#fff5e8;border-radius:10px;border:1px solid #f4dfbf}
+.vinprint-storefront .vp-price-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.vinprint-storefront .vp-price-item{min-width:0}
+.vinprint-storefront .vp-poster{position:relative;display:block;width:100%;height:auto;aspect-ratio:4/5;border:1px solid #efdcd2;padding:0;overflow:hidden;border-radius:14px;background:#fffbf7}
+.vinprint-storefront .vp-poster img{width:100%;height:100%;object-fit:contain}
+.vinprint-storefront .vp-poster span{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);padding:7px 14px;background:#a90018e8;color:white;white-space:nowrap;border-radius:20px;font-size:11px}
+.vinprint-storefront .vp-price-item h3{font-size:15px;line-height:1.5;margin:14px 0 5px}
+.vinprint-storefront .vp-price-item p{font-size:12px}
+.vinprint-storefront details{border-bottom:1px solid #f1dfd6}
+.vinprint-storefront summary{cursor:pointer;min-height:44px;padding:13px 0;line-height:1.5;font-size:13px;font-weight:700;color:#6f2730}
+.vinprint-storefront .vp-price-item ul{padding:0 0 14px 18px;font-size:12px;line-height:1.8;list-style:disc;margin:0}
+.vinprint-storefront .vp-benefit-list{display:flex;flex-wrap:wrap;gap:10px 24px;list-style:none;padding:0;margin:20px 0 0;color:#8d2430;font-size:12px}
+.vinprint-storefront .vp-process-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;list-style:none;margin:22px 0;padding:0}
+.vinprint-storefront .vp-process-grid li{min-width:0;padding:17px;border:1px solid #f1dfd6;border-radius:14px;background:#fffaf6}
+.vinprint-storefront .vp-process-grid li>span{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#b90019;color:white;font-weight:700;margin-bottom:12px}
+.vinprint-storefront .vp-process-grid h3{font-size:14px;margin:0 0 8px}
+.vinprint-storefront .vp-process-grid p{font-size:12px;margin:0}
+.vinprint-storefront .vp-guide-links{display:flex;flex-wrap:wrap;gap:12px 25px}
+.vinprint-storefront .vp-guide-links a{color:#a21525;font-size:13px;min-height:32px}
+.vinprint-storefront .vp-gallery-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+.vinprint-storefront .vp-gallery-grid a{display:block;min-width:0;color:#30212a;font-size:12px;text-decoration:none}
+.vinprint-storefront .vp-gallery-grid img{width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;border:1px solid #f1dfd7;border-radius:12px;margin-bottom:8px}
+.vinprint-storefront .vp-gallery-grid span{display:block;line-height:1.5}
+.vinprint-storefront .vp-quote-callout{display:flex;flex-wrap:wrap;align-items:center;gap:16px;background:linear-gradient(100deg,#fff2e7,#fff4f3)}
+.vinprint-storefront .vp-quote-callout>div{flex:1;min-width:250px}
+.vinprint-storefront .vp-quote-callout p{margin:0}
+.vinprint-storefront .vp-faq-contact{display:grid;grid-template-columns:1.2fr 1fr;gap:35px}
+.vinprint-storefront .vp-faq-contact details p{padding:0 0 14px;margin:0}
+.vinprint-storefront .vp-contact-card{padding:22px;background:#fff7ef;border:1px solid #f1dac4;border-radius:16px}
+.vinprint-storefront .vp-contact-card>p{display:flex;gap:10px;align-items:flex-start}
+.vinprint-storefront .vp-contact-card a{color:#a51424}
+.vinprint-storefront .vp-qr{display:flex;align-items:center;gap:17px;margin-top:20px}
+.vinprint-storefront .vp-qr img{width:108px;height:108px;object-fit:contain;background:#fff;padding:6px;border-radius:10px;flex:0 0 108px}
+.vinprint-storefront .vp-qr strong{font-size:15px}
+.vinprint-storefront .vp-qr p{font-size:12px;margin:7px 0}
+.vinprint-storefront .vp-map-link{font-size:13px}
+.vinprint-storefront .vp-footer{padding:30px 4px 25px;color:#716064}
+.vinprint-storefront .vp-footer h2{font-size:23px;color:#ae0017;margin:0 0 8px}
+.vinprint-storefront .vp-footer p{font-size:13px;line-height:1.8;margin:0 0 18px}
+.vinprint-storefront .vp-footer nav{display:flex;flex-wrap:wrap;gap:12px 25px}
+.vinprint-storefront .vp-footer a{font-size:12px;color:#81303a}
+.vinprint-storefront .vp-footer-bottom{display:flex;flex-wrap:wrap;gap:12px 24px;padding-top:20px;border-top:1px solid #f0ddd2;margin-top:20px;font-size:11px}
+.vinprint-storefront dialog{max-height:90dvh;overflow-y:auto}
+.vinprint-storefront dialog button#close{display:grid;place-items:center}
+.vinprint-storefront dialog textarea{width:100%;border:1px solid #e6cfc7;border-radius:10px;padding:12px;background:#fff;color:#201b27;font:13px "Be Vietnam Pro",Arial,sans-serif;line-height:1.7;resize:vertical}
+.vinprint-storefront .vp-form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.vinprint-storefront .vp-request-text{font-size:12px;line-height:1.7}
+.vinprint-storefront .vp-zalo-link{display:flex;margin-top:13px;width:100%;min-height:44px;text-align:center}
+.vinprint-storefront .vp-fine{font-size:11px;line-height:1.7}
+.vinprint-storefront .vp-upload-steps{list-style:decimal;padding-left:23px;margin:16px 0;font-size:13px;line-height:1.8}
+.vinprint-storefront .vp-upload-steps li{margin:8px 0}
+.vinprint-storefront .vp-poster-dialog img{width:100%;height:auto;object-fit:contain}
+@media(max-width:1500px){.vinprint-storefront .vp-catalog-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.vinprint-storefront .vp-price-grid{gap:13px}.vinprint-storefront .vp-process-grid{gap:10px}.vinprint-storefront .vp-process-grid li{padding:13px}}
+@media(max-width:1200px){.vinprint-storefront .vp-catalog-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.vinprint-storefront .vp-gallery-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.vinprint-storefront .vp-process-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.vinprint-storefront .vp-info-section{padding:22px}.vinprint-storefront .vp-faq-contact{grid-template-columns:1fr;gap:25px}}
+@media(max-width:1000px){.vinprint-storefront .vp-price-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.vinprint-storefront .vp-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.vinprint-storefront .vp-section-top{align-items:flex-start;gap:15px}.vinprint-storefront .vp-section-top>a{max-width:145px}.vinprint-storefront .vp-info-section h2{font-size:21px}}
+@media(max-width:700px){.vinprint-storefront .vp-mobile-logo{display:block;width:88px;height:42px;flex-shrink:0}.vinprint-storefront .toplinks{display:none}.vinprint-storefront header{gap:9px}.vinprint-storefront .account{margin-left:auto}.vinprint-storefront .account .coins,.vinprint-storefront .account .bell,.vinprint-storefront .account .avatar{display:none}.vinprint-storefront .vp-info-section{margin-top:22px;padding:18px 14px;border-radius:16px}.vinprint-storefront .vp-info-section h2{font-size:19px}.vinprint-storefront .vp-info-section p{font-size:12px}.vinprint-storefront .vp-section-top{display:block;margin-bottom:17px}.vinprint-storefront .vp-section-top>a{display:inline-block;max-width:none;margin-top:5px;font-size:12px}.vinprint-storefront .vp-catalog-grid{gap:10px}.vinprint-storefront .vp-catalog-item{padding:9px}.vinprint-storefront .vp-catalog-item h3{font-size:12px}.vinprint-storefront .vp-catalog-item p{font-size:10px}.vinprint-storefront .vp-catalog-item strong{font-size:11px}.vinprint-storefront .vp-catalog-item>div{display:block}.vinprint-storefront .vp-catalog-item>div>a{display:block;margin:0 0 8px}.vinprint-storefront .vp-catalog-item button{width:100%;font-size:10px}.vinprint-storefront .vp-price-grid{gap:15px 12px}.vinprint-storefront .vp-price-item h3{font-size:13px}.vinprint-storefront .vp-price-item p{font-size:11px}.vinprint-storefront .vp-price-item summary{font-size:11px}.vinprint-storefront .vp-poster span{font-size:9px;padding:5px 9px}.vinprint-storefront .vp-process-grid{grid-template-columns:1fr;gap:10px}.vinprint-storefront .vp-process-grid li{position:relative;padding:14px 14px 14px 56px}.vinprint-storefront .vp-process-grid li>span{position:absolute;top:14px;left:14px}.vinprint-storefront .vp-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.vinprint-storefront .vp-contact-card{padding:17px}.vinprint-storefront .vp-quote-callout>div{min-width:0;flex-basis:100%}.vinprint-storefront .vp-quote-callout button{width:100%;font-size:12px}.vinprint-storefront .vp-benefit-list{font-size:11px;gap:10px 16px}.vinprint-storefront .vp-guide-links{display:grid;gap:7px}.vinprint-storefront .vp-qr{gap:13px}.vinprint-storefront .vp-qr img{width:90px;height:90px;flex-basis:90px}.vinprint-storefront .vp-qr strong{font-size:13px}.vinprint-storefront .vp-qr a{font-size:12px}.vinprint-storefront .vp-form-row{grid-template-columns:1fr}.vinprint-storefront dialog{padding:25px 20px}.vinprint-storefront .vp-footer nav{gap:12px 18px}}
+
+.vinprint-storefront .vp-nav{position:static;inset:auto;flex-direction:row;align-items:center;box-shadow:none}
+.vinprint-storefront a.vp-action:not(.vp-nav){font-weight:700}
+.vinprint-storefront .hero::before{content:none}
+.vinprint-storefront .vp-hot-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:15px}
+.vinprint-storefront .vp-hot-grid article{min-width:0;padding:12px;border:1px solid #f0e0d5;border-radius:14px;background:#fffaf5}
+.vinprint-storefront .vp-hot-grid img,.vinprint-storefront .vp-hot-grid video{width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;border-radius:10px}
+.vinprint-storefront .vp-hot-grid small{display:block;color:#8a5a4d;font-size:10px;margin:10px 0 5px}
+.vinprint-storefront .vp-hot-grid h3{font-size:13px;line-height:1.6;margin:0}
+.vinprint-storefront .vp-hot-grid h3 a{color:#2a1e24;text-decoration:none}
+.vinprint-storefront .vp-review-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.vinprint-storefront .vp-review-grid article{padding:20px;border:1px solid #eeded3;border-radius:15px;background:#fffaf6}
+.vinprint-storefront .vp-review-grid article>div{display:flex;gap:12px;align-items:center}
+.vinprint-storefront .vp-review-grid img{width:44px;height:44px;object-fit:cover;border-radius:50%}
+.vinprint-storefront .vp-review-grid strong{font-size:13px}
+.vinprint-storefront .vp-review-grid small{display:block;font-size:10px;color:#7c666a;margin-top:5px}
+.vinprint-storefront .vp-review-grid blockquote{font-size:13px;color:#695b61;line-height:1.8;margin:16px 0 0}
+.vinprint-storefront .vp-customer-proof{display:flex;align-items:center;gap:12px;margin-top:16px}
+.vinprint-storefront .vp-customer-proof>div{display:flex;padding-left:8px}
+.vinprint-storefront .vp-customer-proof img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid white;margin-left:-8px}
+.vinprint-storefront .vp-customer-proof small{font-size:10px;color:#7a5d5c;line-height:1.6}
+.vinprint-storefront .vp-map-toggle{width:100%;margin-top:16px;min-height:42px}
+.vinprint-storefront #vinprint-map-panel{margin-top:12px;overflow:hidden;border-radius:12px}
+.vinprint-storefront #vinprint-map-panel iframe{width:100%;height:280px;border:0}
+.vinprint-storefront .vp-site-links{margin-top:18px}
+@media(max-width:1350px){.vinprint-storefront .vp-hot-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1000px){.vinprint-storefront .vp-review-grid{grid-template-columns:1fr}}
+@media(max-width:700px){.vinprint-storefront .vp-hot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.vinprint-storefront .vp-review-grid article{padding:16px}.vinprint-storefront .vp-hot-grid h3{font-size:12px}.vinprint-storefront .vp-customer-proof{flex-wrap:wrap}}
+
+.vinprint-storefront .hero h1{font-family:Arial,Helvetica,sans-serif}
+
+.vinprint-storefront .art .vp-themed-thumbnail{width:100%;height:100%;object-fit:contain;background:#fff5e9;display:block}
+.vinprint-storefront .vp-catalog-compact{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px}
+.vinprint-storefront .vp-catalog-compact .vp-catalog-item{display:grid;grid-template-columns:32px minmax(0,1fr) auto;column-gap:12px;padding:18px 0;border:0;border-bottom:1px solid #f0e2db;border-radius:0;background:transparent}
+.vinprint-storefront .vp-catalog-compact .vp-catalog-item>i{grid-row:1/4;color:#b90019;padding-top:2px}
+.vinprint-storefront .vp-catalog-compact .vp-catalog-item h3{margin:0 0 5px}
+.vinprint-storefront .vp-catalog-compact .vp-catalog-item p{grid-column:2;margin:0;font-size:12px}
+.vinprint-storefront .vp-catalog-compact .vp-catalog-item strong{grid-column:2;margin-top:8px}
+.vinprint-storefront .vp-catalog-compact .vp-catalog-item>div{grid-column:3;grid-row:1/4;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;margin:0;gap:12px}
+.vinprint-storefront .vp-hot-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.vinprint-storefront .vp-advertising{margin:18px 0 10px;border:1px solid #f0dfd6;border-radius:18px;overflow:hidden;background:#fffdf9}
+.vinprint-storefront .vp-advertising-intro{display:flex;align-items:center;gap:28px;background:#fff3e8;padding:22px}
+.vinprint-storefront .vp-advertising-intro img{width:240px;height:auto;aspect-ratio:4/3;object-fit:contain;border-radius:12px;flex-shrink:0}
+.vinprint-storefront .vp-advertising-intro h3{font-size:23px;line-height:1.4;margin:0 0 12px;color:#aa0016}
+.vinprint-storefront .vp-advertising p{font-size:13px;line-height:1.8;color:#6c6163;margin:0;max-width:65ch}
+.vinprint-storefront .vp-advertising-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px;padding:4px 24px 20px}
+.vinprint-storefront .vp-advertising-grid article{padding:24px 0 8px;border-top:1px solid #f0dfd6;margin-top:16px}
+.vinprint-storefront .vp-advertising-grid article>i{color:#ba0019;margin-bottom:10px}
+.vinprint-storefront .vp-advertising-grid h3{font-size:17px;margin:0 0 9px}
+.vinprint-storefront .vp-advertising-grid button{margin-top:14px;font-size:12px}
+.vinprint-storefront .vp-sample-directory{display:flex;flex-wrap:wrap;gap:14px 30px;padding:12px 0}
+.vinprint-storefront .vp-sample-directory a{display:flex;align-items:center;gap:10px;color:#9f1322;font-size:13px;min-height:44px}
+@media(max-width:1000px){.vinprint-storefront .vp-advertising-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.vinprint-storefront .vp-catalog-compact{grid-template-columns:1fr}}
+@media(max-width:600px){.vinprint-storefront .vp-advertising-intro{display:block;padding:18px}.vinprint-storefront .vp-advertising-intro img{width:100%;max-width:280px;margin:0 auto 18px;display:block}.vinprint-storefront .vp-advertising-intro h3{font-size:20px}.vinprint-storefront .vp-advertising-grid{grid-template-columns:1fr;padding:0 18px 18px}.vinprint-storefront .vp-hot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.vinprint-storefront .vp-catalog-compact .vp-catalog-item{grid-template-columns:24px minmax(0,1fr)}.vinprint-storefront .vp-catalog-compact .vp-catalog-item>div{grid-column:2;grid-row:auto;flex-direction:row;align-items:center;justify-content:space-between;margin-top:12px}}
+
+.vinprint-storefront .vp-free-tools-promo{display:flex;align-items:center;justify-content:space-between;gap:24px;background:#fff7eb}.vinprint-storefront .vp-free-tools-promo>div>i{color:#b90019;margin-bottom:10px}.vinprint-storefront .vp-free-tools-promo>a{flex-shrink:0}@media(max-width:700px){.vinprint-storefront .vp-free-tools-promo{display:block}.vinprint-storefront .vp-free-tools-promo>a{margin-top:10px}}
+.vinprint-storefront .vp-section-label{display:block;color:#9a6b45;font-size:11px;font-weight:600;margin-bottom:8px}
+.vinprint-storefront .vp-home-tools{background:#fffaf2;border-color:#ead7c5}
+.vinprint-storefront .vp-home-tools .vp-section-top{margin-bottom:22px}
+.vinprint-storefront .vp-free-badge{background:#fff0cb;color:#956017;border:1px solid #f2ddb2;padding:8px 12px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap}
+.vinprint-storefront .vp-home-tool-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.vinprint-storefront .vp-home-tool{display:flex;align-items:center;gap:14px;border:1px solid #eddfd3;border-radius:13px;background:white;padding:18px;min-width:0;transition:background .15s,border-color .15s,transform .15s}
+.vinprint-storefront .vp-home-tool:hover{border-color:#db8c79;background:#fff8f3;transform:translateY(-2px)}
+.vinprint-storefront .vp-tool-icon{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff0e9;color:#b60922;flex-shrink:0}
+.vinprint-storefront .vp-tool-icon i{display:flex}.vinprint-storefront .vp-tool-icon svg{width:21px;height:21px}
+.vinprint-storefront .vp-home-tool:nth-child(3n+2) .vp-tool-icon{background:#fff3d6;color:#a4741f}.vinprint-storefront .vp-home-tool:nth-child(3n) .vp-tool-icon{background:#edf4ef;color:#437452}
+.vinprint-storefront .vp-home-tool>div{flex:1;min-width:0}.vinprint-storefront .vp-home-tool h3{font-size:14px;line-height:1.5;color:#2d2530;margin:0 0 5px;font-weight:700}
+.vinprint-storefront .vp-home-tool p{font-size:11px;line-height:1.7;margin:0;color:#84737a}.vinprint-storefront .vp-tool-arrow{color:#b2998c;font-size:20px;align-self:flex-start}
+.vinprint-storefront .vp-materials-section{background:#fffdf9;padding:28px}
+.vinprint-storefront .vp-material-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.vinprint-storefront .vp-material-card{padding:0;border:1px solid #eaded5;border-radius:15px;overflow:hidden;background:white;box-shadow:0 3px 8px #6c372008;transition:border-color .15s,box-shadow .15s}
+.vinprint-storefront .vp-material-card:hover{border-color:#dca695;box-shadow:0 7px 20px #6c372010}
+.vinprint-storefront .vp-material-card>.vp-material-preview{display:flex;position:relative;align-items:center;justify-content:center;aspect-ratio:1.55;background:#f7f0e7;border-radius:0;overflow:hidden;padding:20px 12px 28px;text-decoration:none}
+.vinprint-storefront .vp-material-sheet{display:flex;width:112px;height:84px;align-items:center;justify-content:center;position:relative;transform:rotate(-9deg);border-radius:3px;background:#fffdf8;box-shadow:1px 5px 10px #5d382328;border:1px solid #e8dfd0}
+.vinprint-storefront .vp-material-sheet:before{content:"";position:absolute;inset:7px;border:1px dashed #d4c5b4;border-radius:2px}
+.vinprint-storefront .vp-material-sticker{position:relative;width:64px;height:64px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px;border-radius:50%;background:#b90522;color:#fff6d6;border:1px solid #d2a64c;box-shadow:0 2px 3px #00000015}
+.vinprint-storefront .vp-material-sticker i{display:flex}.vinprint-storefront .vp-material-sticker svg{width:17px;height:17px}.vinprint-storefront .vp-material-sticker b{font-size:11px;line-height:1.2;font-style:italic}.vinprint-storefront .vp-material-sticker small{font-size:5px;max-width:60px;text-align:center}
+.vinprint-storefront .vp-material-finish{position:absolute;bottom:8px;left:8px;right:8px;text-align:center;font-size:9px;color:#796b65;white-space:nowrap}
+.vinprint-storefront .vp-material-card>.vp-material-body{display:flex;flex:1;flex-direction:column;flex-wrap:nowrap;align-items:stretch;justify-content:flex-start;padding:15px;margin:0;gap:0}
+.vinprint-storefront .vp-material-body h3{font-size:14px;line-height:1.5;margin:0 0 8px}
+.vinprint-storefront .vp-material-body p{font-size:11px;line-height:1.75;margin:0 0 12px;color:#82727a}
+.vinprint-storefront .vp-material-uses{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px}.vinprint-storefront .vp-material-uses span{padding:4px 6px;border-radius:4px;background:#faf4ed;color:#816e63;font-size:9px}
+.vinprint-storefront .vp-material-body strong{margin-top:auto;font-size:11px;line-height:1.7;color:#aa1327}
+.vinprint-storefront .vp-material-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;border-top:1px solid #f2e6dd;padding-top:12px;margin-top:12px}
+.vinprint-storefront .vp-material-actions>a{font-size:11px;color:#897067}.vinprint-storefront .vp-material-actions>button{min-height:32px;font-size:10px;padding:5px 10px;border-radius:7px;background:#fff7f1}
+.vinprint-storefront .vp-material-caption{font-size:10px!important;color:#9a8982!important;margin:16px 0 0!important}
+.vinprint-storefront .material-tem-uv-dtf .vp-material-sheet{background:transparent;border-color:transparent;box-shadow:none}.vinprint-storefront .material-tem-uv-dtf .vp-material-sheet:before{border:0}.vinprint-storefront .material-tem-uv-dtf .vp-material-sticker{border:0;border-radius:15px;box-shadow:1px 3px 0 #7d0315,3px 7px 9px #6c15243b;transform:rotate(8deg)}
+.vinprint-storefront .material-tem-nhua-chong-nuoc .vp-material-preview{background:radial-gradient(circle at 25% 30%,#fff 2px,transparent 4px),radial-gradient(circle at 80% 60%,#fff 3px,transparent 5px),#ebf1ef}.vinprint-storefront .material-tem-nhua-chong-nuoc .vp-material-sticker{background:linear-gradient(125deg,#df1236,#a80024 60%,#ef5374)}
+.vinprint-storefront .material-tem-nhua-trong .vp-material-sheet{background:linear-gradient(45deg,#e4ddd2 25%,transparent 25%,transparent 75%,#e4ddd2 75%),linear-gradient(45deg,#e4ddd2 25%,#f9f5ef 25%,#f9f5ef 75%,#e4ddd2 75%);background-position:0 0,7px 7px;background-size:14px 14px}.vinprint-storefront .material-tem-nhua-trong .vp-material-sticker{background:#ffffff70;color:#a40a24;border:1px solid #b47f67;box-shadow:none}
+.vinprint-storefront .material-tem-bac .vp-material-sticker{background:linear-gradient(125deg,#8e949c,#f2f4f6 35%,#a8afb7 60%,#e2e6eb);color:#444651;border-color:#bfc4cb}.vinprint-storefront .material-tem-vang .vp-material-sticker{background:linear-gradient(125deg,#a9761b,#ffefa2 35%,#d1a33d 60%,#fff2b6);color:#9e0a21;border-color:#ba8b2d}.vinprint-storefront .material-tem-7-mau .vp-material-sticker{background:linear-gradient(125deg,#e4acd8,#a5deea 25%,#ffffb8 48%,#b5e6c5 67%,#b4b3e8 85%,#e9bbd2);color:#7b1d59;border-color:#c2a3b9}
+.vinprint-storefront .material-tem-bao-hanh .vp-material-sticker{border-radius:5px;height:37px;width:83px;background:repeating-linear-gradient(45deg,#fff4ed 0px,#fff4ed 3px,#f5d6cf 4px,#fff4ed 5px);color:#a40c23;border:1px dashed #b51a30;transform:rotate(5deg)}.vinprint-storefront .material-tem-bao-hanh .vp-material-sticker i{display:none}
+.vinprint-storefront .material-tem-phu-san-pham .vp-material-sticker{border-radius:4px;width:77px;height:54px;background:repeating-linear-gradient(#fff 0px,#fff 6px,#e7d8c9 7px,#fff 8px);color:#65483a;border:1px solid #d5b795}.vinprint-storefront .material-tem-phu-san-pham .vp-material-sticker i{display:none}
+.vinprint-storefront .material-sticker-trang-tri .vp-material-sticker{border-radius:30% 50% 30% 50%;transform:rotate(10deg);outline:3px solid white;box-shadow:2px 4px 5px #70443330}
+@media(max-width:1350px){.vinprint-storefront .vp-material-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1000px){.vinprint-storefront .vp-home-tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.vinprint-storefront .vp-material-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.vinprint-storefront .vp-materials-section{padding:18px 14px}.vinprint-storefront .vp-material-grid{gap:10px}.vinprint-storefront .vp-material-body{padding:12px}.vinprint-storefront .vp-material-body h3{font-size:12px}.vinprint-storefront .vp-material-body p{font-size:10px}.vinprint-storefront .vp-material-body strong{font-size:10px}.vinprint-storefront .vp-material-actions{flex-wrap:wrap}.vinprint-storefront .vp-material-sheet{width:93px;height:72px}.vinprint-storefront .vp-material-preview{min-height:115px}.vinprint-storefront .vp-material-finish{font-size:8px}.vinprint-storefront .vp-home-tool-grid{grid-template-columns:1fr}.vinprint-storefront .vp-home-tool{padding:15px}.vinprint-storefront .vp-home-tools .vp-section-top{align-items:flex-start;gap:12px}.vinprint-storefront .vp-free-badge{font-size:9px;padding:6px 8px}}

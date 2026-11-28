@@ -6,7 +6,7 @@ import {
 
 // Nguồn duy nhất cho menu quản trị: sidebar, Ctrl+K và tiêu đề trang đều đọc từ đây.
 // Thêm khu vực quản trị mới: thêm một dòng ở đây rồi bọc trang bằng <AdminShell active="...">.
-export type AdminKey = "home" | "noi-dung" | "hinh-anh" | "bai-viet";
+export type AdminKey = "home" | "themes" | "noi-dung" | "hinh-anh" | "bai-viet";
 
 export type AdminNavItem = {
   id: string;
@@ -30,6 +30,7 @@ export const ADMIN_NAV_GROUPS: AdminNavGroup[] = [
   {
     group: "Nội dung",
     items: [
+      { id: "themes", title: "Theme theo dịp lễ", pageTitle: "Theme theo dịp lễ", href: "/admin/themes", icon: LayoutTemplate, keywords: "theme giao dien tet noel giang sinh 8/3 20/10 20/11" },
       { id: "noi-dung", title: "Nội dung trang chủ", pageTitle: "Nội dung trang chủ", href: "/admin/noi-dung", icon: LayoutTemplate, keywords: "hero bang gia faq lien he footer menu chu so" },
       { id: "hinh-anh", title: "Hình ảnh & video", pageTitle: "Hình ảnh & video", href: "/admin/hinh-anh", icon: ImageIcon, keywords: "anh video poster mau thuc te thu vien" },
       { id: "bai-viet", title: "Bài viết", pageTitle: "Bài viết (Cẩm nang in ấn)", href: "/admin/bai-viet", icon: FileText, keywords: "blog cam nang bai viet seo" },

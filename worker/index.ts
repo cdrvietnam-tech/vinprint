@@ -3,9 +3,12 @@ import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } fr
 import handler from "vinext/server/app-router-entry";
 import { resolveLegacyRedirect } from "../app/lib/legacy-redirects";
 import { DEFAULT_MEDIA_COLLECTIONS, type ManagedMediaItem, type MediaCollectionId } from "../app/lib/media-collections";
+import { applyTetProductImages } from "../app/lib/product-theme";
+import {handleFreeToolRequest} from "../app/lib/free-tools-api";
 import { SITE_CONTENT_KEY, isValidSiteContent } from "../app/lib/site-content";
 
 interface Env {
+  MUSE_FREE_TOOLS_ORIGIN?: string;
   ASSETS?: Fetcher;
   DB: D1Database;
   HERO_IMAGES?: R2Bucket;
@@ -228,6 +231,8 @@ const worker = {
       return Response.redirect(secureUrl.href, 308);
     }
 
+    if (url.pathname.startsWith("/api/free-tools/")) return handleFreeToolRequest(request,{origin:env.MUSE_FREE_TOOLS_ORIGIN});
+
     if (url.pathname.startsWith("/admin") && !isAdminRequest(request, env)) {
       return new Response("Khu vực quản trị yêu cầu đăng nhập qua Cloudflare Access.", {
         status: 401,
@@ -395,6 +400,20 @@ const worker = {
       if (request.method === "POST") {
         const action = url.searchParams.get("action");
         const items = await getMediaCollection(collection, env.HERO_IMAGES);
+
+        if (action === "theme-tet-2027" || action === "restore-tet-2027") {
+          if (collection === "ai247") return Response.json({ error: "invalid_collection" }, { status: 400 });
+          const backupKey = `collections/backups/tet-2027/${collection}.json`;
+          const backup = await env.HERO_IMAGES.get(backupKey);
+          if (action === "restore-tet-2027" && !backup) return Response.json({ error: "backup_not_found" }, { status: 404 });
+          if (action === "theme-tet-2027" && !backup) {
+            await env.HERO_IMAGES.put(backupKey, JSON.stringify(items), { httpMetadata: { contentType: "application/json" } });
+          }
+          const nextItems = action === "restore-tet-2027" ? await backup!.json<ManagedMediaItem[]>() : applyTetProductImages(collection, items);
+          if (!Array.isArray(nextItems)) return Response.json({ error: "invalid_backup" }, { status: 500 });
+          await saveMediaCollection(collection, nextItems, env.HERO_IMAGES);
+          return Response.json({ ok: true, collection, items: nextItems }, { headers: { "cache-control": "no-store" } });
+        }
 
         if (action === "restore-missing") {
           const existingIds = new Set(items.map((item) => item.id));
@@ -649,7 +668,7 @@ const worker = {
     headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=(), usb=()");
     headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
     const contentSecurityPolicy =
-      "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.google.com https://www.google.com.vn https://www.googletagmanager.com; manifest-src 'self' https://vinprint.vn";
+      "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; worker-src 'self' blob:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://www.google.com https://www.google.com.vn https://www.googletagmanager.com; manifest-src 'self' https://vinprint.vn";
     headers.set(
       "Content-Security-Policy",
       url.protocol === "https:"

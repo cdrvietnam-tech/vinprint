@@ -1,0 +1,20 @@
+{
+  "approvedMockup": 1,
+  "themeHeading": true,
+  "featured": 1,
+  "smallCards": 6,
+  "secondaryLinks": 3,
+  "uniquePhotoCrops": 7,
+  "hotSectionRemoved": true,
+  "hotRequestRemoved": true,
+  "adminMediaUnchanged": true,
+  "productLinks200": 10,
+  "quoteProduct": true,
+  "widths": [
+    1781,
+    1366,
+    768,
+    390
+  ],
+  "pageErrors": []
+}

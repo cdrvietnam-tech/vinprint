@@ -1,0 +1,9 @@
+{
+  "productionCsp": true,
+  "heic": true,
+  "pdf": true,
+  "jpegDownload": true,
+  "zipDownload": true,
+  "pageErrors": [],
+  "analyticsBlocked": true
+}

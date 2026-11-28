@@ -1,0 +1,11 @@
+{
+  "routes": 34,
+  "mobileOverflow": false,
+  "oneH1": true,
+  "oneHeader": true,
+  "canonical": true,
+  "jsonLd": true,
+  "categoryNavigation": true,
+  "quote": true,
+  "pageErrors": []
+}

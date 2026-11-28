@@ -6,17 +6,14 @@ import path from "node:path";
 const projectRoot = process.cwd();
 const componentPath = path.join(projectRoot, "app/components/home/HotProductsMarquee.tsx");
 
-test("hot products use transparent PNG assets in a 2-row grid without cropping", () => {
+test("hot products use coordinated Tet assets in a 2-row grid without cropping", () => {
   const source = readFileSync(componentPath, "utf8");
   const mediaSource = readFileSync(path.join(projectRoot, "app/lib/media-collections.ts"), "utf8");
-  const images = [...mediaSource.matchAll(/src:\s*"([^"]+\.png)"/g)].map((match) => match[1]);
-
+  const images = [...mediaSource.matchAll(/src:\s*"([^"?]+\.webp)"/g)].map((match) => match[1]);
   assert.ok(images.length >= 3);
   for (const image of new Set(images)) {
-    const filePath = path.join(projectRoot, "public", image);
-    assert.ok(existsSync(filePath), `Missing ${image}`);
-    const png = readFileSync(filePath);
-    assert.ok(png[25] === 4 || png[25] === 6, `${image} must preserve an alpha channel`);
+    assert.match(image, /^\/images\/tet-2027\/products\//);
+    assert.ok(existsSync(path.join(projectRoot, "public", image)), `Missing ${image}`);
   }
 
   // Lưới responsive, hiển thị đủ ảnh (không cắt) và có hiệu ứng hover.

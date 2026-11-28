@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CalendarDays, CheckCircle2, ExternalLink, ShieldCheck } from "lucide-react";
-import ConversionLink from "../components/ConversionLink";
-import Footer from "../components/home/Footer";
-import Header from "../components/home/Header";
+import BlogFrame from "../components/blog/BlogFrame";
 
 const canonicalUrl = "https://vinprint.vn/quy-trinh-bien-soan";
 const editorialTeamId = `${canonicalUrl}#editorial-team`;
@@ -61,12 +59,11 @@ const workflow = [
 
 export default function EditorialProcessPage() {
   return (
-    <div className="min-h-screen bg-[#F7F4EE] text-gray-950">
-      <Header />
-      <main id="main-content" tabIndex={-1} className="pt-20">
+    <BlogFrame>
+      <main id="main-content" tabIndex={-1} className="vp-blog-content">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
-        <header className="border-b border-black/10 bg-[#171310] px-4 py-12 text-white sm:py-16">
+        <div className="vp-blog-hero border-b border-black/10 bg-[#171310] px-4 py-12 text-white sm:py-16">
           <div className="mx-auto max-w-5xl">
             <Link href="/blog" className="inline-flex min-h-11 items-center text-sm font-bold text-orange-300 hover:text-white">← Cẩm nang tem nhãn</Link>
             <p className="mt-8 text-sm font-black uppercase tracking-[0.2em] text-[#D5FF43]">Minh bạch nội dung</p>
@@ -74,9 +71,9 @@ export default function EditorialProcessPage() {
             <p className="mt-7 max-w-3xl text-lg leading-8 text-white/80">VinPrint công khai người chịu trách nhiệm, cách kiểm chứng và giới hạn của nội dung tư vấn để người đọc biết thông tin được tạo ra như thế nào.</p>
             <p className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white/70"><CalendarDays aria-hidden="true" className="h-4 w-4" /> Cập nhật 20/07/2026</p>
           </div>
-        </header>
+        </div>
 
-        <article className="mx-auto max-w-5xl space-y-8 px-4 py-12">
+        <article className="vp-blog-body mx-auto max-w-5xl space-y-8 px-4 py-12">
           <section className="rounded-[28px] border border-orange-200 bg-orange-50 p-6 sm:p-9">
             <p className="text-xs font-black uppercase tracking-[0.2em] text-[#D83B00]">Ai chịu trách nhiệm cho nội dung?</p>
             <h2 className="mt-3 text-2xl font-black sm:text-3xl">Đội ngũ biên tập VinPrint</h2>
@@ -118,13 +115,9 @@ export default function EditorialProcessPage() {
             </div>
           </section>
 
-          <aside className="rounded-[28px] bg-[#6545ED] p-7 text-white sm:flex sm:items-center sm:justify-between sm:p-10">
-            <div><h2 className="text-2xl font-black">Cần kiểm tra trên sản phẩm thật?</h2><p className="mt-2 max-w-xl leading-7 text-white/80">Nội dung trên website là hướng dẫn ban đầu. Xưởng sẽ xác nhận quy cách theo file và bao bì cụ thể.</p></div>
-            <ConversionLink href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" eventName="click_zalo" eventPosition="editorial_process" className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-gradient-to-r from-[#FF4D00] to-[#FF0055] px-6 font-black text-white sm:mt-0">Nhắn Zalo cho xưởng</ConversionLink>
-          </aside>
+
         </article>
       </main>
-      <Footer />
-    </div>
+    </BlogFrame>
   );
 }

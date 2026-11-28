@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Footer from "../components/home/Footer";
-import Header from "../components/home/Header";
+import GuideFrame from "../components/storefront/GuideFrame";
+import "./gallery.css";
+import ManagedSampleGallery from "../components/content/ManagedSampleGallery";
 import { facebookPosts } from "../lib/facebook-posts";
 
 export const metadata: Metadata = {
@@ -22,16 +23,16 @@ function formatDate(value: string) {
 
 export default function LatestLabelsPage() {
   return (
-    <div className="min-h-screen bg-[#F7F4EE] text-gray-950">
-      <Header />
-      <main id="main-content" tabIndex={-1} className="pt-20">
+    <GuideFrame activePath="/mau-tem-moi">
+      <main id="main-content" tabIndex={-1} className="vp-guide-content vp-latest-gallery">
         <section className="mx-auto max-w-[1180px] px-4 py-14 sm:py-20">
-          <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#D83B00]">Cập nhật từ fanpage VinPrint</p>
-          <h1 className="max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">Mẫu tem mới từ xưởng</h1>
+          <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#D83B00]">Kho mẫu VinPrint</p>
+          <h1 className="max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">Mẫu tem và ý tưởng bao bì</h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-gray-700">
-            Hình ảnh và nội dung dưới đây được đồng bộ từ fanpage chính thức. Mỗi bài đều dẫn về bài đăng gốc để anh chị kiểm tra thông tin và xem thêm chi tiết.
+            Chọn mẫu theo loại bao bì và nhu cầu sử dụng. Những bài đã đồng bộ từ fanpage có liên kết đến nguồn gốc để anh chị xem thêm thông tin.
           </p>
 
+          <ManagedSampleGallery/>
           {facebookPosts.length ? (
             <div className="mt-12 grid gap-8 md:grid-cols-2">
               {facebookPosts.map((post) => (
@@ -50,14 +51,9 @@ export default function LatestLabelsPage() {
                 </article>
               ))}
             </div>
-          ) : (
-            <div className="mt-12 rounded-[28px] border border-dashed border-gray-300 bg-white p-10 text-gray-700">
-              Chưa có bài nào được đồng bộ. Workflow chỉ đưa bài lên sau khi kiểm tra trùng và hoàn tất cổng duyệt của website.
-            </div>
-          )}
+          ) : null}
         </section>
       </main>
-      <Footer />
-    </div>
+    </GuideFrame>
   );
 }

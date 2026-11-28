@@ -1,0 +1,13 @@
+{
+  "guides": 2,
+  "diagrams": 4,
+  "widths": [
+    1440,
+    768,
+    390
+  ],
+  "svgAccessible": true,
+  "noHorizontalOverflow": true,
+  "canonicalPreserved": true,
+  "pageErrors": []
+}

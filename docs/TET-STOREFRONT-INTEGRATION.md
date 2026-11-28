@@ -1,0 +1,113 @@
+# Tích hợp giao diện Tết đã duyệt
+
+Bản tích hợp dựa trên main b866cad, giữ bố cục V5 đã được chủ duyệt.
+Chưa merge, chưa deploy.
+
+## Thông tin và luồng khách
+- 6 gợi ý thiết kế Tết, 10 dòng tem trong danh mục, 4 bảng giá, 5 bước đặt in.
+- Sản phẩm hot và kho mẫu đọc từ API media đang có; mảng rỗng được giữ nguyên theo quản trị.
+- Giá, liên hệ, FAQ, quy trình, đánh giá và chân trang dùng SiteContent hiện có.
+- Nhóm tetHome riêng cho chữ banner/bộ sưu tập, có form ở /admin/noi-dung.
+- Dữ liệu quản trị cũ thiếu tetHome vẫn hợp lệ; không đổi hay xóa các override đã lưu.
+- Báo giá: nhập quy cách → sao chép nội dung → khách tự gửi qua Zalo.
+- File: khách đính kèm trực tiếp trong Zalo. Không có upload giả hoặc thông báo gửi thành công giả.
+- Ví Xu/tài khoản minh họa được thay bằng điện thoại và liên hệ thật.
+- Danh mục hiện có chưa xác nhận in tem cuộn, túi/hộp thành phẩm; các ô liên quan được nối tới tem chống nước và tem dán bao bì đang có.
+
+## Chạy local trên Windows
+Từ root repo, chạy trong 2 terminal (hoặc tiến trình ẩn):
+1. node node_modules/next/dist/bin/next dev --hostname 127.0.0.1 --port 4180 --webpack
+2. node --import tsx scripts/preview-storefront.mjs
+
+Mở http://127.0.0.1:4181 và /admin/noi-dung.
+Preview chỉ ghi .preview/site-content.json, media-collections.json và ảnh trong .preview; không ghi API sản xuất.
+Media và nội dung seed chỉ đọc từ endpoint công khai của vinprint.vn.
+File .preview, .env, model và node_modules không nằm trong commit.
+
+## Kiểm chứng
+- Vinext build và scripts/validate-artifact.sh.
+- TypeScript và ESLint.
+- 37 kiểm thử HTML/Facebook, 62 unit/API tests.
+- Playwright: 26 route HTTP200; lọc, clipboard, validate số lượng, Zalo/file handoff, lightbox bảng giá, FAQ, đánh giá, bản đồ tải khi yêu cầu, mobile menu.
+- Lưu quản trị qua API local thật, kiểm trang chủ cập nhật, giá cũ giữ nguyên rồi khôi phục dữ liệu ban đầu.
+- Không dùng kết quả mock R2 để khẳng định đã ghi website thật.
+- Khung desktop: hero x244,y90,w1516,h335; kiểm tỷ lệ ảnh ở 1781/1366/768/390.
+
+## Triển khai và hoàn tác
+Main tự triển khai. Merge PR là hành động xuất bản, cần duyệt đúng head.
+tetHome dùng mặc định khi chưa lưu. Bộ ảnh Tết có migration chủ động trong /admin/hinh-anh; không tự ghi R2 khi deploy hoặc GET.
+Hoàn tác code bằng revert commit tích hợp, không xóa nội dung R2 hoặc nhóm hero cũ.
+Ảnh Tết là minh họa theo mẫu được cung cấp, không dùng làm bằng chứng thành phẩm thực tế.
+
+## Bộ ảnh và dashboard Muse
+- 12 ảnh minh họa cùng tỷ lệ 4:3, nền kem, lụa đỏ và hoa mai. Manifest: docs/design/tet-product-images.json. Không thay banner/bộ sưu tập đã được duyệt, giá hoặc URL sản phẩm.
+- Danh mục 10 sản phẩm và 6 thẻ nổi bật dùng ảnh mới. Local đã áp dụng cho 6 hero, 15 sản phẩm hot, 12 mẫu thư viện; giữ ID, tiêu đề, liên kết và thứ tự. AI247 giữ nguyên.
+- /admin dùng mẫu shell/tổng quan Muse Studio: sidebar 256/80px, breadcrumb, Ctrl+K, lọc menu không dấu, trạng thái dữ liệu thật, sáng/tối. Thống kê/biểu đồ lấy từ nội dung VinPrint; không có số doanh thu giả.
+- Trong quản trị ảnh, **Áp dụng bộ ảnh Tết** đổi nguồn ảnh của ba bộ sưu tập và giữ bản manifest trước lần đổi đầu tiên. **Khôi phục bộ trước** phục hồi bản manifest đó; thay đổi sau lần áp dụng đầu sẽ bị thay bằng bản sao. File ảnh cũ không bị xóa bởi migration. Upload riêng sau migration hoạt động bình thường.
+- Worker backup: collections/backups/tet-2027/<collection>.json. Local tương ứng: .preview/theme-backups/<collection>.json. Bản sao không bị ghi đè khi áp dụng lại. Không dùng thao tác này để khôi phục binary đã bị thay bằng upload cùng ID sau đó.
+- Ảnh cũ được giữ trong nhóm **Ảnh cũ lưu trữ**, ẩn khỏi danh sách mặc định. Không đổi ảnh bài viết, bảng giá, avatar khách hàng.
+- Nghiệm thu: scripts/verify-theme-admin.cjs kiểm ảnh, upload/delete local, override ảnh tĩnh, menu, sáng/tối, mobile và nút áp dụng thật. Chạy với VINPRINT_PLAYWRIGHT_MODULE và VINPRINT_EVIDENCE_DIR nếu Playwright nằm ngoài repo.
+- Sau khi được duyệt xuất bản, cần áp dụng bộ ảnh trong quản trị trên production để thay các manifest R2 hiện hữu. Bản demo hiện tại chỉ thao tác dữ liệu local.
+
+## Điều hướng quảng cáo và chọn ảnh trang chủ
+- Tab Ấn phẩm quảng cáo hiển thị tờ rơi, brochure, poster, menu, standee và phiếu bảo hành. Không mở báo giá ở cấp danh mục; chỉ mở khi khách bấm CTA của một loại ấn phẩm.
+- Sáu thẻ Tết dùng sáu ảnh riêng. Sản phẩm hot và mẫu tham khảo dùng tập nguồn ảnh chung để bỏ trùng giữa các khối; tối đa 3 hot, 4 mẫu chưa xuất hiện. Loại query/hash khi đối chiếu nguồn. Không thay đổi mảng media gốc.
+- Danh mục đầy đủ giữ 10 loại tem dạng danh sách gọn thay vì lặp lại ảnh. Khi không còn ảnh khác cho khối kho mẫu, dùng liên kết mẫu theo ngành và thư viện riêng, vẫn giữ đích #mau-thuc-te.
+- Browser local hiện đo 9 ảnh sản phẩm / 9 nguồn duy nhất. Thư viện quản trị vẫn giữ 33 media. Bộ ấn phẩm dùng ảnh riêng khi chọn tab print.
+- Chạy scripts/verify-home-navigation.cjs để kiểm điều hướng desktop/mobile, ảnh trùng và đảm bảo media trước/sau không bị sửa.
+
+## Công cụ miễn phí Muse
+Tích hợp 9 tiện ích chạy trực tiếp trong /cong-cu-mien-phi, không iframe/chuyển tab. Xem docs/MUSE-FREE-TOOLS.md về phạm vi miễn phí, xử lý trình duyệt/server, CSP, bằng chứng và rollback. Trang chủ có menu và khối mở công cụ; banner đã duyệt giữ nguyên.
+
+
+Mỗi ô công cụ có cảnh SVG/CSS động104×76px (mobile88×66), mô tả thao tác riêng: nén, đổi định dạng, tách trang, xóa nền, nền trắng, làm nét, xóa vùng, gom album, tải video. Không tải GIF/video hoặc ảnh ngoài. IntersectionObserver và visibilitychange tạm dừng ngoài viewport/tab ẩn; prefers-reduced-motion hiển thị trạng thái tĩnh. scripts/verify-tool-motion.cjs đo transform theo thời gian, số animation chạy, dừng ngoài màn hình, reduced motion và bấm đúng công cụ ở390px. Các con số trong minh họa nén là ví dụ, không phải cam kết mức giảm dung lượng.
+
+
+## Mẫu 1 đã chọn — Issue 150
+Chủ xác nhận MẪU 1 sau khi xem ảnh demo. MaterialCatalog thay MaterialExplorer: một thẻ giấy lớn, sáu thẻ ảnh chất liệu và ba liên kết phụ; tổng 10 loại tem giữ giá/URL từ products. Ảnh catalog-approved-1.webp giữ kích thước nguồn1536×1024, bảy vùng ảnh SVG giữ tỷ lệ, chữ/nút là HTML. Bỏ hoàn toàn khối Các sản phẩm đang hot và request hot-products trên homepage; bộ sưu tập quản trị giữ nguyên. verify-approved-catalog.cjs kiểm 4 viewport, tiêu đề không đè ảnh, 10 URL HTTP200, báo giá giấy, bảy crop riêng và dữ liệu quản trị không đổi.
+
+Issue151: Đồng bộ mẫu1 với theme trang: tiêu đề đỏ24px/20px, token --red/--ink/--line, nền hồng kem nhẹ, thẻ trắng và nút bo tròn. Không thay ảnh, thứ tự hay giá.
+
+
+## Trang sản phẩm — demo được chủ duyệt, Issue156
+Template10trang sản phẩm dùng ProductDetail và product-detail.css theo ảnh demo UV DTF đã duyệt: sidebar/header đồng bộhomepage, photoleft/copyright, giáthật, quote/Zalo, neođếnnộidung, checklist/process/relatedngắn. Nội dung chuyên môn/FAQ/structureddata/canonical giữtrênSSR, không ẩn bỏ SEO. Dialog chỉ chuẩn bị và sao chép yêu cầu, không tạo đơn hoặc tải filegiả. ProductOrder mapping và30related giữnguyên. Riêng menuấnphẩm từtrangcon dùng /?danh-muc=print#san-pham-tet và đã kiểm mởđúng6ấnphẩm.
+Bằng chứng approved-product-design-results.json, approved-product-*.png và product-order-results.json trong docs/evidence/tet-storefront. Chưa merge/deploy. Hoàn tác bằng revert commit triển khai Issue156; không chạm dữ liệu quản trị.
+
+
+## Danh mục đồng bộ — Issue157
+Trang /san-pham dùng ProductCatalog và StorefrontFrame cùng ProductDetail. Khung header/sidebar và báo giá được dùng chung. Có 10 thẻ ảnh với giá từ products, lọc nhu cầu, tìm không dấu và phục hồi khi không có kết quả. Các nhóm văn phòng/quảng cáo/bao bì giữ dữ liệu và lấy Zalo từ quản trị. Bỏ danh sách link tem lặp ở nhóm bên dưới vì đã có 10 thẻ bên trên.
+
+Bộ lọc dùng group/aria-pressed với thao tác bàn phím native. Metadata/canonical/URL/giá giữ nguyên; sitemap cập nhật ngày sửa trang danh mục. Kiểm tra: verify-product-catalog.cjs, 42 HTML và 63 unit. Bằng chứng product-catalog-* trong docs/evidence/tet-storefront. Chỉ triển khai local.
+
+
+## Ba hướng dẫn đồng bộ — Issue158
+Các URL /huong-dan/chon-chat-lieu-tem, /huong-dan/chon-kich-thuoc-tem và /huong-dan/ky-thuat-in-tem dùng GuideFrame cùng StorefrontFrame. Phần mở đầu đỏ/hồng gọn, mục lục có neo tới từng section, văn bản và bảng so sánh giữ nguyên. Mobile có chỉ dẫn vuốt ngang bảng và vùng bấm mục lục44px. CTA lấy liên hệ từ quản trị và dùng cùng dialog chuẩn bị báo giá.
+ContentPage chỉ chuyển theme khi canonicalPath bắt đầu /huong-dan/; các trang ngành/doanh nghiệp không đổi bố cục. Chỉ sidebar dùng thẻ aside trong khung để tránh CSSfixed áp vào CTA. Giữ metadata/canonical/schema/ngày cập nhật đã có. verify-guide-design.cjs kiểm3trang/2viewport/mục lục/bảng/quote/9đíchlink200. Evidence guide-*.png và guide-design-results.json. Chỉ local, chưa deploy.
+
+
+## So sánh bằng ảnh — Issue159
+Mục đầu hướng dẫn chất liệu có MaterialVisualComparison: hai panel chọn độc lập7chất liệu, ảnh riêng độ phân giải1448px lấy từproducts, phóng to bằngdialognative. Trình bày điểm nhìn trênảnh, nhu cầu và lưu ý; giữnguyên bảngHTML5hàng bên dưới. Mobile haiảnh cạnhnhau, select/phóngto dùngđược bằng bànphím. Ghi rõ ảnhminhhọa không phải thửvậtliệu. Không thêm ảnhđối thủ, đổi giá/URL/schema. Script verify-material-visuals.cjs và evidence material-visual-*; chỉlocal.
+
+
+## Sơ đồ đo và cắt tem — Issue160
+Hướng dẫn kích thước có sơ đồ tem ví dụ40×60mm và vùng dán trên chai. Hướng dẫn kỹ thuật có so sánh bế demi/cắt rời: nhìn từ trên và mặt cắt tem/keo/đế. Dùng SVG có tên ảnh truy cập, chú thích HTML và nhãn ví dụ, không phát sinh quy cách bắt buộc hoặc file khuôn bế. Màn hình<=1000px chuyển từng hình một hàng để chữ dễ đọc khi có sidebar. Giữ nội dung/URL/schema; cập nhật ngày sửa thực của hướng dẫn kích thước. Bằng chứng technical-* và technical-visual-results.json, script verify-technical-visuals.cjs. Chỉlocal.
+
+
+## Ưu tiên ảnh chụp thực — Issue161 thay phần sơ đồ Issue160
+Theo phản hồi của chủ, bỏ sơ đồ SVG và phần code liên quan khỏi hai hướng dẫn. Ảnh tem tròn đặt trên tay từ thư viện cũ được dùng làm ảnh chụp tham khảo kích thước, không ghi là ảnh thao tác của xưởng. Giữ phần giải thích đo/cắt bế bằng chữ. Còn thiếu ảnh chụp thước đo, tờ bế demi và tem cắt rời còn đế; chưa thể hoàn tất minh họa quy trình thật khi chưa có nguồn. Không dùng ảnh AI để thay thế hoặc ảnh đối thủ làm ảnh đơn VinPrint. Các evidence technical-* trước đó là lịch sử đã thay, không phải giao diện hiện tại.
+
+
+## Bản hoàn thiện local ngày 28/11/2026
+- Đã triển khai đúng ảnh hướng dẫn chủ chọn: đo lớn ở trên, bế demi/cắt rời bên dưới, nhãn AI, phóng to và CTA; đồng bộ ảnh đo sang trang kích thước.
+- Khung chung mở rộng cho Kho mẫu, 13 trang doanh nghiệp/ngành/theo mùa, 34 URL cẩm nang/bài viết/quy trình biên soạn, 404 và AI247. Giữ URL, metadata, nội dung và nguồn. CTA lấy liên hệ từ quản trị.
+- Kho mẫu nối gallery quản trị do index Facebook xuất bản đang rỗng; bỏ ảnh trùng, giữ mảng rỗng do admin lưu, không tạo bài Facebook giả.
+- Audit 65 trang sitemap/83 đích nội bộ đạt; 404/noindex đúng. Kiểm bàn phím 8 nhóm trang và nhãn input, motion thường/giảm đạt sau sửa tabIndex main công cụ và Lenis không chặn skip-link.
+- Nghiệm thu quản trị: upload/delete ảnh, override/restore, áp dụng theme, menu/CtrlK/tìm/sáng tối/mobile đạt. Verifier giới hạn origin local và phục hồi JSON trong finally.
+- Công cụ: CSP build HEIC/PDF/JPG/ZIP đạt. Chuỗi mới qua nén/HEIC/PDF/làm nét/tách nền/nền trắng/xóa vùng; album+tải WebP và video+tải MP4 đạt riêng. Chưa có full-chain pass mới do preview từng treo.
+- Build, TypeScript, lint, 45 HTML/Facebook, 63 unit và6operator đã có lượt đạt; cần tổng hợp lại đúng phiên bản bàn giao.
+- Artifact thuộc CodexSandboxOffline: build bằng Admin từng lỗi EPERM; đã hoàn tác sửa plugin suy đoán, dùng đúng sandbox owner build đạt. Preview được khôi phục dưới cùng tài khoản.
+- Phát hiện hai tệp tài liệu có byte NUL trong lượt bàn giao; phục hồi bản tích hợp từ HEAD và viết lại checklist bằng file tạm + kiểm đọc lại. Không phát hiện byte NUL trong mã nguồn đang thay đổi.
+- Bằng chứng mới: E:/vinprint/outputs/tet-integration-evidence. Chưa merge/deploy; GitHub token invalid nên chưa cập nhật PR33/thẻ việc.
+
+## Chốt nghiệm thu local
+Bản đối chiếu cuối ở REVIEW-READY.md, bằng chứng final/receipt.json. Chuỗi đủ9công cụ trên Worker build đã đạt, không còn chỉ dựa lượt riêng. Preview4181 dùng Worker4182 và dữ liệu .preview, kể cả quản trị; không phụ thuộc HMR Next. Hai ảnh chung giảm82%byte bằng WebP94, giữ kích thước. Đã sửa lỗi quản trị cho sửa mặc định khi đọc API lỗi; regression182/44 trường cũ→0 trường mới, retry và draft khi PUT lỗi đạt. API GitHub đã hoạt động qua credential Git; chỉ thiếu scopeBoard, chưa xuất bản.

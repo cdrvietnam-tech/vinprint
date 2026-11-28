@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogListing from "../../../components/blog/BlogListing";
-import Footer from "../../../components/home/Footer";
-import Header from "../../../components/home/Header";
+import BlogFrame from "../../../components/blog/BlogFrame";
 import { paginateBlogPosts } from "../../../lib/blog-pagination";
 import { blogPosts } from "../../../lib/blog-posts";
 
@@ -26,6 +25,6 @@ export default async function PaginatedBlogPage({ params }: { params: Promise<{ 
   if (!Number.isInteger(page) || page < 2 || page > pagination.totalPages) notFound();
   const latestUpdatedAt = blogPosts.reduce((latest, post) => post.updatedAt > latest ? post.updatedAt : latest, blogPosts[0]?.updatedAt ?? "2026-07-20");
 
-  return <div className="min-h-screen bg-[#F7F4EE] text-gray-950"><Header /><main id="main-content" tabIndex={-1} className="pt-20"><BlogListing posts={pagination.items} totalItems={pagination.totalItems} latestUpdatedAt={latestUpdatedAt} currentPage={page} totalPages={pagination.totalPages} /></main><Footer /></div>;
+  return <BlogFrame><main id="main-content" tabIndex={-1} className="vp-blog-content"><BlogListing posts={pagination.items} totalItems={pagination.totalItems} latestUpdatedAt={latestUpdatedAt} currentPage={page} totalPages={pagination.totalPages} /></main></BlogFrame>;
 }
 

@@ -1,9 +1,13 @@
 import { seasonalPages } from "./seasonal-pages";
+import { materialComparison, materialTrial, cutComparison } from "./material-comparison";
 
 export type ContentSection = {
   heading: string;
   paragraphs: string[];
   bullets?: string[];
+  visualComparison?: boolean;
+  measurementVisual?: boolean;
+  table?: { caption: string; columns: string[]; rows: string[][] };
   links?: { href: string; label: string }[];
   image?: { src: string; alt: string; caption: string };
 };
@@ -113,17 +117,17 @@ export const industryPages: Record<string, ContentPageData> = {
 };
 
 export const guidePages: Record<string, ContentPageData> = {
-  "chon-chat-lieu-tem": { slug: "chon-chat-lieu-tem", title: "Cách chọn chất liệu tem nhãn phù hợp", description: "So sánh tem giấy, tem nhựa, tem trong, tem ánh kim và UV DTF theo môi trường sử dụng.", eyebrow: "Hướng dẫn · Chất liệu", intro: "Không có chất liệu tốt nhất cho mọi sản phẩm; lựa chọn đúng phụ thuộc bề mặt dán, độ ẩm, thời gian sử dụng và ngân sách.", sections: [
+  "chon-chat-lieu-tem": { slug: "chon-chat-lieu-tem", updatedAt: "2026-11-28", title: "Cách chọn chất liệu tem nhãn phù hợp", description: "So sánh tem giấy, tem nhựa, tem trong, tem ánh kim và UV DTF theo môi trường sử dụng.", eyebrow: "Hướng dẫn · Chất liệu", intro: "Không có chất liệu tốt nhất cho mọi sản phẩm; lựa chọn đúng phụ thuộc bề mặt dán, độ ẩm, thời gian sử dụng và ngân sách.", sections: [materialComparison, materialTrial,
     { heading: "Tem giấy", paragraphs: ["Chi phí hợp lý, màu in đẹp, phù hợp hộp giấy và bao bì khô. Không nên dùng ở nơi thường xuyên tiếp xúc nước."], bullets: ["Phù hợp: hộp, túi kraft, tem cảm ơn", "Không phù hợp: chai lạnh, phòng tắm"] },
     { heading: "Tem nhựa và tem trong", paragraphs: ["Bền ẩm hơn tem giấy. Tem nhựa trắng giúp màu ổn định; tem trong giữ lại màu của bao bì phía sau."], bullets: ["Phù hợp: mỹ phẩm, đồ uống, đông lạnh", "Cần thử độ bám trên bề mặt thật"] },
     { heading: "Tem hiệu ứng", paragraphs: ["Tem ánh kim, hologram và UV DTF tạo điểm nhấn mạnh nhưng cần thiết kế tiết chế để giữ khả năng đọc."] },
   ]},
-  "chon-kich-thuoc-tem": { slug: "chon-kich-thuoc-tem", title: "Cách đo và chọn kích thước tem nhãn", description: "Hướng dẫn đo vùng dán, thử mẫu giấy và chọn kích thước tem cho chai, hũ, hộp và túi.", eyebrow: "Hướng dẫn · Kích thước", intro: "Kích thước tem nên được kiểm tra trực tiếp trên bao bì thay vì chỉ dựa vào kích thước file thiết kế.", sections: [
-    { heading: "Ba bước đo", paragraphs: ["Đo vùng phẳng có thể dán, trừ phần cong hoặc gân. Cắt một mẫu giấy đúng kích thước rồi dán thử. Cuối cùng chụp ảnh gửi xưởng để đối chiếu."], bullets: ["Đo bằng milimet", "Chừa biên an toàn", "Kiểm tra khả năng đọc ở khoảng cách sử dụng"] },
+  "chon-kich-thuoc-tem": { slug: "chon-kich-thuoc-tem", updatedAt: "2026-11-28", title: "Cách đo và chọn kích thước tem nhãn", description: "Hướng dẫn đo vùng dán, thử mẫu giấy và chọn kích thước tem cho chai, hũ, hộp và túi.", eyebrow: "Hướng dẫn · Kích thước", intro: "Kích thước tem nên được kiểm tra trực tiếp trên bao bì thay vì chỉ dựa vào kích thước file thiết kế.", sections: [
+    { heading: "Ba bước đo", measurementVisual:true, paragraphs: ["Đo vùng phẳng có thể dán, trừ phần cong hoặc gân. Cắt một mẫu giấy đúng kích thước rồi dán thử. Cuối cùng chụp ảnh gửi xưởng để đối chiếu."], bullets: ["Đo bằng milimet", "Chừa biên an toàn", "Kiểm tra khả năng đọc ở khoảng cách sử dụng"] },
     { heading: "Chai tròn và hũ", paragraphs: ["Không nên để hai mép tem chạm nhau nếu không thiết kế dạng quấn vòng. Tem nhỏ nên bo góc để giảm nguy cơ bong mép."] },
     { heading: "Kích thước file", paragraphs: ["File nên đúng tỷ lệ thành phẩm, có vùng xén và hình ảnh đủ độ phân giải. Chữ quan trọng cần nằm cách đường cắt một khoảng an toàn."] },
   ]},
-  "ky-thuat-in-tem": { slug: "ky-thuat-in-tem", title: "Các kỹ thuật in và gia công tem nhãn", description: "Giải thích cán màng, cắt bế, ép kim, hologram và UV DTF để chọn kỹ thuật phù hợp.", eyebrow: "Hướng dẫn · Kỹ thuật in", intro: "Kỹ thuật gia công ảnh hưởng trực tiếp đến độ bền, cảm giác bề mặt và chi phí của tem.", sections: [
+  "ky-thuat-in-tem": { slug: "ky-thuat-in-tem", updatedAt: "2026-11-28", title: "Các kỹ thuật in và gia công tem nhãn", description: "Giải thích cán màng, cắt bế, ép kim, hologram và UV DTF để chọn kỹ thuật phù hợp.", eyebrow: "Hướng dẫn · Kỹ thuật in", intro: "Kỹ thuật gia công ảnh hưởng trực tiếp đến độ bền, cảm giác bề mặt và chi phí của tem.", sections: [cutComparison,
     { heading: "Cán màng", paragraphs: ["Lớp cán giúp bảo vệ bề mặt in và thay đổi cảm giác bóng hoặc mờ. Cán không thay thế hoàn toàn việc chọn đúng vật liệu nền."], bullets: ["Màng bóng: màu nổi, dễ lau", "Màng mờ: giảm phản sáng, cảm giác dịu"] },
     { heading: "Cắt bế", paragraphs: ["Cắt bế tạo hình theo đường viền. Góc quá nhọn hoặc chi tiết quá nhỏ có thể khó bóc và dễ bong khi sử dụng."] },
     { heading: "Ép kim, hologram và UV DTF", paragraphs: ["Các hiệu ứng này phù hợp điểm nhấn logo hoặc chi tiết ngắn. Nên xem mẫu vật liệu thật và thử trên bao bì trước khi sản xuất số lượng lớn."] },

@@ -36,6 +36,7 @@ export default function VideoAdmin() {
     gallery: [...DEFAULT_MEDIA_COLLECTIONS.gallery],
     ai247: [...DEFAULT_MEDIA_COLLECTIONS.ai247],
   }));
+  const [loadError,setLoadError]=useState(false);
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState<string | null>(null);
   const [messages, setMessages] = useState<Record<string, string>>({});
@@ -45,8 +46,9 @@ export default function VideoAdmin() {
   useEffect(() => {
     Promise.all(MEDIA_COLLECTIONS.map(async ({ id }) => {
       const response = await fetch(`/api/admin/media-collections?collection=${id}`, { cache: "no-store" });
-      if (!response.ok) return { id, items: DEFAULT_MEDIA_COLLECTIONS[id] };
+      if (!response.ok) throw new Error("collection_unavailable");
       const result = await response.json() as { items: ManagedMediaItem[] };
+      if(!Array.isArray(result.items))throw new Error("invalid_collection");
       return { id, items: result.items };
     })).then((results) => {
       setCollections((current) => {
@@ -54,7 +56,7 @@ export default function VideoAdmin() {
         for (const result of results) next[result.id] = result.items;
         return next;
       });
-    }).finally(() => setLoading(false));
+    }).catch(()=>setLoadError(true)).finally(() => setLoading(false));
   }, []);
 
   const validateFile = (collection: MediaCollectionId, allowVideo: boolean, file: File) => {
@@ -218,14 +220,14 @@ export default function VideoAdmin() {
   };
 
   return (
-    <section className="mt-8 rounded-[32px] border border-violet-100 bg-gradient-to-br from-violet-50 via-white to-orange-50 p-4 shadow-[0_18px_50px_rgba(76,29,149,0.08)] sm:p-6">
+    <section className="mt-8 rounded-2xl border border-gray-200 bg-white p-4 sm:p-6">
       <div className="max-w-4xl">
         <p className="text-xs font-black uppercase tracking-[0.16em] text-violet-700">Bộ sưu tập động</p>
         <h2 className="mt-2 text-2xl font-black sm:text-3xl">Quản lý ngay trên từng ảnh hoặc video</h2>
         <p className="mt-2 text-sm font-medium leading-relaxed text-gray-600">Mỗi thẻ có đủ thao tác đăng thêm, thay, cắt–căn, khôi phục và xóa. Nội dung mới sẽ xuất hiện đúng khu vực trên trang chủ.</p>
       </div>
 
-      {loading ? (
+      {loadError ? <div role="alert" className="mt-5 rounded-xl border border-red-200 bg-red-50 p-5"><p>Chưa tải được bộ sưu tập đã lưu. Anh thử tải lại trước khi chỉnh sửa.</p><button className="mt-4 min-h-11 rounded-full border px-5 font-bold" onClick={()=>window.location.reload()}>Thử tải lại bộ sưu tập</button></div> : loading ? (
         <div className="flex min-h-44 items-center justify-center"><Loader2 className="h-7 w-7 animate-spin text-violet-700" /></div>
       ) : (
         <div className="mt-6 space-y-6">
@@ -260,7 +262,7 @@ export default function VideoAdmin() {
                       <div key={item.id} className="w-56 shrink-0 rounded-2xl border border-gray-100 bg-gray-50 p-2.5">
                         <div className="relative aspect-square overflow-hidden rounded-xl bg-white">
                           {item.kind === "video" ? (
-                            <video src={item.src} controls muted playsInline preload="metadata" className="h-full w-full object-contain" aria-label={item.title} />
+                            <video poster={item.poster} src={item.src} controls muted playsInline preload="metadata" className="h-full w-full object-contain" aria-label={item.title} />
                           ) : (
                             <Image src={item.src} alt={item.title} fill unoptimized={item.kind === "gif" || item.src.startsWith("/media/")} sizes="224px" className="object-contain" />
                           )}

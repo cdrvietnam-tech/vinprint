@@ -54,3 +54,4 @@ preview-*.html
 **/__pycache__/
 /agent/operator/private/
 **/private-google.json
+.preview/

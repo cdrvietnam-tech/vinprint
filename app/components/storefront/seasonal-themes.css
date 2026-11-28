@@ -1,0 +1,13 @@
+/* Theme Tết giữ CSS gốc; chỉ đổi token và trang trí khi chủ chọn dịp khác. */
+html[data-vinprint-season="everyday"] .vinprint-storefront{--season-dark:#083344;--red:#075985;--cream:#eaf5fa;--line:#07598530}
+html[data-vinprint-season="noel"] .vinprint-storefront{--season-dark:#073c31;--red:#13634b;--cream:#edf6ef;--line:#13634b30}
+html[data-vinprint-season="march8"] .vinprint-storefront{--season-dark:#651c41;--red:#a52660;--cream:#fff0f5;--line:#a5266030}
+html[data-vinprint-season="october20"] .vinprint-storefront{--season-dark:#50243f;--red:#8d3566;--cream:#fbf0f5;--line:#8d356630}
+html[data-vinprint-season="november20"] .vinprint-storefront{--season-dark:#49321e;--red:#83501a;--cream:#fbf3e6;--line:#83501a30}
+html[data-vinprint-season]:not([data-vinprint-season="tet"]) .vinprint-storefront .red,html[data-vinprint-season]:not([data-vinprint-season="tet"]) .vinprint-storefront .vp-nav.active{background:var(--red);border-color:var(--red);box-shadow:none;color:white}
+html[data-vinprint-season]:not([data-vinprint-season="tet"]) .vinprint-storefront aside,html[data-vinprint-season]:not([data-vinprint-season="tet"]) .vinprint-storefront header{background:linear-gradient(110deg,#fff,var(--cream))}
+html[data-vinprint-season]:not([data-vinprint-season="tet"]) .vinprint-storefront .vp-home-service-strip,html[data-vinprint-season]:not([data-vinprint-season="tet"]) .vinprint-storefront .vp-home-tools{background:var(--cream)}
+html[data-vinprint-season]:not([data-vinprint-season="tet"]) .vinprint-storefront.vp-home-rearranged .vp-home-tools h2{color:var(--red)}
+html[data-vinprint-season]:not([data-vinprint-season="tet"]) .vinprint-storefront .hero{background:var(--season-dark)}
+html[data-vinprint-season]:not([data-vinprint-season="tet"]) .vinprint-storefront .hero-actions .gold{color:var(--red)}
+html[data-vinprint-season]:not([data-vinprint-season="tet"]) .vinprint-storefront .toplinks :is(button,a){border-color:var(--line)}

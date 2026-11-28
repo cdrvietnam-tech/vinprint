@@ -103,6 +103,7 @@ function AddButton({ onClick, label }: { onClick: () => void; label: string }) {
 }
 
 export default function ContentAdmin() {
+  const [loaded,setLoaded]=useState(false);
   const [content, setContent] = useState<SiteContent>(DEFAULT_SITE_CONTENT);
   const [status, setStatus] = useState<Status>({ kind: "loading" });
 
@@ -117,12 +118,14 @@ export default function ContentAdmin() {
       })
       .then((data) => {
         setContent(mergeSiteContent(data));
+        setLoaded(true);
         setStatus({ kind: "idle" });
       })
       .catch(() => setStatus({ kind: "error", message: "Không tải được nội dung. Kiểm tra đăng nhập quản trị (Cloudflare Access)." }));
   }, []);
 
   const save = async () => {
+    if(!loaded)return;
     setStatus({ kind: "saving" });
     try {
       const response = await fetch("/api/admin/site-content", {
@@ -138,6 +141,7 @@ export default function ContentAdmin() {
   };
 
   const resetAll = async () => {
+    if(!loaded)return;
     if (!window.confirm("Khôi phục toàn bộ về nội dung mặc định? Thao tác này xoá nội dung đã lưu.")) return;
     setStatus({ kind: "saving" });
     try {
@@ -150,6 +154,7 @@ export default function ContentAdmin() {
     }
   };
 
+  if(status.kind==="error"&&!loaded)return <div className="mx-auto max-w-3xl px-4 py-8"><h1 className="text-2xl font-black">Quản trị nội dung trang chủ</h1><div role="alert" className="mt-6 rounded-xl border border-red-200 bg-red-50 p-5"><p>Chưa tải được nội dung đã lưu. Anh thử tải lại trước khi chỉnh sửa.</p><button className="mt-4 min-h-11 rounded-full border px-5 font-bold" onClick={()=>window.location.reload()}>Thử tải lại nội dung</button></div></div>;
   const c = content;
 
   return (
@@ -196,7 +201,18 @@ export default function ContentAdmin() {
             </div>
           </Section>
 
-          <Section title="Hero (đầu trang)">
+          <Section title="Ảnh bìa theme đang dùng" hint="Đổi dịp lễ ở mục Theme theo dịp lễ">
+<Field label="Nhãn trên banner" value={c.tetHome.eyebrow} onChange={(v) => update(["tetHome","eyebrow"],v)} />
+<Row><Field label="Tiêu đề banner dòng 1" value={c.tetHome.titleLine1} onChange={(v) => update(["tetHome","titleLine1"],v)} /><Field label="Tiêu đề banner dòng 2" value={c.tetHome.titleLine2} onChange={(v) => update(["tetHome","titleLine2"],v)} /></Row>
+<Field label="Mô tả banner" area value={c.tetHome.subtitle} onChange={(v) => update(["tetHome","subtitle"],v)} />
+{c.tetHome.features.map((value,i)=><Field key={i} label={"Điểm mạnh "+(i+1)} value={value} onChange={v=>update(["tetHome","features",i],v)} />)}
+<Row><Field label="Nút báo giá banner" value={c.tetHome.primaryCta.label} onChange={v=>update(["tetHome","primaryCta","label"],v)} /><Field label="Link báo giá banner" value={c.tetHome.primaryCta.href} onChange={v=>update(["tetHome","primaryCta","href"],v)} /></Row>
+<Row><Field label="Nút xem mẫu banner" value={c.tetHome.secondaryCta.label} onChange={v=>update(["tetHome","secondaryCta","label"],v)} /><Field label="Link xem mẫu banner" value={c.tetHome.secondaryCta.href} onChange={v=>update(["tetHome","secondaryCta","href"],v)} /></Row>
+<details className="rounded-xl border p-4"><summary className="cursor-pointer font-bold">Banner bộ sưu tập cũ (lưu trữ)</summary><p className="my-3 text-sm text-gray-600">Bố cục mới không hiển thị banner trung gian. Nội dung này được giữ lại để khôi phục khi cần.</p><Field label="Tiêu đề bộ sưu tập" value={c.tetHome.collectionTitle} onChange={v=>update(["tetHome","collectionTitle"],v)} />
+<Field label="Mô tả bộ sưu tập" value={c.tetHome.collectionDescription} onChange={v=>update(["tetHome","collectionDescription"],v)} />
+<Row><Field label="Nút bộ sưu tập" value={c.tetHome.collectionCta.label} onChange={v=>update(["tetHome","collectionCta","label"],v)} /><Field label="Link bộ sưu tập" value={c.tetHome.collectionCta.href} onChange={v=>update(["tetHome","collectionCta","href"],v)} /></Row></details>
+</Section>
+<Section title="Hero trước đây" hint="giữ nội dung cũ, không ghi đè banner Tết">
             <Field label="Nhãn nhỏ phía trên" value={c.hero.eyebrow} onChange={(v) => update(["hero", "eyebrow"], v)} />
             <Row>
               <Field label="Tiêu đề dòng 1" value={c.hero.titleLine1} onChange={(v) => update(["hero", "titleLine1"], v)} />

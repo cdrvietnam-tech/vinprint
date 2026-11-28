@@ -1,0 +1,113 @@
+{
+  "environment": "Local packaged Worker, cold browser context, 390x844, no CPU/network throttling; not field CWV or production PageSpeed",
+  "measurements": [
+    {
+      "route": "/",
+      "ttfbMs": 126,
+      "domContentLoadedMs": 182,
+      "loadMs": 405,
+      "lcpMs": 1072,
+      "largestResources": [
+        {
+          "url": "/images/tet-2027/reference-products.webp",
+          "bytes": 396520
+        },
+        {
+          "url": "/images/tet-2027/artwork.webp",
+          "bytes": 350470
+        },
+        {
+          "url": "/images/pricing/bang-gia-sticker-uv-dtf.webp",
+          "bytes": 313686
+        },
+        {
+          "url": "/images/tet-2027/catalog-approved-1.webp",
+          "bytes": 288992
+        },
+        {
+          "url": "/images/pricing/bang-gia-tem-nhan-tong-hop.webp",
+          "bytes": 282756
+        },
+        {
+          "url": "/images/pricing/bang-gia-tem-nhan-tham-khao.webp",
+          "bytes": 272682
+        }
+      ],
+      "brokenImages": [],
+      "images": 21,
+      "resourceBytes": 4954841
+    },
+    {
+      "route": "/san-pham/tem-giay",
+      "ttfbMs": 16,
+      "domContentLoadedMs": 47,
+      "loadMs": 209,
+      "lcpMs": 168,
+      "largestResources": [
+        {
+          "url": "/images/tet-2027/reference-products.webp",
+          "bytes": 396520
+        },
+        {
+          "url": "/images/tet-2027/products/tem-nhua-chong-nuoc.webp",
+          "bytes": 264864
+        },
+        {
+          "url": "/images/tet-2027/products/sticker-trang-tri.webp",
+          "bytes": 216238
+        },
+        {
+          "url": "/images/tet-2027/products/tem-giay.webp",
+          "bytes": 201230
+        },
+        {
+          "url": "/assets/framework-Dykh5YIU.js",
+          "bytes": 189805
+        },
+        {
+          "url": "/images/tet-2027/products/tem-phu-san-pham.webp",
+          "bytes": 184092
+        }
+      ],
+      "brokenImages": [],
+      "images": 4,
+      "resourceBytes": 2217503
+    },
+    {
+      "route": "/blog",
+      "ttfbMs": 14,
+      "domContentLoadedMs": 51,
+      "loadMs": 147,
+      "lcpMs": 328,
+      "largestResources": [
+        {
+          "url": "/_vinext/image",
+          "bytes": 417482
+        },
+        {
+          "url": "/images/tet-2027/reference-products.webp",
+          "bytes": 396520
+        },
+        {
+          "url": "/assets/framework-Dykh5YIU.js",
+          "bytes": 189805
+        },
+        {
+          "url": "/_vinext/image",
+          "bytes": 188612
+        },
+        {
+          "url": "/_vinext/image",
+          "bytes": 165382
+        },
+        {
+          "url": "/_vinext/image",
+          "bytes": 164016
+        }
+      ],
+      "brokenImages": [],
+      "images": 12,
+      "resourceBytes": 3055604
+    }
+  ]
+}

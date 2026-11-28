@@ -1,0 +1,69 @@
+# SEO phải khớp dữ liệu khách nhìn thấy
+- Issue: https://github.com/cdrvietnam-tech/muse-aistudio/issues/154
+- Nguyên nhân: homepage dùng FAQ schema sao chép cố định từ component cũ trong khi nội dung hiển thị lấy cấu hình quản trị; metadata/ảnh trang sản phẩm còn gọi ảnh minh họa là ảnh thật hoặc nguồn shop.
+- Sửa: bỏ FAQ schema homepage bị lệch; giữ FAQ hiển thị. Ghi nhãn ảnh minh họa ở metadata và trang sản phẩm. Cập nhật hai hướng dẫn cùng intent, không tạo trang cạnh tranh nội bộ.
+- Chặn: tests/rendered-html.test.mjs kiểm không có FAQPage cứng ở homepage, link tới3intentowner, nhãn ảnh đúng; guide có5hàng HTML và ngày sửa/schema đúng. scripts/verify-seo-enrichment.cjs kiểm5route,1H1/canonical/JSONLD/linkHTTP200, bảngmobile và ngày sitemap theo UTC (28/11+07 chuyển thành27/11T17Z, không kiểm bằng substring ngày local).
+- Cào dữ liệu: robots,4URL allowlist và budget; chỉ lưu metadata tối thiểu, không toàn văn/ảnh/giá của đối thủ. Thông tin ngoài web là bằng chứng tham khảo, không phải hướng dẫn điều khiển agent hay cam kết xưởng.
+- Đo lường: không gọi40HTML+62unit là kết quả ranking; GSC/GA4 chưa đọc trong phiên này. Xác minh nguồn Google hiện hành thay vì dùng kiến thức FAQ rich result cũ.
+
+
+## Liên kết liên quan theo ngữ cảnh — Issue155
+- Nguyên nhân: related lấy products.filter(...).slice(0,3), nên tất cả trang gần như cùng gợi ý, bất kể mục đích dùng.
+- Sửa: mapping có3đích riêng và3mục chuẩn bị riêng cho từng10sản phẩm; không tựlink, không thêmclaim/giá. Sitemap chỉ đổi ngày cho các trang thực sửa.
+- Chặn: tests/product-order-context.test.ts kiểm đầy đủ10slug/khôngtrùng/đích tồn tại; HTMLtest khoanh đúngsection để không đếm linkfooter. verify-product-order-content.cjs kiểm link200 và mobile.
+
+
+## Trang sản phẩm chưa đẹp — Issue156
+- Chủ từ chối thẩm mỹ trang UV DTF. Nguyên nhân: bổ sung SEO trong template chi tiết cũ (khối tím lớn/chữ display quá to/header cũ), không bảo đảm cùng hệ giao diện Tết của homepage. HTML/link pass không thay thế nghiệm thu hình ảnh.
+- Theo yêu cầu xem demo trước đã có trong phiên: tạo ảnh đề xuất mới với sidebar/header đỏ/hồng, ảnh trái/thông tin phải, checklist3cột và quy trìnhngắn; chưa sửa layout local.
+- Ảnh demo: C:/Users/Admin/.codex/generated_images/01a21d35-bbb2-7981-8522-5bc64ec2d532/exec-9a1770b2-becc-431c-89b2-2fe3fba9c0a1.png. Đợi chủ chọn trước khi code giao diện; ảnh demo không phải screenshot local hoặc bằng chứng chức năng. Khi triển khai phải giữ toàn bộ nội dung hữu ích, nhãn ảnh minh họa, giá thực và test1440/390.
+
+
+## Áp dụng demo sản phẩm đã duyệt — Issue156
+- Chủ đã trả lời duyệt cho ảnh exec-9a1770b2-becc-431c-89b2-2fe3fba9c0a1.png; quyền này là triển khai local, không phải merge/deploy.
+- ProductDetail dùng cùng sidebar/header/tokens với storefront; ảnh trái/thông tin phải, checklist3cột, quytrìnhngắn, relatedcóảnh; giữ nội dung hướng dẫn/FAQ/schema/giá và10mapping. CSS có scope vp-product-storefront, không dùng header trongsection để tránh CSSsticky/fixed.
+- Nút Nhận báo giá mởdialog đúngsảnphẩm, dựngnộidung và clipboard, khách tựgửiZalo. Kiểm clipboard Windows phải chuẩn hóa CRLF khi đối chiếu.
+- Sidebar advertising mang query danh-muc=print; homepage đồng bộquery sauframe và cócancelcleanup, tránh setState trực tiếp trongeffect bịlintchặn. Browser kiểm6ấnphẩm và không mởdialogngoàiýmuốn.
+- scripts/verify-approved-product-design.cjs kiểm4viewport,hero2cột/đỏtheme/giá, báo giá/clipboard/Escape và menuadvertising; verify-product-order-content.cjs kiểm10trang. Ảnh screenshot chỉ ẩn nextjs-portal làwidgetdev, không đổiUIkhách.
+
+
+## Danh mục và khung dùng chung — Issue157
+- Trang catalog cònbanner tím dùproductđãđổitheme vì dùngtemplateHeader riêng. Tách StorefrontFrame dùngchung vớiProductDetail, giữnguyênluồngquote đãkiểmtra.
+- RenderpropopenQuote khôngđọcref khi render: openQuote chỉđổistate, effect đồngbộshowModal, nativeonClose đặtstatefalse. Lintreact-hooks/refs bắtcallbackđọcref bịđưa qua renderprop.
+- Slugrỗng trêncatalog khôngđược so href.endsWith(slug) vìmọilinkđềuđúng. isCurrent kiểmriêng /san-pham; browserassert đúng1aria-current.
+- Browser kiểm10cards/10routes, nhómfilterkhôngmởquote, searchkhôngdấu/0result/reset,3nhóminấn,4viewport, mobilemenu vàquote. SSRtest xácminh10cards+3nhóm cótrongHTMLkhôngcầnJS.
+
+
+## Khung hướng dẫn — Issue158
+- Tiếp tục đồng bộ3hướng dẫn trong cùng hành trình. GuideFrame nhận children SSR của ContentPage; nội dung, Article schema và canonical vẫn render trên server.
+- Shared CSS vinprint-storefront aside dành cho sidebar; CTAaside cũ không được đưa vào khung mới. GuideFrame dựng CTA bằng div và lấy Zalo từ quản trị. Browser kiểm đúng1aside.
+- Trang guide không phải /san-pham: truyền activePath rỗng để không ghi sai aria-current trên menu catalog.
+- Kiểm mục lục theo đích nằm trong vùng nhìn thấy; section cuối gần footer có thể không lên chính xác82px vì đã chạm cuối trang. Không yêu cầu tọa độ bất khả thi. Bảng mobile kiểm scrollWidth>clientWidth và hỗ trợ focus/bàn phím.
+
+
+## So sánh phải có hình — Issue159
+- Chủ nhắc bảng so sánh cần ảnh trực quan. Nguyên nhân: tập trung bảng HTML và SEO nhưng chưa cho khách nhìn khác biệt giữa nền giấy, nền trong, ánh kim và họa tiết nổi.
+- Thêm hai khung ảnh đổi độc lập giữa7loại tem, xem lớn bằng dialog native và chú thích nhìn trên mẫu/nhu cầu/lưu ý. Mobile vẫn đặt hai bên cạnh nhau và có phóng to; giữ bảng chữ5hàng. Ảnh chỉ minh họa, không dùng làm bằng chứng chống nước/độ bám.
+- Không phóng crop300px từ atlas lênkhung500px: bản đầu nhìn mềm. Dùng7ảnh sản phẩm riêng1448px từnguồnproducts, caption khớp nội dung hình. Browser kiểm naturalWidth>=1000 và xem ảnh desktop/mobile thực.
+- Chặn: verify-material-visuals.cjs kiểm7nguồn ảnh/7đích200/2select/zoom/Escape/1440-768-390/so sánh song song và bảng còn nguyên; HTMLtest kiểm defaultảnh+nhãn minh họa+table.
+
+
+## Sơ đồ kỹ thuật — Issue160
+- Minh họa đo tem và cắt bế bằng SVG để giữ nét ở các màn hình. Số40×60mm chỉ là ví dụ; không gán bleed/vùng an toàn cố định chưa được xưởng xác nhận. Mặt cắt ghi rõ phóng đại, không theo tỷ lệ.
+- Với sidebar, tablet768px không đủ để giữ hai hình và chữ nhỏ cạnh nhau; chuyển1cột từ1000px. Browser kiểm SVG rộng>250px và xem ảnh1440/390.
+- Mũi tên đo ngang và dọc phải dùng hai path riêng: gộp nhiều subpath trong một path khiến marker-start/end chỉ xuất hiện ở đầu/cuối toànpath, làm thiếu mũi tên ở hai đầu còn lại. Xem hình trước khi kết luận.
+
+
+## Chủ yêu cầu ảnh thật — Issue161
+- Chủ đính chính: muốn ảnh chụp thực, không phải sơ đồ SVG. Không dùng ảnh AI photorealistic để thay yêu cầu ảnh thật.
+- Đã rà kho cũ: ảnh tem tròn đặt trên tay tại /images/products/sticker-trang-tri.webp có thể dùng làm ảnh chụp tham khảo kích thước; không khẳng định đó là ảnh thao tác đo hoặc đơn xưởng. Các file blog hình thước/chai chưa có bằng chứng ảnh chụp nên không dùng như ảnh thật.
+- Bỏ4sơ đồ vừa thêm và mã TechnicalGuideVisuals cùng script cũ; giữ giải thích bằng chữ. Hướng dẫn kích thước dùng ảnh tham khảo có sẵn. Chưa có ảnh đủ rõ về thước đo/bế demi/cắt rời có đế; cần chủ cung cấp để hoàn tất, không đánh dấu toàn bộ yêu cầu xong.
+- HTML test kiểm ảnh tham khảo hiện diện, sơ đồ không render và nội dung bế còn nguyên. Browser kiểm ảnh/số lượng/tỷ lệ và1440/390. Evidence reference-size-photo-* và reference-photo-results.json.
+
+
+## Phản hồi chưa đạt, phải demo trước — Issue161
+- Chủ tiếp tục từ chối và yêu cầu ảnh demo trước. Không sửa thêm UI local trước khi chủ chọn.
+- Dựng demo ảnh lớn: thao tác đo bằng thước phía trên, hai ảnh cùng góc nhìn so sánh bế demi giữ chung đế/cắt rời có đế riêng phía dưới. Nhãn demo/ảnhAI nhìn rõ, không gọi là ảnh xưởng thật.
+- Đã sửa logo đúng VinPrint và đơn vị cm trên thước trước gửi bản cuối. Demo cuối: C:/Users/Admin/.codex/generated_images/01a21d35-bbb2-7981-8522-5bc64ec2d532/exec-b380d3b3-e437-4580-a262-8fcdcdaad099.png. Đây là thiết kế đề xuất, không phải screenshot local hay chứng cứ quy trình thực. Chờ chủ chọn; không triển khai tự động.
+
+- Chủ chọn ảnh đính kèm cụ thể: dùng ảnh đó làm chuẩn, không suy luận số mẫu theo thứ tự tin nhắn. Đã áp dụng bố cục đo lớn + hai ảnh cắt bên dưới, ghi rõ ảnh AI. Nghiệm thu 1536/390px, ba hộp phóng to, CTA tư vấn và 41 kiểm tra HTML đạt. GitHub 401 nên chưa cập nhật issue.
