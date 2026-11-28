@@ -13,6 +13,7 @@ import { trackEvent } from "../../lib/analytics";
 import { advertisingItems, featuredImage, selectHomepageMedia, buildQuoteMessage, catalogProducts, featuredItems, featuredProduct, filterFeatured, pricingPosterAssets, safePublicHref, storefrontFilters, type QuoteValues, type StorefrontFilter } from "../../lib/storefront";
 import "./storefront.css";
 import "./home-tools.css";
+import "./storefront-polish.css";
 import {freeTools} from "../../lib/free-tools";
 import ToolPreview from "./ToolPreview";
 import MaterialCatalog from "./MaterialCatalog";
@@ -166,6 +167,8 @@ export default function Storefront(){
           {filter!=="print"&&<p className="vp-art-caption">Hình Tết minh họa thiết kế. Xem quy cách, giá tham khảo hoặc gửi yêu cầu để xưởng xác nhận.</p>}
           {filter!=="print"&&<Link prefetch={false} className="vp-inline-link" href="/nganh/tem-nhan-tet">Tư vấn in tem Tết, thời gian nhận hàng và cách chuẩn bị file →</Link>}
         </section>
+
+        <nav className="vp-quick-sections" aria-label="Đi nhanh đến nội dung" onClick={event=>{const anchor=(event.target as HTMLElement).closest("a");const target=anchor&&document.querySelector(anchor.getAttribute("href")||" ");if(!target)return;event.preventDefault();event.stopPropagation();window.scrollTo({top:target.getBoundingClientRect().top+window.scrollY-82,behavior:"instant"});}}><span>Anh chị đang cần?</span><a href="#danh-muc-san-pham">Chọn chất liệu tem</a><a href="#bang-gia">Xem bảng giá</a><a href="#cong-cu-mien-phi">Chuẩn bị file in</a><a href="#quy-trinh">Cách đặt in</a></nav>
 
         <section className="vp-info-section vp-home-tools" id="cong-cu-mien-phi" aria-labelledby="free-tools-title"><div className="vp-section-top"><div><h2 id="free-tools-title">Xử lý ảnh & chuẩn bị file in</h2><p>Chọn công cụ để bắt đầu. Miễn phí, không cần tài khoản.</p></div><span className="vp-free-badge"><span aria-hidden="true">✓</span> 9 công cụ miễn phí</span></div><div className="vp-home-tool-grid">{freeTools.map(tool=><Link prefetch={false} key={tool.id} className="vp-home-tool" href={"/cong-cu-mien-phi?tool="+tool.id}><ToolPreview tool={tool.id}/><div className="vp-tool-copy"><h3>{tool.name}</h3><p>{tool.description}</p></div><div className="vp-tool-bottom"><span>{tool.group}</span><span className="vp-tool-open">Mở công cụ <span aria-hidden="true">→</span></span></div></Link>)}</div></section>
 

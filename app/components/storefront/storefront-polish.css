@@ -1,0 +1,14 @@
+.vinprint-storefront .vp-quick-sections{display:flex;align-items:center;gap:10px 22px;flex-wrap:wrap;margin-top:24px;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.vinprint-storefront .vp-quick-sections>span{font-size:12px;color:#6c6163}
+.vinprint-storefront .vp-quick-sections>a{display:inline-flex;align-items:center;min-height:44px;font-size:13px;font-weight:700;color:var(--red);text-underline-offset:4px}
+.vinprint-storefront .vp-quick-sections>a:hover{text-decoration:underline}
+.vinprint-storefront #mau-thuc-te .vp-gallery-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px}
+.vinprint-storefront #mau-thuc-te .vp-gallery-grid>a{overflow:hidden;border:1px solid var(--line);border-radius:14px;background:#fffaf7}
+.vinprint-storefront #mau-thuc-te .vp-gallery-grid img{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;border-radius:0}
+.vinprint-storefront #mau-thuc-te .vp-gallery-grid span{display:flex;align-items:center;min-height:44px;padding:9px 13px;font-size:13px;line-height:1.5;color:var(--ink);font-weight:700}
+.vinprint-storefront .vp-guide-links>a,.vinprint-storefront .vp-faq-contact summary{min-height:44px;display:flex;align-items:center}
+.vinprint-storefront .vp-catalog-secondary nav>a{display:inline-flex;align-items:center;min-height:44px}
+.vinprint-storefront .vp-catalog-small .vp-catalog-explore{display:inline-flex;align-items:center;min-height:44px}
+.vinprint-storefront .vp-home-tools .vp-tool-bottom{color:#75616a}
+.vinprint-storefront .vp-catalog-disclaimer{color:#746b68;font-size:11px}
+@media(max-width:700px){.vinprint-storefront .vp-quick-sections{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 12px;padding:13px 0;margin-top:20px}.vinprint-storefront .vp-quick-sections>span{grid-column:1/-1;margin-bottom:2px}.vinprint-storefront .vp-quick-sections>a{font-size:12px;gap:6px}.vinprint-storefront #mau-thuc-te .vp-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.vinprint-storefront #mau-thuc-te .vp-gallery-grid>a:last-child:nth-child(odd){grid-column:1/-1}.vinprint-storefront #mau-thuc-te .vp-gallery-grid span{font-size:12px}.vinprint-storefront .vp-catalog-small-body{padding-bottom:5px}}

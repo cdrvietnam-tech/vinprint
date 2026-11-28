@@ -33,3 +33,9 @@ Chín ô có cảnh SVG/CSS riêng, không chỉ lắc/phóng icon. Không dùng
 ## Khối công cụ — Issue152
 - Phản hồi chưa đẹp: nhãn vàng/nền nâu và các hàng link không có hành động rõ khiến khối tiện ích thiếu đồng bộ. Chỉnh lại thành9thẻ có preview, tên/mô tả và hàng nhóm/Mở công cụ; dùng cùng nền hồng kem, viền hồng, chữ đỏ của theme. Giữ9scene động và deep link.
 - Chặn bằng verify-home-tools-layout.cjs:9CTA/9đích,4viewport và hero không đổi; verify-tool-motion.cjs kiểm animation, pause ngoài viewport, reduced motion. Chờ sidebar đóng trước screenshot mobile; điều kiện scrollWidth không đủ vì sidebar đang transform.
+
+
+## Rà soát toàn trang — Issue153
+- Ảnh toàn trang cho thấy kho mẫu có3ảnh nhưng lưới6cột cố định để trống nửa khối. Dùng auto-fit/minmax desktop và2cột mobile (ảnh lẻ cuối phủ hàng); không đổi media quản trị.
+- Trang dài cần đường tắt tới chất liệu/giá/file/quy trình. Thêm nav4mục trước công cụ; tăng vùng bấm liên kết chất liệu/hướng dẫn lên44px, tăng độ rõ chú thích.
+- verify-storefront-polish.cjs kiểm4viewport,3ảnh phủ chiều ngang,4neo cuộn đúng vị trí và touch target44px. Lenis chặn anchor mặc định nên kiểm vị trí cuộn thực tế thay vì đòi URL hash đổi.
