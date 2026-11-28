@@ -88,6 +88,25 @@ test("product detail schema reflects priced products and quote-only printing ser
   }
 });
 
+test("all ten product pages publish distinct order checks and relevant alternatives", async () => {
+  const slugs = ["tem-giay","tem-nhua-chong-nuoc","tem-nhua-trong","tem-uv-dtf","tem-bac","tem-vang","tem-7-mau","tem-bao-hanh","tem-phu-san-pham","sticker-trang-tri"];
+  const sections = new Set();
+  for (const slug of slugs) {
+    const response = await render(`/san-pham/${slug}`);
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    const checklist = html.slice(html.indexOf(`data-product-checklist="${slug}"`)).split("</section>")[0];
+    assert.ok(checklist.includes('id="order-checklist-title"'));
+    assert.equal((checklist.match(/<dt /g) || []).length, 3);
+    assert.ok(checklist.includes('/blog/chuan-bi-file-in-tem-khong-bi-mo'));
+    sections.add(checklist);
+    const related = html.slice(html.indexOf('class="related-products')).split('</section>')[0];
+    assert.equal((related.match(/href="\/san-pham\//g) || []).length, 3);
+    assert.ok(!related.includes(`href="/san-pham/${slug}"`));
+  }
+  assert.equal(sections.size, 10);
+});
+
 test("production HTTP redirects directly to HTTPS and preserves path and query", async () => {
   for (const path of ["/", "/san-pham/tem-giay?utm_source=test", "/robots.txt"]) {
     const response = await render(path, "http://vinprint.vn");

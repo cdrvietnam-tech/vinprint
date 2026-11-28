@@ -8,6 +8,7 @@ import Header from "../../components/home/Header";
 import Footer from "../../components/home/Footer";
 import { productBySlug, products } from "../../lib/products";
 import { productGuides } from "../../lib/product-guides";
+import { productOrderContext } from "../../lib/product-order-context";
 import { blogPostBySlug } from "../../lib/blog-posts";
 
 type ProductPageProps = {
@@ -41,7 +42,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const product = productBySlug[slug];
   if (!product) notFound();
 
-  const related = products.filter((item) => item.slug !== product.slug).slice(0, 3);
+  const orderContext = productOrderContext[product.slug];
+  const related = (orderContext?.related ?? []).map(slug => productBySlug[slug]).filter(Boolean);
   const guide = productGuides[product.slug];
   const guidePosts = (guide?.posts ?? []).map((postSlug) => blogPostBySlug[postSlug]).filter(Boolean);
   const faqSchema = guide ? {
@@ -166,6 +168,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
         </section>
       )}
+
+      {orderContext && <section className="border-y border-red-100 bg-[#fffaf7] px-4 py-10" aria-labelledby="order-checklist-title" data-product-checklist={product.slug}><div className="mx-auto max-w-6xl"><h2 id="order-checklist-title" className="text-2xl font-black text-[#bd0011]">Chuẩn bị đặt in: {product.name}</h2><p className="mt-3 text-sm leading-7 text-gray-700">Gửi file, kích thước, số lượng từng mẫu và ngày cần nhận. Với loại tem này, hãy kiểm tra thêm:</p><dl className="mt-6 grid gap-4 md:grid-cols-3">{orderContext.checks.map(check=><div key={check.label} className="rounded-2xl border border-red-100 bg-white p-5"><dt className="font-bold text-gray-950">{check.label}</dt><dd className="mt-2 text-sm leading-7 text-gray-700">{check.text}</dd></div>)}</dl><nav aria-label="Chuẩn bị đặt in" className="mt-6 flex flex-wrap gap-3">{[{href:"/blog/chuan-bi-file-in-tem-khong-bi-mo",label:"Kiểm tra file in"},{href:"/huong-dan/chon-kich-thuoc-tem",label:"Đo kích thước tem"},{href:"/blog/gia-in-tem-so-luong-it-phu-thuoc-gi",label:"Hiểu quy cách báo giá"}].map(link=><Link key={link.href} href={link.href} className="inline-flex min-h-11 items-center rounded-full border border-red-100 bg-white px-4 text-sm font-bold text-[#bd0011]">{link.label} →</Link>)}</nav></div></section>}
 
       <section className="product-order">
         <div className="shell product-order__grid">

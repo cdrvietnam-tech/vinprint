@@ -34,3 +34,9 @@ Các nhận xét trên là phân tích biên tập; không xác minh độc lậ
 Đã đọc homepage production và remote main `b866cad58aeedc3969533476aa1c3cd6aa23bef2`. Production vẫn giao diện cũ, khác preview Tết là điều đã biết. API GitHub deployments không trả deployment gần nhất; chưa xác minh commit Cloudflare đang phục vụ, không gọi đây là active-deployment SHA. Không merge/deploy trong tác vụ này; PR33 chứa toàn bộ bản Tết và thay đổi SEO để duyệt cùng nhau.
 
 Không cam kết top Google, index, traffic hoặc được AI trích dẫn. Không dùng backlink spam, nhồi từ khóa, địa điểm giả, đánh giá giả hay sinh hàng loạt trang cùng ý định tìm kiếm.
+
+
+## Tiếp tục — Issue155
+Mười trang sản phẩm có30mục kiểm tra trước đặt in, viết riêng theo vật liệu/cách sử dụng. Các mục không phát sinh giá hoặc thời gian hứa mới. Sửa gợi ý liên quan: trước đây lấy3sản phẩm đầu danh sách cho gần như mọi trang, nay mỗi trang có3lựa chọn hợp nhu cầu, không tự liên kết chính nó. Mỗi trang nối tới hướng dẫnfile/kích thước/giá đã có, tránh sinh bài trùng intent. Sitemap cập nhật ngày sửa thật cho10trang này, không đổi URL hay canonical.
+
+verify-product-order-content.cjs mở10trang, kiểm30mục/30gợi ý,12đíchlink HTTP200,1H1, vùng bấm44px và ảnh1440/390. Tests kiểm tính đầy đủ của mapping và HTML sản phẩm. Đây vẫn là cải tiến local, chưa phải kết quả thứ hạng hay traffic.

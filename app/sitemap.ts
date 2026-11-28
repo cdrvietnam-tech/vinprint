@@ -3,6 +3,7 @@ import { products } from "./lib/products";
 import { companyPages, guidePages, industryPages } from "./lib/content-pages";
 import { blogCategories, blogPosts } from "./lib/blog-posts";
 import { facebookPosts } from "./lib/facebook-posts";
+import { productOrderContext, productOrderUpdatedAt } from "./lib/product-order-context";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://vinprint.vn";
@@ -33,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {url:`${baseUrl}/cong-cu-mien-phi`,lastModified:new Date("2026-11-27T00:00:00+07:00"),changeFrequency:"monthly",priority:0.7},
     ...products.map((product) => ({
       url: `${baseUrl}/san-pham/${product.slug}`,
-      lastModified,
+      lastModified: productOrderContext[product.slug] ? new Date(`${productOrderUpdatedAt}T00:00:00+07:00`) : lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),

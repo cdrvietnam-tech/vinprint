@@ -1,0 +1,13 @@
+{
+  "products": 10,
+  "specificChecks": 30,
+  "relatedChoices": 30,
+  "uniqueLinkDestinations200": 12,
+  "widths": [
+    1440,
+    390
+  ],
+  "touchTargets44": true,
+  "productDatesUpdated": true,
+  "pageErrors": []
+}
