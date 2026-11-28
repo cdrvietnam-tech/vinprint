@@ -42,3 +42,6 @@ GitHub API đã khôi phục qua credential Git đang có; token gh mặc địn
 
 ## Cập nhật bố cục chủ duyệt sau d72e46f
 Xem HOME-LAYOUT-APPROVED.md và evidence/home-layout-v2. Giữ header/bìa,4thẻ chất liệu,5ô công cụ nổi bật kèm đủ9tool ởhub, sidebar7mục. Dữ liệu/giá giữ nguyên. Bản này chưa xuất bản và không kế thừa phê duyệt head cũ.
+
+## Thư viện theme theo dịp lễ — Issue166
+Quản trị /admin/themes có sáu theme thủ công; giữ riêng cấu hình và giữ dữ liệu kinh doanh. Theme Tết vẫn đang dùng. Chi tiết, phạm vi và bằng chứng: [SEASONAL-THEMES.md](SEASONAL-THEMES.md). Menu trái đã phục hồi theo Issue165.

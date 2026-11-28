@@ -8,8 +8,10 @@ import {buildQuoteMessage,safePublicHref,type QuoteValues} from "../../lib/store
 import "./storefront.css";
 import "./product-detail.css";
 
+import {seasonalArtwork} from "../../lib/seasonal-themes";
+
 export function Icon({icon:Component}:{icon:LucideIcon}){return <i aria-hidden="true"><Component/></i>;}
-function Art({box}:{box:string}){return <svg viewBox={box} preserveAspectRatio="xMidYMid slice" aria-hidden="true"><image href="/images/tet-2027/reference-products.webp" width="1781" height="883"/></svg>;}
+function Art({box}:{box:string}){const {seasonalThemes}=useSiteContent();return <svg viewBox={box} preserveAspectRatio="xMidYMid slice" aria-hidden="true"><image href={seasonalArtwork(seasonalThemes.activeId,box,true)} width="1781" height="883"/></svg>;}
 type FrameProps={activePath?:string;product:Pick<Product,"name"|"slug">;children:(actions:{openQuote:()=>void;zalo:string;contact:ReturnType<typeof useSiteContent>["contact"]})=>ReactNode};
 export default function StorefrontFrame({product,children,activePath="/san-pham"}:FrameProps){
  const content=useSiteContent();const contact=content.contact;const zalo=safePublicHref(contact.zaloUrl);

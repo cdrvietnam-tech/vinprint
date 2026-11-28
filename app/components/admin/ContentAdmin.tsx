@@ -201,13 +201,13 @@ export default function ContentAdmin() {
             </div>
           </Section>
 
-          <Section title="Giao diện Tết đã duyệt" hint="banner và bộ sưu tập trang chủ">
+          <Section title="Ảnh bìa theme đang dùng" hint="Đổi dịp lễ ở mục Theme theo dịp lễ">
 <Field label="Nhãn trên banner" value={c.tetHome.eyebrow} onChange={(v) => update(["tetHome","eyebrow"],v)} />
-<Row><Field label="Tiêu đề Tết dòng 1" value={c.tetHome.titleLine1} onChange={(v) => update(["tetHome","titleLine1"],v)} /><Field label="Tiêu đề Tết dòng 2" value={c.tetHome.titleLine2} onChange={(v) => update(["tetHome","titleLine2"],v)} /></Row>
-<Field label="Mô tả banner Tết" area value={c.tetHome.subtitle} onChange={(v) => update(["tetHome","subtitle"],v)} />
-{c.tetHome.features.map((value,i)=><Field key={i} label={"Điểm mạnh Tết "+(i+1)} value={value} onChange={v=>update(["tetHome","features",i],v)} />)}
-<Row><Field label="Nút báo giá Tết" value={c.tetHome.primaryCta.label} onChange={v=>update(["tetHome","primaryCta","label"],v)} /><Field label="Link báo giá Tết" value={c.tetHome.primaryCta.href} onChange={v=>update(["tetHome","primaryCta","href"],v)} /></Row>
-<Row><Field label="Nút xem mẫu Tết" value={c.tetHome.secondaryCta.label} onChange={v=>update(["tetHome","secondaryCta","label"],v)} /><Field label="Link xem mẫu Tết" value={c.tetHome.secondaryCta.href} onChange={v=>update(["tetHome","secondaryCta","href"],v)} /></Row>
+<Row><Field label="Tiêu đề banner dòng 1" value={c.tetHome.titleLine1} onChange={(v) => update(["tetHome","titleLine1"],v)} /><Field label="Tiêu đề banner dòng 2" value={c.tetHome.titleLine2} onChange={(v) => update(["tetHome","titleLine2"],v)} /></Row>
+<Field label="Mô tả banner" area value={c.tetHome.subtitle} onChange={(v) => update(["tetHome","subtitle"],v)} />
+{c.tetHome.features.map((value,i)=><Field key={i} label={"Điểm mạnh "+(i+1)} value={value} onChange={v=>update(["tetHome","features",i],v)} />)}
+<Row><Field label="Nút báo giá banner" value={c.tetHome.primaryCta.label} onChange={v=>update(["tetHome","primaryCta","label"],v)} /><Field label="Link báo giá banner" value={c.tetHome.primaryCta.href} onChange={v=>update(["tetHome","primaryCta","href"],v)} /></Row>
+<Row><Field label="Nút xem mẫu banner" value={c.tetHome.secondaryCta.label} onChange={v=>update(["tetHome","secondaryCta","label"],v)} /><Field label="Link xem mẫu banner" value={c.tetHome.secondaryCta.href} onChange={v=>update(["tetHome","secondaryCta","href"],v)} /></Row>
 <details className="rounded-xl border p-4"><summary className="cursor-pointer font-bold">Banner bộ sưu tập cũ (lưu trữ)</summary><p className="my-3 text-sm text-gray-600">Bố cục mới không hiển thị banner trung gian. Nội dung này được giữ lại để khôi phục khi cần.</p><Field label="Tiêu đề bộ sưu tập" value={c.tetHome.collectionTitle} onChange={v=>update(["tetHome","collectionTitle"],v)} />
 <Field label="Mô tả bộ sưu tập" value={c.tetHome.collectionDescription} onChange={v=>update(["tetHome","collectionDescription"],v)} />
 <Row><Field label="Nút bộ sưu tập" value={c.tetHome.collectionCta.label} onChange={v=>update(["tetHome","collectionCta","label"],v)} /><Field label="Link bộ sưu tập" value={c.tetHome.collectionCta.href} onChange={v=>update(["tetHome","collectionCta","href"],v)} /></Row></details>

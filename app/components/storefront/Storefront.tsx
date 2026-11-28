@@ -21,10 +21,15 @@ import HomeMaterialOverview from "./HomeMaterialOverview";
 import "./home-layout-approved.css";
 import { productThemeImage } from "../../lib/product-theme";
 
+import {seasonalArtwork} from "../../lib/seasonal-themes";
+
 const iconMap: Record<string,LucideIcon> = {archive:Archive,smartphone:Smartphone,cut:Scissors,sparkles:Sparkles,eraser:Eraser,images:Images,video:Video,home:Home,tag:Tag,sticker:Sticker,roll:CircleDot,badge:BadgeCheck,file:FileText,gift:Gift,image:ImageIcon,upload:Upload,help:HelpCircle,bag:ShoppingBag,phone:Phone,box:Package,headset:Headphones,grid:Grid2X2,flower:Flower2,menu:Menu,book:BookOpen,map:MapPin};
 function Icon({name}:{name:string}) { const Component=iconMap[name]||Tag;return <i aria-hidden="true"><Component /></i>; }
 function Artwork({box,reference=false,label}:{box:string;reference?:boolean;label?:string}) {
-  return <svg viewBox={box} preserveAspectRatio="xMidYMid slice" role={label?"img":undefined} aria-label={label} aria-hidden={label?undefined:true}><image href={reference?"/images/tet-2027/reference-products.webp":"/images/tet-2027/artwork.webp"} width="1781" height="883" /></svg>;
+  const {seasonalThemes}=useSiteContent();
+  const banner=seasonalThemes.presets[seasonalThemes.activeId]?.banner;
+  if(banner && box==="244 90 1516 335")return <svg viewBox="0 0 1516 335" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><image href={banner} width="1516" height="335" preserveAspectRatio="xMidYMid slice"/></svg>;
+  return <svg viewBox={box} preserveAspectRatio="xMidYMid slice" role={label?"img":undefined} aria-label={label} aria-hidden={label?undefined:true}><image href={seasonalArtwork(seasonalThemes.activeId,box,reference)} width="1781" height="883" /></svg>;
 }
 
 
@@ -138,7 +143,7 @@ export default function Storefront(){
             <p className="vp-hero-subtitle">{tetHome.subtitle}</p>
             <div className="hero-actions">
               <Link prefetch={false} className="gold vp-action" href={primaryHref} onClick={e=>quoteCta(e,primaryHref)}>{tetHome.primaryCta.label}<span aria-hidden="true">→</span></Link>
-              <Link prefetch={false} className="outline vp-action" href={safePublicHref(tetHome.secondaryCta.href,"#san-pham-tet")} onClick={()=>chooseFilter("tet")}>{tetHome.secondaryCta.label}</Link>
+              <Link prefetch={false} className="outline vp-action" href={safePublicHref(tetHome.secondaryCta.href,"#san-pham-tet")} onClick={()=>chooseFilter(content.seasonalThemes.activeId==="tet"?"tet":"all")}>{tetHome.secondaryCta.label}</Link>
             </div>
           </div>
           <div className="benefits">{tetHome.features.slice(0,4).map((feature,index)=><span key={index}>{feature}</span>)}</div>

@@ -3,6 +3,9 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { DEFAULT_SITE_CONTENT, mergeSiteContent, type SiteContent } from "../lib/site-content";
 
+import {isSeasonId} from "../lib/seasonal-themes";
+import "./storefront/seasonal-themes.css";
+
 const SiteContentContext = createContext<SiteContent>(DEFAULT_SITE_CONTENT);
 
 // Nạp nội dung động từ API công khai và hợp nhất với mặc định.
@@ -25,6 +28,11 @@ export default function SiteContentProvider({ children }: { children: ReactNode 
       active = false;
     };
   }, []);
+
+  useEffect(() => {
+    const id=content.seasonalThemes.activeId;
+    document.documentElement.dataset.vinprintSeason=isSeasonId(id)?id:"tet";
+  }, [content.seasonalThemes.activeId]);
 
   return <SiteContentContext.Provider value={content}>{children}</SiteContentContext.Provider>;
 }

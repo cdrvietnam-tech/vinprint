@@ -1,0 +1,14 @@
+{
+  "themes": 6,
+  "applyReload": true,
+  "tetHeroPixelIdentical": true,
+  "customTextPersists": true,
+  "businessDataPreserved": true,
+  "saveFailureDraftRetained": true,
+  "loadFailureRecovery": true,
+  "unknownThemeRejected": true,
+  "adminMobile390": true,
+  "publicMobileThemes": 6,
+  "concurrentThemeConflictProtected": true,
+  "pageErrors": []
+}
