@@ -122,6 +122,20 @@ test("catalog renders all ten products and preserves other printing groups witho
   assert.ok(html.includes('class="vinprint-storefront vp-product-storefront"'));
 });
 
+test("three guides share the approved storefront frame and expose section anchors in HTML", async () => {
+  for (const [slug, count] of [["chon-chat-lieu-tem",5],["chon-kich-thuoc-tem",3],["ky-thuat-in-tem",4]]) {
+    const response = await render(`/huong-dan/${slug}`);
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    assert.ok(html.includes('class="vp-guide-page"'));
+    assert.ok(html.includes('aria-label="Mục lục hướng dẫn"'));
+    assert.equal((html.match(/id="guide-section-/g)||[]).length,count);
+    assert.equal((html.match(/<h1[ >]/g)||[]).length,1);
+    const article = structuredData(html).find(item=>item["@type"]==="Article");
+    assert.equal(article.mainEntityOfPage,`https://vinprint.vn/huong-dan/${slug}`);
+  }
+});
+
 test("production HTTP redirects directly to HTTPS and preserves path and query", async () => {
   for (const path of ["/", "/san-pham/tem-giay?utm_source=test", "/robots.txt"]) {
     const response = await render(path, "http://vinprint.vn");

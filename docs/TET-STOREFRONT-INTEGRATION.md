@@ -78,3 +78,8 @@ Bằng chứng approved-product-design-results.json, approved-product-*.png và 
 Trang /san-pham dùng ProductCatalog và StorefrontFrame cùng ProductDetail. Khung header/sidebar và báo giá được dùng chung. Có 10 thẻ ảnh với giá từ products, lọc nhu cầu, tìm không dấu và phục hồi khi không có kết quả. Các nhóm văn phòng/quảng cáo/bao bì giữ dữ liệu và lấy Zalo từ quản trị. Bỏ danh sách link tem lặp ở nhóm bên dưới vì đã có 10 thẻ bên trên.
 
 Bộ lọc dùng group/aria-pressed với thao tác bàn phím native. Metadata/canonical/URL/giá giữ nguyên; sitemap cập nhật ngày sửa trang danh mục. Kiểm tra: verify-product-catalog.cjs, 42 HTML và 63 unit. Bằng chứng product-catalog-* trong docs/evidence/tet-storefront. Chỉ triển khai local.
+
+
+## Ba hướng dẫn đồng bộ — Issue158
+Các URL /huong-dan/chon-chat-lieu-tem, /huong-dan/chon-kich-thuoc-tem và /huong-dan/ky-thuat-in-tem dùng GuideFrame cùng StorefrontFrame. Phần mở đầu đỏ/hồng gọn, mục lục có neo tới từng section, văn bản và bảng so sánh giữ nguyên. Mobile có chỉ dẫn vuốt ngang bảng và vùng bấm mục lục44px. CTA lấy liên hệ từ quản trị và dùng cùng dialog chuẩn bị báo giá.
+ContentPage chỉ chuyển theme khi canonicalPath bắt đầu /huong-dan/; các trang ngành/doanh nghiệp không đổi bố cục. Chỉ sidebar dùng thẻ aside trong khung để tránh CSSfixed áp vào CTA. Giữ metadata/canonical/schema/ngày cập nhật đã có. verify-guide-design.cjs kiểm3trang/2viewport/mục lục/bảng/quote/9đíchlink200. Evidence guide-*.png và guide-design-results.json. Chỉ local, chưa deploy.

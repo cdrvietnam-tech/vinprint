@@ -1,0 +1,16 @@
+{
+  "guides": 3,
+  "widths": [
+    1440,
+    390
+  ],
+  "themeRed": true,
+  "oneSidebar": true,
+  "tocScrolls": true,
+  "touchTargets44": true,
+  "tableRows": 5,
+  "mobileTableScroll": true,
+  "quote": true,
+  "internalDestinations200": 9,
+  "pageErrors": []
+}

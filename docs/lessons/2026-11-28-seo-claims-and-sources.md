@@ -32,3 +32,10 @@
 - RenderpropopenQuote khôngđọcref khi render: openQuote chỉđổistate, effect đồngbộshowModal, nativeonClose đặtstatefalse. Lintreact-hooks/refs bắtcallbackđọcref bịđưa qua renderprop.
 - Slugrỗng trêncatalog khôngđược so href.endsWith(slug) vìmọilinkđềuđúng. isCurrent kiểmriêng /san-pham; browserassert đúng1aria-current.
 - Browser kiểm10cards/10routes, nhómfilterkhôngmởquote, searchkhôngdấu/0result/reset,3nhóminấn,4viewport, mobilemenu vàquote. SSRtest xácminh10cards+3nhóm cótrongHTMLkhôngcầnJS.
+
+
+## Khung hướng dẫn — Issue158
+- Tiếp tục đồng bộ3hướng dẫn trong cùng hành trình. GuideFrame nhận children SSR của ContentPage; nội dung, Article schema và canonical vẫn render trên server.
+- Shared CSS vinprint-storefront aside dành cho sidebar; CTAaside cũ không được đưa vào khung mới. GuideFrame dựng CTA bằng div và lấy Zalo từ quản trị. Browser kiểm đúng1aside.
+- Trang guide không phải /san-pham: truyền activePath rỗng để không ghi sai aria-current trên menu catalog.
+- Kiểm mục lục theo đích nằm trong vùng nhìn thấy; section cuối gần footer có thể không lên chính xác82px vì đã chạm cuối trang. Không yêu cầu tọa độ bất khả thi. Bảng mobile kiểm scrollWidth>clientWidth và hỗ trợ focus/bàn phím.
