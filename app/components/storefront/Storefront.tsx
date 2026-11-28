@@ -86,14 +86,27 @@ export default function Storefront(){
     <aside id="sidebar" className={menuOpen?"open":""}>
       <Link prefetch={false} className="logo" href="/" aria-label="VinPrint — Trang chủ"><Artwork box="18 0 178 77" reference /></Link>
       <nav aria-label="Danh mục dịch vụ">
-        <Link className={"vp-nav vp-action "+(filter==="all"||filter==="tet"?"active":"")} href="#trang-chu" onClick={()=>chooseFilter("all")}><Icon name="home"/>Trang chủ</Link>
-        <Link className="vp-nav vp-action" href="#san-pham-tet" onClick={()=>chooseFilter("all")}><Icon name="tag"/>Các loại tem nhãn</Link>
+        <p>Danh mục dịch vụ</p>
+        {navFilter("Trang chủ","home","all")}
+        {navFilter("In tem nhãn","tag","label")}
+        {navFilter("In decal sticker","sticker","sticker")}
+        {navFilter("Tem nhãn chống nước","roll","water")}
+        {navFilter("Tem bạc, tem ánh kim","badge","metal")}
         {navFilter("Ấn phẩm quảng cáo","file","print")}
-        {navLink("Kho mẫu","image","#mau-thuc-te")}
+        {navFilter("Tem dán hộp & túi giấy","gift","pack")}
+        {navLink("Kho mẫu tham khảo","image","#mau-thuc-te")}
+        <p>Công cụ & tiện ích</p>
         {navLink("Công cụ miễn phí","sticker","#cong-cu-mien-phi")}
-        {navLink("Hướng dẫn đặt in","book","#quy-trinh")}
-        {navLink("Liên hệ","phone","#lien-he-xuong")}
+        <button className="vp-nav" onClick={()=>openQuote("In tem nhãn")}><Icon name="file"/>Báo giá in online</button>
+        <button className="vp-nav" onClick={()=>setModal({kind:"upload"})}><Icon name="upload"/>Gửi file thiết kế</button>
+        {navLink("Hướng dẫn đặt in","help","#quy-trinh")}
+        {navLink("Cẩm nang in ấn","book","/blog")}
+        <p>Hỗ trợ khách hàng</p>
+        <button className="vp-nav" onClick={()=>setModal({kind:"order"})}><Icon name="bag"/>Hỗ trợ đơn hàng</button>
+        {navLink("Bảng giá tham khảo","file","#bang-gia")}
+        {navLink("Liên hệ hỗ trợ","phone","#lien-he-xuong")}
       </nav>
+      <div className="sidebar-art"><Artwork box="0 746 222 137" reference /></div>
     </aside>
 
     <div className="workspace">

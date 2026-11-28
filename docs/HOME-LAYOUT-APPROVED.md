@@ -23,3 +23,6 @@ Helper scripts/preview-built-storefront.mjs hỗ trợ VINPRINT_PREVIEW_BUILD_DI
 Thông tin Worker đang phục vụ nằm trong .preview/layout-review-processes.json. Chỉ thay đúng Worker4182, proxy4181 được giữ; không chạm Muse5000/watchdog/tunnel.
 
 Chưa xuất bản. Bố cục mới thay phần trang chủ trong bản bàn giao d72e46f; cần duyệt lại head mới nếu xuất bản.
+
+## Điều chỉnh theo chủ — Issue165
+Thanh menu trái phục hồi theo ảnh gốc: 3 nhóm/16 mục và hình quà Tết. Không còn sidebar 7 mục. Header/hero/nội dung giữ nguyên. Bằng chứng mới: docs/evidence/tet-storefront/sidebar-restored.
