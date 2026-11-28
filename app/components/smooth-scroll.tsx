@@ -31,7 +31,7 @@ export default function SmoothScroll() {
     function onAnchorClick(event: MouseEvent) {
       const target = event.target as HTMLElement | null;
       const anchor = target?.closest?.('a[href^="#"]') as HTMLAnchorElement | null;
-      if (!anchor) return;
+      if (!anchor || anchor.classList.contains("skip-link")) return;
       const id = anchor.getAttribute("href");
       if (!id || id === "#") return;
       const el = document.querySelector(id);

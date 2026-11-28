@@ -1,0 +1,22 @@
+[
+  {
+    "component": "ContentAdmin",
+    "version": "old",
+    "editable": 182
+  },
+  {
+    "component": "ContentAdmin",
+    "version": "new",
+    "editable": 0
+  },
+  {
+    "component": "VideoAdmin",
+    "version": "old",
+    "editable": 44
+  },
+  {
+    "component": "VideoAdmin",
+    "version": "new",
+    "editable": 0
+  }
+]

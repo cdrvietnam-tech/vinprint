@@ -95,3 +95,19 @@ Hướng dẫn kích thước có sơ đồ tem ví dụ40×60mm và vùng dán 
 
 ## Ưu tiên ảnh chụp thực — Issue161 thay phần sơ đồ Issue160
 Theo phản hồi của chủ, bỏ sơ đồ SVG và phần code liên quan khỏi hai hướng dẫn. Ảnh tem tròn đặt trên tay từ thư viện cũ được dùng làm ảnh chụp tham khảo kích thước, không ghi là ảnh thao tác của xưởng. Giữ phần giải thích đo/cắt bế bằng chữ. Còn thiếu ảnh chụp thước đo, tờ bế demi và tem cắt rời còn đế; chưa thể hoàn tất minh họa quy trình thật khi chưa có nguồn. Không dùng ảnh AI để thay thế hoặc ảnh đối thủ làm ảnh đơn VinPrint. Các evidence technical-* trước đó là lịch sử đã thay, không phải giao diện hiện tại.
+
+
+## Bản hoàn thiện local ngày 28/11/2026
+- Đã triển khai đúng ảnh hướng dẫn chủ chọn: đo lớn ở trên, bế demi/cắt rời bên dưới, nhãn AI, phóng to và CTA; đồng bộ ảnh đo sang trang kích thước.
+- Khung chung mở rộng cho Kho mẫu, 13 trang doanh nghiệp/ngành/theo mùa, 34 URL cẩm nang/bài viết/quy trình biên soạn, 404 và AI247. Giữ URL, metadata, nội dung và nguồn. CTA lấy liên hệ từ quản trị.
+- Kho mẫu nối gallery quản trị do index Facebook xuất bản đang rỗng; bỏ ảnh trùng, giữ mảng rỗng do admin lưu, không tạo bài Facebook giả.
+- Audit 65 trang sitemap/83 đích nội bộ đạt; 404/noindex đúng. Kiểm bàn phím 8 nhóm trang và nhãn input, motion thường/giảm đạt sau sửa tabIndex main công cụ và Lenis không chặn skip-link.
+- Nghiệm thu quản trị: upload/delete ảnh, override/restore, áp dụng theme, menu/CtrlK/tìm/sáng tối/mobile đạt. Verifier giới hạn origin local và phục hồi JSON trong finally.
+- Công cụ: CSP build HEIC/PDF/JPG/ZIP đạt. Chuỗi mới qua nén/HEIC/PDF/làm nét/tách nền/nền trắng/xóa vùng; album+tải WebP và video+tải MP4 đạt riêng. Chưa có full-chain pass mới do preview từng treo.
+- Build, TypeScript, lint, 45 HTML/Facebook, 63 unit và6operator đã có lượt đạt; cần tổng hợp lại đúng phiên bản bàn giao.
+- Artifact thuộc CodexSandboxOffline: build bằng Admin từng lỗi EPERM; đã hoàn tác sửa plugin suy đoán, dùng đúng sandbox owner build đạt. Preview được khôi phục dưới cùng tài khoản.
+- Phát hiện hai tệp tài liệu có byte NUL trong lượt bàn giao; phục hồi bản tích hợp từ HEAD và viết lại checklist bằng file tạm + kiểm đọc lại. Không phát hiện byte NUL trong mã nguồn đang thay đổi.
+- Bằng chứng mới: E:/vinprint/outputs/tet-integration-evidence. Chưa merge/deploy; GitHub token invalid nên chưa cập nhật PR33/thẻ việc.
+
+## Chốt nghiệm thu local
+Bản đối chiếu cuối ở REVIEW-READY.md, bằng chứng final/receipt.json. Chuỗi đủ9công cụ trên Worker build đã đạt, không còn chỉ dựa lượt riêng. Preview4181 dùng Worker4182 và dữ liệu .preview, kể cả quản trị; không phụ thuộc HMR Next. Hai ảnh chung giảm82%byte bằng WebP94, giữ kích thước. Đã sửa lỗi quản trị cho sửa mặc định khi đọc API lỗi; regression182/44 trường cũ→0 trường mới, retry và draft khi PUT lỗi đạt. API GitHub đã hoạt động qua credential Git; chỉ thiếu scopeBoard, chưa xuất bản.

@@ -59,3 +59,11 @@
 - Đã rà kho cũ: ảnh tem tròn đặt trên tay tại /images/products/sticker-trang-tri.webp có thể dùng làm ảnh chụp tham khảo kích thước; không khẳng định đó là ảnh thao tác đo hoặc đơn xưởng. Các file blog hình thước/chai chưa có bằng chứng ảnh chụp nên không dùng như ảnh thật.
 - Bỏ4sơ đồ vừa thêm và mã TechnicalGuideVisuals cùng script cũ; giữ giải thích bằng chữ. Hướng dẫn kích thước dùng ảnh tham khảo có sẵn. Chưa có ảnh đủ rõ về thước đo/bế demi/cắt rời có đế; cần chủ cung cấp để hoàn tất, không đánh dấu toàn bộ yêu cầu xong.
 - HTML test kiểm ảnh tham khảo hiện diện, sơ đồ không render và nội dung bế còn nguyên. Browser kiểm ảnh/số lượng/tỷ lệ và1440/390. Evidence reference-size-photo-* và reference-photo-results.json.
+
+
+## Phản hồi chưa đạt, phải demo trước — Issue161
+- Chủ tiếp tục từ chối và yêu cầu ảnh demo trước. Không sửa thêm UI local trước khi chủ chọn.
+- Dựng demo ảnh lớn: thao tác đo bằng thước phía trên, hai ảnh cùng góc nhìn so sánh bế demi giữ chung đế/cắt rời có đế riêng phía dưới. Nhãn demo/ảnhAI nhìn rõ, không gọi là ảnh xưởng thật.
+- Đã sửa logo đúng VinPrint và đơn vị cm trên thước trước gửi bản cuối. Demo cuối: C:/Users/Admin/.codex/generated_images/01a21d35-bbb2-7981-8522-5bc64ec2d532/exec-b380d3b3-e437-4580-a262-8fcdcdaad099.png. Đây là thiết kế đề xuất, không phải screenshot local hay chứng cứ quy trình thực. Chờ chủ chọn; không triển khai tự động.
+
+- Chủ chọn ảnh đính kèm cụ thể: dùng ảnh đó làm chuẩn, không suy luận số mẫu theo thứ tự tin nhắn. Đã áp dụng bố cục đo lớn + hai ảnh cắt bên dưới, ghi rõ ảnh AI. Nghiệm thu 1536/390px, ba hộp phóng to, CTA tư vấn và 41 kiểm tra HTML đạt. GitHub 401 nên chưa cập nhật issue.

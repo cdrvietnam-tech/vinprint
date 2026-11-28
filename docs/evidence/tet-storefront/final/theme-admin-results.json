@@ -1,0 +1,13 @@
+{
+  "hero": 6,
+  "hot-products": 15,
+  "gallery": 12,
+  "uploadDelete": true,
+  "staticUploadRestore": true,
+  "homeImages": true,
+  "adminSearchCollapseTheme": true,
+  "mobileNavigation": true,
+  "adminApply": true,
+  "catalog": true,
+  "pageErrors": []
+}

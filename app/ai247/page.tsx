@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Bot, Clapperboard, Sparkles } from "lucide-react";
-import Footer from "../components/home/Footer";
-import Header from "../components/home/Header";
+import GuideFrame from "../components/storefront/GuideFrame";
+import "./ai247-theme.css";
 import Ai247VideoGallery from "../components/ai247/Ai247VideoGallery";
 
 export const metadata: Metadata = {
@@ -27,9 +27,8 @@ const structuredData = {
 
 export default function Ai247Page() {
   return (
-    <div className="min-h-screen bg-[#070A12] text-white">
-      <Header />
-      <main id="main-content" tabIndex={-1} className="pt-20">
+    <GuideFrame activePath="/ai247">
+      <main id="main-content" tabIndex={-1} className="vp-ai247-content">
         <section className="relative overflow-hidden border-b border-white/10">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(249,115,22,0.24),transparent_36%),radial-gradient(circle_at_80%_30%,rgba(99,102,241,0.22),transparent_38%)]" />
           <div className="relative mx-auto max-w-[1180px] px-4 py-16 sm:py-24">
@@ -53,8 +52,7 @@ export default function Ai247Page() {
           <Ai247VideoGallery />
         </section>
       </main>
-      <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
-    </div>
+    </GuideFrame>
   );
 }

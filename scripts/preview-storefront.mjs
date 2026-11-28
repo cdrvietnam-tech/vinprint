@@ -5,6 +5,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { DEFAULT_SITE_CONTENT, isValidSiteContent, mergeSiteContent } from "../app/lib/site-content.ts";
 import {createPreviewMedia} from "./preview-media.mjs";
+const builtPort=Number(process.env.VINPRINT_PREVIEW_BUILT_PORT||0);
+if(builtPort&&builtPort!==4182)throw Error("Built preview must use local port 4182");
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const mediaHandler=await createPreviewMedia(root);
 const stateFile=path.join(root,".preview","site-content.json");
@@ -34,7 +36,8 @@ const server=http.createServer(async(req,res)=>{
   if(req.method==="GET"&&(url.pathname==="/api/media/collections"||url.pathname.startsWith("/media/"))){
     try{const r=await fetch("https://vinprint.vn"+url.pathname+url.search,{signal:AbortSignal.timeout(10000)});res.writeHead(r.status,{"content-type":r.headers.get("content-type")||"application/octet-stream","cache-control":"no-store"});res.end(Buffer.from(await r.arrayBuffer()));return;}catch{return json(res,503,{error:"media_unavailable"});}
   }
-  const upstream=http.request({hostname:"127.0.0.1",port:4180,path:req.url,method:req.method,headers:{...req.headers,host:"127.0.0.1:4180"}},r=>{res.writeHead(r.statusCode||502,r.headers);r.pipe(res);});
+  const port=builtPort||4180;
+  const upstream=http.request({hostname:"127.0.0.1",port,path:req.url,method:req.method,headers:{...req.headers,host:"127.0.0.1:"+port}},r=>{res.writeHead(r.statusCode||502,r.headers);r.pipe(res);});
   upstream.on("error",()=>{if(!res.headersSent)res.writeHead(502);res.end("Preview application unavailable");});
   req.pipe(upstream);
 });

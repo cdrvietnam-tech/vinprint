@@ -4,9 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRight, CalendarDays, Clock3 } from "lucide-react";
 import BlogCard from "../../components/blog/BlogCard";
-import ConversionLink from "../../components/ConversionLink";
-import Footer from "../../components/home/Footer";
-import Header from "../../components/home/Header";
+import BlogFrame from "../../components/blog/BlogFrame";
 import { blogPosts, formatBlogDate, getBlogArticle, getBlogCategoryLabel } from "../../lib/blog-posts";
 import { productBySlug } from "../../lib/products";
 
@@ -90,14 +88,14 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
   };
 
   return (
-    <div className="min-h-screen bg-[#F7F4EE] text-gray-950">
-      <Header />
-      <main id="main-content" tabIndex={-1} className="pt-20">
+    <BlogFrame>
+
+      <main id="main-content" tabIndex={-1} className="vp-blog-content">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-        <article>
-          <header className="border-b border-black/10 bg-[#171310] px-4 py-12 text-white sm:py-16">
+        <article className="vp-blog-article">
+          <div className="vp-blog-hero border-b border-black/10 bg-[#171310] px-4 py-12 text-white sm:py-16">
             <div className="mx-auto max-w-5xl">
               <nav aria-label="Đường dẫn bài viết" className="flex flex-wrap items-center gap-2 text-sm font-bold text-white/70">
                 <Link href="/" className="inline-flex min-h-11 items-center hover:text-white">Trang chủ</Link><span aria-hidden="true">/</span>
@@ -112,9 +110,9 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
                 <span>Biên tập: <Link href={editorialProcessPath} className="underline underline-offset-4 hover:text-white">Đội ngũ VinPrint</Link></span>
               </div>
             </div>
-          </header>
+          </div>
 
-          <div className="mx-auto max-w-5xl px-4 py-10 sm:py-14">
+          <div className="vp-blog-body mx-auto max-w-5xl px-4 py-10 sm:py-14">
             <div className="relative aspect-[16/8] overflow-hidden rounded-[32px] bg-white shadow-sm">
               <Image src={article.image} alt={article.imageAlt} fill priority sizes="(max-width: 1024px) 100vw, 1024px" className="object-cover" />
             </div>
@@ -160,10 +158,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
               </div>
             </section>
 
-            <aside className="mt-8 rounded-[32px] bg-[#6545ED] p-7 text-white sm:flex sm:items-center sm:justify-between sm:p-10">
-              <div><h2 className="text-2xl font-black">Cần kiểm tra trên sản phẩm thật?</h2><p className="mt-2 max-w-xl leading-7 text-white/80">Gửi ảnh bao bì, kích thước và số lượng để xưởng tư vấn vật liệu hoặc dựng mẫu phù hợp.</p></div>
-              <ConversionLink href="https://zalo.me/0844998499" target="_blank" rel="noreferrer" eventName="click_zalo" eventPosition={`blog_${article.slug}`} className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-gradient-to-r from-[#FF4D00] to-[#FF0055] px-6 font-black text-white shadow-lg shadow-black/15 sm:mt-0">Nhắn Zalo nhận tư vấn</ConversionLink>
-            </aside>
+
 
             <section className="mt-14">
               <div className="flex items-end justify-between gap-4"><div><p className="text-xs font-black uppercase tracking-[0.2em] text-[#D83B00]">Đọc tiếp</p><h2 className="mt-2 text-3xl font-black">Bài viết liên quan</h2></div><Link href="/blog" className="inline-flex min-h-11 items-center font-black text-[#4933D4]">Xem tất cả</Link></div>
@@ -172,7 +167,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
           </div>
         </article>
       </main>
-      <Footer />
-    </div>
+
+    </BlogFrame>
   );
 }

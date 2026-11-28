@@ -43,8 +43,8 @@ function routeForSource(relativeSource, fallbackRoute) {
 }
 
 function titleFor(publicPath) {
-  if (publicPath.endsWith("/tet-2027/artwork.png")) return "Nền giao diện Tết đã duyệt — giữ kích thước 1781 × 883";
-  if (publicPath.endsWith("/tet-2027/reference-products.png")) return "Bố cục minh họa sản phẩm Tết";
+  if (/\/tet-2027\/artwork\.(png|webp)$/.test(publicPath)) return "Nền giao diện Tết đã duyệt — giữ kích thước 1781 × 883";
+  if (/\/tet-2027\/reference-products\.(png|webp)$/.test(publicPath)) return "Bố cục minh họa sản phẩm Tết";
   const filename = path.basename(publicPath, path.extname(publicPath));
   return filename.replaceAll(/[-_]+/g, " ").replaceAll(/\b\w/g, (letter) => letter.toUpperCase());
 }

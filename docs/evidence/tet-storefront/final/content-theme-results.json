@@ -1,0 +1,26 @@
+{
+  "routes": [
+    "/gioi-thieu",
+    "/lien-he",
+    "/chinh-sach",
+    "/bao-hanh",
+    "/case-study",
+    "/nganh/my-pham",
+    "/nganh/thuc-pham",
+    "/nganh/do-uong",
+    "/nganh/chai-lo",
+    "/nganh/handmade",
+    "/nganh/tem-nhan-tet",
+    "/nganh/tem-banh-mut-tet",
+    "/nganh/sticker-hop-qua-tet"
+  ],
+  "widths": [
+    1440,
+    390
+  ],
+  "canonical": true,
+  "oneH1": true,
+  "themeRed": true,
+  "quote": true,
+  "pageErrors": []
+}

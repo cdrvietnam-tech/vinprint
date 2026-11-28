@@ -1,0 +1,10 @@
+{
+  "contentLoadFailureBlocksEditing": true,
+  "collectionLoadFailureBlocksEditing": true,
+  "reloadRecovery": true,
+  "emptyGalleryPreserved": true,
+  "draftPreservedOnSaveFailure": true,
+  "mockedWriteFailures": 1,
+  "actualAdminWrites": 0,
+  "pageErrors": []
+}

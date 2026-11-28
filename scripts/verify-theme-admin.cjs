@@ -1,6 +1,9 @@
 const {chromium}=require(process.env.VINPRINT_PLAYWRIGHT_MODULE||'playwright-core');
 const fs=require('node:fs');const path=require('node:path');const assert=require('node:assert/strict');
 const origin=process.env.VINPRINT_PREVIEW_ORIGIN||'http://127.0.0.1:4181',out=process.env.VINPRINT_EVIDENCE_DIR||path.join(__dirname,'../outputs/theme-admin-verification');fs.mkdirSync(out,{recursive:true});
+assert.ok(/^http:\/\/(127\.0\.0\.1|localhost):/.test(origin),'Admin write verification must run against a local preview');
+const snapshotPaths=['media-collections.json','site-content.json','image-overrides.json'].map(name=>path.join(__dirname,'../.preview',name));
+const snapshots=new Map(snapshotPaths.map(file=>[file,fs.existsSync(file)?fs.readFileSync(file):null]));
 (async()=>{const browser=await chromium.launch({channel:'msedge',headless:true});const result={};try{
  const context=await browser.newContext({viewport:{width:1440,height:1000}}),page=await context.newPage(),api=context.request;const errors=[];page.on('pageerror',e=>errors.push(e.message));
  for(const collection of ['hero','hot-products','gallery']){
@@ -22,7 +25,7 @@ const origin=process.env.VINPRINT_PREVIEW_ORIGIN||'http://127.0.0.1:4181',out=pr
  try{assert.equal((await api.put(staticUrl,{data:bytes,headers:{'content-type':'image/webp'}})).status(),200);assert.ok((await (await api.get(origin+'/api/admin/images')).json()).items.some(i=>i.path==='/images/tet-2027/products/tem-giay.webp'));}finally{assert.equal((await api.delete(staticUrl)).status(),200);}result.staticUploadRestore=true;
  await page.goto(origin+'/',{waitUntil:'domcontentloaded',timeout:60000});
  for(const img of await page.locator('.product img,.vp-material-detail img,.vp-hot-grid img,.vp-gallery-grid img').all()){
-  await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode());assert.match(await img.getAttribute('src'),/tet-2027\/products/);assert.equal(await img.evaluate(el=>getComputedStyle(el).objectFit),'contain');
+  await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode());assert.match(await img.getAttribute('src'),/tet-2027\/products/);assert.ok(await img.evaluate(el=>{const fit=getComputedStyle(el).objectFit;return fit==='contain'||(fit==='cover'&&Math.abs((el.clientWidth/el.clientHeight)/(el.naturalWidth/el.naturalHeight)-1)<.03)}),'product photo must preserve its aspect ratio');
  }
  await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.screenshot({path:out+'/new-products-desktop.png'});result.homeImages=true;
  await page.goto(origin+'/admin',{waitUntil:'domcontentloaded',timeout:60000});await page.getByRole('heading',{name:/Chào anh/}).waitFor();assert.equal(await page.locator('.overview-stat').count(),4);
@@ -37,4 +40,4 @@ const origin=process.env.VINPRINT_PREVIEW_ORIGIN||'http://127.0.0.1:4181',out=pr
  page.once('dialog',d=>d.accept());await page.getByRole('button',{name:'Áp dụng bộ ảnh Tết',exact:true}).click();await page.getByText('Đã áp dụng bộ Tết cho 3 bộ sưu tập.',{exact:false}).waitFor();result.adminApply=true;
  await page.goto(origin+'/san-pham',{waitUntil:'domcontentloaded',timeout:60000});const old=await page.locator('img[src*="/images/products/"],img[src*="holographic_sticker"]').count();assert.equal(old,0);result.catalog=true;
  assert.deepEqual(errors,[]);result.pageErrors=errors;fs.writeFileSync(out+'/theme-admin-results.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result));
- }finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=1});
+ }finally{try{await browser.close();}finally{for(const [file,bytes] of snapshots){if(bytes===null){if(fs.existsSync(file))fs.unlinkSync(file);}else fs.writeFileSync(file,bytes);}}}})().catch(e=>{console.error(e);process.exitCode=1});

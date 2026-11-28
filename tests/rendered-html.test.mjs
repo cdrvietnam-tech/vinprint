@@ -148,15 +148,20 @@ test("material comparison includes selectable photos and an honest illustration 
   assert.equal((html.match(/scope="row"/g)||[]).length,5);
 });
 
-test("size guide uses the archived reference photo while unverified cutting photos are not fabricated", async () => {
+test("approved guide photos stay labeled as illustrations on measurement and cutting pages", async () => {
   const size=await (await render("/huong-dan/chon-kich-thuoc-tem")).text();
-  assert.match(size,/images\/products\/sticker-trang-tri.webp/);
-  assert.match(size,/Ảnh chụp tham khảo các cỡ tem tròn/);
+  assert.match(size,/approved-sizing-cutting.webp/);
+  assert.match(size,/Ảnh minh họa AI/);
+  assert.doesNotMatch(size,/vp-photo-cut-grid/);
   assert.doesNotMatch(size,/Ảnh chụp thao tác đo tại xưởng VinPrint/);
   assert.ok(!size.includes('data-technical-visual='));
   const cut=await (await render("/huong-dan/ky-thuat-in-tem")).text();
   assert.ok(!cut.includes('data-technical-visual='));
   assert.match(cut,/Bế demi và cắt rời khác nhau ở đâu/);
+  assert.match(cut,/Đo đúng kích thước, chọn đúng cách cắt/);
+  assert.match(cut,/approved-sizing-cutting.webp/);
+  assert.match(cut,/Ảnh minh họa AI/);
+  assert.match(cut,/vp-photo-cut-grid/);
 });
 
 test("production HTTP redirects directly to HTTPS and preserves path and query", async () => {
@@ -293,7 +298,7 @@ test("homepage preserves the approved seasonal composition with live semantic co
   assert.match(html, /id="mau-thuc-te"/);
   assert.match(html, /id="danh-gia"/);
   assert.match(hero, /viewBox="244 90 1516 335"/);
-  assert.match(hero, /images\/tet-2027\/artwork\.png/);
+  assert.match(hero, /images\/tet-2027\/artwork\.webp/);
   assert.match(hero, /In ấn chuẩn Tết/);
   assert.match(hero, /Nâng tầm thương hiệu/);
   assert.match(hero, /href="#nhan-bao-gia"/);

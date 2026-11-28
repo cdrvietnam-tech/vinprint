@@ -22,7 +22,7 @@ import { productThemeImage } from "../../lib/product-theme";
 const iconMap: Record<string,LucideIcon> = {archive:Archive,smartphone:Smartphone,cut:Scissors,sparkles:Sparkles,eraser:Eraser,images:Images,video:Video,home:Home,tag:Tag,sticker:Sticker,roll:CircleDot,badge:BadgeCheck,file:FileText,gift:Gift,image:ImageIcon,upload:Upload,help:HelpCircle,bag:ShoppingBag,phone:Phone,box:Package,headset:Headphones,grid:Grid2X2,flower:Flower2,menu:Menu,book:BookOpen,map:MapPin};
 function Icon({name}:{name:string}) { const Component=iconMap[name]||Tag;return <i aria-hidden="true"><Component /></i>; }
 function Artwork({box,reference=false,label}:{box:string;reference?:boolean;label?:string}) {
-  return <svg viewBox={box} preserveAspectRatio="xMidYMid slice" role={label?"img":undefined} aria-label={label} aria-hidden={label?undefined:true}><image href={reference?"/images/tet-2027/reference-products.png":"/images/tet-2027/artwork.png"} width="1781" height="883" /></svg>;
+  return <svg viewBox={box} preserveAspectRatio="xMidYMid slice" role={label?"img":undefined} aria-label={label} aria-hidden={label?undefined:true}><image href={reference?"/images/tet-2027/reference-products.webp":"/images/tet-2027/artwork.webp"} width="1781" height="883" /></svg>;
 }
 function Flame(){return <svg className="flame" viewBox="0 0 28 30" aria-hidden="true"><path fill="#ff3213" d="M17 0C20 10 29 11 27 21c-1 6-6 9-12 9C6 30 0 24 2 17c1-5 5-8 6-13 3 2 4 4 4 7C16 7 17 4 17 0Z"/><path fill="#ffae18" d="M15 10c1 6 9 7 7 14-1 4-4 6-8 6-5 0-9-3-8-8 1-3 4-5 4-8 3 2 3 5 3 6 2-3 2-6 2-10Z"/><path fill="#ffe78b" d="M15 20c-1 4-5 4-5 7 0 2 2 3 4 3 5 0 6-5 1-10Z"/></svg>;}
 
@@ -189,7 +189,7 @@ export default function Storefront(){
         <section className="vp-info-section" id="quy-trinh" aria-labelledby="process-title">
           <h2 id="process-title">{process.title}</h2><p>{process.subtitle}</p>
           <ol className="vp-process-grid">{process.steps.map((step,index)=><li key={index}><span>{index+1}</span><h3>{step.title}</h3><p>{step.desc}</p></li>)}</ol>
-          <div className="vp-guide-links"><Link prefetch={false} href="/huong-dan/chon-chat-lieu-tem">Chọn chất liệu tem</Link><Link prefetch={false} href="/huong-dan/chon-kich-thuoc-tem">Đo kích thước tem</Link><Link prefetch={false} href="/huong-dan/ky-thuat-in-tem">Kỹ thuật in & gia công</Link></div>
+          <div className="vp-guide-links"><Link prefetch={false} href="/huong-dan/chon-chat-lieu-tem">Chọn chất liệu tem</Link><Link prefetch={false} href="/huong-dan/chon-kich-thuoc-tem">Đo kích thước tem</Link><Link prefetch={false} href="/huong-dan/ky-thuat-in-tem">Đo tem & so sánh cách cắt</Link></div>
         </section>
 
         <section className="vp-info-section" id="mau-thuc-te" aria-labelledby="gallery-title">

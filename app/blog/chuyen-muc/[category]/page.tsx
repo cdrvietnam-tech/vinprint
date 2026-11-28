@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogListing from "../../../components/blog/BlogListing";
-import Footer from "../../../components/home/Footer";
-import Header from "../../../components/home/Header";
+import BlogFrame from "../../../components/blog/BlogFrame";
 import { blogCategories, blogPosts, getBlogCategoryLabel, type BlogCategorySlug } from "../../../lib/blog-posts";
 
 const categorySlugs = blogCategories.filter((category) => category.slug !== "tat-ca").map((category) => category.slug) as BlogCategorySlug[];
@@ -28,6 +27,6 @@ export default async function BlogCategoryPage({ params }: { params: Promise<{ c
   const posts = blogPosts.filter((post) => post.category === category);
   const latestUpdatedAt = posts.reduce((latest, post) => post.updatedAt > latest ? post.updatedAt : latest, posts[0]?.updatedAt ?? "2026-07-20");
 
-  return <div className="min-h-screen bg-[#F7F4EE] text-gray-950"><Header /><main id="main-content" tabIndex={-1} className="pt-20"><BlogListing posts={posts} totalItems={posts.length} latestUpdatedAt={latestUpdatedAt} selectedCategory={category} eyebrow="Chuyên mục tem nhãn" title={getBlogCategoryLabel(category)} description={`Kiến thức thực tế về ${getBlogCategoryLabel(category).toLocaleLowerCase("vi-VN")} từ đội ngũ VinPrint.`} pageBasePath={`/blog/chuyen-muc/${category}`} /></main><Footer /></div>;
+  return <BlogFrame><main id="main-content" tabIndex={-1} className="vp-blog-content"><BlogListing posts={posts} totalItems={posts.length} latestUpdatedAt={latestUpdatedAt} selectedCategory={category} eyebrow="Chuyên mục tem nhãn" title={getBlogCategoryLabel(category)} description={`Kiến thức thực tế về ${getBlogCategoryLabel(category).toLocaleLowerCase("vi-VN")} từ đội ngũ VinPrint.`} pageBasePath={`/blog/chuyen-muc/${category}`} /></main></BlogFrame>;
 }
 
