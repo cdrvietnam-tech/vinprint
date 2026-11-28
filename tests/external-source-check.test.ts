@@ -1,0 +1,9 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import {checkExternalSource} from "../scripts/agent/check-external-source.mjs";
+const href="https://publisher.example/source";
+const sleep=async()=>{};
+test("a transient timeout is retried once without fabricating availability",async()=>{let calls=0;const result=await checkExternalSource(href,{sleep,fetchImpl:(async(_url,options)=>{assert.ok(options?.signal instanceof AbortSignal);assert.equal((options?.headers as Record<string,string>)["User-Agent"],"VinPrintContentAudit/1.0");if(++calls===1)throw new DOMException("slow publisher","TimeoutError");return new Response("source");}) as typeof fetch});assert.equal(result.ok,true);assert.equal(result.attempts,2);assert.equal(calls,2);});
+test("two network failures remain a failing audit result",async()=>{let calls=0;const result=await checkExternalSource(href,{sleep,fetchImpl:(async()=>{calls++;throw new TypeError("unavailable");}) as typeof fetch});assert.equal(result.ok,false);assert.equal(calls,2);assert.match(result.error||"",/unavailable/);});
+test("404 fails immediately while a temporary server error may recover",async()=>{let calls=0;const missing=await checkExternalSource(href,{sleep,fetchImpl:(async()=>{calls++;return new Response(null,{status:404});}) as typeof fetch});assert.equal(missing.ok,false);assert.equal(calls,1);assert.match(missing.error||"",/404/);calls=0;const recovered=await checkExternalSource(href,{sleep,fetchImpl:(async()=>new Response(null,{status:++calls===1?503:200})) as typeof fetch});assert.equal(recovered.ok,true);assert.equal(calls,2);});
+test("persistent server errors and rate limits cannot become success",async()=>{for(const status of [429,503]){let calls=0;const result=await checkExternalSource(href,{sleep,fetchImpl:(async()=>{calls++;return new Response(null,{status});}) as typeof fetch});assert.equal(result.ok,false);assert.equal(calls,status===429?1:2);}});
