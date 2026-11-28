@@ -136,6 +136,18 @@ test("three guides share the approved storefront frame and expose section anchor
   }
 });
 
+test("material comparison includes selectable photos and an honest illustration notice in server HTML", async () => {
+  const html = await (await render("/huong-dan/chon-chat-lieu-tem")).text();
+  assert.ok(html.includes('id="compare-left"'));
+  assert.ok(html.includes('id="compare-right"'));
+  assert.equal((html.match(/class="vp-visual-photo"/g)||[]).length,2);
+  assert.match(html,/Ảnh mẫu minh họa Decal giấy/);
+  assert.match(html,/Ảnh mẫu minh họa Decal nhựa chống nước/);
+  assert.match(html,/không phải kết quả thử vật liệu/);
+  assert.match(html,/id="visual-zoom-title"/);
+  assert.equal((html.match(/scope="row"/g)||[]).length,5);
+});
+
 test("production HTTP redirects directly to HTTPS and preserves path and query", async () => {
   for (const path of ["/", "/san-pham/tem-giay?utm_source=test", "/robots.txt"]) {
     const response = await render(path, "http://vinprint.vn");

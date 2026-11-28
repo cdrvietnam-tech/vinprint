@@ -5,6 +5,7 @@ export type ContentSection = {
   heading: string;
   paragraphs: string[];
   bullets?: string[];
+  visualComparison?: boolean;
   table?: { caption: string; columns: string[]; rows: string[][] };
   links?: { href: string; label: string }[];
   image?: { src: string; alt: string; caption: string };

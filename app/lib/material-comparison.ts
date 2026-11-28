@@ -2,6 +2,7 @@ import type { ContentSection } from "./content-pages";
 
 export const materialComparison: ContentSection = {
   heading: "Bảng so sánh chất liệu tem theo cách sử dụng",
+  visualComparison: true,
   paragraphs: ["Bao bì khô thường có thể dùng tem giấy; chai có hơi nước nên cân nhắc tem nhựa và thử độ bám; logo nổi trên bề mặt cứng có thể chọn UV DTF. Hãy chọn theo điều kiện dùng thực tế trước khi chọn hiệu ứng trang trí."],
   table: {
     caption: "Chọn tem theo bao bì, môi trường và điểm cần kiểm tra",

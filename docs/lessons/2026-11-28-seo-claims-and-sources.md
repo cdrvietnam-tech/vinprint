@@ -39,3 +39,10 @@
 - Shared CSS vinprint-storefront aside dành cho sidebar; CTAaside cũ không được đưa vào khung mới. GuideFrame dựng CTA bằng div và lấy Zalo từ quản trị. Browser kiểm đúng1aside.
 - Trang guide không phải /san-pham: truyền activePath rỗng để không ghi sai aria-current trên menu catalog.
 - Kiểm mục lục theo đích nằm trong vùng nhìn thấy; section cuối gần footer có thể không lên chính xác82px vì đã chạm cuối trang. Không yêu cầu tọa độ bất khả thi. Bảng mobile kiểm scrollWidth>clientWidth và hỗ trợ focus/bàn phím.
+
+
+## So sánh phải có hình — Issue159
+- Chủ nhắc bảng so sánh cần ảnh trực quan. Nguyên nhân: tập trung bảng HTML và SEO nhưng chưa cho khách nhìn khác biệt giữa nền giấy, nền trong, ánh kim và họa tiết nổi.
+- Thêm hai khung ảnh đổi độc lập giữa7loại tem, xem lớn bằng dialog native và chú thích nhìn trên mẫu/nhu cầu/lưu ý. Mobile vẫn đặt hai bên cạnh nhau và có phóng to; giữ bảng chữ5hàng. Ảnh chỉ minh họa, không dùng làm bằng chứng chống nước/độ bám.
+- Không phóng crop300px từ atlas lênkhung500px: bản đầu nhìn mềm. Dùng7ảnh sản phẩm riêng1448px từnguồnproducts, caption khớp nội dung hình. Browser kiểm naturalWidth>=1000 và xem ảnh desktop/mobile thực.
+- Chặn: verify-material-visuals.cjs kiểm7nguồn ảnh/7đích200/2select/zoom/Escape/1440-768-390/so sánh song song và bảng còn nguyên; HTMLtest kiểm defaultảnh+nhãn minh họa+table.

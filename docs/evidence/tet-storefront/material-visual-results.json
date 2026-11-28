@@ -1,0 +1,16 @@
+{
+  "materials": 7,
+  "uniquePhotos": 7,
+  "highResolution": true,
+  "independentSelectors": true,
+  "zoom": true,
+  "escapeCloses": true,
+  "widths": [
+    1440,
+    768,
+    390
+  ],
+  "sideBySideOnMobile": true,
+  "tablePreserved": true,
+  "pageErrors": []
+}

@@ -83,3 +83,7 @@ Bộ lọc dùng group/aria-pressed với thao tác bàn phím native. Metadata/
 ## Ba hướng dẫn đồng bộ — Issue158
 Các URL /huong-dan/chon-chat-lieu-tem, /huong-dan/chon-kich-thuoc-tem và /huong-dan/ky-thuat-in-tem dùng GuideFrame cùng StorefrontFrame. Phần mở đầu đỏ/hồng gọn, mục lục có neo tới từng section, văn bản và bảng so sánh giữ nguyên. Mobile có chỉ dẫn vuốt ngang bảng và vùng bấm mục lục44px. CTA lấy liên hệ từ quản trị và dùng cùng dialog chuẩn bị báo giá.
 ContentPage chỉ chuyển theme khi canonicalPath bắt đầu /huong-dan/; các trang ngành/doanh nghiệp không đổi bố cục. Chỉ sidebar dùng thẻ aside trong khung để tránh CSSfixed áp vào CTA. Giữ metadata/canonical/schema/ngày cập nhật đã có. verify-guide-design.cjs kiểm3trang/2viewport/mục lục/bảng/quote/9đíchlink200. Evidence guide-*.png và guide-design-results.json. Chỉ local, chưa deploy.
+
+
+## So sánh bằng ảnh — Issue159
+Mục đầu hướng dẫn chất liệu có MaterialVisualComparison: hai panel chọn độc lập7chất liệu, ảnh riêng độ phân giải1448px lấy từproducts, phóng to bằngdialognative. Trình bày điểm nhìn trênảnh, nhu cầu và lưu ý; giữnguyên bảngHTML5hàng bên dưới. Mobile haiảnh cạnhnhau, select/phóngto dùngđược bằng bànphím. Ghi rõ ảnhminhhọa không phải thửvậtliệu. Không thêm ảnhđối thủ, đổi giá/URL/schema. Script verify-material-visuals.cjs và evidence material-visual-*; chỉlocal.
