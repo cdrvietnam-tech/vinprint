@@ -11,3 +11,17 @@
 - Nguyên nhân: related lấy products.filter(...).slice(0,3), nên tất cả trang gần như cùng gợi ý, bất kể mục đích dùng.
 - Sửa: mapping có3đích riêng và3mục chuẩn bị riêng cho từng10sản phẩm; không tựlink, không thêmclaim/giá. Sitemap chỉ đổi ngày cho các trang thực sửa.
 - Chặn: tests/product-order-context.test.ts kiểm đầy đủ10slug/khôngtrùng/đích tồn tại; HTMLtest khoanh đúngsection để không đếm linkfooter. verify-product-order-content.cjs kiểm link200 và mobile.
+
+
+## Trang sản phẩm chưa đẹp — Issue156
+- Chủ từ chối thẩm mỹ trang UV DTF. Nguyên nhân: bổ sung SEO trong template chi tiết cũ (khối tím lớn/chữ display quá to/header cũ), không bảo đảm cùng hệ giao diện Tết của homepage. HTML/link pass không thay thế nghiệm thu hình ảnh.
+- Theo yêu cầu xem demo trước đã có trong phiên: tạo ảnh đề xuất mới với sidebar/header đỏ/hồng, ảnh trái/thông tin phải, checklist3cột và quy trìnhngắn; chưa sửa layout local.
+- Ảnh demo: C:/Users/Admin/.codex/generated_images/01a21d35-bbb2-7981-8522-5bc64ec2d532/exec-9a1770b2-becc-431c-89b2-2fe3fba9c0a1.png. Đợi chủ chọn trước khi code giao diện; ảnh demo không phải screenshot local hoặc bằng chứng chức năng. Khi triển khai phải giữ toàn bộ nội dung hữu ích, nhãn ảnh minh họa, giá thực và test1440/390.
+
+
+## Áp dụng demo sản phẩm đã duyệt — Issue156
+- Chủ đã trả lời duyệt cho ảnh exec-9a1770b2-becc-431c-89b2-2fe3fba9c0a1.png; quyền này là triển khai local, không phải merge/deploy.
+- ProductDetail dùng cùng sidebar/header/tokens với storefront; ảnh trái/thông tin phải, checklist3cột, quytrìnhngắn, relatedcóảnh; giữ nội dung hướng dẫn/FAQ/schema/giá và10mapping. CSS có scope vp-product-storefront, không dùng header trongsection để tránh CSSsticky/fixed.
+- Nút Nhận báo giá mởdialog đúngsảnphẩm, dựngnộidung và clipboard, khách tựgửiZalo. Kiểm clipboard Windows phải chuẩn hóa CRLF khi đối chiếu.
+- Sidebar advertising mang query danh-muc=print; homepage đồng bộquery sauframe và cócancelcleanup, tránh setState trực tiếp trongeffect bịlintchặn. Browser kiểm6ấnphẩm và không mởdialogngoàiýmuốn.
+- scripts/verify-approved-product-design.cjs kiểm4viewport,hero2cột/đỏtheme/giá, báo giá/clipboard/Escape và menuadvertising; verify-product-order-content.cjs kiểm10trang. Ảnh screenshot chỉ ẩn nextjs-portal làwidgetdev, không đổiUIkhách.

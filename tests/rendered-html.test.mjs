@@ -58,7 +58,7 @@ test("technical guide distinguishes cut formats and product pages label illustra
   assert.match(guide, /Bế demi và cắt rời khác nhau ở đâu/);
   assert.match(guide, /giữ lớp đế/);
   const product = await (await render("/san-pham/tem-uv-dtf")).text();
-  assert.match(product, /ẢNH MẪU MINH HỌA/);
+  assert.match(product, /Ảnh mẫu minh họa/);
   assert.doesNotMatch(product, /ẢNH SẢN PHẨM CÔNG KHAI/);
 });
 
@@ -97,7 +97,7 @@ test("all ten product pages publish distinct order checks and relevant alternati
     const html = await response.text();
     const checklist = html.slice(html.indexOf(`data-product-checklist="${slug}"`)).split("</section>")[0];
     assert.ok(checklist.includes('id="order-checklist-title"'));
-    assert.equal((checklist.match(/<dt /g) || []).length, 3);
+    assert.equal((checklist.match(/<dt[ >]/g) || []).length, 3);
     assert.ok(checklist.includes('/blog/chuan-bi-file-in-tem-khong-bi-mo'));
     sections.add(checklist);
     const related = html.slice(html.indexOf('class="related-products')).split('</section>')[0];

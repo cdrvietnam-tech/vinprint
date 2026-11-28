@@ -48,6 +48,7 @@ export default function Storefront(){
   const callUrl="tel:"+contact.phone.replace(/[^+\d]/g,"");
   const primaryHref=safePublicHref(tetHome.primaryCta.href,"#nhan-bao-gia");
 
+  useEffect(()=>{const frame=requestAnimationFrame(()=>{if(new URLSearchParams(window.location.search).get("danh-muc")==="print")setFilter("print");});return ()=>cancelAnimationFrame(frame);},[]);
   useEffect(()=>{
     const dialog=dialogRef.current;
     if(modal && dialog && !dialog.open) dialog.showModal();

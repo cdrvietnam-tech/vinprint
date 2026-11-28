@@ -1,0 +1,17 @@
+{
+  "approvedMockup": true,
+  "desktopPhotoLeft": true,
+  "themeRed": true,
+  "pricePreserved": true,
+  "quoteProduct": true,
+  "quoteClipboard": true,
+  "escapeCloses": true,
+  "widths": [
+    1536,
+    1366,
+    768,
+    390
+  ],
+  "mobileAdvertisingCategory": true,
+  "pageErrors": []
+}
