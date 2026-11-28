@@ -19,7 +19,8 @@ export async function admitFreeTool(request:Request,bucket?:Bucket,now=Date.now(
  const asset=url.pathname.endsWith("/asset"),hash=await digest(day+":"+identity+":"+(asset?"asset":"job")),id=crypto.randomUUID();
  try{for(let attempt=0;attempt<8;attempt++){
   const current=await bucket.get(key);let state:State=current?await current.json():{day,hour,hourCount:0,ips:{},leases:[]};
-  if(state.day!==day)state={day,hour,hourCount:0,ips:{},leases:[]};
+  if(state.day>day)return denied(503);
+  if(state.day<day)state={day,hour,hourCount:0,ips:{},leases:state.leases.filter(l=>l.until>now)};
   if(state.hour!==hour){state.hour=hour;state.hourCount=0;}
   state.leases=state.leases.filter(l=>l.until>now);
   const counter=state.ips[hash]||{minute,minuteCount:0,dayCount:0};

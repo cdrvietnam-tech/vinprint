@@ -7,6 +7,7 @@ assert.equal((await call("198.51.100.2","hold=1")).status,200);assert.equal((awa
 for(let i=0;i<12;i++)assert.equal((await call("198.51.100.5","now="+(1700000360000+i*60000))).status,200);assert.equal((await call("198.51.100.5","now=1700001200000")).status,429);
 for(let i=0;i<20;i++)assert.equal((await call("198.51.100.6","","asset")).status,200);assert.equal((await call("198.51.100.6","","asset")).status,429);
 assert.equal((await call("2001:db8:1:2::1")).status,200);assert.equal((await call("2001:db8:1:2::2")).status,200);assert.equal((await call("2001:db8:1:2::3")).status,429);
+const midnight=(Math.floor(1700000000000/86400000)+1)*86400000;assert.equal((await call("198.51.100.20","hold=1&now="+(midnight-1000))).status,200);assert.equal((await call("198.51.100.21","hold=1&now="+(midnight-1000))).status,200);assert.equal((await call("198.51.100.22","now="+(midnight+1000))).status,429);
 }finally{await mf.dispose();}});
 
 test("unguarded alternate route fails closed before contacting upstream",async()=>{const {handleLimitedFreeToolRequest}=await import("../app/lib/free-tools-api");let calls=0;const r=await handleLimitedFreeToolRequest(new Request("https://vinprint.vn/api/free-tools/enhance",{method:"POST"}),{fetchImpl:(async()=>{calls++;throw Error();}) as typeof fetch});assert.equal(r.status,503);assert.equal(calls,0);});
