@@ -1,0 +1,26 @@
+[
+  {
+    "input": ".preview/postrelease/input-small.png",
+    "width": 384,
+    "height": 288,
+    "elapsedMs": 11190,
+    "transparentPixels": 52129,
+    "opaquePixels": 360
+  },
+  {
+    "input": ".preview/postrelease/input-small.png",
+    "width": 384,
+    "height": 288,
+    "elapsedMs": 696,
+    "transparentPixels": 52129,
+    "opaquePixels": 360
+  },
+  {
+    "input": "public/images/tet-2027/products/tem-giay.webp",
+    "width": 1448,
+    "height": 1086,
+    "elapsedMs": 974,
+    "transparentPixels": 744502,
+    "opaquePixels": 6703
+  }
+]

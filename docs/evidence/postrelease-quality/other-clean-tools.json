@@ -1,0 +1,16 @@
+[
+  {
+    "action": "white-bg",
+    "elapsedMs": 1114,
+    "width": 384,
+    "height": 288,
+    "download": true
+  },
+  {
+    "action": "enhance",
+    "elapsedMs": 5597,
+    "width": 768,
+    "height": 576,
+    "download": true
+  }
+]

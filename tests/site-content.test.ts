@@ -71,3 +71,10 @@ test("mobile action bar reads contact from admin content, not hardcoded", () => 
   assert.match(bar, /contact\.phone/);
   assert.doesNotMatch(bar, /https:\/\/zalo\.me\/0844998499/);
 });
+
+
+test("public root restores contact bar across storefront and tools; admin excluded", () => {
+  assert.match(read("app/layout.tsx"), /<MobileActionBar\s*\/>/);
+  assert.match(read("app/components/home/MobileActionBar.tsx"), /usePathname/);
+  assert.match(read("app/components/free-tools/FreeToolsHub.tsx"), /Gửi file đặt in qua Zalo/);
+});

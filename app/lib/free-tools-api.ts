@@ -1,3 +1,4 @@
+import {admitFreeTool} from "./free-tools-limit";
 import {IMAGE_LIMIT,validateImageFile,type FreeAsset} from "./free-tools";
 const DEFAULT_ORIGIN="https://www.muse-aistudio.com";
 const imageHost=/^(?:vinprint\.vn|www\.vinprint\.vn|www\.muse-aistudio\.com|(?:[a-z0-9-]+\.)*(?:susercontent\.com|shopee\.vn|shopeemobile\.com|alicdn\.com|lazcdn\.com|lazada\.vn|tiki\.vn|tikicdn\.com|tiktokcdn\.com|tiktokcdn-us\.com|byteimg\.com|ibytedtos\.com))$/i;
@@ -9,9 +10,9 @@ export function allowedPublicSource(value:unknown,kind:"image"|"platform"){
 export function museAssetPath(value:unknown){return typeof value==="string"&&/^\/(?:clean_media|uploads)\/[a-zA-Z0-9_.-]+\.(?:png|jpe?g|webp|avif|gif|mp4|webm|mp3|m4a)$/i.test(value)&&!value.includes("..");}
 const json=(status:number,value:unknown)=>Response.json(value,{status,headers:{"cache-control":"no-store"}});
 const fail=(status=502)=>json(status,{success:false,message:"Chưa xử lý được yêu cầu này. Anh thử file nhỏ hơn hoặc thử lại sau ít phút nhé."});
-type Options={origin?:string;fetchImpl?:typeof fetch};
+type Options={origin?:string;fetchImpl?:typeof fetch;partnerKey?:string};
 // Rebuild every request: no client mode, token, cookie or paid quality reaches Muse.
-export async function handleFreeToolRequest(request:Request,{origin=DEFAULT_ORIGIN,fetchImpl=fetch}:Options={}){
+export async function handleFreeToolRequest(request:Request,{origin=DEFAULT_ORIGIN,fetchImpl=fetch,partnerKey}:Options={}){
  const url=new URL(request.url),action=url.pathname.split("/").pop()||"";
  const local=["127.0.0.1","localhost"].includes(url.hostname);
  const caller=request.headers.get("origin");
@@ -34,7 +35,7 @@ export async function handleFreeToolRequest(request:Request,{origin=DEFAULT_ORIG
    return new Response(r.body,{status:r.status,headers:outputHeaders});
   }catch{return fail();}
  }
- if(action==="cdr")return handleCdrRequest(request,{origin,fetchImpl});
+ if(action==="cdr")return handleCdrRequest(request,{origin,fetchImpl,partnerKey});
  if(!["enhance","remove-bg","white-bg","erase","album","video"].includes(action))return fail(404);
  if(request.method!=="POST")return fail(405);
  if(Number(request.headers.get("content-length")||0)>35*1024*1024)return fail(413);
@@ -62,8 +63,11 @@ export async function handleFreeToolRequest(request:Request,{origin=DEFAULT_ORIG
     body=JSON.stringify({url:input.url,...(action==="video"?{quality:"best"}:{})});
    }
   }
-  const r=await fetchImpl(base+endpoint,{method:"POST",body,headers,signal:AbortSignal.timeout(95000),redirect:"manual"});
+  const target=partnerKey?base+"/api/vinprint-tools/"+action:base+endpoint;
+  if(partnerKey)headers={...headers,"x-vinprint-key":partnerKey};
+  const r=await fetchImpl(target,{method:"POST",body,headers,signal:AbortSignal.timeout(95000),redirect:"manual"});
   const data=await r.json() as Record<string,unknown>;
+  if(data.brandMarked===true)return json(503,{success:false,message:"Chưa có bản ảnh sạch để in. Anh thử lại sau hoặc gửi file qua Zalo để xưởng hỗ trợ."});
   if(!r.ok||data.success!==true||Number(data.creditsDeducted||0)>0)return fail(r.status===429?429:502);
   const sources=action==="album"&&Array.isArray(data.images)?data.images.slice(0,24).map(i=>typeof i==="string"?i:(i as {url?:unknown}).url):[data.resultUrl||data.imageUrl||data.cleanedUrl||data.downloadUrl||data.videoUrl];
   const assets:FreeAsset[]=[];
@@ -77,11 +81,21 @@ export async function handleFreeToolRequest(request:Request,{origin=DEFAULT_ORIG
  }catch{return fail();}
 }
 
-async function handleCdrRequest(request:Request,{origin=DEFAULT_ORIGIN,fetchImpl=fetch}:Options){
+async function handleCdrRequest(request:Request,{origin=DEFAULT_ORIGIN,fetchImpl=fetch,partnerKey}:Options){
  if(request.method!=="POST")return fail(405);
  if(Number(request.headers.get("content-length")||0)>31*1024*1024)return fail(413);
  try{const input=await request.formData(),file=input.get("file");if(!file||typeof file==="string"||!file.name.toLowerCase().endsWith(".cdr")||!file.size||file.size>30*1024*1024)return json(400,{success:false,message:"Chọn file CDR từ 1 byte đến 30 MB."});
  const head=new Uint8Array(await file.slice(0,12).arrayBuffer());const four=(p:number)=>String.fromCharCode(...head.slice(p,p+4));if(!(four(0)==="RIFF"&&four(8).startsWith("CDR"))&&!(head[0]===80&&head[1]===75&&head[2]===3&&head[3]===4))return json(400,{success:false,message:"File không có cấu trúc CDR được hỗ trợ."});
- const form=new FormData();form.set("file",file,"vinprint-document.cdr");const r=await fetchImpl(new URL(origin).origin+"/api/cdr/import-vector",{method:"POST",body:form,signal:AbortSignal.timeout(95000),redirect:"manual"});if(!r.ok)return json(502,{success:false,message:"Chưa đọc được bản vector. Anh có thể xem ảnh nhúng hoặc xuất SVG từ CorelDRAW rồi thử lại."});const text=await r.text();if(text.length>28*1024*1024)return fail(413);const data=JSON.parse(text);if(typeof data.svg!=="string"||!data.svg.includes("<svg")||data.svg.length>25*1024*1024)return fail();return json(200,{success:true,svg:data.svg,warning:"Kiểm tra font, hiệu ứng và bố cục với ảnh xem trước gốc trước khi dùng để in."});
+ const form=new FormData();form.set("file",file,"vinprint-document.cdr");const r=await fetchImpl(new URL(origin).origin+(partnerKey?"/api/vinprint-tools/cdr":"/api/cdr/import-vector"),{method:"POST",body:form,...(partnerKey?{headers:{"x-vinprint-key":partnerKey}}:{}),signal:AbortSignal.timeout(95000),redirect:"manual"});if(!r.ok)return json(502,{success:false,message:"Chưa đọc được bản vector. Anh có thể xem ảnh nhúng hoặc xuất SVG từ CorelDRAW rồi thử lại."});const text=await r.text();if(text.length>28*1024*1024)return fail(413);const data=JSON.parse(text);if(typeof data.svg!=="string"||!data.svg.includes("<svg")||data.svg.length>25*1024*1024)return fail();return json(200,{success:true,svg:data.svg,warning:"Kiểm tra font, hiệu ứng và bố cục với ảnh xem trước gốc trước khi dùng để in."});
  }catch{return json(502,{success:false,message:"Chưa kết nối được bộ đọc bản vẽ. Anh thử lại hoặc xem ảnh nhúng có sẵn trong file."});}
+}
+
+export async function handleLimitedFreeToolRequest(request:Request,options:Options={},bucket?:Pick<R2Bucket,"get"|"put">){
+ const action=new URL(request.url).pathname.split("/").pop()||"";
+ if(!["asset","cdr","enhance","remove-bg","white-bg","erase","album","video"].includes(action))return fail(404);
+ if(request.method!==(action==="asset"?"GET":"POST"))return fail(405);
+ if(!options.partnerKey)return fail(503);
+ const admission=await admitFreeTool(request,bucket);
+ if(admission.response)return admission.response;
+ try{return await handleFreeToolRequest(request,options);}finally{await admission.release();}
 }

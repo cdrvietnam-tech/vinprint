@@ -1,0 +1,135 @@
+{
+  "status": "reference-only-pending-owner-review",
+  "collectedAt": "2026-11-28",
+  "notVinprintPrices": true,
+  "exclusions": "Giá nguồn chưa gồm thiết kế, VAT và vận chuyển; điều kiện/khuôn/tiến độ của nguồn không phải cam kết VinPrint. Chỉ lưu điểm mẫu để đối chiếu, không sao chép toàn bộ bài/ảnh.",
+  "services": [
+    {
+      "service": "card-visit",
+      "source": "https://inthiennam.com/in-nhanh/name-card",
+      "spec": "C300, in hai mặt, cán mờ hai mặt; khoảng 88×53 mm; khoảng 100 cái/hộp",
+      "sourceEffectiveDate": "2026-09-01",
+      "prices": [
+        {
+          "quantity": "1 hộp",
+          "totalVnd": 80000
+        },
+        {
+          "quantity": "5 hộp",
+          "totalVnd": 300000
+        },
+        {
+          "quantity": "10 hộp",
+          "totalVnd": 500000
+        }
+      ]
+    },
+    {
+      "service": "to-roi",
+      "source": "https://inthiennam.com/in-nhanh/to-roi",
+      "spec": "A4 hai mặt, C150",
+      "sourceEffectiveDate": "2026-03-01",
+      "prices": [
+        {
+          "quantity": "10 tờ",
+          "totalVnd": 160000
+        },
+        {
+          "quantity": "50 tờ",
+          "totalVnd": 280000
+        },
+        {
+          "quantity": "100 tờ",
+          "totalVnd": 450000
+        }
+      ]
+    },
+    {
+      "service": "catalogue",
+      "source": "https://inthiennam.com/in-nhanh/catalogue",
+      "spec": "A4, 8 trang; bìa C300 cán mờ một mặt; ruột C150; hai ghim",
+      "sourceEffectiveDate": "2026-10-01",
+      "prices": [
+        {
+          "quantity": "5 cuốn",
+          "totalVnd": 150000
+        },
+        {
+          "quantity": "10 cuốn",
+          "totalVnd": 200000
+        },
+        {
+          "quantity": "20 cuốn",
+          "totalVnd": 300000
+        }
+      ]
+    },
+    {
+      "service": "folder",
+      "source": "https://inthiennam.com/in-nhanh/folder",
+      "spec": "C300; 22×31 cm; yếm 7 cm; in một mặt, cán mờ một mặt; gồm bế dán",
+      "sourceEffectiveDate": "2026-10-01",
+      "prices": [
+        {
+          "quantity": "5 cái",
+          "totalVnd": 170000
+        },
+        {
+          "quantity": "10 cái",
+          "totalVnd": 200000
+        },
+        {
+          "quantity": "20 cái",
+          "totalVnd": 350000
+        }
+      ]
+    },
+    {
+      "service": "bao-thu",
+      "source": "https://inthiennam.com/in-bao-thu",
+      "spec": "C150; 12×22 cm; khuôn chuẩn của nguồn; keo nắp cộng 100đ/cái",
+      "sourceEffectiveDate": "2026-03-01",
+      "prices": [
+        {
+          "quantity": "500 cái",
+          "totalVnd": 1400000
+        },
+        {
+          "quantity": "1000 cái",
+          "totalVnd": 1600000
+        },
+        {
+          "quantity": "2000 cái",
+          "totalVnd": 2600000
+        }
+      ]
+    },
+    {
+      "service": "tui-giay",
+      "source": "https://inthiennam.com/in-tui-giay",
+      "spec": "C250; ngang 20 × cao 30 × hông 10 cm; cán màng, dây dù thông dụng",
+      "sourceEffectiveDate": "2026-03-01",
+      "prices": [
+        {
+          "quantity": "200 cái",
+          "totalVnd": 2500000
+        },
+        {
+          "quantity": "300 cái",
+          "totalVnd": 2700000
+        },
+        {
+          "quantity": "500 cái",
+          "totalVnd": 3300000
+        }
+      ]
+    },
+    {
+      "service": "voucher",
+      "source": "https://inthiennam.com/in-nhanh-ky-thuat-so",
+      "spec": null,
+      "prices": [],
+      "missing": "Chưa tìm thấy bảng voucher riêng trong danh mục nguồn đã mở; không suy giá từ tờ rơi."
+    }
+  ]
+}

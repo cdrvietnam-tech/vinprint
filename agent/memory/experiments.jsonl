@@ -1,1 +1,2 @@
 
+{"at": "2026-11-28", "issue": "muse-aistudio#172", "finding": "API ẩn danh trả dấu không phù hợp luồng in; phải nghiệm thu ảnh tải xuống, đường Zalo sau kết quả và quota chung trước upstream. Dùng bridge key riêng, không tắt dấu Muse chung.", "evidence": "docs/lessons/2026-11-28-postrelease-print-workflow.md", "scope": "local-and-isolated-bridge-not-production"}

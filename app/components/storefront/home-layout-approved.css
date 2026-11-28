@@ -11,3 +11,5 @@
 .vinprint-storefront.vp-home-rearranged .vp-home-tools .vp-tool-preview{width:100%;height:76px}.vp-home-rearranged .tp-demo-scan{animation:vp-demo-scan 3.5s ease-in-out infinite}@keyframes vp-demo-scan{0%,100%{transform:translateX(0);opacity:0}15%,80%{opacity:.45}90%{transform:translateX(200px);opacity:0}}
 
 @media(prefers-reduced-motion:reduce){.vp-home-rearranged .tp-demo-scan{opacity:0}}
+
+.vp-home-material-photo>img{width:100%;height:100%;object-fit:cover}.vp-price-text h4{font-size:12px;margin:12px 0 6px}

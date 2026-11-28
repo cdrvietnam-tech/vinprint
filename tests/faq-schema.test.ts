@@ -1,0 +1,2 @@
+import test from "node:test";import assert from "node:assert/strict";import {faqStructuredData,safeSchemaJson} from "../app/lib/faq-schema";
+test("FAQ JSON-LD follows the visible admin questions, without script injection",()=>{const items=[{q:"Câu hỏi mới?",a:"Chữ </script><script>alert(1)</script>"}];const schema=faqStructuredData(items);assert.deepEqual(schema.mainEntity.map(q=>({q:q.name,a:q.acceptedAnswer.text})),items);const encoded=safeSchemaJson(schema);assert.equal(encoded.includes("</script>"),false);assert.deepEqual(JSON.parse(encoded),schema);});

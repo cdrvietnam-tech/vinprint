@@ -1,0 +1,36 @@
+{
+  "results": [
+    {
+      "origin": "https://vinprint.vn",
+      "scope": "390x844 fresh context, no scroll, decoded image response bytes",
+      "imageBytes": 1367442,
+      "images": {
+        "/images/tet-2027/artwork.webp": 350470,
+        "/images/tet-2027/reference-products.webp": 396520,
+        "/images/tet-2027/catalog-approved-1.webp": 288992,
+        "/images/tet-2027/home-layout-approved.webp": 331460
+      }
+    },
+    {
+      "origin": "http://127.0.0.1:4181",
+      "scope": "390x844 fresh context, no scroll, decoded image response bytes",
+      "imageBytes": 155486,
+      "images": {
+        "/images/tet-2027/crops/logo.webp": 3614,
+        "/images/tet-2027/crops/gift.webp": 4856,
+        "/images/tet-2027/crops/peach.webp": 4184,
+        "/images/tet-2027/crops/hero.webp": 91534,
+        "/images/tet-2027/crops/tool-compress.webp": 3602,
+        "/images/tet-2027/crops/tool-remove-bg.webp": 3204,
+        "/images/tet-2027/crops/tool-pdf.webp": 1934,
+        "/images/tet-2027/crops/home-tem-giay.webp": 10744,
+        "/images/tet-2027/crops/tool-heic.webp": 1522,
+        "/images/tet-2027/crops/tool-enhance.webp": 3136,
+        "/images/tet-2027/crops/home-tem-nhua-chong-nuoc.webp": 8794,
+        "/images/tet-2027/crops/home-tem-nhua-trong.webp": 5802,
+        "/images/tet-2027/crops/home-tem-vang.webp": 12560
+      }
+    }
+  ],
+  "reductionPercent": 89
+}

@@ -22,3 +22,10 @@ export function seasonalArtwork(id: SeasonId, box: string, reference = false) {
   return `/images/themes/${id}.svg`;
 }
 export function validThemeBanner(value: string) {return !value || (/^\/images\/[a-zA-Z0-9/_ .%-]+\.(webp|png|jpe?g|svg)$/i.test(value) || /^\/media\/[a-zA-Z0-9/_ .%-]+$/i.test(value)) && !value.includes("..");}
+
+export function croppedSeasonalArtwork(id:SeasonId,box:string){
+ const names:Record<string,string>={"18 0 178 77":"logo","223 0 230 70":"peach","0 746 222 137":"gift","244 90 1516 335":"hero"};
+ if((id!=="tet"&&box!=="18 0 178 77")||!names[box])return null;
+ const [x,y,width,height]=box.split(" ").map(Number);
+ return {src:"/images/tet-2027/crops/"+names[box]+".webp",x,y,width,height};
+}
