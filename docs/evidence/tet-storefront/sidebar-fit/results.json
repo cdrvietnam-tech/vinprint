@@ -1,0 +1,98 @@
+[
+  {
+    "path": "/",
+    "width": 1781,
+    "client": 207,
+    "scroll": 207,
+    "items": 16,
+    "clipped": []
+  },
+  {
+    "path": "/",
+    "width": 1366,
+    "client": 207,
+    "scroll": 207,
+    "items": 16,
+    "clipped": []
+  },
+  {
+    "path": "/",
+    "width": 1024,
+    "client": 207,
+    "scroll": 207,
+    "items": 16,
+    "clipped": []
+  },
+  {
+    "path": "/",
+    "width": 900,
+    "client": 189,
+    "scroll": 189,
+    "items": 16,
+    "clipped": []
+  },
+  {
+    "path": "/",
+    "width": 768,
+    "client": 189,
+    "scroll": 189,
+    "items": 16,
+    "clipped": []
+  },
+  {
+    "path": "/",
+    "width": 390,
+    "client": 224,
+    "scroll": 224,
+    "items": 16,
+    "clipped": []
+  },
+  {
+    "path": "/san-pham/tem-giay",
+    "width": 1781,
+    "client": 207,
+    "scroll": 207,
+    "items": 17,
+    "clipped": []
+  },
+  {
+    "path": "/san-pham/tem-giay",
+    "width": 1366,
+    "client": 207,
+    "scroll": 207,
+    "items": 17,
+    "clipped": []
+  },
+  {
+    "path": "/san-pham/tem-giay",
+    "width": 1024,
+    "client": 207,
+    "scroll": 207,
+    "items": 17,
+    "clipped": []
+  },
+  {
+    "path": "/san-pham/tem-giay",
+    "width": 900,
+    "client": 189,
+    "scroll": 189,
+    "items": 17,
+    "clipped": []
+  },
+  {
+    "path": "/san-pham/tem-giay",
+    "width": 768,
+    "client": 189,
+    "scroll": 189,
+    "items": 17,
+    "clipped": []
+  },
+  {
+    "path": "/san-pham/tem-giay",
+    "width": 390,
+    "client": 224,
+    "scroll": 224,
+    "items": 17,
+    "clipped": []
+  }
+]

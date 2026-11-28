@@ -1,4 +1,5 @@
 # Bài học VinPrint
+- 2026-11-28 Menu vừa chiều rộng sau scrollbar → 2026-11-28-sidebar-width.md
 - 2026-11-28 Theme đổi cả nền mobile → 2026-11-28-seasonal-theme-tokens.md
 - 2026-11-28 Khóa header/bìa khi đổi bố cục → 2026-11-28-home-layout-invariants.md
 - 2026-11-28 Chặn lưu mặc định khi API quản trị lỗi → 2026-11-28-admin-load-failure.md

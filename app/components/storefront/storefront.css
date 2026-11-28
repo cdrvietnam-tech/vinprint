@@ -407,3 +407,8 @@
 @media(max-width:1350px){.vinprint-storefront .vp-material-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:1000px){.vinprint-storefront .vp-home-tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.vinprint-storefront .vp-material-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.vinprint-storefront .vp-materials-section{padding:18px 14px}.vinprint-storefront .vp-material-grid{gap:10px}.vinprint-storefront .vp-material-body{padding:12px}.vinprint-storefront .vp-material-body h3{font-size:12px}.vinprint-storefront .vp-material-body p{font-size:10px}.vinprint-storefront .vp-material-body strong{font-size:10px}.vinprint-storefront .vp-material-actions{flex-wrap:wrap}.vinprint-storefront .vp-material-sheet{width:93px;height:72px}.vinprint-storefront .vp-material-preview{min-height:115px}.vinprint-storefront .vp-material-finish{font-size:8px}.vinprint-storefront .vp-home-tool-grid{grid-template-columns:1fr}.vinprint-storefront .vp-home-tool{padding:15px}.vinprint-storefront .vp-home-tools .vp-section-top{align-items:flex-start;gap:12px}.vinprint-storefront .vp-free-badge{font-size:9px;padding:6px 8px}}
+
+/* Keep all sidebar labels within its usable width, including classic scrollbars. */
+.vinprint-storefront #sidebar .vp-nav{min-width:0;max-width:100%;padding:8px 10px;gap:9px;font-size:13px;line-height:1.5;white-space:normal;overflow-wrap:break-word}
+.vinprint-storefront #sidebar .vp-nav i{width:18px;height:18px;flex:0 0 18px}
+@media(max-width:700px){.vinprint-storefront #sidebar .vp-nav{min-height:44px}}
