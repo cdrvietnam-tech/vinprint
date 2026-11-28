@@ -25,7 +25,7 @@ export async function handleFreeToolRequest(request:Request,{origin=DEFAULT_ORIG
    const target=museAssetPath(source)?base+source:source;
    const range=request.headers.get("range");
    if(range&&!/^bytes=\d*-\d*$/.test(range))return fail(400);
-   const r=await fetchImpl(target,{signal:AbortSignal.timeout(30000),redirect:"error",...(range?{headers:{range}}:{})});
+   const r=await fetchImpl(target,{signal:AbortSignal.timeout(30000),redirect:"manual",...(range?{headers:{range}}:{})});
    const type=r.headers.get("content-type")?.split(";")[0]||"";
    if(!r.ok||!(/^(?:image\/(?:png|jpeg|webp|gif|avif)|video\/(?:mp4|webm)|audio\/(?:mpeg|mp4|x-m4a)|application\/octet-stream)$/.test(type)))return fail();
    if(Number(r.headers.get("content-length")||0)>100*1024*1024)return fail(413);
@@ -62,7 +62,7 @@ export async function handleFreeToolRequest(request:Request,{origin=DEFAULT_ORIG
     body=JSON.stringify({url:input.url,...(action==="video"?{quality:"best"}:{})});
    }
   }
-  const r=await fetchImpl(base+endpoint,{method:"POST",body,headers,signal:AbortSignal.timeout(95000),redirect:"error"});
+  const r=await fetchImpl(base+endpoint,{method:"POST",body,headers,signal:AbortSignal.timeout(95000),redirect:"manual"});
   const data=await r.json() as Record<string,unknown>;
   if(!r.ok||data.success!==true||Number(data.creditsDeducted||0)>0)return fail(r.status===429?429:502);
   const sources=action==="album"&&Array.isArray(data.images)?data.images.slice(0,24).map(i=>typeof i==="string"?i:(i as {url?:unknown}).url):[data.resultUrl||data.imageUrl||data.cleanedUrl||data.downloadUrl||data.videoUrl];
@@ -82,6 +82,6 @@ async function handleCdrRequest(request:Request,{origin=DEFAULT_ORIGIN,fetchImpl
  if(Number(request.headers.get("content-length")||0)>31*1024*1024)return fail(413);
  try{const input=await request.formData(),file=input.get("file");if(!file||typeof file==="string"||!file.name.toLowerCase().endsWith(".cdr")||!file.size||file.size>30*1024*1024)return json(400,{success:false,message:"Chọn file CDR từ 1 byte đến 30 MB."});
  const head=new Uint8Array(await file.slice(0,12).arrayBuffer());const four=(p:number)=>String.fromCharCode(...head.slice(p,p+4));if(!(four(0)==="RIFF"&&four(8).startsWith("CDR"))&&!(head[0]===80&&head[1]===75&&head[2]===3&&head[3]===4))return json(400,{success:false,message:"File không có cấu trúc CDR được hỗ trợ."});
- const form=new FormData();form.set("file",file,"vinprint-document.cdr");const r=await fetchImpl(new URL(origin).origin+"/api/cdr/import-vector",{method:"POST",body:form,signal:AbortSignal.timeout(95000),redirect:"error"});if(!r.ok)return json(502,{success:false,message:"Chưa đọc được bản vector. Anh có thể xem ảnh nhúng hoặc xuất SVG từ CorelDRAW rồi thử lại."});const text=await r.text();if(text.length>28*1024*1024)return fail(413);const data=JSON.parse(text);if(typeof data.svg!=="string"||!data.svg.includes("<svg")||data.svg.length>25*1024*1024)return fail();return json(200,{success:true,svg:data.svg,warning:"Kiểm tra font, hiệu ứng và bố cục với ảnh xem trước gốc trước khi dùng để in."});
+ const form=new FormData();form.set("file",file,"vinprint-document.cdr");const r=await fetchImpl(new URL(origin).origin+"/api/cdr/import-vector",{method:"POST",body:form,signal:AbortSignal.timeout(95000),redirect:"manual"});if(!r.ok)return json(502,{success:false,message:"Chưa đọc được bản vector. Anh có thể xem ảnh nhúng hoặc xuất SVG từ CorelDRAW rồi thử lại."});const text=await r.text();if(text.length>28*1024*1024)return fail(413);const data=JSON.parse(text);if(typeof data.svg!=="string"||!data.svg.includes("<svg")||data.svg.length>25*1024*1024)return fail();return json(200,{success:true,svg:data.svg,warning:"Kiểm tra font, hiệu ứng và bố cục với ảnh xem trước gốc trước khi dùng để in."});
  }catch{return json(502,{success:false,message:"Chưa kết nối được bộ đọc bản vẽ. Anh thử lại hoặc xem ảnh nhúng có sẵn trong file."});}
 }

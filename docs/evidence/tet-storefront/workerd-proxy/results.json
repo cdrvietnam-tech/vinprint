@@ -1,0 +1,10 @@
+{
+  "runtime": "workerd",
+  "upstream": "public Muse HTTPS",
+  "publicAsset": true,
+  "enhance": true,
+  "enhanceDownloadBytes": 1152625,
+  "creditsDeducted": 0,
+  "cdr": true,
+  "svgLength": 1757
+}
