@@ -52,3 +52,10 @@
 - Minh họa đo tem và cắt bế bằng SVG để giữ nét ở các màn hình. Số40×60mm chỉ là ví dụ; không gán bleed/vùng an toàn cố định chưa được xưởng xác nhận. Mặt cắt ghi rõ phóng đại, không theo tỷ lệ.
 - Với sidebar, tablet768px không đủ để giữ hai hình và chữ nhỏ cạnh nhau; chuyển1cột từ1000px. Browser kiểm SVG rộng>250px và xem ảnh1440/390.
 - Mũi tên đo ngang và dọc phải dùng hai path riêng: gộp nhiều subpath trong một path khiến marker-start/end chỉ xuất hiện ở đầu/cuối toànpath, làm thiếu mũi tên ở hai đầu còn lại. Xem hình trước khi kết luận.
+
+
+## Chủ yêu cầu ảnh thật — Issue161
+- Chủ đính chính: muốn ảnh chụp thực, không phải sơ đồ SVG. Không dùng ảnh AI photorealistic để thay yêu cầu ảnh thật.
+- Đã rà kho cũ: ảnh tem tròn đặt trên tay tại /images/products/sticker-trang-tri.webp có thể dùng làm ảnh chụp tham khảo kích thước; không khẳng định đó là ảnh thao tác đo hoặc đơn xưởng. Các file blog hình thước/chai chưa có bằng chứng ảnh chụp nên không dùng như ảnh thật.
+- Bỏ4sơ đồ vừa thêm và mã TechnicalGuideVisuals cùng script cũ; giữ giải thích bằng chữ. Hướng dẫn kích thước dùng ảnh tham khảo có sẵn. Chưa có ảnh đủ rõ về thước đo/bế demi/cắt rời có đế; cần chủ cung cấp để hoàn tất, không đánh dấu toàn bộ yêu cầu xong.
+- HTML test kiểm ảnh tham khảo hiện diện, sơ đồ không render và nội dung bế còn nguyên. Browser kiểm ảnh/số lượng/tỷ lệ và1440/390. Evidence reference-size-photo-* và reference-photo-results.json.

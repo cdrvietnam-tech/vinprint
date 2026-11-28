@@ -91,3 +91,7 @@ Mục đầu hướng dẫn chất liệu có MaterialVisualComparison: hai pane
 
 ## Sơ đồ đo và cắt tem — Issue160
 Hướng dẫn kích thước có sơ đồ tem ví dụ40×60mm và vùng dán trên chai. Hướng dẫn kỹ thuật có so sánh bế demi/cắt rời: nhìn từ trên và mặt cắt tem/keo/đế. Dùng SVG có tên ảnh truy cập, chú thích HTML và nhãn ví dụ, không phát sinh quy cách bắt buộc hoặc file khuôn bế. Màn hình<=1000px chuyển từng hình một hàng để chữ dễ đọc khi có sidebar. Giữ nội dung/URL/schema; cập nhật ngày sửa thực của hướng dẫn kích thước. Bằng chứng technical-* và technical-visual-results.json, script verify-technical-visuals.cjs. Chỉlocal.
+
+
+## Ưu tiên ảnh chụp thực — Issue161 thay phần sơ đồ Issue160
+Theo phản hồi của chủ, bỏ sơ đồ SVG và phần code liên quan khỏi hai hướng dẫn. Ảnh tem tròn đặt trên tay từ thư viện cũ được dùng làm ảnh chụp tham khảo kích thước, không ghi là ảnh thao tác của xưởng. Giữ phần giải thích đo/cắt bế bằng chữ. Còn thiếu ảnh chụp thước đo, tờ bế demi và tem cắt rời còn đế; chưa thể hoàn tất minh họa quy trình thật khi chưa có nguồn. Không dùng ảnh AI để thay thế hoặc ảnh đối thủ làm ảnh đơn VinPrint. Các evidence technical-* trước đó là lịch sử đã thay, không phải giao diện hiện tại.

@@ -32,7 +32,6 @@ export const materialTrial: ContentSection = {
 
 export const cutComparison: ContentSection = {
   heading: "Bế demi và cắt rời khác nhau ở đâu?",
-  technicalVisual: "cut",
   paragraphs: ["Bế demi cắt lớp tem, giữ lớp đế để bóc từng nhãn. Cắt rời tạo từng miếng riêng, thuận tiện phát kèm đơn hoặc chia bộ. Hình dạng và cách giao thành phẩm cần được xác nhận trong yêu cầu báo giá."],
   bullets: ["Dán nhiều tem liên tiếp: trao đổi phương án giữ tem trên tờ hoặc cuộn.", "Phát sticker riêng: trao đổi cách cắt và phần đế để bóc dễ.", "Đường bế nên tách biệt với nội dung; góc nhọn hoặc nét quá nhỏ cần xưởng kiểm tra.", "Gửi mẫu bao bì và cách bóc/dán dự kiến; không chỉ chọn theo hình ảnh thiết kế."],
   links: [{href:"/san-pham/sticker-trang-tri",label:"Sticker cắt theo hình"},{href:"/blog/chuan-bi-file-in-tem-khong-bi-mo",label:"Checklist chuẩn bị file in"}],

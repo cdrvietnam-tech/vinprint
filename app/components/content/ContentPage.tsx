@@ -6,7 +6,6 @@ import Footer from "../home/Footer";
 import ConversionLink from "../ConversionLink";
 import GuideFrame from "../storefront/GuideFrame";
 import MaterialVisualComparison from "./MaterialVisualComparison";
-import TechnicalGuideVisuals from "./TechnicalGuideVisuals";
 
 type ContentPageProps = {
   data: ContentPageData;
@@ -57,7 +56,6 @@ export default function ContentPage({ data, canonicalPath }: ContentPageProps) {
               <h2 className="text-2xl font-black sm:text-3xl">{section.heading}</h2>
               {section.image && <figure className="mt-6"><Image src={section.image.src} alt={section.image.alt} width={1200} height={1200} className="mx-auto h-auto w-full max-w-2xl rounded-2xl" /><figcaption className="mt-3 text-sm text-gray-600">{section.image.caption}</figcaption></figure>}
               {section.paragraphs.map((paragraph) => <p key={paragraph} className="mt-5 text-base leading-8 text-gray-700">{paragraph}</p>)}
-              {section.technicalVisual&&<TechnicalGuideVisuals kind={section.technicalVisual}/>}
               {section.visualComparison&&<MaterialVisualComparison/>}
               {isGuide&&section.table&&<p className="vp-guide-table-hint">Vuốt ngang bảng để xem đủ các tiêu chí →</p>}
               {section.table && <div className="mt-6 overflow-x-auto rounded-2xl border border-red-100" role="region" aria-label={section.table.caption} tabIndex={0}><table className="w-full min-w-[580px] border-collapse text-left text-sm leading-7"><caption className="bg-red-50 px-5 py-3 text-left font-bold text-red-900">{section.table.caption}</caption><thead><tr>{section.table.columns.map(column=><th scope="col" key={column} className="border-b border-red-100 bg-[#fffaf7] px-5 py-3 font-bold">{column}</th>)}</tr></thead><tbody>{section.table.rows.map(row=><tr key={row[0]}>{row.map((cell,index)=>index===0?<th scope="row" key={index} className="border-b border-red-50 px-5 py-4 align-top font-bold text-gray-950">{cell}</th>:<td key={index} className="border-b border-red-50 px-5 py-4 align-top text-gray-700">{cell}</td>)}</tr>)}</tbody></table></div>}
