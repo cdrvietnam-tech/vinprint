@@ -12,6 +12,7 @@ import { GOOGLE_BUSINESS_PROFILE_EMBED_URL, GOOGLE_BUSINESS_PROFILE_URL } from "
 import { trackEvent } from "../../lib/analytics";
 import { advertisingItems, featuredImage, selectHomepageMedia, buildQuoteMessage, catalogProducts, featuredItems, featuredProduct, filterFeatured, pricingPosterAssets, safePublicHref, storefrontFilters, type QuoteValues, type StorefrontFilter } from "../../lib/storefront";
 import "./storefront.css";
+import "./home-tools.css";
 import {freeTools} from "../../lib/free-tools";
 import ToolPreview from "./ToolPreview";
 import MaterialCatalog from "./MaterialCatalog";
@@ -166,7 +167,7 @@ export default function Storefront(){
           {filter!=="print"&&<Link prefetch={false} className="vp-inline-link" href="/nganh/tem-nhan-tet">Tư vấn in tem Tết, thời gian nhận hàng và cách chuẩn bị file →</Link>}
         </section>
 
-        <section className="vp-info-section vp-home-tools" id="cong-cu-mien-phi" aria-labelledby="free-tools-title"><div className="vp-section-top"><div><span className="vp-section-label">Tiện ích cho khách VinPrint</span><h2 id="free-tools-title">Xử lý ảnh & chuẩn bị file in</h2><p>Chọn công cụ để bắt đầu. Miễn phí, không cần tài khoản.</p></div><span className="vp-free-badge">9 công cụ miễn phí</span></div><div className="vp-home-tool-grid">{freeTools.map(tool=><Link prefetch={false} key={tool.id} className="vp-home-tool" href={"/cong-cu-mien-phi?tool="+tool.id}><ToolPreview tool={tool.id}/><div><h3>{tool.name}</h3><p>{tool.description}</p></div><span className="vp-tool-arrow" aria-hidden="true">↗</span></Link>)}</div></section>
+        <section className="vp-info-section vp-home-tools" id="cong-cu-mien-phi" aria-labelledby="free-tools-title"><div className="vp-section-top"><div><h2 id="free-tools-title">Xử lý ảnh & chuẩn bị file in</h2><p>Chọn công cụ để bắt đầu. Miễn phí, không cần tài khoản.</p></div><span className="vp-free-badge"><span aria-hidden="true">✓</span> 9 công cụ miễn phí</span></div><div className="vp-home-tool-grid">{freeTools.map(tool=><Link prefetch={false} key={tool.id} className="vp-home-tool" href={"/cong-cu-mien-phi?tool="+tool.id}><ToolPreview tool={tool.id}/><div className="vp-tool-copy"><h3>{tool.name}</h3><p>{tool.description}</p></div><div className="vp-tool-bottom"><span>{tool.group}</span><span className="vp-tool-open">Mở công cụ <span aria-hidden="true">→</span></span></div></Link>)}</div></section>
 
         <MaterialCatalog onQuote={openQuote}/>
 

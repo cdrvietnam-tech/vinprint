@@ -28,3 +28,8 @@ Chín ô có cảnh SVG/CSS riêng, không chỉ lắc/phóng icon. Không dùng
 - Chủ phản hồi đúng bố cục nhưng khối tem vẫn khác theme: tiêu đề đen42px, vạch vàng và viền nâu được sao chép độc lập từ ảnh demo. Mẫu duyệt xác định bố cục/ảnh; phần chữ, nút và viền cần dùng hệ màu và thang chữ trang hiện có.
 - Sửa sang token --red/--ink/--line, tiêu đề24px (mobile20px), nền hồng kem, thẻ trắng và nút đỏ bo tròn; giữ ảnh và bố cục mẫu1.
 - verify-approved-catalog.cjs kiểm màu tiêu đề bằng đỏ theme, cỡ tối đa24px, bỏ vạch trái, cùng kiểm4viewport/10URL/báo giá. Ảnh desktop/mobile được xem trực tiếp trước khi báo cáo.
+
+
+## Khối công cụ — Issue152
+- Phản hồi chưa đẹp: nhãn vàng/nền nâu và các hàng link không có hành động rõ khiến khối tiện ích thiếu đồng bộ. Chỉnh lại thành9thẻ có preview, tên/mô tả và hàng nhóm/Mở công cụ; dùng cùng nền hồng kem, viền hồng, chữ đỏ của theme. Giữ9scene động và deep link.
+- Chặn bằng verify-home-tools-layout.cjs:9CTA/9đích,4viewport và hero không đổi; verify-tool-motion.cjs kiểm animation, pause ngoài viewport, reduced motion. Chờ sidebar đóng trước screenshot mobile; điều kiện scrollWidth không đủ vì sidebar đang transform.
