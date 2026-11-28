@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/san-pham`,
-      lastModified,
+      lastModified: new Date("2026-11-28T00:00:00+07:00"),
       changeFrequency: "weekly",
       priority: 0.9,
     },

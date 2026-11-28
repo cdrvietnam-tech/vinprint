@@ -72,3 +72,9 @@ Issue151: Đồng bộ mẫu1 với theme trang: tiêu đề đỏ24px/20px, tok
 ## Trang sản phẩm — demo được chủ duyệt, Issue156
 Template10trang sản phẩm dùng ProductDetail và product-detail.css theo ảnh demo UV DTF đã duyệt: sidebar/header đồng bộhomepage, photoleft/copyright, giáthật, quote/Zalo, neođếnnộidung, checklist/process/relatedngắn. Nội dung chuyên môn/FAQ/structureddata/canonical giữtrênSSR, không ẩn bỏ SEO. Dialog chỉ chuẩn bị và sao chép yêu cầu, không tạo đơn hoặc tải filegiả. ProductOrder mapping và30related giữnguyên. Riêng menuấnphẩm từtrangcon dùng /?danh-muc=print#san-pham-tet và đã kiểm mởđúng6ấnphẩm.
 Bằng chứng approved-product-design-results.json, approved-product-*.png và product-order-results.json trong docs/evidence/tet-storefront. Chưa merge/deploy. Hoàn tác bằng revert commit triển khai Issue156; không chạm dữ liệu quản trị.
+
+
+## Danh mục đồng bộ — Issue157
+Trang /san-pham dùng ProductCatalog và StorefrontFrame cùng ProductDetail. Khung header/sidebar và báo giá được dùng chung. Có 10 thẻ ảnh với giá từ products, lọc nhu cầu, tìm không dấu và phục hồi khi không có kết quả. Các nhóm văn phòng/quảng cáo/bao bì giữ dữ liệu và lấy Zalo từ quản trị. Bỏ danh sách link tem lặp ở nhóm bên dưới vì đã có 10 thẻ bên trên.
+
+Bộ lọc dùng group/aria-pressed với thao tác bàn phím native. Metadata/canonical/URL/giá giữ nguyên; sitemap cập nhật ngày sửa trang danh mục. Kiểm tra: verify-product-catalog.cjs, 42 HTML và 63 unit. Bằng chứng product-catalog-* trong docs/evidence/tet-storefront. Chỉ triển khai local.

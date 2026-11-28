@@ -107,6 +107,21 @@ test("all ten product pages publish distinct order checks and relevant alternati
   assert.equal(sections.size, 10);
 });
 
+test("catalog renders all ten products and preserves other printing groups without JavaScript", async () => {
+  const response = await render("/san-pham");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.equal((html.match(/data-catalog-item=/g) || []).length, 10);
+  assert.equal((html.match(/<h1[ >]/g) || []).length, 1);
+  assert.match(html, /Từ 25.000đ \/ A5/);
+  assert.match(html, /Từ 10.000đ \/ tờ/);
+  for (const group of ["office", "advertising", "packaging"])
+    assert.ok(html.includes(`data-category="${group}"`));
+  assert.match(html, /rel="canonical" href="https:\/\/vinprint.vn\/san-pham"/);
+  assert.match(html, /href="\/huong-dan\/chon-chat-lieu-tem"/);
+  assert.ok(html.includes('class="vinprint-storefront vp-product-storefront"'));
+});
+
 test("production HTTP redirects directly to HTTPS and preserves path and query", async () => {
   for (const path of ["/", "/san-pham/tem-giay?utm_source=test", "/robots.txt"]) {
     const response = await render(path, "http://vinprint.vn");

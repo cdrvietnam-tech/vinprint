@@ -25,3 +25,10 @@
 - Nút Nhận báo giá mởdialog đúngsảnphẩm, dựngnộidung và clipboard, khách tựgửiZalo. Kiểm clipboard Windows phải chuẩn hóa CRLF khi đối chiếu.
 - Sidebar advertising mang query danh-muc=print; homepage đồng bộquery sauframe và cócancelcleanup, tránh setState trực tiếp trongeffect bịlintchặn. Browser kiểm6ấnphẩm và không mởdialogngoàiýmuốn.
 - scripts/verify-approved-product-design.cjs kiểm4viewport,hero2cột/đỏtheme/giá, báo giá/clipboard/Escape và menuadvertising; verify-product-order-content.cjs kiểm10trang. Ảnh screenshot chỉ ẩn nextjs-portal làwidgetdev, không đổiUIkhách.
+
+
+## Danh mục và khung dùng chung — Issue157
+- Trang catalog cònbanner tím dùproductđãđổitheme vì dùngtemplateHeader riêng. Tách StorefrontFrame dùngchung vớiProductDetail, giữnguyênluồngquote đãkiểmtra.
+- RenderpropopenQuote khôngđọcref khi render: openQuote chỉđổistate, effect đồngbộshowModal, nativeonClose đặtstatefalse. Lintreact-hooks/refs bắtcallbackđọcref bịđưa qua renderprop.
+- Slugrỗng trêncatalog khôngđược so href.endsWith(slug) vìmọilinkđềuđúng. isCurrent kiểmriêng /san-pham; browserassert đúng1aria-current.
+- Browser kiểm10cards/10routes, nhómfilterkhôngmởquote, searchkhôngdấu/0result/reset,3nhóminấn,4viewport, mobilemenu vàquote. SSRtest xácminh10cards+3nhóm cótrongHTMLkhôngcầnJS.
